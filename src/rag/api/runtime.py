@@ -17,7 +17,8 @@ from rag.ingestion.providers import (
 from rag.ingestion.vector_store import QdrantVectorStore
 from rag.retrieval.context_builder import ContextBuilder
 from rag.retrieval.dense import DenseRetriever
-from rag.retrieval.pipeline import DenseRetrievalPipeline, RetrievalConfig
+from rag.retrieval.pipeline import DenseRerankPipeline, RetrievalConfig
+from rag.retrieval.reranker import LexicalReranker
 
 
 def _integer(name: str, default: int) -> int:
@@ -61,7 +62,11 @@ def build_service() -> RAGService:
         final_k=config.final_k,
     )
     return RAGService(
-        retriever=DenseRetrievalPipeline(dense=dense, config=config),
+        retriever=DenseRerankPipeline(
+            dense=dense,
+            reranker=LexicalReranker(),
+            config=config,
+        ),
         generator=OllamaGenerator(
             model=os.getenv("ANSWER_MODEL", os.getenv("SUMMARY_MODEL", "llama3.2:3b")),
             base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),

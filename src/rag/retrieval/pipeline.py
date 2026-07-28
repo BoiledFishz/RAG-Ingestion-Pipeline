@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import logging
 from dataclasses import dataclass
 
 from rag.ingestion.models import MetadataValue
@@ -14,7 +15,9 @@ from rag.retrieval.contracts import (
     SearchResult,
 )
 from rag.retrieval.fusion import reciprocal_rank_fusion
-from rag.retrieval.reranker import LexicalReranker
+from rag.retrieval.reranker import BaseReranker, LexicalReranker
+
+LOGGER = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True, slots=True)
@@ -68,6 +71,70 @@ class DenseRetrievalPipeline:
                 mode="dense",
                 dense_candidates=len(candidates),
                 final_chunks=len(final),
+            ),
+        )
+
+
+class DenseRerankPipeline(DenseRetrievalPipeline):
+    """Standalone phase-two Dense retrieval plus bounded reranking."""
+
+    def __init__(
+        self,
+        *,
+        dense: Retriever,
+        reranker: BaseReranker,
+        config: RetrievalConfig | None = None,
+    ) -> None:
+        super().__init__(dense=dense, config=config)
+        self.reranker = reranker
+
+    async def retrieve(
+        self,
+        query: str,
+        *,
+        mode: RetrievalMode = "dense",
+        filters: dict[str, MetadataValue] | None = None,
+    ) -> RetrievalOutcome:
+        if mode != "dense":
+            raise ValueError("DenseRerankPipeline only supports mode='dense'")
+        candidates = await self.dense.retrieve(
+            query,
+            limit=self.config.candidate_k,
+            filters=filters,
+        )
+        if not candidates:
+            return RetrievalOutcome(
+                results=[],
+                diagnostics=RetrievalDiagnostics(mode="dense"),
+            )
+
+        bounded = candidates[: self.config.rerank_k]
+        fallback = False
+        try:
+            reranked = await asyncio.wait_for(
+                self.reranker.rerank(
+                    query,
+                    bounded,
+                    limit=self.config.rerank_k,
+                ),
+                timeout=self.config.reranker_timeout_seconds,
+            )
+        except (TimeoutError, Exception):
+            fallback = True
+            reranked = bounded
+            LOGGER.exception(
+                "Reranker failed or timed out; falling back to Dense ordering"
+            )
+
+        final = reranked[: self.config.final_k]
+        return RetrievalOutcome(
+            results=final,
+            diagnostics=RetrievalDiagnostics(
+                mode="dense",
+                dense_candidates=len(candidates),
+                reranked_candidates=0 if fallback else len(reranked),
+                final_chunks=len(final),
+                reranker_fallback=fallback,
             ),
         )
 
