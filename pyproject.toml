@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aws-support-rag"
+version = "0.1.0"
+description = "Production-grade ingestion and hybrid retrieval pipeline for an AWS support knowledge base"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "httpx>=0.27,<1",
+  "langchain-text-splitters>=0.3,<2",
+  "pillow>=10,<13",
+  "pymupdf>=1.24,<2",
+  "pypdf>=5,<7",
+  "pytesseract>=0.3.13,<1",
+  "qdrant-client>=1.12,<2",
+]
+
+[project.optional-dependencies]
+api = ["fastapi>=0.115,<1", "uvicorn[standard]>=0.32,<1"]
+eval = [
+  "langchain>=0.3,<1",
+  "langchain-community>=0.3,<0.4",
+  "ragas>=0.4.1,<0.5",
+]
+dev = [
+  "mypy>=1.13,<2",
+  "pytest>=8.3,<10",
+  "pytest-cov>=6,<8",
+  "ruff>=0.8,<1",
+]
+
+[project.scripts]
+rag-ingest = "rag.ingestion.cli:run"
+rag-evaluate = "rag.evals:run"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rag"]
+
+[tool.pytest.ini_options]
+addopts = "-q --strict-markers -p no:cacheprovider"
+testpaths = ["tests", "."]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "ASYNC"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+packages = ["rag"]
+no_site_packages = true
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = [
+  "fastapi.*",
+  "fitz.*",
+  "langchain_text_splitters.*",
+  "numpy.*",
+  "pytesseract.*",
+  "qdrant_client.*",
+  "ragas.*",
+]
+ignore_missing_imports = true
+follow_imports = "skip"

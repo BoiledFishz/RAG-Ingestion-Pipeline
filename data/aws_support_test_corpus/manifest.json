@@ -1,0 +1,49 @@
+{
+  "corpus_name": "aws-support-ingestion-test-corpus",
+  "version": "1.0.0",
+  "language": "en",
+  "synthetic": true,
+  "expected_useful_documents": 4,
+  "documents": [
+    {
+      "path": "data/s3_support_runbook.md",
+      "format": "markdown",
+      "expected_result": "parsed",
+      "requires_ocr": false
+    },
+    {
+      "path": "data/lambda_support_notes.md",
+      "format": "markdown",
+      "expected_result": "parsed_after_cleaning",
+      "requires_ocr": false
+    },
+    {
+      "path": "data/ec2_network_connectivity.pdf",
+      "format": "pdf",
+      "expected_result": "two_text_pages",
+      "requires_ocr": false,
+      "expected_pages": 2
+    },
+    {
+      "path": "data/iam_access_recovery_scanned.pdf",
+      "format": "pdf",
+      "expected_result": "two_ocr_pages",
+      "requires_ocr": true,
+      "expected_pages": 2
+    },
+    {
+      "path": "data/empty_document.md",
+      "format": "markdown",
+      "expected_result": "empty_list",
+      "requires_ocr": false
+    },
+    {
+      "path": "data/corrupt_document.pdf",
+      "format": "pdf",
+      "expected_result": "warning_and_empty_list",
+      "requires_ocr": false
+    }
+  ],
+  "golden_set": "eval/golden_set.json",
+  "golden_question_count": 5
+}

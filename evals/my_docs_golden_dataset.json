@@ -1,0 +1,27 @@
+[
+  {
+    "question": "Which policy and security controls should be reviewed for an Amazon S3 403 AccessDenied response?",
+    "ground_truth": "Review the IAM identity policy, bucket policy, VPC endpoint policy, S3 Block Public Access settings, and the AWS KMS key policy for KMS-encrypted objects.",
+    "reference_evidence": "For an Amazon S3 403 AccessDenied response, review the IAM identity policy, bucket policy, VPC endpoint policy, S3 Block Public Access settings, and the AWS KMS key policy for KMS-encrypted objects."
+  },
+  {
+    "question": "What is the difference between an EC2 system status check failure and an instance status check failure?",
+    "ground_truth": "A system status check failure points to underlying AWS infrastructure, while an instance status check failure points to the guest operating system or its network configuration.",
+    "reference_evidence": "An EC2 system status check failure indicates a problem with the underlying AWS infrastructure, while an instance status check failure indicates a problem with the guest operating system or its network configuration."
+  },
+  {
+    "question": "When diagnosing an AWS Lambda timeout, what should be inspected in CloudWatch, X-Ray, downstream latency, VPC or NAT networking, and memory configuration?",
+    "ground_truth": "Inspect the CloudWatch REPORT duration and logs, X-Ray traces, downstream-service latency, VPC and NAT routes, and the function's memory allocation.",
+    "reference_evidence": "To diagnose an AWS Lambda timeout, inspect the CloudWatch REPORT duration and logs, AWS X-Ray traces, downstream-service latency, VPC and NAT network routes, and the function's memory allocation."
+  },
+  {
+    "question": "Why is Amazon RDS Proxy useful for bursty Lambda workloads?",
+    "ground_truth": "RDS Proxy pools and reuses database connections, reducing churn and limiting the simultaneous connections that reach the database.",
+    "reference_evidence": "Amazon RDS Proxy helps bursty Lambda workloads by pooling and reusing database connections, reducing connection churn and the number of simultaneous connections that reach the database."
+  },
+  {
+    "question": "Why should frequent CloudFront deployments use versioned object names?",
+    "ground_truth": "Versioned names control which revision clients request, simplify rollbacks, and avoid repeated invalidation charges.",
+    "reference_evidence": "For frequent CloudFront deployments, use versioned object names because versioning controls which revision clients request, simplifies rollbacks, and avoids repeated invalidation charges."
+  }
+]

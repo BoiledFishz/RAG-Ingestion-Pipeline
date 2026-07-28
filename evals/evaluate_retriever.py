@@ -1,0 +1,19 @@
+"""Run with: python evals/evaluate_retriever.py --chunk-sizes 256 512."""
+
+# ruff: noqa: E402, I001
+
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from rag.evals import run
+
+
+if __name__ == "__main__":
+    raise SystemExit(run())

@@ -1,0 +1,41 @@
+[
+  {
+    "question": "Which policy layers can cause an Amazon S3 403 AccessDenied response?",
+    "ground_truth": "Permission can be denied by an IAM identity policy, bucket policy, VPC endpoint policy, AWS KMS key policy, or S3 Block Public Access.",
+    "reference_evidence": [
+      "Permission denial can result from an IAM identity",
+      "policy, bucket policy, VPC endpoint policy, AWS KMS key policy, or S3 Block Public Access."
+    ]
+  },
+  {
+    "question": "What is the difference between an EC2 system status check failure and an instance status check failure?",
+    "ground_truth": "A system check failure indicates underlying AWS infrastructure, while an instance check failure indicates the guest operating system or its configuration.",
+    "reference_evidence": [
+      "A failed system status check points to an AWS infrastructure problem such as loss of network connectivity,",
+      "host power, or host hardware. A failed instance status check points to the guest operating system"
+    ]
+  },
+  {
+    "question": "Which signals should be checked when diagnosing an AWS Lambda timeout?",
+    "ground_truth": "Check the REPORT duration, CloudWatch Logs, AWS X-Ray traces, downstream latency, network routes, and memory allocation.",
+    "reference_evidence": [
+      "Diagnose a timeout with the REPORT line duration, CloudWatch Logs,",
+      "AWS X-Ray traces, and downstream latency metrics."
+    ]
+  },
+  {
+    "question": "Why is RDS Proxy useful for bursty Lambda workloads?",
+    "ground_truth": "RDS Proxy pools and reuses database connections, reducing connection spikes from bursty Lambda concurrency.",
+    "reference_evidence": [
+      "RDS Proxy pools and reuses database connections, which is especially useful for bursty Lambda workloads."
+    ]
+  },
+  {
+    "question": "Why should CloudFront deployments prefer versioned object names over frequent invalidations?",
+    "ground_truth": "Versioning is usually faster, cheaper, and easier to roll back than repeated invalidations.",
+    "reference_evidence": [
+      "Use a versioned object name for frequent releases because versioning is",
+      "usually faster, cheaper, and easier to roll back than repeated invalidations."
+    ]
+  }
+]

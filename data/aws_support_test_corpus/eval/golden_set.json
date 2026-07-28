@@ -1,0 +1,32 @@
+[
+  {
+    "id": "Q1",
+    "question": "How should an operator recover an S3 object when a simple delete created a delete marker in a versioning-enabled bucket?",
+    "ground_truth": "List the object's versions, identify the current delete marker, and delete that marker by specifying its version ID; the previous object version then becomes current.",
+    "expected_source": "s3_support_runbook.md"
+  },
+  {
+    "id": "Q2",
+    "question": "Which authorization layers should be checked when an Amazon S3 request returns 403 AccessDenied?",
+    "ground_truth": "Check identity-based IAM policies, the bucket or access-point policy, Organizations SCPs, permissions boundaries or session policies, VPC endpoint policy, KMS key policy for SSE-KMS, and Object Ownership or ACL configuration.",
+    "expected_source": "s3_support_runbook.md"
+  },
+  {
+    "id": "Q3",
+    "question": "How can an AWS team prevent one Lambda function from consuming the concurrency needed by unrelated functions?",
+    "ground_truth": "Configure reserved concurrency so the function receives an isolated allocation and is capped at that value, then monitor ConcurrentExecutions, UnreservedConcurrentExecutions, and Throttles.",
+    "expected_source": "lambda_support_notes.md"
+  },
+  {
+    "id": "Q4",
+    "question": "What conditions must be met for an EC2 instance to reach the internet directly over public IPv4?",
+    "ground_truth": "The VPC must have an attached internet gateway, the subnet route table must send 0.0.0.0/0 to that gateway, the instance must have a public IPv4 address or Elastic IP, and security-group and network-ACL rules must allow the required traffic and return path.",
+    "expected_source": "ec2_network_connectivity.pdf"
+  },
+  {
+    "id": "Q5",
+    "question": "Why can an IAM role still receive AccessDenied when its identity policy allows an action but its permissions boundary does not?",
+    "ground_truth": "A permissions boundary sets the maximum permissions and does not grant access by itself; effective permissions are the intersection of the identity policy and boundary, and any explicit deny overrides an allow.",
+    "expected_source": "iam_access_recovery_scanned.pdf"
+  }
+]
