@@ -9,7 +9,7 @@ from collections import Counter
 from rag.ingestion.models import MetadataValue
 from rag.ingestion.vector_store import QdrantVectorStore, VectorRecord
 from rag.retrieval.contracts import SearchResult
-from rag.retrieval.filters import metadata_matches
+from rag.retrieval.filters import FilterPolicy, metadata_matches
 
 
 class BM25Retriever:
@@ -19,10 +19,20 @@ class BM25Retriever:
         store: QdrantVectorStore,
         k1: float = 1.5,
         b: float = 0.75,
+        candidate_k: int = 30,
+        final_k: int = 5,
+        filter_policy: FilterPolicy | None = None,
     ) -> None:
+        if candidate_k <= 0 or final_k <= 0:
+            raise ValueError("candidate_k and final_k must be positive")
+        if final_k > candidate_k:
+            raise ValueError("final_k cannot exceed candidate_k")
         self.store = store
         self.k1 = k1
         self.b = b
+        self.candidate_k = candidate_k
+        self.final_k = final_k
+        self.filter_policy = filter_policy or FilterPolicy()
         self._records: list[VectorRecord] = []
         self._term_frequencies: list[Counter[str]] = []
         self._document_frequencies: Counter[str] = Counter()
@@ -51,11 +61,14 @@ class BM25Retriever:
         self,
         query: str,
         *,
-        limit: int = 10,
+        limit: int | None = None,
         filters: dict[str, MetadataValue] | None = None,
     ) -> list[SearchResult]:
-        if not query.strip() or limit <= 0:
+        final_limit = self.final_k if limit is None else limit
+        if not query.strip() or final_limit <= 0:
             return []
+        candidate_limit = max(self.candidate_k, final_limit)
+        secured_filters = self.filter_policy.apply(filters)
         if not self._records:
             await self.refresh()
         query_terms = self.tokenize(query)
@@ -65,7 +78,7 @@ class BM25Retriever:
         count = len(self._records)
         scored: list[SearchResult] = []
         for record, frequencies in zip(self._records, self._term_frequencies, strict=True):
-            if not metadata_matches(record.metadata, filters):
+            if not metadata_matches(record.metadata, secured_filters):
                 continue
             document_length = sum(frequencies.values())
             score = 0.0
@@ -88,6 +101,21 @@ class BM25Retriever:
                         metadata=record.metadata,
                         score=score,
                         backend="sparse",
+                        retrieval_score=score,
+                        retrieval_sources=("sparse",),
                     )
                 )
-        return sorted(scored, key=lambda item: item.score, reverse=True)[:limit]
+        ordered = sorted(scored, key=lambda item: item.score, reverse=True)[:candidate_limit]
+        return [
+            SearchResult(
+                text=item.text,
+                metadata=item.metadata,
+                score=item.score,
+                backend=item.backend,
+                retrieval_rank=rank,
+                retrieval_score=item.retrieval_score,
+                sparse_rank=rank,
+                retrieval_sources=item.retrieval_sources,
+            )
+            for rank, item in enumerate(ordered, start=1)
+        ][:final_limit]

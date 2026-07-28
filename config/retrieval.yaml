@@ -8,3 +8,7 @@ retrieval:
   max_chunks_per_document: 2
   reranker_timeout_seconds: 5
   relevance_threshold: 0.05
+  calibrated_relevance_thresholds:
+    dense_rerank: 0.498
+    sparse_rerank: 0.500
+    hybrid_rerank: 0.545

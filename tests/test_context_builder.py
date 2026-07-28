@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import asyncio
+
 from rag.retrieval.context_builder import ContextBuilder, count_tokens
 from rag.retrieval.contracts import SearchResult
 
@@ -41,3 +43,44 @@ def test_context_token_budget() -> None:
     assert built.context
     assert built.token_count <= 80
     assert count_tokens(built.context) <= 80
+
+
+class ParentResolver:
+    async def retrieve_by_chunk_ids(self, chunk_ids: list[str]) -> list[SearchResult]:
+        assert chunk_ids == ["parent-1"]
+        return [
+            SearchResult(
+                "Expanded parent troubleshooting procedure.",
+                {
+                    "chunk_id": "parent-1",
+                    "chunk_hash": "parent-hash",
+                    "source_file": "guide.pdf",
+                    "page_number": 4,
+                },
+                0.0,
+                "parent",
+            )
+        ]
+
+
+def test_parent_is_fetched_after_final_selection() -> None:
+    child = SearchResult(
+        "short child",
+        {
+            "chunk_id": "child-1",
+            "chunk_hash": "child-hash",
+            "parent_id": "parent-1",
+            "source_file": "guide.pdf",
+            "page_number": 4,
+        },
+        0.9,
+        "hybrid",
+    )
+    built = asyncio.run(
+        ContextBuilder(max_context_tokens=100).build_with_parents(
+            [child],
+            parent_resolver=ParentResolver(),
+        )
+    )
+    assert "Expanded parent troubleshooting procedure." in built.context
+    assert built.source_map["S1"].chunk_id == "parent-1"

@@ -48,6 +48,7 @@ class RAGService:
         citation_validator: CitationValidator | None = None,
         parent_resolver: ParentResolver | None = None,
         relevance_threshold: float = 0.0,
+        relevance_thresholds: dict[RetrievalMode, float] | None = None,
     ) -> None:
         self.retriever = retriever
         self.generator = generator
@@ -55,6 +56,7 @@ class RAGService:
         self.citation_validator = citation_validator or CitationValidator()
         self.parent_resolver = parent_resolver
         self.relevance_threshold = relevance_threshold
+        self.relevance_thresholds = relevance_thresholds or {}
 
     async def query(
         self,
@@ -67,11 +69,12 @@ class RAGService:
         if not outcome.results:
             return self._refusal(outcome.diagnostics, "no_retrieval_results")
 
+        threshold = self.relevance_thresholds.get(mode, self.relevance_threshold)
         relevant = [
             result
             for result in outcome.results
             if (result.rerank_score if result.rerank_score is not None else result.score)
-            >= self.relevance_threshold
+            >= threshold
         ]
         if not relevant:
             return self._refusal(outcome.diagnostics, "below_relevance_threshold")

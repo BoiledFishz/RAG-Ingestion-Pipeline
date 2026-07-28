@@ -44,6 +44,9 @@ class QdrantVectorStore:
             self._client = QdrantClient(":memory:")
         self.collection_name = collection_name
 
+    async def close(self) -> None:
+        await asyncio.to_thread(self._client.close)
+
     async def collection_exists(self) -> bool:
         return await asyncio.to_thread(self._client.collection_exists, self.collection_name)
 
@@ -166,6 +169,43 @@ class QdrantVectorStore:
         if not await self.collection_exists():
             return []
         return await asyncio.to_thread(self._list_records_sync)
+
+    async def get_by_chunk_ids(self, chunk_ids: Sequence[str]) -> list[VectorRecord]:
+        if not chunk_ids or not await self.collection_exists():
+            return []
+        return await asyncio.to_thread(
+            self._get_by_chunk_ids_sync,
+            list(dict.fromkeys(chunk_ids)),
+        )
+
+    def _get_by_chunk_ids_sync(self, chunk_ids: list[str]) -> list[VectorRecord]:
+        from qdrant_client.models import FieldCondition, Filter, MatchAny
+
+        points, _ = self._client.scroll(
+            collection_name=self.collection_name,
+            scroll_filter=Filter(
+                must=[
+                    FieldCondition(
+                        key="chunk_id",
+                        match=MatchAny(any=chunk_ids),
+                    )
+                ]
+            ),
+            limit=len(chunk_ids),
+            with_payload=True,
+            with_vectors=False,
+        )
+        records: list[VectorRecord] = []
+        for point in points:
+            payload = dict(point.payload or {})
+            text = str(payload.pop("text", ""))
+            metadata = {
+                key: value
+                for key, value in payload.items()
+                if isinstance(value, (str, int, float, bool))
+            }
+            records.append(VectorRecord(text=text, metadata=metadata))
+        return records
 
     def _list_records_sync(self) -> list[VectorRecord]:
         records: list[VectorRecord] = []

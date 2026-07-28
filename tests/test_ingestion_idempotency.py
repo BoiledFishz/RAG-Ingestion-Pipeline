@@ -60,4 +60,13 @@ def test_second_ingestion_skips_embedding_and_preserves_required_metadata(tmp_pa
     assert second.chunks_skipped == 1
     assert embedder.document_calls == 1
     metadata = store.chunks[0].metadata
-    assert {"source_file", "page_number", "chunk_hash", "context_summary"} <= metadata.keys()
+    assert {
+        "source_file",
+        "page_number",
+        "chunk_hash",
+        "chunk_id",
+        "context_summary",
+        "document_type",
+        "language",
+        "status",
+    } <= metadata.keys()

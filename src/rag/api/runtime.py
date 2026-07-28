@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 from rag.api.routes import create_app
 from rag.generation.generator import OllamaGenerator
@@ -16,9 +16,13 @@ from rag.ingestion.providers import (
 )
 from rag.ingestion.vector_store import QdrantVectorStore
 from rag.retrieval.context_builder import ContextBuilder
+from rag.retrieval.contracts import RetrievalMode
 from rag.retrieval.dense import DenseRetriever
-from rag.retrieval.pipeline import DenseRerankPipeline, RetrievalConfig
+from rag.retrieval.filters import FilterPolicy
+from rag.retrieval.parents import QdrantParentResolver
+from rag.retrieval.pipeline import RetrievalConfig, RetrievalPipeline
 from rag.retrieval.reranker import LexicalReranker
+from rag.retrieval.sparse import BM25Retriever
 
 
 def _integer(name: str, default: int) -> int:
@@ -30,8 +34,11 @@ def _floating(name: str, default: float) -> float:
 
 
 def build_service() -> RAGService:
+    configured_mode = os.getenv("RETRIEVAL_MODE", "hybrid")
+    if configured_mode not in {"dense", "sparse", "hybrid"}:
+        raise ValueError(f"Unsupported RETRIEVAL_MODE: {configured_mode}")
     config = RetrievalConfig(
-        mode="dense",
+        mode=cast(RetrievalMode, configured_mode),
         candidate_k=_integer("RETRIEVAL_CANDIDATE_K", 30),
         rerank_k=_integer("RETRIEVAL_RERANK_K", 20),
         final_k=_integer("RETRIEVAL_FINAL_K", 5),
@@ -55,17 +62,27 @@ def build_service() -> RAGService:
             batch_size=_integer("EMBEDDING_BATCH_SIZE", 32),
             concurrency=_integer("REQUEST_CONCURRENCY", 8),
         )
+    filter_policy = FilterPolicy()
     dense = DenseRetriever(
         embedder=embedder,
         store=store,
         candidate_k=config.candidate_k,
         final_k=config.final_k,
+        filter_policy=filter_policy,
+    )
+    sparse = BM25Retriever(
+        store=store,
+        candidate_k=config.candidate_k,
+        final_k=config.final_k,
+        filter_policy=filter_policy,
     )
     return RAGService(
-        retriever=DenseRerankPipeline(
+        retriever=RetrievalPipeline(
             dense=dense,
+            sparse=sparse,
             reranker=LexicalReranker(),
             config=config,
+            filter_policy=filter_policy,
         ),
         generator=OllamaGenerator(
             model=os.getenv("ANSWER_MODEL", os.getenv("SUMMARY_MODEL", "llama3.2:3b")),
@@ -75,7 +92,13 @@ def build_service() -> RAGService:
             max_context_tokens=config.max_context_tokens,
             max_chunks_per_document=config.max_chunks_per_document,
         ),
+        parent_resolver=QdrantParentResolver(store=store),
         relevance_threshold=config.relevance_threshold,
+        relevance_thresholds={
+            "dense": _floating("DENSE_RELEVANCE_THRESHOLD", 0.498),
+            "sparse": _floating("SPARSE_RELEVANCE_THRESHOLD", 0.500),
+            "hybrid": _floating("HYBRID_RELEVANCE_THRESHOLD", 0.545),
+        },
     )
 
 

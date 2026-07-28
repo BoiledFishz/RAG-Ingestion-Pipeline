@@ -1,8 +1,8 @@
-# AWS Support Knowledge Base Ingestion Pipeline
+# AWS Support Production RAG Backend
 
 一条面向生产环境的 PDF/Markdown → 清洗 → OCR 兜底 → 递归切片 → LLM 上下文增强 →
-异步 Embedding → Qdrant 幂等写入流水线，并附带 Dense + BM25 + RRF 混合检索、重排和
-Ragas 黄金集评测。
+异步 Embedding → Qdrant 幂等写入流水线，以及可通过 HTTP 查询的 Dense + BM25 + RRF
+混合检索、重排、受限 Context、引用校验和拒答链路。
 
 > `data/sample` 是可公开复现的合成 AWS 支持文档，不是 AWS 官方文档。生产环境应替换为
 > 经批准的数据源。
@@ -40,6 +40,61 @@ flowchart LR
 - 摘要与 Embedding 都是异步、有限并发、批量处理；所有核心函数有类型提示，生产路径只用
   `logging`，没有 `print()`。
 
+## Retrieval 与 Generation 架构
+
+```mermaid
+flowchart LR
+    Q["POST /v1/rag/query"] --> SF["强制安全过滤<br/>status=published"]
+    SF --> D["Dense Top-30"]
+    SF --> S["BM25 Top-30"]
+    D --> RRF["RRF(k=60)"]
+    S --> RRF
+    RRF --> DD["按 chunk_id 去重"]
+    DD --> RR["Reranker Top-20"]
+    RR --> F["Final Top-5"]
+    F --> P["可选 Parent Node"]
+    P --> C["Context Budget<br/>每文档最多 2 块"]
+    C --> L["LLM"]
+    L --> V{"[S1] 引用有效?"}
+    V -- "是" --> A["Answer + Citations"]
+    V -- "否" --> RT["重试一次"]
+    RT --> V2{"仍然无效?"}
+    V2 -- "是" --> X["拒答"]
+    V2 -- "否" --> A
+```
+
+完整数据流为：
+
+```text
+PDF/Markdown → Page → Recursive Chunk → chunk_id/chunk_hash → Qdrant
+User Query → 强制 Metadata Filter → Dense 与 BM25 并行 → RRF → Reranker
+→ Token-budget Context → Ollama → Citation Validation → Answer/Refusal
+```
+
+支持 `mode=dense`、`mode=sparse` 和 `mode=hybrid`。用户可过滤 `source_file`、
+`document_type`、`language`；`status=published` 由系统强制注入，用户提交
+`status=draft` 也不能覆盖。Dense、Sparse 与 Reranker 通过独立接口注入。
+
+### RRF 公式
+
+本项目手写 Reciprocal Rank Fusion，而不是调用黑盒框架：
+
+```text
+RRF_score(d) = Σ 1 / (k + rank_r(d))
+               r∈retrieval_lists
+```
+
+生产默认 `k=60`。同一 `chunk_id` 在 Dense 与 BM25 中出现时只保留一次，同时记录
+`dense_rank`、`sparse_rank`、`fusion_rank` 和 `retrieval_sources`。Dense 或 BM25
+单路异常时记录日志并使用另一路返回。
+
+### Reranker 与降级
+
+本地 `LexicalReranker` 是可解释的 `BaseReranker` Adapter，仅接收检索得到的最多 20 个
+候选，并同时使用 Query、Chunk 正文与 `context_summary`。超时或异常时自动恢复 RRF/Dense
+原排序；候选为空时不会调用 Reranker。结果同时保留 `retrieval_rank`、
+`retrieval_score`、`rerank_rank` 和 `rerank_score`。
+
 ## 快速开始
 
 核心流水线需要 Python 3.11+。Windows 上运行完整 Ragas 评测推荐 Python 3.12；更新的
@@ -51,7 +106,7 @@ Ollama 是默认的免费本地模型服务；OCR 还需要操作系统中已安
 python -m venv .venv
 # Windows: .venv\Scripts\activate
 # macOS/Linux: source .venv/bin/activate
-pip install -e ".[dev,eval]"
+pip install -e ".[dev,eval,api]"
 
 ollama pull llama3.2:3b
 ollama pull nomic-embed-text
@@ -68,6 +123,82 @@ python main.py data/sample --summary-provider extractive --embedding-provider ha
 
 常用环境变量见 [.env.example](.env.example)。若使用远程 Qdrant，可直接实例化
 `QdrantVectorStore(url=..., api_key=...)`；默认使用 `.rag_data/qdrant` 本地持久化模式。
+
+### 启动查询 API
+
+先使用与查询相同的 Embedding 模型执行 ingestion，再启动服务：
+
+```powershell
+$env:QDRANT_PATH = ".rag_data/qdrant"
+$env:QDRANT_COLLECTION = "aws_support"
+$env:RETRIEVAL_MODE = "hybrid"
+$env:EMBEDDING_PROVIDER = "ollama"
+
+rag-api
+```
+
+请求：
+
+```http
+POST /v1/rag/query
+Content-Type: application/json
+
+{
+  "query": "Which policy layers should be checked for S3 403 AccessDenied?",
+  "mode": "hybrid",
+  "filters": {
+    "language": "en",
+    "document_type": "markdown"
+  }
+}
+```
+
+一次成功回答示例：
+
+```json
+{
+  "answer": "Review identity policies, the bucket policy, SCPs, permissions boundaries, endpoint policies, KMS policy, and ownership controls [S1].",
+  "citations": [
+    {
+      "source_id": "S1",
+      "chunk_id": "2cf...9ab",
+      "source_file": "s3_support_runbook.md",
+      "page_number": 1
+    }
+  ],
+  "retrieval": {
+    "mode": "hybrid",
+    "dense_candidates": 28,
+    "sparse_candidates": 6,
+    "reranked_candidates": 20,
+    "final_chunks": 2,
+    "context_tokens": 476,
+    "reranker_fallback": false
+  },
+  "refused": false,
+  "refusal_reason": null
+}
+```
+
+知识库无法回答时不会调用 LLM，或在 Citation 修复失败后拒答：
+
+```json
+{
+  "answer": "知识库无法回答该问题。",
+  "citations": [],
+  "retrieval": {
+    "mode": "hybrid",
+    "dense_candidates": 28,
+    "sparse_candidates": 0,
+    "reranked_candidates": 20,
+    "final_chunks": 0,
+    "context_tokens": 0,
+    "reranker_fallback": false
+  },
+  "refused": true,
+  "refusal_reason": "below_relevance_threshold"
+}
+```
 
 ## 测试与黄金集评测
 
@@ -128,6 +259,28 @@ $env:Path = "C:\Program Files\Tesseract-OCR;" + $env:Path
 该压力测试使用确定性的 Hash Embedding，因此分数用于离线回归，不代表生产语义检索质量。256
 在此语料上召回更高，但向量数约为 512 的两倍；上线前应改用 Ollama 或生产 Embedding 模型，
 再以真实支持问题重新评测参数。
+
+### 15 题 Retriever 对比
+
+`evals/retrieval_golden_dataset.json` 包含 5 条语义问题、4 条错误码/API/产品名问题、
+3 条 Metadata Filter 问题和 3 条不可回答问题。运行：
+
+```powershell
+$env:TESSERACT_CMD = "C:\Program Files\Tesseract-OCR\tesseract.exe"
+.\.venv\Scripts\python.exe evals\evaluate_retrieval_modes.py
+```
+
+| 模式 | Recall@5 | Recall@10 | MRR | Context Precision | 平均延迟 | 拒答准确率 |
+|---|---:|---:|---:|---:|---:|---:|
+| Dense | 1.000 | 1.000 | 0.861 | 0.767 | 1.88 ms | 1.000 |
+| Dense + Rerank | 1.000 | 1.000 | 0.958 | 0.800 | 2.45 ms | 1.000 |
+| Hybrid + Rerank | 1.000 | 1.000 | 1.000 | 0.800 | 2.85 ms | 1.000 |
+
+基于该测试集校准的相关性阈值分别为 Dense+Rerank `0.498`、Sparse+Rerank `0.500`
+和 Hybrid+Rerank `0.545`。最终推荐 **candidate_k=30、rerank_k=20、final_k=5**：
+30 个双路候选为错误码和语义表达保留足够覆盖，20 个精排输入限制成本与敏感数据暴露，
+最终 5 个结果再经每文档最多 2 块和 8000-token Context Budget 约束。Hybrid + Rerank
+在只增加约 1 ms 本地延迟的情况下取得最高 MRR，因此作为默认模式。
 
 ## 目录
 

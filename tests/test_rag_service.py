@@ -89,3 +89,16 @@ def test_no_results_skips_llm() -> None:
     assert response.refused is True
     assert response.refusal_reason == "no_retrieval_results"
     assert generator.calls == 0
+
+
+def test_results_below_calibrated_threshold_skip_llm() -> None:
+    generator = SequenceGenerator(["should not be used"])
+    service = RAGService(
+        retriever=StubEngine([_result()]),
+        generator=generator,
+        relevance_thresholds={"dense": 0.95},
+    )
+    response = asyncio.run(service.query("weak evidence", mode="dense"))
+    assert response.refused is True
+    assert response.refusal_reason == "below_relevance_threshold"
+    assert generator.calls == 0

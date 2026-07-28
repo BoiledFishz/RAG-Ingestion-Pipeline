@@ -14,6 +14,7 @@ from rag.retrieval.contracts import (
     Retriever,
     SearchResult,
 )
+from rag.retrieval.filters import FilterPolicy
 from rag.retrieval.fusion import reciprocal_rank_fusion
 from rag.retrieval.reranker import BaseReranker, LexicalReranker
 
@@ -137,6 +138,135 @@ class DenseRerankPipeline(DenseRetrievalPipeline):
                 reranker_fallback=fallback,
             ),
         )
+
+
+class RetrievalPipeline:
+    """Production Dense/Sparse/Hybrid retrieval with branch and reranker fallback."""
+
+    def __init__(
+        self,
+        *,
+        dense: Retriever,
+        sparse: Retriever,
+        reranker: BaseReranker | None = None,
+        config: RetrievalConfig | None = None,
+        filter_policy: FilterPolicy | None = None,
+    ) -> None:
+        self.dense = dense
+        self.sparse = sparse
+        self.reranker = reranker
+        self.config = config or RetrievalConfig()
+        self.filter_policy = filter_policy or FilterPolicy()
+
+    async def retrieve(
+        self,
+        query: str,
+        *,
+        mode: RetrievalMode = "hybrid",
+        filters: dict[str, MetadataValue] | None = None,
+    ) -> RetrievalOutcome:
+        if mode not in {"dense", "sparse", "hybrid"}:
+            raise ValueError(f"Unsupported retrieval mode: {mode}")
+        secured_filters = self.filter_policy.apply(filters)
+
+        dense_results: list[SearchResult] = []
+        sparse_results: list[SearchResult] = []
+        if mode == "dense":
+            dense_results = await self._safe_retrieve(
+                self.dense,
+                "Dense",
+                query,
+                secured_filters,
+            )
+            candidates = dense_results
+        elif mode == "sparse":
+            sparse_results = await self._safe_retrieve(
+                self.sparse,
+                "Sparse",
+                query,
+                secured_filters,
+            )
+            candidates = sparse_results
+        else:
+            dense_value, sparse_value = await asyncio.gather(
+                self._safe_retrieve(
+                    self.dense,
+                    "Dense",
+                    query,
+                    secured_filters,
+                ),
+                self._safe_retrieve(
+                    self.sparse,
+                    "Sparse",
+                    query,
+                    secured_filters,
+                ),
+            )
+            dense_results = dense_value
+            sparse_results = sparse_value
+            candidates = reciprocal_rank_fusion(
+                [dense_results, sparse_results],
+                rank_constant=self.config.rrf_rank_constant,
+                limit=self.config.candidate_k,
+            )
+
+        reranked, reranker_fallback, reranked_count = await self._rerank(
+            query,
+            candidates,
+        )
+        final = reranked[: self.config.final_k]
+        return RetrievalOutcome(
+            results=final,
+            diagnostics=RetrievalDiagnostics(
+                mode=mode,
+                dense_candidates=len(dense_results),
+                sparse_candidates=len(sparse_results),
+                reranked_candidates=reranked_count,
+                final_chunks=len(final),
+                reranker_fallback=reranker_fallback,
+            ),
+        )
+
+    async def _safe_retrieve(
+        self,
+        retriever: Retriever,
+        label: str,
+        query: str,
+        filters: dict[str, MetadataValue],
+    ) -> list[SearchResult]:
+        try:
+            return await retriever.retrieve(
+                query,
+                limit=self.config.candidate_k,
+                filters=filters,
+            )
+        except Exception:
+            LOGGER.exception("%s retrieval failed; continuing with available branch", label)
+            return []
+
+    async def _rerank(
+        self,
+        query: str,
+        candidates: list[SearchResult],
+    ) -> tuple[list[SearchResult], bool, int]:
+        if not candidates or self.reranker is None:
+            return candidates, False, 0
+        bounded = candidates[: self.config.rerank_k]
+        try:
+            reranked = await asyncio.wait_for(
+                self.reranker.rerank(
+                    query,
+                    bounded,
+                    limit=self.config.rerank_k,
+                ),
+                timeout=self.config.reranker_timeout_seconds,
+            )
+            return reranked, False, len(reranked)
+        except Exception:
+            LOGGER.exception(
+                "Reranker failed or timed out after fusion; using pre-rerank order"
+            )
+            return bounded, True, 0
 
 
 class HybridRetriever:

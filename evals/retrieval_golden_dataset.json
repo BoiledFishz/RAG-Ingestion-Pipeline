@@ -1,0 +1,152 @@
+[
+  {
+    "id": "SEM-01",
+    "category": "semantic",
+    "answerable": true,
+    "question": "How can I restore an S3 object hidden by an accidental delete in a versioned bucket?",
+    "ground_truth": "Find the current delete marker and delete that marker by version ID so the previous object version becomes current.",
+    "expected_sources": ["s3_support_runbook.md"],
+    "reference_evidence": ["After the marker is removed, the previous object version becomes current and a normal GetObject request can return the object again."],
+    "filters": {}
+  },
+  {
+    "id": "SEM-02",
+    "category": "semantic",
+    "answerable": true,
+    "question": "What is the practical difference between an explicit and an implicit S3 authorization denial?",
+    "ground_truth": "An explicit deny is a matching Deny statement and overrides an Allow; an implicit deny means no applicable statement allowed the request.",
+    "expected_sources": ["s3_support_runbook.md"],
+    "reference_evidence": ["An explicit Deny in an applicable policy overrides an Allow. An implicit deny means that no applicable statement allowed the requested action."],
+    "filters": {}
+  },
+  {
+    "id": "SEM-03",
+    "category": "semantic",
+    "answerable": true,
+    "question": "Which Lambda concurrency setting isolates capacity without pre-warming execution environments?",
+    "ground_truth": "Reserved concurrency isolates and caps capacity; provisioned concurrency is the separate feature for reducing cold starts.",
+    "expected_sources": ["lambda_support_notes.md"],
+    "reference_evidence": ["Reserved concurrency is a capacity control; it does not pre-initialize environments. Provisioned concurrency is the separate feature used when the goal is to reduce cold-start latency."],
+    "filters": {}
+  },
+  {
+    "id": "SEM-04",
+    "category": "semantic",
+    "answerable": true,
+    "question": "How should a private EC2 subnet provide outbound internet access without assigning public IP addresses to instances?",
+    "ground_truth": "Place a NAT gateway in a public subnet, route the public subnet to an internet gateway, and route the private subnet's default route to the NAT gateway.",
+    "expected_sources": ["ec2_network_connectivity.pdf"],
+    "reference_evidence": ["Place a NAT gateway in a public subnet. The public subnet's route table sends 0.0.0.0/0 to an attached internet gateway. The private subnet's route table sends 0.0.0.0/0 to the NAT gateway."],
+    "filters": {}
+  },
+  {
+    "id": "SEM-05",
+    "category": "semantic",
+    "answerable": true,
+    "question": "How do IAM identity policies and a permissions boundary combine to determine effective permissions?",
+    "ground_truth": "The boundary sets maximum permissions and the action must be allowed by both the identity policy and the boundary; explicit denies still override allows.",
+    "expected_sources": ["iam_access_recovery_scanned.pdf"],
+    "reference_evidence": ["For identity policies and a boundary, effective permissions are the intersection: the action must be allowed by both."],
+    "filters": {}
+  },
+  {
+    "id": "TERM-01",
+    "category": "error_code_api_product",
+    "answerable": true,
+    "question": "Which policy layers must be checked for S3 403 AccessDenied?",
+    "ground_truth": "Review IAM identity policies, bucket or access-point policies, SCPs, boundaries or session policies, VPC endpoint policies, KMS key policies, and ownership or ACL configuration.",
+    "expected_sources": ["s3_support_runbook.md"],
+    "reference_evidence": ["Review every policy layer that can affect the request:"],
+    "filters": {}
+  },
+  {
+    "id": "TERM-02",
+    "category": "error_code_api_product",
+    "answerable": true,
+    "question": "What normally has to allow an sts:AssumeRole request?",
+    "ground_truth": "The caller needs permission for sts:AssumeRole and the target role trust policy must trust the caller, subject to other policy restrictions.",
+    "expected_sources": ["iam_access_recovery_scanned.pdf"],
+    "reference_evidence": ["Successful role assumption normally requires the caller to be permitted to call sts:AssumeRole and the target role's trust policy to trust that caller."],
+    "filters": {}
+  },
+  {
+    "id": "TERM-03",
+    "category": "error_code_api_product",
+    "answerable": true,
+    "question": "What does the EC2 route 0.0.0.0/0 -> igw-id provide, and what does it not provide?",
+    "ground_truth": "It routes default IPv4 traffic to the internet gateway and makes the subnet public, but it does not assign a public address or override security controls.",
+    "expected_sources": ["ec2_network_connectivity.pdf"],
+    "reference_evidence": ["A route to an internet gateway makes a subnet public, but it does not assign a public address to an instance and it does not override security controls."],
+    "filters": {}
+  },
+  {
+    "id": "TERM-04",
+    "category": "error_code_api_product",
+    "answerable": true,
+    "question": "What timeout range is supported by aws lambda update-function-configuration?",
+    "ground_truth": "Lambda supports a configurable timeout from 1 through 900 seconds.",
+    "expected_sources": ["lambda_support_notes.md"],
+    "reference_evidence": ["Lambda's configurable timeout range is 1 through 900 seconds."],
+    "filters": {}
+  },
+  {
+    "id": "FILTER-01",
+    "category": "metadata_filter",
+    "answerable": true,
+    "question": "How is an accidentally deleted versioned S3 object recovered?",
+    "ground_truth": "Delete the current delete marker by its version ID.",
+    "expected_sources": ["s3_support_runbook.md"],
+    "reference_evidence": ["Delete the delete marker by specifying the marker's version ID:"],
+    "filters": {"source_file": "s3_support_runbook.md"}
+  },
+  {
+    "id": "FILTER-02",
+    "category": "metadata_filter",
+    "answerable": true,
+    "question": "What is required for direct EC2 public IPv4 internet access?",
+    "ground_truth": "An internet gateway, default route to it, public IPv4 or Elastic IP, and suitable security group and network ACL rules are required.",
+    "expected_sources": ["ec2_network_connectivity.pdf"],
+    "reference_evidence": ["For direct internet access over public IPv4, the VPC must have an internet gateway attached."],
+    "filters": {"document_type": "pdf", "language": "en"}
+  },
+  {
+    "id": "FILTER-03",
+    "category": "metadata_filter",
+    "answerable": true,
+    "question": "Which metrics validate Lambda reserved-concurrency contention?",
+    "ground_truth": "Use ConcurrentExecutions, UnreservedConcurrentExecutions, and Throttles.",
+    "expected_sources": ["lambda_support_notes.md"],
+    "reference_evidence": ["Use CloudWatch ConcurrentExecutions, UnreservedConcurrentExecutions, and Throttles to validate the diagnosis."],
+    "filters": {"source_file": "lambda_support_notes.md", "document_type": "markdown"}
+  },
+  {
+    "id": "REFUSE-01",
+    "category": "unanswerable",
+    "answerable": false,
+    "question": "How do I resolve DynamoDB ConditionalCheckFailedException with a transactional write?",
+    "ground_truth": "The supplied knowledge base does not contain DynamoDB conditional-write guidance.",
+    "expected_sources": [],
+    "reference_evidence": [],
+    "filters": {}
+  },
+  {
+    "id": "REFUSE-02",
+    "category": "unanswerable",
+    "answerable": false,
+    "question": "How should I debug an EKS pod in CrashLoopBackOff?",
+    "ground_truth": "The supplied knowledge base does not contain EKS pod troubleshooting guidance.",
+    "expected_sources": [],
+    "reference_evidence": [],
+    "filters": {}
+  },
+  {
+    "id": "REFUSE-03",
+    "category": "unanswerable",
+    "answerable": false,
+    "question": "How can Route 53 DNSSEC signing be enabled for a hosted zone?",
+    "ground_truth": "The supplied knowledge base does not contain Route 53 DNSSEC guidance.",
+    "expected_sources": [],
+    "reference_evidence": [],
+    "filters": {}
+  }
+]
