@@ -35,6 +35,7 @@ dev = [
 [project.scripts]
 rag-ingest = "rag.ingestion.cli:run"
 rag-evaluate = "rag.evals:run"
+rag-api = "rag.api.runtime:run"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/rag"]

@@ -1,0 +1,10 @@
+retrieval:
+  mode: hybrid
+  candidate_k: 30
+  rerank_k: 20
+  final_k: 5
+  rrf_rank_constant: 60
+  max_context_tokens: 8000
+  max_chunks_per_document: 2
+  reranker_timeout_seconds: 5
+  relevance_threshold: 0.05

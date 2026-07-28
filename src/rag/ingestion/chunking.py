@@ -3,8 +3,12 @@
 from __future__ import annotations
 
 import hashlib
+import re
+from pathlib import Path
 
 from rag.ingestion.models import Chunk, ParsedPage
+
+_CHINESE_RE = re.compile(r"[\u4e00-\u9fff]")
 
 
 class RecursiveChunker:
@@ -33,6 +37,9 @@ class RecursiveChunker:
                 if not normalized:
                     continue
                 digest = hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+                suffix = Path(page.source_file).suffix.lower()
+                document_type = "pdf" if suffix == ".pdf" else "markdown"
+                language = "zh-CN" if _CHINESE_RE.search(normalized) else "en"
                 chunks.append(
                     Chunk(
                         text=normalized,
@@ -40,8 +47,12 @@ class RecursiveChunker:
                             "source_file": page.source_file,
                             "page_number": page.page_number,
                             "chunk_hash": digest,
+                            "chunk_id": digest,
                             "chunk_ordinal": ordinal,
                             "used_ocr": page.used_ocr,
+                            "document_type": document_type,
+                            "language": language,
+                            "status": "published",
                         },
                     )
                 )

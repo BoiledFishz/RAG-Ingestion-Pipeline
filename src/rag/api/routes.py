@@ -1,4 +1,4 @@
-"""FastAPI route factory kept dependency-injected for testability."""
+"""Dependency-injected FastAPI routes for the production RAG service."""
 
 # mypy: disable-error-code="misc,untyped-decorator"
 
@@ -6,48 +6,34 @@ from __future__ import annotations
 
 from typing import Any
 
-from rag.generation.generator import OllamaGenerator
-from rag.retrieval.context_builder import ContextBuilder
-from rag.retrieval.pipeline import HybridRetriever
+from rag.generation.service import RAGService
 
 
-def create_app(
-    *,
-    retriever: HybridRetriever,
-    generator: OllamaGenerator,
-    context_builder: ContextBuilder | None = None,
-) -> Any:
+def create_app(*, service: RAGService) -> Any:
     try:
         from fastapi import FastAPI, HTTPException
         from pydantic import BaseModel, Field
     except ImportError as exc:
         raise RuntimeError("Install the 'api' extra to use the HTTP API") from exc
 
-    builder = context_builder or ContextBuilder()
-    app = FastAPI(title="AWS Support RAG", version="0.1.0")
+    app = FastAPI(title="AWS Support RAG", version="0.2.0")
 
     class QueryRequest(BaseModel):
-        question: str = Field(min_length=1, max_length=2_000)
-        top_k: int = Field(default=5, ge=1, le=20)
+        query: str = Field(min_length=1, max_length=2_000)
+        mode: str = Field(default="hybrid", pattern="^(dense|sparse|hybrid)$")
+        filters: dict[str, str | int | float | bool] | None = None
 
-    @app.post("/query")
+    @app.post("/v1/rag/query")
     async def query(request: QueryRequest) -> dict[str, Any]:
         try:
-            results = await retriever.retrieve(request.question, limit=request.top_k)
-            context = builder.build(results)
-            answer = await generator.generate(question=request.question, context=context)
-            return {
-                "answer": answer,
-                "sources": [
-                    {
-                        "source_file": item.metadata.get("source_file"),
-                        "page_number": item.metadata.get("page_number"),
-                        "chunk_hash": item.chunk_hash,
-                        "score": item.score,
-                    }
-                    for item in results
-                ],
-            }
+            response = await service.query(
+                request.query,
+                mode=request.mode,  # type: ignore[arg-type]
+                filters=request.filters,
+            )
+            return response.to_dict()
+        except ValueError as exc:
+            raise HTTPException(status_code=400, detail=str(exc)) from exc
         except Exception as exc:
             raise HTTPException(status_code=503, detail="Retrieval service unavailable") from exc
 

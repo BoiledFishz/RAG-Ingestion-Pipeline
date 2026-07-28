@@ -14,7 +14,13 @@ def test_dense_retriever_returns_persisted_metadata() -> None:
         embedder = HashEmbeddingProvider(dimensions=64)
         chunk = Chunk(
             text="S3 bucket policy can explicitly deny GetObject.",
-            metadata={"source_file": "s3.md", "page_number": 1, "chunk_hash": "hash-1"},
+            metadata={
+                "source_file": "s3.md",
+                "page_number": 1,
+                "chunk_hash": "hash-1",
+                "chunk_id": "hash-1",
+                "status": "published",
+            },
         )
         vectors = await embedder.embed_documents([chunk.text])
         await store.ensure_collection(len(vectors[0]))
@@ -24,5 +30,8 @@ def test_dense_retriever_returns_persisted_metadata() -> None:
         )
         assert results[0].metadata["source_file"] == "s3.md"
         assert results[0].chunk_hash == "hash-1"
+        assert results[0].chunk_id == "hash-1"
+        assert results[0].retrieval_rank == 1
+        assert results[0].retrieval_score is not None
 
     asyncio.run(scenario())
