@@ -21,6 +21,7 @@ dependencies = [
 
 [project.optional-dependencies]
 api = ["fastapi>=0.115,<1", "uvicorn[standard]>=0.32,<1"]
+rerank = ["sentence-transformers>=3.3,<6"]
 eval = [
   "langchain>=0.3,<1",
   "langchain-community>=0.3,<0.4",
@@ -70,6 +71,7 @@ module = [
   "pytesseract.*",
   "qdrant_client.*",
   "ragas.*",
+  "sentence_transformers.*",
 ]
 ignore_missing_imports = true
 follow_imports = "skip"

@@ -29,9 +29,15 @@ def test_dense_retriever_returns_persisted_metadata() -> None:
             "S3 bucket policy", limit=1
         )
         assert results[0].metadata["source_file"] == "s3.md"
+        assert results[0].source_file == "s3.md"
+        assert results[0].page_number == 1
         assert results[0].chunk_hash == "hash-1"
         assert results[0].chunk_id == "hash-1"
         assert results[0].retrieval_rank == 1
         assert results[0].retrieval_score is not None
+        serialized = results[0].to_dict()
+        assert serialized["source_file"] == "s3.md"
+        assert serialized["page_number"] == 1
+        assert serialized["retrieval_rank"] == 1
 
     asyncio.run(scenario())

@@ -16,7 +16,7 @@ from rag.retrieval.contracts import (
 )
 from rag.retrieval.filters import FilterPolicy
 from rag.retrieval.fusion import reciprocal_rank_fusion
-from rag.retrieval.reranker import BaseReranker, LexicalReranker
+from rag.retrieval.reranker import BaseReranker
 
 LOGGER = logging.getLogger(__name__)
 
@@ -109,20 +109,20 @@ class DenseRerankPipeline(DenseRetrievalPipeline):
                 diagnostics=RetrievalDiagnostics(mode="dense"),
             )
 
-        bounded = candidates[: self.config.rerank_k]
+        rerank_candidates = candidates[: self.config.candidate_k]
         fallback = False
         try:
             reranked = await asyncio.wait_for(
                 self.reranker.rerank(
                     query,
-                    bounded,
+                    rerank_candidates,
                     limit=self.config.rerank_k,
                 ),
                 timeout=self.config.reranker_timeout_seconds,
             )
         except (TimeoutError, Exception):
             fallback = True
-            reranked = bounded
+            reranked = rerank_candidates[: self.config.rerank_k]
             LOGGER.exception(
                 "Reranker failed or timed out; falling back to Dense ordering"
             )
@@ -251,12 +251,12 @@ class RetrievalPipeline:
     ) -> tuple[list[SearchResult], bool, int]:
         if not candidates or self.reranker is None:
             return candidates, False, 0
-        bounded = candidates[: self.config.rerank_k]
+        rerank_candidates = candidates[: self.config.candidate_k]
         try:
             reranked = await asyncio.wait_for(
                 self.reranker.rerank(
                     query,
-                    bounded,
+                    rerank_candidates,
                     limit=self.config.rerank_k,
                 ),
                 timeout=self.config.reranker_timeout_seconds,
@@ -266,7 +266,7 @@ class RetrievalPipeline:
             LOGGER.exception(
                 "Reranker failed or timed out after fusion; using pre-rerank order"
             )
-            return bounded, True, 0
+            return rerank_candidates[: self.config.rerank_k], True, 0
 
 
 class HybridRetriever:
@@ -275,7 +275,7 @@ class HybridRetriever:
         *,
         dense: Retriever,
         sparse: Retriever,
-        reranker: LexicalReranker | None = None,
+        reranker: BaseReranker | None = None,
         candidate_multiplier: int = 3,
     ) -> None:
         self.dense = dense

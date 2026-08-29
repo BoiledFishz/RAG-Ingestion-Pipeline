@@ -5,7 +5,7 @@ import asyncio
 import httpx
 
 from rag.api.routes import create_app
-from rag.generation.service import RAGService
+from rag.generation.service import REFUSAL_ANSWER, RAGService
 from rag.ingestion.models import MetadataValue
 from rag.retrieval.contracts import (
     RetrievalDiagnostics,
@@ -47,6 +47,17 @@ class APIEngine:
         )
 
 
+class EmptyAPIEngine:
+    async def retrieve(
+        self,
+        query: str,
+        *,
+        mode: RetrievalMode = "dense",
+        filters: dict[str, MetadataValue] | None = None,
+    ) -> RetrievalOutcome:
+        return RetrievalOutcome([], RetrievalDiagnostics(mode=mode))
+
+
 class APIGenerator:
     async def generate(
         self,
@@ -56,6 +67,17 @@ class APIGenerator:
         correction: str | None = None,
     ) -> str:
         return "An explicit deny overrides an allow [S1]."
+
+
+class GeneratorThatMustNotRun:
+    async def generate(
+        self,
+        *,
+        question: str,
+        context: str,
+        correction: str | None = None,
+    ) -> str:
+        raise AssertionError("Generator must not run when retrieval is empty")
 
 
 def test_v1_rag_query_contract() -> None:
@@ -80,6 +102,7 @@ def test_v1_rag_query_contract() -> None:
                 },
             )
         assert response.status_code == 200
+        assert response.headers["content-type"] == "application/json; charset=utf-8"
         payload = response.json()
         assert payload["answer"].endswith("[S1].")
         assert payload["citations"] == [
@@ -92,5 +115,33 @@ def test_v1_rag_query_contract() -> None:
         ]
         assert payload["retrieval"]["mode"] == "hybrid"
         assert payload["refused"] is False
+
+    asyncio.run(scenario())
+
+
+def test_refusal_response_is_utf8_and_skips_llm() -> None:
+    async def scenario() -> None:
+        app = create_app(
+            service=RAGService(
+                retriever=EmptyAPIEngine(),
+                generator=GeneratorThatMustNotRun(),
+            )
+        )
+        transport = httpx.ASGITransport(app=app)
+        async with httpx.AsyncClient(
+            transport=transport,
+            base_url="http://test",
+        ) as client:
+            response = await client.post(
+                "/v1/rag/query",
+                json={"query": "数据库中不存在的问题", "mode": "hybrid"},
+            )
+        assert response.status_code == 200
+        assert response.headers["content-type"] == "application/json; charset=utf-8"
+        assert REFUSAL_ANSWER in response.content.decode("utf-8")
+        payload = response.json()
+        assert payload["answer"] == REFUSAL_ANSWER
+        assert payload["refused"] is True
+        assert payload["refusal_reason"] == "no_retrieval_results"
 
     asyncio.run(scenario())

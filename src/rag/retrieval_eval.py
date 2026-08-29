@@ -7,6 +7,7 @@ import asyncio
 import json
 import logging
 import os
+import re
 import time
 from collections.abc import Sequence
 from dataclasses import asdict, dataclass
@@ -16,7 +17,7 @@ from rag.ingestion.chunking import RecursiveChunker
 from rag.ingestion.pipeline import IngestionPipeline
 from rag.ingestion.providers import ExtractiveSummaryProvider, HashEmbeddingProvider
 from rag.ingestion.utils import DocumentParser
-from rag.ingestion.vector_store import QdrantVectorStore
+from rag.ingestion.vector_store import QdrantVectorStore, VectorRecord
 from rag.retrieval.contracts import RetrievalMode, SearchResult
 from rag.retrieval.dense import DenseRetriever
 from rag.retrieval.filters import FilterPolicy
@@ -35,6 +36,7 @@ class GoldenRow:
     answerable: bool
     question: str
     expected_sources: tuple[str, ...]
+    reference_evidence: tuple[str, ...]
     filters: dict[str, str | int | float | bool]
 
 
@@ -51,7 +53,8 @@ class ModeMetrics:
     mode: str
     candidate_k: int
     rerank_k: int
-    final_k: int
+    evaluation_k: int
+    production_final_k: int
     calibrated_threshold: float
     recall_at_5: float
     recall_at_10: float
@@ -84,6 +87,9 @@ def _load_golden(path: Path) -> list[GoldenRow]:
                 answerable=bool(item["answerable"]),
                 question=str(item["question"]),
                 expected_sources=tuple(str(value) for value in item["expected_sources"]),
+                reference_evidence=tuple(
+                    str(value) for value in item.get("reference_evidence", [])
+                ),
                 filters=filters,
             )
         )
@@ -125,11 +131,67 @@ def _calibrate_threshold(observations: list[Observation]) -> float:
     return best_threshold
 
 
-def _contains_expected_source(row: GoldenRow, result: SearchResult) -> bool:
-    return str(result.metadata.get("source_file", "")) in row.expected_sources
+def _normalize_evidence(text: str) -> str:
+    return re.sub(r"\s+", " ", text).strip().casefold()
 
 
-def _metrics(label: str, observations: list[Observation], config: RetrievalConfig) -> ModeMetrics:
+def _evidence_matches_chunk(evidence: str, chunk_text: str) -> bool:
+    normalized_evidence = _normalize_evidence(evidence)
+    normalized_chunk = _normalize_evidence(chunk_text)
+    if not normalized_evidence or not normalized_chunk:
+        return False
+    if normalized_evidence in normalized_chunk or normalized_chunk in normalized_evidence:
+        return True
+    evidence_tokens = set(re.findall(r"[a-z0-9_.:/-]+|[\u4e00-\u9fff]", normalized_evidence))
+    chunk_tokens = set(re.findall(r"[a-z0-9_.:/-]+|[\u4e00-\u9fff]", normalized_chunk))
+    shorter_count = min(len(evidence_tokens), len(chunk_tokens))
+    return (
+        shorter_count >= 5
+        and len(evidence_tokens.intersection(chunk_tokens)) / shorter_count >= 0.8
+    )
+
+
+def _build_reference_chunk_index(
+    rows: list[GoldenRow], records: list[VectorRecord]
+) -> dict[str, frozenset[str]]:
+    index: dict[str, frozenset[str]] = {}
+    for row in rows:
+        if not row.answerable:
+            index[row.identifier] = frozenset()
+            continue
+        matches = {
+            str(record.metadata.get("chunk_id") or record.metadata.get("chunk_hash", ""))
+            for record in records
+            if str(record.metadata.get("source_file", "")) in row.expected_sources
+            and any(
+                _evidence_matches_chunk(evidence, record.text)
+                for evidence in row.reference_evidence
+            )
+        }
+        matches.discard("")
+        if not matches:
+            raise ValueError(
+                f"No evidence chunk could be resolved for golden row {row.identifier}"
+            )
+        index[row.identifier] = frozenset(matches)
+    return index
+
+
+def _contains_expected_chunk(
+    row: GoldenRow,
+    result: SearchResult,
+    reference_chunk_ids: dict[str, frozenset[str]],
+) -> bool:
+    return result.chunk_id in reference_chunk_ids[row.identifier]
+
+
+def _metrics(
+    label: str,
+    observations: list[Observation],
+    config: RetrievalConfig,
+    reference_chunk_ids: dict[str, frozenset[str]],
+    production_final_k: int,
+) -> ModeMetrics:
     threshold = _calibrate_threshold(observations)
     answerable = [item for item in observations if item.row.answerable]
     unanswerable = [item for item in observations if not item.row.answerable]
@@ -143,14 +205,17 @@ def _metrics(label: str, observations: list[Observation], config: RetrievalConfi
         ranks = [
             rank
             for rank, result in enumerate(observation.results, start=1)
-            if _contains_expected_source(observation.row, result)
+            if _contains_expected_chunk(observation.row, result, reference_chunk_ids)
         ]
         recall_5 += float(any(rank <= 5 for rank in ranks))
         recall_10 += float(any(rank <= 10 for rank in ranks))
         reciprocal_ranks += 1.0 / ranks[0] if ranks else 0.0
         top_five = observation.results[:5]
         precision += (
-            sum(_contains_expected_source(observation.row, result) for result in top_five)
+            sum(
+                _contains_expected_chunk(observation.row, result, reference_chunk_ids)
+                for result in top_five
+            )
             / len(top_five)
             if top_five
             else 0.0
@@ -170,7 +235,8 @@ def _metrics(label: str, observations: list[Observation], config: RetrievalConfi
         mode=label,
         candidate_k=config.candidate_k,
         rerank_k=config.rerank_k,
-        final_k=config.final_k,
+        evaluation_k=config.final_k,
+        production_final_k=production_final_k,
         calibrated_threshold=threshold,
         recall_at_5=recall_5 / answerable_count,
         recall_at_10=recall_10 / answerable_count,
@@ -192,6 +258,8 @@ async def _evaluate_mode(
     sparse: BM25Retriever,
     config: RetrievalConfig,
     use_reranker: bool,
+    reference_chunk_ids: dict[str, frozenset[str]],
+    production_final_k: int,
 ) -> ModeMetrics:
     pipeline = RetrievalPipeline(
         dense=dense,
@@ -218,7 +286,13 @@ async def _evaluate_mode(
                 top_score=top_score,
             )
         )
-    metrics = _metrics(label, observations, config)
+    metrics = _metrics(
+        label,
+        observations,
+        config,
+        reference_chunk_ids,
+        production_final_k,
+    )
     LOGGER.info(
         (
             "%s | Recall@5=%.3f Recall@10=%.3f MRR=%.3f "
@@ -258,11 +332,15 @@ async def async_run(arguments: argparse.Namespace) -> int:
     )
     try:
         await ingestion.run(arguments.data_dir)
+        reference_chunk_ids = _build_reference_chunk_index(
+            rows,
+            await store.list_records(),
+        )
         policy = FilterPolicy()
         config = RetrievalConfig(
             candidate_k=arguments.candidate_k,
             rerank_k=arguments.rerank_k,
-            final_k=10,
+            final_k=max(arguments.final_k, 10),
             rrf_rank_constant=arguments.rrf_rank_constant,
         )
         dense = DenseRetriever(
@@ -282,6 +360,7 @@ async def async_run(arguments: argparse.Namespace) -> int:
         specifications: list[tuple[str, RetrievalMode, bool]] = [
             ("dense", "dense", False),
             ("dense+rerank", "dense", True),
+            ("sparse+rerank", "sparse", True),
             ("hybrid+rerank", "hybrid", True),
         ]
         results = [
@@ -293,6 +372,8 @@ async def async_run(arguments: argparse.Namespace) -> int:
                 sparse=sparse,
                 config=config,
                 use_reranker=use_reranker,
+                reference_chunk_ids=reference_chunk_ids,
+                production_final_k=arguments.final_k,
             )
             for label, mode, use_reranker in specifications
         ]
@@ -334,6 +415,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
     parser.add_argument("--chunk-overlap", type=int, default=64)
     parser.add_argument("--candidate-k", type=int, default=30)
     parser.add_argument("--rerank-k", type=int, default=20)
+    parser.add_argument("--final-k", type=int, default=5)
     parser.add_argument("--rrf-rank-constant", type=int, default=60)
     parser.add_argument("--log-level", default="INFO")
     return parser

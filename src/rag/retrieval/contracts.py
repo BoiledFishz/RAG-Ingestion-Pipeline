@@ -33,8 +33,49 @@ class SearchResult:
     def chunk_id(self) -> str:
         return str(self.metadata.get("chunk_id") or self.chunk_hash)
 
+    @property
+    def source_file(self) -> str:
+        return str(self.metadata.get("source_file", ""))
+
+    @property
+    def page_number(self) -> int | str:
+        value = self.metadata.get("page_number", "?")
+        return value if isinstance(value, (int, str)) else "?"
+
+    @property
+    def document_type(self) -> str:
+        return str(self.metadata.get("document_type", ""))
+
+    @property
+    def language(self) -> str:
+        return str(self.metadata.get("language", ""))
+
+    @property
+    def status(self) -> str:
+        return str(self.metadata.get("status", ""))
+
+    def to_dict(self) -> dict[str, object]:
+        """Serialize required retrieval fields at the top level for API adapters."""
+
+        return {
+            "chunk_id": self.chunk_id,
+            "text": self.text,
+            "source_file": self.source_file,
+            "page_number": self.page_number,
+            "retrieval_score": self.retrieval_score,
+            "retrieval_rank": self.retrieval_rank,
+            "dense_rank": self.dense_rank,
+            "sparse_rank": self.sparse_rank,
+            "fusion_rank": self.fusion_rank,
+            "rerank_rank": self.rerank_rank,
+            "rerank_score": self.rerank_score,
+            "retrieval_sources": list(self.retrieval_sources),
+            "metadata": dict(self.metadata),
+        }
+
     def with_score(self, score: float, *, backend: str | None = None) -> SearchResult:
         return replace(self, score=score, backend=backend or self.backend)
+
 
 @dataclass(frozen=True, slots=True)
 class RetrievalDiagnostics:

@@ -21,7 +21,7 @@ from rag.retrieval.dense import DenseRetriever
 from rag.retrieval.filters import FilterPolicy
 from rag.retrieval.parents import QdrantParentResolver
 from rag.retrieval.pipeline import RetrievalConfig, RetrievalPipeline
-from rag.retrieval.reranker import LexicalReranker
+from rag.retrieval.reranker import BaseReranker, CrossEncoderReranker, LexicalReranker
 from rag.retrieval.sparse import BM25Retriever
 
 
@@ -31,6 +31,25 @@ def _integer(name: str, default: int) -> int:
 
 def _floating(name: str, default: float) -> float:
     return float(os.getenv(name, str(default)))
+
+
+def _build_reranker() -> BaseReranker:
+    provider = os.getenv("RERANKER_PROVIDER", "lexical").strip().lower()
+    if provider == "lexical":
+        return LexicalReranker(
+            lexical_weight=_floating("RERANKER_LEXICAL_WEIGHT", 0.7)
+        )
+    if provider == "cross_encoder":
+        return CrossEncoderReranker(
+            model_name=os.getenv(
+                "RERANKER_MODEL",
+                "cross-encoder/ms-marco-MiniLM-L-6-v2",
+            ),
+            batch_size=_integer("RERANKER_BATCH_SIZE", 16),
+        )
+    raise ValueError(
+        f"Unsupported RERANKER_PROVIDER: {provider}; expected lexical or cross_encoder"
+    )
 
 
 def build_service() -> RAGService:
@@ -80,7 +99,7 @@ def build_service() -> RAGService:
         retriever=RetrievalPipeline(
             dense=dense,
             sparse=sparse,
-            reranker=LexicalReranker(),
+            reranker=_build_reranker(),
             config=config,
             filter_policy=filter_policy,
         ),
@@ -96,7 +115,7 @@ def build_service() -> RAGService:
         relevance_threshold=config.relevance_threshold,
         relevance_thresholds={
             "dense": _floating("DENSE_RELEVANCE_THRESHOLD", 0.498),
-            "sparse": _floating("SPARSE_RELEVANCE_THRESHOLD", 0.500),
+            "sparse": _floating("SPARSE_RELEVANCE_THRESHOLD", 0.544),
             "hybrid": _floating("HYBRID_RELEVANCE_THRESHOLD", 0.545),
         },
     )

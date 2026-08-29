@@ -4,6 +4,7 @@
 
 from __future__ import annotations
 
+import json
 import logging
 from typing import Any
 
@@ -24,21 +25,24 @@ class QueryRequest(BaseModel):
 
 def create_app(*, service: RAGService) -> Any:
     try:
-        from fastapi import FastAPI, HTTPException
+        from fastapi import FastAPI, HTTPException, Response
     except ImportError as exc:
         raise RuntimeError("Install the 'api' extra to use the HTTP API") from exc
 
     app = FastAPI(title="AWS Support RAG", version="0.2.0")
 
     @app.post("/v1/rag/query")
-    async def query(request: QueryRequest) -> dict[str, Any]:
+    async def query(request: QueryRequest) -> Any:
         try:
             response = await service.query(
                 request.query,
                 mode=request.mode,
                 filters=request.filters,
             )
-            return response.to_dict()
+            return Response(
+                content=json.dumps(response.to_dict(), ensure_ascii=False),
+                media_type="application/json; charset=utf-8",
+            )
         except ValueError as exc:
             raise HTTPException(status_code=400, detail=str(exc)) from exc
         except Exception as exc:

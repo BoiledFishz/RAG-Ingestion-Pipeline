@@ -73,7 +73,9 @@ User Query → 强制 Metadata Filter → Dense 与 BM25 并行 → RRF → Rera
 
 支持 `mode=dense`、`mode=sparse` 和 `mode=hybrid`。用户可过滤 `source_file`、
 `document_type`、`language`；`status=published` 由系统强制注入，用户提交
-`status=draft` 也不能覆盖。Dense、Sparse 与 Reranker 通过独立接口注入。
+`status=draft` 也不能覆盖。Dense、Sparse 与 Reranker 通过独立接口注入。每个
+`SearchResult` 可直接读取并通过 `to_dict()` 返回 `chunk_id`、`text`、`source_file`、
+`page_number`、`retrieval_score` 和 `retrieval_rank`；完整 metadata 仍会同时保留。
 
 ### RRF 公式
 
@@ -90,10 +92,28 @@ RRF_score(d) = Σ 1 / (k + rank_r(d))
 
 ### Reranker 与降级
 
-本地 `LexicalReranker` 是可解释的 `BaseReranker` Adapter，仅接收检索得到的最多 20 个
-候选，并同时使用 Query、Chunk 正文与 `context_summary`。超时或异常时自动恢复 RRF/Dense
-原排序；候选为空时不会调用 Reranker。结果同时保留 `retrieval_rank`、
+项目通过统一的 `BaseReranker` 接口提供两种 Adapter：
+
+- `LexicalReranker`：默认的轻量、可解释离线实现，无需下载模型。
+- `CrossEncoderReranker`：基于 `sentence-transformers` 的本地 Cross-encoder，默认模型为
+  `cross-encoder/ms-marco-MiniLM-L-6-v2`，适合生产语义精排。
+
+两种 Adapter 都只接收 Retriever/RRF 产生的最多 `candidate_k=30` 个候选，并同时使用
+Query、Chunk 正文与 `context_summary` 精排出 `rerank_k=20`。超时或异常时自动恢复
+RRF/Dense 原排序；候选为空时不会加载模型或调用 Reranker。结果同时保留 `retrieval_rank`、
 `retrieval_score`、`rerank_rank` 和 `rerank_score`。
+
+启用本地 Cross-encoder：
+
+```powershell
+pip install -e ".[rerank]"
+$env:RERANKER_PROVIDER = "cross_encoder"
+$env:RERANKER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+$env:RERANKER_BATCH_SIZE = "16"
+```
+
+Cross-encoder 原始分数空间与词法 Reranker 不同，切换模型后必须重新运行 15 题或真实黄金集
+评测并更新各模式的相关性阈值，不能直接沿用 README 中的离线词法阈值。
 
 ## 快速开始
 
@@ -263,24 +283,34 @@ $env:Path = "C:\Program Files\Tesseract-OCR;" + $env:Path
 ### 15 题 Retriever 对比
 
 `evals/retrieval_golden_dataset.json` 包含 5 条语义问题、4 条错误码/API/产品名问题、
-3 条 Metadata Filter 问题和 3 条不可回答问题。运行：
+3 条 Metadata Filter 问题和 3 条不可回答问题。评测会先把每条 `reference_evidence`
+解析为本次切片产生的 `chunk_id` 集合，只有召回证据所在 Chunk 才算命中；同一文件内的无关
+页面或 Chunk 不再被计为相关。运行：
 
 ```powershell
 $env:TESSERACT_CMD = "C:\Program Files\Tesseract-OCR\tesseract.exe"
 .\.venv\Scripts\python.exe evals\evaluate_retrieval_modes.py
 ```
 
+该命令的生产参数为 `--candidate-k 30 --rerank-k 20 --final-k 5`；评测内部将
+`evaluation_k` 扩到 10，仅用于计算 Recall@10，结果文件会同时记录
+`production_final_k=5`。
+
 | 模式 | Recall@5 | Recall@10 | MRR | Context Precision | 平均延迟 | 拒答准确率 |
 |---|---:|---:|---:|---:|---:|---:|
-| Dense | 1.000 | 1.000 | 0.861 | 0.767 | 1.88 ms | 1.000 |
-| Dense + Rerank | 1.000 | 1.000 | 0.958 | 0.800 | 2.45 ms | 1.000 |
-| Hybrid + Rerank | 1.000 | 1.000 | 1.000 | 0.800 | 2.85 ms | 1.000 |
+| Dense | 0.750 | 0.917 | 0.608 | 0.150 | 5.07 ms | 1.000 |
+| Dense + Rerank | 0.750 | 0.917 | 0.626 | 0.150 | 5.13 ms | 1.000 |
+| Sparse + Rerank（附加审计） | 0.750 | 0.917 | 0.617 | 0.150 | 1.59 ms | 1.000 |
+| Hybrid + Rerank | 0.750 | 0.917 | 0.613 | 0.150 | 6.51 ms | 1.000 |
 
-基于该测试集校准的相关性阈值分别为 Dense+Rerank `0.498`、Sparse+Rerank `0.500`
-和 Hybrid+Rerank `0.545`。最终推荐 **candidate_k=30、rerank_k=20、final_k=5**：
-30 个双路候选为错误码和语义表达保留足够覆盖，20 个精排输入限制成本与敏感数据暴露，
-最终 5 个结果再经每文档最多 2 块和 8000-token Context Budget 约束。Hybrid + Rerank
-在只增加约 1 ms 本地延迟的情况下取得最高 MRR，因此作为默认模式。
+为了同时计算 Recall@5 与 Recall@10，评测脚本临时保留 Top-10；生产 API 仍严格使用
+`final_k=5`。基于该测试集校准的相关性阈值分别为 Dense+Rerank `0.498`、
+Sparse+Rerank `0.544` 和 Hybrid+Rerank `0.545`。最终推荐
+**candidate_k=30、rerank_k=20、final_k=5**：30 个 Retriever/RRF 候选全部进入精排，
+Reranker 输出前 20 个，再选最终 5 个，并经过每文档最多 2 块和 8000-token Context Budget
+约束。本离线集使用 Hash Embedding，Dense + Rerank 的 MRR 略高；生产仍默认 Hybrid，理由是
+它同时覆盖语义表达和错误码/产品名，并能在 Dense 或 BM25 单路故障时降级。上线前应使用真实
+Embedding 模型与真实支持问题重新校准。
 
 ## 目录
 
