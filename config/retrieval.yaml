@@ -11,7 +11,8 @@ retrieval:
   reranker_model: cross-encoder/ms-marco-MiniLM-L-6-v2
   reranker_batch_size: 16
   relevance_threshold: 0.05
+  fallback_query_coverage_threshold: 0.183333
   calibrated_relevance_thresholds:
-    dense_rerank: 0.498
-    sparse_rerank: 0.544
-    hybrid_rerank: 0.545
+    dense_rerank: 0.532230
+    sparse_rerank: 0.549118
+    hybrid_rerank: 0.546701

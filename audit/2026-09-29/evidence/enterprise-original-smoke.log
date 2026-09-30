@@ -1,0 +1,20 @@
+INFO httpx HTTP Request: POST http://127.0.0.1:59861/v1/agent/query "HTTP/1.1 200 OK"
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\evaluation\smoke_api.py", line 63, in <module>
+    asyncio.run(smoke(args.base_url, args.output))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\evaluation\smoke_api.py", line 33, in smoke
+    assert validated.sources and "900" in validated.answer
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

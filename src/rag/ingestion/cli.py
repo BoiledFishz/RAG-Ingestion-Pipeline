@@ -21,6 +21,7 @@ from rag.ingestion.providers import (
 )
 from rag.ingestion.utils import DocumentParser
 from rag.ingestion.vector_store import QdrantVectorStore
+from rag.settings import load_environment
 
 LOGGER = logging.getLogger(__name__)
 
@@ -90,11 +91,20 @@ async def async_run(arguments: argparse.Namespace) -> int:
         store=QdrantVectorStore(path=arguments.qdrant_path, collection_name=arguments.collection),
         config=IngestionConfig(request_concurrency=arguments.concurrency),
     )
-    stats = await pipeline.run(arguments.source)
-    return 1 if stats.files_seen and stats.files_succeeded == 0 else 0
+    try:
+        stats = await pipeline.run(arguments.source)
+        if not stats.succeeded:
+            LOGGER.error(
+                "Ingestion incomplete: created=%d skipped=%d upserted=%d warnings=%s",
+                stats.chunks_created, stats.chunks_skipped, stats.chunks_upserted, stats.warnings,
+            )
+        return 0 if stats.succeeded else 1
+    finally:
+        await pipeline.store.close()
 
 
 def run(argv: Sequence[str] | None = None) -> int:
+    load_environment()
     arguments = build_argument_parser().parse_args(argv)
     logging.basicConfig(
         level=getattr(logging, str(arguments.log_level).upper(), logging.INFO),

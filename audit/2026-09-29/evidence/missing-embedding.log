@@ -1,0 +1,18 @@
+2026-09-29 18:03:17,883 INFO rag.ingestion.pipeline - Processing file data\sample\aws_support_knowledge.md
+2026-09-29 18:03:17,901 INFO rag.ingestion.pipeline - Parsed aws_support_knowledge.md into 1 page(s), 11 chunk(s)
+2026-09-29 18:03:18,863 INFO httpx - HTTP Request: POST http://localhost:11434/api/embed "HTTP/1.1 404 Not Found"
+2026-09-29 18:03:18,865 ERROR rag.ingestion.pipeline - Embedding batch 1 failed; continuing with other batches
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\src\rag\ingestion\pipeline.py", line 196, in embed_batch
+    vectors = await self.embedder.embed_documents([chunk.text for chunk in batch])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\src\rag\ingestion\providers.py", line 130, in embed_documents
+    nested = await asyncio.gather(*(embed_batch(batch) for batch in batches))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\src\rag\ingestion\providers.py", line 119, in embed_batch
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '404 Not Found' for url 'http://localhost:11434/api/embed'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404

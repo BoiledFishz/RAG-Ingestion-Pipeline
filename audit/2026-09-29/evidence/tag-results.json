@@ -1,0 +1,17 @@
+[
+  {
+    "tag": "retriever-v1-dense",
+    "exit_code": 0,
+    "output": "...........                                                              [100%]\n11 passed in 7.60s\n"
+  },
+  {
+    "tag": "retriever-v2-rerank",
+    "exit_code": 0,
+    "output": "............                                                             [100%]\n12 passed in 6.47s\n"
+  },
+  {
+    "tag": "retriever-v3-hybrid",
+    "exit_code": 0,
+    "output": "..................                                                       [100%]\n18 passed in 4.11s\n"
+  }
+]

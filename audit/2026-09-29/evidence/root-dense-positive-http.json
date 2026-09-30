@@ -1,0 +1,40 @@
+{
+  "project": "root",
+  "profile": "dense-positive",
+  "cases": [
+    {
+      "label": "dense-known-answer",
+      "endpoint": "/v1/rag/query",
+      "request": {
+        "query": "What is required for direct EC2 public IPv4 internet access?",
+        "mode": "dense"
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "body": {
+        "answer": "For direct EC2 public IPv4 internet access, the following conditions must be met:\n\n1. The VPC must have an internet gateway attached.\n2. The route table associated with the instance's subnet must contain a route for 0.0.0.0/0 whose target is that internet gateway.\n3. The instance must have a public IPv4 address or an Elastic IP address.\n4. The instance security group must allow the required outbound traffic.\n\nThese conditions are outlined in the EC2 Network Connectivity Support Guide, page 1, [S1].",
+        "citations": [
+          {
+            "source_id": "S1",
+            "chunk_id": "0bfeba3295820bf3bf81bddbd2c68948d5dfb94ae6bff58fbb8d15fbbaabd459",
+            "source_file": "ec2_network_connectivity.pdf",
+            "page_number": 1
+          }
+        ],
+        "retrieval": {
+          "mode": "dense",
+          "dense_candidates": 28,
+          "sparse_candidates": 0,
+          "reranked_candidates": 20,
+          "final_chunks": 2,
+          "context_tokens": 229,
+          "reranker_fallback": false
+        },
+        "refused": false,
+        "refusal_reason": null
+      },
+      "seconds": 25.698
+    }
+  ],
+  "server_ready": true
+}

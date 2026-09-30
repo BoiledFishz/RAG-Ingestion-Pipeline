@@ -1,0 +1,2081 @@
+{
+  "methodology": {
+    "provider": "ollama",
+    "model": "llama3.2:3b",
+    "dataset_size": 5,
+    "planner_runs": 10,
+    "token_count": "regex estimate of prompts and outputs, not provider billing tokens",
+    "quality": "expected facts in answer text only, excluding citations and source quotes",
+    "failure": "answer quality below 1 or execution error; errors score zero",
+    "tools": "same in-memory hash index and offline external corpus for both versions",
+    "specialists": "LLM research/diagnosis/critic; deterministic analyst/report writer"
+  },
+  "rag_three_categories": [
+    {
+      "category": "answerable",
+      "query": "What is the Lambda timeout range?",
+      "response": {
+        "answer": "AWS Lambda functions support a configurable timeout from 1 to 900 seconds. [1]",
+        "sources": [
+          {
+            "document_id": "kb-lambda-timeout",
+            "source": "knowledge/lambda.md",
+            "quote": "AWS Lambda functions support a configurable timeout from 1 to 900 seconds."
+          }
+        ],
+        "confidence": 0.522
+      }
+    },
+    {
+      "category": "ambiguous",
+      "query": "权限有问题",
+      "response": {
+        "answer": "请补充具体服务、操作和错误信息。",
+        "sources": [],
+        "confidence": 0.0
+      }
+    },
+    {
+      "category": "unanswerable",
+      "query": "What is the DynamoDB global table limit?",
+      "response": {
+        "answer": "知识库中没有足够信息回答该问题。",
+        "sources": [],
+        "confidence": 0.0
+      }
+    }
+  ],
+  "planner_stability": {
+    "runs": 10,
+    "valid_schema_rate": 1.0,
+    "invalid_agent_rate": 0.0,
+    "unique_plan_shapes": 1,
+    "observations": [
+      {
+        "run": 1,
+        "plan": {
+          "tasks": [
+            {
+              "task_id": "T001",
+              "agent": "research_agent",
+              "objective": "Investigate the incident and produce a sourced report",
+              "dependencies": []
+            }
+          ]
+        },
+        "error": null,
+        "metrics": {
+          "llm_calls": 1,
+          "tool_calls": 0,
+          "input_tokens": 421,
+          "output_tokens": 47,
+          "latency_ms": 0
+        },
+        "raw_outputs": [
+          "{\n  \"tasks\": [\n    {\n      \"task_id\": \"T001\",\n      \"agent\": \"research_agent\",\n      \"objective\": \"Investigate the incident and produce a sourced report\",\n      \"dependencies\": []\n    }\n  ]\n}"
+        ]
+      },
+      {
+        "run": 2,
+        "plan": {
+          "tasks": [
+            {
+              "task_id": "T001",
+              "agent": "research_agent",
+              "objective": "Investigate the incident and produce a sourced report",
+              "dependencies": []
+            }
+          ]
+        },
+        "error": null,
+        "metrics": {
+          "llm_calls": 1,
+          "tool_calls": 0,
+          "input_tokens": 421,
+          "output_tokens": 47,
+          "latency_ms": 0
+        },
+        "raw_outputs": [
+          "{\n  \"tasks\": [\n    {\n      \"task_id\": \"T001\",\n      \"agent\": \"research_agent\",\n      \"objective\": \"Investigate the incident and produce a sourced report\",\n      \"dependencies\": []\n    }\n  ]\n}"
+        ]
+      },
+      {
+        "run": 3,
+        "plan": {
+          "tasks": [
+            {
+              "task_id": "T001",
+              "agent": "research_agent",
+              "objective": "Investigate the incident and produce a sourced report",
+              "dependencies": []
+            }
+          ]
+        },
+        "error": null,
+        "metrics": {
+          "llm_calls": 1,
+          "tool_calls": 0,
+          "input_tokens": 421,
+          "output_tokens": 47,
+          "latency_ms": 0
+        },
+        "raw_outputs": [
+          "{\n  \"tasks\": [\n    {\n      \"task_id\": \"T001\",\n      \"agent\": \"research_agent\",\n      \"objective\": \"Investigate the incident and produce a sourced report\",\n      \"dependencies\": []\n    }\n  ]\n}"
+        ]
+      },
+      {
+        "run": 4,
+        "plan": {
+          "tasks": [
+            {
+              "task_id": "T001",
+              "agent": "research_agent",
+              "objective": "Investigate the incident and produce a sourced report",
+              "dependencies": []
+            }
+          ]
+        },
+        "error": null,
+        "metrics": {
+          "llm_calls": 1,
+          "tool_calls": 0,
+          "input_tokens": 421,
+          "output_tokens": 47,
+          "latency_ms": 0
+        },
+        "raw_outputs": [
+          "{\n  \"tasks\": [\n    {\n      \"task_id\": \"T001\",\n      \"agent\": \"research_agent\",\n      \"objective\": \"Investigate the incident and produce a sourced report\",\n      \"dependencies\": []\n    }\n  ]\n}"
+        ]
+      },
+      {
+        "run": 5,
+        "plan": {
+          "tasks": [
+            {
+              "task_id": "T001",
+              "agent": "research_agent",
+              "objective": "Investigate the incident and produce a sourced report",
+              "dependencies": []
+            }
+          ]
+        },
+        "error": null,
+        "metrics": {
+          "llm_calls": 1,
+          "tool_calls": 0,
+          "input_tokens": 421,
+          "output_tokens": 47,
+          "latency_ms": 0
+        },
+        "raw_outputs": [
+          "{\n  \"tasks\": [\n    {\n      \"task_id\": \"T001\",\n      \"agent\": \"research_agent\",\n      \"objective\": \"Investigate the incident and produce a sourced report\",\n      \"dependencies\": []\n    }\n  ]\n}"
+        ]
+      },
+      {
+        "run": 6,
+        "plan": {
+          "tasks": [
+            {
+              "task_id": "T001",
+              "agent": "research_agent",
+              "objective": "Investigate the incident and produce a sourced report",
+              "dependencies": []
+            }
+          ]
+        },
+        "error": null,
+        "metrics": {
+          "llm_calls": 1,
+          "tool_calls": 0,
+          "input_tokens": 421,
+          "output_tokens": 47,
+          "latency_ms": 0
+        },
+        "raw_outputs": [
+          "{\n  \"tasks\": [\n    {\n      \"task_id\": \"T001\",\n      \"agent\": \"research_agent\",\n      \"objective\": \"Investigate the incident and produce a sourced report\",\n      \"dependencies\": []\n    }\n  ]\n}"
+        ]
+      },
+      {
+        "run": 7,
+        "plan": {
+          "tasks": [
+            {
+              "task_id": "T001",
+              "agent": "research_agent",
+              "objective": "Investigate the incident and produce a sourced report",
+              "dependencies": []
+            }
+          ]
+        },
+        "error": null,
+        "metrics": {
+          "llm_calls": 1,
+          "tool_calls": 0,
+          "input_tokens": 421,
+          "output_tokens": 47,
+          "latency_ms": 0
+        },
+        "raw_outputs": [
+          "{\n  \"tasks\": [\n    {\n      \"task_id\": \"T001\",\n      \"agent\": \"research_agent\",\n      \"objective\": \"Investigate the incident and produce a sourced report\",\n      \"dependencies\": []\n    }\n  ]\n}"
+        ]
+      },
+      {
+        "run": 8,
+        "plan": {
+          "tasks": [
+            {
+              "task_id": "T001",
+              "agent": "research_agent",
+              "objective": "Investigate the incident and produce a sourced report",
+              "dependencies": []
+            }
+          ]
+        },
+        "error": null,
+        "metrics": {
+          "llm_calls": 1,
+          "tool_calls": 0,
+          "input_tokens": 421,
+          "output_tokens": 47,
+          "latency_ms": 0
+        },
+        "raw_outputs": [
+          "{\n  \"tasks\": [\n    {\n      \"task_id\": \"T001\",\n      \"agent\": \"research_agent\",\n      \"objective\": \"Investigate the incident and produce a sourced report\",\n      \"dependencies\": []\n    }\n  ]\n}"
+        ]
+      },
+      {
+        "run": 9,
+        "plan": {
+          "tasks": [
+            {
+              "task_id": "T001",
+              "agent": "research_agent",
+              "objective": "Investigate the incident and produce a sourced report",
+              "dependencies": []
+            }
+          ]
+        },
+        "error": null,
+        "metrics": {
+          "llm_calls": 1,
+          "tool_calls": 0,
+          "input_tokens": 421,
+          "output_tokens": 47,
+          "latency_ms": 0
+        },
+        "raw_outputs": [
+          "{\n  \"tasks\": [\n    {\n      \"task_id\": \"T001\",\n      \"agent\": \"research_agent\",\n      \"objective\": \"Investigate the incident and produce a sourced report\",\n      \"dependencies\": []\n    }\n  ]\n}"
+        ]
+      },
+      {
+        "run": 10,
+        "plan": {
+          "tasks": [
+            {
+              "task_id": "T001",
+              "agent": "research_agent",
+              "objective": "Investigate the incident and produce a sourced report",
+              "dependencies": []
+            }
+          ]
+        },
+        "error": null,
+        "metrics": {
+          "llm_calls": 1,
+          "tool_calls": 0,
+          "input_tokens": 421,
+          "output_tokens": 47,
+          "latency_ms": 0
+        },
+        "raw_outputs": [
+          "{\n  \"tasks\": [\n    {\n      \"task_id\": \"T001\",\n      \"agent\": \"research_agent\",\n      \"objective\": \"Investigate the incident and produce a sourced report\",\n      \"dependencies\": []\n    }\n  ]\n}"
+        ]
+      }
+    ]
+  },
+  "fixed_vs_react": {
+    "fixed": {
+      "version": "fixed",
+      "llm_calls": 0.0,
+      "tool_calls": 3.0,
+      "token_usage": 0.0,
+      "latency_ms": 0.526420003734529,
+      "answer_quality": 1.0,
+      "failure_rate": 0.0,
+      "error_count": 0,
+      "fallback_count": 0
+    },
+    "react": {
+      "version": "react",
+      "llm_calls": 2.4,
+      "tool_calls": 2.4,
+      "token_usage": 1549.0,
+      "latency_ms": 2769.253439991735,
+      "answer_quality": 1.0,
+      "failure_rate": 0.0,
+      "error_count": 0,
+      "fallback_count": 0
+    }
+  },
+  "single_vs_multi": [
+    {
+      "version": "single",
+      "llm_calls": 2.4,
+      "tool_calls": 2.4,
+      "token_usage": 1549.0,
+      "latency_ms": 2711.129119998077,
+      "answer_quality": 1.0,
+      "failure_rate": 0.0,
+      "error_count": 0,
+      "fallback_count": 0
+    },
+    {
+      "version": "multi",
+      "llm_calls": 3.8,
+      "tool_calls": 2.4,
+      "token_usage": 2220.4,
+      "latency_ms": 4623.40498000267,
+      "answer_quality": 1.0,
+      "failure_rate": 0.0,
+      "error_count": 0,
+      "fallback_count": 0
+    }
+  ],
+  "observations": {
+    "fixed": [
+      {
+        "id": "Q1",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "The Lambda timeout setting accepts values between 1 and 900 seconds. [1]\nAWS Lambda functions support a configurable timeout from 1 to 900 seconds. [2]",
+            "sources": [
+              {
+                "document_id": "web-lambda-timeout",
+                "source": "external/lambda-reference",
+                "quote": "The Lambda timeout setting accepts values between 1 and 900 seconds."
+              },
+              {
+                "document_id": "kb-lambda-timeout",
+                "source": "knowledge/lambda.md",
+                "quote": "AWS Lambda functions support a configurable timeout from 1 to 900 seconds."
+              }
+            ],
+            "confidence": 0.744
+          },
+          "steps": [
+            {
+              "index": 1,
+              "action": "rag_search",
+              "argument": "What is the Lambda timeout range?",
+              "reason": "fixed",
+              "observation_ids": [
+                "kb-lambda-timeout",
+                "kb-s3-access",
+                "kb-rds-storage",
+                "kb-ec2-ssh"
+              ],
+              "observation": ""
+            },
+            {
+              "index": 2,
+              "action": "search",
+              "argument": "What is the Lambda timeout range?",
+              "reason": "fixed",
+              "observation_ids": [
+                "web-lambda-timeout"
+              ],
+              "observation": ""
+            },
+            {
+              "index": 3,
+              "action": "read_document",
+              "argument": "kb-lambda-timeout",
+              "reason": "fixed",
+              "observation_ids": [
+                "kb-lambda-timeout"
+              ],
+              "observation": ""
+            }
+          ],
+          "stop_reason": "finished",
+          "metrics": {
+            "llm_calls": 0,
+            "tool_calls": 3,
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "latency_ms": 0.7587000145576894
+          }
+        },
+        "metrics": {
+          "llm_calls": 0,
+          "tool_calls": 3,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0.7587000145576894
+        },
+        "error": null
+      },
+      {
+        "id": "Q2",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "For S3 GetObject AccessDenied, check the IAM identity policy, bucket policy, object ownership, and any explicit deny. [1]",
+            "sources": [
+              {
+                "document_id": "kb-s3-access",
+                "source": "knowledge/s3.md",
+                "quote": "For S3 GetObject AccessDenied, check the IAM identity policy, bucket policy, object ownership, and any explicit deny."
+              }
+            ],
+            "confidence": 0.467
+          },
+          "steps": [
+            {
+              "index": 1,
+              "action": "rag_search",
+              "argument": "How do I troubleshoot S3 GetObject AccessDenied?",
+              "reason": "fixed",
+              "observation_ids": [
+                "kb-s3-access",
+                "kb-rds-storage",
+                "kb-ec2-ssh",
+                "kb-lambda-timeout"
+              ],
+              "observation": ""
+            },
+            {
+              "index": 2,
+              "action": "search",
+              "argument": "How do I troubleshoot S3 GetObject AccessDenied?",
+              "reason": "fixed",
+              "observation_ids": [],
+              "observation": ""
+            },
+            {
+              "index": 3,
+              "action": "read_document",
+              "argument": "kb-s3-access",
+              "reason": "fixed",
+              "observation_ids": [
+                "kb-s3-access"
+              ],
+              "observation": ""
+            }
+          ],
+          "stop_reason": "finished",
+          "metrics": {
+            "llm_calls": 0,
+            "tool_calls": 3,
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "latency_ms": 0.38460001815110445
+          }
+        },
+        "metrics": {
+          "llm_calls": 0,
+          "tool_calls": 3,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0.38460001815110445
+        },
+        "error": null
+      },
+      {
+        "id": "Q3",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "For an EC2 SSH timeout, verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path. [1]",
+            "sources": [
+              {
+                "document_id": "kb-ec2-ssh",
+                "source": "knowledge/ec2.md",
+                "quote": "For an EC2 SSH timeout, verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path."
+              }
+            ],
+            "confidence": 0.55
+          },
+          "steps": [
+            {
+              "index": 1,
+              "action": "rag_search",
+              "argument": "Why does EC2 SSH time out?",
+              "reason": "fixed",
+              "observation_ids": [
+                "kb-ec2-ssh",
+                "kb-lambda-timeout",
+                "kb-s3-access",
+                "kb-rds-storage"
+              ],
+              "observation": ""
+            },
+            {
+              "index": 2,
+              "action": "search",
+              "argument": "Why does EC2 SSH time out?",
+              "reason": "fixed",
+              "observation_ids": [],
+              "observation": ""
+            },
+            {
+              "index": 3,
+              "action": "read_document",
+              "argument": "kb-ec2-ssh",
+              "reason": "fixed",
+              "observation_ids": [
+                "kb-ec2-ssh"
+              ],
+              "observation": ""
+            }
+          ],
+          "stop_reason": "finished",
+          "metrics": {
+            "llm_calls": 0,
+            "tool_calls": 3,
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "latency_ms": 0.4414999857544899
+          }
+        },
+        "metrics": {
+          "llm_calls": 0,
+          "tool_calls": 3,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0.4414999857544899
+        },
+        "error": null
+      },
+      {
+        "id": "Q4",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits. [1]",
+            "sources": [
+              {
+                "document_id": "web-eks-crashloop",
+                "source": "external/eks-guide",
+                "quote": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits."
+              }
+            ],
+            "confidence": 0.433
+          },
+          "steps": [
+            {
+              "index": 1,
+              "action": "rag_search",
+              "argument": "How do I investigate EKS CrashLoopBackOff?",
+              "reason": "fixed",
+              "observation_ids": [
+                "kb-rds-storage",
+                "kb-lambda-timeout",
+                "kb-s3-access",
+                "kb-ec2-ssh"
+              ],
+              "observation": ""
+            },
+            {
+              "index": 2,
+              "action": "search",
+              "argument": "How do I investigate EKS CrashLoopBackOff?",
+              "reason": "fixed",
+              "observation_ids": [
+                "web-eks-crashloop"
+              ],
+              "observation": ""
+            },
+            {
+              "index": 3,
+              "action": "read_document",
+              "argument": "kb-rds-storage",
+              "reason": "fixed",
+              "observation_ids": [
+                "kb-rds-storage"
+              ],
+              "observation": ""
+            }
+          ],
+          "stop_reason": "finished",
+          "metrics": {
+            "llm_calls": 0,
+            "tool_calls": 3,
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "latency_ms": 0.460899987956509
+          }
+        },
+        "metrics": {
+          "llm_calls": 0,
+          "tool_calls": 3,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0.460899987956509
+        },
+        "error": null
+      },
+      {
+        "id": "Q5",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "没有找到足够证据。",
+            "sources": [],
+            "confidence": 0.0
+          },
+          "steps": [
+            {
+              "index": 1,
+              "action": "rag_search",
+              "argument": "What is the DynamoDB global table limit?",
+              "reason": "fixed",
+              "observation_ids": [
+                "kb-rds-storage",
+                "kb-ec2-ssh",
+                "kb-lambda-timeout",
+                "kb-s3-access"
+              ],
+              "observation": ""
+            },
+            {
+              "index": 2,
+              "action": "search",
+              "argument": "What is the DynamoDB global table limit?",
+              "reason": "fixed",
+              "observation_ids": [
+                "web-lambda-timeout"
+              ],
+              "observation": ""
+            },
+            {
+              "index": 3,
+              "action": "read_document",
+              "argument": "kb-rds-storage",
+              "reason": "fixed",
+              "observation_ids": [
+                "kb-rds-storage"
+              ],
+              "observation": ""
+            }
+          ],
+          "stop_reason": "no_evidence",
+          "metrics": {
+            "llm_calls": 0,
+            "tool_calls": 3,
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "latency_ms": 0.5864000122528523
+          }
+        },
+        "metrics": {
+          "llm_calls": 0,
+          "tool_calls": 3,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0.5864000122528523
+        },
+        "error": null
+      }
+    ],
+    "react": [
+      {
+        "id": "Q1",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "AWS Lambda functions support a configurable timeout from 1 to 900 seconds. [1]",
+            "sources": [
+              {
+                "document_id": "kb-lambda-timeout",
+                "source": "knowledge/lambda.md",
+                "quote": "AWS Lambda functions support a configurable timeout from 1 to 900 seconds."
+              }
+            ],
+            "confidence": 0.522
+          },
+          "steps": [
+            {
+              "index": 1,
+              "action": "rag_search",
+              "argument": "What is the Lambda timeout range?",
+              "reason": "Start with the internal knowledge base",
+              "observation_ids": [
+                "kb-lambda-timeout",
+                "kb-s3-access",
+                "kb-rds-storage",
+                "kb-ec2-ssh"
+              ],
+              "observation": ""
+            },
+            {
+              "index": 2,
+              "action": "read_document",
+              "argument": "kb-lambda-timeout",
+              "reason": "Promising result that needs detail",
+              "observation_ids": [
+                "kb-lambda-timeout"
+              ],
+              "observation": ""
+            }
+          ],
+          "stop_reason": "finished",
+          "metrics": {
+            "llm_calls": 2,
+            "tool_calls": 2,
+            "input_tokens": 1185,
+            "output_tokens": 58,
+            "latency_ms": 2406.566199992085
+          }
+        },
+        "metrics": {
+          "llm_calls": 2,
+          "tool_calls": 2,
+          "input_tokens": 1185,
+          "output_tokens": 58,
+          "latency_ms": 2406.566199992085
+        },
+        "error": null
+      },
+      {
+        "id": "Q2",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "For S3 GetObject AccessDenied, check the IAM identity policy, bucket policy, object ownership, and any explicit deny. [1]",
+            "sources": [
+              {
+                "document_id": "kb-s3-access",
+                "source": "knowledge/s3.md",
+                "quote": "For S3 GetObject AccessDenied, check the IAM identity policy, bucket policy, object ownership, and any explicit deny."
+              }
+            ],
+            "confidence": 0.467
+          },
+          "steps": [
+            {
+              "index": 1,
+              "action": "rag_search",
+              "argument": "How do I troubleshoot S3 GetObject AccessDenied?",
+              "reason": "Start with the internal knowledge base",
+              "observation_ids": [
+                "kb-s3-access",
+                "kb-rds-storage",
+                "kb-ec2-ssh",
+                "kb-lambda-timeout"
+              ],
+              "observation": ""
+            },
+            {
+              "index": 2,
+              "action": "read_document",
+              "argument": "kb-s3-access",
+              "reason": "Promising result that needs detail",
+              "observation_ids": [
+                "kb-s3-access"
+              ],
+              "observation": ""
+            }
+          ],
+          "stop_reason": "finished",
+          "metrics": {
+            "llm_calls": 2,
+            "tool_calls": 2,
+            "input_tokens": 1189,
+            "output_tokens": 58,
+            "latency_ms": 2285.545499995351
+          }
+        },
+        "metrics": {
+          "llm_calls": 2,
+          "tool_calls": 2,
+          "input_tokens": 1189,
+          "output_tokens": 58,
+          "latency_ms": 2285.545499995351
+        },
+        "error": null
+      },
+      {
+        "id": "Q3",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "For an EC2 SSH timeout, verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path. [1]",
+            "sources": [
+              {
+                "document_id": "kb-ec2-ssh",
+                "source": "knowledge/ec2.md",
+                "quote": "For an EC2 SSH timeout, verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path."
+              }
+            ],
+            "confidence": 0.55
+          },
+          "steps": [
+            {
+              "index": 1,
+              "action": "rag_search",
+              "argument": "Why does EC2 SSH time out?",
+              "reason": "Start with the internal knowledge base",
+              "observation_ids": [
+                "kb-ec2-ssh",
+                "kb-lambda-timeout",
+                "kb-s3-access",
+                "kb-rds-storage"
+              ],
+              "observation": ""
+            },
+            {
+              "index": 2,
+              "action": "read_document",
+              "argument": "kb-ec2-ssh",
+              "reason": "Promising result that needs detail",
+              "observation_ids": [
+                "kb-ec2-ssh"
+              ],
+              "observation": ""
+            }
+          ],
+          "stop_reason": "finished",
+          "metrics": {
+            "llm_calls": 2,
+            "tool_calls": 2,
+            "input_tokens": 1185,
+            "output_tokens": 58,
+            "latency_ms": 2296.1764999781735
+          }
+        },
+        "metrics": {
+          "llm_calls": 2,
+          "tool_calls": 2,
+          "input_tokens": 1185,
+          "output_tokens": 58,
+          "latency_ms": 2296.1764999781735
+        },
+        "error": null
+      },
+      {
+        "id": "Q4",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits. [1]",
+            "sources": [
+              {
+                "document_id": "web-eks-crashloop",
+                "source": "external/eks-guide",
+                "quote": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits."
+              }
+            ],
+            "confidence": 0.433
+          },
+          "steps": [
+            {
+              "index": 1,
+              "action": "rag_search",
+              "argument": "How do I investigate EKS CrashLoopBackOff?",
+              "reason": "Start with the internal knowledge base",
+              "observation_ids": [
+                "kb-rds-storage",
+                "kb-lambda-timeout",
+                "kb-s3-access",
+                "kb-ec2-ssh"
+              ],
+              "observation": ""
+            },
+            {
+              "index": 2,
+              "action": "read_document",
+              "argument": "kb-rds-storage",
+              "reason": "Promising result that needs detail",
+              "observation_ids": [
+                "kb-rds-storage"
+              ],
+              "observation": ""
+            },
+            {
+              "index": 3,
+              "action": "search",
+              "argument": "How do I investigate EKS CrashLoopBackOff?",
+              "reason": "Recovery: invalid/repeated action or insufficient evidence",
+              "observation_ids": [
+                "web-eks-crashloop"
+              ],
+              "observation": ""
+            }
+          ],
+          "stop_reason": "finished",
+          "metrics": {
+            "llm_calls": 3,
+            "tool_calls": 3,
+            "input_tokens": 1923,
+            "output_tokens": 87,
+            "latency_ms": 3444.2866000172216
+          }
+        },
+        "metrics": {
+          "llm_calls": 3,
+          "tool_calls": 3,
+          "input_tokens": 1923,
+          "output_tokens": 87,
+          "latency_ms": 3444.2866000172216
+        },
+        "error": null
+      },
+      {
+        "id": "Q5",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "没有找到足够证据。",
+            "sources": [],
+            "confidence": 0.0
+          },
+          "steps": [
+            {
+              "index": 1,
+              "action": "rag_search",
+              "argument": "What is the DynamoDB global table limit?",
+              "reason": "Start with the internal knowledge base",
+              "observation_ids": [
+                "kb-rds-storage",
+                "kb-ec2-ssh",
+                "kb-lambda-timeout",
+                "kb-s3-access"
+              ],
+              "observation": ""
+            },
+            {
+              "index": 2,
+              "action": "read_document",
+              "argument": "kb-rds-storage",
+              "reason": "Promising result that needs detail",
+              "observation_ids": [
+                "kb-rds-storage"
+              ],
+              "observation": ""
+            },
+            {
+              "index": 3,
+              "action": "search",
+              "argument": "What is the DynamoDB global table limit?",
+              "reason": "Recovery: invalid/repeated action or insufficient evidence",
+              "observation_ids": [
+                "web-lambda-timeout"
+              ],
+              "observation": ""
+            }
+          ],
+          "stop_reason": "no_evidence",
+          "metrics": {
+            "llm_calls": 3,
+            "tool_calls": 3,
+            "input_tokens": 1915,
+            "output_tokens": 87,
+            "latency_ms": 3413.6923999758437
+          }
+        },
+        "metrics": {
+          "llm_calls": 3,
+          "tool_calls": 3,
+          "input_tokens": 1915,
+          "output_tokens": 87,
+          "latency_ms": 3413.6923999758437
+        },
+        "error": null
+      }
+    ],
+    "single": [
+      {
+        "id": "Q1",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "AWS Lambda functions support a configurable timeout from 1 to 900 seconds. [1]",
+            "sources": [
+              {
+                "document_id": "kb-lambda-timeout",
+                "source": "knowledge/lambda.md",
+                "quote": "AWS Lambda functions support a configurable timeout from 1 to 900 seconds."
+              }
+            ],
+            "confidence": 0.522
+          },
+          "metrics": {
+            "llm_calls": 2,
+            "tool_calls": 2,
+            "input_tokens": 1185,
+            "output_tokens": 58,
+            "latency_ms": 2289.769199996954
+          },
+          "plan": null,
+          "research": {
+            "response": {
+              "answer": "AWS Lambda functions support a configurable timeout from 1 to 900 seconds. [1]",
+              "sources": [
+                {
+                  "document_id": "kb-lambda-timeout",
+                  "source": "knowledge/lambda.md",
+                  "quote": "AWS Lambda functions support a configurable timeout from 1 to 900 seconds."
+                }
+              ],
+              "confidence": 0.522
+            },
+            "steps": [
+              {
+                "index": 1,
+                "action": "rag_search",
+                "argument": "What is the Lambda timeout range?",
+                "reason": "Start with the internal knowledge base",
+                "observation_ids": [
+                  "kb-lambda-timeout",
+                  "kb-s3-access",
+                  "kb-rds-storage",
+                  "kb-ec2-ssh"
+                ],
+                "observation": ""
+              },
+              {
+                "index": 2,
+                "action": "read_document",
+                "argument": "kb-lambda-timeout",
+                "reason": "Promising result that needs detail",
+                "observation_ids": [
+                  "kb-lambda-timeout"
+                ],
+                "observation": ""
+              }
+            ],
+            "stop_reason": "finished",
+            "metrics": {
+              "llm_calls": 2,
+              "tool_calls": 2,
+              "input_tokens": 1185,
+              "output_tokens": 58,
+              "latency_ms": 2289.769199996954
+            }
+          },
+          "critic": null,
+          "executions": []
+        },
+        "metrics": {
+          "llm_calls": 2,
+          "tool_calls": 2,
+          "input_tokens": 1185,
+          "output_tokens": 58,
+          "latency_ms": 2289.769199996954
+        },
+        "error": null
+      },
+      {
+        "id": "Q2",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "For S3 GetObject AccessDenied, check the IAM identity policy, bucket policy, object ownership, and any explicit deny. [1]",
+            "sources": [
+              {
+                "document_id": "kb-s3-access",
+                "source": "knowledge/s3.md",
+                "quote": "For S3 GetObject AccessDenied, check the IAM identity policy, bucket policy, object ownership, and any explicit deny."
+              }
+            ],
+            "confidence": 0.467
+          },
+          "metrics": {
+            "llm_calls": 2,
+            "tool_calls": 2,
+            "input_tokens": 1189,
+            "output_tokens": 58,
+            "latency_ms": 2226.6306999954395
+          },
+          "plan": null,
+          "research": {
+            "response": {
+              "answer": "For S3 GetObject AccessDenied, check the IAM identity policy, bucket policy, object ownership, and any explicit deny. [1]",
+              "sources": [
+                {
+                  "document_id": "kb-s3-access",
+                  "source": "knowledge/s3.md",
+                  "quote": "For S3 GetObject AccessDenied, check the IAM identity policy, bucket policy, object ownership, and any explicit deny."
+                }
+              ],
+              "confidence": 0.467
+            },
+            "steps": [
+              {
+                "index": 1,
+                "action": "rag_search",
+                "argument": "How do I troubleshoot S3 GetObject AccessDenied?",
+                "reason": "Start with the internal knowledge base",
+                "observation_ids": [
+                  "kb-s3-access",
+                  "kb-rds-storage",
+                  "kb-ec2-ssh",
+                  "kb-lambda-timeout"
+                ],
+                "observation": ""
+              },
+              {
+                "index": 2,
+                "action": "read_document",
+                "argument": "kb-s3-access",
+                "reason": "Promising result that needs detail",
+                "observation_ids": [
+                  "kb-s3-access"
+                ],
+                "observation": ""
+              }
+            ],
+            "stop_reason": "finished",
+            "metrics": {
+              "llm_calls": 2,
+              "tool_calls": 2,
+              "input_tokens": 1189,
+              "output_tokens": 58,
+              "latency_ms": 2226.6306999954395
+            }
+          },
+          "critic": null,
+          "executions": []
+        },
+        "metrics": {
+          "llm_calls": 2,
+          "tool_calls": 2,
+          "input_tokens": 1189,
+          "output_tokens": 58,
+          "latency_ms": 2226.6306999954395
+        },
+        "error": null
+      },
+      {
+        "id": "Q3",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "For an EC2 SSH timeout, verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path. [1]",
+            "sources": [
+              {
+                "document_id": "kb-ec2-ssh",
+                "source": "knowledge/ec2.md",
+                "quote": "For an EC2 SSH timeout, verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path."
+              }
+            ],
+            "confidence": 0.55
+          },
+          "metrics": {
+            "llm_calls": 2,
+            "tool_calls": 2,
+            "input_tokens": 1185,
+            "output_tokens": 58,
+            "latency_ms": 2258.020600012969
+          },
+          "plan": null,
+          "research": {
+            "response": {
+              "answer": "For an EC2 SSH timeout, verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path. [1]",
+              "sources": [
+                {
+                  "document_id": "kb-ec2-ssh",
+                  "source": "knowledge/ec2.md",
+                  "quote": "For an EC2 SSH timeout, verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path."
+                }
+              ],
+              "confidence": 0.55
+            },
+            "steps": [
+              {
+                "index": 1,
+                "action": "rag_search",
+                "argument": "Why does EC2 SSH time out?",
+                "reason": "Start with the internal knowledge base",
+                "observation_ids": [
+                  "kb-ec2-ssh",
+                  "kb-lambda-timeout",
+                  "kb-s3-access",
+                  "kb-rds-storage"
+                ],
+                "observation": ""
+              },
+              {
+                "index": 2,
+                "action": "read_document",
+                "argument": "kb-ec2-ssh",
+                "reason": "Promising result that needs detail",
+                "observation_ids": [
+                  "kb-ec2-ssh"
+                ],
+                "observation": ""
+              }
+            ],
+            "stop_reason": "finished",
+            "metrics": {
+              "llm_calls": 2,
+              "tool_calls": 2,
+              "input_tokens": 1185,
+              "output_tokens": 58,
+              "latency_ms": 2258.020600012969
+            }
+          },
+          "critic": null,
+          "executions": []
+        },
+        "metrics": {
+          "llm_calls": 2,
+          "tool_calls": 2,
+          "input_tokens": 1185,
+          "output_tokens": 58,
+          "latency_ms": 2258.020600012969
+        },
+        "error": null
+      },
+      {
+        "id": "Q4",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits. [1]",
+            "sources": [
+              {
+                "document_id": "web-eks-crashloop",
+                "source": "external/eks-guide",
+                "quote": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits."
+              }
+            ],
+            "confidence": 0.433
+          },
+          "metrics": {
+            "llm_calls": 3,
+            "tool_calls": 3,
+            "input_tokens": 1923,
+            "output_tokens": 87,
+            "latency_ms": 3371.2228999938816
+          },
+          "plan": null,
+          "research": {
+            "response": {
+              "answer": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits. [1]",
+              "sources": [
+                {
+                  "document_id": "web-eks-crashloop",
+                  "source": "external/eks-guide",
+                  "quote": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits."
+                }
+              ],
+              "confidence": 0.433
+            },
+            "steps": [
+              {
+                "index": 1,
+                "action": "rag_search",
+                "argument": "How do I investigate EKS CrashLoopBackOff?",
+                "reason": "Start with the internal knowledge base",
+                "observation_ids": [
+                  "kb-rds-storage",
+                  "kb-lambda-timeout",
+                  "kb-s3-access",
+                  "kb-ec2-ssh"
+                ],
+                "observation": ""
+              },
+              {
+                "index": 2,
+                "action": "read_document",
+                "argument": "kb-rds-storage",
+                "reason": "Promising result that needs detail",
+                "observation_ids": [
+                  "kb-rds-storage"
+                ],
+                "observation": ""
+              },
+              {
+                "index": 3,
+                "action": "search",
+                "argument": "How do I investigate EKS CrashLoopBackOff?",
+                "reason": "Recovery: invalid/repeated action or insufficient evidence",
+                "observation_ids": [
+                  "web-eks-crashloop"
+                ],
+                "observation": ""
+              }
+            ],
+            "stop_reason": "finished",
+            "metrics": {
+              "llm_calls": 3,
+              "tool_calls": 3,
+              "input_tokens": 1923,
+              "output_tokens": 87,
+              "latency_ms": 3371.2228999938816
+            }
+          },
+          "critic": null,
+          "executions": []
+        },
+        "metrics": {
+          "llm_calls": 3,
+          "tool_calls": 3,
+          "input_tokens": 1923,
+          "output_tokens": 87,
+          "latency_ms": 3371.2228999938816
+        },
+        "error": null
+      },
+      {
+        "id": "Q5",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "没有找到足够证据。",
+            "sources": [],
+            "confidence": 0.0
+          },
+          "metrics": {
+            "llm_calls": 3,
+            "tool_calls": 3,
+            "input_tokens": 1915,
+            "output_tokens": 87,
+            "latency_ms": 3410.0021999911405
+          },
+          "plan": null,
+          "research": {
+            "response": {
+              "answer": "没有找到足够证据。",
+              "sources": [],
+              "confidence": 0.0
+            },
+            "steps": [
+              {
+                "index": 1,
+                "action": "rag_search",
+                "argument": "What is the DynamoDB global table limit?",
+                "reason": "Start with the internal knowledge base",
+                "observation_ids": [
+                  "kb-rds-storage",
+                  "kb-ec2-ssh",
+                  "kb-lambda-timeout",
+                  "kb-s3-access"
+                ],
+                "observation": ""
+              },
+              {
+                "index": 2,
+                "action": "read_document",
+                "argument": "kb-rds-storage",
+                "reason": "Promising result that needs detail",
+                "observation_ids": [
+                  "kb-rds-storage"
+                ],
+                "observation": ""
+              },
+              {
+                "index": 3,
+                "action": "search",
+                "argument": "What is the DynamoDB global table limit?",
+                "reason": "Recovery: invalid/repeated action or insufficient evidence",
+                "observation_ids": [
+                  "web-lambda-timeout"
+                ],
+                "observation": ""
+              }
+            ],
+            "stop_reason": "no_evidence",
+            "metrics": {
+              "llm_calls": 3,
+              "tool_calls": 3,
+              "input_tokens": 1915,
+              "output_tokens": 87,
+              "latency_ms": 3410.0021999911405
+            }
+          },
+          "critic": null,
+          "executions": []
+        },
+        "metrics": {
+          "llm_calls": 3,
+          "tool_calls": 3,
+          "input_tokens": 1915,
+          "output_tokens": 87,
+          "latency_ms": 3410.0021999911405
+        },
+        "error": null
+      }
+    ],
+    "multi": [
+      {
+        "id": "Q1",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "AWS Lambda functions support a configurable timeout from 1 to 900 seconds. [1]",
+            "sources": [
+              {
+                "document_id": "kb-lambda-timeout",
+                "source": "knowledge/lambda.md",
+                "quote": "AWS Lambda functions support a configurable timeout from 1 to 900 seconds."
+              }
+            ],
+            "confidence": 0.522
+          },
+          "metrics": {
+            "llm_calls": 3,
+            "tool_calls": 2,
+            "input_tokens": 1619,
+            "output_tokens": 104,
+            "latency_ms": 3515.3988000238314
+          },
+          "plan": {
+            "tasks": [
+              {
+                "task_id": "T001",
+                "agent": "research_agent",
+                "objective": "What is the Lambda timeout range?",
+                "dependencies": []
+              }
+            ]
+          },
+          "research": {
+            "response": {
+              "answer": "AWS Lambda functions support a configurable timeout from 1 to 900 seconds. [1]",
+              "sources": [
+                {
+                  "document_id": "kb-lambda-timeout",
+                  "source": "knowledge/lambda.md",
+                  "quote": "AWS Lambda functions support a configurable timeout from 1 to 900 seconds."
+                }
+              ],
+              "confidence": 0.522
+            },
+            "steps": [
+              {
+                "index": 1,
+                "action": "rag_search",
+                "argument": "What is the Lambda timeout range?",
+                "reason": "Start with the internal knowledge base",
+                "observation_ids": [
+                  "kb-lambda-timeout",
+                  "kb-s3-access",
+                  "kb-rds-storage",
+                  "kb-ec2-ssh"
+                ],
+                "observation": ""
+              },
+              {
+                "index": 2,
+                "action": "read_document",
+                "argument": "kb-lambda-timeout",
+                "reason": "Promising result that needs detail",
+                "observation_ids": [
+                  "kb-lambda-timeout"
+                ],
+                "observation": ""
+              }
+            ],
+            "stop_reason": "finished",
+            "metrics": {
+              "llm_calls": 2,
+              "tool_calls": 2,
+              "input_tokens": 1199,
+              "output_tokens": 58,
+              "latency_ms": 2346.682899980806
+            }
+          },
+          "critic": null,
+          "executions": [
+            {
+              "task_id": "T001",
+              "agent": "research_agent",
+              "objective": "What is the Lambda timeout range?",
+              "dependencies": [],
+              "response": {
+                "answer": "AWS Lambda functions support a configurable timeout from 1 to 900 seconds. [1]",
+                "sources": [
+                  {
+                    "document_id": "kb-lambda-timeout",
+                    "source": "knowledge/lambda.md",
+                    "quote": "AWS Lambda functions support a configurable timeout from 1 to 900 seconds."
+                  }
+                ],
+                "confidence": 0.522
+              },
+              "status": "completed",
+              "detail": ""
+            }
+          ]
+        },
+        "metrics": {
+          "llm_calls": 3,
+          "tool_calls": 2,
+          "input_tokens": 1619,
+          "output_tokens": 104,
+          "latency_ms": 3515.3988000238314
+        },
+        "error": null
+      },
+      {
+        "id": "Q2",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "For S3 GetObject AccessDenied, check the IAM identity policy, bucket policy, object ownership, and any explicit deny. [1]",
+            "sources": [
+              {
+                "document_id": "kb-s3-access",
+                "source": "knowledge/s3.md",
+                "quote": "For S3 GetObject AccessDenied, check the IAM identity policy, bucket policy, object ownership, and any explicit deny."
+              }
+            ],
+            "confidence": 0.467
+          },
+          "metrics": {
+            "llm_calls": 3,
+            "tool_calls": 2,
+            "input_tokens": 1626,
+            "output_tokens": 105,
+            "latency_ms": 3524.2394999950193
+          },
+          "plan": {
+            "tasks": [
+              {
+                "task_id": "T001",
+                "agent": "research_agent",
+                "objective": "How do I troubleshoot S3 GetObject AccessDenied?",
+                "dependencies": []
+              }
+            ]
+          },
+          "research": {
+            "response": {
+              "answer": "For S3 GetObject AccessDenied, check the IAM identity policy, bucket policy, object ownership, and any explicit deny. [1]",
+              "sources": [
+                {
+                  "document_id": "kb-s3-access",
+                  "source": "knowledge/s3.md",
+                  "quote": "For S3 GetObject AccessDenied, check the IAM identity policy, bucket policy, object ownership, and any explicit deny."
+                }
+              ],
+              "confidence": 0.467
+            },
+            "steps": [
+              {
+                "index": 1,
+                "action": "rag_search",
+                "argument": "How do I troubleshoot S3 GetObject AccessDenied?",
+                "reason": "Start with the internal knowledge base",
+                "observation_ids": [
+                  "kb-s3-access",
+                  "kb-rds-storage",
+                  "kb-ec2-ssh",
+                  "kb-lambda-timeout"
+                ],
+                "observation": ""
+              },
+              {
+                "index": 2,
+                "action": "read_document",
+                "argument": "kb-s3-access",
+                "reason": "Promising result that needs detail",
+                "observation_ids": [
+                  "kb-s3-access"
+                ],
+                "observation": ""
+              }
+            ],
+            "stop_reason": "finished",
+            "metrics": {
+              "llm_calls": 2,
+              "tool_calls": 2,
+              "input_tokens": 1205,
+              "output_tokens": 58,
+              "latency_ms": 2280.0097000144888
+            }
+          },
+          "critic": null,
+          "executions": [
+            {
+              "task_id": "T001",
+              "agent": "research_agent",
+              "objective": "How do I troubleshoot S3 GetObject AccessDenied?",
+              "dependencies": [],
+              "response": {
+                "answer": "For S3 GetObject AccessDenied, check the IAM identity policy, bucket policy, object ownership, and any explicit deny. [1]",
+                "sources": [
+                  {
+                    "document_id": "kb-s3-access",
+                    "source": "knowledge/s3.md",
+                    "quote": "For S3 GetObject AccessDenied, check the IAM identity policy, bucket policy, object ownership, and any explicit deny."
+                  }
+                ],
+                "confidence": 0.467
+              },
+              "status": "completed",
+              "detail": ""
+            }
+          ]
+        },
+        "metrics": {
+          "llm_calls": 3,
+          "tool_calls": 2,
+          "input_tokens": 1626,
+          "output_tokens": 105,
+          "latency_ms": 3524.2394999950193
+        },
+        "error": null
+      },
+      {
+        "id": "Q3",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "Verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path. [1]",
+            "sources": [
+              {
+                "document_id": "kb-ec2-ssh",
+                "source": "knowledge/ec2.md",
+                "quote": "For an EC2 SSH timeout, verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path."
+              }
+            ],
+            "confidence": 0.55
+          },
+          "metrics": {
+            "llm_calls": 5,
+            "tool_calls": 2,
+            "input_tokens": 2371,
+            "output_tokens": 286,
+            "latency_ms": 6779.749399982393
+          },
+          "plan": {
+            "tasks": [
+              {
+                "task_id": "T001",
+                "agent": "research_agent",
+                "objective": "Why does EC2 SSH time out?",
+                "dependencies": []
+              },
+              {
+                "task_id": "T002",
+                "agent": "data_analyst",
+                "objective": "Research on EC2 SSH timeout",
+                "dependencies": [
+                  "T001"
+                ]
+              },
+              {
+                "task_id": "T003",
+                "agent": "diagnosis_agent",
+                "objective": "Diagnose EC2 SSH timeout",
+                "dependencies": [
+                  "T002"
+                ]
+              },
+              {
+                "task_id": "T004",
+                "agent": "report_writer",
+                "objective": "Compose final answer on EC2 SSH timeout",
+                "dependencies": [
+                  "T003"
+                ]
+              }
+            ]
+          },
+          "research": {
+            "response": {
+              "answer": "For an EC2 SSH timeout, verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path. [1]",
+              "sources": [
+                {
+                  "document_id": "kb-ec2-ssh",
+                  "source": "knowledge/ec2.md",
+                  "quote": "For an EC2 SSH timeout, verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path."
+                }
+              ],
+              "confidence": 0.55
+            },
+            "steps": [
+              {
+                "index": 1,
+                "action": "rag_search",
+                "argument": "Why does EC2 SSH time out?",
+                "reason": "Start with the internal knowledge base",
+                "observation_ids": [
+                  "kb-ec2-ssh",
+                  "kb-lambda-timeout",
+                  "kb-s3-access",
+                  "kb-rds-storage"
+                ],
+                "observation": ""
+              },
+              {
+                "index": 2,
+                "action": "read_document",
+                "argument": "kb-ec2-ssh",
+                "reason": "Promising result that needs detail",
+                "observation_ids": [
+                  "kb-ec2-ssh"
+                ],
+                "observation": ""
+              }
+            ],
+            "stop_reason": "finished",
+            "metrics": {
+              "llm_calls": 2,
+              "tool_calls": 2,
+              "input_tokens": 1199,
+              "output_tokens": 58,
+              "latency_ms": 2310.3474999952596
+            }
+          },
+          "critic": {
+            "final_diagnosis": "Verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path. [1]",
+            "passed": true,
+            "retries": 0,
+            "attempts": [
+              {
+                "attempt": 1,
+                "diagnosis": "Verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path. [1]",
+                "critique": {
+                  "passed": true,
+                  "score": 1.0,
+                  "issues": []
+                },
+                "resolved_previous_issues": []
+              }
+            ],
+            "metrics": {
+              "llm_calls": 2,
+              "tool_calls": 0,
+              "input_tokens": 752,
+              "output_tokens": 61,
+              "latency_ms": 2110.7331000093836
+            }
+          },
+          "executions": [
+            {
+              "task_id": "T001",
+              "agent": "research_agent",
+              "objective": "Why does EC2 SSH time out?",
+              "dependencies": [],
+              "response": {
+                "answer": "For an EC2 SSH timeout, verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path. [1]",
+                "sources": [
+                  {
+                    "document_id": "kb-ec2-ssh",
+                    "source": "knowledge/ec2.md",
+                    "quote": "For an EC2 SSH timeout, verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path."
+                  }
+                ],
+                "confidence": 0.55
+              },
+              "status": "completed",
+              "detail": ""
+            },
+            {
+              "task_id": "T002",
+              "agent": "data_analyst",
+              "objective": "Research on EC2 SSH timeout",
+              "dependencies": [
+                "T001"
+              ],
+              "response": {
+                "answer": "For an EC2 SSH timeout, verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path. [1]",
+                "sources": [
+                  {
+                    "document_id": "kb-ec2-ssh",
+                    "source": "knowledge/ec2.md",
+                    "quote": "For an EC2 SSH timeout, verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path."
+                  }
+                ],
+                "confidence": 0.55
+              },
+              "status": "completed",
+              "detail": "Evidence analysis: Research on EC2 SSH timeout"
+            },
+            {
+              "task_id": "T003",
+              "agent": "diagnosis_agent",
+              "objective": "Diagnose EC2 SSH timeout",
+              "dependencies": [
+                "T002"
+              ],
+              "response": {
+                "answer": "Verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path. [1]",
+                "sources": [
+                  {
+                    "document_id": "kb-ec2-ssh",
+                    "source": "knowledge/ec2.md",
+                    "quote": "For an EC2 SSH timeout, verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path."
+                  }
+                ],
+                "confidence": 0.55
+              },
+              "status": "completed",
+              "detail": "Verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path. [1]"
+            },
+            {
+              "task_id": "T004",
+              "agent": "report_writer",
+              "objective": "Compose final answer on EC2 SSH timeout",
+              "dependencies": [
+                "T003"
+              ],
+              "response": {
+                "answer": "Verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path. [1]",
+                "sources": [
+                  {
+                    "document_id": "kb-ec2-ssh",
+                    "source": "knowledge/ec2.md",
+                    "quote": "For an EC2 SSH timeout, verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path."
+                  }
+                ],
+                "confidence": 0.55
+              },
+              "status": "completed",
+              "detail": "Evidence-backed report: Compose final answer on EC2 SSH timeout"
+            }
+          ]
+        },
+        "metrics": {
+          "llm_calls": 5,
+          "tool_calls": 2,
+          "input_tokens": 2371,
+          "output_tokens": 286,
+          "latency_ms": 6779.749399982393
+        },
+        "error": null
+      },
+      {
+        "id": "Q4",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits. [1]",
+            "sources": [
+              {
+                "document_id": "web-eks-crashloop",
+                "source": "external/eks-guide",
+                "quote": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits."
+              }
+            ],
+            "confidence": 0.433
+          },
+          "metrics": {
+            "llm_calls": 4,
+            "tool_calls": 3,
+            "input_tokens": 2364,
+            "output_tokens": 133,
+            "latency_ms": 4668.6874000006355
+          },
+          "plan": {
+            "tasks": [
+              {
+                "task_id": "T001",
+                "agent": "research_agent",
+                "objective": "How do I investigate EKS CrashLoopBackOff?",
+                "dependencies": []
+              }
+            ]
+          },
+          "research": {
+            "response": {
+              "answer": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits. [1]",
+              "sources": [
+                {
+                  "document_id": "web-eks-crashloop",
+                  "source": "external/eks-guide",
+                  "quote": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits."
+                }
+              ],
+              "confidence": 0.433
+            },
+            "steps": [
+              {
+                "index": 1,
+                "action": "rag_search",
+                "argument": "How do I investigate EKS CrashLoopBackOff?",
+                "reason": "Start with the internal knowledge base",
+                "observation_ids": [
+                  "kb-rds-storage",
+                  "kb-lambda-timeout",
+                  "kb-s3-access",
+                  "kb-ec2-ssh"
+                ],
+                "observation": ""
+              },
+              {
+                "index": 2,
+                "action": "read_document",
+                "argument": "kb-rds-storage",
+                "reason": "Promising result that needs detail",
+                "observation_ids": [
+                  "kb-rds-storage"
+                ],
+                "observation": ""
+              },
+              {
+                "index": 3,
+                "action": "search",
+                "argument": "How do I investigate EKS CrashLoopBackOff?",
+                "reason": "Recovery: invalid/repeated action or insufficient evidence",
+                "observation_ids": [
+                  "web-eks-crashloop"
+                ],
+                "observation": ""
+              }
+            ],
+            "stop_reason": "finished",
+            "metrics": {
+              "llm_calls": 3,
+              "tool_calls": 3,
+              "input_tokens": 1944,
+              "output_tokens": 87,
+              "latency_ms": 3473.76950000762
+            }
+          },
+          "critic": null,
+          "executions": [
+            {
+              "task_id": "T001",
+              "agent": "research_agent",
+              "objective": "How do I investigate EKS CrashLoopBackOff?",
+              "dependencies": [],
+              "response": {
+                "answer": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits. [1]",
+                "sources": [
+                  {
+                    "document_id": "web-eks-crashloop",
+                    "source": "external/eks-guide",
+                    "quote": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits."
+                  }
+                ],
+                "confidence": 0.433
+              },
+              "status": "completed",
+              "detail": ""
+            }
+          ]
+        },
+        "metrics": {
+          "llm_calls": 4,
+          "tool_calls": 3,
+          "input_tokens": 2364,
+          "output_tokens": 133,
+          "latency_ms": 4668.6874000006355
+        },
+        "error": null
+      },
+      {
+        "id": "Q5",
+        "quality": 1.0,
+        "run": {
+          "response": {
+            "answer": "没有找到足够证据。",
+            "sources": [],
+            "confidence": 0.0
+          },
+          "metrics": {
+            "llm_calls": 4,
+            "tool_calls": 3,
+            "input_tokens": 2360,
+            "output_tokens": 134,
+            "latency_ms": 4628.949800011469
+          },
+          "plan": {
+            "tasks": [
+              {
+                "task_id": "T001",
+                "agent": "research_agent",
+                "objective": "What is the DynamoDB global table limit?",
+                "dependencies": []
+              }
+            ]
+          },
+          "research": {
+            "response": {
+              "answer": "没有找到足够证据。",
+              "sources": [],
+              "confidence": 0.0
+            },
+            "steps": [
+              {
+                "index": 1,
+                "action": "rag_search",
+                "argument": "What is the DynamoDB global table limit?",
+                "reason": "Start with the internal knowledge base",
+                "observation_ids": [
+                  "kb-rds-storage",
+                  "kb-ec2-ssh",
+                  "kb-lambda-timeout",
+                  "kb-s3-access"
+                ],
+                "observation": ""
+              },
+              {
+                "index": 2,
+                "action": "read_document",
+                "argument": "kb-rds-storage",
+                "reason": "Promising result that needs detail",
+                "observation_ids": [
+                  "kb-rds-storage"
+                ],
+                "observation": ""
+              },
+              {
+                "index": 3,
+                "action": "search",
+                "argument": "What is the DynamoDB global table limit?",
+                "reason": "Recovery: invalid/repeated action or insufficient evidence",
+                "observation_ids": [
+                  "web-lambda-timeout"
+                ],
+                "observation": ""
+              }
+            ],
+            "stop_reason": "no_evidence",
+            "metrics": {
+              "llm_calls": 3,
+              "tool_calls": 3,
+              "input_tokens": 1939,
+              "output_tokens": 87,
+              "latency_ms": 3404.900399997132
+            }
+          },
+          "critic": null,
+          "executions": [
+            {
+              "task_id": "T001",
+              "agent": "research_agent",
+              "objective": "What is the DynamoDB global table limit?",
+              "dependencies": [],
+              "response": {
+                "answer": "没有找到足够证据。",
+                "sources": [],
+                "confidence": 0.0
+              },
+              "status": "refused",
+              "detail": ""
+            }
+          ]
+        },
+        "metrics": {
+          "llm_calls": 4,
+          "tool_calls": 3,
+          "input_tokens": 2360,
+          "output_tokens": 134,
+          "latency_ms": 4628.949800011469
+        },
+        "error": null
+      }
+    ]
+  },
+  "critic_attempt_log": [
+    {
+      "attempt": 1,
+      "diagnosis": "Verify the instance state, security group port 22, subnet route table, network ACL, and public IP or bastion path. [1]",
+      "critique": {
+        "passed": true,
+        "score": 1.0,
+        "issues": []
+      },
+      "resolved_previous_issues": []
+    }
+  ],
+  "error_count": 0
+}

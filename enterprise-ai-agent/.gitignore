@@ -1,0 +1,15 @@
+.venv/
+.agent_data/
+.test_tmp/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.env
+dist/
+build/
+*.egg-info/
+data/techqa/raw/
+data/techqa/extracted/
+data/techqa/state/

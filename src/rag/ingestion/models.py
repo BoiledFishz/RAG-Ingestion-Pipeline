@@ -42,3 +42,12 @@ class IngestionStats:
     chunks_skipped: int = 0
     chunks_upserted: int = 0
     warnings: list[str] = field(default_factory=list)
+
+    @property
+    def succeeded(self) -> bool:
+        """Every parsed chunk must be stored or accounted for by hash deduplication."""
+        return (
+            self.files_succeeded > 0
+            and self.chunks_created > 0
+            and self.chunks_created == self.chunks_skipped + self.chunks_upserted
+        )

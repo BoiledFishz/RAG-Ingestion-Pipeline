@@ -15,18 +15,34 @@ from pathlib import Path
 
 from rag.ingestion.chunking import RecursiveChunker
 from rag.ingestion.pipeline import IngestionPipeline
-from rag.ingestion.providers import ExtractiveSummaryProvider, HashEmbeddingProvider
+from rag.ingestion.providers import (
+    EmbeddingProvider,
+    ExtractiveSummaryProvider,
+    HashEmbeddingProvider,
+    OllamaEmbeddingProvider,
+)
 from rag.ingestion.utils import DocumentParser
 from rag.ingestion.vector_store import QdrantVectorStore, VectorRecord
 from rag.retrieval.contracts import RetrievalMode, SearchResult
 from rag.retrieval.dense import DenseRetriever
 from rag.retrieval.filters import FilterPolicy
 from rag.retrieval.pipeline import RetrievalConfig, RetrievalPipeline
-from rag.retrieval.reranker import LexicalReranker
+from rag.retrieval.relevance import query_coverage
+from rag.retrieval.reranker import BaseReranker, LexicalReranker
 from rag.retrieval.sparse import BM25Retriever
+from rag.settings import load_environment
 
 LOGGER = logging.getLogger(__name__)
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
+
+
+class UnavailableReranker(BaseReranker):
+    """Inject an outage to evaluate the production fallback ordering and gate."""
+
+    async def rerank(
+        self, query: str, candidates: list[SearchResult], *, limit: int,
+    ) -> list[SearchResult]:
+        raise TimeoutError("Benchmark injected reranker outage")
 
 
 @dataclass(frozen=True, slots=True)
@@ -260,11 +276,13 @@ async def _evaluate_mode(
     use_reranker: bool,
     reference_chunk_ids: dict[str, frozenset[str]],
     production_final_k: int,
+    fallback: bool = False,
 ) -> ModeMetrics:
     pipeline = RetrievalPipeline(
         dense=dense,
         sparse=sparse,
-        reranker=LexicalReranker() if use_reranker else None,
+        reranker=(UnavailableReranker() if fallback else LexicalReranker())
+        if use_reranker else None,
         config=config,
         filter_policy=dense.filter_policy,
     )
@@ -278,6 +296,11 @@ async def _evaluate_mode(
         )
         latency_ms = (time.perf_counter() - started) * 1_000
         top_score = _score(outcome.results[0]) if outcome.results else None
+        if fallback:
+            top_score = max(
+                (query_coverage(row.question, item)
+                 for item in outcome.results[:production_final_k]), default=None,
+            )
         observations.append(
             Observation(
                 row=row,
@@ -315,7 +338,12 @@ async def async_run(arguments: argparse.Namespace) -> int:
         path=arguments.database,
         collection_name=arguments.collection,
     )
-    embedder = HashEmbeddingProvider()
+    embedder: EmbeddingProvider = (
+        OllamaEmbeddingProvider(
+            model=os.getenv("EMBEDDING_MODEL", "nomic-embed-text"),
+            base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
+        ) if arguments.embedding_provider == "ollama" else HashEmbeddingProvider()
+    )
     parser = DocumentParser(
         tesseract_cmd=os.getenv("TESSERACT_CMD") or None,
         ocr_languages=os.getenv("OCR_LANGUAGES", "eng"),
@@ -331,7 +359,9 @@ async def async_run(arguments: argparse.Namespace) -> int:
         store=store,
     )
     try:
-        await ingestion.run(arguments.data_dir)
+        stats = await ingestion.run(arguments.data_dir)
+        if not stats.succeeded:
+            raise RuntimeError("Benchmark ingestion did not persist all parsed chunks")
         reference_chunk_ids = _build_reference_chunk_index(
             rows,
             await store.list_records(),
@@ -377,6 +407,13 @@ async def async_run(arguments: argparse.Namespace) -> int:
             )
             for label, mode, use_reranker in specifications
         ]
+        if arguments.include_fallback:
+            results.append(await _evaluate_mode(
+                label="hybrid+rerank-outage", mode="hybrid", rows=rows,
+                dense=dense, sparse=sparse, config=config, use_reranker=True,
+                reference_chunk_ids=reference_chunk_ids,
+                production_final_k=arguments.final_k, fallback=True,
+            ))
         arguments.output.parent.mkdir(parents=True, exist_ok=True)
         arguments.output.write_text(
             json.dumps([asdict(result) for result in results], indent=2) + "\n",
@@ -417,11 +454,14 @@ def build_argument_parser() -> argparse.ArgumentParser:
     parser.add_argument("--rerank-k", type=int, default=20)
     parser.add_argument("--final-k", type=int, default=5)
     parser.add_argument("--rrf-rank-constant", type=int, default=60)
+    parser.add_argument("--embedding-provider", choices=("hash", "ollama"), default="hash")
+    parser.add_argument("--include-fallback", action="store_true")
     parser.add_argument("--log-level", default="INFO")
     return parser
 
 
 def run(argv: Sequence[str] | None = None) -> int:
+    load_environment()
     arguments = build_argument_parser().parse_args(argv)
     logging.basicConfig(
         level=getattr(logging, str(arguments.log_level).upper(), logging.INFO),

@@ -7,6 +7,9 @@
 > `data/sample` 是可公开复现的合成 AWS 支持文档，不是 AWS 官方文档。生产环境应替换为
 > 经批准的数据源。
 
+2026-09-30 修复与真实流程复验见 [复验报告](audit/2026-09-29/remediation.md)。
+三个项目统一测试：`python scripts/test_all.py`。
+
 ## 架构
 
 ```mermaid
@@ -103,6 +106,10 @@ Query、Chunk 正文与 `context_summary` 精排出 `rerank_k=20`。超时或异
 RRF/Dense 原排序；候选为空时不会加载模型或调用 Reranker。结果同时保留 `retrieval_rank`、
 `retrieval_score`、`rerank_rank` 和 `rerank_score`。
 
+重排失败后保留原排序，相关性门控改用去停用词后的 Query 词项覆盖率（正文 + 摘要），
+不再拿 RRF/BM25/Cosine 分数与 Reranker 阈值比较。
+`FALLBACK_QUERY_COVERAGE_THRESHOLD=0.183333` 来自本次 15 题故障注入校准；新语料需要重校准。
+
 启用本地 Cross-encoder：
 
 ```powershell
@@ -134,15 +141,25 @@ cp .env.example .env
 python main.py data/sample
 ```
 
+CLI 和 API 会自动读取根目录 `.env`，已设置的进程环境变量优先。在 Windows 可运行
+`./scripts/start-local.ps1` 检查并准备两个 Ollama 模型；加 `-FullTechQA` 会复用并启动
+Enterprise 的 Qdrant 容器。根流水线默认使用嵌入式 Qdrant，无需 Docker。
+推荐完整混合格式验收：`python main.py data/aws_support_test_corpus/data`。
+本次实跑写入 28 个 Chunk，重复运行全部跳过；损坏 PDF 和空文件记录 WARNING 后继续。
+Embedding/写入缺失或所有文件无可用文本时 CLI 返回非零，已处理的正常文件不回滚。
+
 离线/CI 冒烟运行可使用确定性的特征哈希向量和抽取式摘要；它用于复现测试，不建议替代生产
 语义模型：
 
 ```bash
-python main.py data/sample --summary-provider extractive --embedding-provider hash
+python main.py data/sample --summary-provider extractive --embedding-provider hash --collection aws_support_hash
 ```
 
 常用环境变量见 [.env.example](.env.example)。若使用远程 Qdrant，可直接实例化
 `QdrantVectorStore(url=..., api_key=...)`；默认使用 `.rag_data/qdrant` 本地持久化模式。
+Hash 的 384 维与 nomic 的 768 维必须用不同 collection；默认语义库为 `aws_support_nomic`。
+本地 Qdrant 同一路径只能由一个进程打开，先结束导入/评测，再启动 API。
+摘要长度为软目标，不截断完整句子；模型因 token 上限中断时走带标记的抽取式兜底。
 
 ### 启动查询 API
 
@@ -150,7 +167,7 @@ python main.py data/sample --summary-provider extractive --embedding-provider ha
 
 ```powershell
 $env:QDRANT_PATH = ".rag_data/qdrant"
-$env:QDRANT_COLLECTION = "aws_support"
+$env:QDRANT_COLLECTION = "aws_support_nomic"
 $env:RETRIEVAL_MODE = "hybrid"
 $env:EMBEDDING_PROVIDER = "ollama"
 
@@ -222,6 +239,34 @@ Content-Type: application/json
 
 ## 测试与黄金集评测
 
+根目录 `python -m pytest` 只收集根项目；`python scripts/test_all.py` 在独立进程中运行
+三个项目的测试，避免两个 Agent 项目的同名 `models`、`api` 包冲突。Enterprise 单元测试
+使用仓库内小型 fixture，不依赖被 Git 忽略的官方数据。完整 TechQA 的下载/评测单独执行。
+
+### 真实 Embedding 与降级复测（2026-09-29）
+
+使用上面的完整混合语料入库后运行：
+
+```powershell
+python evals/evaluate_retrieval_modes.py --database .rag_data/qdrant `
+  --collection aws_support_nomic --embedding-provider ollama --include-fallback `
+  --output evals/retrieval_nomic_results.json
+```
+
+| 模式 | Recall@5 | Recall@10 | MRR | Context Precision | 检索均时 ms | 拒答准确率 |
+|---|---:|---:|---:|---:|---:|---:|
+| Dense | 1.000 | 1.000 | 0.792 | 0.200 | 1555.2 | 1.000 |
+| Dense + Lexical Rerank | 0.917 | 1.000 | 0.695 | 0.183 | 571.4 | 1.000 |
+| Hybrid + Lexical Rerank | 0.833 | 1.000 | 0.686 | 0.167 | 578.9 | 1.000 |
+| Hybrid，重排故障 | 0.917 | 1.000 | 0.767 | 0.183 | 592.9 | 1.000 |
+
+配置仍为 candidate/rerank/final = 30/20/5，兼顾候选覆盖与有限上下文成本。
+当前 API 的 `dense` 模式也启用重排，其门限为 0.532230；Sparse/Hybrid 为
+0.549118/0.546701。三个门限在 12 个可回答问题中接受 10 个；故障覆盖率门限接受 12 个。
+3 个不可回答问题均拒答。阈值选择和报告使用同一 15 题校准集，不代表留出集成绩。
+首个 Dense 轮次包含冷启动；延迟不能直接当作算法速度对比。这个小型语料上词法重排
+降低了语义召回，不能据此声称 Hybrid 必然更优。历史 Hash 基线继续保留供离线复现。
+
 ```bash
 pytest
 python evals/evaluate_retriever.py \
@@ -292,20 +337,21 @@ $env:TESSERACT_CMD = "C:\Program Files\Tesseract-OCR\tesseract.exe"
 .\.venv\Scripts\python.exe evals\evaluate_retrieval_modes.py
 ```
 
-该命令的生产参数为 `--candidate-k 30 --rerank-k 20 --final-k 5`；评测内部将
+该命令默认使用 Hash Embedding；下表是保留的离线历史基线，当前 nomic 成绩见上面的复测表。
+参数为 `--candidate-k 30 --rerank-k 20 --final-k 5`；评测内部将
 `evaluation_k` 扩到 10，仅用于计算 Recall@10，结果文件会同时记录
 `production_final_k=5`。
 
 | 模式 | Recall@5 | Recall@10 | MRR | Context Precision | 平均延迟 | 拒答准确率 |
 |---|---:|---:|---:|---:|---:|---:|
-| Dense | 0.750 | 0.917 | 0.608 | 0.150 | 5.07 ms | 1.000 |
-| Dense + Rerank | 0.750 | 0.917 | 0.626 | 0.150 | 5.13 ms | 1.000 |
-| Sparse + Rerank（附加审计） | 0.750 | 0.917 | 0.617 | 0.150 | 1.59 ms | 1.000 |
-| Hybrid + Rerank | 0.750 | 0.917 | 0.613 | 0.150 | 6.51 ms | 1.000 |
+| Dense | 0.750 | 0.917 | 0.608 | 0.150 | 2.39 ms | 1.000 |
+| Dense + Rerank | 0.750 | 0.917 | 0.626 | 0.150 | 3.24 ms | 1.000 |
+| Sparse + Rerank（附加审计） | 0.750 | 0.917 | 0.617 | 0.150 | 0.75 ms | 1.000 |
+| Hybrid + Rerank | 0.750 | 0.917 | 0.613 | 0.150 | 4.28 ms | 1.000 |
 
 为了同时计算 Recall@5 与 Recall@10，评测脚本临时保留 Top-10；生产 API 仍严格使用
 `final_k=5`。基于该测试集校准的相关性阈值分别为 Dense+Rerank `0.498`、
-Sparse+Rerank `0.544` 和 Hybrid+Rerank `0.545`。最终推荐
+Sparse+Rerank `0.544` 和 Hybrid+Rerank `0.545`（仅适用于该 Hash 基线）。最终推荐
 **candidate_k=30、rerank_k=20、final_k=5**：30 个 Retriever/RRF 候选全部进入精排，
 Reranker 输出前 20 个，再选最终 5 个，并经过每文档最多 2 块和 8000-token Context Budget
 约束。本离线集使用 Hash Embedding，Dense + Rerank 的 MRR 略高；生产仍默认 Hybrid，理由是

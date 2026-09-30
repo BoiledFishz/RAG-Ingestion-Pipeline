@@ -23,6 +23,7 @@ from rag.retrieval.parents import QdrantParentResolver
 from rag.retrieval.pipeline import RetrievalConfig, RetrievalPipeline
 from rag.retrieval.reranker import BaseReranker, CrossEncoderReranker, LexicalReranker
 from rag.retrieval.sparse import BM25Retriever
+from rag.settings import load_environment
 
 
 def _integer(name: str, default: int) -> int:
@@ -53,6 +54,7 @@ def _build_reranker() -> BaseReranker:
 
 
 def build_service() -> RAGService:
+    load_environment()
     configured_mode = os.getenv("RETRIEVAL_MODE", "hybrid")
     if configured_mode not in {"dense", "sparse", "hybrid"}:
         raise ValueError(f"Unsupported RETRIEVAL_MODE: {configured_mode}")
@@ -113,10 +115,11 @@ def build_service() -> RAGService:
         ),
         parent_resolver=QdrantParentResolver(store=store),
         relevance_threshold=config.relevance_threshold,
+        fallback_coverage_threshold=_floating("FALLBACK_QUERY_COVERAGE_THRESHOLD", 0.183333),
         relevance_thresholds={
-            "dense": _floating("DENSE_RELEVANCE_THRESHOLD", 0.498),
-            "sparse": _floating("SPARSE_RELEVANCE_THRESHOLD", 0.544),
-            "hybrid": _floating("HYBRID_RELEVANCE_THRESHOLD", 0.545),
+            "dense": _floating("DENSE_RELEVANCE_THRESHOLD", 0.532230),
+            "sparse": _floating("SPARSE_RELEVANCE_THRESHOLD", 0.549118),
+            "hybrid": _floating("HYBRID_RELEVANCE_THRESHOLD", 0.546701),
         },
     )
 

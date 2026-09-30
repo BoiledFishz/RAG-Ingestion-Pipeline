@@ -1,0 +1,7 @@
+[
+  {"id": "Q1", "query": "What is the Lambda timeout range?", "expected": ["1", "900"], "answerable": true},
+  {"id": "Q2", "query": "How do I troubleshoot S3 GetObject AccessDenied?", "expected": ["policy", "deny"], "answerable": true},
+  {"id": "Q3", "query": "Why does EC2 SSH time out?", "expected": ["port 22", "route"], "answerable": true},
+  {"id": "Q4", "query": "How do I investigate EKS CrashLoopBackOff?", "expected": ["kubectl", "logs"], "answerable": true},
+  {"id": "Q5", "query": "What is the DynamoDB global table limit?", "expected": [], "answerable": false}
+]

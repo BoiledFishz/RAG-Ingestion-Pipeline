@@ -1,7 +1,8 @@
 """Central prompt templates, versionable separately from orchestration code."""
 
 CONTEXT_SUMMARY_PROMPT = """You label chunks for an AWS support knowledge base.
-Write exactly one factual sentence explaining what the chunk is about and when it is useful.
+Write exactly one factual sentence of at most 25 words explaining the chunk's topic and use.
+End the sentence with a period. Preserve important conditions and negations.
 Do not add facts, bullets, headings, prefixes, or commentary.
 
 CHUNK:

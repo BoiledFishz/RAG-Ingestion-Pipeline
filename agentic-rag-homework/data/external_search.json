@@ -1,0 +1,14 @@
+[
+  {
+    "document_id": "web-eks-crashloop",
+    "title": "EKS CrashLoopBackOff investigation",
+    "text": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits.",
+    "source": "external/eks-guide"
+  },
+  {
+    "document_id": "web-lambda-timeout",
+    "title": "Lambda timeout reference",
+    "text": "The Lambda timeout setting accepts values between 1 and 900 seconds.",
+    "source": "external/lambda-reference"
+  }
+]

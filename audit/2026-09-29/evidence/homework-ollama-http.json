@@ -1,0 +1,378 @@
+{
+  "project": "homework",
+  "profile": "ollama",
+  "cases": [
+    {
+      "label": "rag-answer",
+      "endpoint": "/v1/rag/query",
+      "request": {
+        "query": "What is the Lambda timeout range?"
+      },
+      "status": 200,
+      "content_type": "application/json",
+      "body": {
+        "answer": "AWS Lambda functions support a configurable timeout from 1 to 900 seconds. [1]",
+        "sources": [
+          {
+            "document_id": "kb-lambda-timeout",
+            "source": "knowledge/lambda.md",
+            "quote": "AWS Lambda functions support a configurable timeout from 1 to 900 seconds."
+          }
+        ],
+        "confidence": 0.522
+      },
+      "seconds": 0.01
+    },
+    {
+      "label": "rag-vague",
+      "endpoint": "/v1/rag/query",
+      "request": {
+        "query": "权限有问题"
+      },
+      "status": 200,
+      "content_type": "application/json",
+      "body": {
+        "answer": "请补充具体服务、操作和错误信息。",
+        "sources": [],
+        "confidence": 0.0
+      },
+      "seconds": 0.006
+    },
+    {
+      "label": "rag-unknown",
+      "endpoint": "/v1/rag/query",
+      "request": {
+        "query": "What is the DynamoDB global table limit?"
+      },
+      "status": 200,
+      "content_type": "application/json",
+      "body": {
+        "answer": "知识库中没有足够信息回答该问题。",
+        "sources": [],
+        "confidence": 0.0
+      },
+      "seconds": 0.006
+    },
+    {
+      "label": "planner",
+      "endpoint": "/v1/planner",
+      "request": {
+        "query": "How do I investigate EKS CrashLoopBackOff?"
+      },
+      "status": 200,
+      "content_type": "application/json",
+      "body": {
+        "tasks": [
+          {
+            "task_id": "T001",
+            "agent": "research_agent",
+            "objective": "Understand the causes of EKS CrashLoopBackOff",
+            "dependencies": []
+          },
+          {
+            "task_id": "T002",
+            "agent": "data_analyst",
+            "objective": "Analyze EKS CrashLoopBackOff logs",
+            "dependencies": [
+              "T001"
+            ]
+          },
+          {
+            "task_id": "T003",
+            "agent": "diagnosis_agent",
+            "objective": "Diagnose the root cause of EKS CrashLoopBackOff",
+            "dependencies": [
+              "T002"
+            ]
+          },
+          {
+            "task_id": "T004",
+            "agent": "report_writer",
+            "objective": "Generate a report on the findings",
+            "dependencies": [
+              "T003"
+            ]
+          }
+        ]
+      },
+      "seconds": 88.29
+    },
+    {
+      "label": "research",
+      "endpoint": "/v1/research",
+      "request": {
+        "query": "How do I investigate EKS CrashLoopBackOff?"
+      },
+      "status": 200,
+      "content_type": "application/json",
+      "body": {
+        "response": {
+          "answer": "没有找到足够证据。",
+          "sources": [],
+          "confidence": 0.0
+        },
+        "steps": [
+          {
+            "index": 1,
+            "action": "rag_search",
+            "argument": "How do I investigate EKS CrashLoopBackOff?",
+            "reason": "Start with the internal knowledge base",
+            "observation_ids": [
+              "kb-rds-storage",
+              "kb-lambda-timeout",
+              "kb-s3-access",
+              "kb-ec2-ssh"
+            ]
+          },
+          {
+            "index": 2,
+            "action": "read_document",
+            "argument": "EKS CrashLoopBackOff",
+            "reason": "The observation IDs suggest potential causes for EKS CrashLoopBackOff, but a detailed explanation is needed to determine the best course of action.",
+            "observation_ids": []
+          }
+        ],
+        "stop_reason": "no_evidence",
+        "metrics": {
+          "llm_calls": 2,
+          "tool_calls": 2,
+          "input_tokens": 1080,
+          "output_tokens": 96,
+          "latency_ms": 16447.62270001229
+        }
+      },
+      "seconds": 16.461
+    },
+    {
+      "label": "single-agent",
+      "endpoint": "/v1/single-agent",
+      "request": {
+        "query": "How do I investigate EKS CrashLoopBackOff?"
+      },
+      "status": 200,
+      "content_type": "application/json",
+      "body": {
+        "response": {
+          "answer": "没有找到足够证据。",
+          "sources": [],
+          "confidence": 0.0
+        },
+        "metrics": {
+          "llm_calls": 2,
+          "tool_calls": 2,
+          "input_tokens": 1080,
+          "output_tokens": 96,
+          "latency_ms": 13903.198299987707
+        },
+        "plan": null,
+        "research": {
+          "response": {
+            "answer": "没有找到足够证据。",
+            "sources": [],
+            "confidence": 0.0
+          },
+          "steps": [
+            {
+              "index": 1,
+              "action": "rag_search",
+              "argument": "How do I investigate EKS CrashLoopBackOff?",
+              "reason": "Start with the internal knowledge base",
+              "observation_ids": [
+                "kb-rds-storage",
+                "kb-lambda-timeout",
+                "kb-s3-access",
+                "kb-ec2-ssh"
+              ]
+            },
+            {
+              "index": 2,
+              "action": "read_document",
+              "argument": "EKS CrashLoopBackOff",
+              "reason": "The observation IDs suggest potential causes for EKS CrashLoopBackOff, but a detailed explanation is needed to determine the best course of action.",
+              "observation_ids": []
+            }
+          ],
+          "stop_reason": "no_evidence",
+          "metrics": {
+            "llm_calls": 2,
+            "tool_calls": 2,
+            "input_tokens": 1080,
+            "output_tokens": 96,
+            "latency_ms": 13903.198299987707
+          }
+        },
+        "critic": null
+      },
+      "seconds": 13.91
+    },
+    {
+      "label": "multi-agent",
+      "endpoint": "/v1/multi-agent",
+      "request": {
+        "query": "How do I investigate EKS CrashLoopBackOff?"
+      },
+      "status": 200,
+      "content_type": "application/json",
+      "body": {
+        "response": {
+          "answer": "没有找到足够证据。",
+          "sources": [],
+          "confidence": 0.0
+        },
+        "metrics": {
+          "llm_calls": 3,
+          "tool_calls": 2,
+          "input_tokens": 1452,
+          "output_tokens": 263,
+          "latency_ms": 31647.088900004746
+        },
+        "plan": {
+          "tasks": [
+            {
+              "task_id": "T001",
+              "agent": "research_agent",
+              "objective": "Understand the causes of EKS CrashLoopBackOff",
+              "dependencies": []
+            },
+            {
+              "task_id": "T002",
+              "agent": "data_analyst",
+              "objective": "Analyze EKS CrashLoopBackOff logs",
+              "dependencies": [
+                "T001"
+              ]
+            },
+            {
+              "task_id": "T003",
+              "agent": "diagnosis_agent",
+              "objective": "Diagnose the root cause of EKS CrashLoopBackOff",
+              "dependencies": [
+                "T002"
+              ]
+            },
+            {
+              "task_id": "T004",
+              "agent": "report_writer",
+              "objective": "Generate a report on the findings",
+              "dependencies": [
+                "T003"
+              ]
+            }
+          ]
+        },
+        "research": {
+          "response": {
+            "answer": "没有找到足够证据。",
+            "sources": [],
+            "confidence": 0.0
+          },
+          "steps": [
+            {
+              "index": 1,
+              "action": "rag_search",
+              "argument": "How do I investigate EKS CrashLoopBackOff?",
+              "reason": "Start with the internal knowledge base",
+              "observation_ids": [
+                "kb-rds-storage",
+                "kb-lambda-timeout",
+                "kb-s3-access",
+                "kb-ec2-ssh"
+              ]
+            },
+            {
+              "index": 2,
+              "action": "read_document",
+              "argument": "EKS CrashLoopBackOff",
+              "reason": "The observation IDs suggest potential causes for EKS CrashLoopBackOff, but a detailed explanation is needed to determine the best course of action.",
+              "observation_ids": []
+            }
+          ],
+          "stop_reason": "no_evidence",
+          "metrics": {
+            "llm_calls": 2,
+            "tool_calls": 2,
+            "input_tokens": 1080,
+            "output_tokens": 96,
+            "latency_ms": 13448.768500005826
+          }
+        },
+        "critic": null
+      },
+      "seconds": 31.653
+    },
+    {
+      "label": "critic-loop",
+      "endpoint": "/v1/critic-loop",
+      "request": {
+        "task": "Explain the Lambda timeout range.",
+        "evidence": "The AWS Lambda timeout can be set from 1 second to 900 seconds."
+      },
+      "status": 200,
+      "content_type": "application/json",
+      "body": {
+        "final_diagnosis": "The AWS Lambda timeout range is INCOMPLETE. The AWS Lambda timeout can be set from 1 second to 900 seconds, as specified in the AWS documentation, but the documentation does not provide a clear range. The correct range should be specified as 1 second to 15 minutes (900 seconds). Repair suggestion: Update the documentation to specify the correct range of 1 second to 15 minutes (900 seconds).",
+        "passed": false,
+        "retries": 2,
+        "attempts": [
+          {
+            "attempt": 1,
+            "diagnosis": "The AWS Lambda timeout range is set between 1 second and 900 seconds, as specified in the AWS documentation.",
+            "critique": {
+              "passed": false,
+              "score": 0.0,
+              "issues": [
+                {
+                  "code": "INCOMPLETE",
+                  "description": "No concrete issue code",
+                  "suggestion": "Provide a concrete issue code and repair suggestion."
+                }
+              ]
+            },
+            "resolved_previous_issues": []
+          },
+          {
+            "attempt": 2,
+            "diagnosis": "The AWS Lambda timeout range is INCOMPLETE. The AWS Lambda timeout can be set from 1 second to 900 seconds, as specified in the AWS documentation, but the documentation does not provide a clear range. The correct range should be specified as 1 second to 15 minutes (900 seconds). Repair suggestion: Update the documentation to specify the correct range of 1 second to 15 minutes (900 seconds).",
+            "critique": {
+              "passed": false,
+              "score": 0.0,
+              "issues": [
+                {
+                  "code": "INCOMPLETE",
+                  "description": "The AWS Lambda timeout range is INCOMPLETE. The AWS Lambda timeout can be set from 1 second to 900 seconds, as specified in the AWS documentation, but the documentation does not provide a clear range. The correct range should be specified as 1 second to 15 minutes (900 seconds).",
+                  "suggestion": "Update the documentation to specify the correct range of 1 second to 15 minutes (900 seconds)."
+                }
+              ]
+            },
+            "resolved_previous_issues": []
+          },
+          {
+            "attempt": 3,
+            "diagnosis": "The AWS Lambda timeout range is INCOMPLETE. The AWS Lambda timeout can be set from 1 second to 900 seconds, as specified in the AWS documentation, but the documentation does not provide a clear range. The correct range should be specified as 1 second to 15 minutes (900 seconds). Repair suggestion: Update the documentation to specify the correct range of 1 second to 15 minutes (900 seconds).",
+            "critique": {
+              "passed": false,
+              "score": 0.0,
+              "issues": [
+                {
+                  "code": "INCOMPLETE",
+                  "description": "The AWS Lambda timeout range is INCOMPLETE.",
+                  "suggestion": "Update the documentation to specify the correct range of 1 second to 15 minutes (900 seconds)."
+                }
+              ]
+            },
+            "resolved_previous_issues": []
+          }
+        ],
+        "metrics": {
+          "llm_calls": 6,
+          "tool_calls": 0,
+          "input_tokens": 1704,
+          "output_tokens": 434,
+          "latency_ms": 60605.512899986934
+        }
+      },
+      "seconds": 60.615
+    }
+  ],
+  "server_ready": true
+}

@@ -1,0 +1,18 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.5, pytest-9.1.1, pluggy-1.6.0
+rootdir: C:\Users\zacha\Documents\Ingestion Pipeline\.test_tmp\remediation-2026-09-29\enterprise-clean-final
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.14.2, langsmith-0.10.7, cov-7.1.0
+collected 37 items
+
+tests\test_agent_api.py ...                                              [  8%]
+tests\test_agent_evaluation.py ...                                       [ 16%]
+tests\test_agent_service.py ......                                       [ 32%]
+tests\test_context_compression.py ........                               [ 54%]
+tests\test_ollama_adapter.py ..                                          [ 59%]
+tests\test_query_rewrite.py .......                                      [ 78%]
+tests\test_techqa_data.py ..                                             [ 83%]
+tests\test_vector_retriever.py ......                                    [100%]
+
+============================= 37 passed in 4.07s ==============================

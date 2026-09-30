@@ -1,0 +1,39 @@
+2026-09-29 18:03:14,066 INFO rag.ingestion.pipeline - Processing file C:\Users\zacha\Documents\Ingestion Pipeline\data\aws_support_test_corpus\data\corrupt_document.pdf
+2026-09-29 18:03:14,309 WARNING pypdf._reader - EOF marker not found
+2026-09-29 18:03:14,309 ERROR rag.ingestion.utils - Unable to open PDF C:\Users\zacha\Documents\Ingestion Pipeline\data\aws_support_test_corpus\data\corrupt_document.pdf
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\src\rag\ingestion\utils.py", line 116, in _parse_pdf
+    reader = PdfReader(str(path), strict=False)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\pypdf\_reader.py", line 151, in __init__
+    self._initialize_stream(stream)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\pypdf\_reader.py", line 175, in _initialize_stream
+    self.read(stream)
+    ~~~~~~~~~^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\pypdf\_reader.py", line 684, in read
+    self._find_eof_marker(stream)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\pypdf\_reader.py", line 797, in _find_eof_marker
+    line = read_previous_line(stream)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\pypdf\_utils.py", line 339, in read_previous_line
+    raise PdfStreamError(STREAM_TRUNCATED_PREMATURELY)
+pypdf.errors.PdfStreamError: Stream has ended unexpectedly
+2026-09-29 18:03:14,313 INFO rag.ingestion.pipeline - Processing file C:\Users\zacha\Documents\Ingestion Pipeline\data\aws_support_test_corpus\data\ec2_network_connectivity.pdf
+2026-09-29 18:03:14,349 INFO rag.ingestion.pipeline - Parsed ec2_network_connectivity.pdf into 2 page(s), 6 chunk(s)
+2026-09-29 18:03:14,349 INFO rag.ingestion.pipeline - Processing file C:\Users\zacha\Documents\Ingestion Pipeline\data\aws_support_test_corpus\data\empty_document.md
+2026-09-29 18:03:14,350 WARNING rag.ingestion.utils - No usable text found in Markdown file C:\Users\zacha\Documents\Ingestion Pipeline\data\aws_support_test_corpus\data\empty_document.md
+2026-09-29 18:03:14,351 INFO rag.ingestion.pipeline - Processing file C:\Users\zacha\Documents\Ingestion Pipeline\data\aws_support_test_corpus\data\iam_access_recovery_scanned.pdf
+2026-09-29 18:03:14,366 INFO rag.ingestion.utils - Using OCR fallback for iam_access_recovery_scanned.pdf page 1
+2026-09-29 18:03:19,201 INFO rag.ingestion.utils - Using OCR fallback for iam_access_recovery_scanned.pdf page 2
+2026-09-29 18:03:21,839 INFO rag.ingestion.pipeline - Parsed iam_access_recovery_scanned.pdf into 2 page(s), 7 chunk(s)
+2026-09-29 18:03:21,839 INFO rag.ingestion.pipeline - Processing file C:\Users\zacha\Documents\Ingestion Pipeline\data\aws_support_test_corpus\data\lambda_support_notes.md
+2026-09-29 18:03:21,854 INFO rag.ingestion.pipeline - Parsed lambda_support_notes.md into 1 page(s), 7 chunk(s)
+2026-09-29 18:03:21,854 INFO rag.ingestion.pipeline - Processing file C:\Users\zacha\Documents\Ingestion Pipeline\data\aws_support_test_corpus\data\s3_support_runbook.md
+2026-09-29 18:03:21,867 INFO rag.ingestion.pipeline - Parsed s3_support_runbook.md into 1 page(s), 8 chunk(s)
+2026-09-29 18:03:21,889 INFO rag.ingestion.vector_store - Created Qdrant collection aws_support_retrieval_eval (dimension=384)
+2026-09-29 18:03:22,130 INFO rag.ingestion.pipeline - Ingestion complete: files=6 succeeded=4 failed=2 created=28 skipped=0 upserted=28
+2026-09-29 18:03:22,187 INFO rag.retrieval_eval - dense | Recall@5=0.750 Recall@10=0.917 MRR=0.608 ContextPrecision=0.150 Latency=3.13ms RefusalAccuracy=1.000
+2026-09-29 18:03:22,244 INFO rag.retrieval_eval - dense+rerank | Recall@5=0.750 Recall@10=0.917 MRR=0.626 ContextPrecision=0.150 Latency=3.78ms RefusalAccuracy=1.000
+2026-09-29 18:03:22,259 INFO rag.retrieval_eval - sparse+rerank | Recall@5=0.750 Recall@10=0.917 MRR=0.617 ContextPrecision=0.150 Latency=0.94ms RefusalAccuracy=1.000
+2026-09-29 18:03:22,321 INFO rag.retrieval_eval - hybrid+rerank | Recall@5=0.750 Recall@10=0.917 MRR=0.613 ContextPrecision=0.150 Latency=4.11ms RefusalAccuracy=1.000
+2026-09-29 18:03:22,322 INFO rag.retrieval_eval - Wrote retrieval evaluation to .test_tmp\audit-2026-09-29\retrieval-results.json

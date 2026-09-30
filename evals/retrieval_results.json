@@ -10,7 +10,7 @@
     "recall_at_10": 0.9166666666666666,
     "mrr": 0.6084325396825397,
     "context_precision": 0.15,
-    "average_latency_ms": 5.072566711654265,
+    "average_latency_ms": 2.3926532982538142,
     "refusal_accuracy": 1.0,
     "answer_acceptance_accuracy": 0.75
   },
@@ -25,7 +25,7 @@
     "recall_at_10": 0.9166666666666666,
     "mrr": 0.6264880952380952,
     "context_precision": 0.15,
-    "average_latency_ms": 5.1348466736574965,
+    "average_latency_ms": 3.243966633453965,
     "refusal_accuracy": 1.0,
     "answer_acceptance_accuracy": 0.8333333333333334
   },
@@ -40,7 +40,7 @@
     "recall_at_10": 0.9166666666666666,
     "mrr": 0.6174603174603175,
     "context_precision": 0.15,
-    "average_latency_ms": 1.5925599883000057,
+    "average_latency_ms": 0.7479866190503041,
     "refusal_accuracy": 1.0,
     "answer_acceptance_accuracy": 0.8333333333333334
   },
@@ -55,7 +55,7 @@
     "recall_at_10": 0.9166666666666666,
     "mrr": 0.6125992063492064,
     "context_precision": 0.15,
-    "average_latency_ms": 6.507473314801852,
+    "average_latency_ms": 4.284960000465314,
     "refusal_accuracy": 1.0,
     "answer_acceptance_accuracy": 0.8333333333333334
   }

@@ -1,0 +1,59 @@
+{
+  "chunk_count": 28,
+  "required_metadata_complete": true,
+  "ocr_pages": [
+    [
+      "iam_access_recovery_scanned.pdf",
+      1
+    ],
+    [
+      "iam_access_recovery_scanned.pdf",
+      2
+    ]
+  ],
+  "normal": {
+    "candidate_count": 5,
+    "top_score": 0.6254241430700448,
+    "response": {
+      "answer": "Check the S3 bucket policy [S1].",
+      "citations": [
+        {
+          "source_id": "S1",
+          "chunk_id": "c5638fdee26d3d6fd3cbbf073b58c7ab67fe44cb8ccce75bde5111cdbf8c6fd1",
+          "source_file": "s3_support_runbook.md",
+          "page_number": 1
+        }
+      ],
+      "retrieval": {
+        "mode": "hybrid",
+        "dense_candidates": 28,
+        "sparse_candidates": 21,
+        "reranked_candidates": 20,
+        "final_chunks": 1,
+        "context_tokens": 115,
+        "reranker_fallback": false
+      },
+      "refused": false,
+      "refusal_reason": null
+    }
+  },
+  "fallback": {
+    "candidate_count": 5,
+    "top_score": 0.03200204813108039,
+    "response": {
+      "answer": "知识库无法回答该问题。",
+      "citations": [],
+      "retrieval": {
+        "mode": "hybrid",
+        "dense_candidates": 28,
+        "sparse_candidates": 21,
+        "reranked_candidates": 0,
+        "final_chunks": 5,
+        "context_tokens": 0,
+        "reranker_fallback": true
+      },
+      "refused": true,
+      "refusal_reason": "below_relevance_threshold"
+    }
+  }
+}

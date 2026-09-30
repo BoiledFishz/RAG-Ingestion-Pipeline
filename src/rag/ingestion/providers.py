@@ -34,12 +34,17 @@ def _first_sentence(text: str, *, max_chars: int = 240) -> str:
     value = re.sub(r"\s+", " ", text).strip().strip("\"'`- ")
     if not value:
         return "This chunk contains no usable textual context."
-    match = re.search(r"[.!?。！？]", value)
+    match = re.search(r"[。！？]|[.!?](?=\s|$)", value)
     if match:
         value = value[: match.end()]
     else:
-        value = value[:max_chars].rstrip(" ,;:，；：") + "."
-    return value[:max_chars].strip()
+        value = value.rstrip(" ,;:，；：") + "."
+    # max_chars is a soft target: cutting a sentence can remove its negation or condition.
+    if len(value) > max_chars:
+        LOGGER.warning(
+            "Summary exceeds the %d-character target; preserving full sentence", max_chars
+        )
+    return value.strip()
 
 
 @dataclass(slots=True)
@@ -69,7 +74,10 @@ class OllamaSummaryProvider:
             "prompt": CONTEXT_SUMMARY_PROMPT.format(chunk=text),
         }
         response_data = await self._post_with_retry("/api/generate", payload)
-        return _first_sentence(str(response_data.get("response", "")))
+        summary = str(response_data.get("response", "")).strip()
+        if not summary or response_data.get("done_reason") == "length":
+            raise ValueError("Ollama returned an empty or token-truncated summary")
+        return _first_sentence(summary)
 
     async def _post_with_retry(
         self, endpoint: str, payload: dict[str, object]

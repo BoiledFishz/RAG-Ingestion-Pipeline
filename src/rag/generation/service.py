@@ -15,6 +15,7 @@ from rag.retrieval.contracts import (
     RetrievalEngine,
     RetrievalMode,
 )
+from rag.retrieval.relevance import query_coverage
 
 LOGGER = logging.getLogger(__name__)
 REFUSAL_ANSWER = "知识库无法回答该问题。"
@@ -49,6 +50,7 @@ class RAGService:
         parent_resolver: ParentResolver | None = None,
         relevance_threshold: float = 0.0,
         relevance_thresholds: dict[RetrievalMode, float] | None = None,
+        fallback_coverage_threshold: float = 0.183333,
     ) -> None:
         self.retriever = retriever
         self.generator = generator
@@ -57,6 +59,9 @@ class RAGService:
         self.parent_resolver = parent_resolver
         self.relevance_threshold = relevance_threshold
         self.relevance_thresholds = relevance_thresholds or {}
+        if not 0 < fallback_coverage_threshold <= 1:
+            raise ValueError("fallback_coverage_threshold must be in (0, 1]")
+        self.fallback_coverage_threshold = fallback_coverage_threshold
 
     async def query(
         self,
@@ -70,12 +75,22 @@ class RAGService:
             return self._refusal(outcome.diagnostics, "no_retrieval_results")
 
         threshold = self.relevance_thresholds.get(mode, self.relevance_threshold)
-        relevant = [
-            result
-            for result in outcome.results
-            if (result.rerank_score if result.rerank_score is not None else result.score)
-            >= threshold
-        ]
+        if outcome.diagnostics.reranker_fallback:
+            LOGGER.warning(
+                "Reranker unavailable; preserving retrieval order with query coverage gate %.3f",
+                self.fallback_coverage_threshold,
+            )
+            relevant = [
+                result for result in outcome.results
+                if query_coverage(query, result) >= self.fallback_coverage_threshold
+            ]
+        else:
+            relevant = [
+                result
+                for result in outcome.results
+                if (result.rerank_score if result.rerank_score is not None else result.score)
+                >= threshold
+            ]
         if not relevant:
             return self._refusal(outcome.diagnostics, "below_relevance_threshold")
 

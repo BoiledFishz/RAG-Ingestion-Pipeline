@@ -1,0 +1,12 @@
+{
+  "dataset": "IBM TechQA official dev_Q_A.json",
+  "question_count": 310,
+  "answerable_count": 160,
+  "unanswerable_count": 149,
+  "hit_at_5": 0.19375,
+  "hit_at_10": 0.21875,
+  "mrr": 0.19076140873015873,
+  "unanswerable_refusal_accuracy": 0.5503355704697986,
+  "average_latency_ms": 433.84968155449104,
+  "error_count": 1
+}

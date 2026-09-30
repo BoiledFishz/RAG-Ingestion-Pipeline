@@ -1,0 +1,63 @@
+2026-09-29 23:16:33,795 INFO rag.ingestion.pipeline - Processing file data\aws_support_test_corpus\data\corrupt_document.pdf
+2026-09-29 23:16:33,920 WARNING pypdf._reader - EOF marker not found
+2026-09-29 23:16:33,920 ERROR rag.ingestion.utils - Unable to open PDF data\aws_support_test_corpus\data\corrupt_document.pdf
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\src\rag\ingestion\utils.py", line 116, in _parse_pdf
+    reader = PdfReader(str(path), strict=False)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\pypdf\_reader.py", line 151, in __init__
+    self._initialize_stream(stream)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\pypdf\_reader.py", line 175, in _initialize_stream
+    self.read(stream)
+    ~~~~~~~~~^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\pypdf\_reader.py", line 684, in read
+    self._find_eof_marker(stream)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\pypdf\_reader.py", line 797, in _find_eof_marker
+    line = read_previous_line(stream)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\pypdf\_utils.py", line 339, in read_previous_line
+    raise PdfStreamError(STREAM_TRUNCATED_PREMATURELY)
+pypdf.errors.PdfStreamError: Stream has ended unexpectedly
+2026-09-29 23:16:33,923 INFO rag.ingestion.pipeline - Processing file data\aws_support_test_corpus\data\ec2_network_connectivity.pdf
+2026-09-29 23:16:33,936 INFO rag.ingestion.pipeline - Parsed ec2_network_connectivity.pdf into 2 page(s), 6 chunk(s)
+2026-09-29 23:16:33,936 INFO rag.ingestion.pipeline - Processing file data\aws_support_test_corpus\data\empty_document.md
+2026-09-29 23:16:33,937 WARNING rag.ingestion.utils - No usable text found in Markdown file data\aws_support_test_corpus\data\empty_document.md
+2026-09-29 23:16:33,937 INFO rag.ingestion.pipeline - Processing file data\aws_support_test_corpus\data\iam_access_recovery_scanned.pdf
+2026-09-29 23:16:33,940 INFO rag.ingestion.utils - Using OCR fallback for iam_access_recovery_scanned.pdf page 1
+2026-09-29 23:16:36,863 INFO rag.ingestion.utils - Using OCR fallback for iam_access_recovery_scanned.pdf page 2
+2026-09-29 23:16:39,143 INFO rag.ingestion.pipeline - Parsed iam_access_recovery_scanned.pdf into 2 page(s), 7 chunk(s)
+2026-09-29 23:16:39,143 INFO rag.ingestion.pipeline - Processing file data\aws_support_test_corpus\data\lambda_support_notes.md
+2026-09-29 23:16:39,146 INFO rag.ingestion.pipeline - Parsed lambda_support_notes.md into 1 page(s), 7 chunk(s)
+2026-09-29 23:16:39,146 INFO rag.ingestion.pipeline - Processing file data\aws_support_test_corpus\data\s3_support_runbook.md
+2026-09-29 23:16:39,148 INFO rag.ingestion.pipeline - Parsed s3_support_runbook.md into 1 page(s), 8 chunk(s)
+2026-09-29 23:16:42,354 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:42,714 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:43,028 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:43,029 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:43,602 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:43,603 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:44,160 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:44,160 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:44,732 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:45,145 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:45,520 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:45,863 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:46,218 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:46,507 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:46,812 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:46,812 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:47,412 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:47,413 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:47,999 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:48,000 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:48,603 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:48,910 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:49,181 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:49,470 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:49,710 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:49,981 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:50,230 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:16:50,504 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 23:17:10,059 INFO httpx - HTTP Request: POST http://localhost:11434/api/embed "HTTP/1.1 200 OK"
+2026-09-29 23:17:10,081 INFO rag.ingestion.vector_store - Created Qdrant collection aws_support_nomic (dimension=768)
+2026-09-29 23:17:10,314 INFO rag.ingestion.pipeline - Ingestion complete: files=6 succeeded=4 failed=2 created=28 skipped=0 upserted=28

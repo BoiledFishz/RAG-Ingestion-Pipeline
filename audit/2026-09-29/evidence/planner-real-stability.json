@@ -1,0 +1,222 @@
+[
+  {
+    "run": 1,
+    "success": true,
+    "plan": {
+      "tasks": [
+        {
+          "task_id": "T001",
+          "agent": "research_agent",
+          "objective": "Investigate the incident and produce a sourced report",
+          "dependencies": []
+        }
+      ]
+    },
+    "seconds": 5.534,
+    "metrics": {
+      "llm_calls": 1,
+      "tool_calls": 0,
+      "input_tokens": 373,
+      "output_tokens": 40,
+      "latency_ms": 0
+    }
+  },
+  {
+    "run": 2,
+    "success": true,
+    "plan": {
+      "tasks": [
+        {
+          "task_id": "T001",
+          "agent": "research_agent",
+          "objective": "Investigate the incident and produce a sourced report",
+          "dependencies": []
+        }
+      ]
+    },
+    "seconds": 4.923,
+    "metrics": {
+      "llm_calls": 1,
+      "tool_calls": 0,
+      "input_tokens": 373,
+      "output_tokens": 40,
+      "latency_ms": 0
+    }
+  },
+  {
+    "run": 3,
+    "success": true,
+    "plan": {
+      "tasks": [
+        {
+          "task_id": "T001",
+          "agent": "research_agent",
+          "objective": "Investigate the incident and produce a sourced report",
+          "dependencies": []
+        }
+      ]
+    },
+    "seconds": 5.446,
+    "metrics": {
+      "llm_calls": 1,
+      "tool_calls": 0,
+      "input_tokens": 373,
+      "output_tokens": 40,
+      "latency_ms": 0
+    }
+  },
+  {
+    "run": 4,
+    "success": true,
+    "plan": {
+      "tasks": [
+        {
+          "task_id": "T001",
+          "agent": "research_agent",
+          "objective": "Investigate the incident and produce a sourced report",
+          "dependencies": []
+        }
+      ]
+    },
+    "seconds": 4.994,
+    "metrics": {
+      "llm_calls": 1,
+      "tool_calls": 0,
+      "input_tokens": 373,
+      "output_tokens": 40,
+      "latency_ms": 0
+    }
+  },
+  {
+    "run": 5,
+    "success": true,
+    "plan": {
+      "tasks": [
+        {
+          "task_id": "T001",
+          "agent": "research_agent",
+          "objective": "Investigate the incident and produce a sourced report",
+          "dependencies": []
+        }
+      ]
+    },
+    "seconds": 5.037,
+    "metrics": {
+      "llm_calls": 1,
+      "tool_calls": 0,
+      "input_tokens": 373,
+      "output_tokens": 40,
+      "latency_ms": 0
+    }
+  },
+  {
+    "run": 6,
+    "success": true,
+    "plan": {
+      "tasks": [
+        {
+          "task_id": "T001",
+          "agent": "research_agent",
+          "objective": "Investigate the incident and produce a sourced report",
+          "dependencies": []
+        }
+      ]
+    },
+    "seconds": 5.018,
+    "metrics": {
+      "llm_calls": 1,
+      "tool_calls": 0,
+      "input_tokens": 373,
+      "output_tokens": 40,
+      "latency_ms": 0
+    }
+  },
+  {
+    "run": 7,
+    "success": true,
+    "plan": {
+      "tasks": [
+        {
+          "task_id": "T001",
+          "agent": "research_agent",
+          "objective": "Investigate the incident and produce a sourced report",
+          "dependencies": []
+        }
+      ]
+    },
+    "seconds": 4.928,
+    "metrics": {
+      "llm_calls": 1,
+      "tool_calls": 0,
+      "input_tokens": 373,
+      "output_tokens": 40,
+      "latency_ms": 0
+    }
+  },
+  {
+    "run": 8,
+    "success": true,
+    "plan": {
+      "tasks": [
+        {
+          "task_id": "T001",
+          "agent": "research_agent",
+          "objective": "Investigate the incident and produce a sourced report",
+          "dependencies": []
+        }
+      ]
+    },
+    "seconds": 4.943,
+    "metrics": {
+      "llm_calls": 1,
+      "tool_calls": 0,
+      "input_tokens": 373,
+      "output_tokens": 40,
+      "latency_ms": 0
+    }
+  },
+  {
+    "run": 9,
+    "success": true,
+    "plan": {
+      "tasks": [
+        {
+          "task_id": "T001",
+          "agent": "research_agent",
+          "objective": "Investigate the incident and produce a sourced report",
+          "dependencies": []
+        }
+      ]
+    },
+    "seconds": 5.085,
+    "metrics": {
+      "llm_calls": 1,
+      "tool_calls": 0,
+      "input_tokens": 373,
+      "output_tokens": 40,
+      "latency_ms": 0
+    }
+  },
+  {
+    "run": 10,
+    "success": true,
+    "plan": {
+      "tasks": [
+        {
+          "task_id": "T001",
+          "agent": "research_agent",
+          "objective": "Investigate the incident and produce a sourced report",
+          "dependencies": []
+        }
+      ]
+    },
+    "seconds": 5.489,
+    "metrics": {
+      "llm_calls": 1,
+      "tool_calls": 0,
+      "input_tokens": 373,
+      "output_tokens": 40,
+      "latency_ms": 0
+    }
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "category": "answerable",
+    "query": "User environment variables are not picked up after upgrading Streams 4.1.1.2",
+    "status_code": 200,
+    "content_type": "application/json; charset=utf-8",
+    "response": {
+      "answer": "IBM STREAMS 4.1.1.1 and 4.1.1.2  JOBS DO NOT INHERIT THE ENVIRONMENT VARIABLES SET IN .BASHRC, WHEN STREAMS IS RUN AS A SYSTEM SERVICE - United States [S1]\nIn Streams 4.1.1.1 and 4.1.1.2 Streams jobs may not pick up the user enviroment from the streams user's .bashrc. [S2]",
+      "sources": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg21996508:0:cd4d96dcd9cd",
+          "source_file": "techqa://swg21996508",
+          "page_number": 1,
+          "quote": "IBM STREAMS 4.1.1.1 and 4.1.1.2  JOBS DO NOT INHERIT THE ENVIRONMENT VARIABLES SET IN .BASHRC, WHEN STREAMS IS RUN AS A SYSTEM SERVICE - United States"
+        },
+        {
+          "source_id": "S2",
+          "chunk_id": "techqa:swg21996508:0:cd4d96dcd9cd",
+          "source_file": "techqa://swg21996508",
+          "page_number": 1,
+          "quote": "In Streams 4.1.1.1 and 4.1.1.2 Streams jobs may not pick up the user enviroment from the streams user's .bashrc."
+        }
+      ],
+      "confidence": 0.611
+    }
+  },
+  {
+    "category": "ambiguous",
+    "query": "权限有问题，怎么办？",
+    "status_code": 200,
+    "content_type": "application/json; charset=utf-8",
+    "response": {
+      "answer": "请补充具体产品、操作、版本以及错误码，例如：WebSphere 启动时返回 ADMU0111E。",
+      "sources": [],
+      "confidence": 0.0
+    }
+  },
+  {
+    "category": "unanswerable",
+    "query": "How do I repair PostgreSQL XX999?",
+    "status_code": 200,
+    "content_type": "application/json; charset=utf-8",
+    "response": {
+      "answer": "知识库无法回答该问题。",
+      "sources": [],
+      "confidence": 0.0
+    }
+  }
+]

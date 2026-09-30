@@ -16,6 +16,7 @@ dependencies = [
   "pydantic>=2.9,<3",
   "pypdf>=5,<7",
   "pytesseract>=0.3.13,<1",
+  "python-dotenv>=1,<2",
   "qdrant-client>=1.12,<2",
 ]
 
@@ -45,7 +46,7 @@ packages = ["src/rag"]
 
 [tool.pytest.ini_options]
 addopts = "-q --strict-markers -p no:cacheprovider"
-testpaths = ["tests", "."]
+testpaths = ["tests", "test_pipeline.py"]
 pythonpath = ["src"]
 
 [tool.ruff]

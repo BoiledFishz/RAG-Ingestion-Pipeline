@@ -6,7 +6,9 @@ import asyncio
 import html
 import io
 import logging
+import os
 import re
+import shutil
 from pathlib import Path
 
 from rag.ingestion.models import ParsedPage
@@ -59,8 +61,23 @@ class DocumentParser:
     ) -> None:
         self.min_native_text_chars = min_native_text_chars
         self.ocr_languages = ocr_languages
-        self.tesseract_cmd = tesseract_cmd
+        self.tesseract_cmd = tesseract_cmd or self._discover_tesseract()
         self.ocr_dpi = ocr_dpi
+
+    @staticmethod
+    def _discover_tesseract() -> str | None:
+        """Find Tesseract on PATH or in its standard Windows installation directory."""
+
+        executable = shutil.which("tesseract")
+        if executable:
+            return executable
+        if os.name == "nt":
+            candidate = Path(os.environ.get("ProgramFiles", r"C:\Program Files")) / (
+                "Tesseract-OCR/tesseract.exe"
+            )
+            if candidate.is_file():
+                return str(candidate)
+        return None
 
     async def parse_file(self, path: Path) -> list[ParsedPage]:
         """Return parsed pages, or an empty list for empty, unsupported, or bad files."""

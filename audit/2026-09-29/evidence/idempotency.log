@@ -1,0 +1,33 @@
+2026-09-29 18:05:38,864 INFO rag.ingestion.pipeline - Processing file data\aws_support_test_corpus\data\corrupt_document.pdf
+2026-09-29 18:05:39,179 WARNING pypdf._reader - EOF marker not found
+2026-09-29 18:05:39,179 ERROR rag.ingestion.utils - Unable to open PDF data\aws_support_test_corpus\data\corrupt_document.pdf
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\src\rag\ingestion\utils.py", line 116, in _parse_pdf
+    reader = PdfReader(str(path), strict=False)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\pypdf\_reader.py", line 151, in __init__
+    self._initialize_stream(stream)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\pypdf\_reader.py", line 175, in _initialize_stream
+    self.read(stream)
+    ~~~~~~~~~^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\pypdf\_reader.py", line 684, in read
+    self._find_eof_marker(stream)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\pypdf\_reader.py", line 797, in _find_eof_marker
+    line = read_previous_line(stream)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\pypdf\_utils.py", line 339, in read_previous_line
+    raise PdfStreamError(STREAM_TRUNCATED_PREMATURELY)
+pypdf.errors.PdfStreamError: Stream has ended unexpectedly
+2026-09-29 18:05:39,186 INFO rag.ingestion.pipeline - Processing file data\aws_support_test_corpus\data\ec2_network_connectivity.pdf
+2026-09-29 18:05:39,209 INFO rag.ingestion.pipeline - Parsed ec2_network_connectivity.pdf into 2 page(s), 6 chunk(s)
+2026-09-29 18:05:39,209 INFO rag.ingestion.pipeline - Processing file data\aws_support_test_corpus\data\empty_document.md
+2026-09-29 18:05:39,211 WARNING rag.ingestion.utils - No usable text found in Markdown file data\aws_support_test_corpus\data\empty_document.md
+2026-09-29 18:05:39,212 INFO rag.ingestion.pipeline - Processing file data\aws_support_test_corpus\data\iam_access_recovery_scanned.pdf
+2026-09-29 18:05:39,216 INFO rag.ingestion.utils - Using OCR fallback for iam_access_recovery_scanned.pdf page 1
+2026-09-29 18:05:44,145 INFO rag.ingestion.utils - Using OCR fallback for iam_access_recovery_scanned.pdf page 2
+2026-09-29 18:05:47,624 INFO rag.ingestion.pipeline - Parsed iam_access_recovery_scanned.pdf into 2 page(s), 7 chunk(s)
+2026-09-29 18:05:47,624 INFO rag.ingestion.pipeline - Processing file data\aws_support_test_corpus\data\lambda_support_notes.md
+2026-09-29 18:05:47,627 INFO rag.ingestion.pipeline - Parsed lambda_support_notes.md into 1 page(s), 7 chunk(s)
+2026-09-29 18:05:47,627 INFO rag.ingestion.pipeline - Processing file data\aws_support_test_corpus\data\s3_support_runbook.md
+2026-09-29 18:05:47,632 INFO rag.ingestion.pipeline - Parsed s3_support_runbook.md into 1 page(s), 8 chunk(s)
+2026-09-29 18:05:47,636 INFO rag.ingestion.pipeline - All 28 chunk(s) already exist; skipped summary and embedding calls

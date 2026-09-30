@@ -1,0 +1,5 @@
+2026-09-29 18:20:15,800 INFO rag.ingestion.pipeline - Processing file .test_tmp\audit-2026-09-29\llm-summary-source\example.md
+2026-09-29 18:20:15,803 INFO rag.ingestion.pipeline - Parsed example.md into 1 page(s), 1 chunk(s)
+2026-09-29 18:20:17,235 INFO httpx - HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-09-29 18:20:17,262 INFO rag.ingestion.vector_store - Created Qdrant collection aws_support (dimension=384)
+2026-09-29 18:20:17,273 INFO rag.ingestion.pipeline - Ingestion complete: files=1 succeeded=1 failed=0 created=1 skipped=0 upserted=1

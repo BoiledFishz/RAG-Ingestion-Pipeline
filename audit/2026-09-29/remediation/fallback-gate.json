@@ -1,0 +1,380 @@
+{
+  "generator": "counting stub to verify refusal short-circuit, not answer quality",
+  "llm_calls": 12,
+  "metadata": {
+    "chunks": 28,
+    "summary_fallbacks": 0,
+    "complete_metadata": true
+  },
+  "rows": [
+    {
+      "id": "SEM-01",
+      "expected_answerable": true,
+      "response": {
+        "answer": "Available evidence [S1].",
+        "citations": [
+          {
+            "source_id": "S1",
+            "chunk_id": "86150829d68da6ec7358c3b896dbad2958c6293c6b6574ad0d9ff3a919bb2f69",
+            "source_file": "s3_support_runbook.md",
+            "page_number": 1
+          }
+        ],
+        "retrieval": {
+          "mode": "hybrid",
+          "dense_candidates": 28,
+          "sparse_candidates": 23,
+          "reranked_candidates": 0,
+          "final_chunks": 3,
+          "context_tokens": 297,
+          "reranker_fallback": true
+        },
+        "refused": false,
+        "refusal_reason": null
+      }
+    },
+    {
+      "id": "SEM-02",
+      "expected_answerable": true,
+      "response": {
+        "answer": "Available evidence [S1].",
+        "citations": [
+          {
+            "source_id": "S1",
+            "chunk_id": "c5638fdee26d3d6fd3cbbf073b58c7ab67fe44cb8ccce75bde5111cdbf8c6fd1",
+            "source_file": "s3_support_runbook.md",
+            "page_number": 1
+          }
+        ],
+        "retrieval": {
+          "mode": "hybrid",
+          "dense_candidates": 28,
+          "sparse_candidates": 25,
+          "reranked_candidates": 0,
+          "final_chunks": 1,
+          "context_tokens": 119,
+          "reranker_fallback": true
+        },
+        "refused": false,
+        "refusal_reason": null
+      }
+    },
+    {
+      "id": "SEM-03",
+      "expected_answerable": true,
+      "response": {
+        "answer": "Available evidence [S1].",
+        "citations": [
+          {
+            "source_id": "S1",
+            "chunk_id": "b7914daf9166705f0ad713a2b133f07fc1948205d698c488ec7e6c060ebf7c3e",
+            "source_file": "lambda_support_notes.md",
+            "page_number": 1
+          }
+        ],
+        "retrieval": {
+          "mode": "hybrid",
+          "dense_candidates": 28,
+          "sparse_candidates": 8,
+          "reranked_candidates": 0,
+          "final_chunks": 2,
+          "context_tokens": 174,
+          "reranker_fallback": true
+        },
+        "refused": false,
+        "refusal_reason": null
+      }
+    },
+    {
+      "id": "SEM-04",
+      "expected_answerable": true,
+      "response": {
+        "answer": "Available evidence [S1].",
+        "citations": [
+          {
+            "source_id": "S1",
+            "chunk_id": "0bfeba3295820bf3bf81bddbd2c68948d5dfb94ae6bff58fbb8d15fbbaabd459",
+            "source_file": "ec2_network_connectivity.pdf",
+            "page_number": 1
+          }
+        ],
+        "retrieval": {
+          "mode": "hybrid",
+          "dense_candidates": 28,
+          "sparse_candidates": 22,
+          "reranked_candidates": 0,
+          "final_chunks": 2,
+          "context_tokens": 240,
+          "reranker_fallback": true
+        },
+        "refused": false,
+        "refusal_reason": null
+      }
+    },
+    {
+      "id": "SEM-05",
+      "expected_answerable": true,
+      "response": {
+        "answer": "Available evidence [S1].",
+        "citations": [
+          {
+            "source_id": "S1",
+            "chunk_id": "896c82c2339e6feb8f3071702d3117777ece025dae0fe5a191ce9307a2a2ae86",
+            "source_file": "iam_access_recovery_scanned.pdf",
+            "page_number": 1
+          }
+        ],
+        "retrieval": {
+          "mode": "hybrid",
+          "dense_candidates": 28,
+          "sparse_candidates": 24,
+          "reranked_candidates": 0,
+          "final_chunks": 3,
+          "context_tokens": 289,
+          "reranker_fallback": true
+        },
+        "refused": false,
+        "refusal_reason": null
+      }
+    },
+    {
+      "id": "TERM-01",
+      "expected_answerable": true,
+      "response": {
+        "answer": "Available evidence [S1].",
+        "citations": [
+          {
+            "source_id": "S1",
+            "chunk_id": "c5638fdee26d3d6fd3cbbf073b58c7ab67fe44cb8ccce75bde5111cdbf8c6fd1",
+            "source_file": "s3_support_runbook.md",
+            "page_number": 1
+          }
+        ],
+        "retrieval": {
+          "mode": "hybrid",
+          "dense_candidates": 28,
+          "sparse_candidates": 22,
+          "reranked_candidates": 0,
+          "final_chunks": 2,
+          "context_tokens": 197,
+          "reranker_fallback": true
+        },
+        "refused": false,
+        "refusal_reason": null
+      }
+    },
+    {
+      "id": "TERM-02",
+      "expected_answerable": true,
+      "response": {
+        "answer": "Available evidence [S1].",
+        "citations": [
+          {
+            "source_id": "S1",
+            "chunk_id": "44c8856d433e7ebfa6e9cbbf1e68401f1871ccbf457af6d33b33ae42963dc658",
+            "source_file": "iam_access_recovery_scanned.pdf",
+            "page_number": 2
+          }
+        ],
+        "retrieval": {
+          "mode": "hybrid",
+          "dense_candidates": 28,
+          "sparse_candidates": 21,
+          "reranked_candidates": 0,
+          "final_chunks": 4,
+          "context_tokens": 429,
+          "reranker_fallback": true
+        },
+        "refused": false,
+        "refusal_reason": null
+      }
+    },
+    {
+      "id": "TERM-03",
+      "expected_answerable": true,
+      "response": {
+        "answer": "Available evidence [S1].",
+        "citations": [
+          {
+            "source_id": "S1",
+            "chunk_id": "b5d574265caa30d8fbeeb6c75626ba594dc40df1772339b6363ea76a448e62e7",
+            "source_file": "ec2_network_connectivity.pdf",
+            "page_number": 1
+          }
+        ],
+        "retrieval": {
+          "mode": "hybrid",
+          "dense_candidates": 28,
+          "sparse_candidates": 25,
+          "reranked_candidates": 0,
+          "final_chunks": 2,
+          "context_tokens": 230,
+          "reranker_fallback": true
+        },
+        "refused": false,
+        "refusal_reason": null
+      }
+    },
+    {
+      "id": "TERM-04",
+      "expected_answerable": true,
+      "response": {
+        "answer": "Available evidence [S1].",
+        "citations": [
+          {
+            "source_id": "S1",
+            "chunk_id": "a20a94a72333e7ba6a2752341398689dfed3099b0cd63e5015a13be990cbbcdf",
+            "source_file": "lambda_support_notes.md",
+            "page_number": 1
+          }
+        ],
+        "retrieval": {
+          "mode": "hybrid",
+          "dense_candidates": 28,
+          "sparse_candidates": 24,
+          "reranked_candidates": 0,
+          "final_chunks": 2,
+          "context_tokens": 110,
+          "reranker_fallback": true
+        },
+        "refused": false,
+        "refusal_reason": null
+      }
+    },
+    {
+      "id": "FILTER-01",
+      "expected_answerable": true,
+      "response": {
+        "answer": "Available evidence [S1].",
+        "citations": [
+          {
+            "source_id": "S1",
+            "chunk_id": "2ea37c0e824c05cb54ece9f472d2d722655c411f109a561ba41eda902a6685d3",
+            "source_file": "s3_support_runbook.md",
+            "page_number": 1
+          }
+        ],
+        "retrieval": {
+          "mode": "hybrid",
+          "dense_candidates": 8,
+          "sparse_candidates": 7,
+          "reranked_candidates": 0,
+          "final_chunks": 2,
+          "context_tokens": 173,
+          "reranker_fallback": true
+        },
+        "refused": false,
+        "refusal_reason": null
+      }
+    },
+    {
+      "id": "FILTER-02",
+      "expected_answerable": true,
+      "response": {
+        "answer": "Available evidence [S1].",
+        "citations": [
+          {
+            "source_id": "S1",
+            "chunk_id": "0bfeba3295820bf3bf81bddbd2c68948d5dfb94ae6bff58fbb8d15fbbaabd459",
+            "source_file": "ec2_network_connectivity.pdf",
+            "page_number": 1
+          }
+        ],
+        "retrieval": {
+          "mode": "hybrid",
+          "dense_candidates": 13,
+          "sparse_candidates": 11,
+          "reranked_candidates": 0,
+          "final_chunks": 2,
+          "context_tokens": 230,
+          "reranker_fallback": true
+        },
+        "refused": false,
+        "refusal_reason": null
+      }
+    },
+    {
+      "id": "FILTER-03",
+      "expected_answerable": true,
+      "response": {
+        "answer": "Available evidence [S1].",
+        "citations": [
+          {
+            "source_id": "S1",
+            "chunk_id": "b7914daf9166705f0ad713a2b133f07fc1948205d698c488ec7e6c060ebf7c3e",
+            "source_file": "lambda_support_notes.md",
+            "page_number": 1
+          }
+        ],
+        "retrieval": {
+          "mode": "hybrid",
+          "dense_candidates": 7,
+          "sparse_candidates": 5,
+          "reranked_candidates": 0,
+          "final_chunks": 2,
+          "context_tokens": 151,
+          "reranker_fallback": true
+        },
+        "refused": false,
+        "refusal_reason": null
+      }
+    },
+    {
+      "id": "REFUSE-01",
+      "expected_answerable": false,
+      "response": {
+        "answer": "知识库无法回答该问题。",
+        "citations": [],
+        "retrieval": {
+          "mode": "hybrid",
+          "dense_candidates": 28,
+          "sparse_candidates": 22,
+          "reranked_candidates": 0,
+          "final_chunks": 5,
+          "context_tokens": 0,
+          "reranker_fallback": true
+        },
+        "refused": true,
+        "refusal_reason": "below_relevance_threshold"
+      }
+    },
+    {
+      "id": "REFUSE-02",
+      "expected_answerable": false,
+      "response": {
+        "answer": "知识库无法回答该问题。",
+        "citations": [],
+        "retrieval": {
+          "mode": "hybrid",
+          "dense_candidates": 28,
+          "sparse_candidates": 17,
+          "reranked_candidates": 0,
+          "final_chunks": 5,
+          "context_tokens": 0,
+          "reranker_fallback": true
+        },
+        "refused": true,
+        "refusal_reason": "below_relevance_threshold"
+      }
+    },
+    {
+      "id": "REFUSE-03",
+      "expected_answerable": false,
+      "response": {
+        "answer": "知识库无法回答该问题。",
+        "citations": [],
+        "retrieval": {
+          "mode": "hybrid",
+          "dense_candidates": 28,
+          "sparse_candidates": 23,
+          "reranked_candidates": 0,
+          "final_chunks": 5,
+          "context_tokens": 0,
+          "reranker_fallback": true
+        },
+        "refused": true,
+        "refusal_reason": "below_relevance_threshold"
+      }
+    }
+  ]
+}

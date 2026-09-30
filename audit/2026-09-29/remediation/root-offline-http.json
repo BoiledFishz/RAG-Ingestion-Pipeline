@@ -1,0 +1,185 @@
+{
+  "project": "root",
+  "profile": "offline",
+  "cases": [
+    {
+      "label": "answer-dense",
+      "endpoint": "/v1/rag/query",
+      "request": {
+        "query": "Which policy layers should be checked for S3 403 AccessDenied?",
+        "mode": "dense"
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "body": {
+        "answer": "According to [S1], the policy layers that should be checked for an S3 403 AccessDenied response are:\n\n1. Bucket policy\n2. Object-level policy\n\nThese policies can override or deny access to specific objects or buckets, leading to an AccessDenied response.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "chunk_id": "c5638fdee26d3d6fd3cbbf073b58c7ab67fe44cb8ccce75bde5111cdbf8c6fd1",
+            "source_file": "s3_support_runbook.md",
+            "page_number": 1
+          }
+        ],
+        "retrieval": {
+          "mode": "dense",
+          "dense_candidates": 28,
+          "sparse_candidates": 0,
+          "reranked_candidates": 20,
+          "final_chunks": 1,
+          "context_tokens": 119,
+          "reranker_fallback": false
+        },
+        "refused": false,
+        "refusal_reason": null
+      },
+      "seconds": 2.534
+    },
+    {
+      "label": "answer-sparse",
+      "endpoint": "/v1/rag/query",
+      "request": {
+        "query": "Which policy layers should be checked for S3 403 AccessDenied?",
+        "mode": "sparse"
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "body": {
+        "answer": "According to [S1], the policy layers that should be checked for an S3 403 AccessDenied response are:\n\n1. Bucket policy\n2. Object-level policy\n\nThese policy layers can override or deny access to an object or bucket, resulting in an AccessDenied response.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "chunk_id": "c5638fdee26d3d6fd3cbbf073b58c7ab67fe44cb8ccce75bde5111cdbf8c6fd1",
+            "source_file": "s3_support_runbook.md",
+            "page_number": 1
+          }
+        ],
+        "retrieval": {
+          "mode": "sparse",
+          "dense_candidates": 0,
+          "sparse_candidates": 21,
+          "reranked_candidates": 20,
+          "final_chunks": 1,
+          "context_tokens": 119,
+          "reranker_fallback": false
+        },
+        "refused": false,
+        "refusal_reason": null
+      },
+      "seconds": 1.234
+    },
+    {
+      "label": "answer-hybrid",
+      "endpoint": "/v1/rag/query",
+      "request": {
+        "query": "Which policy layers should be checked for S3 403 AccessDenied?",
+        "mode": "hybrid"
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "body": {
+        "answer": "According to [S1], the policy layers that should be checked for an S3 403 AccessDenied response are:\n\n1. Bucket policy\n2. Object-level policy\n\nThese policy layers can override or deny access to an object or bucket, resulting in an AccessDenied response.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "chunk_id": "c5638fdee26d3d6fd3cbbf073b58c7ab67fe44cb8ccce75bde5111cdbf8c6fd1",
+            "source_file": "s3_support_runbook.md",
+            "page_number": 1
+          }
+        ],
+        "retrieval": {
+          "mode": "hybrid",
+          "dense_candidates": 28,
+          "sparse_candidates": 21,
+          "reranked_candidates": 20,
+          "final_chunks": 1,
+          "context_tokens": 119,
+          "reranker_fallback": false
+        },
+        "refused": false,
+        "refusal_reason": null
+      },
+      "seconds": 1.938
+    },
+    {
+      "label": "unknown",
+      "endpoint": "/v1/rag/query",
+      "request": {
+        "query": "What is the weather on Mars tomorrow?"
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "body": {
+        "answer": "知识库无法回答该问题。",
+        "citations": [],
+        "retrieval": {
+          "mode": "hybrid",
+          "dense_candidates": 28,
+          "sparse_candidates": 24,
+          "reranked_candidates": 20,
+          "final_chunks": 5,
+          "context_tokens": 0,
+          "reranker_fallback": false
+        },
+        "refused": true,
+        "refusal_reason": "below_relevance_threshold"
+      },
+      "seconds": 4.606
+    },
+    {
+      "label": "invalid",
+      "endpoint": "/v1/rag/query",
+      "request": {
+        "query": ""
+      },
+      "status": 422,
+      "content_type": "application/json",
+      "body": {
+        "detail": [
+          {
+            "type": "string_too_short",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "String should have at least 1 character",
+            "input": "",
+            "ctx": {
+              "min_length": 1
+            }
+          }
+        ]
+      },
+      "seconds": 0.002
+    },
+    {
+      "label": "filtered",
+      "endpoint": "/v1/rag/query",
+      "request": {
+        "query": "S3 AccessDenied",
+        "filters": {
+          "source_file": "does-not-exist.md"
+        }
+      },
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "body": {
+        "answer": "知识库无法回答该问题。",
+        "citations": [],
+        "retrieval": {
+          "mode": "hybrid",
+          "dense_candidates": 0,
+          "sparse_candidates": 0,
+          "reranked_candidates": 0,
+          "final_chunks": 0,
+          "context_tokens": 0,
+          "reranker_fallback": false
+        },
+        "refused": true,
+        "refusal_reason": "no_retrieval_results"
+      },
+      "seconds": 3.779
+    }
+  ],
+  "server_ready": true
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "text": "S3 support audit fixture\n\nFor an S3 AccessDenied response, check identity policies, bucket policies, permissions boundaries, and service control policies for explicit denies. Record the principal ARN and AWS request ID before comparing policy conditions.",
+    "source_file": "example.md",
+    "page_number": 1,
+    "chunk_hash": "1e4ab1b3f87550f21017d14845f86205cffdc28275f5889107642ce0007454ec",
+    "chunk_id": "1e4ab1b3f87550f21017d14845f86205cffdc28275f5889107642ce0007454ec",
+    "chunk_ordinal": 0,
+    "used_ocr": false,
+    "document_type": "markdown",
+    "language": "en",
+    "status": "published",
+    "context_summary": "This chunk provides a step-by-step guide to troubleshooting S3 AccessDenied responses by checking identity policies, bucket policies, permissions boundaries, and service control policies for explicit denies, and recording relevant informati",
+    "summary_fallback": false
+  }
+]

@@ -1,0 +1,69 @@
+{
+  "date": "2026-09-29",
+  "timezone": "America/Los_Angeles",
+  "scope": [
+    "root ingestion/retrieval",
+    "enterprise-ai-agent",
+    "agentic-rag-homework"
+  ],
+  "tests": {
+    "root_documented_pytest": {
+      "collection_errors": 6
+    },
+    "root_targeted": {
+      "passed": 24
+    },
+    "agentic": {
+      "passed": 12
+    },
+    "enterprise_existing_environment": {
+      "passed": 34
+    },
+    "enterprise_without_ignored_dataset": {
+      "passed": 33,
+      "failed": 1
+    }
+  },
+  "lint": {
+    "root": "passed",
+    "agentic": "passed",
+    "enterprise": "passed"
+  },
+  "mypy": {
+    "root_files": 28,
+    "root": "passed",
+    "enterprise_files": 25,
+    "enterprise": "passed"
+  },
+  "embedding_environment": {
+    "ollama_available": true,
+    "installed_model": "llama3.2:3b",
+    "nomic_embed_text_available": false,
+    "cross_encoder_dependency_installed": false
+  },
+  "database_environment": {
+    "local_techqa_hash_points": 117580,
+    "remote_qdrant_6333_reachable": false
+  },
+  "techqa_evaluation": {
+    "profile": "offline",
+    "embedding_provider": "hash",
+    "agent_top_k": 8,
+    "metric_top_k": 10,
+    "collection": "techqa_hash"
+  },
+  "production_code_modified_by_audit": false,
+  "remote_git_publication_verified": false,
+  "techqa_summary": {
+    "dataset": "IBM TechQA official dev_Q_A.json",
+    "question_count": 310,
+    "answerable_count": 160,
+    "unanswerable_count": 150,
+    "hit_at_5": 0.4875,
+    "hit_at_10": 0.525,
+    "mrr": 0.4238764880952381,
+    "unanswerable_refusal_accuracy": 0.3933333333333333,
+    "average_latency_ms": 2583.8546922583428,
+    "error_count": 0
+  }
+}

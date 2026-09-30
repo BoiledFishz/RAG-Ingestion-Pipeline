@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agentic-rag-homework"
+version = "1.0.0"
+description = "Agentic RAG, structured planner, ReAct, critic loop and agent comparison"
+requires-python = ">=3.11"
+dependencies = ["fastapi>=0.115,<1", "httpx>=0.27,<1", "pydantic>=2.9,<3", "uvicorn>=0.32,<1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.8,<1"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["api", "agents", "evaluation", "models", "tools", "vectorstore"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q -p no:cacheprovider"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "ASYNC"]

@@ -1,0 +1,419 @@
+{
+  "project": "homework",
+  "profile": "demo",
+  "cases": [
+    {
+      "label": "rag-answer",
+      "endpoint": "/v1/rag/query",
+      "request": {
+        "query": "What is the Lambda timeout range?"
+      },
+      "status": 200,
+      "content_type": "application/json",
+      "body": {
+        "answer": "AWS Lambda functions support a configurable timeout from 1 to 900 seconds. [1]",
+        "sources": [
+          {
+            "document_id": "kb-lambda-timeout",
+            "source": "knowledge/lambda.md",
+            "quote": "AWS Lambda functions support a configurable timeout from 1 to 900 seconds."
+          }
+        ],
+        "confidence": 0.522
+      },
+      "seconds": 0.009
+    },
+    {
+      "label": "rag-vague",
+      "endpoint": "/v1/rag/query",
+      "request": {
+        "query": "权限有问题"
+      },
+      "status": 200,
+      "content_type": "application/json",
+      "body": {
+        "answer": "请补充具体服务、操作和错误信息。",
+        "sources": [],
+        "confidence": 0.0
+      },
+      "seconds": 0.006
+    },
+    {
+      "label": "rag-unknown",
+      "endpoint": "/v1/rag/query",
+      "request": {
+        "query": "What is the DynamoDB global table limit?"
+      },
+      "status": 200,
+      "content_type": "application/json",
+      "body": {
+        "answer": "知识库中没有足够信息回答该问题。",
+        "sources": [],
+        "confidence": 0.0
+      },
+      "seconds": 0.007
+    },
+    {
+      "label": "planner",
+      "endpoint": "/v1/planner",
+      "request": {
+        "query": "How do I investigate EKS CrashLoopBackOff?"
+      },
+      "status": 200,
+      "content_type": "application/json",
+      "body": {
+        "tasks": [
+          {
+            "task_id": "T001",
+            "agent": "research_agent",
+            "objective": "Collect evidence relevant to the requested investigation",
+            "dependencies": []
+          },
+          {
+            "task_id": "T002",
+            "agent": "diagnosis_agent",
+            "objective": "Produce an evidence-grounded diagnosis and recommendation",
+            "dependencies": [
+              "T001"
+            ]
+          },
+          {
+            "task_id": "T003",
+            "agent": "report_writer",
+            "objective": "Return the checked result with explicit sources",
+            "dependencies": [
+              "T002"
+            ]
+          }
+        ]
+      },
+      "seconds": 0.012
+    },
+    {
+      "label": "research",
+      "endpoint": "/v1/research",
+      "request": {
+        "query": "How do I investigate EKS CrashLoopBackOff?"
+      },
+      "status": 200,
+      "content_type": "application/json",
+      "body": {
+        "response": {
+          "answer": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits. [1]",
+          "sources": [
+            {
+              "document_id": "web-eks-crashloop",
+              "source": "external/eks-guide",
+              "quote": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits."
+            }
+          ],
+          "confidence": 0.433
+        },
+        "steps": [
+          {
+            "index": 1,
+            "action": "rag_search",
+            "argument": "How do I investigate EKS CrashLoopBackOff?",
+            "reason": "Start with the internal knowledge base",
+            "observation_ids": [
+              "kb-rds-storage",
+              "kb-lambda-timeout",
+              "kb-s3-access",
+              "kb-ec2-ssh"
+            ]
+          },
+          {
+            "index": 2,
+            "action": "search",
+            "argument": "EKS CrashLoopBackOff investigation",
+            "reason": "Internal evidence is insufficient",
+            "observation_ids": [
+              "web-eks-crashloop"
+            ]
+          }
+        ],
+        "stop_reason": "finished",
+        "metrics": {
+          "llm_calls": 2,
+          "tool_calls": 2,
+          "input_tokens": 1124,
+          "output_tokens": 58,
+          "latency_ms": 4.647699999623001
+        }
+      },
+      "seconds": 0.01
+    },
+    {
+      "label": "single-agent",
+      "endpoint": "/v1/single-agent",
+      "request": {
+        "query": "How do I investigate EKS CrashLoopBackOff?"
+      },
+      "status": 200,
+      "content_type": "application/json",
+      "body": {
+        "response": {
+          "answer": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits. [1]",
+          "sources": [
+            {
+              "document_id": "web-eks-crashloop",
+              "source": "external/eks-guide",
+              "quote": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits."
+            }
+          ],
+          "confidence": 0.433
+        },
+        "metrics": {
+          "llm_calls": 2,
+          "tool_calls": 2,
+          "input_tokens": 1124,
+          "output_tokens": 58,
+          "latency_ms": 3.6137000133749098
+        },
+        "plan": null,
+        "research": {
+          "response": {
+            "answer": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits. [1]",
+            "sources": [
+              {
+                "document_id": "web-eks-crashloop",
+                "source": "external/eks-guide",
+                "quote": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits."
+              }
+            ],
+            "confidence": 0.433
+          },
+          "steps": [
+            {
+              "index": 1,
+              "action": "rag_search",
+              "argument": "How do I investigate EKS CrashLoopBackOff?",
+              "reason": "Start with the internal knowledge base",
+              "observation_ids": [
+                "kb-rds-storage",
+                "kb-lambda-timeout",
+                "kb-s3-access",
+                "kb-ec2-ssh"
+              ]
+            },
+            {
+              "index": 2,
+              "action": "search",
+              "argument": "EKS CrashLoopBackOff investigation",
+              "reason": "Internal evidence is insufficient",
+              "observation_ids": [
+                "web-eks-crashloop"
+              ]
+            }
+          ],
+          "stop_reason": "finished",
+          "metrics": {
+            "llm_calls": 2,
+            "tool_calls": 2,
+            "input_tokens": 1124,
+            "output_tokens": 58,
+            "latency_ms": 3.6137000133749098
+          }
+        },
+        "critic": null
+      },
+      "seconds": 0.009
+    },
+    {
+      "label": "multi-agent",
+      "endpoint": "/v1/multi-agent",
+      "request": {
+        "query": "How do I investigate EKS CrashLoopBackOff?"
+      },
+      "status": 200,
+      "content_type": "application/json",
+      "body": {
+        "response": {
+          "answer": "Use the retrieved checks and retain the citation for verification. [evidence]",
+          "sources": [
+            {
+              "document_id": "web-eks-crashloop",
+              "source": "external/eks-guide",
+              "quote": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits."
+            }
+          ],
+          "confidence": 0.433
+        },
+        "metrics": {
+          "llm_calls": 7,
+          "tool_calls": 2,
+          "input_tokens": 2485,
+          "output_tokens": 296,
+          "latency_ms": 12.83799999509938
+        },
+        "plan": {
+          "tasks": [
+            {
+              "task_id": "T001",
+              "agent": "research_agent",
+              "objective": "Collect evidence relevant to the requested investigation",
+              "dependencies": []
+            },
+            {
+              "task_id": "T002",
+              "agent": "diagnosis_agent",
+              "objective": "Produce an evidence-grounded diagnosis and recommendation",
+              "dependencies": [
+                "T001"
+              ]
+            },
+            {
+              "task_id": "T003",
+              "agent": "report_writer",
+              "objective": "Return the checked result with explicit sources",
+              "dependencies": [
+                "T002"
+              ]
+            }
+          ]
+        },
+        "research": {
+          "response": {
+            "answer": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits. [1]",
+            "sources": [
+              {
+                "document_id": "web-eks-crashloop",
+                "source": "external/eks-guide",
+                "quote": "For an EKS pod in CrashLoopBackOff, inspect kubectl describe pod events and kubectl logs --previous, then verify probes, configuration, and resource limits."
+              }
+            ],
+            "confidence": 0.433
+          },
+          "steps": [
+            {
+              "index": 1,
+              "action": "rag_search",
+              "argument": "How do I investigate EKS CrashLoopBackOff?",
+              "reason": "Start with the internal knowledge base",
+              "observation_ids": [
+                "kb-rds-storage",
+                "kb-lambda-timeout",
+                "kb-s3-access",
+                "kb-ec2-ssh"
+              ]
+            },
+            {
+              "index": 2,
+              "action": "search",
+              "argument": "EKS CrashLoopBackOff investigation",
+              "reason": "Internal evidence is insufficient",
+              "observation_ids": [
+                "web-eks-crashloop"
+              ]
+            }
+          ],
+          "stop_reason": "finished",
+          "metrics": {
+            "llm_calls": 2,
+            "tool_calls": 2,
+            "input_tokens": 1124,
+            "output_tokens": 58,
+            "latency_ms": 3.6399999808054417
+          }
+        },
+        "critic": {
+          "final_diagnosis": "Use the retrieved checks and retain the citation for verification. [evidence]",
+          "passed": true,
+          "retries": 1,
+          "attempts": [
+            {
+              "attempt": 1,
+              "diagnosis": "Check the related configuration.",
+              "critique": {
+                "passed": false,
+                "score": 0.45,
+                "issues": [
+                  {
+                    "code": "missing_evidence",
+                    "description": "The diagnosis does not cite retrieved evidence",
+                    "suggestion": "Cite evidence and provide verifiable checks"
+                  }
+                ]
+              },
+              "resolved_previous_issues": []
+            },
+            {
+              "attempt": 2,
+              "diagnosis": "Use the retrieved checks and retain the citation for verification. [evidence]",
+              "critique": {
+                "passed": true,
+                "score": 0.9,
+                "issues": []
+              },
+              "resolved_previous_issues": [
+                "missing_evidence"
+              ]
+            }
+          ],
+          "metrics": {
+            "llm_calls": 4,
+            "tool_calls": 0,
+            "input_tokens": 989,
+            "output_tokens": 109,
+            "latency_ms": 6.313399993814528
+          }
+        }
+      },
+      "seconds": 0.018
+    },
+    {
+      "label": "critic-loop",
+      "endpoint": "/v1/critic-loop",
+      "request": {
+        "task": "Explain the Lambda timeout range.",
+        "evidence": "The AWS Lambda timeout can be set from 1 second to 900 seconds."
+      },
+      "status": 200,
+      "content_type": "application/json",
+      "body": {
+        "final_diagnosis": "Use the retrieved checks and retain the citation for verification. [evidence]",
+        "passed": true,
+        "retries": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "diagnosis": "Check the related configuration.",
+            "critique": {
+              "passed": false,
+              "score": 0.45,
+              "issues": [
+                {
+                  "code": "missing_evidence",
+                  "description": "The diagnosis does not cite retrieved evidence",
+                  "suggestion": "Cite evidence and provide verifiable checks"
+                }
+              ]
+            },
+            "resolved_previous_issues": []
+          },
+          {
+            "attempt": 2,
+            "diagnosis": "Use the retrieved checks and retain the citation for verification. [evidence]",
+            "critique": {
+              "passed": true,
+              "score": 0.9,
+              "issues": []
+            },
+            "resolved_previous_issues": [
+              "missing_evidence"
+            ]
+          }
+        ],
+        "metrics": {
+          "llm_calls": 4,
+          "tool_calls": 0,
+          "input_tokens": 929,
+          "output_tokens": 109,
+          "latency_ms": 6.300100008957088
+        }
+      },
+      "seconds": 0.011
+    }
+  ],
+  "server_ready": true
+}
