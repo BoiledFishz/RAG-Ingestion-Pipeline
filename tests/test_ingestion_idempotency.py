@@ -8,6 +8,7 @@ from rag.ingestion.models import Chunk
 from rag.ingestion.pipeline import IngestionPipeline
 from rag.ingestion.providers import ExtractiveSummaryProvider, HashEmbeddingProvider
 from rag.ingestion.utils import DocumentParser
+from rag.techqa.data import questions
 
 
 class CountingEmbedder(HashEmbeddingProvider):
@@ -39,7 +40,7 @@ class MemoryStore:
 def test_second_ingestion_skips_embedding_and_preserves_required_metadata(tmp_path: Path) -> None:
     document = tmp_path / "guide.md"
     document.write_text(
-        "# S3\nAn explicit deny overrides an allow in an S3 bucket policy.",
+        questions("fixture")[0]["ANSWER"],
         encoding="utf-8",
     )
     store = MemoryStore()

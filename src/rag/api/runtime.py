@@ -37,9 +37,7 @@ def _floating(name: str, default: float) -> float:
 def _build_reranker() -> BaseReranker:
     provider = os.getenv("RERANKER_PROVIDER", "lexical").strip().lower()
     if provider == "lexical":
-        return LexicalReranker(
-            lexical_weight=_floating("RERANKER_LEXICAL_WEIGHT", 0.7)
-        )
+        return LexicalReranker(lexical_weight=_floating("RERANKER_LEXICAL_WEIGHT", 0.7))
     if provider == "cross_encoder":
         return CrossEncoderReranker(
             model_name=os.getenv(
@@ -55,6 +53,29 @@ def _build_reranker() -> BaseReranker:
 
 def build_service() -> RAGService:
     load_environment()
+    if os.getenv("RAG_BACKEND", "techqa") == "techqa":
+        from rag.techqa.retrieval import TechQAParentResolver, build_pipeline, open_index
+        from rag.techqa.settings import relevance_threshold
+
+        return RAGService(
+            retriever=build_pipeline(final_k=_integer("RETRIEVAL_FINAL_K", 5)),
+            generator=OllamaGenerator(
+                model=os.getenv("ANSWER_MODEL", "llama3.2:3b"),
+                base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
+            ),
+            context_builder=ContextBuilder(
+                max_context_tokens=_integer("MAX_CONTEXT_TOKENS", 8000),
+                max_chunks_per_document=_integer("MAX_CHUNKS_PER_DOCUMENT", 2),
+            ),
+            parent_resolver=TechQAParentResolver(open_index()),
+            relevance_threshold=relevance_threshold(),
+            relevance_thresholds={
+                "dense": relevance_threshold("dense"),
+                "sparse": relevance_threshold("sparse"),
+                "hybrid": relevance_threshold("hybrid"),
+            },
+            fallback_coverage_threshold=_floating("TECHQA_FALLBACK_THRESHOLD", 0.50),
+        )
     configured_mode = os.getenv("RETRIEVAL_MODE", "hybrid")
     if configured_mode not in {"dense", "sparse", "hybrid"}:
         raise ValueError(f"Unsupported RETRIEVAL_MODE: {configured_mode}")
@@ -71,7 +92,7 @@ def build_service() -> RAGService:
     )
     store = QdrantVectorStore(
         path=Path(os.getenv("QDRANT_PATH", ".rag_data/qdrant")),
-        collection_name=os.getenv("QDRANT_COLLECTION", "aws_support"),
+        collection_name=os.getenv("QDRANT_COLLECTION", "techqa"),
     )
     embedder: EmbeddingProvider
     if os.getenv("EMBEDDING_PROVIDER", "ollama") == "hash":

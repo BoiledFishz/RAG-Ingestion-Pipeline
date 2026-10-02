@@ -1,0 +1,22 @@
+{
+  "collection": "techqa_nomic_v3",
+  "count": 178,
+  "hashes_valid": true,
+  "required_metadata_present": true,
+  "document_ids": [
+    "swg21179559",
+    "swg21263677",
+    "swg21515420",
+    "swg21618719",
+    "swg21636093",
+    "swg21648497",
+    "swg21675316",
+    "swg21696083",
+    "swg21903536",
+    "swg21966637",
+    "swg21996508",
+    "swg22008493"
+  ],
+  "summary_provider_recorded": false,
+  "idempotent_repeat": "178 unique existing hashes skipped before summary/embedding calls"
+}

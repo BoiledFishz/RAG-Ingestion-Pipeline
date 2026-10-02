@@ -9,6 +9,7 @@ from agents.rag_agent.service import RAGAgent
 from models.providers import Embedder, HashEmbedder, OllamaEmbedder, OllamaStructuredModel
 from models.settings import Settings
 from tools.retriever import RetrieverTool
+from tools.techqa_retriever import TechQARetrieverTool
 from vectorstore.qdrant import QdrantStore
 
 
@@ -31,7 +32,11 @@ def build_agent(settings: Settings, store: QdrantStore) -> RAGAgent:
     return RAGAgent(
         rewriter=rewriter,
         selector=selector,
-        retriever=RetrieverTool(store, build_embedder(settings), settings.tool_timeout),
+        retriever=(
+            TechQARetrieverTool()
+            if settings.retrieval_backend == "techqa"
+            else RetrieverTool(store, build_embedder(settings), settings.tool_timeout)
+        ),
         compressor=ContextCompressor(
             settings.max_context_tokens,
             settings.max_sources,

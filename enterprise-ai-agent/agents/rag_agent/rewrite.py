@@ -105,7 +105,8 @@ class LLMRewriter:
                 raise ValueError("rewrite invented a protected term")
             specific_identifier = re.search(
                 r"\b[A-Za-z0-9_.-]+:[A-Za-z0-9_*.-]+\b|"
-                r"\b[A-Za-z][a-z]+(?:[A-Z][A-Za-z0-9]+)+\b",
+                r"\b[A-Za-z][a-z]+(?:[A-Z][A-Za-z0-9]+)+\b|"
+                r"\b[A-Z][A-Z0-9]+(?:_[A-Z0-9]+)+\b|\b\d+(?:\.\d+){1,4}\b",
                 query,
             )
             if result.action == "clarify" and specific_identifier:

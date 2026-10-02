@@ -1,0 +1,47 @@
+{
+  "dataset": "IBM TechQA",
+  "split": "train",
+  "scope": {
+    "scope": "full",
+    "document_count": "801996",
+    "complete": "true",
+    "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+    "format_version": "1"
+  },
+  "questions": 60,
+  "answerable": 49,
+  "semantic_reranker": true,
+  "dense_embedding": "hash-sha256-384-v1",
+  "protocol": "open retrieval over entire corpus; official DOC_IDS not supplied; N labels refer to official candidate pools, not proof of absence in full corpus",
+  "error_count": 0,
+  "modes": {
+    "dense_hash": {
+      "hit_at_5": 0.10204081632653061,
+      "hit_at_10": 0.10204081632653061,
+      "mrr": 0.08673469387755102,
+      "context_precision_at_5": 0.02040816326530612,
+      "average_latency_ms": 476.20653500198387
+    },
+    "bm25": {
+      "hit_at_5": 0.5306122448979592,
+      "hit_at_10": 0.5714285714285714,
+      "mrr": 0.4471331389698736,
+      "context_precision_at_5": 0.10612244897959185,
+      "average_latency_ms": 2819.4127466709083
+    },
+    "dense_rerank": {
+      "hit_at_5": 0.10204081632653061,
+      "hit_at_10": 0.10204081632653061,
+      "mrr": 0.09183673469387756,
+      "context_precision_at_5": 0.02040816326530612,
+      "average_latency_ms": 515.3202833350709
+    },
+    "hybrid_rerank": {
+      "hit_at_5": 0.5306122448979592,
+      "hit_at_10": 0.5918367346938775,
+      "mrr": 0.4648202137998056,
+      "context_precision_at_5": 0.10612244897959185,
+      "average_latency_ms": 2852.3007250046553
+    }
+  }
+}

@@ -124,14 +124,14 @@ class ResearchRun(StrictModel):
 
 class CriticIssue(StrictModel):
     code: str
-    description: str
-    suggestion: str
+    description: str = Field(max_length=400)
+    suggestion: str = Field(max_length=400)
 
 
 class CriticResult(StrictModel):
     passed: bool
     score: float = Field(ge=0, le=1)
-    issues: list[CriticIssue] = Field(default_factory=list)
+    issues: list[CriticIssue] = Field(default_factory=list, max_length=3)
 
     @model_validator(mode="after")
     def issue_consistency(self) -> CriticResult:
@@ -141,8 +141,9 @@ class CriticResult(StrictModel):
 
 
 class DiagnosisDraft(StrictModel):
-    diagnosis: str = Field(min_length=10)
-    citations: list[str] = Field(min_length=1, description="Evidence IDs, without brackets")
+    diagnosis: str = Field(min_length=10, max_length=2200)
+    citations: list[str] = Field(min_length=1, max_length=4,
+                               description="Unique supporting evidence IDs, without brackets")
 
 
 class CriticAttempt(StrictModel):

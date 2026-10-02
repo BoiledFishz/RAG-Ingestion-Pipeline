@@ -1,4 +1,6 @@
+# Serving uses environment variables; this is the documented full TechQA profile.
 retrieval:
+  dataset: IBM TechQA
   mode: hybrid
   candidate_k: 30
   rerank_k: 20
@@ -6,13 +8,8 @@ retrieval:
   rrf_rank_constant: 60
   max_context_tokens: 8000
   max_chunks_per_document: 2
-  reranker_timeout_seconds: 5
-  reranker_provider: lexical
-  reranker_model: cross-encoder/ms-marco-MiniLM-L-6-v2
-  reranker_batch_size: 16
-  relevance_threshold: 0.05
-  fallback_query_coverage_threshold: 0.183333
-  calibrated_relevance_thresholds:
-    dense_rerank: 0.532230
-    sparse_rerank: 0.549118
-    hybrid_rerank: 0.546701
+  reranker_timeout_seconds: 120
+  reranker_provider: nomic
+  dense_embedding: hash-sha256-384-v1
+  calibration: config/techqa_thresholds.json
+  fallback_query_coverage_threshold: 0.5

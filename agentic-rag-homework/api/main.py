@@ -1,6 +1,10 @@
 from __future__ import annotations
 
-from fastapi import FastAPI
+import logging
+
+import httpx
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
 from agents.systems import MultiAgentVersion, SingleAgentVersion
@@ -8,6 +12,12 @@ from evaluation.factory import build_advanced, build_rag, model_from_env
 from models.schemas import CriticLoopRun, RAGResponse, ResearchRun, StructuredPlan, SystemRun
 
 app = FastAPI(title="Agentic RAG Homework", version="1.0.0")
+
+
+@app.exception_handler(httpx.HTTPError)
+async def dependency_error(request: Request, exc: httpx.HTTPError) -> JSONResponse:
+    logging.getLogger(__name__).warning("Model dependency failed: %s", type(exc).__name__)
+    return JSONResponse(status_code=503, content={"detail": "Model dependency unavailable"})
 
 
 class Query(BaseModel):

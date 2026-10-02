@@ -28,13 +28,21 @@ LOGGER = logging.getLogger(__name__)
 
 def build_argument_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Ingest PDF/Markdown documents into Qdrant")
-    parser.add_argument("source", type=Path, help="Document file or directory")
+    from rag.techqa.data import FIXTURE_ROOT
+
+    parser.add_argument(
+        "source",
+        type=Path,
+        nargs="?",
+        default=FIXTURE_ROOT / "mixed",
+        help="Document file/directory; defaults to official TechQA format fixtures",
+    )
     parser.add_argument(
         "--qdrant-path",
         type=Path,
         default=Path(os.getenv("QDRANT_PATH", ".rag_data/qdrant")),
     )
-    parser.add_argument("--collection", default=os.getenv("QDRANT_COLLECTION", "aws_support"))
+    parser.add_argument("--collection", default=os.getenv("QDRANT_COLLECTION", "techqa_nomic_v3"))
     parser.add_argument("--chunk-size", type=int, default=int(os.getenv("CHUNK_SIZE", "512")))
     parser.add_argument("--chunk-overlap", type=int, default=int(os.getenv("CHUNK_OVERLAP", "64")))
     parser.add_argument(
@@ -96,7 +104,10 @@ async def async_run(arguments: argparse.Namespace) -> int:
         if not stats.succeeded:
             LOGGER.error(
                 "Ingestion incomplete: created=%d skipped=%d upserted=%d warnings=%s",
-                stats.chunks_created, stats.chunks_skipped, stats.chunks_upserted, stats.warnings,
+                stats.chunks_created,
+                stats.chunks_skipped,
+                stats.chunks_upserted,
+                stats.warnings,
             )
         return 0 if stats.succeeded else 1
     finally:

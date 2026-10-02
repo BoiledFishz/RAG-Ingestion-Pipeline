@@ -57,11 +57,14 @@ class OllamaStructuredModel:
                     "stream": False,
                     "format": schema,
                     "messages": [{"role": "user", "content": prompt}],
-                    "options": {"temperature": 0},
+                    "options": {"temperature": 0, "num_predict": 1200, "num_ctx": 8192},
                 },
             )
             response.raise_for_status()
-            return str(response.json()["message"]["content"])
+            result = response.json()
+            if result.get("done_reason") == "length":
+                raise ValueError("Structured generation exceeded its token budget")
+            return str(result["message"]["content"])
 
 
 class ScriptedModel:

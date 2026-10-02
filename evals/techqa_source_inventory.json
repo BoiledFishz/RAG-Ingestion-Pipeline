@@ -1,0 +1,18 @@
+{
+  "source_records": 801998,
+  "usable_records": 801996,
+  "unique_usable_documents": 801996,
+  "invalid_records": [
+    {
+      "id": "isg3T1016084",
+      "title": "IBM Submit a series of jobs to the same host and have the 1st job set the host's environment. - United States",
+      "reason": "missing id or empty text"
+    },
+    {
+      "id": "swg21325092",
+      "title": "IBM The procedure entry point GetNodeClusterState could not be located in the dynamic link library CLUSAPI.dll - United States",
+      "reason": "missing id or empty text"
+    }
+  ],
+  "duplicate_ids": []
+}

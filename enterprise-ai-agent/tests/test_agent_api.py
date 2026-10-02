@@ -84,7 +84,7 @@ def test_agent_api_reports_model_outage_as_503(
             response = await client.post(
                 "/v1/agent/query",
                 json={
-                    "query": "What does WebSphere ADMU0111E indicate?",
+                    "query": "How are Streams environment variables set after upgrade to 4.1.1.2?",
                 },
             )
             assert response.status_code == 503

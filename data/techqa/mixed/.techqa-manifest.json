@@ -1,0 +1,86 @@
+{
+  "swg21996508.md": {
+    "techqa_document_id": "swg21996508",
+    "dataset": "IBM TechQA",
+    "original_text_sha256": "bd5f06e7972c26871d74337a41355c22be81bc4c9edbbf856952cfb272641784",
+    "transformation": "title and official plain text, no paraphrasing"
+  },
+  "swg21996508.pdf": {
+    "techqa_document_id": "swg21996508",
+    "dataset": "IBM TechQA",
+    "original_text_sha256": "bd5f06e7972c26871d74337a41355c22be81bc4c9edbbf856952cfb272641784",
+    "transformation": "rendered official text; PDF/scan format test"
+  },
+  "swg21996508-scan.pdf": {
+    "techqa_document_id": "swg21996508",
+    "dataset": "IBM TechQA",
+    "original_text_sha256": "bd5f06e7972c26871d74337a41355c22be81bc4c9edbbf856952cfb272641784",
+    "transformation": "rendered official text; PDF/scan format test"
+  },
+  "swg21675316.md": {
+    "techqa_document_id": "swg21675316",
+    "dataset": "IBM TechQA",
+    "original_text_sha256": "73d46104e5d738823aaf529862bd2223bb38e883f222f9612cbc5c5ffa510c08",
+    "transformation": "title and official plain text, no paraphrasing"
+  },
+  "swg21179559.md": {
+    "techqa_document_id": "swg21179559",
+    "dataset": "IBM TechQA",
+    "original_text_sha256": "8d2aaccd7396f956d54879a14f9ccd23d3bf4e7937140afa2286f15bf84ed46a",
+    "transformation": "title and official plain text, no paraphrasing"
+  },
+  "swg21903536.md": {
+    "techqa_document_id": "swg21903536",
+    "dataset": "IBM TechQA",
+    "original_text_sha256": "6c60547cfe62623e0f8adda203d09e3127bd868f3571743a7789961dbda3d7cf",
+    "transformation": "title and official plain text, no paraphrasing"
+  },
+  "swg22008493.md": {
+    "techqa_document_id": "swg22008493",
+    "dataset": "IBM TechQA",
+    "original_text_sha256": "25f14599e42b62389d1cdbcfb4917cea75e0c192b53bf7b2486ea67bdd732857",
+    "transformation": "title and official plain text, no paraphrasing"
+  },
+  "swg21636093.md": {
+    "techqa_document_id": "swg21636093",
+    "dataset": "IBM TechQA",
+    "original_text_sha256": "377a1f7e594846a9a2059f28d8ab89e781c507c4e4643657cc1d34e569317ae5",
+    "transformation": "title and official plain text, no paraphrasing"
+  },
+  "swg21263677.md": {
+    "techqa_document_id": "swg21263677",
+    "dataset": "IBM TechQA",
+    "original_text_sha256": "18d38944089e94f868352fcbfa81f8e72ba8d7baafe8556516ac3f1e05b8579c",
+    "transformation": "title and official plain text, no paraphrasing"
+  },
+  "swg21696083.md": {
+    "techqa_document_id": "swg21696083",
+    "dataset": "IBM TechQA",
+    "original_text_sha256": "b9ca4317b17f894764243c8c76da01c745645fe08cb95277ff7712c79db07a93",
+    "transformation": "title and official plain text, no paraphrasing"
+  },
+  "swg21515420.md": {
+    "techqa_document_id": "swg21515420",
+    "dataset": "IBM TechQA",
+    "original_text_sha256": "0e9991df464c2a2893d6409190d9eff058128a42c2ad76d5e0e859ca95bca271",
+    "transformation": "title and official plain text, no paraphrasing"
+  },
+  "swg21966637.md": {
+    "techqa_document_id": "swg21966637",
+    "dataset": "IBM TechQA",
+    "original_text_sha256": "264abe8bd33cf06a955e86af219ebb7ff6591736b579654edf0e0dd5ec1d54fb",
+    "transformation": "title and official plain text, no paraphrasing"
+  },
+  "swg21648497.md": {
+    "techqa_document_id": "swg21648497",
+    "dataset": "IBM TechQA",
+    "original_text_sha256": "ec5ff496b9b5b26468aee47bf6790cc03080a729d63a189d3207a0b7b08868f2",
+    "transformation": "title and official plain text, no paraphrasing"
+  },
+  "swg21618719.md": {
+    "techqa_document_id": "swg21618719",
+    "dataset": "IBM TechQA",
+    "original_text_sha256": "60380ac6d06171e44fe4dded2b34e0451ae3ad79ec22f39448354e25149cf92b",
+    "transformation": "title and official plain text, no paraphrasing"
+  }
+}

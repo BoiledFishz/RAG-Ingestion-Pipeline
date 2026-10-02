@@ -151,7 +151,7 @@ def test_hybrid_degrades_to_available_branch_and_shares_filters() -> None:
     sparse = CapturingRetriever(
         [
             SearchResult(
-                "S3 evidence",
+                "streamtool setproperty",
                 {"chunk_hash": "s3", "chunk_id": "s3"},
                 3.0,
                 "sparse",

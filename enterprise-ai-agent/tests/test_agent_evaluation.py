@@ -27,21 +27,30 @@ def test_official_question_fields_and_missing_body() -> None:
 
 
 def test_failed_questions_remain_in_evaluation_denominators(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     dataset = tmp_path / "dev.json"
-    dataset.write_text(json.dumps([
-        {"QUESTION_ID": "one", "QUESTION_TITLE": "Known question", "ANSWERABLE": "Y",
-         "DOCUMENT": "expected"},
-        {"QUESTION_ID": "two", "QUESTION_TITLE": "Unknown question", "ANSWERABLE": "N"},
-    ]))
+    dataset.write_text(
+        json.dumps(
+            [
+                {
+                    "QUESTION_ID": "one",
+                    "QUESTION_TITLE": "Known question",
+                    "ANSWERABLE": "Y",
+                    "DOCUMENT": "expected",
+                },
+                {"QUESTION_ID": "two", "QUESTION_TITLE": "Unknown question", "ANSWERABLE": "N"},
+            ]
+        )
+    )
 
     async def fail(*args, **kwargs):
         raise TimeoutError("Injected dependency error")
 
     monkeypatch.setattr(RetrieverTool, "invoke", fail)
     monkeypatch.setattr(benchmark, "open_store", lambda _: QdrantStore("errors"))
-    result = asyncio.run(benchmark.evaluate(Settings(), dataset))
+    result = asyncio.run(benchmark.evaluate(Settings(retrieval_backend="legacy"), dataset))
     summary = result["summary"]
     assert summary["question_count"] == 2
     assert summary["answerable_count"] == summary["unanswerable_count"] == 1

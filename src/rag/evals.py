@@ -14,7 +14,12 @@ from typing import Any
 
 from rag.ingestion.chunking import RecursiveChunker
 from rag.ingestion.pipeline import IngestionPipeline
-from rag.ingestion.providers import ExtractiveSummaryProvider, HashEmbeddingProvider
+from rag.ingestion.providers import (
+    EmbeddingProvider,
+    ExtractiveSummaryProvider,
+    HashEmbeddingProvider,
+    OllamaEmbeddingProvider,
+)
 from rag.ingestion.utils import DocumentParser
 from rag.ingestion.vector_store import QdrantVectorStore
 from rag.retrieval.dense import DenseRetriever
@@ -51,6 +56,7 @@ async def evaluate_chunk_size(
     golden_path: Path,
     database_root: Path,
     top_k: int,
+    embedding_provider: str = "ollama",
 ) -> EvaluationResult:
     try:
         from ragas import SingleTurnSample
@@ -59,12 +65,14 @@ async def evaluate_chunk_size(
         message = "Install evaluation dependencies with: pip install -e '.[eval]'"
         raise RuntimeError(message) from exc
 
-    collection = f"aws_support_eval_{chunk_size}"
+    collection = f"techqa_eval_{embedding_provider}_v2_{chunk_size}"
     store = QdrantVectorStore(
         collection_name=collection,
         path=database_root / f"qdrant-{chunk_size}",
     )
-    embedder = HashEmbeddingProvider()
+    embedder: EmbeddingProvider = (
+        OllamaEmbeddingProvider() if embedding_provider == "ollama" else HashEmbeddingProvider()
+    )
     pipeline = IngestionPipeline(
         parser=DocumentParser(),
         chunker=RecursiveChunker(
@@ -75,7 +83,9 @@ async def evaluate_chunk_size(
         embedder=embedder,
         store=store,
     )
-    await pipeline.run(data_dir)
+    stats = await pipeline.run(data_dir)
+    if not stats.succeeded:
+        raise RuntimeError("Ragas ingestion incomplete; refusing to score a partial index")
 
     dense = DenseRetriever(embedder=embedder, store=store)
     sparse = BM25Retriever(store=store)
@@ -145,6 +155,7 @@ async def async_run(arguments: argparse.Namespace) -> int:
                 golden_path=arguments.golden,
                 database_root=arguments.database_root,
                 top_k=arguments.top_k,
+                embedding_provider=arguments.embedding_provider,
             )
         )
     arguments.output.parent.mkdir(parents=True, exist_ok=True)
@@ -160,7 +171,10 @@ def build_argument_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Evaluate retrieval with Ragas Context Recall")
     parser.add_argument("--chunk-sizes", type=int, nargs="+", default=[256, 512])
     parser.add_argument("--top-k", type=int, default=3)
-    parser.add_argument("--data-dir", type=Path, default=REPOSITORY_ROOT / "data" / "sample")
+    parser.add_argument("--embedding-provider", choices=["ollama", "hash"], default="ollama")
+    parser.add_argument(
+        "--data-dir", type=Path, default=REPOSITORY_ROOT / "data" / "techqa" / "mixed"
+    )
     parser.add_argument(
         "--golden",
         type=Path,

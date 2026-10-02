@@ -124,14 +124,16 @@ class ReActResearchAgent:
         self.policy, self.model_meter, self.max_steps = policy, model_meter, max_steps
 
     async def run(
-        self, query: str, *, objective: str = "", prior_evidence: list[Document] | None = None,
+        self,
+        query: str,
+        *,
+        objective: str = "",
+        prior_evidence: list[Document] | None = None,
     ) -> ResearchRun:
         started = time.perf_counter()
         before = self.model_meter.snapshot() if self.model_meter else Metrics()
         steps: list[ResearchStep] = []
-        known: dict[str, Document] = {
-            doc.document_id: doc for doc in prior_evidence or []
-        }
+        known: dict[str, Document] = {doc.document_id: doc for doc in prior_evidence or []}
         tool_calls = 0
 
         # ReAct always starts with the private knowledge base, then reasons from its observation.
@@ -152,24 +154,28 @@ class ReActResearchAgent:
         while len(steps) < self.max_steps:
             try:
                 decision = await self.policy.decide(
-                    query, steps, list(known.values()), objective=objective,
+                    query,
+                    steps,
+                    list(known.values()),
+                    objective=objective,
                 )
             except Exception:
                 LOGGER.exception("Invalid or unavailable research policy; trying bounded recovery")
                 decision = ResearchAction(
-                    action="search", argument=query, reason="Policy failure recovery",
+                    action="search",
+                    argument=query,
+                    reason="Policy failure recovery",
                 )
             supported = bool(render_answer(query, list(known.values())).sources)
-            invalid_read = (
-                decision.action == "read_document" and decision.argument not in known
-            )
+            invalid_read = decision.action == "read_document" and decision.argument not in known
             repeated = (decision.action, decision.argument) in used
             premature_finish = decision.action == "finish" and not supported
             if invalid_read or repeated or premature_finish:
                 if not supported and not any(action == "search" for action, _ in used):
                     LOGGER.warning("Research decision rejected; searching original question")
                     decision = ResearchAction(
-                        action="search", argument=query,
+                        action="search",
+                        argument=query,
                         reason="Recovery: invalid/repeated action or insufficient evidence",
                     )
                 elif invalid_read or repeated:
@@ -189,6 +195,12 @@ class ReActResearchAgent:
                 observed = await self.search.invoke(decision.argument)
             elif decision.action == "read_document":
                 document = await self.documents.invoke(decision.argument)
+                if document and document.document_id in known:
+                    document = document.model_copy(
+                        update={
+                            "score": known[document.document_id].score,
+                        }
+                    )
                 observed = [document] if document else []
             tool_calls += 1
             known.update({doc.document_id: doc for doc in observed})

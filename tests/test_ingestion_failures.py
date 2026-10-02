@@ -7,13 +7,14 @@ import pytest
 
 from rag.ingestion.cli import async_run, build_argument_parser
 from rag.ingestion.providers import HashEmbeddingProvider, OllamaSummaryProvider, _first_sentence
+from rag.techqa.data import questions
 
 
 def test_embedding_failure_is_nonzero_and_database_is_released(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     source = tmp_path / "document.md"
-    source.write_text("An explicit deny overrides an allow in an S3 bucket policy.")
+    source.write_text(questions("fixture")[0]["ANSWER"], encoding="utf-8")
     arguments = build_argument_parser().parse_args([
         str(source), "--summary-provider", "extractive", "--embedding-provider", "hash",
         "--qdrant-path", str(tmp_path / "db"),

@@ -6,14 +6,15 @@ from rag.ingestion.models import MetadataValue
 from rag.retrieval.contracts import SearchResult
 from rag.retrieval.pipeline import DenseRerankPipeline, RetrievalConfig
 from rag.retrieval.reranker import CrossEncoderReranker, LexicalReranker
+from rag.techqa.data import questions
 
 
 def test_reranker_promotes_query_term_overlap() -> None:
     candidates = [
-        SearchResult("unrelated database text", {"chunk_hash": "a"}, 0.9, "hybrid"),
-        SearchResult("Lambda timeout uses CloudWatch Logs", {"chunk_hash": "b"}, 0.5, "hybrid"),
+        SearchResult(questions("fixture")[1]["ANSWER"], {"chunk_hash": "a"}, 0.9, "hybrid"),
+        SearchResult(questions("fixture")[0]["ANSWER"], {"chunk_hash": "b"}, 0.5, "hybrid"),
     ]
-    results = asyncio.run(LexicalReranker().rerank("Lambda timeout", candidates, limit=2))
+    results = asyncio.run(LexicalReranker().rerank("streamtool setproperty", candidates, limit=2))
     assert results[0].chunk_hash == "b"
     assert results[0].rerank_rank == 1
     assert results[0].rerank_score is not None
@@ -40,16 +41,16 @@ def test_cross_encoder_uses_query_text_and_context_summary() -> None:
     model = StubCrossEncoder()
     candidates = [
         SearchResult(
-            "S3 lifecycle guidance",
-            {"chunk_id": "a", "context_summary": "Lifecycle rules."},
+            questions("fixture")[1]["ANSWER"],
+            {"chunk_id": "a", "context_summary": questions("fixture")[1]["QUESTION_TITLE"]},
             0.9,
             "dense",
             retrieval_rank=1,
             retrieval_score=0.9,
         ),
         SearchResult(
-            "Check the bucket policy for an explicit deny.",
-            {"chunk_id": "b", "context_summary": "This chunk explains S3 AccessDenied."},
+            questions("fixture")[0]["ANSWER"],
+            {"chunk_id": "b", "context_summary": questions("fixture")[0]["QUESTION_TITLE"]},
             0.5,
             "dense",
             retrieval_rank=2,
@@ -59,15 +60,15 @@ def test_cross_encoder_uses_query_text_and_context_summary() -> None:
 
     results = asyncio.run(
         CrossEncoderReranker(model=model, batch_size=8).rerank(
-            "Why does S3 return AccessDenied?",
+            questions("fixture")[0]["QUESTION_TITLE"],
             candidates,
             limit=2,
         )
     )
 
-    assert model.pairs[0][0] == "Why does S3 return AccessDenied?"
-    assert "Lifecycle rules." in model.pairs[0][1]
-    assert "S3 lifecycle guidance" in model.pairs[0][1]
+    assert model.pairs[0][0] == questions("fixture")[0]["QUESTION_TITLE"]
+    assert questions("fixture")[1]["QUESTION_TITLE"] in model.pairs[0][1]
+    assert questions("fixture")[1]["ANSWER"] in model.pairs[0][1]
     assert results[0].chunk_id == "b"
     assert results[0].retrieval_rank == 2
     assert results[0].retrieval_score == 0.5

@@ -1,215 +1,219 @@
-# AWS Support Production RAG Backend
+# IBM TechQA Ingestion、Retrieval 与 Agent
 
-一条面向生产环境的 PDF/Markdown → 清洗 → OCR 兜底 → 递归切片 → LLM 上下文增强 →
-异步 Embedding → Qdrant 幂等写入流水线，以及可通过 HTTP 查询的 Dense + BM25 + RRF
-混合检索、重排、受限 Context、引用校验和拒答链路。
+三个作业项目共用 [IBM TechQA](https://github.com/ibm/techqa) 官方数据。当前入口、演示、黄金集和实验不再读取 AWS 合成知识库。历史 AWS 结果仅保留在 `audit/2026-09-29` 审计记录与 Git 历史中。
 
-> `data/sample` 是可公开复现的合成 AWS 支持文档，不是 AWS 官方文档。生产环境应替换为
-> 经批准的数据源。
+## 数据范围与来源
 
-2026-09-30 修复与真实流程复验见 [复验报告](audit/2026-09-29/remediation.md)。
-三个项目统一测试：`python scripts/test_all.py`。
+| 用途 | 数据范围 |
+|---|---|
+| 三个服务的默认查询 | 全量 TechNote 文档；Qdrant + 磁盘 BM25 + 有限候选语义重排 |
+| 全量源文件 | 801,998 条；2 条正文为空；801,996 篇有效且不重复的文档 |
+| 全量检索对比 | 官方 dev 310 题，另跑 validation 20 题 |
+| 阈值校准 | 官方 training 前 60 题；不使用 dev 标签调参 |
+| PDF/Markdown/OCR 与 Ragas | 原始训练题与原文转换的格式测试文件；不是全量文档格式测试 |
+| 离线单元测试 | 41 篇官方文档、15 条原始训练题；故障测试另用空输入、坏文件和模型替身 |
+| Planner/ReAct/Critic/Single/Multi | 同一全量库上的 15 条官方训练题；真实 Ollama |
 
-## 架构
+下载来源是官方仓库指向的 PrimeQA/TechQA 归档，SHA-256：
+`6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118`。
+原始数据遵循 CDLA-Permissive-1.0；许可、文档 ID、原文 SHA-256 和选样规则在
+[data/techqa](data/techqa/manifest.json)。Markdown 是标题与原文；PDF 与扫描 PDF 是该原文的格式转换，未编造支持内容。
 
-```mermaid
-flowchart LR
-    A["PDF / Markdown"] --> B["原生文本解析"]
-    B --> C{"页面文本是否足够?"}
-    C -- "否" --> D["PyMuPDF 渲染 + Tesseract OCR"]
-    C -- "是" --> E["clean_text"]
-    D --> E
-    E --> F["RecursiveCharacterTextSplitter"]
-    F --> G["SHA-256 chunk_hash"]
-    G --> H{"Qdrant 中已存在?"}
-    H -- "是" --> I["跳过摘要与 Embedding"]
-    H -- "否" --> J["Ollama 一句话 context_summary"]
-    J --> K["异步批量 Embedding"]
-    K --> L["Qdrant Upsert"]
-    L --> M["Dense + BM25"]
-    M --> N["RRF + Reranker + Context Builder"]
-```
+TechQA 的 `ANSWERABLE=N` 表示其官方 `DOC_IDS` 候选文档中没有标注答案。当前全库检索实验不限定 `DOC_IDS`，因此“拒答准确率”是对这些标签的代理测量，不能据此断言整个 80 万文档库没有答案。validation 有与 dev 重复的问题，不是新的独立留出集。
 
-关键保证：
-
-- PDF 每页先用 `pypdf` 抽取；文本低于阈值时自动用 PyMuPDF 以 300 DPI 渲染并调用
-  Tesseract。单页 OCR 失败只记 WARNING，不中断其他页或文件。
-- 使用 LangChain `RecursiveCharacterTextSplitter`，分隔符按段落、行、句子、词逐级回退；
-  没有固定宽度硬切逻辑。
-- 每个 Chunk 强制包含 `source_file`、`page_number`、文本 SHA-256 `chunk_hash` 和一句话
-  `context_summary`。LLM 暂时不可用时记录 `summary_fallback=true` 并注入抽取式兜底摘要。
-- `chunk_hash` 库内查询发生在摘要和 Embedding 之前；重复运行不会产生重复向量，也不会
-  重复产生模型费用。
-- 摘要与 Embedding 都是异步、有限并发、批量处理；所有核心函数有类型提示，生产路径只用
-  `logging`，没有 `print()`。
-
-## Retrieval 与 Generation 架构
+## 架构和数据流
 
 ```mermaid
-flowchart LR
-    Q["POST /v1/rag/query"] --> SF["强制安全过滤<br/>status=published"]
-    SF --> D["Dense Top-30"]
-    SF --> S["BM25 Top-30"]
-    D --> RRF["RRF(k=60)"]
-    S --> RRF
-    RRF --> DD["按 chunk_id 去重"]
-    DD --> RR["Reranker Top-20"]
-    RR --> F["Final Top-5"]
-    F --> P["可选 Parent Node"]
-    P --> C["Context Budget<br/>每文档最多 2 块"]
-    C --> L["LLM"]
-    L --> V{"[S1] 引用有效?"}
-    V -- "是" --> A["Answer + Citations"]
-    V -- "否" --> RT["重试一次"]
-    RT --> V2{"仍然无效?"}
-    V2 -- "是" --> X["拒答"]
-    V2 -- "否" --> A
+flowchart TD
+    A[官方 TechQA 归档和校验] --> B[原始 JSON/TechNotes]
+    B --> C[全量 Qdrant Hash 索引]
+    B --> D[SQLite FTS5 BM25]
+    B --> E[可追溯 PDF/扫描 PDF/Markdown]
+    E --> F[解析 / 条件 OCR / 清洗]
+    F --> G[RecursiveCharacterTextSplitter]
+    G --> H[SHA-256 去重 / 一句话 LLM 摘要 / nomic Embedding]
+    H --> I[TechQA 格式测试语义库]
+    Q[用户 Query + 强制 published 过滤] --> C
+    Q --> D
+    C --> J[RRF / chunk_id 去重]
+    D --> J
+    J --> K[候选集 nomic 语义与词法重排]
+    K --> L[Top-k / 训练集阈值 / Parent / Token Budget]
+    L --> M[根 RAG API / Enterprise Agent / Agentic Tools]
+    M --> N[带引用答案 / 澄清 / 拒答]
 ```
 
-完整数据流为：
+`src/rag/techqa` 是三个项目共享的数据与检索实现。全量 Qdrant 仍使用原有 384 维 Hash 向量，
+新增 BM25 解决词项碰撞和缺少产品名/错误码候选的问题；nomic 仅对返回的有限候选做语义重排。
+这不是把全量 280 万 Chunk 全部重新编码成语义向量。新格式测试库使用真正的 768 维 nomic。
 
-```text
-PDF/Markdown → Page → Recursive Chunk → chunk_id/chunk_hash → Qdrant
-User Query → 强制 Metadata Filter → Dense 与 BM25 并行 → RRF → Reranker
-→ Token-budget Context → Ollama → Citation Validation → Answer/Refusal
-```
+Dense/Sparse 并行 `asyncio.gather()`，手写 RRF：`score(d) = Σ 1 / (60 + rank(d))`，按同一个
+`chunk_id` 去重，仅融合完成后调用一次 Reranker。全量 Sparse 复用已有 Qdrant 切片身份，保持兼容；
+新 PDF/Markdown ingestion 使用 `RecursiveCharacterTextSplitter`。FTS 查询先取 Top-k 行号再读取正文，
+避免对大量全文结果逐一做文档表联接。
 
-支持 `mode=dense`、`mode=sparse` 和 `mode=hybrid`。用户可过滤 `source_file`、
-`document_type`、`language`；`status=published` 由系统强制注入，用户提交
-`status=draft` 也不能覆盖。Dense、Sparse 与 Reranker 通过独立接口注入。每个
-`SearchResult` 可直接读取并通过 `to_dict()` 返回 `chunk_id`、`text`、`source_file`、
-`page_number`、`retrieval_score` 和 `retrieval_rank`；完整 metadata 仍会同时保留。
+默认 `candidate_k=30, rerank_k=20, final_k=5`，最多 8000 Context Tokens，每文档最多两块。
+该配置限制模型调用、上下文大小与延迟；小样本不足以证明它是全局最优参数。
+`source_file/document_type/language` 支持过滤；系统注入 `status=published`，用户不可覆盖。
+候选为空不调用重排/LLM，最终上下文为空或低于校准阈值拒答。引用不在本次 source_map 中则重试一次，仍错误就拒答。
+重排超时会保留原始排序，并用单独的词项覆盖率门控，不能拿 RRF 分数与语义重排阈值比较。
 
-### RRF 公式
+## 安装与运行
 
-本项目手写 Reciprocal Rank Fusion，而不是调用黑盒框架：
-
-```text
-RRF_score(d) = Σ 1 / (k + rank_r(d))
-               r∈retrieval_lists
-```
-
-生产默认 `k=60`。同一 `chunk_id` 在 Dense 与 BM25 中出现时只保留一次，同时记录
-`dense_rank`、`sparse_rank`、`fusion_rank` 和 `retrieval_sources`。Dense 或 BM25
-单路异常时记录日志并使用另一路返回。
-
-### Reranker 与降级
-
-项目通过统一的 `BaseReranker` 接口提供两种 Adapter：
-
-- `LexicalReranker`：默认的轻量、可解释离线实现，无需下载模型。
-- `CrossEncoderReranker`：基于 `sentence-transformers` 的本地 Cross-encoder，默认模型为
-  `cross-encoder/ms-marco-MiniLM-L-6-v2`，适合生产语义精排。
-
-两种 Adapter 都只接收 Retriever/RRF 产生的最多 `candidate_k=30` 个候选，并同时使用
-Query、Chunk 正文与 `context_summary` 精排出 `rerank_k=20`。超时或异常时自动恢复
-RRF/Dense 原排序；候选为空时不会加载模型或调用 Reranker。结果同时保留 `retrieval_rank`、
-`retrieval_score`、`rerank_rank` 和 `rerank_score`。
-
-重排失败后保留原排序，相关性门控改用去停用词后的 Query 词项覆盖率（正文 + 摘要），
-不再拿 RRF/BM25/Cosine 分数与 Reranker 阈值比较。
-`FALLBACK_QUERY_COVERAGE_THRESHOLD=0.183333` 来自本次 15 题故障注入校准；新语料需要重校准。
-
-启用本地 Cross-encoder：
+Python 3.11+，Ragas 建议 Python 3.12；安装 Ollama、Docker/Qdrant，以及扫描 PDF 所需 Tesseract。
+从仓库根目录执行：
 
 ```powershell
-pip install -e ".[rerank]"
-$env:RERANKER_PROVIDER = "cross_encoder"
-$env:RERANKER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
-$env:RERANKER_BATCH_SIZE = "16"
+python -m pip install -e ".[dev,api,eval]"
+Copy-Item .env.example .env
+./scripts/start-local.ps1 -FullTechQA
 ```
 
-Cross-encoder 原始分数空间与词法 Reranker 不同，切换模型后必须重新运行 15 题或真实黄金集
-评测并更新各模式的相关性阈值，不能直接沿用 README 中的离线词法阈值。
-
-## 快速开始
-
-核心流水线需要 Python 3.11+。Windows 上运行完整 Ragas 评测推荐 Python 3.12；更新的
-Python 版本可能因 `scikit-network` 暂无对应预编译 wheel 而要求本机安装 C++ 编译工具。
-Ollama 是默认的免费本地模型服务；OCR 还需要操作系统中已安装
-[Tesseract](https://github.com/tesseract-ocr/tesseract)。
-
-```bash
-python -m venv .venv
-# Windows: .venv\Scripts\activate
-# macOS/Linux: source .venv/bin/activate
-pip install -e ".[dev,eval,api]"
-
-ollama pull llama3.2:3b
-ollama pull nomic-embed-text
-cp .env.example .env
-python main.py data/sample
-```
-
-CLI 和 API 会自动读取根目录 `.env`，已设置的进程环境变量优先。在 Windows 可运行
-`./scripts/start-local.ps1` 检查并准备两个 Ollama 模型；加 `-FullTechQA` 会复用并启动
-Enterprise 的 Qdrant 容器。根流水线默认使用嵌入式 Qdrant，无需 Docker。
-推荐完整混合格式验收：`python main.py data/aws_support_test_corpus/data`。
-本次实跑写入 28 个 Chunk，重复运行全部跳过；损坏 PDF 和空文件记录 WARNING 后继续。
-Embedding/写入缺失或所有文件无可用文本时 CLI 返回非零，已处理的正常文件不回滚。
-
-离线/CI 冒烟运行可使用确定性的特征哈希向量和抽取式摘要；它用于复现测试，不建议替代生产
-语义模型：
-
-```bash
-python main.py data/sample --summary-provider extractive --embedding-provider hash --collection aws_support_hash
-```
-
-常用环境变量见 [.env.example](.env.example)。若使用远程 Qdrant，可直接实例化
-`QdrantVectorStore(url=..., api_key=...)`；默认使用 `.rag_data/qdrant` 本地持久化模式。
-Hash 的 384 维与 nomic 的 768 维必须用不同 collection；默认语义库为 `aws_support_nomic`。
-本地 Qdrant 同一路径只能由一个进程打开，先结束导入/评测，再启动 API。
-摘要长度为软目标，不截断完整句子；模型因 token 上限中断时走带标记的抽取式兜底。
-
-### 启动查询 API
-
-先使用与查询相同的 Embedding 模型执行 ingestion，再启动服务：
+已提交的官方小样本无需下载即可做格式流程和离线测试：
 
 ```powershell
-$env:QDRANT_PATH = ".rag_data/qdrant"
-$env:QDRANT_COLLECTION = "aws_support_nomic"
-$env:RETRIEVAL_MODE = "hybrid"
-$env:EMBEDDING_PROVIDER = "ollama"
+python main.py
+python main.py  # 幂等复跑，已存在 Chunk 不调用摘要或 Embedding
+python scripts/test_all.py
+python evals/evaluate_retriever.py --output evals/techqa_ragas_results.json
+python evals/evaluate_retrieval_modes.py --database .rag_data/qdrant `
+  --collection techqa_nomic_v3 --embedding-provider ollama --include-fallback `
+  --output evals/techqa_fixture_retrieval.json
+```
 
+全量库首次准备（原始文件和索引不提交 Git）：
+
+```powershell
+cd enterprise-ai-agent
+$env:AGENT_PROFILE = "offline"
+$env:AGENT_EMBEDDING_PROVIDER = "hash"
+$env:AGENT_QDRANT_URL = "http://localhost:6333"
+$env:AGENT_COLLECTION = "techqa_full_hash"
+python -m vectorstore.seed --scope full
+cd ..
+python -m rag.techqa.index --scope full
+python scripts/verify_techqa_source.py
+```
+
+具体全量获取命令见 [Enterprise README](enterprise-ai-agent/README.md)。
+`.env.example` 配置全量服务；主 ingestion CLI 默认处理 `data/techqa/mixed`，写入独立的
+`techqa_nomic_v3` 集合。设置 `RAG_BACKEND=local` 可将根 API 指向该格式测试语义库；默认
+`RAG_BACKEND=techqa` 查询全量库。不能把格式测试库与全量库的结果混为一谈。
+
+启动服务（从各自目录运行）：
+
+```powershell
+# 根项目，8000
 rag-api
+# enterprise-ai-agent，8001
+python -m uvicorn api.main:app --host 127.0.0.1 --port 8001
+# agentic-rag-homework，8002；默认 MODEL_PROVIDER=ollama
+python -m uvicorn api.main:app --host 127.0.0.1 --port 8002
 ```
 
-请求：
+所有项目先安装根项目的共享包 `pip install -e ..`（从子项目目录）。不要同时安装两个具有同名
+`models/api/agents` 包的子项目到同一环境；`scripts/test_all.py` 按独立工作目录启动测试进程。
 
-```http
-POST /v1/rag/query
-Content-Type: application/json
+## 接口
 
-{
-  "query": "Which policy layers should be checked for S3 403 AccessDenied?",
-  "mode": "hybrid",
-  "filters": {
-    "language": "en",
-    "document_type": "markdown"
-  }
-}
+根 API：`POST /v1/rag/query`。请求中的 `mode` 可以是 dense/sparse/hybrid。
+
+```json
+{"query":"User environment variables are not picked up after upgrading Streams 4.1.1.2", "mode":"hybrid", "filters":{"language":"en","document_type":"ibm_technote"}}
 ```
 
-一次成功回答示例：
+真实完整回答、拒答及六种 Agent 端点的请求/响应在 [HTTP 实跑记录](evals/techqa_api_smoke.json)。
+例如 Streams 问题应引用 `techqa://swg21996508`，解释 `streamtool setproperty`；
+`language=zh-CN` 无匹配文档时直接拒答。
+
+## 评测与验收
+
+```powershell
+python -m rag.techqa.evaluate --split train --limit 60 --output evals/techqa_calibration
+python -m rag.techqa.calibrate
+python -m rag.techqa.evaluate --split dev --output evals/techqa_full
+python -m rag.techqa.evaluate --split validation --output evals/techqa_validation
+python scripts/smoke_techqa.py
+```
+
+- [全量检索对比](evals/techqa_full/summary.json)：Dense、Dense+Rerank、BM25、Hybrid+Rerank；逐题记录 `runs.jsonl`。
+- [Ragas](evals/techqa_ragas_results.json)：5 条官方训练题，256/512 两种切片，IDBasedContextRecall，独立记录格式小样本范围。
+- [格式测试库的 15 题检索与故障注入](evals/techqa_fixture_retrieval.json)。
+- [真实 Agent 实验](agentic-rag-homework/evaluation/results/techqa/report.md)。
+- [完整迁移复验报告](audit/2026-09-30-techqa.md)：最终数值、边界、失败案例和复现命令。
+
+Hash Dense 很弱；语义重排只能重排已经召回的有限候选，不能找回遗漏文档。下一步大规模效果优化
+应建立全量真正的语义向量索引，再在独立数据上校准。当前成绩不代表生产级问答正确率。
+
+### 全量 dev 实测对比
+
+310 题全部执行，运行错误 0；其中 160 题有标注答案。以标注文档是否出现在前 k 个 Chunk
+中计算 Hit@k（每题单个相关文档下的文档级 Recall@k）；MRR 取 Top-10 首次命中的倒数排名。
+Context Precision 为 Top-5 中标注文档 Chunk 的比例，不是 LLM 语义判分。
+
+| 检索模式 | Hit@5 | Hit@10 | MRR | Context Precision@5 | 平均检索延迟 ms |
+|---|---:|---:|---:|---:|---:|
+| Dense（原有 Hash） | 0.1313 | 0.1438 | 0.0965 | 0.0263 | 599 |
+| Dense + nomic Rerank | 0.1563 | 0.1688 | 0.1407 | 0.0350 | 2032 |
+| BM25 | 0.6375 | 0.6813 | 0.5165 | 0.1275 | 3138 |
+| Hybrid + nomic Rerank | **0.6438** | 0.6750 | **0.5471** | 0.1288 | 4215 |
+
+运行时存在其他本地评测任务，且重排向量有缓存；延迟用于复现记录，不能视为隔离的性能基准。
+Enterprise 使用同一 Hybrid 检索的 310 题运行错误也为 0，官方 N 标签下拒答比例为 **0.38**。
+拒答仍不理想；N 标签候选范围与全库不同，上述比例不是全库无答案判定的真实准确率。
+15 题格式测试的各模式拒答率与阈值另见 `evals/techqa_fixture_retrieval.json`。
+
+### Chunk Size 与 Ragas
+
+同一批官方原文格式文件、同一组 5 条官方题，nomic 语义 Embedding、Top-3 召回，
+使用 Ragas `IDBasedContextRecall`；参考 Chunk ID 由官方答案原文覆盖映射得到。
+
+| Chunk Size | Overlap | 去重 Chunk 数 | Ragas Context Recall |
+|---|---:|---:|---:|
+| 256 | 32 | 367 | 0.20 |
+| 512 | 64 | 178 | **0.40** |
+
+格式 ingestion 默认推荐 512/64：此 5 题实验中保留更多连续语境、写入数量较少，召回好于 256。
+样本太少且分数仍低，不能声称这是全库最优参数或已经达到高质量生产标准。
+
+### 实际 HTTP 回答与拒答
+
+以下为真实运行的完整响应；所有请求/响应还保存在 smoke JSON。
+
+**成功回答请求**
 
 ```json
 {
-  "answer": "Review identity policies, the bucket policy, SCPs, permissions boundaries, endpoint policies, KMS policy, and ownership controls [S1].",
+  "query": "User environment variables no longer getting picked up after upgrade to 4.1.1.1 or 4.1.1.2?\nHave you found that after upgrade to Streams 4.1.1.1 or 4.1.1.2, that environment variables set in your .bashrc are no longer being set? For example ODBCINI is not set for the database toolkit and you get\n\n     An SQL operation failed. The SQL state is 08003, the SQL code\n     is 0 and the SQL message is [unixODBC][Driver\n     Manager]Connnection does not exist."
+}
+```
+
+**完整响应**
+
+```json
+{
+  "answer": "Based on the provided context, it appears that IBM Streams 4.1.1.1 and 4.1.1.2 jobs do not inherit environment variables set in the user's .bashrc when run as a system service. This behavior is documented in the context summary [S1] and further explained in the problem description [S2].\n\nAccording to the problem description, to work around this issue, you can set environment variables directly in the instance using the streamtool setproperty command. This is mentioned in the problem solution section [S2].\n\nTherefore, the recommended solution is to use the streamtool setproperty command to set environment variables directly in the instance, rather than relying on the user's .bashrc to inherit the variables.\n\nIt's worth noting that this behavior is different from earlier releases of IBM Streams, and it's not possible to inherit environment variables set in the user's .bashrc when running Streams as a system service.",
   "citations": [
     {
       "source_id": "S1",
-      "chunk_id": "2cf...9ab",
-      "source_file": "s3_support_runbook.md",
+      "chunk_id": "techqa:swg21996508:parent",
+      "source_file": "techqa://swg21996508",
+      "page_number": 1
+    },
+    {
+      "source_id": "S2",
+      "chunk_id": "techqa:swg1IT18432:parent",
+      "source_file": "techqa://swg1IT18432",
       "page_number": 1
     }
   ],
   "retrieval": {
     "mode": "hybrid",
-    "dense_candidates": 28,
-    "sparse_candidates": 6,
+    "dense_candidates": 30,
+    "sparse_candidates": 30,
     "reranked_candidates": 20,
     "final_chunks": 2,
-    "context_tokens": 476,
+    "context_tokens": 601,
     "reranker_fallback": false
   },
   "refused": false,
@@ -217,7 +221,18 @@ Content-Type: application/json
 }
 ```
 
-知识库无法回答时不会调用 LLM，或在 Citation 修复失败后拒答：
+**无匹配过滤拒答请求**
+
+```json
+{
+  "query": "User environment variables no longer getting picked up after upgrade to 4.1.1.1 or 4.1.1.2?\nHave you found that after upgrade to Streams 4.1.1.1 or 4.1.1.2, that environment variables set in your .bashrc are no longer being set? For example ODBCINI is not set for the database toolkit and you get\n\n     An SQL operation failed. The SQL state is 08003, the SQL code\n     is 0 and the SQL message is [unixODBC][Driver\n     Manager]Connnection does not exist.",
+  "filters": {
+    "language": "zh-CN"
+  }
+}
+```
+
+**完整响应**
 
 ```json
 {
@@ -225,165 +240,14 @@ Content-Type: application/json
   "citations": [],
   "retrieval": {
     "mode": "hybrid",
-    "dense_candidates": 28,
+    "dense_candidates": 0,
     "sparse_candidates": 0,
-    "reranked_candidates": 20,
+    "reranked_candidates": 0,
     "final_chunks": 0,
     "context_tokens": 0,
     "reranker_fallback": false
   },
   "refused": true,
-  "refusal_reason": "below_relevance_threshold"
+  "refusal_reason": "no_retrieval_results"
 }
 ```
-
-## 测试与黄金集评测
-
-根目录 `python -m pytest` 只收集根项目；`python scripts/test_all.py` 在独立进程中运行
-三个项目的测试，避免两个 Agent 项目的同名 `models`、`api` 包冲突。Enterprise 单元测试
-使用仓库内小型 fixture，不依赖被 Git 忽略的官方数据。完整 TechQA 的下载/评测单独执行。
-
-### 真实 Embedding 与降级复测（2026-09-29）
-
-使用上面的完整混合语料入库后运行：
-
-```powershell
-python evals/evaluate_retrieval_modes.py --database .rag_data/qdrant `
-  --collection aws_support_nomic --embedding-provider ollama --include-fallback `
-  --output evals/retrieval_nomic_results.json
-```
-
-| 模式 | Recall@5 | Recall@10 | MRR | Context Precision | 检索均时 ms | 拒答准确率 |
-|---|---:|---:|---:|---:|---:|---:|
-| Dense | 1.000 | 1.000 | 0.792 | 0.200 | 1555.2 | 1.000 |
-| Dense + Lexical Rerank | 0.917 | 1.000 | 0.695 | 0.183 | 571.4 | 1.000 |
-| Hybrid + Lexical Rerank | 0.833 | 1.000 | 0.686 | 0.167 | 578.9 | 1.000 |
-| Hybrid，重排故障 | 0.917 | 1.000 | 0.767 | 0.183 | 592.9 | 1.000 |
-
-配置仍为 candidate/rerank/final = 30/20/5，兼顾候选覆盖与有限上下文成本。
-当前 API 的 `dense` 模式也启用重排，其门限为 0.532230；Sparse/Hybrid 为
-0.549118/0.546701。三个门限在 12 个可回答问题中接受 10 个；故障覆盖率门限接受 12 个。
-3 个不可回答问题均拒答。阈值选择和报告使用同一 15 题校准集，不代表留出集成绩。
-首个 Dense 轮次包含冷启动；延迟不能直接当作算法速度对比。这个小型语料上词法重排
-降低了语义召回，不能据此声称 Hybrid 必然更优。历史 Hash 基线继续保留供离线复现。
-
-```bash
-pytest
-python evals/evaluate_retriever.py \
-  --data-dir data/my_docs \
-  --golden evals/my_docs_golden_dataset.json \
-  --output evals/my_docs_results.json \
-  --chunk-sizes 256 512 \
-  --top-k 3
-```
-
-合成评测语料位于 `data/my_docs/aws_support_synthetic.md`，配套黄金集位于
-`evals/my_docs_golden_dataset.json`，包含 5 个 `Question / Ground Truth / Reference
-Evidence` 对，覆盖 S3、EC2、Lambda、RDS Proxy 和 CloudFront。评测先完整运行 ingestion，
-再执行混合召回；随后用 Ragas
-`IDBasedContextRecall` 比较召回的 `chunk_hash` 和证据所在 Chunk 的哈希，无需付费 API 或
-LLM-as-a-judge。明细写入 `evals/my_docs_results.json`。
-
-| Chunk Size | Overlap | Chunk 数 | Ragas Context Recall@3 | 说明 |
-|---:|---:|---:|---:|---|
-| 256 | 32 | 17 | 1.00 | 五题所需证据均在 Recall@3 中命中 |
-| 512 | 64 | 8 | 1.00 | 保持完整召回，同时显著减少向量数量 |
-
-生产默认推荐 **512 字符 + 64 字符 overlap**：两种参数的 Recall@3 均为 1.00，但 512 将向量数
-从 17 降至 8，减少约 53% 的首次 Embedding、索引存储和摘要请求。AWS 故障排查步骤经常需要
-同一段中的“症状、原因、操作”共同出现，512 也更不容易拆散条件与结论。若真实语料以短 FAQ
-为主，应以自己的黄金集重新选择参数，而不是照搬默认值。
-
-### 混合格式压力测试
-
-`data/aws_support_test_corpus` 是另一套合成集成测试语料，包含 Markdown、双页文本 PDF、双页
-扫描 PDF、空 Markdown 和故意损坏的 PDF。Windows 上安装 Tesseract 后可运行完整 OCR 与
-Ragas 验证：
-
-```powershell
-$env:Path = "C:\Program Files\Tesseract-OCR;" + $env:Path
-
-.\.venv312\Scripts\python.exe evals\evaluate_retriever.py `
-  --data-dir data\aws_support_test_corpus\data `
-  --golden evals\aws_support_test_corpus_golden.json `
-  --database-root .rag_data\corpus-eval `
-  --output evals\aws_support_test_corpus_results.json `
-  --chunk-sizes 256 512 `
-  --top-k 3
-```
-
-集成验证结果：4 个有效文档成功解析，空文件和损坏 PDF 被安全跳过；扫描 PDF 的两页触发 OCR。
-首次运行写入 28 个 512-size Chunk，第二次运行全部按 `chunk_hash` 跳过。每个 Chunk 均包含
-`source_file`、`page_number`、`chunk_hash` 和 `context_summary`。
-
-| Chunk Size | Overlap | Chunk 数 | Ragas Context Recall@3 |
-|---:|---:|---:|---:|
-| 256 | 32 | 59 | 0.50 |
-| 512 | 64 | 28 | 0.40 |
-
-该压力测试使用确定性的 Hash Embedding，因此分数用于离线回归，不代表生产语义检索质量。256
-在此语料上召回更高，但向量数约为 512 的两倍；上线前应改用 Ollama 或生产 Embedding 模型，
-再以真实支持问题重新评测参数。
-
-### 15 题 Retriever 对比
-
-`evals/retrieval_golden_dataset.json` 包含 5 条语义问题、4 条错误码/API/产品名问题、
-3 条 Metadata Filter 问题和 3 条不可回答问题。评测会先把每条 `reference_evidence`
-解析为本次切片产生的 `chunk_id` 集合，只有召回证据所在 Chunk 才算命中；同一文件内的无关
-页面或 Chunk 不再被计为相关。运行：
-
-```powershell
-$env:TESSERACT_CMD = "C:\Program Files\Tesseract-OCR\tesseract.exe"
-.\.venv\Scripts\python.exe evals\evaluate_retrieval_modes.py
-```
-
-该命令默认使用 Hash Embedding；下表是保留的离线历史基线，当前 nomic 成绩见上面的复测表。
-参数为 `--candidate-k 30 --rerank-k 20 --final-k 5`；评测内部将
-`evaluation_k` 扩到 10，仅用于计算 Recall@10，结果文件会同时记录
-`production_final_k=5`。
-
-| 模式 | Recall@5 | Recall@10 | MRR | Context Precision | 平均延迟 | 拒答准确率 |
-|---|---:|---:|---:|---:|---:|---:|
-| Dense | 0.750 | 0.917 | 0.608 | 0.150 | 2.39 ms | 1.000 |
-| Dense + Rerank | 0.750 | 0.917 | 0.626 | 0.150 | 3.24 ms | 1.000 |
-| Sparse + Rerank（附加审计） | 0.750 | 0.917 | 0.617 | 0.150 | 0.75 ms | 1.000 |
-| Hybrid + Rerank | 0.750 | 0.917 | 0.613 | 0.150 | 4.28 ms | 1.000 |
-
-为了同时计算 Recall@5 与 Recall@10，评测脚本临时保留 Top-10；生产 API 仍严格使用
-`final_k=5`。基于该测试集校准的相关性阈值分别为 Dense+Rerank `0.498`、
-Sparse+Rerank `0.544` 和 Hybrid+Rerank `0.545`（仅适用于该 Hash 基线）。最终推荐
-**candidate_k=30、rerank_k=20、final_k=5**：30 个 Retriever/RRF 候选全部进入精排，
-Reranker 输出前 20 个，再选最终 5 个，并经过每文档最多 2 块和 8000-token Context Budget
-约束。本离线集使用 Hash Embedding，Dense + Rerank 的 MRR 略高；生产仍默认 Hybrid，理由是
-它同时覆盖语义表达和错误码/产品名，并能在 Dense 或 BM25 单路故障时降级。上线前应使用真实
-Embedding 模型与真实支持问题重新校准。
-
-## 目录
-
-```text
-.
-├── main.py                       # 作业要求的主入口
-├── utils.py                      # 作业要求的解析/清洗兼容入口
-├── test_pipeline.py              # 作业要求的两项核心单测
-├── src/rag/
-│   ├── ingestion/                # 解析、OCR、切片、摘要、Embedding、Qdrant
-│   ├── retrieval/                # dense、BM25、filter、RRF、reranker、context
-│   ├── generation/               # prompts 与 Ollama generator
-│   └── api/                      # 可选 FastAPI route factory
-├── tests/                        # 检索、重排、上下文、幂等测试
-├── evals/                        # 5 题黄金集与 Ragas 脚本
-├── data/sample/                  # 合成可复现数据
-└── pyproject.toml
-```
-
-## 生产注意事项
-
-- Tesseract 是独立系统程序；容器镜像中应固定它和语言包的版本。`OCR_LANGUAGES` 可设为
-  `eng+chi_sim`，`TESSERACT_CMD` 可显式指向可执行文件。
-- 默认 Ollama API 没有鉴权。跨主机部署时应置于私网并通过带 TLS/鉴权的网关访问。
-- 本地 Qdrant 适合单机开发；多副本生产环境应使用 Qdrant Server/Cloud，并配置备份、TLS、
-  API key、索引监控和磁盘水位告警。
-- 当前 BM25 索引在进程启动时从 payload 重建，适合中小型知识库。大规模部署应换成 OpenSearch
-  或 Qdrant 原生 sparse vectors，同时保留 `Retriever` 接口和 RRF 层。
-- 修改 embedding 模型会改变向量维度和空间，应写入新的 collection 并完成离线验证后原子切换，
-  不要把不同模型的向量写入同一 collection。

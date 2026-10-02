@@ -5,11 +5,12 @@ build-backend = "hatchling.build"
 [project]
 name = "aws-support-rag"
 version = "0.1.0"
-description = "Production-grade ingestion and hybrid retrieval pipeline for an AWS support knowledge base"
+description = "TechQA ingestion, hybrid retrieval and shared knowledge tools for RAG agents"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
   "httpx>=0.27,<1",
+  "ijson>=3.3,<4",
   "langchain-text-splitters>=0.3,<2",
   "pillow>=10,<13",
   "pymupdf>=1.24,<2",

@@ -1,14 +1,19 @@
 from __future__ import annotations
 
+from typing import Protocol
+
 from models.schemas import Document
-from vectorstore.memory import MemoryVectorStore
+
+
+class VectorStore(Protocol):
+    async def search(self, query: str, top_k: int) -> list[Document]: ...
 
 
 class RetrieverTool:
     name = "vector_database_search"
     description = "Search the internal knowledge-base vector index."
 
-    def __init__(self, store: MemoryVectorStore, top_k: int = 5) -> None:
+    def __init__(self, store: VectorStore, top_k: int = 5) -> None:
         self.store, self.top_k = store, top_k
 
     async def invoke(self, query: str, top_k: int | None = None) -> list[Document]:

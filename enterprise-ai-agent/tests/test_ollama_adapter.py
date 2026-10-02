@@ -21,7 +21,7 @@ def test_ollama_sends_json_schema_and_parses_content(monkeypatch: pytest.MonkeyP
             200,
             json={
                 "message": {
-                    "content": '{"query":"S3 AccessDenied","action":"retrieve","clarification":""}'
+                    "content": '{"query":"streamtool","action":"retrieve","clarification":""}'
                 }
             },
         )

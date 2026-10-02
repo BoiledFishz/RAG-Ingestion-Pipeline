@@ -42,4 +42,5 @@ if ($FullTechQA) {
     $env:AGENT_COLLECTION = 'techqa_full_hash'
     Write-Host 'TechQA Qdrant is ready. After seeding, run python -m vectorstore.indexes in enterprise-ai-agent.'
 }
-Write-Host 'Models are ready. Run python main.py data/aws_support_test_corpus/data, then rag-api.'
+Write-Host 'Models are ready. Run python main.py for the official TechQA format fixture.'
+Write-Host 'Full API: python -m rag.techqa.index --scope full, then rag-api (Qdrant required).'

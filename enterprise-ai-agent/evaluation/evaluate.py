@@ -6,24 +6,18 @@ import argparse
 import asyncio
 import json
 import logging
+import os
 import time
 from pathlib import Path
 from typing import Any
 
-from agents.rag_agent.factory import build_agent, build_embedder, open_store
+from agents.rag_agent.factory import build_agent, open_store
 from models.schemas import QueryRequest, RetrieverInput
 from models.settings import PROJECT_ROOT, Settings
-from tools.retriever import RetrieverTool
 
 LOGGER = logging.getLogger(__name__)
 DEV_PATH = (
-    PROJECT_ROOT
-    / "data"
-    / "techqa"
-    / "extracted"
-    / "TechQA"
-    / "training_and_dev"
-    / "dev_Q_A.json"
+    PROJECT_ROOT / "data" / "techqa" / "extracted" / "TechQA" / "training_and_dev" / "dev_Q_A.json"
 )
 
 
@@ -55,9 +49,8 @@ def average(values: list[float]) -> float:
 async def evaluate(settings: Settings, dev_path: Path = DEV_PATH) -> dict[str, Any]:
     rows = json.loads(await asyncio.to_thread(dev_path.read_text, encoding="utf-8"))
     store = open_store(settings)
-    embedder = build_embedder(settings)
-    tool = RetrieverTool(store, embedder, settings.tool_timeout)
     agent = build_agent(settings, store)
+    tool = agent.retriever
     results: list[dict[str, Any]] = []
     try:
         for row in rows:
@@ -88,7 +81,8 @@ async def evaluate(settings: Settings, dev_path: Path = DEV_PATH) -> dict[str, A
                 LOGGER.exception("TechQA evaluation failed for %s", row.get("QUESTION_ID"))
                 results.append(
                     {
-                        "question_id": row.get("QUESTION_ID"), "error": type(exc).__name__,
+                        "question_id": row.get("QUESTION_ID"),
+                        "error": type(exc).__name__,
                         "answerable": row.get("ANSWERABLE") == "Y",
                         "expected_document": row.get("DOCUMENT"),
                         "hit_at_5": 0.0 if expected else None,
@@ -107,7 +101,13 @@ async def evaluate(settings: Settings, dev_path: Path = DEV_PATH) -> dict[str, A
     return {
         "summary": {
             "dataset": "IBM TechQA official dev_Q_A.json",
-            "collection": settings.collection,
+            "collection": (
+                os.getenv("TECHQA_COLLECTION", "techqa_full_hash")
+                if settings.retrieval_backend == "techqa"
+                else settings.collection
+            ),
+            "retrieval_backend": settings.retrieval_backend,
+            "protocol": "open full-corpus retrieval; N labels concern official DOC_IDS only",
             "profile": settings.profile,
             "question_count": len(results),
             "answerable_count": len(answerable),

@@ -10,6 +10,11 @@ from typing import Any
 
 class DemoStructuredModel:
     @staticmethod
+    def excerpt(evidence: str) -> str:
+        """Keep the test double inside the diagnosis schema's output budget."""
+        return evidence if len(evidence) <= 1800 else evidence[:1800].rsplit(" ", 1)[0]
+
+    @staticmethod
     def field(prompt: str, name: str) -> str:
         line = next(line for line in prompt.splitlines() if line.startswith(name + ": "))
         return str(ast.literal_eval(line.split(": ", 1)[1]))
@@ -43,43 +48,35 @@ class DemoStructuredModel:
                 }
             )
         if "KIND: REACT" in prompt:
-            if "web-eks-crashloop" in prompt:
-                value = {
+            # A unit-test model double, with no product-specific knowledge or answers.
+            return json.dumps(
+                {
                     "action": "finish",
                     "argument": "",
-                    "reason": "External evidence answers the question",
+                    "reason": "Inspect existing evidence; runtime validates support",
                 }
-            elif "EKS" in prompt or "CrashLoopBackOff" in prompt:
-                value = {
-                    "action": "search",
-                    "argument": "EKS CrashLoopBackOff investigation",
-                    "reason": "Internal evidence is insufficient",
-                }
-            else:
-                value = {
-                    "action": "finish",
-                    "argument": "",
-                    "reason": "Internal evidence directly answers the question",
-                }
-            return json.dumps(value)
+            )
         if "KIND: DIAGNOSIS" in prompt:
             repaired = "CRITIC_FEEDBACK: []" not in prompt
             evidence = self.field(prompt, "EVIDENCE")
+            excerpt = self.excerpt(evidence)
             diagnosis = (
-                evidence + ("" if re.search(r"\[\d+\]", evidence) else " [evidence]")
+                excerpt + ("" if re.search(r"\[\d+\]", excerpt) else " [evidence]")
                 if repaired
                 else "Check the related configuration."
             )
-            citations = re.findall(r"\[(\d+)\]", evidence) or ["evidence"]
+            citations = list(dict.fromkeys(re.findall(r"\[(\d+)\]", excerpt)))[:4] or ["evidence"]
             return json.dumps({"diagnosis": diagnosis, "citations": citations}, ensure_ascii=False)
         if "KIND: CRITIC" in prompt:
             evidence = self.field(prompt, "EVIDENCE")
             diagnosis = self.field(prompt, "DIAGNOSIS")
+
             def clean(value: str) -> str:
                 return re.sub(r"\[(?:\d+|evidence)\]", "", value).strip()
 
-            if clean(evidence) in clean(diagnosis) and re.search(
-                r"\[(?:\d+|evidence)\]", diagnosis,
+            if clean(self.excerpt(evidence)) in clean(diagnosis) and re.search(
+                r"\[(?:\d+|evidence)\]",
+                diagnosis,
             ):
                 return json.dumps({"passed": True, "score": 0.9, "issues": []})
             return json.dumps(

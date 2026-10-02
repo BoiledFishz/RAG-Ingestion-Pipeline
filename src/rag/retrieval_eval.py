@@ -40,7 +40,11 @@ class UnavailableReranker(BaseReranker):
     """Inject an outage to evaluate the production fallback ordering and gate."""
 
     async def rerank(
-        self, query: str, candidates: list[SearchResult], *, limit: int,
+        self,
+        query: str,
+        candidates: list[SearchResult],
+        *,
+        limit: int,
     ) -> list[SearchResult]:
         raise TimeoutError("Benchmark injected reranker outage")
 
@@ -123,10 +127,7 @@ def _calibrate_threshold(observations: list[Observation]) -> float:
     if not values:
         return 1.0
     candidates = [values[0] - 1e-9, values[-1] + 1e-9]
-    candidates.extend(
-        (left + right) / 2
-        for left, right in zip(values, values[1:], strict=False)
-    )
+    candidates.extend((left + right) / 2 for left, right in zip(values, values[1:], strict=False))
 
     best_threshold = candidates[0]
     best_accuracy = -1.0
@@ -134,14 +135,11 @@ def _calibrate_threshold(observations: list[Observation]) -> float:
         correct = 0
         for observation in observations:
             predicted_answerable = (
-                observation.top_score is not None
-                and observation.top_score >= threshold
+                observation.top_score is not None and observation.top_score >= threshold
             )
             correct += predicted_answerable == observation.row.answerable
         accuracy = correct / len(observations)
-        if accuracy > best_accuracy or (
-            accuracy == best_accuracy and threshold > best_threshold
-        ):
+        if accuracy > best_accuracy or (accuracy == best_accuracy and threshold > best_threshold):
             best_accuracy = accuracy
             best_threshold = threshold
     return best_threshold
@@ -186,9 +184,7 @@ def _build_reference_chunk_index(
         }
         matches.discard("")
         if not matches:
-            raise ValueError(
-                f"No evidence chunk could be resolved for golden row {row.identifier}"
-            )
+            raise ValueError(f"No evidence chunk could be resolved for golden row {row.identifier}")
         index[row.identifier] = frozenset(matches)
     return index
 
@@ -237,8 +233,7 @@ def _metrics(
             else 0.0
         )
         accepted_answerable += (
-            observation.top_score is not None
-            and observation.top_score >= threshold
+            observation.top_score is not None and observation.top_score >= threshold
         )
 
     refused_unanswerable = sum(
@@ -282,7 +277,8 @@ async def _evaluate_mode(
         dense=dense,
         sparse=sparse,
         reranker=(UnavailableReranker() if fallback else LexicalReranker())
-        if use_reranker else None,
+        if use_reranker
+        else None,
         config=config,
         filter_policy=dense.filter_policy,
     )
@@ -298,8 +294,11 @@ async def _evaluate_mode(
         top_score = _score(outcome.results[0]) if outcome.results else None
         if fallback:
             top_score = max(
-                (query_coverage(row.question, item)
-                 for item in outcome.results[:production_final_k]), default=None,
+                (
+                    query_coverage(row.question, item)
+                    for item in outcome.results[:production_final_k]
+                ),
+                default=None,
             )
         observations.append(
             Observation(
@@ -342,7 +341,9 @@ async def async_run(arguments: argparse.Namespace) -> int:
         OllamaEmbeddingProvider(
             model=os.getenv("EMBEDDING_MODEL", "nomic-embed-text"),
             base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
-        ) if arguments.embedding_provider == "ollama" else HashEmbeddingProvider()
+        )
+        if arguments.embedding_provider == "ollama"
+        else HashEmbeddingProvider()
     )
     parser = DocumentParser(
         tesseract_cmd=os.getenv("TESSERACT_CMD") or None,
@@ -408,12 +409,20 @@ async def async_run(arguments: argparse.Namespace) -> int:
             for label, mode, use_reranker in specifications
         ]
         if arguments.include_fallback:
-            results.append(await _evaluate_mode(
-                label="hybrid+rerank-outage", mode="hybrid", rows=rows,
-                dense=dense, sparse=sparse, config=config, use_reranker=True,
-                reference_chunk_ids=reference_chunk_ids,
-                production_final_k=arguments.final_k, fallback=True,
-            ))
+            results.append(
+                await _evaluate_mode(
+                    label="hybrid+rerank-outage",
+                    mode="hybrid",
+                    rows=rows,
+                    dense=dense,
+                    sparse=sparse,
+                    config=config,
+                    use_reranker=True,
+                    reference_chunk_ids=reference_chunk_ids,
+                    production_final_k=arguments.final_k,
+                    fallback=True,
+                )
+            )
         arguments.output.parent.mkdir(parents=True, exist_ok=True)
         arguments.output.write_text(
             json.dumps([asdict(result) for result in results], indent=2) + "\n",
@@ -430,7 +439,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--data-dir",
         type=Path,
-        default=REPOSITORY_ROOT / "data" / "aws_support_test_corpus" / "data",
+        default=REPOSITORY_ROOT / "data" / "techqa" / "mixed",
     )
     parser.add_argument(
         "--golden",
@@ -442,7 +451,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
         type=Path,
         default=REPOSITORY_ROOT / ".rag_data" / "retrieval-eval-v2",
     )
-    parser.add_argument("--collection", default="aws_support_retrieval_eval")
+    parser.add_argument("--collection", default="techqa_retrieval_eval")
     parser.add_argument(
         "--output",
         type=Path,

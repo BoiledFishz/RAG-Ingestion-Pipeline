@@ -1,152 +1,223 @@
 [
   {
-    "id": "SEM-01",
+    "id": "TRAIN_Q000",
+    "question": "User environment variables no longer getting picked up after upgrade to 4.1.1.1 or 4.1.1.2?\nHave you found that after upgrade to Streams 4.1.1.1 or 4.1.1.2, that environment variables set in your .bashrc are no longer being set? For example ODBCINI is not set for the database toolkit and you get\n\n     An SQL operation failed. The SQL state is 08003, the SQL code\n     is 0 and the SQL message is [unixODBC][Driver\n     Manager]Connnection does not exist.",
+    "answerable": true,
     "category": "semantic",
-    "answerable": true,
-    "question": "How can I restore an S3 object hidden by an accidental delete in a versioned bucket?",
-    "ground_truth": "Find the current delete marker and delete that marker by version ID so the previous object version becomes current.",
-    "expected_sources": ["s3_support_runbook.md"],
-    "reference_evidence": ["After the marker is removed, the previous object version becomes current and a normal GetObject request can return the object again."],
-    "filters": {}
+    "expected_sources": [
+      "swg21996508.md",
+      "swg21996508.pdf",
+      "swg21996508-scan.pdf"
+    ],
+    "reference_evidence": [
+      "* -d <domain> -i <instance>"
+    ],
+    "filters": {},
+    "official_question_id": "TRAIN_Q000",
+    "official_split": "train"
   },
   {
-    "id": "SEM-02",
+    "id": "TRAIN_Q001",
+    "question": "Netcool/Impact (all versions): How is the Exit() action function expected to work with User Defined Functions?\nNetcool/Impact (all versions)\n\nUsing the Exit() action function within a User Defined Function in a Policy will not exit the Policy process.",
+    "answerable": true,
     "category": "semantic",
-    "answerable": true,
-    "question": "What is the practical difference between an explicit and an implicit S3 authorization denial?",
-    "ground_truth": "An explicit deny is a matching Deny statement and overrides an Allow; an implicit deny means no applicable statement allowed the request.",
-    "expected_sources": ["s3_support_runbook.md"],
-    "reference_evidence": ["An explicit Deny in an applicable policy overrides an Allow. An implicit deny means that no applicable statement allowed the requested action."],
-    "filters": {}
+    "expected_sources": [
+      "swg21675316.md"
+    ],
+    "reference_evidence": [
+      "This is because the Exit() parser function in IPL is designed to exit the immediate scope. To carry the action outside of the User Defined Function to the Policy level one would have to set a variable that is then tested immediately after the User Defined Function call"
+    ],
+    "filters": {},
+    "official_question_id": "TRAIN_Q001",
+    "official_split": "train"
   },
   {
-    "id": "SEM-03",
+    "id": "TRAIN_Q003",
+    "question": "How to configure SSL mutual authentication in IBM HTTP Server?\nWe are running IHS v7 and our application team has a specific webservice that they require SSL mutual authentication to be enabled for at the http server. Does anyone know how to set this up on IHS? Or any documentation?\n\nThanks",
+    "answerable": true,
     "category": "semantic",
-    "answerable": true,
-    "question": "Which Lambda concurrency setting isolates capacity without pre-warming execution environments?",
-    "ground_truth": "Reserved concurrency isolates and caps capacity; provisioned concurrency is the separate feature for reducing cold starts.",
-    "expected_sources": ["lambda_support_notes.md"],
-    "reference_evidence": ["Reserved concurrency is a capacity control; it does not pre-initialize environments. Provisioned concurrency is the separate feature used when the goal is to reduce cold-start latency."],
-    "filters": {}
+    "expected_sources": [
+      "swg21179559.md"
+    ],
+    "reference_evidence": [
+      "3. Enable SSL directives within the IBM HTTP Server configuration file (httpd.conf)"
+    ],
+    "filters": {},
+    "official_question_id": "TRAIN_Q003",
+    "official_split": "train"
   },
   {
-    "id": "SEM-04",
+    "id": "TRAIN_Q005",
+    "question": "What happened to load.rules FAQ example?\nThe load.rules maths function example rules file does not appear to be available anymore?",
+    "answerable": true,
     "category": "semantic",
-    "answerable": true,
-    "question": "How should a private EC2 subnet provide outbound internet access without assigning public IP addresses to instances?",
-    "ground_truth": "Place a NAT gateway in a public subnet, route the public subnet to an internet gateway, and route the private subnet's default route to the NAT gateway.",
-    "expected_sources": ["ec2_network_connectivity.pdf"],
-    "reference_evidence": ["Place a NAT gateway in a public subnet. The public subnet's route table sends 0.0.0.0/0 to an attached internet gateway. The private subnet's route table sends 0.0.0.0/0 to the NAT gateway."],
-    "filters": {}
+    "expected_sources": [
+      "swg21903536.md"
+    ],
+    "reference_evidence": [
+      "Netcool Technical Support Guide to rules file processing is provided as a collection of commonly used rules file techniques."
+    ],
+    "filters": {},
+    "official_question_id": "TRAIN_Q005",
+    "official_split": "train"
   },
   {
-    "id": "SEM-05",
+    "id": "TRAIN_Q006",
+    "question": "Is ITNM exposed to Apache CXF vulnerability (CVE-2017-3156)?\nIs ITNM versions are affected by Apache CXF vulnerability (CVE-2017-3156), If yes then what are all the version will be affected and where I can find the details?",
+    "answerable": true,
     "category": "semantic",
-    "answerable": true,
-    "question": "How do IAM identity policies and a permissions boundary combine to determine effective permissions?",
-    "ground_truth": "The boundary sets maximum permissions and the action must be allowed by both the identity policy and the boundary; explicit denies still override allows.",
-    "expected_sources": ["iam_access_recovery_scanned.pdf"],
-    "reference_evidence": ["For identity policies and a boundary, effective permissions are the intersection: the action must be allowed by both."],
-    "filters": {}
+    "expected_sources": [
+      "swg22008493.md"
+    ],
+    "reference_evidence": [
+      "CVSS Environmental Score*: Undefined"
+    ],
+    "filters": {},
+    "official_question_id": "TRAIN_Q006",
+    "official_split": "train"
   },
   {
-    "id": "TERM-01",
-    "category": "error_code_api_product",
+    "id": "TRAIN_Q007",
+    "question": "Why do I get an exception when calling MQ after migrating my BPM environment (2035 MQRC_NOT_AUTHORIZED) ?\nWe migrated our BPM environment from V8.0 to 8.5.7. When we attempt to call the MQ service we are getting the following exception:\n\n     [10/16/17 13:50:05:273 AST] 0000026d SystemOut     O\n     com.ibm.msg.client.jms.DetailedJMSSecurityException: JMSWMQ2013: The\n     security authentication was not valid that was supplied for QueueManager\n     'QM1' with connection mode 'Client' and host name 'MQ1(1414)'.\n     Please check if the supplied username and password are correct on the\n     QueueManager to which you are connecting.\n     ...\n     Caused by: com.ibm.mq.MQException: JMSCMQ0001: WebSphere MQ call failed\n     with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED').\n      at\n     com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.jav\n     a:204)\n      ... 162 more\n\nThe same MQ service is working fine in the old BPM environment. User name and password configured for the queue is correct. However, when we check the MQ logs, we observing the username is not used, instead the sys admin user seems to be used.",
     "answerable": true,
-    "question": "Which policy layers must be checked for S3 403 AccessDenied?",
-    "ground_truth": "Review IAM identity policies, bucket or access-point policies, SCPs, boundaries or session policies, VPC endpoint policies, KMS key policies, and ownership or ACL configuration.",
-    "expected_sources": ["s3_support_runbook.md"],
-    "reference_evidence": ["Review every policy layer that can affect the request:"],
-    "filters": {}
+    "category": "identifier",
+    "expected_sources": [
+      "swg21636093.md"
+    ],
+    "reference_evidence": [
+      "mycell(cells/mycell|cell.xml#Cell_1)"
+    ],
+    "filters": {},
+    "official_question_id": "TRAIN_Q007",
+    "official_split": "train"
   },
   {
-    "id": "TERM-02",
-    "category": "error_code_api_product",
+    "id": "TRAIN_Q008",
+    "question": "Is the Requisite Pro (ReqPro) feature/plugin supported with a 64-bit RAD/RSA(4WS) 851+ installation\nIs the Requisite Pro (ReqPro) feature/plugin supported with a 64-bit install of RAD/RSA(4WS) 851?",
     "answerable": true,
-    "question": "What normally has to allow an sts:AssumeRole request?",
-    "ground_truth": "The caller needs permission for sts:AssumeRole and the target role trust policy must trust the caller, subject to other policy restrictions.",
-    "expected_sources": ["iam_access_recovery_scanned.pdf"],
-    "reference_evidence": ["Successful role assumption normally requires the caller to be permitted to call sts:AssumeRole and the target role's trust policy to trust that caller."],
-    "filters": {}
+    "category": "identifier",
+    "expected_sources": [
+      "swg21263677.md"
+    ],
+    "reference_evidence": [
+      "the Rational RequisitePro integration features/plugins are not supported or provided. These are only available as 32-bit eclipse plugins."
+    ],
+    "filters": {},
+    "official_question_id": "TRAIN_Q008",
+    "official_split": "train"
   },
   {
-    "id": "TERM-03",
-    "category": "error_code_api_product",
+    "id": "TRAIN_Q009",
+    "question": "Unable to locate the More tab of Document class - Property definition tab - property template configuration to update Is Required setting.\nUnable to locate the More tab of Document class - Property definition tab - property template configuration to update Is Required setting. Environment is running on Content Engine 5.2.0.3.",
     "answerable": true,
-    "question": "What does the EC2 route 0.0.0.0/0 -> igw-id provide, and what does it not provide?",
-    "ground_truth": "It routes default IPv4 traffic to the internet gateway and makes the subnet public, but it does not assign a public address or override security controls.",
-    "expected_sources": ["ec2_network_connectivity.pdf"],
-    "reference_evidence": ["A route to an internet gateway makes a subnet public, but it does not assign a public address to an instance and it does not override security controls."],
-    "filters": {}
+    "category": "identifier",
+    "expected_sources": [
+      "swg21696083.md"
+    ],
+    "reference_evidence": [
+      "6. Modify the property definition as required"
+    ],
+    "filters": {},
+    "official_question_id": "TRAIN_Q009",
+    "official_split": "train"
   },
   {
-    "id": "TERM-04",
-    "category": "error_code_api_product",
+    "id": "TRAIN_Q010",
+    "question": "managesdk.sh -listEnabledProfileAll fails with error: Couldn't get file lock.\nI am installing WebGUI FP13 and it is failing with the symptoms described in below technote.\n\nhttps://www-01.ibm.com/support/docview.wss?uid=swg21993160\n\nAs described in above technote when I run managesdk.sh script it fails with below errors.\n\n./managesdk.sh -listEnabledProfileAll\n\nSep 26, 2018 10:14:12 AM java.util.prefs.FileSystemPreferences syncWorld\n\nWARNING: Couldn't flush user prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.\n\nPlease let me know what could be the issue?",
     "answerable": true,
-    "question": "What timeout range is supported by aws lambda update-function-configuration?",
-    "ground_truth": "Lambda supports a configurable timeout from 1 through 900 seconds.",
-    "expected_sources": ["lambda_support_notes.md"],
-    "reference_evidence": ["Lambda's configurable timeout range is 1 through 900 seconds."],
-    "filters": {}
+    "category": "identifier",
+    "expected_sources": [
+      "swg21515420.md"
+    ],
+    "reference_evidence": [
+      "The root ID used to start Websphere Application Server can not find the Java system pref file."
+    ],
+    "filters": {},
+    "official_question_id": "TRAIN_Q010",
+    "official_split": "train"
   },
   {
-    "id": "FILTER-01",
-    "category": "metadata_filter",
+    "id": "TRAIN_Q011",
+    "question": "Load SPSS 25 on a new computer\nI purchased SPSS 25 with a 12 month license on Jan 27. I loaded it and used it on my MacBook Pro. I now have a new MacBookPro. I was able to download the program but get a message that says I don't have a license. I do have the activation code. Can you please help me use this product on my new computer? Thanks!",
     "answerable": true,
-    "question": "How is an accidentally deleted versioned S3 object recovered?",
-    "ground_truth": "Delete the current delete marker by its version ID.",
-    "expected_sources": ["s3_support_runbook.md"],
-    "reference_evidence": ["Delete the delete marker by specifying the marker's version ID:"],
-    "filters": {"source_file": "s3_support_runbook.md"}
+    "category": "metadata",
+    "expected_sources": [
+      "swg21966637.md"
+    ],
+    "reference_evidence": [
+      "sudo chown -R root:admin 20"
+    ],
+    "filters": {
+      "language": "en"
+    },
+    "official_question_id": "TRAIN_Q011",
+    "official_split": "train"
   },
   {
-    "id": "FILTER-02",
-    "category": "metadata_filter",
+    "id": "TRAIN_Q012",
+    "question": "Are there any instructions for ulimit settings for WebSphere running on Linux?",
     "answerable": true,
-    "question": "What is required for direct EC2 public IPv4 internet access?",
-    "ground_truth": "An internet gateway, default route to it, public IPv4 or Elastic IP, and suitable security group and network ACL rules are required.",
-    "expected_sources": ["ec2_network_connectivity.pdf"],
-    "reference_evidence": ["For direct internet access over public IPv4, the VPC must have an internet gateway attached."],
-    "filters": {"document_type": "pdf", "language": "en"}
+    "category": "metadata",
+    "expected_sources": [
+      "swg21648497.md"
+    ],
+    "reference_evidence": [
+      "WebSphere Application Server Support recommends setting the ulimit -u or nproc to a value of 131072 when running on Linux to safely account for all the forked threads within processes that could be created."
+    ],
+    "filters": {
+      "language": "en"
+    },
+    "official_question_id": "TRAIN_Q012",
+    "official_split": "train"
   },
   {
-    "id": "FILTER-03",
-    "category": "metadata_filter",
+    "id": "TRAIN_Q013",
+    "question": "Can I apply a TIP 2.2 fix pack directly to a TIP 2.1 installation?",
     "answerable": true,
-    "question": "Which metrics validate Lambda reserved-concurrency contention?",
-    "ground_truth": "Use ConcurrentExecutions, UnreservedConcurrentExecutions, and Throttles.",
-    "expected_sources": ["lambda_support_notes.md"],
-    "reference_evidence": ["Use CloudWatch ConcurrentExecutions, UnreservedConcurrentExecutions, and Throttles to validate the diagnosis."],
-    "filters": {"source_file": "lambda_support_notes.md", "document_type": "markdown"}
+    "category": "metadata",
+    "expected_sources": [
+      "swg21618719.md"
+    ],
+    "reference_evidence": [
+      "In order to apply TIP 2.2 fix packs, the target TIP installation must already be at TIPCore 2.2.0 or newer. TIP 2.1 installations must be upgraded to TIP 2.2 using the TIP 2.2.0.1 feature pack."
+    ],
+    "filters": {
+      "language": "en"
+    },
+    "official_question_id": "TRAIN_Q013",
+    "official_split": "train"
   },
   {
-    "id": "REFUSE-01",
-    "category": "unanswerable",
+    "id": "TRAIN_Q002",
+    "question": "Why are replies going to the DLQ with reason 2189 MQRC_CLUSTER_RESOLUTION_ERROR\nI have changed my cluster receiver to match the IP address used and now I am seeing replies in my DLQ with 2189 MQRC_CLUSTER_RESOLUTION_ERROR. The reply queue is on a different cluster which this qmgr is a member of. The reply message uses replytoqmgr and queue name. The qmgr should see the replytoqmgr in the cluster and get the message over to the queue, but instead goes to dead letter queue. This queue manager is a repository to one cluster and a member of another.",
     "answerable": false,
-    "question": "How do I resolve DynamoDB ConditionalCheckFailedException with a transactional write?",
-    "ground_truth": "The supplied knowledge base does not contain DynamoDB conditional-write guidance.",
+    "category": "unanswerable",
     "expected_sources": [],
     "reference_evidence": [],
-    "filters": {}
+    "filters": {},
+    "official_question_id": "TRAIN_Q002",
+    "official_split": "train"
   },
   {
-    "id": "REFUSE-02",
-    "category": "unanswerable",
+    "id": "TRAIN_Q004",
+    "question": "Help with Action required for IIB H.E. V9 & WMB H.E. V8 for security vulnerabilities in Red Hat Linux (CVE-2018-6551 CVE-2018-6485)\nI need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux.\nThis is related to CVE-IDs:\nCVE-2018-6551\nCVE-2018-6485\n\nWhere can I find this information?",
     "answerable": false,
-    "question": "How should I debug an EKS pod in CrashLoopBackOff?",
-    "ground_truth": "The supplied knowledge base does not contain EKS pod troubleshooting guidance.",
+    "category": "unanswerable",
     "expected_sources": [],
     "reference_evidence": [],
-    "filters": {}
+    "filters": {},
+    "official_question_id": "TRAIN_Q004",
+    "official_split": "train"
   },
   {
-    "id": "REFUSE-03",
-    "category": "unanswerable",
+    "id": "TRAIN_Q021",
+    "question": "Help with Action required for Hypervisor Edition of IIB V9.0 and WMB V8.0 for security vulnerabilities in Red Hat Linux\nI need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux. Where can I find this information?",
     "answerable": false,
-    "question": "How can Route 53 DNSSEC signing be enabled for a hosted zone?",
-    "ground_truth": "The supplied knowledge base does not contain Route 53 DNSSEC guidance.",
+    "category": "unanswerable",
     "expected_sources": [],
     "reference_evidence": [],
-    "filters": {}
+    "filters": {},
+    "official_question_id": "TRAIN_Q021",
+    "official_split": "train"
   }
 ]

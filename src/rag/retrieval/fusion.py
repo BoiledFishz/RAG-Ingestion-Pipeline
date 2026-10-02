@@ -49,6 +49,11 @@ def reciprocal_rank_fusion(
             seen_in_ranking.add(identity)
             scores[identity] += 1.0 / (rank_constant + rank)
             representatives.setdefault(identity, result)
+            representative = representatives[identity]
+            representatives[identity] = replace(
+                representative,
+                metadata={**result.metadata, **representative.metadata},
+            )
 
             result_sources = result.retrieval_sources or (result.backend,)
             sources[identity].update(result_sources)

@@ -29,7 +29,7 @@ def create_app(*, service: RAGService) -> Any:
     except ImportError as exc:
         raise RuntimeError("Install the 'api' extra to use the HTTP API") from exc
 
-    app = FastAPI(title="AWS Support RAG", version="0.2.0")
+    app = FastAPI(title="IBM TechQA RAG", version="0.3.0")
 
     @app.post("/v1/rag/query")
     async def query(request: QueryRequest) -> Any:

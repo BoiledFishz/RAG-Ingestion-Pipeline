@@ -6,6 +6,7 @@ from rag.generation.service import RAGService
 from rag.ingestion.models import MetadataValue
 from rag.retrieval.contracts import SearchResult
 from rag.retrieval.pipeline import RetrievalPipeline
+from rag.techqa.data import questions
 
 
 class Retriever:
@@ -15,8 +16,8 @@ class Retriever:
     ) -> list[SearchResult]:
         assert filters == {"status": "published"}
         return [SearchResult(
-            text="For S3 AccessDenied check the bucket policy and permissions boundary.",
-            metadata={"chunk_id": "s3", "source_file": "s3.md", "page_number": 1},
+            text=questions("fixture")[0]["ANSWER"],
+            metadata={"chunk_id": "streams", "source_file": "swg21996508.md", "page_number": 1},
             score=0.4, backend="dense", retrieval_rank=1,
         )]
 
@@ -35,7 +36,7 @@ class Generator:
         self, *, question: str, context: str, correction: str | None = None,
     ) -> str:
         self.calls += 1
-        return "Check the bucket policy and permissions boundary [S1]."
+        return questions("fixture")[0]["ANSWER"] + " [S1]."
 
 
 def test_fallback_survives_rrf_score_scale_but_still_refuses_unrelated_query() -> None:
@@ -48,10 +49,12 @@ def test_fallback_survives_rrf_score_scale_but_still_refuses_unrelated_query() -
             generator=generator,
             relevance_thresholds={"hybrid": 0.545},
         )
-        response = await service.query("S3 AccessDenied bucket policy?", mode="hybrid")
+        response = await service.query(
+            "streamtool setproperty environment variables", mode="hybrid"
+        )
         assert not response.refused
         assert response.retrieval["reranker_fallback"]
-        assert response.citations[0].chunk_id == "s3"
+        assert response.citations[0].chunk_id == "streams"
         refused = await service.query("Mars weather forecast tomorrow", mode="hybrid")
         assert refused.refused
         assert generator.calls == 1

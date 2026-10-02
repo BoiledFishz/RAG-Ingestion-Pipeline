@@ -1,41 +1,42 @@
 [
   {
-    "question": "Which policy layers can cause an Amazon S3 403 AccessDenied response?",
-    "ground_truth": "Permission can be denied by an IAM identity policy, bucket policy, VPC endpoint policy, AWS KMS key policy, or S3 Block Public Access.",
-    "reference_evidence": [
-      "Permission denial can result from an IAM identity",
-      "policy, bucket policy, VPC endpoint policy, AWS KMS key policy, or S3 Block Public Access."
-    ]
+    "id": "TRAIN_Q000",
+    "question": "User environment variables no longer getting picked up after upgrade to 4.1.1.1 or 4.1.1.2?\nHave you found that after upgrade to Streams 4.1.1.1 or 4.1.1.2, that environment variables set in your .bashrc are no longer being set? For example ODBCINI is not set for the database toolkit and you get\n\n     An SQL operation failed. The SQL state is 08003, the SQL code\n     is 0 and the SQL message is [unixODBC][Driver\n     Manager]Connnection does not exist.",
+    "ground_truth": "To work around the issue, set environment variables that are needed by the application directly in the instance with:  * \n   \n * streamtool setproperty\n * -d <domain> -i <instance>\n   --application-ev <VARIABLE NAME>=<VARIABLE VALUE>",
+    "reference_evidence": "* -d <domain> -i <instance>",
+    "source_file": "swg21996508.md",
+    "techqa_document_id": "swg21996508"
   },
   {
-    "question": "What is the difference between an EC2 system status check failure and an instance status check failure?",
-    "ground_truth": "A system check failure indicates underlying AWS infrastructure, while an instance check failure indicates the guest operating system or its configuration.",
-    "reference_evidence": [
-      "A failed system status check points to an AWS infrastructure problem such as loss of network connectivity,",
-      "host power, or host hardware. A failed instance status check points to the guest operating system"
-    ]
+    "id": "TRAIN_Q001",
+    "question": "Netcool/Impact (all versions): How is the Exit() action function expected to work with User Defined Functions?\nNetcool/Impact (all versions)\n\nUsing the Exit() action function within a User Defined Function in a Policy will not exit the Policy process.",
+    "ground_truth": "This is because the Exit() parser function in IPL is designed to exit the immediate scope. To carry the action outside of the User Defined Function to the Policy level one would have to set a variable that is then tested immediately after the User Defined Function call",
+    "reference_evidence": "This is because the Exit() parser function in IPL is designed to exit the immediate scope. To carry the action outside of the User Defined Function to the Policy level one would have to set a variable that is then tested immediately after the User Defined Function call",
+    "source_file": "swg21675316.md",
+    "techqa_document_id": "swg21675316"
   },
   {
-    "question": "Which signals should be checked when diagnosing an AWS Lambda timeout?",
-    "ground_truth": "Check the REPORT duration, CloudWatch Logs, AWS X-Ray traces, downstream latency, network routes, and memory allocation.",
-    "reference_evidence": [
-      "Diagnose a timeout with the REPORT line duration, CloudWatch Logs,",
-      "AWS X-Ray traces, and downstream latency metrics."
-    ]
+    "id": "TRAIN_Q003",
+    "question": "How to configure SSL mutual authentication in IBM HTTP Server?\nWe are running IHS v7 and our application team has a specific webservice that they require SSL mutual authentication to be enabled for at the http server. Does anyone know how to set this up on IHS? Or any documentation?\n\nThanks",
+    "ground_truth": "The following steps help guide you through the proper set up of SSL within the IBM HTTP Server: \n\n 1. Confirm that the Global Security Kit (GSKit) is installed and meets the minimum requirements\n    \n    \n 2. Create a key database file and certificates needed to authenticate the Web server during an SSL handshake\n    \n    \n 3. Enable SSL directives within the IBM HTTP Server configuration file (httpd.conf)\n    \n    \n 4. Other considerations when enabling SSL directives within the IBM HTTP Server configuration file (httpd.conf)\n    \n    \n 5. Information that IBM WebSphere® Support needs to debug SSL configuration and certificate issues related to the IBM HTTP Server",
+    "reference_evidence": "3. Enable SSL directives within the IBM HTTP Server configuration file (httpd.conf)",
+    "source_file": "swg21179559.md",
+    "techqa_document_id": "swg21179559"
   },
   {
-    "question": "Why is RDS Proxy useful for bursty Lambda workloads?",
-    "ground_truth": "RDS Proxy pools and reuses database connections, reducing connection spikes from bursty Lambda concurrency.",
-    "reference_evidence": [
-      "RDS Proxy pools and reuses database connections, which is especially useful for bursty Lambda workloads."
-    ]
+    "id": "TRAIN_Q005",
+    "question": "What happened to load.rules FAQ example?\nThe load.rules maths function example rules file does not appear to be available anymore?",
+    "ground_truth": "Netcool Technical Support Guide to rules file processing is provided as a collection of commonly used rules file techniques.",
+    "reference_evidence": "Netcool Technical Support Guide to rules file processing is provided as a collection of commonly used rules file techniques.",
+    "source_file": "swg21903536.md",
+    "techqa_document_id": "swg21903536"
   },
   {
-    "question": "Why should CloudFront deployments prefer versioned object names over frequent invalidations?",
-    "ground_truth": "Versioning is usually faster, cheaper, and easier to roll back than repeated invalidations.",
-    "reference_evidence": [
-      "Use a versioned object name for frequent releases because versioning is",
-      "usually faster, cheaper, and easier to roll back than repeated invalidations."
-    ]
+    "id": "TRAIN_Q006",
+    "question": "Is ITNM exposed to Apache CXF vulnerability (CVE-2017-3156)?\nIs ITNM versions are affected by Apache CXF vulnerability (CVE-2017-3156), If yes then what are all the version will be affected and where I can find the details?",
+    "ground_truth": "CVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N)",
+    "reference_evidence": "CVSS Environmental Score*: Undefined",
+    "source_file": "swg22008493.md",
+    "techqa_document_id": "swg22008493"
   }
 ]

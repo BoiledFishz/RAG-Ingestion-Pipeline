@@ -14,6 +14,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
 class Settings(StrictModel):
+    retrieval_backend: Literal["techqa", "legacy"] = "techqa"
     profile: Literal["offline", "ollama"] = "offline"
     embedding_provider: Literal["auto", "hash", "ollama"] = "auto"
     qdrant_path: Path = PROJECT_ROOT / ".agent_data" / "qdrant"
@@ -39,6 +40,7 @@ class Settings(StrictModel):
             path = PROJECT_ROOT / path
         return cls.model_validate(
             {
+                "retrieval_backend": os.getenv("AGENT_RETRIEVAL_BACKEND", "techqa"),
                 "profile": profile,
                 "embedding_provider": embedding_provider,
                 "qdrant_path": path,

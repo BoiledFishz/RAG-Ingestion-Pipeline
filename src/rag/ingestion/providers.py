@@ -114,6 +114,13 @@ class OllamaEmbeddingProvider:
     async def embed_documents(self, texts: list[str]) -> list[list[float]]:
         if not texts:
             return []
+        if self.model.startswith("nomic-embed-text"):
+            texts = [
+                t
+                if t.startswith(("search_document:", "search_query:"))
+                else "search_document: " + t
+                for t in texts
+            ]
         semaphore = asyncio.Semaphore(self.concurrency)
 
         async def embed_batch(batch: list[str]) -> list[list[float]]:
@@ -139,6 +146,8 @@ class OllamaEmbeddingProvider:
         return [vector for batch in nested for vector in batch]
 
     async def embed_query(self, text: str) -> list[float]:
+        if self.model.startswith("nomic-embed-text") and not text.startswith("search_query:"):
+            text = "search_query: " + text
         vectors = await self.embed_documents([text])
         return vectors[0]
 

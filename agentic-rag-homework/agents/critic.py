@@ -6,6 +6,8 @@ import logging
 import re
 import time
 
+import httpx
+
 from models.llm import MeteredModel, StructuredModel
 from models.schemas import (
     CriticAttempt,
@@ -41,15 +43,15 @@ class LLMDiagnosisAgent:
             "wrong. Do not copy issue codes into the answer or propose changing source documents. "
             "Preserve correct facts from the previous answer and fix only substantiated issues. "
             "Return the supporting evidence IDs in the required citations array. "
+            "Keep the diagnosis under 180 words. List each supporting ID only once, "
+            "with at most four IDs. Never repeat or copy the full evidence collection. "
             "Return only JSON.\n"
             f"SCHEMA: {schema}\n"
             f"TASK: {task!r}\nEVIDENCE: {evidence!r}\n"
             f"PREVIOUS_DIAGNOSIS: {previous!r}\n"
             f"CRITIC_FEEDBACK: {[item.model_dump() for item in feedback or []]}"
         )
-        draft = DiagnosisDraft.model_validate_json(
-            await self.model.generate(prompt, schema)
-        )
+        draft = DiagnosisDraft.model_validate_json(await self.model.generate(prompt, schema))
         references = " ".join(f"[{identifier}]" for identifier in draft.citations)
         return f"{draft.diagnosis} {references}"
 
@@ -67,7 +69,8 @@ class LLMCritic:
             "Do not invent deficiencies in the source documents. Every failing issue must name "
             "a specific wrong or missing factual claim and the supporting evidence. "
             "Use a stable issue code when the same issue remains. If there is no factual or "
-            "question-completeness issue, return passed=true, issues=[] and a high score. "
+            "question-completeness issue, pass immediately. Give at most three brief issues. "
+            "On success return passed=true, issues=[] and a high score. "
             "Return only JSON.\n"
             f"SCHEMA: {CriticResult.model_json_schema()}\nTASK: {task!r}\n"
             f"EVIDENCE: {evidence!r}\nDIAGNOSIS: {diagnosis!r}"
@@ -97,18 +100,42 @@ class CriticLoop:
         previous = ""
         feedback: list[CriticIssue] = []
         for index in range(self.max_retries + 1):
-            diagnosis = await self.diagnosis.run(task, evidence, previous, feedback)
-            critique = await self.critic.run(task, evidence, diagnosis)
+            dependency_failed = False
+            try:
+                diagnosis = await self.diagnosis.run(task, evidence, previous, feedback)
+                critique = await self.critic.run(task, evidence, diagnosis)
+            except (httpx.HTTPError, ValueError, RuntimeError) as exc:
+                LOGGER.exception("Diagnosis/Critic attempt %d failed", index + 1)
+                dependency_failed = isinstance(exc, httpx.HTTPError)
+                diagnosis = previous
+                critique = CriticResult(
+                    passed=False,
+                    score=0,
+                    issues=[
+                        CriticIssue(
+                            code="model_unavailable"
+                            if dependency_failed
+                            else "invalid_model_output",
+                            description=f"Model call failed validation: {type(exc).__name__}",
+                            suggestion="Return concise schema-valid JSON grounded in the evidence",
+                        )
+                    ],
+                )
             allowed = set(re.findall(r"\[(\d+)\]", evidence)) or {"evidence"}
             cited = set(re.findall(r"\[(?:S)?(\d+|evidence)\]", diagnosis))
             if not cited or not cited <= allowed:
                 LOGGER.warning("Critic citation validation failed at attempt %d", index + 1)
-                issues = [issue for issue in critique.issues if issue.code != "invalid_citation"]
-                issues.append(CriticIssue(
-                    code="invalid_citation", description="Missing or nonexistent evidence citation",
-                    suggestion="Preserve supported facts and cite only "
-                    + ", ".join(f"[{identifier}]" for identifier in sorted(allowed)),
-                ))
+                issues = [
+                    issue for issue in critique.issues if issue.code != "invalid_citation"
+                ][:2]
+                issues.append(
+                    CriticIssue(
+                        code="invalid_citation",
+                        description="Missing or nonexistent evidence citation",
+                        suggestion="Preserve supported facts and cite only "
+                        + ", ".join(f"[{identifier}]" for identifier in sorted(allowed)),
+                    )
+                )
                 critique = CriticResult(passed=False, score=min(critique.score, 0.5), issues=issues)
             current_codes = {issue.code for issue in critique.issues}
             resolved = [issue.code for issue in feedback if issue.code not in current_codes]
@@ -121,7 +148,7 @@ class CriticLoop:
                 )
             )
             previous = diagnosis
-            if critique.passed:
+            if critique.passed or dependency_failed:
                 break
             feedback = critique.issues
         measured = self.model_meter.delta(before) if self.model_meter else Metrics()

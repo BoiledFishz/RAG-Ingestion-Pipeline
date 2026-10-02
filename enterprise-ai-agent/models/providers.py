@@ -57,6 +57,13 @@ class OllamaEmbedder:
     async def embed_documents(self, texts: list[str]) -> list[list[float]]:
         if not texts:
             return []
+        if self.model.startswith("nomic-embed-text"):
+            texts = [
+                t
+                if t.startswith(("search_document:", "search_query:"))
+                else "search_document: " + t
+                for t in texts
+            ]
         try:
             async with httpx.AsyncClient(timeout=self.timeout) as client:
                 response = await client.post(
@@ -75,6 +82,8 @@ class OllamaEmbedder:
             raise DependencyUnavailable("Ollama embedding request failed") from exc
 
     async def embed_query(self, text: str) -> list[float]:
+        if self.model.startswith("nomic-embed-text") and not text.startswith("search_query:"):
+            text = "search_query: " + text
         return (await self.embed_documents([text]))[0]
 
 

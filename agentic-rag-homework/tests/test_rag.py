@@ -4,9 +4,11 @@ from evaluation.factory import build_rag
 
 
 def test_clear_question_has_grounded_structured_answer() -> None:
-    response = asyncio.run(build_rag().run("What is the Lambda timeout range?"))
+    response = asyncio.run(
+        build_rag().run("How are Streams environment variables set after upgrade to 4.1.1.2?")
+    )
     assert response.sources
-    assert "900" in response.answer
+    assert "setproperty" in response.answer
     assert 0 < response.confidence <= 1
     assert all(source.quote for source in response.sources)
 

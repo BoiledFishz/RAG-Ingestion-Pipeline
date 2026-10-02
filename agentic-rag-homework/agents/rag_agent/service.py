@@ -5,6 +5,8 @@ from __future__ import annotations
 import re
 from typing import Protocol
 
+from rag.techqa.index import tokens
+
 from models.llm import StructuredModel
 from models.schemas import Document, RAGResponse, RewriteDecision, Source
 from tools.retriever import RetrieverTool
@@ -62,6 +64,29 @@ class ContextCompressor:
         query_terms = terms(query)
         selected: list[tuple[Document, str, float]] = []
         for document in documents:
+            if document.source.startswith("techqa://"):
+                query_words = set(tokens(query))
+                overlap = len(
+                    query_words & set(tokens(document.title + " " + document.text))
+                ) / max(len(query_words), 1)
+                if overlap < 0.5:
+                    continue
+                # Keep the resolution and its conditions together, copied verbatim from IBM.
+                match = re.search(
+                    r"(?:RESOLVING THE PROBLEM|Problem Solution|ANSWER)\s*\n",
+                    document.text,
+                    flags=re.I,
+                )
+                text = document.text[match.end() :] if match else document.text
+                paragraphs = re.split(r"\n\s*\n", text)
+                excerpt = ""
+                for paragraph in paragraphs:
+                    if len(excerpt) + len(paragraph) > 2600:
+                        break
+                    excerpt += ("\n\n" if excerpt else "") + paragraph
+                if excerpt.strip():
+                    selected.append((document, excerpt.strip(), overlap))
+                continue
             sentences = re.split(r"(?<=[.!?。！？])\s+", document.text)
             best = max(
                 sentences,

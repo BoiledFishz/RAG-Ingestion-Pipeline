@@ -1,0 +1,28 @@
+[
+  {
+    "chunk_size": 256,
+    "chunk_count": 367,
+    "top_k": 3,
+    "context_recall": 0.2,
+    "per_question": [
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ]
+  },
+  {
+    "chunk_size": 512,
+    "chunk_count": 178,
+    "top_k": 3,
+    "context_recall": 0.4,
+    "per_question": [
+      0.0,
+      1.0,
+      0.0,
+      1.0,
+      0.0
+    ]
+  }
+]

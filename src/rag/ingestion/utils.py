@@ -17,7 +17,12 @@ LOGGER = logging.getLogger(__name__)
 
 _SCRIPT_STYLE_RE = re.compile(r"<(script|style)\b[^>]*>.*?</\1>", re.IGNORECASE | re.DOTALL)
 _HTML_COMMENT_RE = re.compile(r"<!--.*?-->", re.DOTALL)
-_HTML_TAG_RE = re.compile(r"<[^>]+>")
+_HTML_TAG_RE = re.compile(
+    r"</?(?:html|head|body|title|meta|link|div|span|p|br|hr|h[1-6]|a|b|strong|"
+    r"i|em|u|s|small|code|pre|blockquote|ul|ol|li|table|thead|tbody|tfoot|tr|th|td|"
+    r"img|figure|figcaption|section|article|nav|header|footer|font|center)\b[^>]*>",
+    re.IGNORECASE,
+)
 _MARKDOWN_IMAGE_RE = re.compile(r"!\[[^\]]*]\([^)]*\)")
 _MARKDOWN_LINK_RE = re.compile(r"\[([^\]]+)]\([^)]*\)")
 _MARKDOWN_DECORATION_RE = re.compile(r"(?m)^(?:\s{0,3}#{1,6}\s+|\s*>\s?|\s*[-*_]{3,}\s*$)")

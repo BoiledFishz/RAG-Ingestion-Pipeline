@@ -1,0 +1,23 @@
+{
+  "split": "first 60 official training questions",
+  "count": 60,
+  "answerable_count": 49,
+  "unanswerable_count": 11,
+  "protocol": "open-corpus proxy; N labels only assert no answer in official DOC_IDS",
+  "model": "nomic-embed-text",
+  "candidate_k": 30,
+  "thresholds": {
+    "dense_rerank": {
+      "threshold": 0.7035961349418578,
+      "balanced_accuracy": 0.5102040816326531,
+      "answer_acceptance": 0.02040816326530612,
+      "labelled_refusal": 1.0
+    },
+    "hybrid_rerank": {
+      "threshold": 0.6517206155260212,
+      "balanced_accuracy": 0.6001855287569573,
+      "answer_acceptance": 0.8367346938775511,
+      "labelled_refusal": 0.36363636363636365
+    }
+  }
+}

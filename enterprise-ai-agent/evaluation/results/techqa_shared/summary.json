@@ -1,0 +1,18 @@
+{
+  "dataset": "IBM TechQA official dev_Q_A.json",
+  "collection": "techqa_full_hash",
+  "retrieval_backend": "techqa",
+  "protocol": "open full-corpus retrieval; N labels concern official DOC_IDS only",
+  "profile": "offline",
+  "question_count": 310,
+  "answerable_count": 160,
+  "unanswerable_count": 150,
+  "hit_at_5": 0.64375,
+  "hit_at_10": 0.675,
+  "mrr": 0.5470907738095238,
+  "unanswerable_refusal_accuracy": 0.38,
+  "average_latency_ms": 6499.168777096484,
+  "error_count": 0,
+  "reported_legacy_setting": "techqa_hash",
+  "metadata_correction": "The initial exporter reported unused legacy Settings.collection. Shared backend queried techqa_full_hash, confirmed in HTTP request logs. No measurements changed."
+}

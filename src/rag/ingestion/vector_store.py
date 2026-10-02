@@ -28,7 +28,7 @@ class QdrantVectorStore:
     def __init__(
         self,
         *,
-        collection_name: str = "aws_support",
+        collection_name: str = "techqa",
         path: Path | None = Path(".rag_data/qdrant"),
         url: str | None = None,
         api_key: str | None = None,

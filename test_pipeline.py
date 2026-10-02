@@ -10,13 +10,21 @@ from utils import DocumentParser, clean_text
 
 def test_clean_text_removes_html_and_markdown_noise() -> None:
     dirty = """# Heading
-<script>danger()</script><b>AWS</b> **support** [guide](https://example.invalid)
+<script>danger()</script><b>IBM</b> **support** [guide](https://example.invalid)
 ![tracking pixel](pixel.png) <!-- hidden -->
 """
     cleaned = clean_text(dirty)
-    assert cleaned == "Heading\nAWS support guide"
+    assert cleaned == "Heading\nIBM support guide"
     assert "danger" not in cleaned
     assert "http" not in cleaned
+
+
+def test_clean_text_preserves_official_command_placeholders() -> None:
+    from rag.techqa.data import documents
+    document = next(d for d in documents("fixture") if d["id"] == "swg21996508")
+    cleaned = clean_text(document["text"])
+    assert "-d <domain> -i <instance>" in cleaned
+    assert "--application-ev <VARIABLE NAME>=<VARIABLE VALUE>" in cleaned
 
 
 def test_parser_returns_empty_for_empty_and_bad_files(tmp_path: Path) -> None:

@@ -1,6 +1,7 @@
 import asyncio
 
 import pytest
+from rag.techqa.data import questions
 
 from evaluation.factory import model_from_env
 from evaluation.run import aggregate, observe, quality
@@ -9,14 +10,16 @@ from models.schemas import RAGResponse, Source
 
 
 def test_source_quotes_and_citation_numbers_do_not_score_as_answer():
+    original = questions("fixture")[0]
     response = RAGResponse(
-        answer="Use the retrieved checks. [1]", confidence=0.8,
-        sources=[Source(document_id="lambda", source="fixture",
-                        quote="Lambda supports 1 to 900 seconds.")],
+        answer="[1]", confidence=0.8,
+        sources=[Source(document_id=original["DOCUMENT"], source="techqa://swg21996508",
+                        quote=original["ANSWER"])],
     )
-    item = {"answerable": True, "expected": ["1", "900"]}
+    item = {"answerable": True, "ground_truth": original["ANSWER"],
+            "expected_document": original["DOCUMENT"]}
     assert quality(response, item) == 0
-    response.answer = "Lambda supports 1 to 900 seconds. [1]"
+    response.answer = original["ANSWER"] + " [1]"
     assert quality(response, item) == 1
 
 

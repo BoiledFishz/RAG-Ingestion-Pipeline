@@ -16,10 +16,14 @@ def test_agent_answers_known_question_with_structured_sources(
 ) -> None:
     agent, _ = agent_bundle
     run = asyncio.run(
-        agent.run(QueryRequest(query="What does WebSphere ADMU0111E indicate?"))
+        agent.run(
+            QueryRequest(
+                query="How are Streams environment variables set after upgrade to 4.1.1.2?"
+            )
+        )
     )
     assert run.trace.status == "answered"
-    assert "could not be started" in run.response.answer
+    assert "streamtool" in run.response.answer
     assert run.response.sources and 0 < run.response.confidence <= 1
     assert set(run.response.model_dump()) == {"answer", "sources", "confidence"}
 
@@ -85,7 +89,13 @@ def test_fabricated_id_or_claim_retried_once_then_rejected(
     agent, _ = agent_bundle
     bad = HallucinatingSelector(invalid_id)
     agent.selector = bad
-    run = asyncio.run(agent.run(QueryRequest(query="What does WebSphere ADMU0111E indicate?")))
+    run = asyncio.run(
+        agent.run(
+            QueryRequest(
+                query="How are Streams environment variables set after upgrade to 4.1.1.2?"
+            )
+        )
+    )
     assert run.trace.status == "invalid_evidence"
     assert bad.calls == 2
     assert run.response.sources == [] and run.response.confidence == 0

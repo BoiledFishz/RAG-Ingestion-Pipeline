@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import json
 import os
+from functools import lru_cache
 from pathlib import Path
 
 from agents.critic import CriticLoop, LLMCritic, LLMDiagnosisAgent
@@ -10,29 +10,19 @@ from agents.rag_agent.service import RAGAgent, RuleRewriter
 from agents.research import LLMResearchPolicy, ReActResearchAgent
 from evaluation.demo_model import DemoStructuredModel
 from models.llm import MeteredModel, OllamaStructuredModel, StructuredModel
-from models.schemas import Document
-from tools.documents import DocumentRetrievalTool
 from tools.retriever import RetrieverTool
-from tools.search import SearchTool
-from vectorstore.memory import MemoryVectorStore
+from vectorstore.techqa import TechQADocumentTool, TechQASearchTool, TechQAStore
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def load_documents(name: str) -> list[Document]:
-    return [
-        Document.model_validate(item)
-        for item in json.loads((ROOT / "data" / name).read_text(encoding="utf-8"))
-    ]
-
-
-def build_tools() -> tuple[RetrieverTool, SearchTool, DocumentRetrievalTool]:
-    knowledge = load_documents("knowledge.json")
-    external = load_documents("external_search.json")
+@lru_cache(maxsize=1)
+def build_tools() -> tuple[RetrieverTool, TechQASearchTool, TechQADocumentTool]:
+    store = TechQAStore()
     return (
-        RetrieverTool(MemoryVectorStore(knowledge)),
-        SearchTool(external),
-        DocumentRetrievalTool(knowledge + external),
+        RetrieverTool(store),
+        TechQASearchTool(store),
+        TechQADocumentTool(store),
     )
 
 
@@ -42,7 +32,7 @@ def build_rag() -> RAGAgent:
 
 
 def build_advanced(model: StructuredModel | None = None):
-    metered = MeteredModel(model or DemoStructuredModel())
+    metered = MeteredModel(model or model_from_env())
     rag, search, documents = build_tools()
     planner = LLMPlanner(metered)
     research = ReActResearchAgent(
@@ -57,7 +47,7 @@ def build_advanced(model: StructuredModel | None = None):
 
 
 def model_from_env(provider: str | None = None) -> StructuredModel:
-    selected = (provider or os.getenv("MODEL_PROVIDER", "demo")).casefold()
+    selected = (provider or os.getenv("MODEL_PROVIDER", "ollama")).casefold()
     if selected == "ollama":
         return OllamaStructuredModel(
             model=os.getenv("OLLAMA_MODEL", "llama3.2:3b"),

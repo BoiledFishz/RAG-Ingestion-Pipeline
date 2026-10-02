@@ -21,36 +21,16 @@ from vectorstore.qdrant import QdrantStore  # noqa: E402
 
 
 def techqa_fixture() -> list[Document]:
-    """Small TechQA-shaped fixture; production never reads this fixture."""
+    """Original official TechQA text with auditable source hashes."""
+    from rag.techqa.data import documents
+
+    from vectorstore.techqa import ChunkingConfig, chunk_technote
+
     return [
-        Document(
-            chunk_id="techqa:swg-test-streams:0",
-            source_file="techqa://swg-test-streams",
-            text=(
-                "IBM Streams environment variables may be set directly on the instance with "
-                "streamtool setproperty --application-ev after an upgrade."
-            ),
-            metadata={
-                "status": "published",
-                "language": "en",
-                "document_type": "ibm_technote",
-                "techqa_document_id": "swg-test-streams",
-            },
-        ),
-        Document(
-            chunk_id="techqa:swg-test-websphere:0",
-            source_file="techqa://swg-test-websphere",
-            text=(
-                "WebSphere ADMU0111E indicates the server process could not be started. "
-                "Review the server logs and verify the configured Java process settings."
-            ),
-            metadata={
-                "status": "published",
-                "language": "en",
-                "document_type": "ibm_technote",
-                "techqa_document_id": "swg-test-websphere",
-            },
-        ),
+        chunk
+        for doc in documents("fixture")
+        if doc["id"] == "swg21996508"
+        for chunk in chunk_technote(doc, ChunkingConfig())
     ]
 
 
@@ -58,5 +38,5 @@ def techqa_fixture() -> list[Document]:
 def agent_bundle() -> Iterator[tuple[RAGAgent, QdrantStore]]:
     store = QdrantStore("agent_test")
     asyncio.run(store.seed(techqa_fixture(), HashEmbedder()))
-    yield build_agent(Settings(), store), store
+    yield build_agent(Settings(retrieval_backend="legacy"), store), store
     asyncio.run(store.close())

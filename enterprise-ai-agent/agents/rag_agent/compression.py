@@ -26,6 +26,56 @@ class ContextCompressor:
         self.min_relevance = min_relevance
 
     def compress(self, query: str, candidates: list[Document]) -> CompressionResult:
+        if any(d.metadata.get("_full_parent") for d in candidates):
+            from rag.techqa.settings import relevance_threshold
+
+            candidates = [
+                d
+                for d in candidates
+                if d.score >= float(d.metadata.get("_acceptance_threshold", relevance_threshold()))
+            ]
+            resolved: list[Evidence] = []
+            for document in candidates:
+                match = re.search(
+                    r"(?:RESOLVING THE PROBLEM|Problem Solution|ANSWER)\s*\n",
+                    document.text,
+                    flags=re.I,
+                )
+                if not match:
+                    continue
+                # Keep consecutive resolution paragraphs, including command arguments/conditions.
+                excerpt = ""
+                for paragraph in re.split(r"\n\s*\n", document.text[match.end() :]):
+                    trial = (excerpt + "\n\n" + paragraph).strip()
+                    evidence = Evidence(
+                        source_id=f"S{len(resolved) + 1}",
+                        chunk_id=document.chunk_id,
+                        source_file=document.source_file,
+                        page_number=document.page_number,
+                        excerpt=trial,
+                        relevance=min(1, max(0, document.score)),
+                        tokens=token_count(trial),
+                    )
+                    if token_count(serialize_evidence([*resolved, evidence])) > self.max_tokens:
+                        break
+                    excerpt = trial
+                if excerpt:
+                    resolved.append(
+                        evidence.model_copy(
+                            update={
+                                "excerpt": excerpt,
+                                "tokens": token_count(excerpt),
+                            }
+                        )
+                    )
+                if len(resolved) >= self.max_sources:
+                    break
+            if resolved:
+                return CompressionResult(
+                    evidence=resolved,
+                    original_tokens=sum(token_count(d.text) for d in candidates),
+                    context_tokens=token_count(serialize_evidence(resolved)),
+                )
         original_tokens = sum(token_count(d.text) for d in candidates)
         query_terms = terms(query)
         anchors = {
@@ -39,10 +89,14 @@ class ContextCompressor:
         topical = candidates
         versions = re.findall(r"\b\d+(?:\.\d+){1,4}\b", query)
         if versions:
-            topical = [d for d in candidates if all(
-                re.search(r"(?<![\d.])" + re.escape(version) + r"(?![\d.])", d.text)
-                for version in versions
-            )]
+            topical = [
+                d
+                for d in candidates
+                if all(
+                    re.search(r"(?<![\d.])" + re.escape(version) + r"(?![\d.])", d.text)
+                    for version in versions
+                )
+            ]
         vocabulary = set().union(*(terms(d.text) for d in topical)) if topical else set()
         # Reject questions whose main vocabulary is absent, not merely a matching service name.
         # This conservative lexical coverage gate is explicit and evaluated, not a truth model.

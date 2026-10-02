@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import json
 import logging
 from collections.abc import Sequence
 from dataclasses import dataclass
@@ -61,6 +62,13 @@ class IngestionPipeline:
                     stats.warnings.append(f"No usable content: {path}")
                     continue
                 chunks = self.chunker.split_pages(pages)
+                manifest_path = path.parent / ".techqa-manifest.json"
+                if manifest_path.is_file():
+                    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+                    provenance = manifest.get(path.name, {})
+                    chunks = [
+                        Chunk(text=c.text, metadata={**c.metadata, **provenance}) for c in chunks
+                    ]
                 if not chunks:
                     stats.files_failed += 1
                     stats.warnings.append(f"No chunks created: {path}")
