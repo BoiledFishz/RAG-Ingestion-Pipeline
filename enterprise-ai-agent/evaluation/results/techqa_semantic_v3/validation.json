@@ -1,0 +1,23 @@
+{
+  "complete": true,
+  "official_questions": 310,
+  "unique_question_ids": 310,
+  "question_ids_match_official_dev": true,
+  "status_counts": {
+    "answered": 238,
+    "unanswerable": 27,
+    "clarified": 43,
+    "invalid_evidence": 2
+  },
+  "invalid_evidence_ids": [
+    "DEV_Q113",
+    "DEV_Q236"
+  ],
+  "invalid_outputs_earn_refusal_credit": false,
+  "dense_failure_log_count": 0,
+  "sparse_failure_log_count": 0,
+  "answer_pipeline_snapshot_commit": "02a3c81",
+  "later_builder_only_commit": "6bd7690",
+  "runs_sha256": "9a89e489d3a7939d580c753d564eb0509cbe56bce42383c8eae52b9291ea4bc0",
+  "production_quality_accepted": false
+}

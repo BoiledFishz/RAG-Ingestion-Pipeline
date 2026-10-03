@@ -75,6 +75,11 @@ python scripts/smoke_techqa.py
 `techqa_semantic_review_v1` 至 `v6` 保留开发中的误拒答、校验失败与修复结果；`v5` 是中断的部分记录。
 完整性以各目录的 `summary.json` 为准，部分 JSONL 不能冒充全量成绩。
 
+[最终 310 题端到端结果](evaluation/results/techqa_semantic_v3/summary.json) 全部完成，执行异常为 0。
+Y 正文 F1 为 0.21303，Y 接受率为 0.7875，N 标签拒答比例为 0.10；仍有 2 题输出验证失败，
+未发布答案且不计拒答成功。正文质量基本持平，不能因修复了若干误拒答案例就声称生产质量通过。
+[完整状态核验](evaluation/results/techqa_semantic_v3/validation.json) 另列输出失败和后端降级数量。
+
 TechQA 原始 N 标签的范围是官方候选 DOC_IDS；全库开放检索的拒答数字是代理指标，不是官方候选集 QA 评分。
 完整 Dense/BM25/Hybrid 对比和训练阈值见父 README 与 `evals/techqa_semantic_full`。
 单元测试只使用提交的官方原文小样本，不依赖本机下载目录。
