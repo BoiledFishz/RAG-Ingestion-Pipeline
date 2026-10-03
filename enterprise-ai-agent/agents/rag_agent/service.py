@@ -93,8 +93,12 @@ class RAGAgent:
                 )
                 trace.retries = min(attempt + 1, 1)
                 correction = (
-                    "Your previous output failed validation. Use only allowed source IDs and "
-                    "copy each complete excerpt EXACTLY; return quotes=[] if unsupported."
+                    "Your previous output failed validation. Return only sufficient and "
+                    "source_ids from the allowed IDs; use sufficient=false and source_ids=[] "
+                    "when unsupported. Do not return quotes or excerpt text. "
+                    "For the applicability audit, conflict claims MUST be exact short "
+                    "substrings of QUESTION and the supplied source, not its unseen parent. "
+                    "Fix-release information is not a conflicting migration direction."
                 )
         trace.status = "invalid_evidence"
         return finish(refusal)

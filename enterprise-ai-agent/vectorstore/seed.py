@@ -31,7 +31,8 @@ async def ingest(
         raise ValueError("TechQA ingestion requires a techqa_* collection")
     archive = download_archive(ARCHIVE_DEFAULT)
     root = extract_archive(archive, EXTRACTED_DEFAULT, scope=scope)
-    store = open_store(settings)
+    store = open_store(settings.model_copy(update={"retrieval_backend": "legacy"}))
+    assert store is not None
     indexed = seen = 0
     try:
         embedder = build_embedder(settings)

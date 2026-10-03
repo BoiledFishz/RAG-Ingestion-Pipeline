@@ -1,0 +1,19 @@
+{
+  "dataset": "IBM TechQA official train questions",
+  "protocol": "open full-corpus retrieval; fixed retrieved evidence per question; no reference answers or DOC_IDS supplied to retrieval or agents",
+  "evidence_mode": "retrieved",
+  "model": "qwen2.5:7b",
+  "questions": 5,
+  "repeats": 2,
+  "trials": 10,
+  "pass_rate": 1.0,
+  "answer_acceptance": 0.1,
+  "protocol_consistency": 1.0,
+  "first_attempt_pass_rate": 0.5,
+  "failed_trials": 0,
+  "average_retries": 0.5,
+  "model_errors": 0,
+  "answerable_body_f1": 0.07560975609756097,
+  "answerable_acceptance": 0.1,
+  "labelled_refusal_accuracy": null
+}

@@ -1,0 +1,6 @@
+{
+  "complete": false,
+  "completed_questions": 57,
+  "expected_questions": 310,
+  "reason": "User interruption; model quote repairs had no canonical completion."
+}

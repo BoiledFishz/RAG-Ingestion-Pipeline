@@ -21,7 +21,17 @@ def test_ambiguous_question_asks_for_clarification() -> None:
 
 
 def test_unknown_question_refuses_instead_of_hallucinating() -> None:
-    response = asyncio.run(build_rag().run("What is the DynamoDB global table limit?"))
+    from rag.techqa.data import question_text, questions
+
+    from agents.rag_agent.service import GroundedAnswerer
+    from models.llm import ScriptedModel
+
+    agent = build_rag()
+    agent.answerer = GroundedAnswerer(ScriptedModel(
+        [{"sufficient": False, "selected": []}] * 3
+    ))
+    query = next(question_text(row) for row in questions("fixture") if row["ANSWERABLE"] == "N")
+    response = asyncio.run(agent.run(query))
     assert response.sources == []
     assert response.confidence == 0
     assert "没有足够信息" in response.answer

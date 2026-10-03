@@ -19,7 +19,8 @@ async def main(query: str, trace: bool = False) -> None:
         output = result if trace else result.response
         logging.getLogger(__name__).info("%s", output.model_dump_json(indent=2))
     finally:
-        await store.close()
+        if store is not None:
+            await store.close()
 
 
 if __name__ == "__main__":

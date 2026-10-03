@@ -1,0 +1,6 @@
+{
+  "complete": false,
+  "completed_questions": 13,
+  "expected_questions": 310,
+  "reason": "Stopped after a reproducible applicability-quote failure; restarted with corrected code in techqa_semantic_v3."
+}

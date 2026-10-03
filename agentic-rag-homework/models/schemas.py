@@ -16,12 +16,15 @@ class Document(StrictModel):
     text: str
     source: str
     score: float = 0
+    retrieved_excerpt: str = ""
 
 
 class Source(StrictModel):
     document_id: str
     source: str
     quote: str
+    title: str = ""
+    applicability: str = ""
 
 
 class RAGResponse(StrictModel):
@@ -105,6 +108,7 @@ class ResearchStep(StrictModel):
 
 class Metrics(StrictModel):
     llm_calls: int = 0
+    model_errors: int = 0
     tool_calls: int = 0
     input_tokens: int = 0
     output_tokens: int = 0
@@ -156,6 +160,7 @@ class CriticAttempt(StrictModel):
 class CriticLoopRun(StrictModel):
     final_diagnosis: str
     passed: bool
+    answer_sufficient: bool = True
     retries: int = Field(ge=0, le=2)
     attempts: list[CriticAttempt]
     metrics: Metrics

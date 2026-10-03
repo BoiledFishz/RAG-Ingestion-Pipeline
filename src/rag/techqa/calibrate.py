@@ -62,12 +62,37 @@ def calibrate(directory: Path) -> dict[str, Any]:
         result["thresholds"][mode] = max(
             options, key=lambda row: (row["balanced_accuracy"], row["answer_acceptance"])
         )
+    if all("expected_document" in row for row in rows):
+        result["dense_embedding"] = summary["dense_embedding"]
+        result["evaluation_directory"] = directory.resolve().relative_to(ROOT).as_posix()
+        supported_scores: list[float] = []
+        for row in positive:
+            mode = row["modes"]["hybrid_rerank"]
+            supported_scores.extend(
+                score for doc_id, score in zip(
+                    mode["document_ids"], mode["candidate_scores"], strict=True
+                ) if doc_id == row["expected_document"]
+            )
+        if not supported_scores:
+            raise ValueError("No known relevant training candidates for evidence selection")
+        supported_scores.sort()
+        # Keep all observed relevant training candidates; the LLM still must
+        # establish answer sufficiency. This is distinct from automatic answer acceptance.
+        threshold = supported_scores[0]
+        result["evidence_candidate_threshold"] = {
+            "threshold": threshold,
+            "relevant_training_candidates": len(supported_scores),
+            "conditional_retention": sum(s >= threshold for s in supported_scores)
+            / len(supported_scores),
+            "method": "minimum observed relevant train Top-10 candidate score; "
+            "not answer confidence",
+        }
     return result
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--input", type=Path, default=ROOT / "evals/techqa_calibration")
+    parser.add_argument("--input", type=Path, default=ROOT / "evals/techqa_semantic_calibration")
     parser.add_argument("--output", type=Path, default=ROOT / "config/techqa_thresholds.json")
     args = parser.parse_args()
     result = calibrate(args.input)

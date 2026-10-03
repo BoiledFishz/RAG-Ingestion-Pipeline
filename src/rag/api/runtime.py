@@ -60,7 +60,7 @@ def build_service() -> RAGService:
         return RAGService(
             retriever=build_pipeline(final_k=_integer("RETRIEVAL_FINAL_K", 5)),
             generator=OllamaGenerator(
-                model=os.getenv("ANSWER_MODEL", "llama3.2:3b"),
+                model=os.getenv("ANSWER_MODEL", "qwen2.5:7b"),
                 base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
             ),
             context_builder=ContextBuilder(

@@ -1,8 +1,6 @@
-"""Shared full TechQA retrievers and a bounded semantic reranker.
+"""Full MiniLM semantic retrieval, shared BM25 and bounded nomic reranking.
 
-The existing full Qdrant checkpoint uses hash vectors. Sparse retrieval adds real
-corpus BM25; optional nomic embeddings rerank only the returned candidates. This
-does not claim that the full checkpoint has been re-embedded with nomic.
+Hash/Qdrant retrieval is an explicitly selected historical baseline only.
 """
 
 from __future__ import annotations
@@ -135,7 +133,7 @@ class FullSparseRetriever:
         return result[:limit]
 
 
-class FullDenseRetriever:
+class HashDenseRetriever:
     def __init__(self, *, url: str | None = None, collection: str | None = None) -> None:
         from qdrant_client import QdrantClient
 
@@ -192,6 +190,40 @@ class FullDenseRetriever:
                 )
             )
         return results
+
+
+class FullDenseRetriever:
+    """Real semantic vectors; Hash is available only as an explicit historical baseline."""
+
+    def __init__(self) -> None:
+        self.url = os.getenv("TECHQA_SEMANTIC_URL", "http://127.0.0.1:11435")
+        self.policy = FilterPolicy()
+
+    async def retrieve(
+        self, query: str, *, limit: int = 30,
+        filters: dict[str, MetadataValue] | None = None,
+    ) -> list[SearchResult]:
+        import httpx
+
+        secure = self.policy.apply(filters)
+        async with httpx.AsyncClient(timeout=60) as client:
+            response = await client.post(self.url + "/search", json={
+                "query": query, "limit": limit, "filters": secure,
+            })
+            response.raise_for_status()
+            data = response.json()
+        output = []
+        for rank, row in enumerate(data["results"], 1):
+            if row["metadata"].get("_embedding_id") != data["embedding_id"]:
+                raise ValueError("Query/document semantic identity differs")
+            if not metadata_matches(row["metadata"], secure):
+                continue
+            output.append(SearchResult(
+                text=row["text"], metadata=row["metadata"], score=row["score"], backend="dense",
+                retrieval_rank=rank, retrieval_score=row["score"], dense_rank=rank,
+                retrieval_sources=("dense",),
+            ))
+        return output
 
 
 class FixtureDenseRetriever:
@@ -355,7 +387,8 @@ def build_pipeline(
         dense=(
             FixtureDenseRetriever()
             if os.getenv("TECHQA_PROFILE") == "fixture"
-            else FullDenseRetriever()
+            else (HashDenseRetriever() if os.getenv("TECHQA_DENSE_BACKEND") == "hash"
+                  else FullDenseRetriever())
         ),
         sparse=FullSparseRetriever(TechQAIndex(index_path) if index_path else open_index()),
         reranker=TechQAReranker(selected),

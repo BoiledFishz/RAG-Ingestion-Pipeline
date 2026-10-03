@@ -19,63 +19,61 @@ class ContextCompressor:
         max_tokens: int = 900,
         max_sources: int = 4,
         min_relevance: float = 0.20,
+        model_selects_evidence: bool = False,
     ) -> None:
-        if max_tokens <= 0 or not 1 <= max_sources <= 4 or not 0 <= min_relevance <= 1:
+        if max_tokens <= 0 or not 1 <= max_sources <= 8 or not 0 <= min_relevance <= 1:
             raise ValueError("invalid compression settings")
         self.max_tokens, self.max_sources = max_tokens, max_sources
         self.min_relevance = min_relevance
+        self.model_selects_evidence = model_selects_evidence
 
     def compress(self, query: str, candidates: list[Document]) -> CompressionResult:
         if any(d.metadata.get("_full_parent") for d in candidates):
-            from rag.techqa.settings import relevance_threshold
+            from rag.techqa.settings import evidence_candidate_threshold, relevance_threshold
 
             candidates = [
                 d
                 for d in candidates
-                if d.score >= float(d.metadata.get("_acceptance_threshold", relevance_threshold()))
-            ]
-            resolved: list[Evidence] = []
-            for document in candidates:
-                match = re.search(
-                    r"(?:RESOLVING THE PROBLEM|Problem Solution|ANSWER)\s*\n",
-                    document.text,
-                    flags=re.I,
+                if d.score >= (
+                    min(evidence_candidate_threshold(), float(
+                        d.metadata.get("_acceptance_threshold", relevance_threshold())))
+                    if self.model_selects_evidence else
+                    float(d.metadata.get("_acceptance_threshold", relevance_threshold()))
                 )
-                if not match:
-                    continue
-                # Keep consecutive resolution paragraphs, including command arguments/conditions.
-                excerpt = ""
-                for paragraph in re.split(r"\n\s*\n", document.text[match.end() :]):
-                    trial = (excerpt + "\n\n" + paragraph).strip()
+            ]
+            from rag.techqa.evidence import answer_passages
+
+            resolved: list[Evidence] = []
+            seen_passages: set[str] = set()
+            for document in candidates:
+                for passage in answer_passages(
+                    query, document.text, limit=1,
+                    retrieved_excerpt=str(document.metadata.get("_retrieved_excerpt", "")),
+                ):
+                    if passage.text in seen_passages:
+                        continue
                     evidence = Evidence(
                         source_id=f"S{len(resolved) + 1}",
                         chunk_id=document.chunk_id,
                         source_file=document.source_file,
                         page_number=document.page_number,
-                        excerpt=trial,
+                        excerpt=passage.text,
+                        title=str(document.metadata.get("title", "")),
+                        applicability=document.text[:500],
                         relevance=min(1, max(0, document.score)),
-                        tokens=token_count(trial),
+                        tokens=token_count(passage.text),
                     )
                     if token_count(serialize_evidence([*resolved, evidence])) > self.max_tokens:
-                        break
-                    excerpt = trial
-                if excerpt:
-                    resolved.append(
-                        evidence.model_copy(
-                            update={
-                                "excerpt": excerpt,
-                                "tokens": token_count(excerpt),
-                            }
-                        )
-                    )
+                        continue
+                    resolved.append(evidence)
+                    seen_passages.add(passage.text)
                 if len(resolved) >= self.max_sources:
                     break
-            if resolved:
-                return CompressionResult(
-                    evidence=resolved,
-                    original_tokens=sum(token_count(d.text) for d in candidates),
-                    context_tokens=token_count(serialize_evidence(resolved)),
-                )
+            return CompressionResult(
+                evidence=resolved,
+                original_tokens=sum(token_count(d.text) for d in candidates),
+                context_tokens=token_count(serialize_evidence(resolved)) if resolved else 0,
+            )
         original_tokens = sum(token_count(d.text) for d in candidates)
         query_terms = terms(query)
         anchors = {

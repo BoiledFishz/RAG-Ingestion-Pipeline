@@ -1,0 +1,15 @@
+{
+  "dataset": "IBM TechQA official training questions and reference answers",
+  "protocol": "oracle reference evidence; repeated component checks, no retrieval",
+  "model": "qwen2.5:7b",
+  "questions": 5,
+  "repeats": 2,
+  "trials": 10,
+  "pass_rate": 1.0,
+  "answer_acceptance": 0.4,
+  "protocol_consistency": 1.0,
+  "first_attempt_pass_rate": 0.8,
+  "failed_trials": 0,
+  "average_retries": 0.2,
+  "model_errors": 0
+}

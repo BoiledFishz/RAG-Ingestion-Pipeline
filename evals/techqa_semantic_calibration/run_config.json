@@ -1,0 +1,10 @@
+{
+  "split": "train",
+  "limit": 0,
+  "semantic_reranker": true,
+  "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b",
+  "questions_sha256": "e5c9cf3e48a219995bb8cdc66f53d6c0f96a334ebcd68559118e662f88d5d5d1",
+  "candidate_k": 30,
+  "rerank_k": 20,
+  "rrf_constant": 60
+}

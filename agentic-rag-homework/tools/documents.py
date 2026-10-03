@@ -1,6 +1,12 @@
 from __future__ import annotations
 
+from typing import Protocol
+
 from models.schemas import Document
+
+
+class DocumentAdapter(Protocol):
+    async def invoke(self, document_id: str) -> Document | None: ...
 
 
 class DocumentRetrievalTool:

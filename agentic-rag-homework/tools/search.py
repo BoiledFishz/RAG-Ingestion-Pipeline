@@ -1,8 +1,13 @@
 from __future__ import annotations
 
 import re
+from typing import Protocol
 
 from models.schemas import Document
+
+
+class SearchAdapter(Protocol):
+    async def invoke(self, query: str, limit: int = 5) -> list[Document]: ...
 
 
 def words(text: str) -> set[str]:

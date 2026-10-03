@@ -38,6 +38,8 @@ def serialize_evidence(evidence: list[Evidence]) -> str:
             "source_file": e.source_file,
             "page_number": e.page_number,
             "excerpt": e.excerpt,
+            "title": e.title,
+            "applicability": e.applicability,
         }
         for e in evidence
     ]

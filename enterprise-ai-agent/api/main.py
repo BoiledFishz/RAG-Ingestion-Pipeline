@@ -38,7 +38,8 @@ def create_app(agent: RAGAgent | None = None) -> FastAPI:
             )
             yield
         finally:
-            await store.close()
+            if store is not None:
+                await store.close()
 
     app = FastAPI(
         title="Enterprise RAG Agent",

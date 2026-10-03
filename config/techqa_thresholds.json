@@ -1,23 +1,35 @@
 {
-  "split": "first 60 official training questions",
-  "count": 60,
-  "answerable_count": 49,
-  "unanswerable_count": 11,
+  "split": "first 600 official training questions",
+  "count": 600,
+  "answerable_count": 450,
+  "unanswerable_count": 150,
   "protocol": "open-corpus proxy; N labels only assert no answer in official DOC_IDS",
   "model": "nomic-embed-text",
   "candidate_k": 30,
   "thresholds": {
     "dense_rerank": {
-      "threshold": 0.7035961349418578,
-      "balanced_accuracy": 0.5102040816326531,
-      "answer_acceptance": 0.02040816326530612,
-      "labelled_refusal": 1.0
+      "threshold": 0.5569678087267097,
+      "balanced_accuracy": 0.5577777777777777,
+      "answer_acceptance": 0.5888888888888889,
+      "labelled_refusal": 0.5266666666666666
     },
     "hybrid_rerank": {
-      "threshold": 0.6517206155260212,
-      "balanced_accuracy": 0.6001855287569573,
-      "answer_acceptance": 0.8367346938775511,
-      "labelled_refusal": 0.36363636363636365
+      "threshold": 0.6555182696305744,
+      "balanced_accuracy": 0.5533333333333333,
+      "answer_acceptance": 0.7933333333333333,
+      "labelled_refusal": 0.31333333333333335
     }
+  },
+  "dense_embedding": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "pooling": "window256-stride16-mean-v1"
+  },
+  "evaluation_directory": "evals/techqa_semantic_calibration",
+  "evidence_candidate_threshold": {
+    "threshold": 0.42556637939344943,
+    "relevant_training_candidates": 377,
+    "conditional_retention": 1.0,
+    "method": "minimum observed relevant train Top-10 candidate score; not answer confidence"
   }
 }

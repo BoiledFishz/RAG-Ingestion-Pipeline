@@ -4,6 +4,7 @@ import asyncio
 import sys
 from collections.abc import Iterator
 from pathlib import Path
+from uuid import uuid4
 
 # Also allows the parent Pipeline's recursive pytest collection to run this suite.
 AGENT_ROOT = Path(__file__).resolve().parents[1]
@@ -18,6 +19,13 @@ from models.providers import HashEmbedder  # noqa: E402
 from models.schemas import Document  # noqa: E402
 from models.settings import Settings  # noqa: E402
 from vectorstore.qdrant import QdrantStore  # noqa: E402
+
+
+@pytest.fixture
+def tmp_path() -> Path:
+    path = AGENT_ROOT / ".test_tmp" / uuid4().hex
+    path.mkdir(parents=True)
+    return path
 
 
 def techqa_fixture() -> list[Document]:

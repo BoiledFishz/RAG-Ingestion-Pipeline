@@ -21,6 +21,8 @@ def test_source_quotes_and_citation_numbers_do_not_score_as_answer():
     assert quality(response, item) == 0
     response.answer = original["ANSWER"] + " [1]"
     assert quality(response, item) == 1
+    response.answer = original["ANSWER"] + " [7]"
+    assert quality(response, item) == 0
 
 
 def test_unknown_question_requires_an_actual_refusal():
@@ -45,3 +47,21 @@ def test_explicit_real_provider_cannot_silently_use_demo():
     assert isinstance(model_from_env("ollama"), OllamaStructuredModel)
     with pytest.raises(ValueError):
         model_from_env("typo")
+
+
+def test_refusals_do_not_hide_low_answerable_body_quality():
+    original = questions("fixture")
+    rows = [
+        {"id": original[0]["QUESTION_ID"], "answerable": True, "quality": 0,
+         "error": None, "run": None, "metrics": {
+             "llm_calls": 1, "tool_calls": 1, "input_tokens": 1,
+             "output_tokens": 1, "latency_ms": 1}},
+        {"id": next(q["QUESTION_ID"] for q in original if q["ANSWERABLE"] == "N"),
+         "answerable": False, "quality": 1, "error": None, "run": None, "metrics": {
+             "llm_calls": 1, "tool_calls": 1, "input_tokens": 1,
+             "output_tokens": 1, "latency_ms": 1}},
+    ]
+    result = aggregate("test", rows)
+    assert result["answer_quality"] == 0.5
+    assert result["answerable_body_f1"] == 0
+    assert result["labelled_refusal_accuracy"] == 1

@@ -4,13 +4,16 @@ from __future__ import annotations
 
 import logging
 import time
+from typing import Literal
 
-from agents.rag_agent.service import ContextCompressor
+from rag.techqa.evidence import answer_passages
+
+from agents.rag_agent.service import ContextCompressor, GroundedAnswerer
 from models.llm import MeteredModel, StructuredModel
 from models.schemas import Document, Metrics, RAGResponse, ResearchAction, ResearchRun, ResearchStep
-from tools.documents import DocumentRetrievalTool
+from tools.documents import DocumentAdapter
 from tools.retriever import RetrieverTool
-from tools.search import SearchTool
+from tools.search import SearchAdapter
 
 LOGGER = logging.getLogger(__name__)
 
@@ -38,19 +41,28 @@ class FixedResearchWorkflow:
     def __init__(
         self,
         rag: RetrieverTool,
-        search: SearchTool,
-        documents: DocumentRetrievalTool,
+        search: SearchAdapter,
+        documents: DocumentAdapter,
+        answerer: GroundedAnswerer | None = None,
+        model_meter: MeteredModel | None = None,
     ) -> None:
         self.rag, self.search, self.documents = rag, search, documents
+        self.answerer, self.model_meter = answerer, model_meter
 
     async def run(self, query: str) -> ResearchRun:
         started = time.perf_counter()
+        before = self.model_meter.snapshot() if self.model_meter else Metrics()
         internal = await self.rag.invoke(query)
         external = await self.search.invoke(query)
         first = (internal + external)[0] if internal or external else None
         full = await self.documents.invoke(first.document_id) if first else None
         found = ([full] if full else []) + internal + external
-        response = render_answer(query, list({doc.document_id: doc for doc in found}.values()))
+        unique = list({doc.document_id: doc for doc in found}.values())
+        response = (await self.answerer.answer(query, unique) if self.answerer
+                    else render_answer(query, unique))
+        metrics = self.model_meter.delta(before) if self.model_meter else Metrics()
+        metrics.tool_calls = 3
+        metrics.latency_ms = (time.perf_counter() - started) * 1000
         return ResearchRun(
             response=response,
             steps=[
@@ -77,7 +89,7 @@ class FixedResearchWorkflow:
                 ),
             ],
             stop_reason="finished" if response.sources else "no_evidence",
-            metrics=Metrics(tool_calls=3, latency_ms=(time.perf_counter() - started) * 1000),
+            metrics=metrics,
         )
 
 
@@ -89,8 +101,11 @@ class LLMResearchPolicy:
         self, query: str, steps: list[ResearchStep], known: list[Document], *, objective: str = ""
     ) -> ResearchAction:
         observations = [
-            {"id": doc.document_id, "title": doc.title, "score": doc.score, "text": doc.text[:500]}
-            for doc in known
+            {"id": doc.document_id, "title": doc.title[:200], "score": doc.score,
+             "text": "\n".join(p.text for p in answer_passages(
+                 query, doc.text, limit=1, retrieved_excerpt=doc.retrieved_excerpt,
+             ))}
+            for doc in sorted(known, key=lambda doc: doc.score, reverse=True)[:8]
         ]
         prompt = (
             "KIND: REACT\nChoose exactly one next action. Use finish when evidence directly "
@@ -114,14 +129,17 @@ class ReActResearchAgent:
     def __init__(
         self,
         rag: RetrieverTool,
-        search: SearchTool,
-        documents: DocumentRetrievalTool,
+        search: SearchAdapter,
+        documents: DocumentAdapter,
         policy: LLMResearchPolicy,
         model_meter: MeteredModel | None = None,
         max_steps: int = 5,
     ) -> None:
+        if not 2 <= max_steps <= 10:
+            raise ValueError("max_steps must reserve a bounded verification step")
         self.rag, self.search, self.documents = rag, search, documents
         self.policy, self.model_meter, self.max_steps = policy, model_meter, max_steps
+        self.answerer = GroundedAnswerer(policy.model)
 
     async def run(
         self,
@@ -199,6 +217,7 @@ class ReActResearchAgent:
                     document = document.model_copy(
                         update={
                             "score": known[document.document_id].score,
+                            "retrieved_excerpt": known[document.document_id].retrieved_excerpt,
                         }
                     )
                 observed = [document] if document else []
@@ -213,11 +232,22 @@ class ReActResearchAgent:
                     observation_ids=[doc.document_id for doc in observed],
                 )
             )
-        response = render_answer(query, list(known.values()))
+        response = await self.answerer.answer(query, list(known.values()))
+        if (not response.sources and len(steps) < self.max_steps
+                and not any(action == "search" for action, _ in used)):
+            observed = await self.search.invoke(query)
+            tool_calls += 1
+            known.update({doc.document_id: doc for doc in observed})
+            steps.append(ResearchStep(
+                index=len(steps) + 1, action="search", argument=query,
+                reason="Selected passages did not answer the question; verify sparse evidence",
+                observation_ids=[doc.document_id for doc in observed],
+            ))
+            response = await self.answerer.answer(query, list(known.values()))
         measured = self.model_meter.delta(before) if self.model_meter else Metrics()
         measured.tool_calls = tool_calls
         measured.latency_ms = (time.perf_counter() - started) * 1000
-        stop_reason = (
+        stop_reason: Literal["finished", "max_steps", "no_evidence"] = (
             "no_evidence" if not response.sources else ("finished" if finished else "max_steps")
         )
         return ResearchRun(

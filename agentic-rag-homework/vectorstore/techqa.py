@@ -3,9 +3,11 @@
 from __future__ import annotations
 
 import asyncio
+import os
+from typing import Any
 
 from rag.techqa.retrieval import build_pipeline, open_index
-from rag.techqa.settings import acceptance_score
+from rag.techqa.settings import acceptance_score, evidence_candidate_threshold
 
 from models.schemas import Document
 
@@ -13,16 +15,17 @@ from models.schemas import Document
 class TechQAStore:
     def __init__(self) -> None:
         self.index = open_index()
-        self.pipeline = build_pipeline(final_k=10)
+        self.pipeline = build_pipeline(final_k=int(os.getenv("TECHQA_AGENT_CANDIDATE_K", "20")))
 
     @staticmethod
-    def convert(doc: dict, score: float = 0) -> Document:
+    def convert(doc: dict[str, Any], score: float = 0, excerpt: str = "") -> Document:
         return Document(
             document_id=doc["id"],
             title=doc["title"],
             text=doc["text"],
             source=f"techqa://{doc['id']}",
             score=score,
+            retrieved_excerpt=excerpt.removeprefix(doc["title"] + "\n\n"),
         )
 
     async def search(self, query: str, top_k: int) -> list[Document]:
@@ -35,7 +38,7 @@ class TechQAStore:
                 result.score,
                 fallback=outcome.diagnostics.reranker_fallback,
             )
-            if score < threshold:
+            if score < min(threshold, evidence_candidate_threshold()):
                 continue
             doc_id = str(result.metadata["techqa_document_id"])
             if doc_id in seen:
@@ -43,7 +46,7 @@ class TechQAStore:
             seen.add(doc_id)
             doc = await asyncio.to_thread(self.index.get, doc_id)
             if doc:
-                output.append(self.convert(doc, result.score))
+                output.append(self.convert(doc, score, result.text))
         return output[:top_k]
 
 
@@ -65,14 +68,14 @@ class TechQASearchTool:
                 fallback=outcome.diagnostics.reranker_fallback,
                 mode="sparse",
             )
-            if score < threshold:
+            if score < min(threshold, evidence_candidate_threshold()):
                 continue
             doc = await asyncio.to_thread(
                 self.store.index.get,
                 str(result.metadata["techqa_document_id"]),
             )
             if doc:
-                output.append(self.store.convert(doc, result.score))
+                output.append(self.store.convert(doc, score, result.text))
         return output[:limit]
 
 

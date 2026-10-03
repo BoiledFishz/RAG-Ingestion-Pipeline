@@ -1,0 +1,83 @@
+{
+  "failures": 0,
+  "semantic_manifest": {
+    "complete": true,
+    "scope": "full",
+    "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+    "documents": 801996,
+    "chunks": 3089056,
+    "dimension": 384,
+    "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b",
+    "encoder": {
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "pooling": "window256-stride16-mean-v1"
+    },
+    "search": "Faiss IndexFlatIP, exact cosine over unit vectors",
+    "source_index": "C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\.rag_data\\techqa_full.sqlite"
+  },
+  "cases": [
+    {
+      "project": "enterprise",
+      "category": "answerable",
+      "endpoint": "/v1/agent/query",
+      "request": {
+        "query": "User environment variables no longer getting picked up after upgrade to 4.1.1.1 or 4.1.1.2?\nHave you found that after upgrade to Streams 4.1.1.1 or 4.1.1.2, that environment variables set in your .bashrc are no longer being set? For example ODBCINI is not set for the database toolkit and you get\n\n     An SQL operation failed. The SQL state is 08003, the SQL code\n     is 0 and the SQL message is [unixODBC][Driver\n     Manager]Connnection does not exist."
+      },
+      "status": 200,
+      "response": {
+        "answer": "To work around the issue, set environment variables that are needed by the application directly in the instance with:  * \n   \n * streamtool setproperty\n * -d <domain> -i <instance>\n   --application-ev <VARIABLE NAME>=<VARIABLE VALUE>\n * [S1]\n*  Set environment variables directly in the instance with:\n   streamtool setproperty -d <domain> -i <instance>\n   --application-ev <VARIABLE NAME>=<VARIABLE VALUE> [S2]",
+        "sources": [
+          {
+            "source_id": "S1",
+            "chunk_id": "techqa:swg21996508:parent",
+            "source_file": "techqa://swg21996508",
+            "page_number": 1,
+            "quote": "To work around the issue, set environment variables that are needed by the application directly in the instance with:  * \n   \n * streamtool setproperty\n * -d <domain> -i <instance>\n   --application-ev <VARIABLE NAME>=<VARIABLE VALUE>\n *"
+          },
+          {
+            "source_id": "S2",
+            "chunk_id": "techqa:swg1IT18432:parent",
+            "source_file": "techqa://swg1IT18432",
+            "page_number": 1,
+            "quote": "*  Set environment variables directly in the instance with:\n   streamtool setproperty -d <domain> -i <instance>\n   --application-ev <VARIABLE NAME>=<VARIABLE VALUE>"
+          }
+        ],
+        "confidence": 0.77
+      },
+      "error": null,
+      "latency_ms": 34443.51429998642
+    },
+    {
+      "project": "enterprise",
+      "category": "official_unanswerable",
+      "endpoint": "/v1/agent/query",
+      "request": {
+        "query": "Why are replies going to the DLQ with reason 2189 MQRC_CLUSTER_RESOLUTION_ERROR\nI have changed my cluster receiver to match the IP address used and now I am seeing replies in my DLQ with 2189 MQRC_CLUSTER_RESOLUTION_ERROR. The reply queue is on a different cluster which this qmgr is a member of. The reply message uses replytoqmgr and queue name. The qmgr should see the replytoqmgr in the cluster and get the message over to the queue, but instead goes to dead letter queue. This queue manager is a repository to one cluster and a member of another."
+      },
+      "status": 200,
+      "response": {
+        "answer": "the ReplyToQ is a QAlias on QMGR A or B with a base queue\n       name of a clustered queue and ReplyToQmgr has the QMGR name\n       of the qmgr where the QAlias exists.\n   The resolution of the QAlias is done on the qmgr where it exists\n   and at that time the ReplyToQmgr value is used as ObjectQmgrName\n   in the MQOD used to open the QAlias. Because it is the Local\n   QMGR the z/OS code does not attempt a cluster lookup when the\n   QAlias base queue name does not exist on that qmgr and the\n   Report message is put to the local Dead Letter Queue with a\n   Reason code of 2082 (MQRC_UNKNOWN_ALIAS_BASE_Q).\n   This does NOT occur IF the QAlias itself is clustered or if a\n   QMGR Alias is used as ReplyToQmgr.\n   .\n   On all the Distributed platform versions of MQ this problem does\n   NOT occur, the QAlias base name is resolved via a lookup of the [S1]\ne.g When the original message MQPUT is to a queue on QMGR A, but\n       the ReplyToQ is a QAlias on QMGR A or B with a base queue\n       name of a clustered queue and ReplyToQmgr has the QMGR name\n       of the qmgr where the QAlias exists.\n   The resolution of the QAlias is done on the qmgr where it exists\n   and at that time the ReplyToQmgr value is used as ObjectQmgrName\n   in the MQOD used to open the QAlias. Because it is the Local\n   QMGR the z/OS code does not attempt a cluster lookup when the\n   QAlias base queue name does not exist on that qmgr and the\n   Report message is put to the local Dead Letter Queue with a\n   Reason code of 2082 (MQRC_UNKNOWN_ALIAS_BASE_Q).\n   This does NOT occur IF the QAlias itself is clustered or if a\n   QMGR Alias is used as ReplyToQmgr.\n   .\n   On all the Distributed platform versions of MQ this problem does [S2]",
+        "sources": [
+          {
+            "source_id": "S1",
+            "chunk_id": "techqa:swg1PM11753:parent",
+            "source_file": "techqa://swg1PM11753",
+            "page_number": 1,
+            "quote": "the ReplyToQ is a QAlias on QMGR A or B with a base queue\n       name of a clustered queue and ReplyToQmgr has the QMGR name\n       of the qmgr where the QAlias exists.\n   The resolution of the QAlias is done on the qmgr where it exists\n   and at that time the ReplyToQmgr value is used as ObjectQmgrName\n   in the MQOD used to open the QAlias. Because it is the Local\n   QMGR the z/OS code does not attempt a cluster lookup when the\n   QAlias base queue name does not exist on that qmgr and the\n   Report message is put to the local Dead Letter Queue with a\n   Reason code of 2082 (MQRC_UNKNOWN_ALIAS_BASE_Q).\n   This does NOT occur IF the QAlias itself is clustered or if a\n   QMGR Alias is used as ReplyToQmgr.\n   .\n   On all the Distributed platform versions of MQ this problem does\n   NOT occur, the QAlias base name is resolved via a lookup of the"
+          },
+          {
+            "source_id": "S2",
+            "chunk_id": "techqa:swg1PM18426:parent",
+            "source_file": "techqa://swg1PM18426",
+            "page_number": 1,
+            "quote": "e.g When the original message MQPUT is to a queue on QMGR A, but\n       the ReplyToQ is a QAlias on QMGR A or B with a base queue\n       name of a clustered queue and ReplyToQmgr has the QMGR name\n       of the qmgr where the QAlias exists.\n   The resolution of the QAlias is done on the qmgr where it exists\n   and at that time the ReplyToQmgr value is used as ObjectQmgrName\n   in the MQOD used to open the QAlias. Because it is the Local\n   QMGR the z/OS code does not attempt a cluster lookup when the\n   QAlias base queue name does not exist on that qmgr and the\n   Report message is put to the local Dead Letter Queue with a\n   Reason code of 2082 (MQRC_UNKNOWN_ALIAS_BASE_Q).\n   This does NOT occur IF the QAlias itself is clustered or if a\n   QMGR Alias is used as ReplyToQmgr.\n   .\n   On all the Distributed platform versions of MQ this problem does"
+          }
+        ],
+        "confidence": 0.663
+      },
+      "error": null,
+      "latency_ms": 24519.00879997993
+    }
+  ]
+}

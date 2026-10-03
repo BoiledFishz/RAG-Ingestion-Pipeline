@@ -1,0 +1,10 @@
+{
+  "split": "validation",
+  "limit": 0,
+  "semantic_reranker": true,
+  "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b",
+  "questions_sha256": "5607dfa923ab4199c6e1fb09a79c22f0477cc621f630ce4eed8423b9f20c594b",
+  "candidate_k": 30,
+  "rerank_k": 20,
+  "rrf_constant": 60
+}

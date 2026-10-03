@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -15,7 +16,8 @@ def main() -> int:
     failed = False
     for project in (ROOT, ROOT / "enterprise-ai-agent", ROOT / "agentic-rag-homework"):
         LOGGER.info("Testing %s", project.name)
-        result = subprocess.run([sys.executable, "-m", "pytest"], cwd=project, check=False)
+        result = subprocess.run([sys.executable, "-m", "pytest"], cwd=project, check=False,
+                                env={**os.environ, "PYTHONUTF8": "1"})
         failed |= result.returncode != 0
     return int(failed)
 

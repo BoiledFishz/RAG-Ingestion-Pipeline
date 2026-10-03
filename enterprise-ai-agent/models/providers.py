@@ -101,10 +101,12 @@ class OllamaStructuredModel:
                         "stream": False,
                         "format": schema,
                         "messages": [{"role": "user", "content": prompt}],
-                        "options": {"temperature": 0, "num_predict": 1500},
+                        "options": {"temperature": 0, "num_predict": 300, "num_ctx": 8192},
                     },
                 )
                 response.raise_for_status()
+                if response.json().get("done_reason") == "length":
+                    raise ValueError("Structured generation exceeded its token budget")
                 content = response.json()["message"]["content"]
                 if not isinstance(content, str):
                     raise ValueError("model content must be a string")

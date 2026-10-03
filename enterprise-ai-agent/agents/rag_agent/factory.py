@@ -21,7 +21,14 @@ def build_embedder(settings: Settings) -> Embedder:
     return OllamaEmbedder(settings.ollama_url, settings.embedding_model, settings.llm_timeout)
 
 
-def build_agent(settings: Settings, store: QdrantStore) -> RAGAgent:
+def build_agent(settings: Settings, store: QdrantStore | None = None) -> RAGAgent:
+    retriever: RetrieverTool
+    if settings.retrieval_backend == "techqa":
+        retriever = TechQARetrieverTool()
+    else:
+        if store is None:
+            raise ValueError("Legacy retrieval requires a Qdrant store")
+        retriever = RetrieverTool(store, build_embedder(settings), settings.tool_timeout)
     rewriter: QueryRewriter
     selector: EvidenceSelector
     if settings.profile == "offline":
@@ -32,21 +39,20 @@ def build_agent(settings: Settings, store: QdrantStore) -> RAGAgent:
     return RAGAgent(
         rewriter=rewriter,
         selector=selector,
-        retriever=(
-            TechQARetrieverTool()
-            if settings.retrieval_backend == "techqa"
-            else RetrieverTool(store, build_embedder(settings), settings.tool_timeout)
-        ),
+        retriever=retriever,
         compressor=ContextCompressor(
             settings.max_context_tokens,
             settings.max_sources,
             settings.min_relevance,
+            model_selects_evidence=settings.profile == "ollama",
         ),
         top_k=settings.top_k,
     )
 
 
-def open_store(settings: Settings) -> QdrantStore:
+def open_store(settings: Settings) -> QdrantStore | None:
+    if settings.retrieval_backend == "techqa":
+        return None
     return QdrantStore(
         settings.collection,
         path=settings.qdrant_path,

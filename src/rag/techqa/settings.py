@@ -22,6 +22,15 @@ def relevance_threshold(mode: str = "hybrid") -> float:
     return float(os.getenv("TECHQA_RELEVANCE_THRESHOLD", str(default)))
 
 
+def evidence_candidate_threshold() -> float:
+    if os.getenv("TECHQA_PROFILE") == "fixture":
+        return 0.0
+    data = json.loads((ROOT / "config/techqa_thresholds.json").read_text(encoding="utf-8"))
+    return float(os.getenv("TECHQA_EVIDENCE_THRESHOLD", str(
+        data.get("evidence_candidate_threshold", {}).get("threshold", 0.35)
+    )))
+
+
 def acceptance_score(
     query: str, text: str, score: float, *, fallback: bool = False, mode: str = "hybrid"
 ) -> tuple[float, float]:

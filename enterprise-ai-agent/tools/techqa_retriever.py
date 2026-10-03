@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import os
+
 from rag.techqa.retrieval import TechQAParentResolver, build_pipeline, open_index
 from rag.techqa.settings import acceptance_score
 
@@ -11,7 +13,7 @@ from tools.retriever import RetrieverTool
 
 class TechQARetrieverTool(RetrieverTool):
     def __init__(self) -> None:
-        self.pipeline = build_pipeline(final_k=10)
+        self.pipeline = build_pipeline(final_k=int(os.getenv("TECHQA_AGENT_CANDIDATE_K", "20")))
         self.parents = TechQAParentResolver(open_index())
 
     async def invoke(self, request: RetrieverInput) -> list[Document]:
@@ -42,6 +44,7 @@ class TechQARetrieverTool(RetrieverTool):
                             **parent.metadata,
                             "_full_parent": True,
                             "_acceptance_threshold": threshold,
+                            "_retrieved_excerpt": result.text,
                         },
                     )
                 )

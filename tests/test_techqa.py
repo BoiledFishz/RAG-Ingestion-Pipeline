@@ -52,7 +52,8 @@ def test_training_thresholds_reproduce_from_recorded_official_run():
     from rag.techqa.data import ROOT
 
     recorded = json.loads((ROOT / "config/techqa_thresholds.json").read_text())
-    assert calibrate(ROOT / "evals/techqa_calibration") == recorded
+    directory = recorded.get("evaluation_directory", "evals/techqa_calibration")
+    assert calibrate(ROOT / directory) == recorded
 
 
 def test_calibration_rejects_dev_labels():

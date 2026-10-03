@@ -1,0 +1,21 @@
+{
+  "protocol": "Frozen actual retrieval/selection outputs; new final applicability guard only",
+  "dataset": "IBM TechQA official development questions",
+  "model": "qwen2.5:7b",
+  "questions": 310,
+  "complete": true,
+  "model_trials": 246,
+  "review_rejected_count": 155,
+  "baseline_answerable_body_f1": 0.21340577401425356,
+  "reviewed_answerable_body_f1": 0.12292218900038236,
+  "baseline_labelled_refusal_accuracy": 0.07333333333333333,
+  "reviewed_labelled_refusal_accuracy": 0.5666666666666667,
+  "answerable_acceptance": 0.31875,
+  "average_guard_latency_ms": 8722.103751629611,
+  "error_count": 0,
+  "limitations": [
+    "No fresh retrieval or query rewriting in this replay",
+    "N labels describe the smaller original candidate pool",
+    "Body F1 and reference document IDs are proxies, not factual accuracy"
+  ]
+}

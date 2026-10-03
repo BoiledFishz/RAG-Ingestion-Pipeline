@@ -20,6 +20,14 @@ class DemoStructuredModel:
         return str(ast.literal_eval(line.split(": ", 1)[1]))
 
     async def generate(self, prompt: str, schema: dict[str, Any]) -> str:
+        if "KIND: GROUNDED_DIAGNOSIS" in prompt:
+            keys = schema["oneOf"][0]["properties"]["source_ids"]["items"]["enum"]
+            return json.dumps({"sufficient": True, "source_ids": keys[:1]})
+        if "KIND: EVIDENCE_SELECTOR" in prompt:
+            properties = schema["oneOf"][0]["properties"]
+            field = "selected" if "selected" in properties else "source_ids"
+            keys = properties[field]["items"]["enum"]
+            return json.dumps({"sufficient": True, field: keys[:1]})
         if "KIND: PLANNER" in prompt:
             return json.dumps(
                 {

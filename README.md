@@ -6,10 +6,10 @@
 
 | 用途 | 数据范围 |
 |---|---|
-| 三个服务的默认查询 | 全量 TechNote 文档；Qdrant + 磁盘 BM25 + 有限候选语义重排 |
+| 三个服务的默认查询 | 全量 TechNote 文档；MiniLM/Faiss 语义 Dense + 磁盘 BM25 + 有限候选语义重排 |
 | 全量源文件 | 801,998 条；2 条正文为空；801,996 篇有效且不重复的文档 |
 | 全量检索对比 | 官方 dev 310 题，另跑 validation 20 题 |
-| 阈值校准 | 官方 training 前 60 题；不使用 dev 标签调参 |
+| 阈值校准 | 语义版本使用官方 training 全部 600 题；不使用 dev 标签调参 |
 | PDF/Markdown/OCR 与 Ragas | 原始训练题与原文转换的格式测试文件；不是全量文档格式测试 |
 | 离线单元测试 | 41 篇官方文档、15 条原始训练题；故障测试另用空输入、坏文件和模型替身 |
 | Planner/ReAct/Critic/Single/Multi | 同一全量库上的 15 条官方训练题；真实 Ollama |
@@ -26,7 +26,7 @@ TechQA 的 `ANSWERABLE=N` 表示其官方 `DOC_IDS` 候选文档中没有标注�
 ```mermaid
 flowchart TD
     A[官方 TechQA 归档和校验] --> B[原始 JSON/TechNotes]
-    B --> C[全量 Qdrant Hash 索引]
+    B --> C[MiniLM 全窗口编码 / Faiss 语义索引]
     B --> D[SQLite FTS5 BM25]
     B --> E[可追溯 PDF/扫描 PDF/Markdown]
     E --> F[解析 / 条件 OCR / 清洗]
@@ -43,9 +43,12 @@ flowchart TD
     M --> N[带引用答案 / 澄清 / 拒答]
 ```
 
-`src/rag/techqa` 是三个项目共享的数据与检索实现。全量 Qdrant 仍使用原有 384 维 Hash 向量，
-新增 BM25 解决词项碰撞和缺少产品名/错误码候选的问题；nomic 仅对返回的有限候选做语义重排。
-这不是把全量 280 万 Chunk 全部重新编码成语义向量。新格式测试库使用真正的 768 维 nomic。
+`src/rag/techqa` 是三个项目共享的数据与检索实现。默认 Dense 使用固定版本
+`sentence-transformers/all-MiniLM-L6-v2` 的 384 维真实语义向量，Faiss 精确余弦搜索与 SQLite 元数据
+通过本地 11435 端口提供服务。长 Chunk 按 256 Token 窗口编码后聚合，保留所有窗口，避免静默截断。
+构建支持断点恢复与 SHA-256 向量复用，仅在全文档覆盖、向量有效性和数量检查通过后发布完成标记。
+旧 Qdrant Hash 索引仅在明确设置 `TECHQA_DENSE_BACKEND=hash` 时作为历史基线使用。
+PDF/Markdown 格式测试库继续使用 768 维 nomic；两个语义库的评测范围分别记录。
 
 Dense/Sparse 并行 `asyncio.gather()`，手写 RRF：`score(d) = Σ 1 / (60 + rank(d))`，按同一个
 `chunk_id` 去重，仅融合完成后调用一次 Reranker。全量 Sparse 复用已有 Qdrant 切片身份，保持兼容；
@@ -60,13 +63,16 @@ Dense/Sparse 并行 `asyncio.gather()`，手写 RRF：`score(d) = Σ 1 / (60 + r
 
 ## 安装与运行
 
-Python 3.11+，Ragas 建议 Python 3.12；安装 Ollama、Docker/Qdrant，以及扫描 PDF 所需 Tesseract。
+客户端使用 Python 3.11+；完整语义编码与 Ragas 建议使用 Python 3.12。
+安装 Ollama，以及扫描 PDF 所需 Tesseract。默认全量语义服务不需要 Docker；Hash 基线使用 Docker/Qdrant。
 从仓库根目录执行：
 
 ```powershell
-python -m pip install -e ".[dev,api,eval]"
+py -3.12 -m venv .venv312
+.venv312/Scripts/Activate.ps1
+python -m pip install -e ".[dev,api,eval,semantic]"
 Copy-Item .env.example .env
-./scripts/start-local.ps1 -FullTechQA
+./scripts/start-local.ps1  # 准备 Ollama 模型；全量索引完成后再加 -FullTechQA
 ```
 
 已提交的官方小样本无需下载即可做格式流程和离线测试：
@@ -84,18 +90,16 @@ python evals/evaluate_retrieval_modes.py --database .rag_data/qdrant `
 全量库首次准备（原始文件和索引不提交 Git）：
 
 ```powershell
-cd enterprise-ai-agent
-$env:AGENT_PROFILE = "offline"
-$env:AGENT_EMBEDDING_PROVIDER = "hash"
-$env:AGENT_QDRANT_URL = "http://localhost:6333"
-$env:AGENT_COLLECTION = "techqa_full_hash"
-python -m vectorstore.seed --scope full
-cd ..
-python -m rag.techqa.index --scope full
+./scripts/prepare-techqa.ps1
 python scripts/verify_techqa_source.py
+./scripts/start-local.ps1 -FullTechQA
 ```
 
 具体全量获取命令见 [Enterprise README](enterprise-ai-agent/README.md)。
+完整构建需要下载官方归档和模型，并编码 801,996 篇文档。CUDA 环境可先安装
+`torch==2.8.0` 的 cu126 版本，参考 [PyTorch 官方安装说明](https://pytorch.org/get-started/previous-versions/)；
+CPU 也可运行但较慢。`python scripts/verify_semantic_fixture.py` 用提交的 41 篇官方原文验证真实编码、
+幂等重建、来源身份和过滤。构建未完成时语义服务返回不可用，Hybrid 的降级会明确写日志。
 `.env.example` 配置全量服务；主 ingestion CLI 默认处理 `data/techqa/mixed`，写入独立的
 `techqa_nomic_v3` 集合。设置 `RAG_BACKEND=local` 可将根 API 指向该格式测试语义库；默认
 `RAG_BACKEND=techqa` 查询全量库。不能把格式测试库与全量库的结果混为一谈。
@@ -119,33 +123,58 @@ python -m uvicorn api.main:app --host 127.0.0.1 --port 8002
 根 API：`POST /v1/rag/query`。请求中的 `mode` 可以是 dense/sparse/hybrid。
 
 ```json
-{"query":"User environment variables are not picked up after upgrading Streams 4.1.1.2", "mode":"hybrid", "filters":{"language":"en","document_type":"ibm_technote"}}
+{"query":"User environment variables no longer getting picked up after upgrade to 4.1.1.1 or 4.1.1.2?", "mode":"hybrid", "filters":{"language":"en","document_type":"ibm_technote"}}
 ```
 
-真实完整回答、拒答及六种 Agent 端点的请求/响应在 [HTTP 实跑记录](evals/techqa_api_smoke.json)。
+真实完整回答、拒答及六种 Agent 端点的请求/响应在 [HTTP 实跑记录](evals/techqa_semantic_api_smoke.json)。
 例如 Streams 问题应引用 `techqa://swg21996508`，解释 `streamtool setproperty`；
 `language=zh-CN` 无匹配文档时直接拒答。
 
 ## 评测与验收
 
 ```powershell
-python -m rag.techqa.evaluate --split train --limit 60 --output evals/techqa_calibration
+python -m rag.techqa.evaluate --split train --output evals/techqa_semantic_calibration
 python -m rag.techqa.calibrate
-python -m rag.techqa.evaluate --split dev --output evals/techqa_full
-python -m rag.techqa.evaluate --split validation --output evals/techqa_validation
-python scripts/smoke_techqa.py
+python -m rag.techqa.evaluate --split dev --output evals/techqa_semantic_full
+python -m rag.techqa.evaluate --split validation --output evals/techqa_semantic_validation
+python scripts/smoke_techqa.py --output evals/techqa_semantic_api_smoke.json
 ```
 
-- [全量检索对比](evals/techqa_full/summary.json)：Dense、Dense+Rerank、BM25、Hybrid+Rerank；逐题记录 `runs.jsonl`。
+- [全量语义检索对比](evals/techqa_semantic_full/summary.json)：Dense、Dense+Rerank、BM25、Hybrid+Rerank；逐题记录 `runs.jsonl`。
 - [Ragas](evals/techqa_ragas_results.json)：5 条官方训练题，256/512 两种切片，IDBasedContextRecall，独立记录格式小样本范围。
 - [格式测试库的 15 题检索与故障注入](evals/techqa_fixture_retrieval.json)。
-- [真实 Agent 实验](agentic-rag-homework/evaluation/results/techqa/report.md)。
+- [真实 Agent 实验](agentic-rag-homework/evaluation/results/techqa_semantic/report.md)。
+- [本轮语义与 Agent 复验](audit/2026-10-02-semantic-agent.md)。
 - [完整迁移复验报告](audit/2026-09-30-techqa.md)：最终数值、边界、失败案例和复现命令。
 
-Hash Dense 很弱；语义重排只能重排已经召回的有限候选，不能找回遗漏文档。下一步大规模效果优化
-应建立全量真正的语义向量索引，再在独立数据上校准。当前成绩不代表生产级问答正确率。
+完整的三项目语义版本验收可运行 `./scripts/run-semantic-acceptance.ps1 -Resume`，依次执行训练集校准、
+dev/validation 检索对比、Enterprise 310 题、Agentic 实验、真实 HTTP 与回归测试。
+Enterprise 新增适用性复核后的运行默认写入 `techqa_semantic_v3`；`techqa_semantic` 保留改进前结果。
+`techqa_semantic_v2` 是修复期间中止的部分记录，不能当作完整验收结果。
+检查点会拒绝不同代码或模型的续跑，不能把两版结果混在同一份成绩中。
+下表是旧 Hash 索引的历史基线；语义版本输出另存 `techqa_semantic*` 目录，避免覆盖历史结果。
+检索命中率与运行无异常都不能直接证明生产级问答正确率。
 
-### 全量 dev 实测对比
+### 2026-10-02 全量语义 Dense
+
+801,996 篇文档、3,089,056 个 Chunk 全部编码。官方 dev 310 题全部完成、执行错误 0；
+有答案题为 160 题，采用与历史表相同的文档级 Recall/Precision 定义。
+
+| 检索模式 | Recall@5 | Recall@10 | MRR | Context Precision@5 | 平均检索延迟 ms |
+|---|---:|---:|---:|---:|---:|
+| Dense（MiniLM） | 0.4938 | 0.5688 | 0.3924 | 0.1275 | 1222 |
+| Dense + nomic Rerank | 0.6125 | 0.6313 | 0.4965 | **0.1750** | 2522 |
+| BM25 | 0.6375 | 0.6813 | 0.5165 | 0.1275 | 3045 |
+| Hybrid + nomic Rerank | **0.6500** | **0.6938** | **0.5497** | 0.1400 | 3428 |
+
+Dense 的 Recall@5 相对旧 Hash 增加 36.25 个百分点；Hybrid 的提升较小，不能把 Dense 改善
+等同于所有模式同幅改善。继续推荐 candidate_k=30、rerank_k=20、final_k=5：
+Hybrid 在本次开发集取得最高 Recall/MRR，成本限制在有限候选；该配置仍会漏检。
+Agent 额外保留最多 10 篇候选文档给证据压缩，避免把最终答案预算直接用作候选预算。
+阈值来自全部 600 道训练题；Agent 候选门槛保留训练中观察到的相关候选，由独立证据判定决定回答。
+延迟包含缓存及共享桌面负载，不能作为隔离性能基准；Agent 质量另见实际问答实验。
+
+### 2026-09-30 历史 Hash 基线
 
 310 题全部执行，运行错误 0；其中 160 题有标注答案。以标注文档是否出现在前 k 个 Chunk
 中计算 Hit@k（每题单个相关文档下的文档级 Recall@k）；MRR 取 Top-10 首次命中的倒数排名。
@@ -192,14 +221,8 @@ Enterprise 使用同一 Hybrid 检索的 310 题运行错误也为 0，官方 N 
 
 ```json
 {
-  "answer": "Based on the provided context, it appears that IBM Streams 4.1.1.1 and 4.1.1.2 jobs do not inherit environment variables set in the user's .bashrc when run as a system service. This behavior is documented in the context summary [S1] and further explained in the problem description [S2].\n\nAccording to the problem description, to work around this issue, you can set environment variables directly in the instance using the streamtool setproperty command. This is mentioned in the problem solution section [S2].\n\nTherefore, the recommended solution is to use the streamtool setproperty command to set environment variables directly in the instance, rather than relying on the user's .bashrc to inherit the variables.\n\nIt's worth noting that this behavior is different from earlier releases of IBM Streams, and it's not possible to inherit environment variables set in the user's .bashrc when running Streams as a system service.",
+  "answer": "After upgrading to IBM Streams 4.1.1.1 or 4.1.1.2, environment variables set in your .bashrc are no longer being inherited by Streams jobs when Streams is run as a system service. To work around this issue, you need to set the required environment variables directly in the instance using the `streamtool setproperty` command as follows:\n\n```sh\nstreamtool setproperty -d <domain> -i <instance> --application-ev <VARIABLE NAME>=<VARIABLE VALUE>\n```\n\nThis behavior is different from earlier releases and is documented in APAR IT18432 [S2]. The issue has been fixed in IBM Streams Version 4.1.1 Fix Pack 4, 5, and 6, and the problem was concluded to be fixed in 4.1.1.3.\n\nFor more information, you can refer to the APAR [S2].",
   "citations": [
-    {
-      "source_id": "S1",
-      "chunk_id": "techqa:swg21996508:parent",
-      "source_file": "techqa://swg21996508",
-      "page_number": 1
-    },
     {
       "source_id": "S2",
       "chunk_id": "techqa:swg1IT18432:parent",

@@ -1,0 +1,24 @@
+{
+  "dataset_sha256": "df62a05619b07b386159bcbaaf3e0e50be93eaf983aea8a5f8ed1513a3c2ec6f",
+  "settings": {
+    "retrieval_backend": "techqa",
+    "profile": "ollama",
+    "embedding_provider": "auto",
+    "qdrant_path": "C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\enterprise-ai-agent\\.agent_data\\qdrant",
+    "qdrant_url": null,
+    "collection": "techqa_ollama",
+    "ollama_url": "http://localhost:11434",
+    "model": "qwen2.5:7b",
+    "embedding_model": "nomic-embed-text",
+    "top_k": 8,
+    "max_context_tokens": 2400,
+    "max_sources": 8,
+    "min_relevance": 0.2,
+    "tool_timeout": 30.0,
+    "llm_timeout": 120.0
+  },
+  "dense_backend": "semantic",
+  "reranker": "nomic",
+  "code_sha256": "b907fe18183f490250fb14bc9306177f8c02308c0540fcf9a02b4c760e1741af",
+  "thresholds_sha256": "3ee2b1fbf2b762078669c68754d44f2697cc36d7aa5d3a1fb0e67e2538ab7a69"
+}

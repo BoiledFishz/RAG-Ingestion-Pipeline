@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import logging
 import os
@@ -9,11 +10,12 @@ import socket
 import subprocess
 import sys
 import time
+from pathlib import Path
 from typing import Any
 
 import httpx
 
-from rag.techqa.data import ROOT, question_text, questions
+from rag.techqa.data import ROOT, documents, question_text, questions
 
 LOGGER = logging.getLogger(__name__)
 
@@ -25,8 +27,22 @@ def free_port() -> int:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path, default=ROOT / "evals/techqa_api_smoke.json")
+    parser.add_argument("--projects", nargs="+", choices=["retrieval", "enterprise", "agentic"],
+                        default=["retrieval", "enterprise", "agentic"])
+    args = parser.parse_args()
+    semantic_url = os.getenv("TECHQA_SEMANTIC_URL", "http://127.0.0.1:11435")
+    with httpx.Client(timeout=60) as dependency_client:
+        health = dependency_client.get(semantic_url.rstrip("/") + "/healthz")
+        health.raise_for_status()
+        index_manifest = health.json()
+        if (not index_manifest.get("complete") or index_manifest.get("scope") != "full"
+                or index_manifest.get("chunks", 0) <= 0):
+            raise RuntimeError("Smoke requires a complete full-corpus semantic index")
     rows = questions("fixture")
     known = next(r for r in rows if r["ANSWERABLE"] == "Y")
+    known_document = next(d for d in documents("fixture") if d["id"] == known["DOCUMENT"])
     unknown = next(r for r in rows if r["ANSWERABLE"] == "N")
     results: list[dict[str, Any]] = []
     failures = 0
@@ -35,16 +51,19 @@ def main() -> int:
         ("enterprise", ROOT / "enterprise-ai-agent", "api.main:app"),
         ("agentic", ROOT / "agentic-rag-homework", "api.main:app"),
     ]:
+        if name not in args.projects:
+            continue
         port = free_port()
         environment = {
             **os.environ,
             "TECHQA_PROFILE": "full",
+            "TECHQA_DENSE_BACKEND": "semantic",
             "TECHQA_RERANKER": "nomic",
             "MODEL_PROVIDER": "ollama",
             "AGENT_PROFILE": "ollama",
             "AGENT_RETRIEVAL_BACKEND": "techqa",
             "AGENT_QDRANT_URL": "http://localhost:6333",
-            "AGENT_COLLECTION": "techqa_full_hash",
+            "AGENT_COLLECTION": "techqa_semantic",
             "RAG_BACKEND": "techqa",
         }
         log_path = ROOT / f".rag_data/techqa-api-{name}.log"
@@ -108,6 +127,10 @@ def main() -> int:
                                 {
                                     "task": question_text(known),
                                     "evidence": "[1] " + known["ANSWER"],
+                                    "source_context": {"1": {
+                                        "title": known_document["title"][:200],
+                                        "applicability": known_document["text"][:500],
+                                    }},
                                 },
                             )
                         )
@@ -125,7 +148,7 @@ def main() -> int:
                             response.raise_for_status()
                             value = response.json()
                             record["response"] = value
-                            if category == "answerable":
+                            if category in {"answerable", "dense", "sparse"}:
                                 sources = value.get("sources", value.get("citations", []))
                                 assert sources, "Official answerable question must return evidence"
                                 assert all(
@@ -135,10 +158,15 @@ def main() -> int:
                                     for s in sources
                                 )
                                 assert "streamtool" in value["answer"].casefold()
+                            if name == "retrieval" and category in {"answerable", "dense"}:
+                                assert value["retrieval"]["dense_candidates"] > 0
                             if category == "empty_filter":
                                 assert value["refused"]
                             if category == "critic-loop":
                                 assert value["retries"] <= 2 and len(value["attempts"]) <= 3
+                                assert value["passed"], "Critic must accept the supported answer"
+                                assert value["answer_sufficient"]
+                                assert "streamtool" in value["final_diagnosis"]
                             if category == "multi-agent":
                                 assert [e["task_id"] for e in value["executions"]] == [
                                     t["task_id"] for t in value["plan"]["tasks"]
@@ -158,9 +186,10 @@ def main() -> int:
                 except subprocess.TimeoutExpired:
                     process.kill()
                     process.wait(timeout=10)
-    target = ROOT / "evals/techqa_api_smoke.json"
+    target = args.output
     target.write_text(
-        json.dumps({"failures": failures, "cases": results}, indent=2, ensure_ascii=False) + "\n",
+        json.dumps({"failures": failures, "semantic_manifest": index_manifest,
+                    "cases": results}, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
     return int(failures > 0)

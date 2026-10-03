@@ -67,6 +67,8 @@ class Evidence(StrictModel):
     source_file: str
     page_number: int | str
     excerpt: str
+    title: str = ""
+    applicability: str = ""
     relevance: float = Field(ge=0, le=1)
     tokens: int = Field(ge=0)
 

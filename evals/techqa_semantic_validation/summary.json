@@ -1,0 +1,78 @@
+{
+  "dataset": "IBM TechQA",
+  "split": "validation",
+  "scope": {
+    "scope": "full",
+    "document_count": "801996",
+    "complete": "true",
+    "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+    "format_version": "1"
+  },
+  "semantic_index": {
+    "complete": true,
+    "scope": "full",
+    "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+    "documents": 801996,
+    "chunks": 3089056,
+    "dimension": 384,
+    "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b",
+    "encoder": {
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "pooling": "window256-stride16-mean-v1"
+    },
+    "search": "Faiss IndexFlatIP, exact cosine over unit vectors",
+    "source_index": "C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\.rag_data\\techqa_full.sqlite"
+  },
+  "questions": 20,
+  "answerable": 11,
+  "semantic_reranker": true,
+  "dense_embedding": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "pooling": "window256-stride16-mean-v1"
+  },
+  "protocol": "open retrieval over entire corpus; official DOC_IDS not supplied; N labels refer to official candidate pools, not proof of absence in full corpus",
+  "error_count": 0,
+  "complete": true,
+  "resumed": true,
+  "reused_questions": 20,
+  "prior_failed_questions": 0,
+  "modes": {
+    "dense": {
+      "hit_at_5": 0.6363636363636364,
+      "hit_at_10": 0.6363636363636364,
+      "mrr": 0.4848484848484848,
+      "context_precision_at_5": 0.16363636363636364,
+      "average_latency_ms": 919.0499099931912
+    },
+    "bm25": {
+      "hit_at_5": 0.6363636363636364,
+      "hit_at_10": 0.7272727272727273,
+      "mrr": 0.5887445887445888,
+      "context_precision_at_5": 0.1272727272727273,
+      "average_latency_ms": 2778.422024997417
+    },
+    "dense_rerank": {
+      "hit_at_5": 0.7272727272727273,
+      "hit_at_10": 0.7272727272727273,
+      "mrr": 0.5454545454545454,
+      "context_precision_at_5": 0.21818181818181823,
+      "average_latency_ms": 957.7170549891889
+    },
+    "hybrid_rerank": {
+      "hit_at_5": 0.7272727272727273,
+      "hit_at_10": 0.7272727272727273,
+      "mrr": 0.553030303030303,
+      "context_precision_at_5": 0.14545454545454548,
+      "average_latency_ms": 2836.2886849907227
+    }
+  },
+  "runtime": {
+    "candidate_k": 30,
+    "rerank_k": 20,
+    "reported_k": 10,
+    "device": "CUDA encoding; exact Faiss CPU search",
+    "reranker": "nomic"
+  }
+}

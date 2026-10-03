@@ -12,7 +12,7 @@ def test_react_stops_after_internal_answer() -> None:
     )
     assert [step.action for step in run.steps] == ["rag_search"]
     assert run.metrics.tool_calls == 1
-    assert run.metrics.llm_calls == 1
+    assert run.metrics.llm_calls == 2  # Policy and evidence sufficiency validation.
     assert run.response.sources
 
 
@@ -24,7 +24,7 @@ def test_react_continues_to_search_after_insufficient_first_result() -> None:
     )
     assert [step.action for step in run.steps] == ["rag_search", "search"]
     assert run.metrics.tool_calls == 2
-    assert run.metrics.llm_calls == 2
+    assert run.metrics.llm_calls == 3
     assert any(source.document_id == "swg21996508" for source in run.response.sources)
 
 
@@ -48,6 +48,7 @@ def test_invalid_document_id_recovers_through_search() -> None:
                 "reason": "Read this topic",
             },
             {"action": "finish", "reason": "Sufficient evidence"},
+            {"sufficient": True, "selected": [1]},
         ]
     )
     _, _, agent, _ = build_advanced(model)
@@ -64,11 +65,14 @@ def test_premature_finish_searches_before_refusal() -> None:
     model = ScriptedModel(
         [
             {"action": "finish", "reason": "Nothing in internal retrieval"},
-            {"action": "finish", "reason": "Still no evidence"},
+            *[{"sufficient": False, "selected": []}] * 6,
         ]
     )
     _, _, agent, _ = build_advanced(model)
-    run = asyncio.run(agent.run("What is the DynamoDB global table limit?"))
+    from rag.techqa.data import question_text, questions
+
+    query = next(question_text(row) for row in questions("fixture") if row["ANSWERABLE"] == "N")
+    run = asyncio.run(agent.run(query))
     assert run.stop_reason == "no_evidence"
     assert run.metrics.tool_calls == 2
     assert not run.response.sources

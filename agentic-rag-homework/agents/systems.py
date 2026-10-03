@@ -7,9 +7,9 @@ import re
 import time
 from collections.abc import Awaitable, Callable
 
-from agents.critic import CriticLoop
-from agents.planner import LLMPlanner
-from agents.research import ReActResearchAgent, render_answer
+from agents.critic import INSUFFICIENT_DIAGNOSIS, CriticLoop
+from agents.planner import LLMPlanner, validate_review_paths
+from agents.research import ReActResearchAgent
 from models.llm import MeteredModel
 from models.schemas import (
     AgentName,
@@ -25,10 +25,13 @@ from models.schemas import (
 
 LOGGER = logging.getLogger(__name__)
 Handler = Callable[[str, PlannedTask, list[TaskExecution]], Awaitable[TaskExecution]]
+REVIEW_FAILED = "复核未通过，无法生成可靠回答。"
 
 
 def combine_responses(inputs: list[TaskExecution]) -> RAGResponse:
     """Preserve specialist answer bodies while remapping their local citations."""
+    if any(result.status == "failed" for result in inputs):
+        return RAGResponse(answer=REVIEW_FAILED, sources=[], confidence=0)
     sources = []
     answers = []
     confidence = []
@@ -41,10 +44,10 @@ def combine_responses(inputs: list[TaskExecution]) -> RAGResponse:
             if source not in sources:
                 sources.append(source)
             mapping[str(index)] = str(sources.index(source) + 1)
-        answer = re.sub(
-            r"\[S?(\d+)\]", lambda match, ids=mapping: f"[{ids.get(match[1], match[1])}]",
-            response.answer,
-        )
+        def remap_citation(match: re.Match[str], ids: dict[str, str] = mapping) -> str:
+            return f"[{ids.get(match[1], match[1])}]"
+
+        answer = re.sub(r"\[S?(\d+)\]", remap_citation, response.answer)
         if answer not in answers:
             answers.append(answer)
         confidence.append(response.confidence)
@@ -61,7 +64,7 @@ def evidence_documents(inputs: list[TaskExecution]) -> list[Document]:
         for source in result.response.sources:
             unique[(source.document_id, source.quote)] = Document(
                 document_id=source.document_id, source=source.source,
-                title=source.document_id, text=source.quote, score=1,
+                title=source.title or source.document_id, text=source.quote, score=1,
             )
     return list(unique.values())
 
@@ -113,13 +116,15 @@ class MultiAgentVersion:
             question: str, task: PlannedTask, inputs: list[TaskExecution],
         ) -> TaskExecution:
             # Select supporting facts instead of inventing unavailable logs or telemetry.
-            response = render_answer(question, evidence_documents(inputs))
-            return outcome(task, response, detail=f"Evidence analysis: {task.objective}")
+            response = combine_responses(inputs)
+            return outcome(task, response,
+                           status="failed" if any(r.status == "failed" for r in inputs) else "",
+                           detail=f"Evidence analysis: {task.objective}")
 
         async def diagnosis_task(
             question: str, task: PlannedTask, inputs: list[TaskExecution],
         ) -> TaskExecution:
-            supported = render_answer(question, evidence_documents(inputs))
+            supported = combine_responses(inputs)
             if not supported.sources:
                 return outcome(task, supported, detail="Dependencies supplied no relevant evidence")
             evidence = "\n".join(
@@ -127,17 +132,30 @@ class MultiAgentVersion:
             )
             checked = await self.critic.run(
                 f"User question: {question}\nAssigned objective: {task.objective}", evidence,
+                source_context={str(i): {"title": source.title,
+                                         "applicability": source.applicability}
+                                for i, source in enumerate(supported.sources, 1)},
             )
             critic_runs.append(checked)
+            if not checked.passed:
+                return outcome(task, RAGResponse(
+                    answer=REVIEW_FAILED, sources=[], confidence=0,
+                ), status="failed", detail=checked.final_diagnosis)
+            if checked.final_diagnosis.startswith(INSUFFICIENT_DIAGNOSIS):
+                return outcome(task, RAGResponse(
+                    answer="知识库中没有足够信息回答该问题。", sources=[], confidence=0,
+                ), status="refused", detail=checked.final_diagnosis)
             draft = checked.final_diagnosis.replace("[evidence]", "[1]")
             citations = re.findall(r"\[S?(\d+)\]", draft)
             valid = checked.passed and bool(citations) and all(
                 1 <= int(value) <= len(supported.sources) for value in citations
             )
-            # Keep actual generated prose when it passes; explicitly mark evidence fallback.
-            response = supported.model_copy(update={"answer": draft}) if valid else supported
+            # Publish only after review and citation validation both pass.
+            response = supported.model_copy(update={"answer": draft}) if valid else RAGResponse(
+                answer=REVIEW_FAILED, sources=[], confidence=0,
+            )
             return outcome(
-                task, response, status="completed" if valid else "fallback",
+                task, response, status="completed" if valid else "failed",
                 detail=checked.final_diagnosis,
             )
 
@@ -145,7 +163,9 @@ class MultiAgentVersion:
             question: str, task: PlannedTask, inputs: list[TaskExecution],
         ) -> TaskExecution:
             response = combine_responses(inputs)
-            return outcome(task, response, detail=f"Evidence-backed report: {task.objective}")
+            return outcome(task, response,
+                           status="failed" if any(r.status == "failed" for r in inputs) else "",
+                           detail=f"Evidence-backed report: {task.objective}")
 
         registry: dict[AgentName, Handler] = {
             AgentName.research_agent: research_task,
@@ -154,6 +174,7 @@ class MultiAgentVersion:
             AgentName.report_writer: report_task,
         }
         plan = await self.planner.run(query)
+        validate_review_paths(plan)
         executed: dict[str, TaskExecution] = {}
         for task in plan.tasks:
             dependencies = [executed[identifier] for identifier in task.dependencies]
