@@ -112,3 +112,28 @@ def test_fix_release_is_not_a_product_or_migration_conflict():
     query, evidence = official_passage()
     result = asyncio.run(LLMSelector(MislabelledFix()).review(query, evidence))
     assert result.sufficient and result.source_ids == ["S1"]
+
+
+def test_real_installation_question_cannot_use_rollback_fault_remedy():
+    from agents.rag_agent.generation import explicit_mismatch
+
+    row = next(r for r in questions("regression") if r["QUESTION_ID"] == "DEV_Q000")
+    doc = next(d for d in documents("regression") if d["id"] == "swg21960632")
+    source = Evidence(source_id="S1", chunk_id=f"techqa:{doc['id']}:parent",
+                      source_file=f"techqa://{doc['id']}", page_number=1, title=doc["title"],
+                      applicability=doc["text"][:500], excerpt=doc["text"],
+                      relevance=1, tokens=100)
+    assert explicit_mismatch(question_text(row), source)
+    # The original rollback premise remains compatible with its own remedy.
+    assert not explicit_mismatch(doc["text"].split("CAUSE")[0], source)
+    query, supported = official_passage()
+    assert not explicit_mismatch(query, supported[0])
+
+
+def test_socket_component_check_preserves_correct_gateway_source():
+    from rag.techqa.query import component_conflict
+
+    row = next(r for r in questions("regression") if r["QUESTION_ID"] == "DEV_Q007")
+    docs = {d["id"]: d for d in documents("regression")}
+    assert component_conflict(question_text(row), docs["swg21970417"]["title"])
+    assert not component_conflict(question_text(row), docs["swg21625776"]["title"])

@@ -52,14 +52,18 @@ LLM 先判断证据是否直接回答问题，再选择来源 ID；程序按 ID 
 模型给出的“冲突”只是待验证判断；没有独立证明两个未知产品互斥时，不据此拒答。
 无需模型复制长引文，避免截断或改写命令。无效结构或 ID 修复一次后仍错误则拒答。
 默认最多 2400 Context Tokens、8 个来源；confidence 是证据覆盖启发值，不是校准过的事实正确率。
+原文片段通常为 900 字符；引导句后的完整指令组可扩展至 1800 字符，仍受序列化 Context 预算约束。
+超过预算的指令组不截断发布。压缩前排除明确的操作/组件冲突，以及同一产品的较旧最低版本错误前提。
+Query Rewrite 保留带版本的包名，并先检索明确的 API、错误码和版本比较问题。
+校验重试携带具体错误与合法来源 ID；`trace.validation_failures` 保留失败诊断，最终仍失败则拒答。
 
 ## 评测
 
 ```powershell
 $env:AGENT_PROFILE = "ollama"
-python -m evaluation.evaluate --output evaluation/results/techqa_semantic_v3
+python -m evaluation.evaluate --output evaluation/results/techqa_semantic_v4
 # 中断后以相同数据、代码和模型续跑；失败记录仍保留
-python -m evaluation.evaluate --output evaluation/results/techqa_semantic_v3 --resume
+python -m evaluation.evaluate --output evaluation/results/techqa_semantic_v4 --resume
 # 对改进前 310 条实际结果隔离测试新增复核；不重复检索或改写
 python -m evaluation.review_applicability --input evaluation/results/techqa_semantic/runs.json --output evaluation/results/new_review
 # 三个服务和全部 Agent 端点的真实模型 HTTP 复验：从父目录执行
@@ -75,10 +79,14 @@ python scripts/smoke_techqa.py
 `techqa_semantic_review_v1` 至 `v6` 保留开发中的误拒答、校验失败与修复结果；`v5` 是中断的部分记录。
 完整性以各目录的 `summary.json` 为准，部分 JSONL 不能冒充全量成绩。
 
-[最终 310 题端到端结果](evaluation/results/techqa_semantic_v3/summary.json) 全部完成，执行异常为 0。
+[整改前已归档的 310 题端到端结果](evaluation/results/techqa_semantic_v3/summary.json) 全部完成，执行异常为 0。
 Y 正文 F1 为 0.21303，Y 接受率为 0.7875，N 标签拒答比例为 0.10；仍有 2 题输出验证失败，
 未发布答案且不计拒答成功。正文质量基本持平，不能因修复了若干误拒答案例就声称生产质量通过。
 [完整状态核验](evaluation/results/techqa_semantic_v3/validation.json) 另列输出失败和后端降级数量。
+这些完整开发集数字对应此前代码版本，不能当成本轮整改后的全量成绩。
+本轮使用 `data/techqa/regression` 的 16 条原始开发题回归，并继续检索完整知识库；
+从父目录运行 `./scripts/run-remediation-checks.ps1` 可串行复验 Enterprise、Agent 比较、Critic 和 HTTP。
+每次默认生成新的结果目录，保留此前完整结果与失败轨迹。回归集包含已知失败，不是独立盲测。
 
 TechQA 原始 N 标签的范围是官方候选 DOC_IDS；全库开放检索的拒答数字是代理指标，不是官方候选集 QA 评分。
 完整 Dense/BM25/Hybrid 对比和训练阈值见父 README 与 `evals/techqa_semantic_full`。

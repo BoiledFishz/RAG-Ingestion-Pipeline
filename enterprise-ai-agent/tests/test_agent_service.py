@@ -123,3 +123,44 @@ def test_model_cannot_omit_negation_from_a_quote() -> None:
             ),
             [evidence],
         )
+
+
+def test_retry_receives_precise_validation_error_and_keeps_failure_trace(
+    agent_bundle: tuple[RAGAgent, QdrantStore],
+) -> None:
+    class RepairingSelector:
+        def __init__(self) -> None:
+            self.corrections: list[str] = []
+
+        async def select(self, query: str, evidence: list[Evidence],
+                         correction: str = "") -> SelectionDraft:
+            self.corrections.append(correction)
+            if not correction:
+                raise InvalidEvidence("source_claim is absent from S1; copy an exact source span")
+            return SelectionDraft(quotes=[Quotation(source_id=evidence[0].source_id,
+                                                  quote=evidence[0].excerpt)])
+
+    from rag.techqa.data import documents, question_text, questions
+
+    from models.schemas import Document
+
+    agent, _ = agent_bundle
+    row = questions("fixture")[0]
+    doc = next(d for d in documents("fixture") if d["id"] == row["DOCUMENT"])
+
+    async def retrieve_original(request):
+        return [Document(chunk_id=f"techqa:{doc['id']}:parent", text=doc["text"],
+                         source_file=f"techqa://{doc['id']}", score=1,
+                         metadata={"_full_parent": True, "title": doc["title"]})]
+
+    agent.retriever.invoke = retrieve_original
+    selector = RepairingSelector()
+    agent.selector = selector
+    run = asyncio.run(agent.run(QueryRequest(query=question_text(questions("fixture")[0]))))
+    assert run.trace.status == "answered" and run.trace.retries == 1
+    assert len(selector.corrections) == 2
+    assert "source_claim is absent from S1" in selector.corrections[1]
+    assert "Allowed source IDs: S1" in selector.corrections[1]
+    assert run.trace.validation_failures == [
+        "source_claim is absent from S1; copy an exact source span",
+    ]

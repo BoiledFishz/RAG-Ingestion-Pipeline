@@ -11,6 +11,13 @@ import httpx
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 from rag.techqa.evidence import answer_passages, selection_schema
 from rag.techqa.index import tokens
+from rag.techqa.query import (
+    component_conflict,
+    operation_conflict,
+    protected_terms,
+    requirement_error_conflict,
+    searchable_identifier,
+)
 
 from models.errors import ModelUnavailable
 from models.llm import StructuredModel
@@ -66,14 +73,31 @@ class LLMRewriter:
         self.model = model
 
     async def rewrite(self, query: str) -> RewriteDecision:
+        baseline = await RuleRewriter().rewrite(query)
+        if baseline.action == "clarify":
+            return baseline
         prompt = (
             "Rewrite for retrieval without answering or inventing facts. Preserve names, codes, "
-            "numbers and negations. If too vague, ask one clarification. Return only JSON.\n"
+            "numbers and negations. Specific package/API/error identifiers and versioned "
+            "comparisons are searchable: retrieve first, without asking for runtime details. "
+            "Clarify only when no searchable target is provided. Return only JSON.\n"
             f"SCHEMA: {RewriteDecision.model_json_schema()}\nQUERY: {query!r}"
         )
-        return RewriteDecision.model_validate_json(
-            await self.model.generate(prompt, RewriteDecision.model_json_schema())
-        )
+        try:
+            result = RewriteDecision.model_validate_json(
+                await self.model.generate(prompt, RewriteDecision.model_json_schema())
+            )
+            if result.action == "clarify" and searchable_identifier(query):
+                raise ValueError("A specific identifier is searchable before clarification")
+            if result.action == "retrieve" and protected_terms(query) != protected_terms(
+                result.rewritten_query,
+            ):
+                raise ValueError("Rewrite changed a protected name, identifier or negation")
+            return result
+        except ValueError:
+            LOGGER.warning("Invalid query rewrite; retaining original searchable query",
+                           exc_info=True)
+            return baseline
 
 
 class ContextCompressor:
@@ -86,6 +110,12 @@ class ContextCompressor:
         alternate: list[tuple[Document, str, float]] = []
         for document in documents:
             if document.source.startswith("techqa://"):
+                if (operation_conflict(query, document.title, document.text)
+                        or component_conflict(query, document.title)
+                        or requirement_error_conflict(query, document.text)):
+                    LOGGER.info("Skipping source with conflicting operation/component: %s",
+                                document.document_id)
+                    continue
                 if primary_identifiers(query) and not supported_identifiers(query, document):
                     continue
                 query_words = set(tokens(query))

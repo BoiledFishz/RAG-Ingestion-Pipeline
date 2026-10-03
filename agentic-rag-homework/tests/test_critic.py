@@ -12,6 +12,34 @@ from agents.critic import (
 from models.llm import MeteredModel, ScriptedModel
 
 
+def test_critic_identifies_real_installation_rollback_conflict_with_actionable_feedback():
+    from rag.techqa.data import documents, question_text
+
+    row = next(q for q in questions("regression") if q["QUESTION_ID"] == "DEV_Q000")
+    doc = next(d for d in documents("regression") if d["id"] == "swg21960632")
+    model = ScriptedModel([])
+    result = asyncio.run(LLMCritic(model).review_grounded_answer(
+        question_text(row), "[1] " + doc["text"],
+        {"1": {"title": doc["title"], "applicability": doc["text"][:500]}},
+    ))
+    assert not result.passed and result.issues[0].code == "operation_mismatch"
+    assert "Replace [1]" in result.issues[0].suggestion
+    assert model.prompts == []
+
+
+def test_critic_rejects_probe_evidence_for_original_gateway_question():
+    from rag.techqa.data import documents, question_text
+
+    row = next(q for q in questions("regression") if q["QUESTION_ID"] == "DEV_Q007")
+    doc = next(d for d in documents("regression") if d["id"] == "swg21970417")
+    model = ScriptedModel([])
+    result = asyncio.run(LLMCritic(model).review_grounded_answer(
+        question_text(row), "[1] " + doc["text"], {"1": {"title": doc["title"]}},
+    ))
+    assert not result.passed and result.issues[0].code == "component_mismatch"
+    assert model.prompts == []
+
+
 def test_dependency_timeout_is_recorded_without_claiming_critic_success():
     import httpx
 

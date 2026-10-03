@@ -120,6 +120,7 @@ class RunTrace(StrictModel):
     context_tokens: int = 0
     status: Literal["answered", "clarified", "unanswerable", "invalid_evidence"] = "unanswerable"
     retries: int = 0
+    validation_failures: list[str] = Field(default_factory=list)
     latency_ms: float = 0
 
 

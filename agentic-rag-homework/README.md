@@ -71,4 +71,8 @@ Multi-Agent 不一定优于 Single Agent。更多规划和复核增加了调用�
 但 Single/Multi 有答案题正文 F1 仅为 0.189/0.153；Multi 的官方 N 标签拒答比例为 0.333。
 实际检索后的 Critic 重复 30 次，充分性和诊断一致率均为 1.00，但有答案题接受率只有 0.50。
 这些结果说明流程和复核稳定性有改进，仍不满足生产问答质量要求，不能仅用 Critic 通过率签收。
+上述 `techqa_semantic` 数字为整改前已归档结果。本轮共享压缩器保留完整指令组，并检查安装/回滚、
+明确 Socket 组件和同一产品最低版本错误的冲突；Critic 针对这些冲突给出来源 ID 与替换建议。
+父目录 `./scripts/run-remediation-checks.ps1` 使用真实 TechQA 全量检索和新结果目录复验，
+不会把历史 60 次运行或旧 Critic 结果冒充当前代码的成绩。
 `python -m mypy` 与 `python -m ruff check .` 分别检查类型与代码规范；三项目测试用父目录 `scripts/test_all.py`。

@@ -1,7 +1,7 @@
 param(
     [switch]$WaitForIndex,
     [switch]$Resume,
-    [string]$EnterpriseOutput = 'evaluation/results/techqa_semantic_v3'
+    [string]$EnterpriseOutput = 'evaluation/results/techqa_semantic_v4'
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot

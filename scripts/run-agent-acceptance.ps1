@@ -1,5 +1,6 @@
-param()
+param([string]$ResultPrefix = ('techqa_agents_' + (Get-Date -Format 'yyyyMMdd-HHmmss')))
 $ErrorActionPreference = 'Stop'
+if ($ResultPrefix -notmatch '^[a-zA-Z0-9_-]+$') { throw 'Use a simple result directory name.' }
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $pythonPath = Join-Path $projectRoot '.venv\Scripts\python.exe'
 if (-not (Test-Path -LiteralPath $pythonPath)) {
@@ -15,17 +16,17 @@ $env:RAG_BACKEND = 'techqa'
 $workflowFailed = $false
 Push-Location -LiteralPath (Join-Path $projectRoot 'agentic-rag-homework')
 try {
-    & $pythonPath -m evaluation.run --provider ollama --planner-runs 10 --output evaluation/results/techqa_semantic
+    & $pythonPath -m evaluation.run --provider ollama --planner-runs 10 --output "evaluation/results/$ResultPrefix"
     if ($LASTEXITCODE -ne 0) {
         $workflowFailed = $true
         Write-Warning 'Agent comparison failed; preserving failures and continuing other checks.'
     }
-    & $pythonPath -m evaluation.critic_stability --limit 5 --repeats 2 --output evaluation/results/techqa_semantic_critic
+    & $pythonPath -m evaluation.critic_stability --limit 5 --repeats 2 --output "evaluation/results/${ResultPrefix}_critic"
     if ($LASTEXITCODE -ne 0) {
         $workflowFailed = $true
         Write-Warning 'Critic reference check failed; continuing other checks.'
     }
-    & $pythonPath -m evaluation.critic_stability --evidence-mode retrieved --split fixture --label all --limit 15 --repeats 2 --output evaluation/results/techqa_semantic_critic_retrieved
+    & $pythonPath -m evaluation.critic_stability --evidence-mode retrieved --split fixture --label all --limit 15 --repeats 2 --output "evaluation/results/${ResultPrefix}_critic_retrieved"
     if ($LASTEXITCODE -ne 0) {
         $workflowFailed = $true
         Write-Warning 'Critic with actual retrieval failed; continuing HTTP and regression checks.'
@@ -33,7 +34,7 @@ try {
 } finally { Pop-Location }
 Push-Location -LiteralPath $projectRoot
 try {
-    & $pythonPath scripts/smoke_techqa.py --output evals/techqa_semantic_api_smoke.json
+    & $pythonPath scripts/smoke_techqa.py --output "evals/${ResultPrefix}_api_smoke.json"
     if ($LASTEXITCODE -ne 0) { $workflowFailed = $true }
     & $pythonPath scripts/test_all.py
     if ($LASTEXITCODE -ne 0) { $workflowFailed = $true }

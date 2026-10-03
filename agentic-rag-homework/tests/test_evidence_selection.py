@@ -69,3 +69,14 @@ def test_incidental_background_error_does_not_exclude_a_real_documented_workarou
     model = ScriptedModel([{"sufficient": True, "selected": [1]}])
     response = asyncio.run(GroundedAnswerer(model).answer(query, docs))
     assert response.sources and "streamtool setproperty" in response.answer
+
+
+def test_real_install_question_does_not_send_rollback_fault_to_selector():
+    row = next(q for q in questions("regression") if q["QUESTION_ID"] == "DEV_Q000")
+    doc = next(d for d in documents("regression") if d["id"] == "swg21960632")
+    model = ScriptedModel([])
+    response = asyncio.run(GroundedAnswerer(model).answer(question_text(row), [Document(
+        document_id=doc["id"], title=doc["title"], text=doc["text"],
+        source=f"techqa://{doc['id']}", score=1,
+    )]))
+    assert not response.sources and model.prompts == []

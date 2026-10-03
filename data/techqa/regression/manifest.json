@@ -1,0 +1,24 @@
+{
+  "dataset": "IBM TechQA",
+  "upstream": "https://github.com/ibm/techqa",
+  "archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+  "question_split": "dev",
+  "selection": "DEV_Q000, DEV_Q007, DEV_Q113, DEV_Q236 plus the first 12 other official dev records in original order",
+  "purpose": "development regression, not held-out evaluation; native runs retrieve the full 801996-document corpus",
+  "questions": 16,
+  "documents": 12,
+  "content_hashes": {
+    "swg21679259": "8fb9d287921689b475505c12722cc3310e13f7e473f3c250ab92b7d21626e6c3",
+    "swg21970417": "6e8b8ab152e89f77cbd7fb5b139dfd5fe679a4564bda138d8f907affef09ba68",
+    "swg21577379": "d4245805372019220fb874068182dcec25f60afc415ddc86978c5f4cceab0ade",
+    "swg21978390": "ad21d5db87b467b7eef0137d05fd1fd3d4025785a7427891eacf72040ae19b69",
+    "swg21625776": "5c0e00f5540486c15d74bdf50ecf1852fae4b6b02529ad57baaff6a5fb85bffc",
+    "swg21317981": "76679e6eb6882271cc91882c7862841169b28421149b3d6cef25913061b5be87",
+    "swg21665766": "50deea1fc28bf7729bd760283945e2d44cb4c30454727038f786041f9c72c483",
+    "swg24042191": "417e26be7c17ca9c11c56c985cb0ed768d60159dfb5031d5c0d4b92b3f6b89ff",
+    "swg21412061": "8dcadf941221112185398e7c4e9bb5961d10994428e073da8f71a1bcb4b278be",
+    "swg21959723": "cd9e47ef8d1b85411023dd0efeccdbb0698f2a192816daeff5059b11c3ba4209",
+    "swg21681385": "59dec7e9b37568f6cb381480645fd28d3ac021d85346326dd0108cdb07c334b1",
+    "swg21960632": "782d1064b73157b68443a36c8c459b3af57675490c6f8aee5f1ee1c1ad800d3b"
+  }
+}

@@ -69,3 +69,16 @@ def test_specific_service_error_is_searched_before_asking_for_more_details() -> 
 def test_rule_rewrite_does_not_rename_files_to_objects() -> None:
     result = asyncio.run(RuleRewriter().rewrite("DB2 cannot read a local file"))
     assert "file" in result.query and "object" not in result.query
+
+
+def test_official_versioned_socket_packages_are_searched_before_clarification() -> None:
+    from rag.techqa.data import question_text, questions
+
+    row = next(r for r in questions("regression") if r["QUESTION_ID"] == "DEV_Q007")
+    query = question_text(row)
+    output = RewriteDecision(query=query, action="clarify", clarification="Which version?")
+    result = asyncio.run(LLMRewriter(
+        FakeModel(output.model_dump_json(exclude={"fallback"})),
+    ).rewrite(query))
+    assert result.action == "retrieve" and result.fallback
+    assert "nco-g-socket-java-2_0" in result.query and "nco-g-socket-10_0" in result.query

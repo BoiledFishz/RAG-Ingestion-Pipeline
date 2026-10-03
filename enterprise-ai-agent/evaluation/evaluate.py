@@ -167,7 +167,9 @@ async def evaluate(
     unanswerable = [row for row in results if not row["answerable"]]
     return {
         "summary": {
-            "dataset": "IBM TechQA official dev_Q_A.json",
+            "dataset": ("IBM TechQA official dev_Q_A.json" if dev_path == DEV_PATH
+                        else f"IBM TechQA development regression: {dev_path.name}"),
+            "dataset_path": str(dev_path),
             "collection": (
                 os.getenv("TECHQA_DENSE_BACKEND", "semantic")
                 if settings.retrieval_backend == "techqa"
@@ -203,9 +205,12 @@ async def evaluate(
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=PROJECT_ROOT / "evaluation" / "results")
+    parser.add_argument("--dataset", type=Path, default=DEV_PATH,
+                        help="Official TechQA question file (default: full development split)")
     parser.add_argument("--resume", action="store_true")
     args = parser.parse_args()
-    result = asyncio.run(evaluate(Settings.from_env(), checkpoint=args.output, resume=args.resume))
+    result = asyncio.run(evaluate(Settings.from_env(), dev_path=args.dataset,
+                                  checkpoint=args.output, resume=args.resume))
     args.output.mkdir(parents=True, exist_ok=True)
     for name, value in (("summary.json", result["summary"]), ("runs.json", result["rows"])):
         (args.output / name).write_text(

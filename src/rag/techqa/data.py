@@ -33,8 +33,10 @@ def questions(split: str = "dev", root: Path = DATA_ROOT) -> list[dict[str, Any]
         "dev": "training_and_dev/dev_Q_A.json",
         "validation": "validation/validation_reference.json",
     }
-    if split == "fixture":
-        path = FIXTURE_ROOT / "questions.json"
+    if split in {"fixture", "regression"}:
+        path = (FIXTURE_ROOT if split == "fixture" else FIXTURE_ROOT / "regression") / (
+            "questions.json"
+        )
     else:
         path = root / names[split]
     return list(json.loads(path.read_text(encoding="utf-8")))
@@ -54,8 +56,9 @@ def normalize(raw: dict[str, Any]) -> dict[str, Any] | None:
 
 
 def documents(scope: str = "full", root: Path = DATA_ROOT) -> Iterator[dict[str, Any]]:
-    if scope == "fixture":
-        yield from json.loads((FIXTURE_ROOT / "documents.json").read_text(encoding="utf-8"))
+    if scope in {"fixture", "regression"}:
+        fixture = FIXTURE_ROOT if scope == "fixture" else FIXTURE_ROOT / "regression"
+        yield from json.loads((fixture / "documents.json").read_text(encoding="utf-8"))
     elif scope == "full":
         with bz2.open(root / "technote_corpus/full_technote_collection.txt.bz2", "rb") as handle:
             for raw in ijson.items(handle, "item", multiple_values=True):

@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import re
 
+from rag.techqa.query import component_conflict, operation_conflict, requirement_error_conflict
+
 from agents.rag_agent.text import serialize_evidence, terms, token_count
 from models.schemas import CompressionResult, Document, Evidence
 
@@ -46,6 +48,11 @@ class ContextCompressor:
             resolved: list[Evidence] = []
             seen_passages: set[str] = set()
             for document in candidates:
+                title = str(document.metadata.get("title", ""))
+                if (operation_conflict(query, title, document.text)
+                        or component_conflict(query, title)
+                        or requirement_error_conflict(query, document.text)):
+                    continue
                 for passage in answer_passages(
                     query, document.text, limit=1,
                     retrieved_excerpt=str(document.metadata.get("_retrieved_excerpt", "")),

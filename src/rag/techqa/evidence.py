@@ -14,16 +14,61 @@ RESOLUTION = re.compile(
 )
 BOILERPLATE = re.compile(
     r"(?im)^\s*(?:RELATED INFORMATION|APAR INFORMATION|REFERENCES|"
-    r"GET NOTIFIED ABOUT FUTURE SECURITY BULLETINS|DISCLAIMER|ACKNOWLEDGEMENTS)\s*\n"
+    r"DISCLAIMER|ACKNOWLEDGEMENTS)\s*\n|\bGET NOTIFIED ABOUT FUTURE SECURITY BULLETINS\b"
 )
 PRODUCT_VERSIONS = re.compile(r"(?im)^\s*AFFECTED PRODUCTS AND VERSIONS\s*\n")
 NEXT_SECTION = re.compile(r"(?m)^\s*[A-Z][A-Z /()_-]{5,}\s*\n")
+PARAGRAPH_BREAK = re.compile(r"\n[ \t]*\n(?:[ \t]*\n)*")
+LIST_ITEM = re.compile(r"(?m)^\s*(?:\d{1,2}[.)]\s+|[-*]\s+\S)")
 
 
 @dataclass(frozen=True)
 class Passage:
     text: str
     relevance: float
+
+
+def complete_instructions(passage: str, original: str, max_chars: int = 1800) -> str:
+    """Keep a list introduction attached to its complete original instruction blocks.
+
+    Ordinary passages retain the 900-character splitter budget. Instruction
+    groups may expand to 1800 characters; callers still enforce their serialized
+    context budget. An oversized/incomplete group is omitted, never truncated.
+    """
+    start = original.find(passage)
+    if start < 0:
+        return ""
+    end = start + len(passage)
+    tail = PARAGRAPH_BREAK.split(passage)[-1]
+    introduction = passage.rstrip(" *").endswith(":")
+    if not introduction and not LIST_ITEM.search(tail):
+        return passage
+    # Recover a step cut by the splitter before considering subsequent steps.
+    boundary = PARAGRAPH_BREAK.search(original, end)
+    extended_end = boundary.start() if boundary else len(original)
+    cursor = boundary.end() if boundary else len(original)
+    first_following = introduction
+    while cursor < len(original):
+        following = PARAGRAPH_BREAK.search(original, cursor)
+        block_end = following.start() if following else len(original)
+        block = original[cursor:block_end].strip()
+        if not block or NEXT_SECTION.match(block + "\n"):
+            break
+        if not first_following and not LIST_ITEM.match(block):
+            break
+        extended_end = block_end
+        first_following = block.rstrip(" *").endswith(":")
+        cursor = following.end() if following else len(original)
+    complete = original[start:extended_end].strip()
+    if len(complete) > max_chars:
+        # Discard preceding explanation if the instruction introduction and
+        # complete list can fit together. Never cut off the final list item.
+        breaks = list(PARAGRAPH_BREAK.finditer(original, start, end))
+        trimmed_start = breaks[-1].end() if breaks else start
+        complete = original[trimmed_start:extended_end].strip()
+    if len(complete) > max_chars or complete.rstrip(" *").endswith(":"):
+        return ""
+    return complete
 
 
 def selection_schema(field: str, identifiers: list[str] | list[int]) -> dict[str, Any]:
@@ -117,6 +162,10 @@ def answer_passages(
     ranked.sort(key=lambda p: p.relevance, reverse=True)
     selected: list[Passage] = []
     for passage in ranked:
+        completed = complete_instructions(passage.text, usable)
+        if not completed:
+            continue
+        passage = Passage(completed, passage.relevance)
         if not any(passage.text in existing.text or existing.text in passage.text
                    for existing in selected):
             selected.append(passage)

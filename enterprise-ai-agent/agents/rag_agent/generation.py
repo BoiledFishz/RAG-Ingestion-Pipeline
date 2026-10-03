@@ -8,6 +8,7 @@ from typing import Literal, Protocol
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 from rag.techqa.evidence import selection_schema
+from rag.techqa.query import component_conflict, operation_conflict, requirement_error_conflict
 
 from agents.rag_agent.text import serialize_evidence
 from models.errors import InvalidEvidence
@@ -119,7 +120,7 @@ class LLMSelector:
     ) -> PassageSelection:
         """Reject explicit applicability conflicts; sufficiency belongs to the selector."""
         if any(explicit_mismatch(query, item) for item in evidence):
-            LOGGER.info("Selected answer rejected for explicit product or error-subtype mismatch")
+            LOGGER.info("Selected answer rejected for explicit applicability mismatch")
             return PassageSelection(sufficient=False, source_ids=[])
         prompt = (
             "Audit an already-selected technical-support answer for EXPLICIT applicability "
@@ -164,10 +165,21 @@ class LLMSelector:
                 LOGGER.info("Ignoring migration conflict without opposite directions")
                 continue
             source = allowed.get(conflict.source_id)
-            if (source is None or not contains_claim(query, conflict.query_claim)
-                    or not contains_claim(source.title + "\n" + source.applicability
-                                          + "\n" + source.excerpt, conflict.source_claim)):
-                raise InvalidEvidence("Conflict claims must quote actual query/source substrings")
+            if source is None:
+                raise InvalidEvidence(f"Unknown conflict source ID {conflict.source_id!r}")
+            if not contains_claim(query, conflict.query_claim):
+                raise InvalidEvidence(
+                    "Conflict claims must quote actual query/source substrings: "
+                    f"query_claim {conflict.query_claim!r} is absent from QUESTION; "
+                    "copy a shorter exact span from QUESTION",
+                )
+            if not contains_claim(source.title + "\n" + source.applicability
+                                  + "\n" + source.excerpt, conflict.source_claim):
+                raise InvalidEvidence(
+                    "Conflict claims must quote actual query/source substrings: "
+                    f"source_claim {conflict.source_claim!r} is absent from "
+                    f"{conflict.source_id}; copy a shorter exact span from this supplied source",
+                )
             if " ".join(conflict.query_claim.split()).casefold() == " ".join(
                 conflict.source_claim.split(),
             ).casefold():
@@ -257,6 +269,12 @@ def product_conflict(query_claim: str, source_claim: str) -> bool:
 def explicit_mismatch(query: str, source: Evidence) -> bool:
     # Named product families only; unknown names never become inferred conflicts.
     if product_conflict(query, source.title):
+        return True
+    if operation_conflict(query, source.title, source.applicability):
+        return True
+    if component_conflict(query, source.title):
+        return True
+    if requirement_error_conflict(query, source.applicability):
         return True
     error = r"\bError\s*#\s*(\d+)"
     subtype = r"\bsymptom(?:\s+number)?\s*[:#]?\s*(\d+)"

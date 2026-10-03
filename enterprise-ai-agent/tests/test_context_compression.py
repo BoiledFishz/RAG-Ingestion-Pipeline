@@ -90,3 +90,20 @@ def test_requested_version_cannot_be_answered_from_another_version() -> None:
     original = doc(STREAMS["text"])
     assert not compressor.compress(query, [original]).evidence
     assert compressor.compress("Streams 4.1.1.2 environment variables", [original]).evidence
+def test_real_conflicting_components_are_removed_before_evidence_selection():
+    from rag.techqa.data import documents, question_text, questions
+
+    from agents.rag_agent.compression import ContextCompressor
+    from models.schemas import Document
+
+    row = next(r for r in questions("regression") if r["QUESTION_ID"] == "DEV_Q007")
+    docs = [d for d in documents("regression") if d["id"] in {"swg21625776", "swg21970417"}]
+    result = ContextCompressor(max_tokens=2400, max_sources=8).compress(question_text(row), [
+        Document(chunk_id=f"techqa:{doc['id']}:parent", text=doc["text"],
+                 source_file=f"techqa://{doc['id']}", score=1,
+                 metadata={"_full_parent": True, "title": doc["title"]}) for doc in docs
+    ])
+    assert result.evidence
+    assert {item.source_file for item in result.evidence} == {"techqa://swg21625776"}
+
+

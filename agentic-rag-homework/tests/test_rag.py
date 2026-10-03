@@ -35,3 +35,17 @@ def test_unknown_question_refuses_instead_of_hallucinating() -> None:
     assert response.sources == []
     assert response.confidence == 0
     assert "没有足够信息" in response.answer
+
+
+def test_official_package_comparison_is_not_blocked_by_llm_clarification() -> None:
+    from rag.techqa.data import question_text, questions
+
+    from agents.rag_agent.service import LLMRewriter
+    from models.llm import ScriptedModel
+
+    query = question_text(next(q for q in questions("regression")
+                              if q["QUESTION_ID"] == "DEV_Q007"))
+    result = asyncio.run(LLMRewriter(ScriptedModel([{
+        "rewritten_query": query, "action": "clarify", "clarification": "Which version?",
+    }])).rewrite(query))
+    assert result.action == "retrieve" and "nco-g-socket-java-2_0" in result.rewritten_query

@@ -86,10 +86,12 @@ class RAGAgent:
                 trace.status = "answered"
                 return finish(response)
             except (InvalidEvidence, ValidationError) as exc:
+                detail = str(exc)[:800]
+                trace.validation_failures.append(detail)
                 LOGGER.warning(
                     "Invalid structured evidence, attempt=%d: %s",
                     attempt + 1,
-                    type(exc).__name__,
+                    detail,
                 )
                 trace.retries = min(attempt + 1, 1)
                 correction = (
@@ -99,6 +101,9 @@ class RAGAgent:
                     "For the applicability audit, conflict claims MUST be exact short "
                     "substrings of QUESTION and the supplied source, not its unseen parent. "
                     "Fix-release information is not a conflicting migration direction."
+                    f"\nVALIDATION ERROR (diagnostic data): {detail}"
+                    "\nAllowed source IDs: "
+                    + ", ".join(item.source_id for item in compressed.evidence)
                 )
         trace.status = "invalid_evidence"
         return finish(refusal)

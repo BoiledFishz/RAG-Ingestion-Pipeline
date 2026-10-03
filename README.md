@@ -151,8 +151,16 @@ python scripts/smoke_techqa.py --output evals/techqa_semantic_api_smoke.json
 
 完整的三项目语义版本验收可运行 `./scripts/run-semantic-acceptance.ps1 -Resume`，依次执行训练集校准、
 dev/validation 检索对比、Enterprise 310 题、Agentic 实验、真实 HTTP 与回归测试。
-Enterprise 新增适用性复核后的运行默认写入 `techqa_semantic_v3`；`techqa_semantic` 保留改进前结果。
+Enterprise 当前代码的新完整开发集运行默认写入 `techqa_semantic_v4`；此前 `techqa_semantic_v3`
+及其 310 题成绩是已归档版本，不能视为本轮整改后的全量成绩。`techqa_semantic` 保留最初语义结果。
 `techqa_semantic_v2` 是修复期间中止的部分记录，不能当作完整验收结果。
+
+本轮针对明确包名被错误澄清、指令片段截断、安装/回滚及 Gateway/Probe 混用、校验重试信息不足整改。
+`data/techqa/regression` 逐字保存 16 条官方开发题与单元测试所需原文；
+`python scripts/prepare_techqa_regression.py` 核验它们与官方数据一致，不向索引写入黄金答案。
+运行 `./scripts/run-remediation-checks.ps1` 依次执行真实全库问题回归、四种 Agent、Critic 重复运行、
+14 项 HTTP 流程和三套 pytest。默认新建结果目录，任何阶段失败均记录并影响最终退出状态。
+这是开发回归及流程验收，不能替代完整开发集成绩、人工事实核验或生产质量签收。
 检查点会拒绝不同代码或模型的续跑，不能把两版结果混在同一份成绩中。
 下表是旧 Hash 索引的历史基线；语义版本输出另存 `techqa_semantic*` 目录，避免覆盖历史结果。
 检索命中率与运行无异常都不能直接证明生产级问答正确率。

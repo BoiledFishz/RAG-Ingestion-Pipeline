@@ -12,6 +12,7 @@ from typing import Literal, Protocol
 import httpx
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 from rag.techqa.evidence import selection_schema
+from rag.techqa.query import component_conflict, operation_conflict, requirement_error_conflict
 
 from models.llm import MeteredModel, StructuredModel
 from models.schemas import (
@@ -177,6 +178,32 @@ class LLMCritic:
     ) -> CriticResult:
         """Audit sufficiency of whole original blocks; grounding is checked in code."""
         blocks = evidence_blocks(evidence)
+        for key, context in (source_context or {}).items():
+            if key in blocks and requirement_error_conflict(task, context.get("applicability", "")):
+                return CriticResult(passed=False, score=0.2, issues=[CriticIssue(
+                    code="requirement_error_mismatch",
+                    description=f"Source [{key}] describes an older minimum-version error "
+                    "for the same named product; it does not resolve this stricter requirement.",
+                    suggestion=f"Replace [{key}] with evidence addressing the user's actual "
+                    "required version; do not substitute an older error's prerequisites.",
+                )])
+            if key in blocks and component_conflict(task, context.get("title", "")):
+                return CriticResult(passed=False, score=0.2, issues=[CriticIssue(
+                    code="component_mismatch",
+                    description=f"Source [{key}] concerns a different named Socket component.",
+                    suggestion=f"Replace [{key}] with evidence for the requested component; "
+                    "Socket Probe and Socket Gateway instructions are not interchangeable.",
+                )])
+            if key in blocks and operation_conflict(
+                task, context.get("title", ""), context.get("applicability", ""),
+            ):
+                return CriticResult(passed=False, score=0.2, issues=[CriticIssue(
+                    code="operation_mismatch",
+                    description=f"Source [{key}] concerns a rollback fault, while the request "
+                    "concerns installation/upgrade without a rollback premise.",
+                    suggestion=f"Replace [{key}] with evidence for the requested operation; "
+                    "do not reuse its rollback-only remedy. Refuse if no matching source exists.",
+                )])
         prompt = (
             "KIND: EVIDENCE_SELECTOR\nIndependently audit this proposed answer, consisting "
             "of the supplied original evidence blocks. Does it answer the principal TASK? "
