@@ -75,4 +75,8 @@ Multi-Agent 不一定优于 Single Agent。更多规划和复核增加了调用�
 明确 Socket 组件和同一产品最低版本错误的冲突；Critic 针对这些冲突给出来源 ID 与替换建议。
 父目录 `./scripts/run-remediation-checks.ps1` 使用真实 TechQA 全量检索和新结果目录复验，
 不会把历史 60 次运行或旧 Critic 结果冒充当前代码的成绩。
+[本轮 60 次比较](evaluation/results/techqa_remediation_v4/report.md) 执行异常为 0，
+Single/Multi 的 Y 正文 F1 是 0.2439/0.2081，仍不足以签收。
+[本轮 30 次 Critic](evaluation/results/techqa_remediation_v4_critic/summary.json) 一致性为 1.00，
+但 Y 接受率仍为 0.50、Y 正文 F1 回落至 0.1406。完整结果与范围限制见父目录整改报告。
 `python -m mypy` 与 `python -m ruff check .` 分别检查类型与代码规范；三项目测试用父目录 `scripts/test_all.py`。

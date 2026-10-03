@@ -1,0 +1,31 @@
+{
+  "source_snapshot_unchanged": true,
+  "source_snapshot_sha256": "e11acad82cbe1c67f5add432537ba7e2a4ae712314c196b87d72d3badf5217ab",
+  "runtime_source_commit": "3c7def2",
+  "complete": true,
+  "enterprise_questions": 16,
+  "enterprise_execution_errors": 0,
+  "enterprise_invalid_evidence": 0,
+  "agent_native_runs": 60,
+  "agent_execution_errors": 0,
+  "planner_runs": 10,
+  "critic_native_trials": 30,
+  "critic_model_errors": 0,
+  "api_workflows": 14,
+  "api_failures": 0,
+  "pytest_counts": [
+    55,
+    52,
+    53
+  ],
+  "pytest_total": 160,
+  "ruff": "passed",
+  "mypy_source_files": [
+    42,
+    28,
+    25
+  ],
+  "workflow_runner_exit_code": 0,
+  "production_quality_accepted": false,
+  "full_development_answer_evaluation_repeated": false
+}

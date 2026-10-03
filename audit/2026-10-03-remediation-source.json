@@ -1,0 +1,26 @@
+{
+  "verified": true,
+  "archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+  "questions": 16,
+  "documents": 12,
+  "question_ids": [
+    "DEV_Q000",
+    "DEV_Q001",
+    "DEV_Q002",
+    "DEV_Q003",
+    "DEV_Q004",
+    "DEV_Q005",
+    "DEV_Q006",
+    "DEV_Q007",
+    "DEV_Q008",
+    "DEV_Q009",
+    "DEV_Q010",
+    "DEV_Q011",
+    "DEV_Q012",
+    "DEV_Q013",
+    "DEV_Q113",
+    "DEV_Q236"
+  ],
+  "source": "Official dev_Q_A.json and training_dev_technotes.json",
+  "scope": "Development regression; not held-out evaluation"
+}

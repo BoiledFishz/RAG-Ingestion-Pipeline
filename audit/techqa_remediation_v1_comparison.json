@@ -1,0 +1,278 @@
+{
+  "protocol": "16 unchanged official TechQA development questions; fresh full-corpus semantic retrieval, query rewrite and native model execution after repairs",
+  "baseline": {
+    "path": "enterprise-ai-agent\\evaluation\\results\\techqa_semantic_v3\\runs.json",
+    "sha256": "9a89e489d3a7939d580c753d564eb0509cbe56bce42383c8eae52b9291ea4bc0",
+    "summary": {
+      "questions": 16,
+      "answerable": 8,
+      "labelled_N": 8,
+      "execution_errors": 0,
+      "statuses": {
+        "answered": 10,
+        "unanswerable": 2,
+        "clarified": 2,
+        "invalid_evidence": 2
+      },
+      "answerable_body_f1": 0.4295041343774692,
+      "answerable_acceptance": 0.875,
+      "labelled_N_refusal_proxy": 0.25,
+      "average_latency_ms": 20418.192975004786
+    }
+  },
+  "current": {
+    "path": "enterprise-ai-agent\\evaluation\\results\\techqa_remediation_v1\\runs.json",
+    "sha256": "134e2479ca0c18615c0aad74ac95ce7f9fad8a00a0d0be3554bbe6b4ce4f8190",
+    "summary": {
+      "questions": 16,
+      "answerable": 8,
+      "labelled_N": 8,
+      "execution_errors": 0,
+      "statuses": {
+        "unanswerable": 2,
+        "answered": 14
+      },
+      "answerable_body_f1": 0.4295041343774692,
+      "answerable_acceptance": 0.875,
+      "labelled_N_refusal_proxy": 0.125,
+      "average_latency_ms": 18824.35292500304
+    }
+  },
+  "cases": [
+    {
+      "question_id": "DEV_Q000",
+      "answerable_label": "Y",
+      "before_status": "answered",
+      "after_status": "unanswerable",
+      "before_body_f1": 0.0,
+      "after_body_f1": 0.0,
+      "before_sources": [
+        "techqa://swg21960632"
+      ],
+      "after_sources": [],
+      "validation_failures": []
+    },
+    {
+      "question_id": "DEV_Q001",
+      "answerable_label": "N",
+      "before_status": "answered",
+      "after_status": "answered",
+      "before_body_f1": null,
+      "after_body_f1": null,
+      "before_sources": [
+        "techqa://swg21968787"
+      ],
+      "after_sources": [
+        "techqa://swg21968787"
+      ],
+      "validation_failures": []
+    },
+    {
+      "question_id": "DEV_Q002",
+      "answerable_label": "Y",
+      "before_status": "answered",
+      "after_status": "answered",
+      "before_body_f1": 1.0,
+      "after_body_f1": 1.0,
+      "before_sources": [
+        "techqa://swg21978390"
+      ],
+      "after_sources": [
+        "techqa://swg21978390"
+      ],
+      "validation_failures": []
+    },
+    {
+      "question_id": "DEV_Q003",
+      "answerable_label": "N",
+      "before_status": "unanswerable",
+      "after_status": "unanswerable",
+      "before_body_f1": null,
+      "after_body_f1": null,
+      "before_sources": [],
+      "after_sources": [],
+      "validation_failures": []
+    },
+    {
+      "question_id": "DEV_Q004",
+      "answerable_label": "N",
+      "before_status": "unanswerable",
+      "after_status": "answered",
+      "before_body_f1": null,
+      "after_body_f1": null,
+      "before_sources": [],
+      "after_sources": [
+        "techqa://swg21480755"
+      ],
+      "validation_failures": []
+    },
+    {
+      "question_id": "DEV_Q005",
+      "answerable_label": "N",
+      "before_status": "answered",
+      "after_status": "answered",
+      "before_body_f1": null,
+      "after_body_f1": null,
+      "before_sources": [
+        "techqa://swg1IC95983"
+      ],
+      "after_sources": [
+        "techqa://swg1IC95983"
+      ],
+      "validation_failures": []
+    },
+    {
+      "question_id": "DEV_Q006",
+      "answerable_label": "N",
+      "before_status": "answered",
+      "after_status": "answered",
+      "before_body_f1": null,
+      "after_body_f1": null,
+      "before_sources": [
+        "techqa://swg1PI25634"
+      ],
+      "after_sources": [
+        "techqa://swg1PI25634"
+      ],
+      "validation_failures": []
+    },
+    {
+      "question_id": "DEV_Q007",
+      "answerable_label": "Y",
+      "before_status": "clarified",
+      "after_status": "answered",
+      "before_body_f1": 0.0,
+      "after_body_f1": 0.0,
+      "before_sources": [],
+      "after_sources": [
+        "techqa://swg21970417"
+      ],
+      "validation_failures": []
+    },
+    {
+      "question_id": "DEV_Q008",
+      "answerable_label": "Y",
+      "before_status": "answered",
+      "after_status": "answered",
+      "before_body_f1": 0.297029702970297,
+      "after_body_f1": 0.297029702970297,
+      "before_sources": [
+        "techqa://swg21412061"
+      ],
+      "after_sources": [
+        "techqa://swg21412061"
+      ],
+      "validation_failures": []
+    },
+    {
+      "question_id": "DEV_Q009",
+      "answerable_label": "N",
+      "before_status": "clarified",
+      "after_status": "answered",
+      "before_body_f1": null,
+      "after_body_f1": null,
+      "before_sources": [],
+      "after_sources": [
+        "techqa://swg21636650"
+      ],
+      "validation_failures": []
+    },
+    {
+      "question_id": "DEV_Q010",
+      "answerable_label": "Y",
+      "before_status": "answered",
+      "after_status": "answered",
+      "before_body_f1": 0.7058823529411765,
+      "after_body_f1": 0.7058823529411765,
+      "before_sources": [
+        "techqa://swg21317981"
+      ],
+      "after_sources": [
+        "techqa://swg21317981"
+      ],
+      "validation_failures": []
+    },
+    {
+      "question_id": "DEV_Q011",
+      "answerable_label": "Y",
+      "before_status": "answered",
+      "after_status": "answered",
+      "before_body_f1": 0.0,
+      "after_body_f1": 0.0,
+      "before_sources": [
+        "techqa://swg1IV25299"
+      ],
+      "after_sources": [
+        "techqa://swg1IV25299"
+      ],
+      "validation_failures": []
+    },
+    {
+      "question_id": "DEV_Q012",
+      "answerable_label": "Y",
+      "before_status": "answered",
+      "after_status": "answered",
+      "before_body_f1": 1.0,
+      "after_body_f1": 1.0,
+      "before_sources": [
+        "techqa://swg21959723"
+      ],
+      "after_sources": [
+        "techqa://swg21959723"
+      ],
+      "validation_failures": []
+    },
+    {
+      "question_id": "DEV_Q013",
+      "answerable_label": "Y",
+      "before_status": "answered",
+      "after_status": "answered",
+      "before_body_f1": 0.43312101910828027,
+      "after_body_f1": 0.43312101910828027,
+      "before_sources": [
+        "techqa://swg24037227",
+        "techqa://swg21665766"
+      ],
+      "after_sources": [
+        "techqa://swg24037227",
+        "techqa://swg21665766"
+      ],
+      "validation_failures": []
+    },
+    {
+      "question_id": "DEV_Q113",
+      "answerable_label": "N",
+      "before_status": "invalid_evidence",
+      "after_status": "answered",
+      "before_body_f1": null,
+      "after_body_f1": null,
+      "before_sources": [],
+      "after_sources": [
+        "techqa://swg21427447"
+      ],
+      "validation_failures": [
+        "Conflict claims must quote actual query/source substrings: source_claim 'WebSphere Application Server V7.0' is absent from S1; copy a shorter exact span from this supplied source"
+      ]
+    },
+    {
+      "question_id": "DEV_Q236",
+      "answerable_label": "N",
+      "before_status": "invalid_evidence",
+      "after_status": "answered",
+      "before_body_f1": null,
+      "after_body_f1": null,
+      "before_sources": [],
+      "after_sources": [
+        "techqa://swg22006126"
+      ],
+      "validation_failures": []
+    }
+  ],
+  "limitations": [
+    "Development regression selected partly from known failures, not held-out",
+    "N labels concern original DOC_IDS, not absence from the full corpus",
+    "Body F1 and reference-document citations are proxies for answer quality",
+    "A safe refusal does not establish successful resolution",
+    "Shared desktop load makes latency comparisons non-isolated"
+  ]
+}

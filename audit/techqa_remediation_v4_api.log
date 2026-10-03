@@ -1,0 +1,32 @@
+INFO:httpx:HTTP Request: GET http://127.0.0.1:11435/healthz "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET http://127.0.0.1:59336/openapi.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:59336/v1/rag/query "HTTP/1.1 200 OK"
+INFO:__main__:retrieval answerable error=None
+INFO:httpx:HTTP Request: POST http://127.0.0.1:59336/v1/rag/query "HTTP/1.1 200 OK"
+INFO:__main__:retrieval official_unanswerable error=None
+INFO:httpx:HTTP Request: POST http://127.0.0.1:59336/v1/rag/query "HTTP/1.1 200 OK"
+INFO:__main__:retrieval dense error=None
+INFO:httpx:HTTP Request: POST http://127.0.0.1:59336/v1/rag/query "HTTP/1.1 200 OK"
+INFO:__main__:retrieval sparse error=None
+INFO:httpx:HTTP Request: POST http://127.0.0.1:59336/v1/rag/query "HTTP/1.1 200 OK"
+INFO:__main__:retrieval empty_filter error=None
+INFO:httpx:HTTP Request: GET http://127.0.0.1:59607/openapi.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:59607/v1/agent/query "HTTP/1.1 200 OK"
+INFO:__main__:enterprise answerable error=None
+INFO:httpx:HTTP Request: POST http://127.0.0.1:59607/v1/agent/query "HTTP/1.1 200 OK"
+INFO:__main__:enterprise official_unanswerable error=None
+INFO:httpx:HTTP Request: GET http://127.0.0.1:59696/openapi.json "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:59696/v1/rag/query "HTTP/1.1 200 OK"
+INFO:__main__:agentic answerable error=None
+INFO:httpx:HTTP Request: POST http://127.0.0.1:59696/v1/rag/query "HTTP/1.1 200 OK"
+INFO:__main__:agentic official_unanswerable error=None
+INFO:httpx:HTTP Request: POST http://127.0.0.1:59696/v1/planner "HTTP/1.1 200 OK"
+INFO:__main__:agentic planner error=None
+INFO:httpx:HTTP Request: POST http://127.0.0.1:59696/v1/research "HTTP/1.1 200 OK"
+INFO:__main__:agentic research error=None
+INFO:httpx:HTTP Request: POST http://127.0.0.1:59696/v1/single-agent "HTTP/1.1 200 OK"
+INFO:__main__:agentic single-agent error=None
+INFO:httpx:HTTP Request: POST http://127.0.0.1:59696/v1/multi-agent "HTTP/1.1 200 OK"
+INFO:__main__:agentic multi-agent error=None
+INFO:httpx:HTTP Request: POST http://127.0.0.1:59696/v1/critic-loop "HTTP/1.1 200 OK"
+INFO:__main__:agentic critic-loop error=None

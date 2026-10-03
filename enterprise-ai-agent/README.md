@@ -87,6 +87,9 @@ Y 正文 F1 为 0.21303，Y 接受率为 0.7875，N 标签拒答比例为 0.10�
 本轮使用 `data/techqa/regression` 的 16 条原始开发题回归，并继续检索完整知识库；
 从父目录运行 `./scripts/run-remediation-checks.ps1` 可串行复验 Enterprise、Agent 比较、Critic 和 HTTP。
 每次默认生成新的结果目录，保留此前完整结果与失败轨迹。回归集包含已知失败，不是独立盲测。
+[本轮完整 16 题回归](evaluation/results/techqa_remediation_v4/summary.json) 执行异常与最终校验失败均为 0。
+相同 16 题的 Y 正文 F1 从 0.4295 至 0.4619；安装版本题仍安全拒答，不能算已解决。
+完整对比、N 标签指标下降及剩余问题见父目录 [整改报告](../audit/2026-10-03-targeted-remediation.md)。
 
 TechQA 原始 N 标签的范围是官方候选 DOC_IDS；全库开放检索的拒答数字是代理指标，不是官方候选集 QA 评分。
 完整 Dense/BM25/Hybrid 对比和训练阈值见父 README 与 `evals/techqa_semantic_full`。

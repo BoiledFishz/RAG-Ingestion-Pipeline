@@ -1,0 +1,13 @@
+{
+  "old_native_logging_probe": {
+    "shell": "Windows PowerShell 5",
+    "exit_code": 1,
+    "error": "NativeCommandError from ordinary logging stderr under ErrorActionPreference Stop"
+  },
+  "fixed_native_logging_probe": {
+    "exit_code": 0,
+    "native_exit_code": 0,
+    "change": "Use Continue while capturing native stderr, judge stages by native exit codes"
+  },
+  "scope": "Runner/control-plane verification; no synthetic knowledge base or golden questions"
+}

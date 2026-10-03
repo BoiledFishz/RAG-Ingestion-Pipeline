@@ -145,7 +145,8 @@ python scripts/smoke_techqa.py --output evals/techqa_semantic_api_smoke.json
 - [Ragas](evals/techqa_ragas_results.json)：5 条官方训练题，256/512 两种切片，IDBasedContextRecall，独立记录格式小样本范围。
 - [格式测试库的 15 题检索与故障注入](evals/techqa_fixture_retrieval.json)。
 - [真实 Agent 实验](agentic-rag-homework/evaluation/results/techqa_semantic/report.md)。
-- [Enterprise 最终 310 题问答](enterprise-ai-agent/evaluation/results/techqa_semantic_v3/summary.json)：完整真实模型运行；正文质量和拒答仍未满足生产要求。
+- [Enterprise 已归档的 310 题问答](enterprise-ai-agent/evaluation/results/techqa_semantic_v3/summary.json)：完整真实模型运行；正文质量和拒答仍未满足生产要求。
+- [2026-10-03 定向整改](audit/2026-10-03-targeted-remediation.md)：16 题真实回归、60 次 Agent、30 次 Critic、14 项 HTTP、160 项测试；保留质量未达标结果。
 - [本轮语义与 Agent 复验](audit/2026-10-02-semantic-agent.md)。
 - [完整迁移复验报告](audit/2026-09-30-techqa.md)：最终数值、边界、失败案例和复现命令。
 

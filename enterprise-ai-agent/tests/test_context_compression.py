@@ -105,5 +105,3 @@ def test_real_conflicting_components_are_removed_before_evidence_selection():
     ])
     assert result.evidence
     assert {item.source_file for item in result.evidence} == {"techqa://swg21625776"}
-
-
