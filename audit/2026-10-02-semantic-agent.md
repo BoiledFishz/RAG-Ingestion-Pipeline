@@ -27,6 +27,8 @@ PDF/Markdown/OCR 文件仍是官方原文的格式转换。未增加合成知识
 来源不同的 Chunk 保留各自 chunk_id，因此语义库条数与旧库全局 Hash 去重条数不同。
 Dense 和 Sparse 使用相同的 Chunk 身份和过滤条件。查询编码默认使用 CPU，为生成模型保留显存。
 元数据以只读连接访问；缺失文件不会在服务查询时创建空数据库。
+完整索引的重复构建现在先校验来源、向量文件、元数据数量和构建状态，再返回已完成结果。
+真实 3,089,056 Chunk 库重复准备约 5 秒完成，没有加载编码器或重新构造 Faiss，避免与在线服务争用内存。
 
 格式测试链路使用 RecursiveCharacterTextSplitter 和逐 Chunk 的一句话 LLM 摘要。
 全量原生 JSON 扩展库为兼容 Dense/Sparse 已有身份，保留 1200/160 的历史分段和官方标题摘要；
@@ -160,7 +162,7 @@ Enterprise 曾将 Streams 后续 Fix Pack 说明误当成迁移方向冲突，�
 最终修复版本从头写入 `techqa_semantic_v3`，完整端到端结果不能由冻结回放替代。
 本轮 dev 被用于失败分析和适用性规则修复，属于开发评测，不是盲测留出集；分数门槛仍只来自 train。
 
-三项目完整 pytest 通过：根项目 49、Enterprise 47、Agentic 49，共 **145 项**。
+三项目 pytest 通过：根项目在索引复用修复后 50、Enterprise 47、Agentic 49，共 **146 项**。
 Ruff 全部通过；严格 mypy 分别检查 41、28、25 个源码文件，全部通过。
 Agentic 补齐 Search/Document 工具协议，测试临时目录写入项目专用目录，避免 Windows Temp 权限遗留。
 Enterprise 默认共享检索不再创建无用的旧 Qdrant 客户端；旧 Ingestion 仍显式使用该存储。

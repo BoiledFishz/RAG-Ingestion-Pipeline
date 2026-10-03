@@ -57,3 +57,25 @@ def test_serving_metadata_is_read_only(tmp_path):
             connection.execute("INSERT INTO chunks VALUES ('')")
     finally:
         connection.close()
+
+
+def test_completed_build_cannot_silently_reuse_a_missing_vector_file(tmp_path, monkeypatch):
+    from types import SimpleNamespace
+
+    from rag.techqa import index, semantic
+
+    source = tmp_path / "source.sqlite"
+    destination = tmp_path / "semantic"
+    destination.mkdir()
+    data = {**manifest(), "source_index": str(source.resolve())}
+    (destination / "manifest.json").write_text(json.dumps(data), encoding="utf-8")
+    monkeypatch.setattr(index, "TechQAIndex", lambda _: SimpleNamespace(
+        manifest={"scope": "fixture", "document_count": "41"},
+    ))
+
+    def forbidden_encoder(*args, **kwargs):
+        pytest.fail("Invalid completed artifacts must fail before loading an encoder")
+
+    monkeypatch.setattr(semantic, "MiniLMEncoder", forbidden_encoder)
+    with pytest.raises(ValueError, match="missing or truncated"):
+        semantic.build(source, destination)

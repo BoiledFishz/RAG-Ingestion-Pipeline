@@ -149,12 +149,35 @@ def build(
     source: Path = INDEX_PATH, destination: Path = SEMANTIC_ROOT,
     *, model_path: Path = MODEL_PATH, document_batch: int = 64,
 ) -> dict[str, Any]:
-    import faiss
-    import numpy as np
-
     from rag.techqa.index import TechQAIndex
 
     index = TechQAIndex(source)
+    if (destination / "manifest.json").is_file():
+        manifest = read_manifest(destination)
+        if (manifest.get("source_index") != str(source.resolve())
+                or manifest["scope"] != index.manifest["scope"]
+                or manifest["documents"] != int(index.manifest["document_count"])):
+            raise ValueError("Completed semantic index source differs; use another destination")
+        vector_path = destination / "index.faiss"
+        minimum_bytes = manifest["chunks"] * manifest["dimension"] * 4
+        if not vector_path.is_file() or vector_path.stat().st_size < minimum_bytes:
+            raise ValueError("Completed semantic vector file is missing or truncated")
+        metadata_path = destination / "chunks.sqlite"
+        uri = metadata_path.resolve().as_uri() + "?mode=ro"
+        with closing(sqlite3.connect(uri, uri=True)) as db:
+            count = db.execute("SELECT count(*) FROM chunks").fetchone()[0]
+            state = dict(db.execute("SELECT key,value FROM state"))
+        if (count != manifest["chunks"] or state.get("embedding_id") != manifest["embedding_id"]
+                or state.get("source") != str(source.resolve())
+                or int(state.get("documents_completed", "0")) != manifest["documents"]):
+            raise ValueError("Completed semantic metadata/state differs from its manifest")
+        LOGGER.info("Reusing complete semantic index without loading/rebuilding vectors: %s",
+                    manifest)
+        return manifest
+
+    import faiss
+    import numpy as np
+
     destination.mkdir(parents=True, exist_ok=True)
     encoder = MiniLMEncoder(model_path)
     database = destination / "chunks.sqlite"

@@ -31,3 +31,7 @@ INFO Testing agentic-rag-homework
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
 49 passed, 1 warning in 8.34s
+
+Root regression after completed-index reuse guard:
+..................................................                       [100%]
+50 passed in 6.73s

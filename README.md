@@ -47,6 +47,7 @@ flowchart TD
 `sentence-transformers/all-MiniLM-L6-v2` 的 384 维真实语义向量，Faiss 精确余弦搜索与 SQLite 元数据
 通过本地 11435 端口提供服务。长 Chunk 按 256 Token 窗口编码后聚合，保留所有窗口，避免静默截断。
 构建支持断点恢复与 SHA-256 向量复用，仅在全文档覆盖、向量有效性和数量检查通过后发布完成标记。
+重复准备数据会校验已完成索引的来源、数量和构建状态，随后复用；不会再次装载整个 Faiss 索引重建。
 旧 Qdrant Hash 索引仅在明确设置 `TECHQA_DENSE_BACKEND=hash` 时作为历史基线使用。
 PDF/Markdown 格式测试库继续使用 768 维 nomic；两个语义库的评测范围分别记录。
 
