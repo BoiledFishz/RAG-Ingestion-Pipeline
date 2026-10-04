@@ -164,6 +164,7 @@ class RetrievalPipeline:
         *,
         mode: RetrievalMode = "hybrid",
         filters: dict[str, MetadataValue] | None = None,
+        trace: dict[str, list[SearchResult]] | None = None,
     ) -> RetrievalOutcome:
         if mode not in {"dense", "sparse", "hybrid"}:
             raise ValueError(f"Unsupported retrieval mode: {mode}")
@@ -215,6 +216,11 @@ class RetrievalPipeline:
             candidates,
         )
         final = reranked[: self.config.final_k]
+        if trace is not None:
+            # Opt-in diagnostics: copies of the actual stage outputs, no additional
+            # retrieval, model calls, filtering, or changes to ranking/metadata.
+            trace.update(dense=list(dense_results), sparse=list(sparse_results),
+                         fusion=list(candidates), rerank=list(reranked), final=list(final))
         return RetrievalOutcome(
             results=final,
             diagnostics=RetrievalDiagnostics(

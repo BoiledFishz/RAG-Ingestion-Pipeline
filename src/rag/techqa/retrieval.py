@@ -336,7 +336,8 @@ class TechQAReranker:
         return [found[key] for key in keys]
 
     async def rerank(
-        self, query: str, candidates: list[SearchResult], *, limit: int = 20
+        self, query: str, candidates: list[SearchResult], *, limit: int = 20,
+        components: dict[str, dict[str, float]] | None = None,
     ) -> list[SearchResult]:
         if not candidates or limit <= 0:
             return []
@@ -367,6 +368,12 @@ class TechQAReranker:
                 if self.semantic
                 else 0.55 * lexical + 0.45 * prior
             )
+            if components is not None:
+                components[candidate.chunk_id] = {
+                    "semantic_score": semantic_scores[index], "lexical_score": lexical,
+                    "bm25_prior": prior, "bm25_document_rank": float(sparse_rank),
+                    "total_score": score,
+                }
             ranked.append(
                 replace(
                     candidate,
