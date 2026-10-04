@@ -9,7 +9,7 @@ from typing import Protocol
 
 import httpx
 from pydantic import BaseModel, ConfigDict, Field, model_validator
-from rag.techqa.evidence import answer_passages, selection_schema
+from rag.techqa.evidence import selection_schema
 from rag.techqa.index import tokens
 from rag.techqa.query import (
     component_conflict,
@@ -124,7 +124,9 @@ class ContextCompressor:
                 ) / max(len(query_words), 1)
                 if overlap < 0.15:
                     continue
-                for position, passage in enumerate(answer_passages(
+                from rag.techqa.evidence import aspect_passages
+
+                for position, passage in enumerate(aspect_passages(
                     query, document.text, limit=2, retrieved_excerpt=document.retrieved_excerpt,
                 )):
                     group = selected if position == 0 else alternate
@@ -141,7 +143,12 @@ class ContextCompressor:
                 selected.append((document, best.strip(), overlap))
         selected.sort(key=lambda item: (item[0].score, item[2]), reverse=True)
         alternate.sort(key=lambda item: (item[0].score, item[2]), reverse=True)
-        return (selected + alternate)[: self.max_sources]
+        # Complementary passages must be in the same selector batch; otherwise a
+        # primary passage can be accepted before its version/procedure continuation.
+        ordered = selected + alternate
+        document_order = {doc.document_id: i for i, doc in enumerate(documents)}
+        ordered.sort(key=lambda item: document_order[item[0].document_id])
+        return ordered[: self.max_sources]
 
 
 class GroundedAnswerer:

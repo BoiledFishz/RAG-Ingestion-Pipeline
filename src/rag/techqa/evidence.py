@@ -26,6 +26,11 @@ LIST_ITEM = re.compile(r"(?m)^\s*(?:\d{1,2}[.)]\s+|[-*]\s+\S)")
 class Passage:
     text: str
     relevance: float
+    start_char: int = -1
+    end_char: int = -1
+    section: str = ""
+    covers: tuple[str, ...] = ()
+    instruction_group: bool = False
 
 
 def complete_instructions(passage: str, original: str, max_chars: int = 1800) -> str:
@@ -172,3 +177,179 @@ def answer_passages(
         if len(selected) >= limit:
             break
     return selected
+
+
+def aspect_passages(
+    query: str, text: str, *, limit: int = 2, retrieved_excerpt: str = "",
+    max_chars: int = 3600,
+) -> list[Passage]:
+    """Select complementary original spans across ALL relevant parent sections.
+
+    Coverage is a query-derived ranking hint, not a sufficiency verdict. At most
+    two spans from one document are selected; every span has exact original offsets.
+    """
+    from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+    from rag.techqa.facts import potential_coverage, required_facts
+
+    if limit <= 0:
+        return []
+    limit = min(2, limit)
+    cutoff = BOILERPLATE.search(text)
+    usable = text[:cutoff.start()] if cutoff else text
+    if len(required_facts(query)) == 1:
+        # Preserve the established direct-answer ordering for ordinary questions.
+        return [Passage(p.text, p.relevance, text.find(p.text),
+                        text.find(p.text) + len(p.text), "", potential_coverage(query, p.text),
+                        bool(LIST_ITEM.search(p.text)))
+                for p in answer_passages(query, text, limit=limit,
+                                         retrieved_excerpt=retrieved_excerpt)]
+    facts = {f.key for f in required_facts(query)}
+
+    def unit(start: int, end: int, section: str) -> Passage | None:
+        value = usable[start:end].strip()
+        note = re.search(r"\bNote:\s", value)
+        if note:
+            value = value[:note.start()].rstrip()
+        if not value or len(value) > max_chars:
+            return None
+        offset = usable.find(value, start, end)
+        return Passage(value, len(potential_coverage(query, value)), offset,
+                       offset + len(value), section, potential_coverage(query, value),
+                       bool(LIST_ITEM.search(value)))
+
+    # These are document structures, not named-product or dataset-ID rules.
+    # A bulletin's details, exposure table and fixes are one bounded contiguous span.
+    if "vulnerability" in facts:
+        details = re.search(r"(?im)^\s*VULNERABILITY DETAILS\s*\n", usable)
+        if details:
+            whole = unit(details.start(), len(usable), "vulnerability/exposure/remediation")
+            if whole:
+                return [whole]
+    # Each explicit product-version selection section has different fact values,
+    # even though they share the same selection_rule slot.
+    if "selection_rule" in facts:
+        versions = list(re.finditer(r"(?m)^[^\n]{0,65}\sV\d+(?:\.\d+)+\s*\n", usable))
+        choices = [unit(h.start(), versions[i + 1].start() if i + 1 < len(versions)
+                        else len(usable), h[0].strip()) for i, h in enumerate(versions)]
+        complete = [p for p in choices if p and "selection_rule" in p.covers]
+        if complete:
+            return complete[:limit]
+    # Shared setup steps + the query's version branch form one complete procedure.
+    releases = list(re.finditer(r"(?m)^[^\n]{0,65}\bRelease\s+(\d+)\b", usable))
+    wanted = set(re.findall(r"\b[A-Za-z]+\s+(\d{2})(?![\d.])", query))
+    if releases and wanted:
+        match = next(((i, h) for i, h in enumerate(releases) if h[1] in wanted), None)
+        resolution = RESOLUTION.search(usable)
+        if match and resolution:
+            i, heading = match
+            end = releases[i + 1].start() if i + 1 < len(releases) else len(usable)
+            validation = re.search(r"(?im)^To confirm\b", usable[heading.start():end])
+            if validation:
+                end = heading.start() + validation.start()
+            setup = unit(resolution.end(), releases[0].start(), "shared procedure setup")
+            branch = unit(heading.start(), end, heading[0].strip())
+            if setup and branch and limit >= 2:
+                return [setup, branch]
+    if "configured_identity" in facts:
+        alias = re.search(r"(?im)^Default component.managed authentication alias[^\n]*", usable)
+        if alias:
+            following = re.search(r"(?im)^Authentication alias for inbound\b", usable[alias.end():])
+            end = alias.end() + following.start() if following else len(usable)
+            procedure = unit(alias.start(), end, "outbound identity configuration")
+            default = re.search(r"(?im)^Default behavio\w* when no credentials[^\n]*", usable)
+            cause = None
+            if default:
+                following = re.search(r"(?im)^Container.managed security[^\n]*",
+                                      usable[default.end():])
+                if following:
+                    cause = unit(default.start(), default.end() + following.start(),
+                                 "default outbound identity condition")
+            if procedure:
+                return ([cause, procedure] if cause and limit >= 2 else [procedure])
+    splitter = RecursiveCharacterTextSplitter(chunk_size=900, chunk_overlap=80)
+    words = set(tokens(query))
+    requested_releases = set(re.findall(
+        r"(?:release|version|\b[A-Z][A-Za-z]+)\s+(\d{2})(?![\d.])", query,
+        re.IGNORECASE))
+    headings = list(re.finditer(
+        r"(?m)^\s*(?:[A-Z][A-Z /()_-]{5,}|[^\n]{0,65}\b(?:Release|V)\s*"
+        r"\d+(?:\.\d+)*[^\n]{0,8})\s*(?=\n)", usable))
+    candidates: dict[str, Passage] = {}
+
+    def add(value: str, bonus: float = 0) -> None:
+        value = value.strip()
+        start = usable.find(value)
+        if start < 0 or len(value) < 20 or len(value) > max_chars:
+            return
+        release = re.match(r".*\bRelease\s+(\d+)\b", value.splitlines()[0], re.IGNORECASE)
+        if release and requested_releases and release[1] not in requested_releases:
+            return
+        # A note after a flattened part-number table is a new paragraph, not a step.
+        note = re.search(r"\bNote:\s", value)
+        if note:
+            value = value[:note.start()].rstrip()
+        complete = complete_instructions(value, usable, max_chars=max_chars)
+        if not complete:
+            # A shared preamble can end at a version branch. It is a dependency
+            # of the matching version procedure, not a standalone complete answer.
+            if not (LIST_ITEM.search(value) and value.rstrip().endswith(":")
+                    and requested_releases):
+                return
+            complete = value
+        value = complete
+        releases = set(re.findall(r"\bRelease\s+(\d+)\b", value, re.IGNORECASE))
+        if requested_releases and releases and not releases <= requested_releases:
+            return
+        start = usable.find(value)
+        covers = potential_coverage(query, value)
+        overlap = len(words & set(tokens(value))) / max(len(words), 1)
+        noise = len(re.findall(r"https?://|\[/support/", value)) * 0.5
+        heading = next((h[0].strip() for h in reversed(headings) if h.start() <= start), "")
+        score = len(covers) * 2.0 + overlap - noise + bonus
+        if requested_releases and releases == requested_releases:
+            score += 2.0
+        if RESOLUTION.search(heading + "\n"):
+            score += 0.35
+        if retrieved_excerpt and value in retrieved_excerpt:
+            score += 0.15  # A positional hint cannot outweigh a missing required aspect.
+        candidates[value] = Passage(value, score, start, start + len(value), heading,
+                                    covers, bool(LIST_ITEM.search(value)))
+
+    for value in splitter.split_text(usable):
+        add(value)
+    for passage in answer_passages(query, text, limit=12, retrieved_excerpt=retrieved_excerpt):
+        add(passage.text, min(2, passage.relevance))
+    # Whole bounded sections retain version tables and named procedure alternatives.
+    for i, heading in enumerate(headings):
+        end = headings[i + 1].start() if i + 1 < len(headings) else len(usable)
+        add(usable[heading.start():end])
+    # Merge nearby complementary spans, retaining intervening conditions verbatim.
+    initial = sorted(candidates.values(), key=lambda p: -p.relevance)[:24]
+    for left in initial:
+        for right in initial:
+            if (left.start_char < right.start_char and right.end_char - left.start_char <= max_chars
+                    and set(right.covers) - set(left.covers)):
+                add(usable[left.start_char:right.end_char])
+    selected: list[Passage] = []
+    covered: set[str] = set()
+    while candidates and len(selected) < limit:
+        ranked = sorted(candidates.values(), key=lambda p: (
+            -(len(set(p.covers) - covered) * 3 + p.relevance), len(p.text), p.start_char))
+        chosen = ranked[0]
+        if selected and not set(chosen.covers) - covered:
+            # Different halves of a versioned procedure cover the same fact slot
+            # but contain complementary command steps. Keep the original preamble.
+            continuations = [p for p in ranked if p.instruction_group
+                             and requested_releases and not re.search(
+                                 r"\bRelease\s+\d+\b", p.text, re.IGNORECASE)]
+            if not continuations:
+                break
+            chosen = continuations[0]
+        selected.append(chosen)
+        covered.update(chosen.covers)
+        candidates = {k: p for k, p in candidates.items()
+                      if not (p.text in chosen.text or chosen.text in p.text)
+                      and len(set(tokens(p.text)) & set(tokens(chosen.text)))
+                      / max(len(set(tokens(p.text)) | set(tokens(chosen.text))), 1) < 0.82}
+    return sorted(selected, key=lambda p: p.start_char)

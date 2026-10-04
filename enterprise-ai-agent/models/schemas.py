@@ -71,6 +71,11 @@ class Evidence(StrictModel):
     applicability: str = ""
     relevance: float = Field(ge=0, le=1)
     tokens: int = Field(ge=0)
+    section: str = ""
+    start_char: int = -1
+    end_char: int = -1
+    covers: list[str] = Field(default_factory=list)
+    instruction_group: bool = False
 
 
 class CompressionResult(StrictModel):

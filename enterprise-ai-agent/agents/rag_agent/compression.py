@@ -43,7 +43,7 @@ class ContextCompressor:
                     float(d.metadata.get("_acceptance_threshold", relevance_threshold()))
                 )
             ]
-            from rag.techqa.evidence import answer_passages
+            from rag.techqa.evidence import aspect_passages
 
             resolved: list[Evidence] = []
             seen_passages: set[str] = set()
@@ -53,8 +53,8 @@ class ContextCompressor:
                         or component_conflict(query, title)
                         or requirement_error_conflict(query, document.text)):
                     continue
-                for passage in answer_passages(
-                    query, document.text, limit=1,
+                for passage in aspect_passages(
+                    query, document.text, limit=2,
                     retrieved_excerpt=str(document.metadata.get("_retrieved_excerpt", "")),
                 ):
                     if passage.text in seen_passages:
@@ -69,11 +69,16 @@ class ContextCompressor:
                         applicability=document.text[:500],
                         relevance=min(1, max(0, document.score)),
                         tokens=token_count(passage.text),
+                        section=passage.section, start_char=passage.start_char,
+                        end_char=passage.end_char, covers=list(passage.covers),
+                        instruction_group=passage.instruction_group,
                     )
                     if token_count(serialize_evidence([*resolved, evidence])) > self.max_tokens:
                         continue
                     resolved.append(evidence)
                     seen_passages.add(passage.text)
+                    if len(resolved) >= self.max_sources:
+                        break
                 if len(resolved) >= self.max_sources:
                     break
             return CompressionResult(
