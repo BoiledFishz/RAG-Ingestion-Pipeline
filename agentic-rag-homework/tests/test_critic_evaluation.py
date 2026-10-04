@@ -21,8 +21,12 @@ def test_empty_retrieval_records_all_trials_without_model_calls(monkeypatch, tmp
 
     monkeypatch.setattr(critic_stability, "TechQAStore", EmptyStore)
     monkeypatch.setattr(critic_stability, "OllamaStructuredModel", forbidden_model)
+    async def offline_protocol():
+        return {"scope": "isolated test double; no model call"}
+    monkeypatch.setattr(critic_stability, "runtime_protocol", offline_protocol)
+    output = tmp_path / "fresh"
     summary = asyncio.run(critic_stability.evaluate(
-        2, 2, tmp_path, False, "retrieved", "fixture", "all",
+        2, 2, output, False, "retrieved", "fixture", "all",
     ))
     assert summary["complete"]
     assert summary["trials"] == 4
@@ -32,4 +36,8 @@ def test_empty_retrieval_records_all_trials_without_model_calls(monkeypatch, tmp
     assert summary["pass_rate"] == 0
     assert summary["sufficiency_consistency"] == 0
     assert summary["labelled_refusal_accuracy"] == 0
-    assert len((tmp_path / "runs.jsonl").read_text(encoding="utf-8").splitlines()) == 4
+    assert len((output / "runs.jsonl").read_text(encoding="utf-8").splitlines()) == 4
+    import pytest
+    with pytest.raises(FileExistsError):
+        asyncio.run(critic_stability.evaluate(
+            2, 2, output, False, "retrieved", "fixture", "all"))

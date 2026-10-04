@@ -73,8 +73,12 @@ class ApplicabilityConflict(BaseModel):
 
 
 class LLMSelector:
-    def __init__(self, model: StructuredModel) -> None:
+    def __init__(self, model: StructuredModel, *, controlled: bool = False,
+                 fact_audit: bool = False, group_by_document: bool = False) -> None:
         self.model = model
+        self.controlled = controlled
+        self.fact_audit = fact_audit
+        self.group_by_document = group_by_document
 
     async def select(
         self,
@@ -82,6 +86,50 @@ class LLMSelector:
         evidence: list[Evidence],
         correction: str = "",
     ) -> SelectionDraft:
+        if self.group_by_document and not self.controlled:
+            groups: dict[str, list[Evidence]] = {}
+            for item in evidence:
+                groups.setdefault(item.source_file, []).append(item)
+            partial: SelectionDraft | None = None
+            last_error: InvalidEvidence | None = None
+            for group in groups.values():
+                try:
+                    selected = await self.select_group(query, group, correction)
+                except InvalidEvidence as exc:
+                    LOGGER.warning("Skipping document with invalid evidence review: %s", exc)
+                    last_error = exc
+                    continue
+                if selected.quotes and selected.answer_status == "complete":
+                    return selected
+                if selected.quotes and (partial is None or
+                        len(selected.covered_facts) > len(partial.covered_facts)):
+                    partial = selected
+            if partial is None and last_error:
+                raise last_error
+            return partial or SelectionDraft()
+        return await self.select_group(query, evidence, correction)
+
+    async def select_group(
+        self, query: str, evidence: list[Evidence], correction: str = "",
+    ) -> SelectionDraft:
+        if self.controlled:
+            from rag.techqa.claims import compose_checked_answer
+
+            allowed = {e.source_id: e for e in evidence if not explicit_mismatch(query, e)}
+            if not allowed:
+                return SelectionDraft()
+            try:
+                composed = await compose_checked_answer(self.model, query,
+                    {key: item.excerpt for key, item in allowed.items()},
+                    {key: {"title": item.title, "applicability": item.applicability}
+                     for key, item in allowed.items()}, correction=correction)
+            except ValueError as exc:
+                raise InvalidEvidence(str(exc)) from exc
+            keys = list(dict.fromkeys(c.source_id for c in composed.claims))
+            return SelectionDraft(
+                quotes=[Quotation(source_id=key, quote=allowed[key].excerpt) for key in keys],
+                controlled_answer=composed.render(), answer_status=composed.status,
+                covered_facts=composed.covered_facts, missing_facts=composed.missing_facts)
         prompt = (
             "Answer an enterprise technical-support question by selecting only directly "
             "relevant evidence. "
@@ -104,16 +152,48 @@ class LLMSelector:
         )
         schema = selection_schema("source_ids", [e.source_id for e in evidence])
         result = PassageSelection.model_validate_json(await self.model.generate(prompt, schema))
+        LOGGER.info("Evidence selection: sources=%s sufficient=%s",
+                    result.source_ids, result.sufficient)
         allowed = {e.source_id: e for e in evidence}
         if any(identifier not in allowed for identifier in result.source_ids):
             raise InvalidEvidence("Unknown selected passage ID")
         if result.sufficient:
             selected = [allowed[key] for key in dict.fromkeys(result.source_ids)]
             result = await self.review(query, selected, correction)
-        return SelectionDraft(quotes=[
+        elif self.fact_audit and self.group_by_document and evidence:
+            # A legacy binary selector cannot express an incomplete comparison.
+            # Audit the bounded, complementary same-document passages for a partial
+            # answer; the actual-body audit must still prove useful request coverage.
+            result = PassageSelection(sufficient=True,
+                                      source_ids=[e.source_id for e in evidence[:2]])
+        draft = SelectionDraft(quotes=[
             Quotation(source_id=identifier, quote=allowed[identifier].excerpt)
             for identifier in dict.fromkeys(result.source_ids)
         ])
+        if self.fact_audit and draft.quotes:
+            from rag.techqa.claims import audit_requirements
+
+            selected_map = {q.source_id: allowed[q.source_id] for q in draft.quotes}
+            body = "\n".join(f"{q.quote} [{q.source_id}]" for q in draft.quotes)
+            try:
+                audit = await audit_requirements(self.model, query, body,
+                    {key: e.excerpt for key, e in selected_map.items()},
+                    {key: {"title": e.title, "applicability": e.applicability}
+                     for key, e in selected_map.items()})
+            except ValueError as exc:
+                raise InvalidEvidence(str(exc)) from exc
+            LOGGER.info("Extractive fact coverage: covered=%s missing=%s incorrect=%s",
+                        audit.covered_facts, audit.missing_facts, audit.incorrect_facts)
+            if audit.incorrect_facts or not audit.covered_facts:
+                LOGGER.info("Extractive fact audit rejected: covered=%s missing=%s incorrect=%s",
+                            audit.covered_facts, audit.missing_facts, audit.incorrect_facts)
+                return SelectionDraft()
+            draft.covered_facts, draft.missing_facts = audit.covered_facts, audit.missing_facts
+            if audit.missing_facts:
+                draft.answer_status = "partial"
+                draft.controlled_answer = ("部分信息，仍缺少：" + ", ".join(audit.missing_facts)
+                                           + "。\n" + body)
+        return draft
 
     async def review(
         self, query: str, evidence: list[Evidence], correction: str = "",
@@ -312,4 +392,9 @@ def grounded_response(draft: SelectionDraft, evidence: list[Evidence]) -> AgentR
         relevance.append(source.relevance)
     # An evidence-coverage heuristic, not a calibrated probability of truth.
     confidence = round(min(0.95, 0.25 + 0.65 * sum(relevance) / len(relevance)), 3)
-    return AgentResponse(answer="\n".join(answer), sources=sources, confidence=confidence)
+    body = draft.controlled_answer or "\n".join(answer)
+    if set(re.findall(r"\[(S\d+)\]", body)) != seen:
+        raise InvalidEvidence("Answer citations must match this response's source map")
+    if draft.answer_status == "partial":
+        confidence = min(confidence, .4)
+    return AgentResponse(answer=body, sources=sources, confidence=confidence)

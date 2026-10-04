@@ -1,0 +1,278 @@
+[
+  {
+    "question_id": "DEV_Q000",
+    "response": null,
+    "baseline_status": "answered",
+    "error": null,
+    "draft": {
+      "quotes": [],
+      "controlled_answer": "",
+      "answer_status": "complete",
+      "covered_facts": [],
+      "missing_facts": []
+    },
+    "latency_ms": 74283.88960001757
+  },
+  {
+    "question_id": "DEV_Q007",
+    "response": {
+      "answer": "Netcool/OMNIbus V8.1\n\nIf you are running Netcool/OMNIbus V8.1, a single package contains versions of the gateway for all supported Operating Systems. To obtain this new package, use the Find by part number field to search for part number: CNS7AEN [S5]\nNetcool/OMNIbus V7.4.0\n\nIf you are running Netcool/OMNIbus V7.4.0, a separate package is supplied for each Operating System. To obtain this new package, use the Find by part number field to search for the part number that corresponds to your Operating System as shown in the table below.\n\nPart number Operating System CNS75EN AIX CNS77EN Linux CNS78EN Solaris CNS79EN Windows CNS76EN zLinux [S6]",
+      "sources": [
+        {
+          "source_id": "S5",
+          "chunk_id": "techqa:swg21665219:parent",
+          "source_file": "techqa://swg21665219",
+          "page_number": 1,
+          "quote": "Netcool/OMNIbus V8.1\n\nIf you are running Netcool/OMNIbus V8.1, a single package contains versions of the gateway for all supported Operating Systems. To obtain this new package, use the Find by part number field to search for part number: CNS7AEN"
+        },
+        {
+          "source_id": "S6",
+          "chunk_id": "techqa:swg21665219:parent",
+          "source_file": "techqa://swg21665219",
+          "page_number": 1,
+          "quote": "Netcool/OMNIbus V7.4.0\n\nIf you are running Netcool/OMNIbus V7.4.0, a separate package is supplied for each Operating System. To obtain this new package, use the Find by part number field to search for the part number that corresponds to your Operating System as shown in the table below.\n\nPart number Operating System CNS75EN AIX CNS77EN Linux CNS78EN Solaris CNS79EN Windows CNS76EN zLinux"
+        }
+      ],
+      "confidence": 0.678
+    },
+    "baseline_status": "unanswerable",
+    "error": null,
+    "draft": {
+      "quotes": [
+        {
+          "source_id": "S5",
+          "quote": "Netcool/OMNIbus V8.1\n\nIf you are running Netcool/OMNIbus V8.1, a single package contains versions of the gateway for all supported Operating Systems. To obtain this new package, use the Find by part number field to search for part number: CNS7AEN"
+        },
+        {
+          "source_id": "S6",
+          "quote": "Netcool/OMNIbus V7.4.0\n\nIf you are running Netcool/OMNIbus V7.4.0, a separate package is supplied for each Operating System. To obtain this new package, use the Find by part number field to search for the part number that corresponds to your Operating System as shown in the table below.\n\nPart number Operating System CNS75EN AIX CNS77EN Linux CNS78EN Solaris CNS79EN Windows CNS76EN zLinux"
+        }
+      ],
+      "controlled_answer": "",
+      "answer_status": "complete",
+      "covered_facts": [
+        "option_a",
+        "option_b",
+        "selection_rule"
+      ],
+      "missing_facts": []
+    },
+    "latency_ms": 55160.79140000511
+  },
+  {
+    "question_id": "TRAIN_Q006",
+    "response": {
+      "answer": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nTivoli Network Manager IP Edition 4.1.1 (Huawei MTOSI Collector install)\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone [S1]",
+      "sources": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg22008493:parent",
+          "source_file": "techqa://swg22008493",
+          "page_number": 1,
+          "quote": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nTivoli Network Manager IP Edition 4.1.1 (Huawei MTOSI Collector install)\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone"
+        }
+      ],
+      "confidence": 0.746
+    },
+    "baseline_status": "answered",
+    "error": null,
+    "draft": {
+      "quotes": [
+        {
+          "source_id": "S1",
+          "quote": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nTivoli Network Manager IP Edition 4.1.1 (Huawei MTOSI Collector install)\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone"
+        }
+      ],
+      "controlled_answer": "",
+      "answer_status": "complete",
+      "covered_facts": [
+        "affected_versions",
+        "remediation",
+        "vulnerability"
+      ],
+      "missing_facts": []
+    },
+    "latency_ms": 23206.95349999005
+  },
+  {
+    "question_id": "TRAIN_Q007",
+    "response": {
+      "answer": "*  set the mappingConfigAlias to DefaultPrincipalMapping [S5]",
+      "sources": [
+        {
+          "source_id": "S5",
+          "chunk_id": "techqa:swg1PI81163:parent",
+          "source_file": "techqa://swg1PI81163",
+          "page_number": 1,
+          "quote": "*  set the mappingConfigAlias to DefaultPrincipalMapping"
+        }
+      ],
+      "confidence": 0.64
+    },
+    "baseline_status": "answered",
+    "error": null,
+    "draft": {
+      "quotes": [
+        {
+          "source_id": "S5",
+          "quote": "*  set the mappingConfigAlias to DefaultPrincipalMapping"
+        }
+      ],
+      "controlled_answer": "",
+      "answer_status": "complete",
+      "covered_facts": [
+        "configured_identity",
+        "required_steps"
+      ],
+      "missing_facts": []
+    },
+    "latency_ms": 75321.55140000395
+  },
+  {
+    "question_id": "TRAIN_Q011",
+    "response": {
+      "answer": "* A valid Authorized User product authorization code can be used to license up to two (2) product installations used by the same individual. \n * A valid Site license allows for more than one user to license product installations using the same authorization code. \n * Compliance with your IBM software licensing agreement does not require a transfer of a license from one host machine/computer to a different one. \n * Compliance with your IBM software licensing agreement does not require the previously installed IBM SPSS product to be uninstalled in order to install and license the same product on a new host machine/computer. \n * Compliance with your IBM software licensing agreement does not require the removal of the license of the previously installed product. \n * Compliance with your IBM software licensing agreement does not require the return of previously issued licenses. [S1]\n2. License the software on the new host machine/computer. \n * If you have authorization code for the product, you may use this authorization code. \n * If you are using a pre-existing authorization code and receive a 'You are not allowed to generate any more new licenses' message, instructions for resolving this issue can be found here. [http://www.ibm.com/support/docview.wss?uid=swg21480566] \n * If you do not have an authorization code for the product, instructions for creating an authorization code can be found here. [http://www-01.ibm.com/support/docview.wss?uid=swg21980065] \n * If you have more than one authorization code available to you, instructions for confirming the authorization code can be found make sure you are here [http://www.ibm.com/support/docview.wss?uid=swg21486143]. \n\nComplete! \n\nYou should now be able to run your software. [S2]",
+      "sources": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg21985888:parent",
+          "source_file": "techqa://swg21985888",
+          "page_number": 1,
+          "quote": "* A valid Authorized User product authorization code can be used to license up to two (2) product installations used by the same individual. \n * A valid Site license allows for more than one user to license product installations using the same authorization code. \n * Compliance with your IBM software licensing agreement does not require a transfer of a license from one host machine/computer to a different one. \n * Compliance with your IBM software licensing agreement does not require the previously installed IBM SPSS product to be uninstalled in order to install and license the same product on a new host machine/computer. \n * Compliance with your IBM software licensing agreement does not require the removal of the license of the previously installed product. \n * Compliance with your IBM software licensing agreement does not require the return of previously issued licenses."
+        },
+        {
+          "source_id": "S2",
+          "chunk_id": "techqa:swg21985888:parent",
+          "source_file": "techqa://swg21985888",
+          "page_number": 1,
+          "quote": "2. License the software on the new host machine/computer. \n * If you have authorization code for the product, you may use this authorization code. \n * If you are using a pre-existing authorization code and receive a 'You are not allowed to generate any more new licenses' message, instructions for resolving this issue can be found here. [http://www.ibm.com/support/docview.wss?uid=swg21480566] \n * If you do not have an authorization code for the product, instructions for creating an authorization code can be found here. [http://www-01.ibm.com/support/docview.wss?uid=swg21980065] \n * If you have more than one authorization code available to you, instructions for confirming the authorization code can be found make sure you are here [http://www.ibm.com/support/docview.wss?uid=swg21486143]. \n\nComplete! \n\nYou should now be able to run your software."
+        }
+      ],
+      "confidence": 0.677
+    },
+    "baseline_status": "answered",
+    "error": null,
+    "draft": {
+      "quotes": [
+        {
+          "source_id": "S1",
+          "quote": "* A valid Authorized User product authorization code can be used to license up to two (2) product installations used by the same individual. \n * A valid Site license allows for more than one user to license product installations using the same authorization code. \n * Compliance with your IBM software licensing agreement does not require a transfer of a license from one host machine/computer to a different one. \n * Compliance with your IBM software licensing agreement does not require the previously installed IBM SPSS product to be uninstalled in order to install and license the same product on a new host machine/computer. \n * Compliance with your IBM software licensing agreement does not require the removal of the license of the previously installed product. \n * Compliance with your IBM software licensing agreement does not require the return of previously issued licenses."
+        },
+        {
+          "source_id": "S2",
+          "quote": "2. License the software on the new host machine/computer. \n * If you have authorization code for the product, you may use this authorization code. \n * If you are using a pre-existing authorization code and receive a 'You are not allowed to generate any more new licenses' message, instructions for resolving this issue can be found here. [http://www.ibm.com/support/docview.wss?uid=swg21480566] \n * If you do not have an authorization code for the product, instructions for creating an authorization code can be found here. [http://www-01.ibm.com/support/docview.wss?uid=swg21980065] \n * If you have more than one authorization code available to you, instructions for confirming the authorization code can be found make sure you are here [http://www.ibm.com/support/docview.wss?uid=swg21486143]. \n\nComplete! \n\nYou should now be able to run your software."
+        }
+      ],
+      "controlled_answer": "",
+      "answer_status": "complete",
+      "covered_facts": [
+        "activation_on_new_host",
+        "required_steps"
+      ],
+      "missing_facts": []
+    },
+    "latency_ms": 17143.693300022278
+  },
+  {
+    "question_id": "DEV_Q002",
+    "response": null,
+    "baseline_status": "partial",
+    "error": null,
+    "draft": {
+      "quotes": [],
+      "controlled_answer": "",
+      "answer_status": "complete",
+      "covered_facts": [],
+      "missing_facts": []
+    },
+    "latency_ms": 97711.73070004443
+  },
+  {
+    "question_id": "DEV_Q010",
+    "response": null,
+    "baseline_status": "answered",
+    "error": "InvalidEvidence: Conflict claims must quote actual query/source substrings: source_claim 'NLS_CHARACTERSET = WE8MSWIN1252, NLS_NCHAR_CHARACTERSET = AL16UTF16. Found: NLS_CHARACTERSET = WE8MS' is absent from S5; copy a shorter exact span from this supplied source",
+    "latency_ms": 58186.129500041716
+  },
+  {
+    "question_id": "DEV_Q012",
+    "response": {
+      "answer": "This ARG_MAX kernel parameter adjusted to much larger from kernel release version 2.6.23, that is 2621440 (http://www.in-ulm.de/~mascheck/various/argmax [http://www.in-ulm.de/~mascheck/various/argmax]). \n\nBut we support upto Redhat 5.11 in Twinfin which is less than kernel release 2.6.23. So we have no way to allow ARG_MAX larger than 131072 at this time. [S1]",
+      "sources": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg21959723:parent",
+          "source_file": "techqa://swg21959723",
+          "page_number": 1,
+          "quote": "This ARG_MAX kernel parameter adjusted to much larger from kernel release version 2.6.23, that is 2621440 (http://www.in-ulm.de/~mascheck/various/argmax [http://www.in-ulm.de/~mascheck/various/argmax]). \n\nBut we support upto Redhat 5.11 in Twinfin which is less than kernel release 2.6.23. So we have no way to allow ARG_MAX larger than 131072 at this time."
+        }
+      ],
+      "confidence": 0.822
+    },
+    "baseline_status": "answered",
+    "error": null,
+    "draft": {
+      "quotes": [
+        {
+          "source_id": "S1",
+          "quote": "This ARG_MAX kernel parameter adjusted to much larger from kernel release version 2.6.23, that is 2621440 (http://www.in-ulm.de/~mascheck/various/argmax [http://www.in-ulm.de/~mascheck/various/argmax]). \n\nBut we support upto Redhat 5.11 in Twinfin which is less than kernel release 2.6.23. So we have no way to allow ARG_MAX larger than 131072 at this time."
+        }
+      ],
+      "controlled_answer": "",
+      "answer_status": "complete",
+      "covered_facts": [
+        "requested_answer"
+      ],
+      "missing_facts": []
+    },
+    "latency_ms": 13657.575000019278
+  },
+  {
+    "question_id": "TRAIN_Q000",
+    "response": null,
+    "baseline_status": "answered",
+    "error": null,
+    "draft": {
+      "quotes": [],
+      "controlled_answer": "",
+      "answer_status": "complete",
+      "covered_facts": [],
+      "missing_facts": []
+    },
+    "latency_ms": 89505.3558999789
+  },
+  {
+    "question_id": "TRAIN_Q001",
+    "response": {
+      "answer": "Upon completion of the subsequent Policy, the Activate() action function returns the context (including all updates to the EventContainer and additional variables) back to the same point (immediately after the Activate()) in the original Policy, which is then processed to conclusion. \n\nIf one has the need to configure a return to the original Policy before the conclusion of the subsequent Policy; one can employ the Exit() parser function - please see TechNote \"Exit() action within User Defined Function in Impact Policy Language\" [ link below]. This will exit the immediate scope of the process and return to the same point (immediately after the Activate()) in the original Policy with the context including all updates to the EventContainer and additional variables acquired in the subsequent Policy. [S2]",
+      "sources": [
+        {
+          "source_id": "S2",
+          "chunk_id": "techqa:swg21676634:parent",
+          "source_file": "techqa://swg21676634",
+          "page_number": 1,
+          "quote": "Upon completion of the subsequent Policy, the Activate() action function returns the context (including all updates to the EventContainer and additional variables) back to the same point (immediately after the Activate()) in the original Policy, which is then processed to conclusion. \n\nIf one has the need to configure a return to the original Policy before the conclusion of the subsequent Policy; one can employ the Exit() parser function - please see TechNote \"Exit() action within User Defined Function in Impact Policy Language\" [ link below]. This will exit the immediate scope of the process and return to the same point (immediately after the Activate()) in the original Policy with the context including all updates to the EventContainer and additional variables acquired in the subsequent Policy."
+        }
+      ],
+      "confidence": 0.722
+    },
+    "baseline_status": "answered",
+    "error": null,
+    "draft": {
+      "quotes": [
+        {
+          "source_id": "S2",
+          "quote": "Upon completion of the subsequent Policy, the Activate() action function returns the context (including all updates to the EventContainer and additional variables) back to the same point (immediately after the Activate()) in the original Policy, which is then processed to conclusion. \n\nIf one has the need to configure a return to the original Policy before the conclusion of the subsequent Policy; one can employ the Exit() parser function - please see TechNote \"Exit() action within User Defined Function in Impact Policy Language\" [ link below]. This will exit the immediate scope of the process and return to the same point (immediately after the Activate()) in the original Policy with the context including all updates to the EventContainer and additional variables acquired in the subsequent Policy."
+        }
+      ],
+      "controlled_answer": "",
+      "answer_status": "complete",
+      "covered_facts": [
+        "applicable_solution",
+        "required_steps"
+      ],
+      "missing_facts": []
+    },
+    "latency_ms": 37746.93069997011
+  }
+]

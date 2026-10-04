@@ -76,8 +76,9 @@ def evidence_blocks(evidence: str) -> dict[str, str]:
 class LLMGroundedDiagnosisAgent:
     """Production diagnosis selects complete evidence blocks, without free factual prose."""
 
-    def __init__(self, model: StructuredModel) -> None:
+    def __init__(self, model: StructuredModel, *, controlled: bool = False) -> None:
         self.model = model
+        self.controlled = controlled
 
     async def run(
         self, task: str, evidence: str, previous: str = "",
@@ -86,15 +87,31 @@ class LLMGroundedDiagnosisAgent:
     ) -> str:
         blocks = evidence_blocks(evidence)
         identifiers = list(blocks)
+        partial = ""
+        partial_coverage = -1
         for offset in range(0, len(identifiers), 4):
             subset = {key: blocks[key] for key in identifiers[offset:offset + 4]}
             context = {key: value for key, value in (source_context or {}).items()
                        if key in subset}
+            if self.controlled:
+                from rag.techqa.claims import audit_claims, compose_answer
+
+                # The independent Critic evaluates the actual composed body.
+                composed = await compose_answer(self.model, task, subset, context,
+                    correction=json.dumps({"previous_answer": previous,
+                        "issues": [i.model_dump() for i in feedback or []]}, ensure_ascii=False))
+                if composed.claims:
+                    await audit_claims(self.model, task, composed, subset, context)
+                if composed.status == "complete" and composed.claims:
+                    return str(composed.render())
+                if composed.claims and len(composed.covered_facts) > partial_coverage:
+                    partial, partial_coverage = composed.render(), len(composed.covered_facts)
+                continue
             selected = await self.select(task, subset, previous, feedback, context)
             if selected.sufficient:
                 return "\n".join(f"{blocks[key]} [{key}]"
                                  for key in dict.fromkeys(selected.source_ids))
-        return f"{INSUFFICIENT_DIAGNOSIS} [{next(iter(blocks))}]"
+        return partial or f"{INSUFFICIENT_DIAGNOSIS} [{next(iter(blocks))}]"
 
     async def select(
         self, task: str, blocks: dict[str, str], previous: str,
@@ -489,6 +506,7 @@ class CriticLoop:
                                                      source_context=source_context)
                 review_evidence, review_context = evidence, source_context
                 if (isinstance(self.diagnosis, LLMGroundedDiagnosisAgent)
+                        and not self.diagnosis.controlled
                         and not diagnosis.startswith(INSUFFICIENT_DIAGNOSIS)):
                     # The answer consists of whole selected blocks. Review only
                     # their provenance, not contradictory unrelated candidates.
@@ -502,6 +520,7 @@ class CriticLoop:
                                           for key, value in (source_context or {}).items()
                                           if key in cited_blocks}
                 if (isinstance(self.diagnosis, LLMGroundedDiagnosisAgent)
+                        and not self.diagnosis.controlled
                         and not diagnosis.startswith(INSUFFICIENT_DIAGNOSIS)):
                     critique = await self.critic.review_grounded_answer(
                         task, review_evidence, review_context,
@@ -595,7 +614,7 @@ class CriticLoop:
         return CriticLoopRun(
             final_diagnosis=previous,
             answer_sufficient=(attempts[-1].critique.passed and bool(previous.strip())
-                               and not previous.startswith(INSUFFICIENT_DIAGNOSIS)),
+                               and not previous.startswith((INSUFFICIENT_DIAGNOSIS, "部分信息"))),
             passed=attempts[-1].critique.passed,
             retries=len(attempts) - 1,
             attempts=attempts,

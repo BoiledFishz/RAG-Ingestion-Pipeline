@@ -90,8 +90,12 @@ class Quotation(StrictModel):
 
 
 class SelectionDraft(StrictModel):
-    # Only exact quotations can enter the final answer. No free-form factual claim.
+    # Claims enter only after exact support/literal and independent body auditing.
     quotes: list[Quotation] = Field(default_factory=list, max_length=4)
+    controlled_answer: str = ""
+    answer_status: Literal["complete", "partial", "unanswerable"] = "complete"
+    covered_facts: list[str] = Field(default_factory=list)
+    missing_facts: list[str] = Field(default_factory=list)
 
 
 class Source(StrictModel):
@@ -123,7 +127,10 @@ class RunTrace(StrictModel):
     evidence: list[Evidence] = Field(default_factory=list)
     original_tokens: int = 0
     context_tokens: int = 0
-    status: Literal["answered", "clarified", "unanswerable", "invalid_evidence"] = "unanswerable"
+    status: Literal["answered", "partial", "clarified", "unanswerable", "invalid_evidence"] = (
+        "unanswerable")
+    covered_facts: list[str] = Field(default_factory=list)
+    missing_facts: list[str] = Field(default_factory=list)
     retries: int = 0
     validation_failures: list[str] = Field(default_factory=list)
     latency_ms: float = 0

@@ -6,10 +6,10 @@ import logging
 import time
 from typing import Literal
 
-from rag.techqa.evidence import answer_passages
+from rag.techqa.evidence import aspect_passages
 
 from agents.rag_agent.service import ContextCompressor, GroundedAnswerer
-from models.llm import MeteredModel, StructuredModel
+from models.llm import MeteredModel, StructuredModel, token_count
 from models.schemas import Document, Metrics, RAGResponse, ResearchAction, ResearchRun, ResearchStep
 from tools.documents import DocumentAdapter
 from tools.retriever import RetrieverTool
@@ -100,13 +100,17 @@ class LLMResearchPolicy:
     async def decide(
         self, query: str, steps: list[ResearchStep], known: list[Document], *, objective: str = ""
     ) -> ResearchAction:
-        observations = [
-            {"id": doc.document_id, "title": doc.title[:200], "score": doc.score,
-             "text": "\n".join(p.text for p in answer_passages(
-                 query, doc.text, limit=1, retrieved_excerpt=doc.retrieved_excerpt,
-             ))}
-            for doc in sorted(known, key=lambda doc: doc.score, reverse=True)[:8]
-        ]
+        observations = []
+        budget = 3600
+        for doc in sorted(known, key=lambda doc: doc.score, reverse=True)[:8]:
+            text = "\n".join(p.text for p in aspect_passages(
+                query, doc.text, limit=2, retrieved_excerpt=doc.retrieved_excerpt))
+            size = token_count(text)
+            if size > budget:
+                continue  # Never truncate an instruction group to fit observations.
+            observations.append({"id": doc.document_id, "title": doc.title[:200],
+                                 "score": doc.score, "text": text})
+            budget -= size
         prompt = (
             "KIND: REACT\nChoose exactly one next action. Use finish when evidence directly "
             "answers the question. Use read_document for a promising result that needs detail. "
@@ -134,12 +138,13 @@ class ReActResearchAgent:
         policy: LLMResearchPolicy,
         model_meter: MeteredModel | None = None,
         max_steps: int = 5,
+        *, controlled: bool = False, fact_audit: bool = False,
     ) -> None:
         if not 2 <= max_steps <= 10:
             raise ValueError("max_steps must reserve a bounded verification step")
         self.rag, self.search, self.documents = rag, search, documents
         self.policy, self.model_meter, self.max_steps = policy, model_meter, max_steps
-        self.answerer = GroundedAnswerer(policy.model)
+        self.answerer = GroundedAnswerer(policy.model, controlled=controlled, fact_audit=fact_audit)
 
     async def run(
         self,

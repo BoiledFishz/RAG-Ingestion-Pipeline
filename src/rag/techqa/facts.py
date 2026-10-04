@@ -54,7 +54,9 @@ def required_facts(query: str) -> list[RequiredFact]:
                     r"component.managed authentication alias|componentAuthAlias|"
                     r"container.managed security|user\.name"),
                 RequiredFact("required_steps", "Supply concrete applicable configuration steps "
-                             "when changing credential selection; do not merely repeat symptoms",
+                             "when changing credential selection; address why the configured "
+                             "identity is replaced, not a different application's generic "
+                             "connection error; do not merely repeat symptoms",
                              r"wsadmin|modify\w*|configure|set |AdminTask")]
     if (re.search(r"(?:activation|authorization) code", query, re.IGNORECASE)
             and re.search(r"new.*(?:computer|host|mac)|licens", query, re.IGNORECASE)):
@@ -72,7 +74,9 @@ def required_facts(query: str) -> list[RequiredFact]:
                              r"answer|solution|resolv|work.?around|because|configure|if|requires"),
                 RequiredFact("required_steps", "Keep the chosen procedure complete with its "
                              "conditions and command arguments; one complete alternative is "
-                             "enough unless the user requests all alternatives",
+                             "enough unless the user requests all alternatives. A documented "
+                             "single action such as installing named missing libraries is "
+                             "complete without invented commands or extra verification steps",
                              r"\b[1-9][.)]\s|command|set |configure|install|solution|steps|"
                              r"--[A-Za-z][\w-]*")]
     return [RequiredFact("requested_answer", "Answer the principal factual request or give "

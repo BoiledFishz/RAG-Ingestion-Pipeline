@@ -154,14 +154,34 @@ class ContextCompressor:
 class GroundedAnswerer:
     """The model selects passage IDs; only validated original text becomes an answer."""
 
-    def __init__(self, model: StructuredModel | None = None, batch_size: int = 4) -> None:
+    def __init__(self, model: StructuredModel | None = None, batch_size: int = 4,
+                 *, controlled: bool = False, fact_audit: bool = False) -> None:
         if not 1 <= batch_size <= 6:
             raise ValueError("Evidence batches must contain between one and six passages")
         self.model = model
         self.batch_size = batch_size
+        self.controlled = controlled
+        self.fact_audit = fact_audit
 
     async def answer(self, query: str, documents: list[Document]) -> RAGResponse:
         candidates = ContextCompressor(max_sources=12).compress(query, documents)
+        if self.model and self.controlled:
+            return await self.compose(query, candidates)
+        if self.model and self.fact_audit:
+            groups: dict[str, list[tuple[Document, str, float]]] = {}
+            for candidate in candidates:
+                groups.setdefault(candidate[0].document_id, []).append(candidate)
+            partial: RAGResponse | None = None
+            for group in groups.values():
+                choice = await self.select(query, group)
+                accepted = ([group[i-1] for i in dict.fromkeys(choice.selected)]
+                            if choice.selected else group[:2])
+                response = await self.render_accepted(query, accepted)
+                if response.sources and response.confidence > .4:
+                    return response
+                if response.sources and partial is None:
+                    partial = response
+            return partial or RAGResponse(answer=REFUSAL, sources=[], confidence=0)
         accepted = candidates[:1] if self.model is None else []
         if self.model:
             for offset in range(0, len(candidates), self.batch_size):
@@ -177,6 +197,11 @@ class GroundedAnswerer:
                 if choice.selected:
                     accepted = [group[i-1] for i in dict.fromkeys(choice.selected)]
                     break
+        return await self.render_accepted(query, accepted)
+
+    async def render_accepted(
+        self, query: str, accepted: list[tuple[Document, str, float]],
+    ) -> RAGResponse:
         if not accepted:
             return RAGResponse(answer=REFUSAL, sources=[], confidence=0)
         covered = set().union(*(supported_identifiers(query, doc) for doc, _, _ in accepted))
@@ -185,10 +210,73 @@ class GroundedAnswerer:
         sources = [Source(document_id=doc.document_id, source=doc.source, quote=passage,
                           title=doc.title[:200], applicability=doc.text[:500])
                    for doc, passage, _ in accepted]
-        return RAGResponse(
-            answer="\n".join(f"{source.quote} [{i}]" for i, source in enumerate(sources, 1)),
-            sources=sources, confidence=0.8,
-        )
+        body = "\n".join(f"{source.quote} [{i}]" for i, source in enumerate(sources, 1))
+        confidence = .8
+        if self.model and self.fact_audit:
+            from rag.techqa.claims import audit_requirements
+
+            try:
+                audit = await audit_requirements(self.model, query, body,
+                    {str(i): s.quote for i, s in enumerate(sources, 1)},
+                    {str(i): {"title": s.title, "applicability": s.applicability}
+                     for i, s in enumerate(sources, 1)})
+            except ValueError:
+                LOGGER.exception("Extractive answer coverage validation failed")
+                return RAGResponse(answer="模型输出未通过验证，无法生成可靠回答。",
+                                   sources=[], confidence=0)
+            if audit.incorrect_facts or not audit.covered_facts:
+                return RAGResponse(answer=REFUSAL, sources=[], confidence=0)
+            if audit.missing_facts:
+                body = "部分信息，仍缺少：" + ", ".join(audit.missing_facts) + "。\n" + body
+                confidence = .4
+        return RAGResponse(answer=body, sources=sources, confidence=confidence)
+
+    async def compose(
+        self, query: str, candidates: list[tuple[Document, str, float]],
+    ) -> RAGResponse:
+        from rag.techqa.claims import compose_checked_answer
+
+        from models.llm import token_count
+
+        assert self.model is not None
+        best: RAGResponse | None = None
+        best_coverage = -1
+        for offset in range(0, len(candidates), self.batch_size):
+            group = candidates[offset:offset + self.batch_size]
+            blocks = {str(i): text for i, (_, text, _) in enumerate(group, 1)}
+            context = {str(i): {"title": doc.title[:200], "applicability": doc.text[:500]}
+                       for i, (doc, _, _) in enumerate(group, 1)}
+            if token_count(json.dumps([blocks, context])) > 3600:
+                LOGGER.warning("Skipping evidence group exceeding controlled context budget")
+                continue
+            try:
+                composed = await compose_checked_answer(self.model, query, blocks, context)
+            except ValueError:
+                LOGGER.exception("Controlled answer failed support/coverage validation")
+                continue
+            if not composed.claims:
+                continue
+            keys = list(dict.fromkeys(c.source_id for c in composed.claims))
+            used = [group[int(key)-1] for key in keys]
+            covered = set().union(*(supported_identifiers(query, doc) for doc, _, _ in used))
+            if primary_identifiers(query) - covered:
+                continue
+            mapping = {key: str(i) for i, key in enumerate(keys, 1)}
+
+            def remap(match: re.Match[str], ids: dict[str, str] = mapping) -> str:
+                return "[" + ids[match[1]] + "]"
+
+            body = re.sub(r"\[(\d+)\]", remap, composed.render())
+            sources = [Source(document_id=doc.document_id, source=doc.source, quote=passage,
+                              title=doc.title[:200], applicability=doc.text[:500])
+                       for doc, passage, _ in used]
+            response = RAGResponse(answer=body, sources=sources,
+                                   confidence=.8 if composed.status == "complete" else .4)
+            if composed.status == "complete":
+                return response
+            if len(composed.covered_facts) > best_coverage:
+                best, best_coverage = response, len(composed.covered_facts)
+        return best or RAGResponse(answer=REFUSAL, sources=[], confidence=0)
 
     async def select(
         self, query: str, evidence: list[tuple[Document, str, float]],

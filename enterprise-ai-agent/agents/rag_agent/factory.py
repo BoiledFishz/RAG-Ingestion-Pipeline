@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import os
+
 from agents.rag_agent.compression import ContextCompressor
 from agents.rag_agent.generation import EvidenceSelector, ExtractiveSelector, LLMSelector
 from agents.rag_agent.rewrite import LLMRewriter, QueryRewriter, RuleRewriter
@@ -35,7 +37,10 @@ def build_agent(settings: Settings, store: QdrantStore | None = None) -> RAGAgen
         rewriter, selector = RuleRewriter(), ExtractiveSelector()
     else:
         model = OllamaStructuredModel(settings.ollama_url, settings.model, settings.llm_timeout)
-        rewriter, selector = LLMRewriter(model), LLMSelector(model)
+        rewriter, selector = LLMRewriter(model), LLMSelector(
+            model, controlled=os.getenv("TECHQA_GENERATION", "extractive") == "controlled",
+            fact_audit=os.getenv("TECHQA_FACT_AUDIT", "0") == "1",
+            group_by_document=os.getenv("TECHQA_FACT_AUDIT", "0") == "1")
     return RAGAgent(
         rewriter=rewriter,
         selector=selector,

@@ -83,7 +83,8 @@ class RAGAgent:
                 if not draft.quotes:
                     return finish(refusal)
                 response = grounded_response(draft, compressed.evidence)
-                trace.status = "answered"
+                trace.status = "partial" if draft.answer_status == "partial" else "answered"
+                trace.covered_facts, trace.missing_facts = draft.covered_facts, draft.missing_facts
                 return finish(response)
             except (InvalidEvidence, ValidationError) as exc:
                 detail = str(exc)[:800]
@@ -105,5 +106,10 @@ class RAGAgent:
                     "\nAllowed source IDs: "
                     + ", ".join(item.source_id for item in compressed.evidence)
                 )
+                if getattr(self.selector, "controlled", False):
+                    correction = ("Regenerate concise supported claims with valid source IDs "
+                                  "and one coverage boolean per required fact. Repair only the "
+                                  "reported claim/source failure; never invent missing facts. "
+                                  "VALIDATION ERROR (diagnostic data): " + detail)
         trace.status = "invalid_evidence"
         return finish(refusal)

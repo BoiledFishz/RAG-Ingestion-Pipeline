@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Any
 
 from rag.techqa.metrics import body_token_f1
+from rag.techqa.protocol import runtime_protocol
 
 from agents.rag_agent.factory import build_agent, open_store
 from models.schemas import QueryRequest
@@ -78,8 +79,10 @@ async def evaluate(
     if resume and checkpoint is None:
         raise ValueError("Resume requires a checkpoint directory")
     if checkpoint:
-        await asyncio.to_thread(checkpoint.mkdir, parents=True, exist_ok=True)
+        await asyncio.to_thread(checkpoint.mkdir, parents=True, exist_ok=resume)
         protocol = await asyncio.to_thread(checkpoint_protocol, settings, dev_path)
+        if settings.profile == "ollama":
+            protocol["runtime"] = await runtime_protocol()
         configuration = checkpoint / "run_config.json"
         if resume:
             if json.loads(configuration.read_text(encoding="utf-8")) != protocol:

@@ -15,11 +15,20 @@ from typing import Any
 
 from rag.techqa.data import question_text, questions
 from rag.techqa.metrics import body_token_f1
+from rag.techqa.protocol import runtime_protocol, source_protocol
 
 from agents.rag_agent.service import GroundedAnswerer
 from agents.research import FixedResearchWorkflow
 from agents.systems import MultiAgentVersion, SingleAgentVersion
-from evaluation.factory import ROOT, build_advanced, build_rag, build_tools, model_from_env
+from evaluation.factory import (
+    ROOT,
+    audited_generation,
+    build_advanced,
+    build_rag,
+    build_tools,
+    controlled_generation,
+    model_from_env,
+)
 from models.llm import MeteredModel
 from models.schemas import AgentName, Metrics, RAGResponse, ResearchRun, SystemRun
 
@@ -143,7 +152,10 @@ async def evaluate(
         "multi": [],
     }
     if checkpoint:
-        await asyncio.to_thread(checkpoint.mkdir, parents=True, exist_ok=True)
+        await asyncio.to_thread(checkpoint.mkdir, parents=True, exist_ok=False)
+        protocol = (await runtime_protocol() if selected == "ollama" else
+                    await asyncio.to_thread(source_protocol))
+        (checkpoint / "protocol.json").write_text(json.dumps(protocol, indent=2), encoding="utf-8")
         (checkpoint / "progress.jsonl").write_text("", encoding="utf-8")
 
     def save(version: str, row: dict[str, Any]) -> None:
@@ -158,7 +170,10 @@ async def evaluate(
             await observe(
                 item,
                 FixedResearchWorkflow(
-                    rag, search, documents, GroundedAnswerer(fixed_meter), fixed_meter
+                    rag, search, documents,
+                    GroundedAnswerer(fixed_meter, controlled=controlled_generation(),
+                                     fact_audit=audited_generation()),
+                    fixed_meter
                 ).run(item["query"]),
                 fixed_meter,
             )

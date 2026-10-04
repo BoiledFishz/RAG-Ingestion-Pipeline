@@ -28,7 +28,19 @@ def build_tools() -> tuple[RetrieverTool, TechQASearchTool, TechQADocumentTool]:
 
 def build_rag() -> RAGAgent:
     rag, _, _ = build_tools()
-    return RAGAgent(RuleRewriter(), rag, GroundedAnswerer(model_from_env()))
+    return RAGAgent(RuleRewriter(), rag, GroundedAnswerer(
+        model_from_env(), controlled=controlled_generation(), fact_audit=audited_generation()))
+
+
+def controlled_generation() -> bool:
+    return (os.getenv("TECHQA_GENERATION", "extractive") == "controlled"
+            and os.getenv("MODEL_PROVIDER", "ollama") != "demo")
+
+
+def audited_generation() -> bool:
+    # Demo is a wire-contract double, not a native factual-quality experiment.
+    return (os.getenv("MODEL_PROVIDER", "ollama") != "demo"
+            and os.getenv("TECHQA_FACT_AUDIT", "0") == "1")
 
 
 def build_advanced(
@@ -43,8 +55,11 @@ def build_advanced(
         documents,
         LLMResearchPolicy(metered),
         metered,
+        controlled=controlled_generation(),
+        fact_audit=audited_generation(),
     )
-    critic = CriticLoop(LLMGroundedDiagnosisAgent(metered), LLMCritic(metered), metered)
+    critic = CriticLoop(LLMGroundedDiagnosisAgent(metered, controlled=controlled_generation()),
+                        LLMCritic(metered, fact_audit=audited_generation()), metered)
     return metered, planner, research, critic
 
 

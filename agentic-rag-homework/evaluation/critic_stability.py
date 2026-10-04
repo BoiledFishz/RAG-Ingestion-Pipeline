@@ -15,10 +15,12 @@ from typing import Any
 
 from rag.techqa.data import question_text, questions
 from rag.techqa.metrics import body_token_f1
+from rag.techqa.protocol import runtime_protocol
 from rag.techqa.retrieval import open_index
 
 from agents.critic import CriticLoop, LLMCritic, LLMGroundedDiagnosisAgent
 from agents.rag_agent.service import ContextCompressor
+from evaluation.factory import controlled_generation
 from models.llm import MeteredModel, OllamaStructuredModel
 from vectorstore.techqa import TechQAStore
 
@@ -32,7 +34,9 @@ async def evaluate(
     rows = [r for r in questions(split) if label == "all" or r["ANSWERABLE"] == label][:limit]
     if not rows or repeats < 1:
         raise ValueError("Select at least one official question and repetition")
-    await asyncio.to_thread(output.mkdir, parents=True, exist_ok=True)
+    await asyncio.to_thread(output.mkdir, parents=True, exist_ok=False)
+    protocol = await runtime_protocol()
+    (output / "protocol.json").write_text(json.dumps(protocol, indent=2), encoding="utf-8")
     observations = []
     reference_index = open_index()
     store = TechQAStore() if evidence_mode == "retrieved" else None
@@ -78,7 +82,8 @@ async def evaluate(
                 model_name = model.model
                 meter = MeteredModel(model)
                 run = await CriticLoop(
-                    LLMGroundedDiagnosisAgent(meter), LLMCritic(meter), meter,
+                    LLMGroundedDiagnosisAgent(meter, controlled=controlled_generation()),
+                    LLMCritic(meter), meter,
                 ).run(question_text(row), evidence, source_context=context)
                 correct_citation = any(
                     key == str(row["DOCUMENT"]) and f"[{identifier}]" in run.final_diagnosis

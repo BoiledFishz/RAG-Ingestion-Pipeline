@@ -92,6 +92,9 @@ class OllamaStructuredModel:
         self.base_url, self.model, self.timeout = base_url, model, timeout
 
     async def generate(self, prompt: str, schema: dict[str, Any]) -> str:
+        budget = 1200 if prompt.startswith("KIND: CONTROLLED_ANSWER\n") else (
+            900 if prompt.startswith("KIND: FACT_AUDIT\n") else
+            512 if prompt.startswith("KIND: CLAIM_AUDIT\n") else 300)
         try:
             async with httpx.AsyncClient(timeout=self.timeout) as client:
                 response = await client.post(
@@ -101,7 +104,7 @@ class OllamaStructuredModel:
                         "stream": False,
                         "format": schema,
                         "messages": [{"role": "user", "content": prompt}],
-                        "options": {"temperature": 0, "num_predict": 300, "num_ctx": 8192},
+                        "options": {"temperature": 0, "num_predict": budget, "num_ctx": 8192},
                     },
                 )
                 response.raise_for_status()
