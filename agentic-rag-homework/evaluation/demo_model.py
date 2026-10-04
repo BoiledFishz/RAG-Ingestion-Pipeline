@@ -20,6 +20,21 @@ class DemoStructuredModel:
         return str(ast.literal_eval(line.split(": ", 1)[1]))
 
     async def generate(self, prompt: str, schema: dict[str, Any]) -> str:
+        if "KIND: FACT_AUDIT" in prompt:
+            # Wire-contract test double only. Native experiments always use Ollama.
+            evidence = ast.literal_eval(next(line.split(": ", 1)[1] for line in
+                prompt.splitlines() if line.startswith("EVIDENCE: ")))
+            answer = self.field(prompt, "ANSWER")
+            keys = schema["properties"]["required_facts"]["items"]["enum"]
+            matching = [(key, value[:80]) for key, value in evidence.items()
+                        if value[:80] in answer]
+            return json.dumps({"principal_request": "Test-double request",
+                "required_facts": keys, "covered_facts": keys if matching else [],
+                "missing_facts": [] if matching else keys, "incorrect_facts": [],
+                "fact_evidence": [{"fact": fact, "source_id": matching[0][0],
+                    "evidence_quote": matching[0][1], "answer_quote": matching[0][1]}
+                    for fact in keys] if matching else [],
+                "verdict": "pass" if matching else "revise"})
         if "KIND: GROUNDED_DIAGNOSIS" in prompt:
             keys = schema["oneOf"][0]["properties"]["source_ids"]["items"]["enum"]
             return json.dumps({"sufficient": True, "source_ids": keys[:1]})

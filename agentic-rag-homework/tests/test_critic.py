@@ -18,7 +18,7 @@ def test_critic_identifies_real_installation_rollback_conflict_with_actionable_f
     row = next(q for q in questions("regression") if q["QUESTION_ID"] == "DEV_Q000")
     doc = next(d for d in documents("regression") if d["id"] == "swg21960632")
     model = ScriptedModel([])
-    result = asyncio.run(LLMCritic(model).review_grounded_answer(
+    result = asyncio.run(LLMCritic(model, fact_audit=False).review_grounded_answer(
         question_text(row), "[1] " + doc["text"],
         {"1": {"title": doc["title"], "applicability": doc["text"][:500]}},
     ))
@@ -33,7 +33,7 @@ def test_critic_rejects_probe_evidence_for_original_gateway_question():
     row = next(q for q in questions("regression") if q["QUESTION_ID"] == "DEV_Q007")
     doc = next(d for d in documents("regression") if d["id"] == "swg21970417")
     model = ScriptedModel([])
-    result = asyncio.run(LLMCritic(model).review_grounded_answer(
+    result = asyncio.run(LLMCritic(model, fact_audit=False).review_grounded_answer(
         question_text(row), "[1] " + doc["text"], {"1": {"title": doc["title"]}},
     ))
     assert not result.passed and result.issues[0].code == "component_mismatch"
@@ -49,7 +49,7 @@ def test_dependency_timeout_is_recorded_without_claiming_critic_success():
 
     meter = MeteredModel(TimeoutModel())
     run = asyncio.run(
-        CriticLoop(LLMDiagnosisAgent(meter), LLMCritic(meter), meter).run(
+        CriticLoop(LLMDiagnosisAgent(meter), LLMCritic(meter, fact_audit=False), meter).run(
             "Review the supported configuration",
             "[1] streamtool setproperty",
         )
@@ -69,7 +69,7 @@ def test_invalid_citation_can_be_added_when_critic_returns_maximum_issues():
         ]},
     ]))
     run = asyncio.run(CriticLoop(
-        LLMDiagnosisAgent(model), LLMCritic(model), model, max_retries=0
+        LLMDiagnosisAgent(model), LLMCritic(model, fact_audit=False), model, max_retries=0
     ).run("Review evidence", "[1] " + questions("fixture")[0]["ANSWER"]))
     assert not run.passed
     assert len(run.attempts[0].critique.issues) == 3
@@ -99,13 +99,14 @@ def test_critic_feedback_is_applied_and_issue_resolved() -> None:
         ]
     )
     meter = MeteredModel(scripted)
-    loop = CriticLoop(LLMDiagnosisAgent(meter), LLMCritic(meter), meter)
+    loop = CriticLoop(LLMDiagnosisAgent(meter), LLMCritic(meter, fact_audit=False), meter)
     run = asyncio.run(loop.run(
         questions("fixture")[0]["QUESTION_TITLE"], questions("fixture")[0]["ANSWER"]
     ))
     assert run.passed
     assert run.retries == 1
-    assert run.attempts[1].resolved_previous_issues == ["missing_evidence"]
+    assert run.attempts[1].resolved_previous_issues == []
+    assert not run.attempts[1].issue_resolutions[0].resolved
     assert "missing_evidence" in scripted.prompts[2]
     assert run.metrics.llm_calls == 4
 
@@ -134,7 +135,8 @@ def test_critic_never_retries_more_than_twice() -> None:
         )
     meter = MeteredModel(ScriptedModel(outputs))
     run = asyncio.run(
-        CriticLoop(LLMDiagnosisAgent(meter), LLMCritic(meter), meter).run("Diagnose", "Evidence")
+        CriticLoop(LLMDiagnosisAgent(meter), LLMCritic(meter, fact_audit=False), meter).run(
+            "Diagnose", "Evidence")
     )
     assert not run.passed
     assert run.retries == 2
@@ -154,7 +156,7 @@ def test_critic_cannot_pass_a_nonexistent_citation_without_repair() -> None:
     )
     meter = MeteredModel(scripted)
     run = asyncio.run(
-        CriticLoop(LLMDiagnosisAgent(meter), LLMCritic(meter), meter).run(
+        CriticLoop(LLMDiagnosisAgent(meter), LLMCritic(meter, fact_audit=False), meter).run(
             "How are Streams environment variables set after upgrade to 4.1.1.2?",
             "[1] " + questions("fixture")[0]["ANSWER"],
         )
@@ -173,7 +175,7 @@ def test_paraphrased_issue_is_not_reported_as_resolved():
         ])
     meter = MeteredModel(ScriptedModel(outputs))
     run = asyncio.run(CriticLoop(
-        LLMDiagnosisAgent(meter), LLMCritic(meter), meter, max_retries=1,
+        LLMDiagnosisAgent(meter), LLMCritic(meter, fact_audit=False), meter, max_retries=1,
     ).run("Review the official answer", "[1] " + questions("fixture")[0]["ANSWER"]))
     assert not run.passed
     assert run.attempts[1].resolved_previous_issues == []
@@ -183,7 +185,8 @@ def test_contradictory_flat_critic_verdict_is_rejected():
     import pytest
     from pydantic import ValidationError
 
-    critic = LLMCritic(ScriptedModel([{"verdict": "pass", "issues": ["Missing fact"]}]))
+    critic = LLMCritic(ScriptedModel([{"verdict": "pass", "issues": ["Missing fact"]}]),
+                       fact_audit=False)
     with pytest.raises(ValidationError):
         asyncio.run(critic.run("Review", questions("fixture")[0]["ANSWER"], "Diagnosis [1]"))
 
@@ -194,7 +197,7 @@ def test_critic_cannot_approve_an_invented_error_code():
         {"verdict": "pass", "issues": []},
     ]))
     run = asyncio.run(CriticLoop(
-        LLMDiagnosisAgent(model), LLMCritic(model), model, max_retries=0,
+        LLMDiagnosisAgent(model), LLMCritic(model, fact_audit=False), model, max_retries=0,
     ).run("Review the Streams issue", "[1] " + questions("fixture")[0]["ANSWER"]))
     assert not run.passed
     assert run.attempts[0].critique.issues[-1].code == "unsupported_identifier"
@@ -226,7 +229,7 @@ def test_validated_refusal_is_distinct_from_a_sufficient_answer():
         {"sufficient": False, "source_ids": []},
         {"sufficient": False, "source_ids": []},
     ]))
-    loop = CriticLoop(LLMGroundedDiagnosisAgent(meter), LLMCritic(meter), meter)
+    loop = CriticLoop(LLMGroundedDiagnosisAgent(meter), LLMCritic(meter, fact_audit=False), meter)
     run = asyncio.run(loop.run(original["QUESTION_TITLE"], "[1] " + original["ANSWER"]))
     assert run.passed and not run.answer_sufficient
     assert run.final_diagnosis.startswith(INSUFFICIENT_DIAGNOSIS)
@@ -242,11 +245,12 @@ def test_critic_repairs_refusal_when_independent_review_finds_real_answer():
     ])
     meter = MeteredModel(scripted)
     run = asyncio.run(CriticLoop(
-        LLMGroundedDiagnosisAgent(meter), LLMCritic(meter), meter,
+        LLMGroundedDiagnosisAgent(meter), LLMCritic(meter, fact_audit=False), meter,
     ).run(original["QUESTION_TITLE"], "[1] " + original["ANSWER"]))
     assert run.passed and run.answer_sufficient and run.retries == 1
     assert run.attempts[0].critique.issues[0].code == "supported_answer_refused"
-    assert run.attempts[1].resolved_previous_issues == ["supported_answer_refused"]
+    assert run.attempts[1].resolved_previous_issues == []
+    assert not run.attempts[1].issue_resolutions[0].resolved
     assert original["ANSWER"].strip() in run.final_diagnosis
 
 
@@ -258,7 +262,7 @@ def test_production_critic_only_reviews_cited_evidence_and_its_provenance():
     ])
     meter = MeteredModel(scripted)
     run = asyncio.run(CriticLoop(
-        LLMGroundedDiagnosisAgent(meter), LLMCritic(meter), meter,
+        LLMGroundedDiagnosisAgent(meter), LLMCritic(meter, fact_audit=False), meter,
     ).run(first["QUESTION_TITLE"], f"[1] {first['ANSWER']}\n[2] {unrelated['ANSWER']}",
           source_context={"1": {"title": first["QUESTION_TITLE"]},
                           "2": {"title": unrelated["QUESTION_TITLE"]}}))
@@ -281,7 +285,7 @@ def test_refusal_review_checks_later_batches_before_approving_abstention():
     ])
     meter = MeteredModel(scripted)
     run = asyncio.run(CriticLoop(
-        LLMGroundedDiagnosisAgent(meter), LLMCritic(meter), meter,
+        LLMGroundedDiagnosisAgent(meter), LLMCritic(meter, fact_audit=False), meter,
     ).run(rows[-1]["QUESTION_TITLE"], "\n".join(
         f"[{i}] {row['ANSWER']}" for i, row in enumerate(rows, 1)
     )))

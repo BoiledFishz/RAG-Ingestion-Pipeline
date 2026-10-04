@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "protocol": "frozen component evidence, original questions, neutral evidence IDs, no official answers passed",
+  "records": [
+    {
+      "id": "TRAIN_Q007",
+      "mode": "actual_selected_blocks",
+      "query": "Why do I get an exception when calling MQ after migrating my BPM environment (2035 MQRC_NOT_AUTHORIZED) ?\nWe migrated our BPM environment from V8.0 to 8.5.7. When we attempt to call the MQ service we are getting the following exception:\n\n     [10/16/17 13:50:05:273 AST] 0000026d SystemOut     O\n     com.ibm.msg.client.jms.DetailedJMSSecurityException: JMSWMQ2013: The\n     security authentication was not valid that was supplied for QueueManager\n     'QM1' with connection mode 'Client' and host name 'MQ1(1414)'.\n     Please check if the supplied username and password are correct on the\n     QueueManager to which you are connecting.\n     ...\n     Caused by: com.ibm.mq.MQException: JMSCMQ0001: WebSphere MQ call failed\n     with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED').\n      at\n     com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.jav\n     a:204)\n      ... 162 more\n\nThe same MQ service is working fine in the old BPM environment. User name and password configured for the queue is correct. However, when we check the MQ logs, we observing the username is not used, instead the sys admin user seems to be used.",
+      "evidence": "[1] TECHNOTE (TROUBLESHOOTING)\n\n问题（摘要）\n 升级到WAS V8.5后，与MQ的连接报开始报没有权限“2035 MQRC_NOT_AUTHORIZED”？ \n\n症状\n您配置的WAS的WebSphere MQ messaging provider 的连接工厂（connection factory），没有配置认证别名（authentication Alias），也没有在程序中提供所使用的用户ID. 您发现在WAS从以前的版本（WAS V7.0 或者WAS V8.0)升级到WAS V8.5之后，创建与MQ队列管理器的连接时， 返回下面没有权限的报错：\n.\nJMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED') \n.\n\n\n原因\n这是因为出于安全的考虑，WebSphere MQ V7.1 classes for JMS 及以后版本与之前的WebSphere MQ V7.0.1 classes for JMS 相比，提供给MQ队列管理器的缺省用户行为发生了改变。 \n\n- 当使用WAS V7.0和V8.0时，打包的是WebSphere MQ V7.0.1 classes for JMS，缺省会将一个空的用户ID传递给MQ队列管理器\n\n- 当使用WAS V8.5时，打包的是MQ V7.1 classes for JMS，如果没有配置认证别名，缺省就会使用Java System Property user.name配置的用户， 如果此用户没有权限访问MQ队列管理器，就会报上面没有权限的错误。\n\n\n\n环境\nWebSphere Application Server V8.5 及以上版本\n\n\n\n解决问题\n如果用户不希望修改程序（即在程序中配置使用的用户ID），可以通过配置认证别名或者Java System Property user.name为有权限的MQ用户即可解决上面的权限问题。",
+      "context": {
+        "1": {
+          "title": "IBM 升级到WAS V8.5后，与MQ的连接报开始报没有权限“2035 MQRC_NOT_AUTHORIZED”？ - United States",
+          "applicability": "TECHNOTE (TROUBLESHOOTING)\n\n问题（摘要）\n 升级到WAS V8.5后，与MQ的连接报开始报没有权限“2035 MQRC_NOT_AUTHORIZED”？ \n\n症状\n您配置的WAS的WebSphere MQ messaging provider 的连接工厂（connection factory），没有配置认证别名（authentication Alias），也没有在程序中提供所使用的用户ID. 您发现在WAS从以前的版本（WAS V7.0 或者WAS V8.0)升级到WAS V8.5之后，创建与MQ队列管理器的连接时， 返回下面没有权限的报错：\n.\nJMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED') \n.\n\n\n原因\n这是因为出于安全的考虑，WebSphere MQ V7.1 classes for JMS 及以后版本与之前的WebSphere MQ V7.0.1 classes for JMS 相"
+        }
+      },
+      "diagnosis": "TECHNOTE (TROUBLESHOOTING)\n\n问题（摘要）\n 升级到WAS V8.5后，与MQ的连接报开始报没有权限“2035 MQRC_NOT_AUTHORIZED”？ \n\n症状\n您配置的WAS的WebSphere MQ messaging provider 的连接工厂（connection factory），没有配置认证别名（authentication Alias），也没有在程序中提供所使用的用户ID. 您发现在WAS从以前的版本（WAS V7.0 或者WAS V8.0)升级到WAS V8.5之后，创建与MQ队列管理器的连接时， 返回下面没有权限的报错：\n.\nJMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED') \n.\n\n\n原因\n这是因为出于安全的考虑，WebSphere MQ V7.1 classes for JMS 及以后版本与之前的WebSphere MQ V7.0.1 classes for JMS 相比，提供给MQ队列管理器的缺省用户行为发生了改变。 \n\n- 当使用WAS V7.0和V8.0时，打包的是WebSphere MQ V7.0.1 classes for JMS，缺省会将一个空的用户ID传递给MQ队列管理器\n\n- 当使用WAS V8.5时，打包的是MQ V7.1 classes for JMS，如果没有配置认证别名，缺省就会使用Java System Property user.name配置的用户， 如果此用户没有权限访问MQ队列管理器，就会报上面没有权限的错误。\n\n\n\n环境\nWebSphere Application Server V8.5 及以上版本\n\n\n\n解决问题\n如果用户不希望修改程序（即在程序中配置使用的用户ID），可以通过配置认证别名或者Java System Property user.name为有权限的MQ用户即可解决上面的权限问题。 [4]",
+      "critic": {
+        "passed": true,
+        "score": 0.9,
+        "issues": []
+      },
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 1131,
+        "output_tokens": 17,
+        "latency_ms": 0
+      }
+    },
+    {
+      "id": "TRAIN_Q007",
+      "mode": "current_answer_with_complementary_evidence",
+      "query": "Why do I get an exception when calling MQ after migrating my BPM environment (2035 MQRC_NOT_AUTHORIZED) ?\nWe migrated our BPM environment from V8.0 to 8.5.7. When we attempt to call the MQ service we are getting the following exception:\n\n     [10/16/17 13:50:05:273 AST] 0000026d SystemOut     O\n     com.ibm.msg.client.jms.DetailedJMSSecurityException: JMSWMQ2013: The\n     security authentication was not valid that was supplied for QueueManager\n     'QM1' with connection mode 'Client' and host name 'MQ1(1414)'.\n     Please check if the supplied username and password are correct on the\n     QueueManager to which you are connecting.\n     ...\n     Caused by: com.ibm.mq.MQException: JMSCMQ0001: WebSphere MQ call failed\n     with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED').\n      at\n     com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.jav\n     a:204)\n      ... 162 more\n\nThe same MQ service is working fine in the old BPM environment. User name and password configured for the queue is correct. However, when we check the MQ logs, we observing the username is not used, instead the sys admin user seems to be used.",
+      "evidence": "[1] TECHNOTE (TROUBLESHOOTING)\n\n问题（摘要）\n 升级到WAS V8.5后，与MQ的连接报开始报没有权限“2035 MQRC_NOT_AUTHORIZED”？ \n\n症状\n您配置的WAS的WebSphere MQ messaging provider 的连接工厂（connection factory），没有配置认证别名（authentication Alias），也没有在程序中提供所使用的用户ID. 您发现在WAS从以前的版本（WAS V7.0 或者WAS V8.0)升级到WAS V8.5之后，创建与MQ队列管理器的连接时， 返回下面没有权限的报错：\n.\nJMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED') \n.\n\n\n原因\n这是因为出于安全的考虑，WebSphere MQ V7.1 classes for JMS 及以后版本与之前的WebSphere MQ V7.0.1 classes for JMS 相比，提供给MQ队列管理器的缺省用户行为发生了改变。 \n\n- 当使用WAS V7.0和V8.0时，打包的是WebSphere MQ V7.0.1 classes for JMS，缺省会将一个空的用户ID传递给MQ队列管理器\n\n- 当使用WAS V8.5时，打包的是MQ V7.1 classes for JMS，如果没有配置认证别名，缺省就会使用Java System Property user.name配置的用户， 如果此用户没有权限访问MQ队列管理器，就会报上面没有权限的错误。\n\n\n\n环境\nWebSphere Application Server V8.5 及以上版本\n\n\n\n解决问题\n如果用户不希望修改程序（即在程序中配置使用的用户ID），可以通过配置认证别名或者Java System Property user.name为有权限的MQ用户即可解决上面的权限问题。\n[2] Default component-managed authentication alias for outbound connections \n\nFor cases where it is impractical to change the application to use container-managed security, or to change it to supply a username and password directly on the createConnection call, it is possible to supply a default. \n\nThis default is called the \"component-managed authentication alias\" and cannot be configured via the administrative console (since WebSphere Application Server Version 7.0 when it was removed from the panels MQ connection factories). The below scripting samples show how to configure it using wsadmin: \n\n * JACL:\n   wsadmin>set cell [ $AdminConfig getid \"/Cell:mycell\" ]\n   \n   mycell(cells/mycell|cell.xml#Cell_1)\n   \n   wsadmin>$AdminTask listWMQConnectionFactories $cell\n   \n   MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)\n   \n   wsadmin>$AdminTask modifyWMQConnectionFactory MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104) { -componentAuthAlias myalias }\n   \n   MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104) \n * Jython:\n   wsadmin>cell = AdminConfig.getid(\"/Cell:mycell\")\n   \n   wsadmin>AdminTask.listWMQConnectionFactories(cell)\n   \n   'MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)'\n   \n   wsadmin>AdminTask.modifyWMQConnectionFactory('MyCF(cells/mycell|resos urces.xml#MQConnectionFactory_1247500675104)', \"-componentAuthAlias myalias\")\n   \n   'MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)'",
+      "context": {
+        "1": {
+          "title": "IBM 升级到WAS V8.5后，与MQ的连接报开始报没有权限“2035 MQRC_NOT_AUTHORIZED”？ - United States",
+          "applicability": "TECHNOTE (TROUBLESHOOTING)\n\n问题（摘要）\n 升级到WAS V8.5后，与MQ的连接报开始报没有权限“2035 MQRC_NOT_AUTHORIZED”？ \n\n症状\n您配置的WAS的WebSphere MQ messaging provider 的连接工厂（connection factory），没有配置认证别名（authentication Alias），也没有在程序中提供所使用的用户ID. 您发现在WAS从以前的版本（WAS V7.0 或者WAS V8.0)升级到WAS V8.5之后，创建与MQ队列管理器的连接时， 返回下面没有权限的报错：\n.\nJMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED') \n.\n\n\n原因\n这是因为出于安全的考虑，WebSphere MQ V7.1 classes for JMS 及以后版本与之前的WebSphere MQ V7.0.1 classes for JMS 相"
+        },
+        "2": {
+          "title": "IBM 2035 MQRC_NOT_AUTHORIZED Connecting to WebSphere MQ from WebSphere Application Server via CLIENT Bindings - United States",
+          "applicability": "TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n This article covers the most common reasons why an application running in WebSphere Application Server receives a 2035 MQRC_NOT_AUTHORIZED error when connecting to MQ as a client over a network. Quick steps to work around the MQRC_NOT_AUTHORIZED errors during development are provided in the 'Resolving the problem' section, as well as considerations for implementing security in production environments. A summary is also provided of behavior for outbo"
+        }
+      },
+      "diagnosis": "TECHNOTE (TROUBLESHOOTING)\n\n问题（摘要）\n 升级到WAS V8.5后，与MQ的连接报开始报没有权限“2035 MQRC_NOT_AUTHORIZED”？ \n\n症状\n您配置的WAS的WebSphere MQ messaging provider 的连接工厂（connection factory），没有配置认证别名（authentication Alias），也没有在程序中提供所使用的用户ID. 您发现在WAS从以前的版本（WAS V7.0 或者WAS V8.0)升级到WAS V8.5之后，创建与MQ队列管理器的连接时， 返回下面没有权限的报错：\n.\nJMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED') \n.\n\n\n原因\n这是因为出于安全的考虑，WebSphere MQ V7.1 classes for JMS 及以后版本与之前的WebSphere MQ V7.0.1 classes for JMS 相比，提供给MQ队列管理器的缺省用户行为发生了改变。 \n\n- 当使用WAS V7.0和V8.0时，打包的是WebSphere MQ V7.0.1 classes for JMS，缺省会将一个空的用户ID传递给MQ队列管理器\n\n- 当使用WAS V8.5时，打包的是MQ V7.1 classes for JMS，如果没有配置认证别名，缺省就会使用Java System Property user.name配置的用户， 如果此用户没有权限访问MQ队列管理器，就会报上面没有权限的错误。\n\n\n\n环境\nWebSphere Application Server V8.5 及以上版本\n\n\n\n解决问题\n如果用户不希望修改程序（即在程序中配置使用的用户ID），可以通过配置认证别名或者Java System Property user.name为有权限的MQ用户即可解决上面的权限问题。 [4]",
+      "critic": {
+        "passed": false,
+        "score": 0.4,
+        "issues": [
+          {
+            "code": "fact_6db148c717",
+            "description": "EVIDENCE未明确指出用户ID问题的具体原因，仅提到使用Java System Property user.name配置的用户，但未确认该用户是否正确。",
+            "suggestion": "Correct this claim using supplied evidence"
+          },
+          {
+            "code": "fact_e8e0d07ca2",
+            "description": "EVIDENCE未提供具体的解决步骤来验证或修改Java System Property user.name，以确保其与MQ队列管理器的用户匹配。",
+            "suggestion": "Correct this claim using supplied evidence"
+          },
+          {
+            "code": "fact_5231535a17",
+            "description": "EVIDENCE未提及检查MQ队列管理器上的用户权限设置，以确保该用户具有正确的访问权限。",
+            "suggestion": "Correct this claim using supplied evidence"
+          }
+        ]
+      },
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 2170,
+        "output_tokens": 144,
+        "latency_ms": 0
+      }
+    },
+    {
+      "id": "TRAIN_Q011",
+      "mode": "actual_selected_blocks",
+      "query": "Load SPSS 25 on a new computer\nI purchased SPSS 25 with a 12 month license on Jan 27. I loaded it and used it on my MacBook Pro. I now have a new MacBookPro. I was able to download the program but get a message that says I don't have a license. I do have the activation code. Can you please help me use this product on my new computer? Thanks!",
+      "evidence": "[1] The license key center is a secure site. Only the Primary contact (generally the person who purchased your product), site technical contact, or their designated contacts are able to access it.\n\n\nIf you already have access navigate to: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm.com/predictiveanalytics/get-help/] \n- Select SPSS Statistics Version 25, 24, 23... Scroll down to Licensing section - Get your license key \n\n\nClick on Button: \"Visit the License Key Center\" or use the direct link below:\nhttps://spss.subscribenet.com/control/ibmp/login [https://spss.subscribenet.com/control/ibmp/login]\n\nIf you continue to have issues, please review our SPSS licensing forum https://developer.ibm.com/answers/topics/spsslicensing.html [https://developer.ibm.com/answers/topics/spsslicensing.html]",
+      "context": {
+        "1": {
+          "title": "IBM How to Access the IBM license key center for SPSS software. - United States",
+          "applicability": "TECHNOTE (FAQ)\n\nQUESTION\n How do I navigate the IBM SPSS License Key Center in order to create, manage or view my existing SPSS licenses? \n\nCAUSE\nUsing the IBM License Key Center\n\nANSWER\nThe license key center is a secure site. Only the Primary contact (generally the person who purchased your product), site technical contact, or their designated contacts are able to access it.\n\n\nIf you already have access navigate to: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm."
+        }
+      },
+      "diagnosis": "The license key center is a secure site. Only the Primary contact (generally the person who purchased your product), site technical contact, or their designated contacts are able to access it.\n\n\nIf you already have access navigate to: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm.com/predictiveanalytics/get-help/] \n- Select SPSS Statistics Version 25, 24, 23... Scroll down to Licensing section - Get your license key \n\n\nClick on Button: \"Visit the License Key Center\" or use the direct link below:\nhttps://spss.subscribenet.com/control/ibmp/login [https://spss.subscribenet.com/control/ibmp/login]\n\nIf you continue to have issues, please review our SPSS licensing forum https://developer.ibm.com/answers/topics/spsslicensing.html [https://developer.ibm.com/answers/topics/spsslicensing.html] [12]",
+      "critic": {
+        "passed": false,
+        "score": 0.4,
+        "issues": [
+          {
+            "code": "answer_not_sufficient",
+            "description": "Selected blocks 1 do not establish the principal request: Load SPSS 25 on a new computer",
+            "suggestion": "Select a directly applicable solution from supplied evidence; if required facts remain unavailable, refuse rather than invent them"
+          }
+        ]
+      },
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 503,
+        "output_tokens": 14,
+        "latency_ms": 0
+      }
+    },
+    {
+      "id": "TRAIN_Q011",
+      "mode": "current_answer_with_complementary_evidence",
+      "query": "Load SPSS 25 on a new computer\nI purchased SPSS 25 with a 12 month license on Jan 27. I loaded it and used it on my MacBook Pro. I now have a new MacBookPro. I was able to download the program but get a message that says I don't have a license. I do have the activation code. Can you please help me use this product on my new computer? Thanks!",
+      "evidence": "[1] The license key center is a secure site. Only the Primary contact (generally the person who purchased your product), site technical contact, or their designated contacts are able to access it.\n\n\nIf you already have access navigate to: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm.com/predictiveanalytics/get-help/] \n- Select SPSS Statistics Version 25, 24, 23... Scroll down to Licensing section - Get your license key \n\n\nClick on Button: \"Visit the License Key Center\" or use the direct link below:\nhttps://spss.subscribenet.com/control/ibmp/login [https://spss.subscribenet.com/control/ibmp/login]\n\nIf you continue to have issues, please review our SPSS licensing forum https://developer.ibm.com/answers/topics/spsslicensing.html [https://developer.ibm.com/answers/topics/spsslicensing.html]\n[2] Statistics Release 25  1. Type (copy/paste) the following command: \n    \n    sudo chown -R root:admin 25\n    \n 2. Press Enter/Return. \n 3. Close Terminal. \n 4. Launch the License Authorization Wizard. \n 5. The warning message should no longer appear. \n 6. License your IBM SPSS Statistics product.",
+      "context": {
+        "1": {
+          "title": "IBM How to Access the IBM license key center for SPSS software. - United States",
+          "applicability": "TECHNOTE (FAQ)\n\nQUESTION\n How do I navigate the IBM SPSS License Key Center in order to create, manage or view my existing SPSS licenses? \n\nCAUSE\nUsing the IBM License Key Center\n\nANSWER\nThe license key center is a secure site. Only the Primary contact (generally the person who purchased your product), site technical contact, or their designated contacts are able to access it.\n\n\nIf you already have access navigate to: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm."
+        },
+        "2": {
+          "title": "IBM Getting a warning message 'You do not have the correct administrator privileges' when attempting to license a SPSS Statistics product on Mac OS. - United States",
+          "applicability": "TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n You have successfully installed an IBM SPSS Statistics product on a Mac computer. When you start the License Authorization Wizard (LAW) to enter the authorization code for licensing.\n\nYou receive the following message:\n\n\n\"Warning! You do not have the correct administrator privileges to license this product. Log in as administrator and try again, or contact your network administrator to correct this issue.\n\n\"\n\nOnce this message is displayed the only "
+        }
+      },
+      "diagnosis": "The license key center is a secure site. Only the Primary contact (generally the person who purchased your product), site technical contact, or their designated contacts are able to access it.\n\n\nIf you already have access navigate to: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm.com/predictiveanalytics/get-help/] \n- Select SPSS Statistics Version 25, 24, 23... Scroll down to Licensing section - Get your license key \n\n\nClick on Button: \"Visit the License Key Center\" or use the direct link below:\nhttps://spss.subscribenet.com/control/ibmp/login [https://spss.subscribenet.com/control/ibmp/login]\n\nIf you continue to have issues, please review our SPSS licensing forum https://developer.ibm.com/answers/topics/spsslicensing.html [https://developer.ibm.com/answers/topics/spsslicensing.html] [12]",
+      "critic": {
+        "passed": false,
+        "score": 0.4,
+        "issues": [
+          {
+            "code": "fact_916d49e694",
+            "description": "The evidence does not provide instructions for the user to check if the activation code is correctly entered.",
+            "suggestion": "Correct this claim using supplied evidence"
+          },
+          {
+            "code": "fact_d6ad81f6d6",
+            "description": "The evidence does not address the possibility of the activation code being invalid.",
+            "suggestion": "Correct this claim using supplied evidence"
+          },
+          {
+            "code": "fact_6d185c3530",
+            "description": "The evidence does not mention the user's current login status or if they are logged in as the primary contact.",
+            "suggestion": "Correct this claim using supplied evidence"
+          }
+        ]
+      },
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 1004,
+        "output_tokens": 77,
+        "latency_ms": 0
+      }
+    }
+  ]
+}

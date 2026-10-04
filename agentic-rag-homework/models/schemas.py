@@ -136,6 +136,11 @@ class CriticResult(StrictModel):
     passed: bool
     score: float = Field(ge=0, le=1)
     issues: list[CriticIssue] = Field(default_factory=list, max_length=3)
+    principal_request: str = ""
+    required_facts: list[str] = Field(default_factory=list)
+    covered_facts: list[str] = Field(default_factory=list)
+    missing_facts: list[str] = Field(default_factory=list)
+    incorrect_facts: list[str] = Field(default_factory=list)
 
     @model_validator(mode="after")
     def issue_consistency(self) -> CriticResult:
@@ -150,11 +155,20 @@ class DiagnosisDraft(StrictModel):
                                description="Unique supporting evidence IDs, without brackets")
 
 
+class IssueResolution(StrictModel):
+    issue_id: str
+    description: str
+    resolved: bool
+    supporting_evidence_ids: list[str] = Field(default_factory=list)
+    remaining_problem: str = ""
+
+
 class CriticAttempt(StrictModel):
     attempt: int
     diagnosis: str
     critique: CriticResult
     resolved_previous_issues: list[str] = Field(default_factory=list)
+    issue_resolutions: list[IssueResolution] = Field(default_factory=list)
 
 
 class CriticLoopRun(StrictModel):

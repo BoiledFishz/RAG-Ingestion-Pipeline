@@ -67,6 +67,8 @@ class OllamaStructuredModel:
             budget = 512
         elif prompt.startswith("KIND: DIAGNOSIS\n"):
             budget = 800
+        elif prompt.startswith(("KIND: FACT_AUDIT\n", "KIND: ISSUE_REPAIR\n")):
+            budget = 900
         options = {"temperature": 0, "num_predict": budget, "num_ctx": 8192}
         gpu = self.num_gpu
         if gpu is None and "OLLAMA_NUM_GPU" in os.environ:
