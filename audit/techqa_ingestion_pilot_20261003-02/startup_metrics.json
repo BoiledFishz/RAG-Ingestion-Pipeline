@@ -1,0 +1,14 @@
+{
+  "scope": "startup only; first twenty pending original RCTS chunks; not complete corpus A/B",
+  "complete_ab": false,
+  "actual_llm_summaries": 20,
+  "actual_failures": 0,
+  "mean_summary_ms": 1441.7530150007224,
+  "median_summary_ms": 1121.3014000095427,
+  "minimum_summary_ms": 1040.465000027325,
+  "maximum_summary_ms": 7286.436899972614,
+  "successful_summary_ms": 28835.060300014447,
+  "embedding_ab_completed": false,
+  "retrieval_ab_completed": false,
+  "factual_benefit_verified": false
+}

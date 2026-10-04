@@ -1,0 +1,9 @@
+{
+  "script_sha256": "07cc619d87376f74669836b0f7b28c47fa33df03f67a79169106fcc92eb81956",
+  "source_sha256": "164d990898c7afd732fc69a43f93736b50d91c98ec068391b0a1b82a03b33770",
+  "corpus_sha256": "a0f38fa668b4603db268e1a1e7895a9676e849dba205f0a2af3c8ead989342c3",
+  "model": "llama3.2:3b",
+  "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+  "chunk_size": 1200,
+  "overlap": 160
+}

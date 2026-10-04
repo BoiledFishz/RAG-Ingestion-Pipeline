@@ -1,0 +1,18 @@
+{
+  "prepared": true,
+  "complete": false,
+  "population": 28482,
+  "documents": 2000,
+  "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+  "document_sample_sha256": "21717365b87193df15d7768838295f97f57108d8e61003b655d574f2d424d248",
+  "selection": "smallest SHA256(techqa-pilot-v1:document_id) from unchanged core corpus",
+  "scope": "closed source-only sample; not all 801996 docs",
+  "chunk_size": 1200,
+  "chunk_overlap": 160,
+  "chunks": {
+    "legacy_title": 8718,
+    "rcts_llm": 8982
+  },
+  "summary": "legacy uses official title; RCTS requires actual LLM summary, no fallback",
+  "format_limit": "JSON text experiment; not a PDF/OCR parsing test"
+}

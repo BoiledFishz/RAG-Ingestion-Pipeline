@@ -1,0 +1,11 @@
+{
+  "complete": false,
+  "unique_hashes": 8736,
+  "completed": 20,
+  "this_run_calls": 20,
+  "this_run_hash_skips": 0,
+  "errors": [],
+  "summary_model": "llama3.2:3b",
+  "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+  "cumulative_latency_ms": 28835.060300014447
+}
