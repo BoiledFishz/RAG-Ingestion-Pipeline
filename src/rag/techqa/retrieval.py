@@ -9,11 +9,12 @@ import asyncio
 import hashlib
 import json
 import logging
+import math
 import os
 import re
 import sqlite3
 from contextlib import closing
-from dataclasses import replace
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any
 
@@ -294,11 +295,38 @@ class TechQAParentResolver:
         return result
 
 
+@dataclass(frozen=True)
+class RerankWeights:
+    semantic: float = 0.50
+    lexical: float = 0.30
+    prior: float = 0.20
+
+    def __post_init__(self) -> None:
+        values = (self.semantic, self.lexical, self.prior)
+        if any(not math.isfinite(v) or v < 0 for v in values) or not math.isclose(
+            sum(values), 1.0, abs_tol=1e-9,
+        ):
+            raise ValueError("Rerank weights must be finite, nonnegative and sum to one")
+
+    @classmethod
+    def from_env(cls, semantic: bool) -> RerankWeights:
+        configured = os.getenv("TECHQA_RERANK_WEIGHTS")
+        if configured:
+            parts = [float(v.strip()) for v in configured.split(",")]
+            if len(parts) != 3:
+                raise ValueError("TECHQA_RERANK_WEIGHTS requires semantic,lexical,prior")
+            return cls(*parts)
+        return cls() if semantic else cls(0, 0.55, 0.45)
+
+
 class TechQAReranker:
     """Context-aware ranking; nomic uses cosine, lexical mode is an explicit ablation."""
 
-    def __init__(self, semantic: bool = True) -> None:
+    def __init__(self, semantic: bool = True, *, weights: RerankWeights | None = None) -> None:
         self.semantic = semantic
+        self.weights = weights or RerankWeights.from_env(semantic)
+        if not semantic and self.weights.semantic:
+            raise ValueError("Semantic weights require semantic reranking enabled")
         self.embedder = OllamaEmbeddingProvider(
             base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
             concurrency=1,
@@ -342,7 +370,7 @@ class TechQAReranker:
         if not candidates or limit <= 0:
             return []
         semantic_scores = [0.0] * len(candidates)
-        if self.semantic:
+        if self.semantic and self.weights.semantic:
             vectors = await self.embeddings(
                 ["search_query: " + query[:6000]]
                 + [
@@ -350,8 +378,6 @@ class TechQAReranker:
                     for c in candidates
                 ]
             )
-            import math
-
             q = vectors[0]
             for i, v in enumerate(vectors[1:]):
                 semantic_scores[i] = sum(a * b for a, b in zip(q, v, strict=True)) / max(
@@ -363,11 +389,8 @@ class TechQAReranker:
             lexical = coverage(query, title + " " + candidate.text)
             sparse_rank = int(candidate.metadata.get("bm25_document_rank", 1000))
             prior = 1 / (1 + sparse_rank / 5)
-            score = (
-                0.50 * semantic_scores[index] + 0.30 * lexical + 0.20 * prior
-                if self.semantic
-                else 0.55 * lexical + 0.45 * prior
-            )
+            score = (self.weights.semantic * semantic_scores[index]
+                     + self.weights.lexical * lexical + self.weights.prior * prior)
             if components is not None:
                 components[candidate.chunk_id] = {
                     "semantic_score": semantic_scores[index], "lexical_score": lexical,
