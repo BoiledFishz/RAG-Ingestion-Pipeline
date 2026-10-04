@@ -1,0 +1,168 @@
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=1: Claim support must be an exact substring of a supplied source
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=2: Claim support must be an exact substring of a supplied source
+INFO agents.rag_agent.service Agent status=invalid_evidence candidates=10 context_tokens=1204 latency_ms=50416.33
+INFO __main__ DEV_Q000 completed (1/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=1: Composed answer must partition required facts
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=2: Composed answer must partition required facts
+INFO agents.rag_agent.service Agent status=invalid_evidence candidates=10 context_tokens=1790 latency_ms=48059.38
+INFO __main__ DEV_Q007 completed (2/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/embed "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=1: Composed answer must partition required facts
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=2: Composed answer must partition required facts
+INFO agents.rag_agent.service Agent status=invalid_evidence candidates=10 context_tokens=2172 latency_ms=44983.67
+INFO __main__ TRAIN_Q006 completed (3/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.rewrite Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 111, in generate
+    raise ValueError("Structured generation exceeded its token budget")
+ValueError: Structured generation exceeded its token budget
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 90, in rewrite
+    await self.model.generate(prompt, RewriteDraft.model_json_schema())
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 117, in generate
+    raise DependencyUnavailable("Ollama structured generation failed") from exc
+models.errors.DependencyUnavailable: Ollama structured generation failed
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/embed "HTTP/1.1 200 OK"
+ERROR __main__ TechQA evaluation failed for TRAIN_Q007
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        pool_request.request
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpcore\_async\connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpcore\_async\http11.py", line 136, in handle_async_request
+    raise exc
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpcore\_async\http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpcore\_async\http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.READ_NUM_BYTES, timeout=timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 99, in generate
+    response = await client.post(
+               ^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpx\_client.py", line 1859, in post
+    return await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<13 lines>...
+    )
+    ^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\evaluation\evaluate.py", line 114, in evaluate
+    run = await agent.run(QueryRequest(query=query))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\service.py", line 78, in run
+    draft = await self.selector.select(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\generation.py", line 93, in select
+    composed = await compose_checked_answer(self.model, query,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+         for key, item in allowed.items()})
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\src\rag\techqa\claims.py", line 225, in compose_checked_answer
+    result = await compose_answer(model, query, evidence, context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\src\rag\techqa\claims.py", line 190, in compose_answer
+    await model.generate(prompt, schema))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 117, in generate
+    raise DependencyUnavailable("Ollama structured generation failed") from exc
+models.errors.DependencyUnavailable: Ollama structured generation failed
+INFO __main__ TRAIN_Q007 completed (4/10) error=DependencyUnavailable
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.rewrite Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/embed "HTTP/1.1 200 OK"

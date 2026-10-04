@@ -1,0 +1,71 @@
+INFO:httpx:HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO:rag.techqa.claims:Request operation: requested=Check for Apache CXF vulnerability (CVE-2017-3156) in ITNM and identify affected versions and remediation details. answered=Identified the vulnerability details, affected versions, and remediation steps for ITNM. matches=True reason=The answer provided the vulnerability details, affected versions, and remediation steps for ITNM, which aligns with the requested operation.
+INFO:httpx:HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+ERROR:agents.critic:Diagnosis/Critic attempt 2 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\agentic-rag-homework\agents\critic.py", line 521, in run
+    diagnosis = await self.diagnosis.run(task, evidence, previous, feedback,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                         source_context=source_context)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\agentic-rag-homework\evaluation\critic_components.py", line 107, in run
+    return await self.inner.run(task, evidence, previous, feedback, source_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\agentic-rag-homework\agents\critic.py", line 105, in run
+    composed = await compose_answer(self.model, task, subset, context,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        correction=json.dumps({"previous_answer": previous,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            "issues": [i.model_dump() for i in feedback or []]}, ensure_ascii=False))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\src\rag\techqa\claims.py", line 448, in compose_answer
+    raise ValueError("Claim contains a critical literal absent from question/source")
+ValueError: Claim contains a critical literal absent from question/source
+INFO:httpx:HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO:rag.techqa.claims:Request operation: requested=Check for Apache CXF vulnerability (CVE-2017-3156) in ITNM versions and provide remediation details. answered=Identified affected versions and provided remediation details for the Apache CXF vulnerability (CVE-2017-3156). matches=True reason=The answer provided the affected versions and remediation details for the vulnerability.
+INFO:httpx:HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:missing_exposure_condition improved_critic initial_accepted=False
+INFO:httpx:HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO:rag.techqa.claims:Request operation: requested=Activate SPSS 25 on a new computer. answered=Provided steps to activate SPSS 25 on a new computer. matches=True reason=The answer provided the necessary steps to activate SPSS 25 on a new computer using the existing activation code.
+INFO:httpx:HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+ERROR:agents.critic:Diagnosis/Critic attempt 2 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\agentic-rag-homework\agents\critic.py", line 521, in run
+    diagnosis = await self.diagnosis.run(task, evidence, previous, feedback,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                         source_context=source_context)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\agentic-rag-homework\evaluation\critic_components.py", line 107, in run
+    return await self.inner.run(task, evidence, previous, feedback, source_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\agentic-rag-homework\agents\critic.py", line 109, in run
+    await audit_claims(self.model, task, composed, subset, context)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\src\rag\techqa\claims.py", line 524, in audit_claims
+    raise ValueError("Claim/source entailment failed: " + "; ".join(unsupported))
+ValueError: Claim/source entailment failed: c0: The source does not explicitly state that the IBM SPSS Statistics product should be closed if it is open. It only provides a procedure to follow if the message appears.; c1: The source does not explicitly state that the License Authorization Wizard should be closed if it is open. It only provides a procedure to follow if the message appears.
+INFO:httpx:HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+ERROR:agents.critic:Diagnosis/Critic attempt 3 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\agentic-rag-homework\agents\critic.py", line 521, in run
+    diagnosis = await self.diagnosis.run(task, evidence, previous, feedback,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                         source_context=source_context)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\agentic-rag-homework\evaluation\critic_components.py", line 107, in run
+    return await self.inner.run(task, evidence, previous, feedback, source_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\agentic-rag-homework\agents\critic.py", line 109, in run
+    await audit_claims(self.model, task, composed, subset, context)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\src\rag\techqa\claims.py", line 524, in audit_claims
+    raise ValueError("Claim/source entailment failed: " + "; ".join(unsupported))
+ValueError: Claim/source entailment failed: c0: The source does not explicitly state that the IBM SPSS Statistics product should be closed if it is open. It only provides a procedure to follow if the message is encountered.; c1: The source does not explicitly state that the License Authorization Wizard should be closed if it is open. It only provides a procedure to follow if the message is encountered.
+INFO:httpx:HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:adjacent_version improved_critic initial_accepted=False
+INFO:httpx:HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"

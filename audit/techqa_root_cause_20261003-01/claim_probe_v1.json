@@ -1,0 +1,33 @@
+{
+  "complete": true,
+  "records": [
+    {
+      "id": "DEV_Q000",
+      "rejected": true,
+      "error": "Claim/source entailment failed: c0: The provided source does not explicitly state that the DASH version is 3.1.0.3. It only mentions that DASH is not installed and provides a warning message. There is no direct quote; c1: The provided source does not explicitly recommend updating DASH to version 3.1.2.1 or later. It only states that DASH should not be installed as part of the Jazz for Service",
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 916,
+        "output_tokens": 114,
+        "latency_ms": 16327.223900007084
+      },
+      "raw_output": "{\n  \"c0\": {\n    \"supported\": false,\n    \"quote_id\": \"\",\n    \"reason\": \"The provided source does not explicitly state that the DASH version is 3.1.0.3. It only mentions that DASH is not installed and provides a warning message. There is no direct quote\"\n  },\n  \"c1\": {\n    \"supported\": false,\n    \"quote_id\": \"\",\n    \"reason\": \"The provided source does not explicitly recommend updating DASH to version 3.1.2.1 or later. It only states that DASH should not be installed as part of the Jazz for Service\"\n  }\n}"
+    },
+    {
+      "id": "DEV_Q007",
+      "rejected": true,
+      "error": "Claim/source entailment failed: c1: The source does not mention the nco-g-socket-10_0 version being part of the Netcool/OMNIbus V8.1 release. The provided quote is related to a different version and release.; c3: The source is about Netcool/OMNIbus V7.4.0, not V8.1, and states that separate packages are supplied for each Operating System for V7.4.0.",
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 1279,
+        "output_tokens": 192,
+        "latency_ms": 15935.732399986591
+      },
+      "raw_output": "{\n  \"c0\": {\n    \"supported\": true,\n    \"quote_id\": \"c0_0\",\n    \"reason\": \"The source explicitly states that the nco-g-socket-java-2_0 version is part of the Netcool/OMNIbus V8.1 release.\"\n  },\n  \"c1\": {\n    \"supported\": false,\n    \"quote_id\": \"\",\n    \"reason\": \"The source does not mention the nco-g-socket-10_0 version being part of the Netcool/OMNIbus V8.1 release. The provided quote is related to a different version and release.\"\n  },\n  \"c2\": {\n    \"supported\": true,\n    \"quote_id\": \"c2_0\",\n    \"reason\": \"The source explicitly states that a single package contains versions of the gateway for all supported Operating Systems for Netcool/OMNIbus V8.1.\"\n  },\n  \"c3\": {\n    \"supported\": false,\n    \"quote_id\": \"\",\n    \"reason\": \"The source is about Netcool/OMNIbus V7.4.0, not V8.1, and states that separate packages are supplied for each Operating System for V7.4.0.\"\n  }\n}"
+    }
+  ]
+}

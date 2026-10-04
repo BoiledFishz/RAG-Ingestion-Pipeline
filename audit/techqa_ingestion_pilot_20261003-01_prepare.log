@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\scripts\techqa_ingestion_pilot.py", line 184, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\scripts\techqa_ingestion_pilot.py", line 174, in main
+    prepare(args.output, args.documents)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\scripts\techqa_ingestion_pilot.py", line 62, in prepare
+    variants["rcts_llm"].append(asdict(replace(base, chunk_id=key,
+                                       ~~~~~~~^^^^^^^^^^^^^^^^^^^^
+                                                text=chunk.text, metadata=meta)))
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.14-64\Lib\dataclasses.py", line 1778, in replace
+    return _replace(obj, **changes)
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.14-64\Lib\dataclasses.py", line 1812, in _replace
+    return self.__class__(**changes)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: SearchResult.__init__() got an unexpected keyword argument 'chunk_id'

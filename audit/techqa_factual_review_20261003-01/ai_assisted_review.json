@@ -1,0 +1,218 @@
+{
+  "annotation": "AI coding agent engineering review; NOT independent human ratings",
+  "scope": "10-question development pilot05; no global quality conclusion",
+  "scale": "0 wrong/missing;1 partial;2 complete; step score2 also covers factual tasks requiring no procedure",
+  "source_result": "enterprise-ai-agent\\evaluation\\results\\techqa_quality_pilot_20261003-05\\runs.json",
+  "records": [
+    {
+      "question_id": "DEV_Q000",
+      "actual_answer": "The patch level for a DASH release is recorded in this file: /profile/installedApps/JazzSMNode01Cell/isc.ear/isclite.war/WEB-INF/config/isc.version.properties \n\nThe isc.patch.level value will get updated with the patch level if it applies. Here is an example of the contents of this file: \n\n\nisc.name=IBM Dashboard Application Services Hub\nisc.version=3.1.1.0\nisc.release.name=IBM Dashboard Application Services Hub 3.1.2.0\nisc.build.level=201505020120\nisc.build.date=05/02/15\n*isc.patch.level=\n\n*isc.patch.level will get updated with the patch level, if this line doesn't exist or doesn't have a value, it's because there are no patches applied for the current DASH version. [S3]",
+      "official_metric": {
+        "answer_quality": 0.0,
+        "hit_at_5": 0.0,
+        "hit_at_10": 0.0,
+        "mrr": 0.0
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 0,
+        "factual_correctness": 2,
+        "applicability_correctness": 0,
+        "step_completeness": 0,
+        "answer_relevance": 0,
+        "presentation_quality": 1
+      },
+      "human_factual_metric": null,
+      "reason": "The cited text explains how to find a patch level; it supplies no action resolving the explicit minimum-version installation failure.",
+      "confidence": "source-supported reading; requires independent human review"
+    },
+    {
+      "question_id": "DEV_Q007",
+      "actual_answer": "知识库无法回答该问题。",
+      "official_metric": {
+        "answer_quality": 0.0,
+        "hit_at_5": 1.0,
+        "hit_at_10": 1.0,
+        "mrr": 1.0
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 0,
+        "factual_correctness": 0,
+        "applicability_correctness": 0,
+        "step_completeness": 0,
+        "answer_relevance": 0,
+        "presentation_quality": 0
+      },
+      "human_factual_metric": null,
+      "reason": "No answer content was returned despite available conditional package rules; this is a coverage failure, not proof of hallucination.",
+      "confidence": "source-supported reading; requires independent human review"
+    },
+    {
+      "question_id": "TRAIN_Q006",
+      "actual_answer": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nTivoli Network Manager IP Edition 4.1.1 (Huawei MTOSI Collector install)\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone [S1]",
+      "official_metric": {
+        "answer_quality": 0.6542056074766355,
+        "hit_at_5": 1.0,
+        "hit_at_10": 1.0,
+        "mrr": 1.0
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 2,
+        "factual_correctness": 2,
+        "applicability_correctness": 2,
+        "step_completeness": 2,
+        "answer_relevance": 2,
+        "presentation_quality": 1
+      },
+      "human_factual_metric": null,
+      "reason": "Actual body preserves CVE/description, both versions with Huawei installation conditions, and documented fixes; CVSS/link noise remains.",
+      "confidence": "source-supported reading; requires independent human review"
+    },
+    {
+      "question_id": "TRAIN_Q007",
+      "actual_answer": "When configure the Queue Connection Factory by navigating to JMS > Queue Connection Factories and providing all required attributes values for WebSphere MQ messaging provider and then testing a connection to MQ the error JMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED') is present. \n\nTo resolve : \n\nNavigate to ibm\\WebSphere MQ\\bin and run runmqsc maximo (maximo is QMGR name) \n\nDISPLAY QMGR notice configuration parameter CHLAUTH(ENABLED) That means that Channel Authorization Enabled. Please open the attached Pic1.bmp file. \n\nrun \n\nALTER QMGR CHLAUTH(DESABLED) \n\nrun \n\nDISPLAY QMGR noticed CHLAUTH(DISABLED) \n\nRestart MQ and Application Server and retest connection [S3]",
+      "official_metric": {
+        "answer_quality": 0.0,
+        "hit_at_5": 0.0,
+        "hit_at_10": 0.0,
+        "mrr": 0.0
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 0,
+        "factual_correctness": 1,
+        "applicability_correctness": 0,
+        "step_completeness": 0,
+        "answer_relevance": 1,
+        "presentation_quality": 1
+      },
+      "human_factual_metric": null,
+      "reason": "Maximo channel-authorization instructions do not establish why the already-configured BPM outbound credentials are replaced by the sysadmin identity. This is a request applicability defect, not merely a wrong DOC_ID.",
+      "confidence": "source-supported reading; requires independent human review"
+    },
+    {
+      "question_id": "TRAIN_Q011",
+      "actual_answer": "* A valid Authorized User product authorization code can be used to license up to two (2) product installations used by the same individual. \n * A valid Site license allows for more than one user to license product installations using the same authorization code. \n * Compliance with your IBM software licensing agreement does not require a transfer of a license from one host machine/computer to a different one. \n * Compliance with your IBM software licensing agreement does not require the previously installed IBM SPSS product to be uninstalled in order to install and license the same product on a new host machine/computer. \n * Compliance with your IBM software licensing agreement does not require the removal of the license of the previously installed product. \n * Compliance with your IBM software licensing agreement does not require the return of previously issued licenses. [S1]\n2. License the software on the new host machine/computer. \n * If you have authorization code for the product, you may use this authorization code. \n * If you are using a pre-existing authorization code and receive a 'You are not allowed to generate any more new licenses' message, instructions for resolving this issue can be found here. [http://www.ibm.com/support/docview.wss?uid=swg21480566] \n * If you do not have an authorization code for the product, instructions for creating an authorization code can be found here. [http://www-01.ibm.com/support/docview.wss?uid=swg21980065] \n * If you have more than one authorization code available to you, instructions for confirming the authorization code can be found make sure you are here [http://www.ibm.com/support/docview.wss?uid=swg21486143]. \n\nComplete! \n\nYou should now be able to run your software. [S2]",
+      "official_metric": {
+        "answer_quality": 0.0,
+        "hit_at_5": 0.0,
+        "hit_at_10": 0.0,
+        "mrr": 0.0
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 1,
+        "factual_correctness": 2,
+        "applicability_correctness": 1,
+        "step_completeness": 1,
+        "answer_relevance": 1,
+        "presentation_quality": 0
+      },
+      "human_factual_metric": null,
+      "reason": "The alternative license-transfer text is relevant and source-supported; it says to license using the existing code but does not show the concrete wizard/activation procedure for the stated failure. Gold Release20 versus query25 is kept unchanged.",
+      "confidence": "source-supported reading; requires independent human review"
+    },
+    {
+      "question_id": "DEV_Q002",
+      "actual_answer": "部分信息，仍缺少：required_steps。\nRESOLVING THE PROBLEM\nInstall the missing libraries \"adwaita-gtk2-theme\" (32 and 64 bit) and \"adwaita-gtk3-theme\" 64 bit. Please contact RedHat to obtain the missing libraries. [S4]",
+      "official_metric": {
+        "answer_quality": 0.8928571428571429,
+        "hit_at_5": 1.0,
+        "hit_at_10": 1.0,
+        "mrr": 0.3333333333333333
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 2,
+        "factual_correctness": 2,
+        "applicability_correctness": 2,
+        "step_completeness": 2,
+        "answer_relevance": 2,
+        "presentation_quality": 1
+      },
+      "human_factual_metric": null,
+      "reason": "The exact source remedy names missing adwaita libraries and bitness for the matching problem. Its false missing-steps partial label reduces presentation quality; no undocumented commands are required.",
+      "confidence": "source-supported reading; requires independent human review"
+    },
+    {
+      "question_id": "DEV_Q010",
+      "actual_answer": "Reviewing the wkplc_comp.properties file: \n\n * \n * \n *  community.DbName=commun \n   customization.DbName=custom \n * \n * \n * \n *  community.DbUrl=jdbc:db2:commun \n   customization.DbUrl=jdbc:db2:commun \n * \n * \n * \n * \n * NOTE: \n * \n\n\nRun the database transfer a second time:  * \n * \n * \n * \n * customization.DbUrl=jdbc:db2:custom\n * \n * \n * \n * \n * \n *  ConfigEngine (.sh/.bat) database-transfer -DTransferDomainList=release,customization,community,jcr,feedback,likeminds \n\n \n\nCross reference information Segment Product Component Platform Version Edition Organizational Productivity- Portals & Collaboration WebSphere Portal End of Support Products AIX, HP-UX, IBM i, Linux, Solaris, Windows, z/OS 7.0, 6.1 [S2]",
+      "official_metric": {
+        "answer_quality": 0.0,
+        "hit_at_5": 1.0,
+        "hit_at_10": 1.0,
+        "mrr": 1.0
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 0,
+        "factual_correctness": 1,
+        "applicability_correctness": 0,
+        "step_completeness": 0,
+        "answer_relevance": 1,
+        "presentation_quality": 0
+      },
+      "human_factual_metric": null,
+      "reason": "The selected DB2 URL/domain-transfer remedy does not address the explicit Oracle NLS_CHARACTERSET encoding mismatch from the question. Shared EJPFD0016E/database-transfer wording is not sufficient.",
+      "confidence": "source-supported reading; requires independent human review"
+    },
+    {
+      "question_id": "DEV_Q012",
+      "actual_answer": "This ARG_MAX kernel parameter adjusted to much larger from kernel release version 2.6.23, that is 2621440 (http://www.in-ulm.de/~mascheck/various/argmax [http://www.in-ulm.de/~mascheck/various/argmax]). \n\nBut we support upto Redhat 5.11 in Twinfin which is less than kernel release 2.6.23. So we have no way to allow ARG_MAX larger than 131072 at this time. [S1]",
+      "official_metric": {
+        "answer_quality": 1.0,
+        "hit_at_5": 1.0,
+        "hit_at_10": 1.0,
+        "mrr": 1.0
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 2,
+        "factual_correctness": 2,
+        "applicability_correctness": 2,
+        "step_completeness": 2,
+        "answer_relevance": 2,
+        "presentation_quality": 1
+      },
+      "human_factual_metric": null,
+      "reason": "The exact source explains the supported kernel/ARG_MAX limitation. The principal failure question does not require inventing a nonexistent workaround.",
+      "confidence": "source-supported reading; requires independent human review"
+    },
+    {
+      "question_id": "TRAIN_Q000",
+      "actual_answer": "To work around the issue, set environment variables that are needed by the application directly in the instance with:  * \n   \n * streamtool setproperty\n * -d <domain> -i <instance>\n   --application-ev <VARIABLE NAME>=<VARIABLE VALUE>\n * [S1]",
+      "official_metric": {
+        "answer_quality": 1.0,
+        "hit_at_5": 1.0,
+        "hit_at_10": 1.0,
+        "mrr": 1.0
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 2,
+        "factual_correctness": 2,
+        "applicability_correctness": 2,
+        "step_completeness": 1,
+        "answer_relevance": 2,
+        "presentation_quality": 0
+      },
+      "human_factual_metric": null,
+      "reason": "A source-supported instance-environment workaround with flags is present; split command lines and empty bullet artifacts impede copying/execution and need presentation review.",
+      "confidence": "source-supported reading; requires independent human review"
+    },
+    {
+      "question_id": "TRAIN_Q001",
+      "actual_answer": "This is because the Exit() parser function in IPL is designed to exit the immediate scope. To carry the action outside of the User Defined Function to the Policy level one would have to set a variable that is then tested immediately after the User Defined Function call - for example: \n\n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * SetGlobalVar(\"ExitNow\", 1);\n * \n * Exit();\n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * SetGlobalVar(\"ExitNow\", 1);\n * \n * Exit();\n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * If(GetGlobalVar(\"ExitNow\") == 1)\n * \n * {\n   Log(ID+WP+\": Existing policy...\");\n   \n * Exit\n * ();\n   } [S1]",
+      "official_metric": {
+        "answer_quality": 0.8275862068965517,
+        "hit_at_5": 1.0,
+        "hit_at_10": 1.0,
+        "mrr": 1.0
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 2,
+        "factual_correctness": 2,
+        "applicability_correctness": 2,
+        "step_completeness": 2,
+        "answer_relevance": 2,
+        "presentation_quality": 0
+      },
+      "human_factual_metric": null,
+      "reason": "The body explains immediate scope and the global-variable policy-level workaround. Repeated empty bullets and fragmented code are major presentation defects.",
+      "confidence": "source-supported reading; requires independent human review"
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+INFO httpx HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO agents.rag_agent.service Agent status=unanswerable candidates=10 context_tokens=1204 latency_ms=14903.03
+INFO __main__ DEV_Q000 completed (1/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S1'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.service Agent status=answered candidates=10 context_tokens=1790 latency_ms=15731.02
+INFO __main__ DEV_Q007 completed (2/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S1'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Ignoring product conflict without distinct named families
+INFO agents.rag_agent.service Agent status=answered candidates=10 context_tokens=2172 latency_ms=18871.72
+INFO __main__ TRAIN_Q006 completed (3/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.rewrite Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 112, in generate
+    raise ValueError("Structured generation exceeded its token budget")
+ValueError: Structured generation exceeded its token budget
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 90, in rewrite
+    await self.model.generate(prompt, RewriteDraft.model_json_schema())
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 118, in generate
+    raise DependencyUnavailable("Ollama structured generation failed") from exc
+models.errors.DependencyUnavailable: Ollama structured generation failed
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S6'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.service Agent status=answered candidates=10 context_tokens=2260 latency_ms=26058.25
+INFO __main__ TRAIN_Q007 completed (4/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.rewrite Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S2'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Ignoring product conflict without distinct named families
+INFO agents.rag_agent.service Agent status=answered candidates=10 context_tokens=2333 latency_ms=21734.17
+INFO __main__ TRAIN_Q011 completed (5/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.rewrite Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S4'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Ignoring product conflict without distinct named families
+INFO agents.rag_agent.service Agent status=answered candidates=10 context_tokens=2398 latency_ms=24480.29
+INFO __main__ DEV_Q002 completed (6/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.rewrite Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 112, in generate
+    raise ValueError("Structured generation exceeded its token budget")
+ValueError: Structured generation exceeded its token budget
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 90, in rewrite
+    await self.model.generate(prompt, RewriteDraft.model_json_schema())
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 118, in generate
+    raise DependencyUnavailable("Ollama structured generation failed") from exc
+models.errors.DependencyUnavailable: Ollama structured generation failed
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S1'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Ignoring product conflict without distinct named families
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=1: Conflict claims must quote actual query/source substrings: source_claim 'IBM WebSphere Portal' is absent from S1; copy a shorter exact span from this supplied source
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO agents.rag_agent.service Agent status=unanswerable candidates=10 context_tokens=2400 latency_ms=35836.37
+INFO __main__ DEV_Q010 completed (7/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S1'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.service Agent status=answered candidates=10 context_tokens=2235 latency_ms=12326.41
+INFO __main__ DEV_Q012 completed (8/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S1', 'S2'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.service Agent status=answered candidates=10 context_tokens=2316 latency_ms=20283.63
+INFO __main__ TRAIN_Q000 completed (9/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S1'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Ignoring product conflict without distinct named families
+INFO agents.rag_agent.service Agent status=answered candidates=10 context_tokens=2222 latency_ms=17763.89
+INFO __main__ TRAIN_Q001 completed (10/10) error=None
+INFO __main__ TechQA evaluation summary: {'dataset': 'IBM TechQA development regression: regression_questions.json', 'dataset_path': '..\\audit\\techqa_root_cause_20261003-01\\regression_questions.json', 'collection': 'semantic', 'retrieval_backend': 'techqa', 'protocol': 'open full-corpus retrieval; N labels concern official DOC_IDS only', 'profile': 'ollama', 'model': 'qwen2.5:7b', 'evaluation_top_k': 10, 'answer_quality_method': 'answer-body token F1 multiplied by correct document citation', 'question_count': 10, 'complete': True, 'resumed': False, 'reused_questions': 0, 'answerable_count': 10, 'unanswerable_count': 0, 'hit_at_5': 0.7, 'hit_at_10': 0.7, 'mrr': 0.6333333333333333, 'unanswerable_refusal_accuracy': 0.0, 'answer_quality': 0.4381285601763891, 'answerable_acceptance': 0.8, 'average_latency_ms': 20799.23418999533, 'error_count': 0}

@@ -1,0 +1,324 @@
+{
+  "complete": true,
+  "protocol": "frozen original parent; query-derived requirements; coverage hints are not truth judgements; max two original spans",
+  "records": [
+    {
+      "id": "DEV_Q000",
+      "query": "Web GUI 8.1 FP7 requires DASH 3.1.2.1 or later\nYou wanted to install Web GUI 8.1 FP7, but your DASH version does not meet the required version.\n\nIM 1.8 displayed the following:\n\n     ERROR: The installed IBM Dashboard Application Services Hub version is 3.1.0.3, but requires version 3.1.2.1 or later.",
+      "parent_hash": "f990eea7647495cb0c8be09092e5bf92be78c182a5db2184e288a02c61bf5c79",
+      "requirements": [
+        {
+          "key": "applicable_solution",
+          "description": "Answer the complete principal request and its stated premises, rather than a merely related topic"
+        },
+        {
+          "key": "required_steps",
+          "description": "Keep the chosen procedure complete with its conditions and command arguments; one complete alternative is enough unless the user requests all alternatives"
+        }
+      ],
+      "units": [
+        {
+          "text": "Required software Part number\n\nDescription\n\nCNC1PML Jazz for Service Management 1.1.3.0 for Linux®; 64-bit; Multilingual\n\nContains the Jazz for Service Management launchpad; IBM Installation Manager Version 18.2; IBM Prerequisite Scanner Version 1.2.0.18; IBM Tivoli Directory Integrator Identity Edition Version 7.1.1.5; and the Installation Manager software packages for following integration service: IBM Dashboard Application Services Hub Version 3.1.3.0.\n\nCNC1TML IBM® Tivoli® Common Reporting 3.1.3.0 for Linux®; 64-bit; Multilingual\n\nContains the base installation image.\n\nOptional software Download the following supplemental software under the following conditions:\n\n * If you want to install Jazz for Service Management and its database and application server middleware on a single server for evaluation and development purposes; also referred to as a full installation.\n * If you do not have an existing supported version of WebSphere Application Server.\n * If you do not have an existing supported version of DB2 Enterprise Server Edition and you want to install Tivoli Common Reporting or Dashboard Application Services Hub in a high-availability environment.\n * If you want to set up Dashboard Application Services Hub in a high-availability environment.",
+          "start_char": 9153,
+          "end_char": 10422,
+          "section": "TAB NAVIGATION",
+          "candidate_coverage_hints": [
+            "applicable_solution",
+            "required_steps"
+          ],
+          "instruction_group": true,
+          "exact_original_span": true
+        }
+      ]
+    },
+    {
+      "id": "DEV_Q002",
+      "query": "Unable to open profile from P8 Content Engine Configuration manager (CMUI) on Redhat Linux 7.2, getting GPF and javacore dump.\nLaunch configmgr then try to open an existing profile. Once I click ok on the dialog box to\n\"Verify your application server setting before proceeding...\" Configuration manager would crash and GPF. I can see the javacore.txt and dmp file created.\nThe javacore.txt contains the following:\n\n0SECTION TITLE subcomponent dump routine NULL =============================== 1TICHARSET UTF-8 1TISIGINFO Dump Event \"gpf\" (00002000) received 1TIDATETIME Date: 2016/05/05 at 04:53:30 1TIFILENAME Javacore filename: /opt/IBM/FileNet/ContentEngine/tools/configure/javacore.20160505.045330.25035.0002.txt 1TIREQFLAGS Request Flags: 0x81 (exclusive+preempt) 1TIPREPSTATE Prep State: 0x100 (trace_disabled) 1TIPREPINFO Exclusive VM access not taken: data may not be consistent across javacore sections NULL ------------------------------------------------------------------------ 0SECTION GPINFO subcomponent dump routine NULL ================================ 2XHOSLEVEL OS Level : Linux 3.10.0-327.13.1.el7.x86_64 2XHCPUS Processors - 3XHCPUARCH Architecture : x86 3XHNUMCPUS How Many : 1 3XHNUMASUP NUMA is either not supported or has been disabled by user NULL\n1XHEXCPCODE J9Generic_Signal_Number: 00000004 1XHEXCPCODE Signal_Number: 0000000B 1XHEXCPCODE Error_Value: 00000000 1XHEXCPCODE Signal_Code: 00000080 1XHEXCPCODE Handler1: F72A2E6A 1XHEXCPCODE Handler2: F724D00A 1XHEXCPCODE InaccessibleAddress: 00000000 NULL\n1XHEXCPMODULE Module: /lib/libcairo.so.2 1XHEXCPMODULE Module_base_address: D55FC000\n\nThis is a Redhat Linux 7.2 environment with Content Platform Engine CPE 5.2.1.4.",
+      "parent_hash": "04ab2c7bd5c6c0f9b6268cab599b89b0ad40700206f2ddcf1ea71ebaef2d47cd",
+      "requirements": [
+        {
+          "key": "applicable_solution",
+          "description": "Answer the complete principal request and its stated premises, rather than a merely related topic"
+        },
+        {
+          "key": "required_steps",
+          "description": "Keep the chosen procedure complete with its conditions and command arguments; one complete alternative is enough unless the user requests all alternatives"
+        }
+      ],
+      "units": [
+        {
+          "text": "RESOLVING THE PROBLEM\nInstall the missing libraries \"adwaita-gtk2-theme\" (32 and 64 bit) and \"adwaita-gtk3-theme\" 64 bit. Please contact RedHat to obtain the missing libraries.",
+          "start_char": 819,
+          "end_char": 995,
+          "section": "RESOLVING THE PROBLEM",
+          "candidate_coverage_hints": [
+            "applicable_solution",
+            "required_steps"
+          ],
+          "instruction_group": false,
+          "exact_original_span": true
+        }
+      ]
+    },
+    {
+      "id": "DEV_Q007",
+      "query": "Which Socket Gateway should I be using with Netcool Omnibus (NOI) ?\nWhich Socket Gateway should I be using with Netcool Omnibus (NOI) ?\n\nThere are 2 versions of the gateway; nco-g-socket-java-2_0 and nco-g-socket-10_0 Users may be confused what version they should download or use",
+      "parent_hash": "7a9a5899f212c521d515f7837a1ea566cc09360a7b80dce88fafc48516d13956",
+      "requirements": [
+        {
+          "key": "option_a",
+          "description": "Explain the first named option: nco-g-socket-java-2_0"
+        },
+        {
+          "key": "option_b",
+          "description": "Explain the second named option: nco-g-socket-10_0"
+        },
+        {
+          "key": "selection_rule",
+          "description": "Give applicable product-version/OS/package selection rules and a conditional recommendation; do not invent differences absent from the evidence"
+        }
+      ],
+      "units": [
+        {
+          "text": "Netcool/OMNIbus V8.1\n\nThe Netcool/OMNIbus V8.1 version of this gateway supports the following Operating Systems:\n\nAIX, Linux, Solaris, Windows and zLinux.\n\nIf you are running Netcool/OMNIbus V8.1, a single package contains versions of the gateway for all supported Operating Systems. To obtain this package, use the Find by part number field to search for part number: CN6I1EN",
+          "start_char": 890,
+          "end_char": 1266,
+          "section": "Netcool/OMNIbus V8.1",
+          "candidate_coverage_hints": [
+            "selection_rule"
+          ],
+          "instruction_group": false,
+          "exact_original_span": true
+        },
+        {
+          "text": "Netcool/OMNIbus V7.4.0\n\nIf you are running Netcool/OMNIbus V7.4.0, a separate package is supplied for each Operating System. To obtain this new package, use the Find by part number field to search for the part number that corresponds to your Operating System as shown in the table below.\n\nPart number Operating System CN6GZEN AIX CN6H1EN HPUX on Itanium CN6H2EN Linux CN6H3EN Linux for zSeries CN6H4EN Solaris CN6H5EN Windows",
+          "start_char": 1268,
+          "end_char": 1693,
+          "section": "Netcool/OMNIbus V7.4.0",
+          "candidate_coverage_hints": [
+            "selection_rule"
+          ],
+          "instruction_group": false,
+          "exact_original_span": true
+        }
+      ]
+    },
+    {
+      "id": "DEV_Q010",
+      "query": "We transferred the database to an external database on our Portal 8.5 environment and now seeing errors, EJPDB0085W and EJPFD0016E in the logs\nAfter transferring the Portal database we seeing the following....\n\n     [3/1/16 6:22:19:481 CST] 00000071 DataStoreServ W com.ibm.wps.services.\n     datastore.DataStoreServiceImpl checkCorrectSetup EJPDB0085W: The\n     character encoding of the database is not UTF-8.\n     [3/1/16 6:22:19:528 CST] 00000071 Servlet       E com.ibm.wps.engine.\n     Servlet init EJPFD0016E: Initialization of service failed.\n                                      com.ibm.wps.util.DataBackendException:\n     EJPDB0160E: The sanity checks of the database layer failed.\n                     at com.ibm.wps.services.datastore.DataStoreServiceImpl.\n     checkCorrectSetup(DataStoreServiceImpl.java:712)\n                     at com.ibm.wps.services.datastore.DataStoreServiceImpl.\n     init(DataStoreServiceImpl.java:288)\n\n...\n\n     [3/1/16 6:22:19:824 CST] 00000071 DatabaseInsig W com.ibm.wps.datastore.\n     dbinsight.DatabaseInsight checkCharacterEncodingForOracle EJPDB0166W:\n     The character encoding of database domain [[Domain: jcr]] is not\n     correct. The value [WE8MSWIN1252] is set for key [NLS_CHARACTERSET] in\n     parameter section [NLS_DATABASE_PARAMETERS] where expected values only\n     can contain one of [[UTF8, AL16UTF16, AL32UTF8, UTFE]].\n\\",
+      "parent_hash": "0404b23d459ba42fc86e760717569d05d08135fb1c938e8000186716f8d23fce",
+      "requirements": [
+        {
+          "key": "requested_answer",
+          "description": "Answer the principal factual request or give an applicable cause/solution for the reported failure, retaining all relevant premises and conditions"
+        }
+      ],
+      "units": [
+        {
+          "text": "At this point there is no way to salvage the database in its current state. The entire Portal database must be dropped and recreated using the specifications provided in the InfoCenter at this link: \n\n\nhttp://publib.boulder.ibm.com/infocenter/wpdoc/v6r1m0/topic/com.ibm.wp.e [http://publib.boulder.ibm.com/infocenter/wpdoc/v6r1m0/index.jsp?topic=/com.ibm.wp.ent.doc/config/aix_oracle_create_db.html]\nnt.doc/config/aix_oracle_create_db.html [http://publib.boulder.ibm.com/infocenter/wpdoc/v6r1m0/index.jsp?topic=/com.ibm.wp.ent.doc/config/aix_oracle_create_db.html] \n\nThis is the specific information in the Information Center pertaining to character encoding:\n\n=============================\n\nAll databases must be created using UNICODE Database and National character sets such as UTF8, AL32UTF8, or AL16UTF16. \n\n=============================",
+          "start_char": 4820,
+          "end_char": 5662,
+          "section": "",
+          "candidate_coverage_hints": [
+            "requested_answer"
+          ],
+          "instruction_group": false,
+          "exact_original_span": true
+        }
+      ]
+    },
+    {
+      "id": "DEV_Q012",
+      "query": "I receive the following during UDX compilation Can't exec \"/nz/kit/bin/adm/nzudxcompile\": Argument list too long",
+      "parent_hash": "26de547a5ad0a9bb3b9f1cf361a2211b758f79790415a0597a609d8e032a7ded",
+      "requirements": [
+        {
+          "key": "requested_answer",
+          "description": "Answer the principal factual request or give an applicable cause/solution for the reported failure, retaining all relevant premises and conditions"
+        }
+      ],
+      "units": [
+        {
+          "text": "This ARG_MAX kernel parameter adjusted to much larger from kernel release version 2.6.23, that is 2621440 (http://www.in-ulm.de/~mascheck/various/argmax [http://www.in-ulm.de/~mascheck/various/argmax]).",
+          "start_char": 660,
+          "end_char": 862,
+          "section": "",
+          "candidate_coverage_hints": [
+            "requested_answer"
+          ],
+          "instruction_group": false,
+          "exact_original_span": true
+        }
+      ]
+    },
+    {
+      "id": "TRAIN_Q000",
+      "query": "User environment variables no longer getting picked up after upgrade to 4.1.1.1 or 4.1.1.2?\nHave you found that after upgrade to Streams 4.1.1.1 or 4.1.1.2, that environment variables set in your .bashrc are no longer being set? For example ODBCINI is not set for the database toolkit and you get\n\n     An SQL operation failed. The SQL state is 08003, the SQL code\n     is 0 and the SQL message is [unixODBC][Driver\n     Manager]Connnection does not exist.",
+      "parent_hash": "686181f80e9941d5e96c282d42e3c71985398b9e1e9c092ccdaf75f14e6e440f",
+      "requirements": [
+        {
+          "key": "requested_answer",
+          "description": "Answer the principal factual request or give an applicable cause/solution for the reported failure, retaining all relevant premises and conditions"
+        }
+      ],
+      "units": [
+        {
+          "text": "To work around the issue, set environment variables that are needed by the application directly in the instance with:  * \n   \n * streamtool setproperty\n * -d <domain> -i <instance>\n   --application-ev <VARIABLE NAME>=<VARIABLE VALUE>\n *",
+          "start_char": 973,
+          "end_char": 1209,
+          "section": "",
+          "candidate_coverage_hints": [
+            "requested_answer"
+          ],
+          "instruction_group": true,
+          "exact_original_span": true
+        }
+      ]
+    },
+    {
+      "id": "TRAIN_Q001",
+      "query": "Netcool/Impact (all versions): How is the Exit() action function expected to work with User Defined Functions?\nNetcool/Impact (all versions)\n\nUsing the Exit() action function within a User Defined Function in a Policy will not exit the Policy process.",
+      "parent_hash": "a394c5597814a57895053ff62020a7ef2092690847e84d15ef31bc7a40c2d026",
+      "requirements": [
+        {
+          "key": "applicable_solution",
+          "description": "Answer the complete principal request and its stated premises, rather than a merely related topic"
+        },
+        {
+          "key": "required_steps",
+          "description": "Keep the chosen procedure complete with its conditions and command arguments; one complete alternative is enough unless the user requests all alternatives"
+        }
+      ],
+      "units": [
+        {
+          "text": "This is because the Exit() parser function in IPL is designed to exit the immediate scope. To carry the action outside of the User Defined Function to the Policy level one would have to set a variable that is then tested immediately after the User Defined Function call - for example: \n\n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * SetGlobalVar(\"ExitNow\", 1);\n * \n * Exit();\n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * SetGlobalVar(\"ExitNow\", 1);\n * \n * Exit();\n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * If(GetGlobalVar(\"ExitNow\") == 1)\n * \n * {\n   Log(ID+WP+\": Existing policy...\");\n   \n * Exit\n * ();\n   }",
+          "start_char": 584,
+          "end_char": 1325,
+          "section": "ANSWER",
+          "candidate_coverage_hints": [
+            "applicable_solution",
+            "required_steps"
+          ],
+          "instruction_group": true,
+          "exact_original_span": true
+        }
+      ]
+    },
+    {
+      "id": "TRAIN_Q006",
+      "query": "Is ITNM exposed to Apache CXF vulnerability (CVE-2017-3156)?\nIs ITNM versions are affected by Apache CXF vulnerability (CVE-2017-3156), If yes then what are all the version will be affected and where I can find the details?",
+      "parent_hash": "2a1856f557a0ae5575a6841660f1d18325f2bf5e847991dc86b095df862865cd",
+      "requirements": [
+        {
+          "key": "vulnerability",
+          "description": "Identify the requested vulnerability and its nature"
+        },
+        {
+          "key": "affected_versions",
+          "description": "State affected versions AND documented exposure conditions; do not assume the user meets a condition"
+        },
+        {
+          "key": "remediation",
+          "description": "Report documented fix/remediation or where the requested details are available; preserve version conditions"
+        }
+      ],
+      "units": [
+        {
+          "text": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nTivoli Network Manager IP Edition 4.1.1 (Huawei MTOSI Collector install)\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone",
+          "start_char": 266,
+          "end_char": 1538,
+          "section": "vulnerability/exposure/remediation",
+          "candidate_coverage_hints": [
+            "vulnerability",
+            "affected_versions",
+            "remediation"
+          ],
+          "instruction_group": false,
+          "exact_original_span": true
+        }
+      ]
+    },
+    {
+      "id": "TRAIN_Q007",
+      "query": "Why do I get an exception when calling MQ after migrating my BPM environment (2035 MQRC_NOT_AUTHORIZED) ?\nWe migrated our BPM environment from V8.0 to 8.5.7. When we attempt to call the MQ service we are getting the following exception:\n\n     [10/16/17 13:50:05:273 AST] 0000026d SystemOut     O\n     com.ibm.msg.client.jms.DetailedJMSSecurityException: JMSWMQ2013: The\n     security authentication was not valid that was supplied for QueueManager\n     'QM1' with connection mode 'Client' and host name 'MQ1(1414)'.\n     Please check if the supplied username and password are correct on the\n     QueueManager to which you are connecting.\n     ...\n     Caused by: com.ibm.mq.MQException: JMSCMQ0001: WebSphere MQ call failed\n     with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED').\n      at\n     com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.jav\n     a:204)\n      ... 162 more\n\nThe same MQ service is working fine in the old BPM environment. User name and password configured for the queue is correct. However, when we check the MQ logs, we observing the username is not used, instead the sys admin user seems to be used.",
+      "parent_hash": "63691d999697408f00e8c4806774322fe0edd30e2f7ef16e632b577d67ee3d38",
+      "requirements": [
+        {
+          "key": "configured_identity",
+          "description": "Explain why configured credentials are not being used and how to select the intended outbound identity, preserving the premise that the supplied username/password are already correct"
+        },
+        {
+          "key": "required_steps",
+          "description": "Supply concrete applicable configuration steps when changing credential selection; do not merely repeat symptoms"
+        }
+      ],
+      "units": [
+        {
+          "text": "Default behaviour when no credentials are supplied in the application server \n\nIf no credentials are supplied by the application on the createConnection call, and neither of the component managed or container managed security systems described below are configured, then WebSphere Application Server provides a blank username to MQ. This causes MQ to authorise the client based on the userid that the MQ listener is running under. In the majority of cases this is 'mqm' on UNIX/Linux systems and 'MUSR_MQADMIN' on Windows. \n\nAs these are administrative MQ users, they will be blocked by default in WebSphere MQ V7.1 and higher, with a AMQ9777 error logged in the error logs of the queue manager.",
+          "start_char": 4833,
+          "end_char": 5528,
+          "section": "default outbound identity condition",
+          "candidate_coverage_hints": [
+            "configured_identity",
+            "required_steps"
+          ],
+          "instruction_group": false,
+          "exact_original_span": true
+        },
+        {
+          "text": "Default component-managed authentication alias for outbound connections \n\nFor cases where it is impractical to change the application to use container-managed security, or to change it to supply a username and password directly on the createConnection call, it is possible to supply a default. \n\nThis default is called the \"component-managed authentication alias\" and cannot be configured via the administrative console (since WebSphere Application Server Version 7.0 when it was removed from the panels MQ connection factories). The below scripting samples show how to configure it using wsadmin: \n\n * JACL:\n   wsadmin>set cell [ $AdminConfig getid \"/Cell:mycell\" ]\n   \n   mycell(cells/mycell|cell.xml#Cell_1)\n   \n   wsadmin>$AdminTask listWMQConnectionFactories $cell\n   \n   MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)\n   \n   wsadmin>$AdminTask modifyWMQConnectionFactory MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104) { -componentAuthAlias myalias }\n   \n   MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104) \n * Jython:\n   wsadmin>cell = AdminConfig.getid(\"/Cell:mycell\")\n   \n   wsadmin>AdminTask.listWMQConnectionFactories(cell)\n   \n   'MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)'\n   \n   wsadmin>AdminTask.modifyWMQConnectionFactory('MyCF(cells/mycell|resos urces.xml#MQConnectionFactory_1247500675104)', \"-componentAuthAlias myalias\")\n   \n   'MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)'",
+          "start_char": 8004,
+          "end_char": 9502,
+          "section": "outbound identity configuration",
+          "candidate_coverage_hints": [
+            "configured_identity",
+            "required_steps"
+          ],
+          "instruction_group": true,
+          "exact_original_span": true
+        }
+      ]
+    },
+    {
+      "id": "TRAIN_Q011",
+      "query": "Load SPSS 25 on a new computer\nI purchased SPSS 25 with a 12 month license on Jan 27. I loaded it and used it on my MacBook Pro. I now have a new MacBookPro. I was able to download the program but get a message that says I don't have a license. I do have the activation code. Can you please help me use this product on my new computer? Thanks!",
+      "parent_hash": "0000e0efdee8927fe160e5bdcf810606ca3aaca1dbd0ded242d13a27b5e89381",
+      "requirements": [
+        {
+          "key": "activation_on_new_host",
+          "description": "Help activate/license the installed product on the new host using the already-owned code; instructions only for obtaining an existing code again do not answer that request"
+        },
+        {
+          "key": "required_steps",
+          "description": "Give complete applicable licensing steps, keeping any error-message, OS and release prerequisites explicit"
+        }
+      ],
+      "units": [
+        {
+          "text": "Below is a picture of the warning: \n\n[/support/docview.wss?uid=swg21966637&aid=1] [/support/docview.wss?uid=swg21966637&aid=1]\n\nIf you encounter this message, perform the following procedure:\n\n\n 1.  If open, close the IBM SPSS Statistics product. \n 2.  If open, close the License Authorization Wizard. \n 3.  Open Finder. \n 4.  Select the 'Go' menu. \n 5.  Select the 'Utilities' menu. \n 6.  Open the 'Terminal' program. \n 7.  Type (copy/paste) the following command:\n     \n     cd /Applications/IBM/SPSS/Statistics/ \n 8.   \n 9.  Press Enter/Return. \n 10. Perform the procedure corresponding to the Statistics product version as described below:",
+          "start_char": 773,
+          "end_char": 1416,
+          "section": "shared procedure setup",
+          "candidate_coverage_hints": [
+            "activation_on_new_host",
+            "required_steps"
+          ],
+          "instruction_group": true,
+          "exact_original_span": true
+        },
+        {
+          "text": "Statistics Release 25  1. Type (copy/paste) the following command: \n    \n    sudo chown -R root:admin 25\n    \n 2. Press Enter/Return. \n 3. Close Terminal. \n 4. Launch the License Authorization Wizard. \n 5. The warning message should no longer appear. \n 6. License your IBM SPSS Statistics product.",
+          "start_char": 2931,
+          "end_char": 3228,
+          "section": "Statistics Release 25",
+          "candidate_coverage_hints": [
+            "activation_on_new_host",
+            "required_steps"
+          ],
+          "instruction_group": true,
+          "exact_original_span": true
+        }
+      ]
+    }
+  ]
+}

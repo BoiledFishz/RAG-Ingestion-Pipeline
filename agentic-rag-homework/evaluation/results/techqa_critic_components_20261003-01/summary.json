@@ -1,0 +1,49 @@
+{
+  "complete": true,
+  "cases": 10,
+  "observations": 30,
+  "protocol": "controlled real-source corruptions; engineering/AI-assisted labels",
+  "dataset_sha256": "4befd238617b7d823bfac9c9195bd96df72180d187770f75760506404b1bc199",
+  "summary": {
+    "no_critic": {
+      "defect_recall": 0.0,
+      "false_accept_rate": 1.0,
+      "false_reject_rate": 0.0,
+      "average_retry": 0.0,
+      "llm_calls": 0.0,
+      "tokens": 0.0,
+      "latency_ms": 0.0,
+      "protocol_error_cases": 0,
+      "issue_repair_rate": null,
+      "new_issue_rate": null,
+      "final_fact_coverage": null
+    },
+    "legacy_critic": {
+      "defect_recall": 0.625,
+      "false_accept_rate": 0.375,
+      "false_reject_rate": 0.0,
+      "average_retry": 1.0,
+      "llm_calls": 2.9,
+      "tokens": 3181.3,
+      "latency_ms": 25853.522320004413,
+      "protocol_error_cases": 5,
+      "issue_repair_rate": null,
+      "new_issue_rate": null,
+      "final_fact_coverage": null
+    },
+    "improved_critic": {
+      "defect_recall": 0.375,
+      "false_accept_rate": 0.625,
+      "false_reject_rate": 0.0,
+      "average_retry": 0.6,
+      "llm_calls": 3.3,
+      "tokens": 3921.7,
+      "latency_ms": 42337.03012999613,
+      "protocol_error_cases": 1,
+      "issue_repair_rate": null,
+      "new_issue_rate": null,
+      "final_fact_coverage": null
+    }
+  },
+  "protocol_unchanged": true
+}

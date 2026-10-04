@@ -1,0 +1,44 @@
+{
+  "git_commit": "2a464fe714a26a1db3a424f2d64f557285a3e3be",
+  "tracked_worktree_dirty": true,
+  "source_sha256": "af8c9000ee94c9832cf8a334a4b909a3fc9c300662a7a6d94cf7f304ce26dce6",
+  "source_file_count": 136,
+  "corpus_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+  "configuration": {
+    "TECHQA_PROFILE": "full",
+    "TECHQA_DENSE_BACKEND": "semantic",
+    "TECHQA_RERANKER": "nomic",
+    "TECHQA_RERANK_WEIGHTS": "0.50,0.30,0.20",
+    "TECHQA_GENERATION": "extractive",
+    "MODEL_PROVIDER": "ollama",
+    "OLLAMA_MODEL": "qwen2.5:7b",
+    "OLLAMA_NUM_GPU": "auto",
+    "TECHQA_FACT_AUDIT": "1",
+    "RETRIEVAL_CANDIDATE_K": "30",
+    "RETRIEVAL_RERANK_K": "20",
+    "RRF_RANK_CONSTANT": "60",
+    "MAX_CONTEXT_TOKENS": "8000",
+    "MAX_CHUNKS_PER_DOCUMENT": "2",
+    "TECHQA_RERANKER_TIMEOUT": "120"
+  },
+  "artifact_sha256": {
+    "config/techqa_thresholds.json": "3ee2b1fbf2b762078669c68754d44f2697cc36d7aa5d3a1fb0e67e2538ab7a69",
+    ".rag_data/techqa_semantic/manifest.json": "222a9214bc192ca7e829b139ad10cf405bcac297de11de5140fdbf55e5f1f12b"
+  },
+  "model_digests": {
+    "qwen2.5:7b": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "qwen2.5:3b": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+    "all-minilm:22m": "1b226e2802dbb772b5fc32a58f103ca1804ef7501331012de126ab22f67475ef",
+    "nomic-embed-text:latest": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+    "llama3.2:3b": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72"
+  },
+  "benchmark_settings": {
+    "versions": [
+      "improved_critic"
+    ],
+    "selected_cases": null,
+    "repair_generation": "controlled",
+    "max_retries": 2,
+    "scope": "frozen actual-source component corruptions"
+  }
+}

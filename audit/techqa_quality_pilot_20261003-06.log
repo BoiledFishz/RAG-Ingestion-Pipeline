@@ -1,0 +1,335 @@
+INFO httpx HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Install Web GUI 8.1 FP7 answered=Ignore DASH installation warnings and proceed with Tivoli Common Reporting installation matches=False reason=The answer provided does not address the requirement to install Web GUI 8.1 FP7 with the correct DASH version. Instead, it suggests ignoring DASH installation warnings and proceeding with Tivoli Common Reporting, which,虽
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['applicable_solution', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provided does not address the requirement to install Web GUI 8.1 FP7 with the correct DASH version. Instead, it suggests ignoring DASH installation warnings and proceeding with Tivoli Common Reporting, which,虽']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['applicable_solution', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provided does not address the requirement to install Web GUI 8.1 FP7 with the correct DASH version. Instead, it suggests ignoring DASH installation warnings and proceeding with Tivoli Common Reporting, which,虽']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Install Web GUI 8.1 FP7 answered=Diagnose and resolve issues with the Reporting service and DASH integration script matches=False reason=The answer focuses on diagnosing issues with the Reporting service and DASH integration script, rather than addressing the version requirement for Web GUI 8.1 FP7.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['applicable_solution', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer focuses on diagnosing issues with the Reporting service and DASH integration script, rather than addressing the version requirement for Web GUI 8.1 FP7.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['applicable_solution', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer focuses on diagnosing issues with the Reporting service and DASH integration script, rather than addressing the version requirement for Web GUI 8.1 FP7.']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S3'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Ignoring product conflict without distinct named families
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Determine the patch level of the installed DASH version. answered=Described how to find the patch level in the file /profile/installedApps/JazzSMNode01Cell/isc.ear/isclite.war/WEB-INF/config/isc.version.properties. matches=False reason=The answer provided the location of the file containing the patch level, but did not explicitly state the patch level or confirm that the version is 3.1.2.1 or later.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['applicable_solution', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provided the location of the file containing the patch level, but did not explicitly state the patch level or confirm that the version is 3.1.2.1 or later.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['applicable_solution', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provided the location of the file containing the patch level, but did not explicitly state the patch level or confirm that the version is 3.1.2.1 or later.']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Install Web GUI 8.1 FP7 answered=Close Web browser windows and login to the DASH server, then test logout functionality matches=False reason=The answer provided does not address the version requirement for Web GUI 8.1 FP7, but rather focuses on browser and DASH server session management.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['applicable_solution', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provided does not address the version requirement for Web GUI 8.1 FP7, but rather focuses on browser and DASH server session management.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['applicable_solution', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provided does not address the version requirement for Web GUI 8.1 FP7, but rather focuses on browser and DASH server session management.']
+INFO agents.rag_agent.service Agent status=unanswerable candidates=10 context_tokens=1204 latency_ms=90666.55
+INFO __main__ DEV_Q000 completed (1/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Identify the correct Socket Gateway version for Netcool Omnibus V8.1 or V7.4.0. answered=Described the supported versions and how to obtain them for Netcool Omnibus V8.1 and V7.4.0. matches=False reason=The answer provided details on the supported versions and how to obtain them, but did not explicitly recommend a version for Netcool Omnibus V8.1 or V7.4.0.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['option_a', 'option_b', 'selection_rule'] incorrect=['Answer operation does not address principal request: The answer provided details on the supported versions and how to obtain them, but did not explicitly recommend a version for Netcool Omnibus V8.1 or V7.4.0.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['option_a', 'option_b', 'selection_rule'] incorrect=['Answer operation does not address principal request: The answer provided details on the supported versions and how to obtain them, but did not explicitly recommend a version for Netcool Omnibus V8.1 or V7.4.0.']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Determine the correct Socket Gateway version for Netcool Omnibus V8.1 or V7.4.0. answered=Described the package availability for Netcool Omnibus V8.1 and V7.4.0, but did not specify the correct Socket Gateway version. matches=False reason=The answer provided details on package availability but did not explicitly state which Socket Gateway version to use for each Netcool Omnibus version.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['option_a', 'option_b', 'selection_rule'] incorrect=['Answer operation does not address principal request: The answer provided details on package availability but did not explicitly state which Socket Gateway version to use for each Netcool Omnibus version.', 'Comparison sources do not identify any requested option']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['option_a', 'option_b', 'selection_rule'] incorrect=['Answer operation does not address principal request: The answer provided details on package availability but did not explicitly state which Socket Gateway version to use for each Netcool Omnibus version.', 'Comparison sources do not identify any requested option']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Determine the correct Socket Gateway version for Netcool Omnibus. answered=Described the versions and how to obtain them for Netcool Omnibus V8.1 and V7.4.0. matches=True reason=The answer provided details on the versions and how to obtain them for the specified Netcool Omnibus versions.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['option_a', 'option_b', 'selection_rule'] incorrect=['Comparison sources do not identify any requested option']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['option_a', 'option_b', 'selection_rule'] incorrect=['Comparison sources do not identify any requested option']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Identify the correct Socket Gateway version for Netcool Omnibus V8.1. answered=Described the package containing both gateway versions for Netcool Omnibus V8.1. matches=False reason=The answer provided the package information but did not differentiate between the two gateway versions.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['option_a', 'option_b', 'selection_rule'] incorrect=['Answer operation does not address principal request: The answer provided the package information but did not differentiate between the two gateway versions.', 'Comparison sources do not identify any requested option']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['option_a', 'option_b', 'selection_rule'] incorrect=['Answer operation does not address principal request: The answer provided the package information but did not differentiate between the two gateway versions.', 'Comparison sources do not identify any requested option']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Identify the correct Socket Gateway version for Netcool Omnibus V8.1. answered=Described the package containing both gateway versions for Netcool Omnibus V8.1. matches=True reason=The answer provided the package information for Netcool Omnibus V8.1 but did not differentiate between the two gateway versions.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['option_a', 'option_b', 'selection_rule'] incorrect=['The answer did not provide specific details on the nco-g-socket-java-2_0 or nco-g-socket-10_0 versions, nor did it provide selection rules for these versions.', 'Comparison sources do not identify any requested option']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['option_a', 'option_b', 'selection_rule'] incorrect=['The answer did not provide specific details on the nco-g-socket-java-2_0 or nco-g-socket-10_0 versions, nor did it provide selection rules for these versions.', 'Comparison sources do not identify any requested option']
+INFO agents.rag_agent.service Agent status=unanswerable candidates=10 context_tokens=1790 latency_ms=90170.93
+INFO __main__ DEV_Q007 completed (2/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S1'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Ignoring product conflict without distinct named families
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Check for Apache CXF vulnerability (CVE-2017-3156) in ITNM and identify affected versions and remediation details. answered=Identified the vulnerability details, affected versions, and remediation steps for the Apache CXF vulnerability (CVE-2017-3156) in ITNM. matches=True reason=The answer provided the vulnerability details, affected versions, and remediation steps, which match the requested operation.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=['affected_versions', 'remediation', 'vulnerability'] missing=[] incorrect=[]
+INFO agents.rag_agent.service Agent status=answered candidates=10 context_tokens=2172 latency_ms=30232.59
+INFO __main__ TRAIN_Q006 completed (3/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.rewrite Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 112, in generate
+    raise ValueError("Structured generation exceeded its token budget")
+ValueError: Structured generation exceeded its token budget
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 90, in rewrite
+    await self.model.generate(prompt, RewriteDraft.model_json_schema())
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 118, in generate
+    raise DependencyUnavailable("Ollama structured generation failed") from exc
+models.errors.DependencyUnavailable: Ollama structured generation failed
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Call MQ service after migrating BPM environment from V8.0 to 8.5.7 answered=Explain SSL configuration issues and provide a solution for a different error (AMQ9635 and JMSWMQ0018) matches=False reason=The answer does not address the specific issue of why the configured credentials are not being used and how to select the intended outbound identity. It also does not provide concrete applicable configuration steps for a
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['configured_identity', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer does not address the specific issue of why the configured credentials are not being used and how to select the intended outbound identity. It also does not provide concrete applicable configuration steps for a']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['configured_identity', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer does not address the specific issue of why the configured credentials are not being used and how to select the intended outbound identity. It also does not provide concrete applicable configuration steps for a']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S2'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Calling MQ service after BPM environment migration answered=Disabling channel authentication temporarily matches=True reason=The answer provides a workaround to disable channel authentication, which is a concrete step to resolve the issue.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=['required_steps'] missing=['configured_identity'] incorrect=['The answer does not explain why the configured identity is replaced by the sys admin user.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=['required_steps'] missing=['configured_identity'] incorrect=['The answer does not explain why the configured identity is replaced by the sys admin user.']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S3'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Ignoring product conflict without distinct named families
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Resolve MQRC_NOT_AUTHORIZED exception after migrating BPM environment. answered=Resolve MQRC_NOT_AUTHORIZED exception by disabling CHLAUTH on the Queue Manager. matches=False reason=The answer provided a solution to disable CHLAUTH, but did not address why the configured credentials were not being used and how to select the intended outbound identity.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['configured_identity', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provided a solution to disable CHLAUTH, but did not address why the configured credentials were not being used and how to select the intended outbound identity.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['configured_identity', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provided a solution to disable CHLAUTH, but did not address why the configured credentials were not being used and how to select the intended outbound identity.']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Call MQ service after migrating BPM environment from V8.0 to 8.5.7 answered=Explain warning messages in SystemOut.log and provide a remedy for the issue matches=False reason=The answer provided does not directly address the issue of why configured credentials are not being used and how to select the intended outbound identity. It only mentions warning messages in the log file.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['configured_identity', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provided does not directly address the issue of why configured credentials are not being used and how to select the intended outbound identity. It only mentions warning messages in the log file.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['configured_identity', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provided does not directly address the issue of why configured credentials are not being used and how to select the intended outbound identity. It only mentions warning messages in the log file.']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S5'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Ignoring product conflict without distinct named families
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Calling MQ service after BPM environment migration answered=Setting mappingConfigAlias to DefaultPrincipalMapping to ensure correct identity is used for JMS connection matches=True reason=The answer provided a solution to ensure the correct identity is used for the JMS connection, which matches the requested operation.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=['configured_identity'] missing=['required_steps'] incorrect=['The answer does not provide concrete configuration steps to ensure the correct identity is used for the JMS connection.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=['configured_identity'] missing=['required_steps'] incorrect=['The answer does not provide concrete configuration steps to ensure the correct identity is used for the JMS connection.']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S6'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Ensure correct identity is used for MQ service after BPM environment migration. answered=Explain why configured credentials are not being used and how to select the intended outbound identity. matches=False reason=The answer provides an explanation for why configured credentials are not being used and how to select the intended outbound identity, but does not provide concrete steps to ensure the correct identity is used.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['configured_identity', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provides an explanation for why configured credentials are not being used and how to select the intended outbound identity, but does not provide concrete steps to ensure the correct identity is used.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['configured_identity', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provides an explanation for why configured credentials are not being used and how to select the intended outbound identity, but does not provide concrete steps to ensure the correct identity is used.']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Set the 'Topic string' in WebSphere MQ to be the same value as the JMS answered=Set the 'Topic string' in WebSphere MQ to be the same value as the JMS matches=False reason=The answer provided a relevant configuration step, but it does not address the issue of why the configured credentials are not being used or how to select the intended outbound identity.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['configured_identity', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provided a relevant configuration step, but it does not address the issue of why the configured credentials are not being used or how to select the intended outbound identity.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['configured_identity', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provided a relevant configuration step, but it does not address the issue of why the configured credentials are not being used or how to select the intended outbound identity.']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Call MQ service after migrating BPM environment from V8.0 to 8.5.7 answered=Explain why configured credentials are not being used and how to select the intended outbound identity matches=True reason=The answer addresses the issue of why the configured credentials are not being used and provides steps to select the intended outbound identity.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=['configured_identity'] missing=['required_steps'] incorrect=['The answer does not provide concrete applicable configuration steps to change the credential selection.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=['configured_identity'] missing=['required_steps'] incorrect=['The answer does not provide concrete applicable configuration steps to change the credential selection.']
+INFO agents.rag_agent.service Agent status=unanswerable candidates=10 context_tokens=2260 latency_ms=143254.76
+INFO __main__ TRAIN_Q007 completed (4/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.rewrite Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S1', 'S2'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Activate SPSS 25 on a new computer using the existing activation code. answered=Provide information on how to activate SPSS 25 on a new host machine using the existing authorization code. matches=True reason=The answer explains the process of activating SPSS 25 on a new host machine using the existing authorization code.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=['activation_on_new_host', 'required_steps'] missing=[] incorrect=[]
+INFO agents.rag_agent.service Agent status=answered candidates=10 context_tokens=2333 latency_ms=28002.96
+INFO __main__ TRAIN_Q011 completed (5/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.rewrite Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Open profile from P8 Content Engine Configuration manager (CMUI) on Redhat Linux 7.2 answered=Provided a dump file and OS information but did not address the specific issue of opening the profile. matches=False reason=The answer provided a dump file and OS information but did not address the specific issue of opening the profile.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['applicable_solution', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provided a dump file and OS information but did not address the specific issue of opening the profile.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['applicable_solution', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provided a dump file and OS information but did not address the specific issue of opening the profile.']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S2', 'S3'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Ignoring product conflict without distinct named families
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Open profile from P8 Content Engine Configuration manager (CMUI) answered=Open the workbench in IBM Rational product based on Eclipse matches=False reason=The requested operation and the answered operation are not the same. The answer discusses opening the workbench in an IBM Rational product, while the question is about opening a profile in P8 Content Engine Configuration
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['applicable_solution', 'required_steps'] incorrect=['Answer operation does not address principal request: The requested operation and the answered operation are not the same. The answer discusses opening the workbench in an IBM Rational product, while the question is about opening a profile in P8 Content Engine Configuration']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['applicable_solution', 'required_steps'] incorrect=['Answer operation does not address principal request: The requested operation and the answered operation are not the same. The answer discusses opening the workbench in an IBM Rational product, while the question is about opening a profile in P8 Content Engine Configuration']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S4'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Ignoring product conflict without distinct named families
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Open a profile from P8 Content Engine Configuration Manager (CMUI) on Redhat Linux 7.2. answered=Install missing libraries 'adwaita-gtk2-theme' (32 and 64 bit) and 'adwaita-gtk3-theme' 64 bit. matches=False reason=The answer does not match the requested operation. The answer suggests installing libraries, while the request is about opening a profile.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['applicable_solution', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer does not match the requested operation. The answer suggests installing libraries, while the request is about opening a profile.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['applicable_solution', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer does not match the requested operation. The answer suggests installing libraries, while the request is about opening a profile.']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Open profile from P8 Content Engine Configuration manager (CMUI) answered=Open profile from ClearQuest 7.1.2.2 client matches=False reason=The answer provided is about a ClearQuest client issue, not the P8 Content Engine Configuration manager issue.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['applicable_solution', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provided is about a ClearQuest client issue, not the P8 Content Engine Configuration manager issue.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['applicable_solution', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provided is about a ClearQuest client issue, not the P8 Content Engine Configuration manager issue.']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Open profile from P8 Content Engine Configuration manager (CMUI) answered=Change password encryption on AIX from ssha256 to another encryption algorithm matches=False reason=The answer provided a workaround for a different issue (AIX password encryption) and does not address the problem with opening a profile on Redhat Linux 7.2.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['applicable_solution', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provided a workaround for a different issue (AIX password encryption) and does not address the problem with opening a profile on Redhat Linux 7.2.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['applicable_solution', 'required_steps'] incorrect=['Answer operation does not address principal request: The answer provided a workaround for a different issue (AIX password encryption) and does not address the problem with opening a profile on Redhat Linux 7.2.']
+INFO agents.rag_agent.service Agent status=unanswerable candidates=10 context_tokens=2398 latency_ms=105773.87
+INFO __main__ DEV_Q002 completed (6/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.rewrite Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 112, in generate
+    raise ValueError("Structured generation exceeded its token budget")
+ValueError: Structured generation exceeded its token budget
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 90, in rewrite
+    await self.model.generate(prompt, RewriteDraft.model_json_schema())
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 118, in generate
+    raise DependencyUnavailable("Ollama structured generation failed") from exc
+models.errors.DependencyUnavailable: Ollama structured generation failed
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Transfer the database to Portal 8.5 and ensure correct character encoding. answered=Drop and recreate the entire Portal database due to character encoding issues. matches=False reason=The answer suggests that the current database state cannot be salvaged and recommends a complete recreation, which is different from the initial operation of transferring the database.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['requested_answer'] incorrect=['Answer operation does not address principal request: The answer suggests that the current database state cannot be salvaged and recommends a complete recreation, which is different from the initial operation of transferring the database.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['requested_answer'] incorrect=['Answer operation does not address principal request: The answer suggests that the current database state cannot be salvaged and recommends a complete recreation, which is different from the initial operation of transferring the database.']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S2'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Transferring the database to an external database on Portal 8.5 and starting the Portal. answered=Reviewing the wkplc_comp.properties file and running the database transfer a second time. matches=False reason=The answer provided does not directly address the database transfer or the specific errors EJPDB0085W and EJPFD0016E. It suggests a re-run of the database transfer, which may or may not resolve the issue.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['requested_answer'] incorrect=['Answer operation does not address principal request: The answer provided does not directly address the database transfer or the specific errors EJPDB0085W and EJPFD0016E. It suggests a re-run of the database transfer, which may or may not resolve the issue.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['requested_answer'] incorrect=['Answer operation does not address principal request: The answer provided does not directly address the database transfer or the specific errors EJPDB0085W and EJPFD0016E. It suggests a re-run of the database transfer, which may or may not resolve the issue.']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Transferred the database to an external database on Portal 8.5 environment. answered=The issue has been resolved. matches=False reason=The provided answer does not address the specific issue of character encoding and database initialization errors after transferring the database to an external database on Portal 8.5 environment.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['requested_answer'] incorrect=['Answer operation does not address principal request: The provided answer does not address the specific issue of character encoding and database initialization errors after transferring the database to an external database on Portal 8.5 environment.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['requested_answer'] incorrect=['Answer operation does not address principal request: The provided answer does not address the specific issue of character encoding and database initialization errors after transferring the database to an external database on Portal 8.5 environment.']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S5'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Ignoring product conflict without distinct named families
+WARNING agents.rag_agent.generation Skipping document with invalid evidence review: Conflict claims must quote actual query/source substrings: source_claim 'NLS_CHARACTERSET = WE8MSWIN1252, NLS_NCHAR_CHARACTERSET = AL16UTF16. Found: NLS_CHARACTERSET = WE8MS' is absent from S5; copy a shorter exact span from this supplied source
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S6'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Check the character encoding of the database using the provided SQL script. answered=Use the SQL script to check the character encoding of the database. matches=True reason=The answer provides a script to check the character encoding of the database, which is relevant to the principal request.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=['requested_answer'] missing=[] incorrect=['The answer does not explicitly state that the character encoding must be set to UTF-8. It only provides a script to check the current setting.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=['requested_answer'] missing=[] incorrect=['The answer does not explicitly state that the character encoding must be set to UTF-8. It only provides a script to check the current setting.']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S8'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Transferring the database to an external database on Portal 8.5. answered=Explaining the character encoding issue and its impact on the database transfer. matches=True reason=The answer provides the context of character encoding and explains why the transfer might have caused the errors.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=['requested_answer'] missing=[] incorrect=['The answer does not explicitly mention the specific error codes EJPDB0085W and EJPFD0016E, but it provides the context for the character encoding issue.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=['requested_answer'] missing=[] incorrect=['The answer does not explicitly mention the specific error codes EJPDB0085W and EJPFD0016E, but it provides the context for the character encoding issue.']
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=1: Conflict claims must quote actual query/source substrings: source_claim 'NLS_CHARACTERSET = WE8MSWIN1252, NLS_NCHAR_CHARACTERSET = AL16UTF16. Found: NLS_CHARACTERSET = WE8MS' is absent from S5; copy a shorter exact span from this supplied source
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Transfer the database to an external database on Portal 8.5 environment and ensure correct character encoding. answered=The database must be dropped and recreated with correct character encoding settings. matches=True reason=The answer provided a solution to recreate the database with correct character encoding, which matches the principal request.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=['requested_answer'] missing=[] incorrect=[]
+INFO agents.rag_agent.service Agent status=answered candidates=10 context_tokens=2400 latency_ms=116530.64
+INFO __main__ DEV_Q010 completed (7/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S1'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=UDX compilation answered=UDX compilation matches=True reason=The answer explains the cause of the compilation error due to the ARG_MAX limitation.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=['requested_answer'] missing=[] incorrect=[]
+INFO agents.rag_agent.service Agent status=answered candidates=10 context_tokens=2235 latency_ms=17716.83
+INFO __main__ DEV_Q012 completed (8/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S1'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Ignoring product conflict without distinct named families
+WARNING agents.rag_agent.generation Skipping document with invalid evidence review: Conflict claims must quote actual query/source substrings: query_claim 'Streams is run as a system service' is absent from QUESTION; copy a shorter exact span from QUESTION
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S2', 'S3'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Ignoring product conflict without distinct named families
+INFO agents.rag_agent.generation Ignoring product conflict without distinct named families
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Set environment variables directly in the instance using streamtool. answered=Set environment variables directly in the instance with streamtool setproperty command. matches=True reason=The answer provided a specific command to set environment variables directly in the instance, which matches the requested operation.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=['requested_answer'] missing=[] incorrect=['The answer does not address why environment variables set in .bashrc are not being inherited by IBM Streams jobs when run as a system service, which is the core issue reported.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=['requested_answer'] missing=[] incorrect=['The answer does not address why environment variables set in .bashrc are not being inherited by IBM Streams jobs when run as a system service, which is the core issue reported.']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Upgrading to IBM Cognos TM1 4.1.1.1 or 4.1.1.2 answered=Upgrading to IBM Cognos TM1 10.1.1 or 9.5.2 FP3 matches=False reason=The answer provided a recommendation to upgrade to IBM Cognos TM1 10.1.1 or 9.5.2 FP3, which is different from the requested upgrade version.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['requested_answer'] incorrect=['Answer operation does not address principal request: The answer provided a recommendation to upgrade to IBM Cognos TM1 10.1.1 or 9.5.2 FP3, which is different from the requested upgrade version.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['requested_answer'] incorrect=['Answer operation does not address principal request: The answer provided a recommendation to upgrade to IBM Cognos TM1 10.1.1 or 9.5.2 FP3, which is different from the requested upgrade version.']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Setting environment variables in .bashrc answered=Setting environment variables in .bashrc matches=True reason=Both the principal request and the answer involve setting environment variables in .bashrc.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['requested_answer'] incorrect=['The provided answers do not address the issue of environment variables not being picked up after upgrading to Streams 4.1.1.1 or 4.1.1.2, which is the principal concern of the question.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['requested_answer'] incorrect=['The provided answers do not address the issue of environment variables not being picked up after upgrading to Streams 4.1.1.1 or 4.1.1.2, which is the principal concern of the question.']
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=[] sufficient=False
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Setting up environment variables in .bashrc for ODBC connectivity after upgrading to Streams 4.1.1.1 or 4.1.1.2. answered=Source the .bashrc file or log out and log back in to apply changes. matches=False reason=The answer provided does not address the specific issue of environment variables not being picked up after upgrading to Streams 4.1.1.1 or 4.1.1.2, but rather provides a general solution for sourcing the .bashrc file.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=[] missing=['requested_answer'] incorrect=['Answer operation does not address principal request: The answer provided does not address the specific issue of environment variables not being picked up after upgrading to Streams 4.1.1.1 or 4.1.1.2, but rather provides a general solution for sourcing the .bashrc file.']
+INFO agents.rag_agent.generation Extractive fact audit rejected: covered=[] missing=['requested_answer'] incorrect=['Answer operation does not address principal request: The answer provided does not address the specific issue of environment variables not being picked up after upgrading to Streams 4.1.1.1 or 4.1.1.2, but rather provides a general solution for sourcing the .bashrc file.']
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=1: Conflict claims must quote actual query/source substrings: query_claim 'Streams is run as a system service' is absent from QUESTION; copy a shorter exact span from QUESTION
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S1'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Ignoring migration conflict without opposite directions
+INFO agents.rag_agent.generation Ignoring product conflict without distinct named families
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Set environment variables directly in the instance using streamtool. answered=Set environment variables directly in the instance using streamtool. matches=True reason=The answer provides a method to set environment variables directly in the instance, which is relevant to the principal request.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=['requested_answer'] missing=[] incorrect=[]
+INFO agents.rag_agent.service Agent status=answered candidates=10 context_tokens=2316 latency_ms=102823.39
+INFO __main__ TRAIN_Q000 completed (9/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Evidence selection: sources=['S1'] sufficient=True
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.generation Ignoring product conflict without distinct named families
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO rag.techqa.claims Request operation: requested=Exit the Policy process from within a User Defined Function. answered=Set a global variable and test it to exit the Policy process. matches=True reason=The answer provides a workaround to exit the Policy process from within a User Defined Function, which matches the principal request.
+INFO agents.rag_agent.generation Extractive fact coverage: covered=['applicable_solution', 'required_steps'] missing=[] incorrect=[]
+INFO agents.rag_agent.service Agent status=answered candidates=10 context_tokens=2222 latency_ms=25565.39
+INFO __main__ TRAIN_Q001 completed (10/10) error=None
+INFO __main__ TechQA evaluation summary: {'dataset': 'IBM TechQA development regression: regression_questions.json', 'dataset_path': '..\\audit\\techqa_root_cause_20261003-01\\regression_questions.json', 'collection': 'semantic', 'retrieval_backend': 'techqa', 'protocol': 'open full-corpus retrieval; N labels concern official DOC_IDS only', 'profile': 'ollama', 'model': 'qwen2.5:7b', 'evaluation_top_k': 10, 'answer_quality_method': 'answer-body token F1 multiplied by correct document citation', 'question_count': 10, 'complete': True, 'resumed': False, 'reused_questions': 0, 'answerable_count': 10, 'unanswerable_count': 0, 'hit_at_5': 0.7, 'hit_at_10': 0.7, 'mrr': 0.6333333333333333, 'unanswerable_refusal_accuracy': 0.0, 'answer_quality': 0.41876741673143636, 'answerable_acceptance': 0.6, 'average_latency_ms': 75074.03907998814, 'error_count': 0}

@@ -1,0 +1,42 @@
+{
+  "created_at": "2026-10-04T00:44:17.800537+00:00",
+  "protocol": "open full-corpus stages; IDs only for post-retrieval scoring; frozen original parent for passage experiments; no generation",
+  "source_hash": "114397892b670af4461b22e20985ac1d512b617e2e71fcfc00f58eaf2423e57f",
+  "questions": [
+    "DEV_Q000",
+    "DEV_Q007",
+    "TRAIN_Q006",
+    "TRAIN_Q007",
+    "TRAIN_Q011",
+    "DEV_Q002",
+    "DEV_Q010",
+    "DEV_Q012",
+    "TRAIN_Q000",
+    "TRAIN_Q001"
+  ],
+  "controls": [
+    "DEV_Q002",
+    "DEV_Q010",
+    "DEV_Q012",
+    "TRAIN_Q000",
+    "TRAIN_Q001"
+  ],
+  "dataset_hash": "a7c6e690562568a7c76998d026e2a8103634a260d53172e43f3a9fe2c22a04b6",
+  "semantic_index": {
+    "complete": true,
+    "scope": "full",
+    "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+    "documents": 801996,
+    "chunks": 3089056,
+    "dimension": 384,
+    "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b",
+    "encoder": {
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "pooling": "window256-stride16-mean-v1"
+    },
+    "search": "Faiss IndexFlatIP, exact cosine over unit vectors",
+    "source_index": "C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\.rag_data\\techqa_full.sqlite"
+  },
+  "complete": true
+}

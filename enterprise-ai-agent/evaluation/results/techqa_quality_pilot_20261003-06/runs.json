@@ -1,0 +1,1762 @@
+[
+  {
+    "question_id": "DEV_Q000",
+    "answerable": true,
+    "expected_document": "swg24042191",
+    "hit_at_5": 0.0,
+    "hit_at_10": 0.0,
+    "mrr": 0.0,
+    "refused": true,
+    "answered": false,
+    "latency_ms": 90667.0851999661,
+    "response": {
+      "answer": "知识库无法回答该问题。",
+      "sources": [],
+      "confidence": 0.0
+    },
+    "trace": {
+      "original_query": "Web GUI 8.1 FP7 requires DASH 3.1.2.1 or later\nYou wanted to install Web GUI 8.1 FP7, but your DASH version does not meet the required version.\n\nIM 1.8 displayed the following:\n\n     ERROR: The installed IBM Dashboard Application Services Hub version is 3.1.0.3, but requires version 3.1.2.1 or later.",
+      "rewritten_query": "Web GUI 8.1 FP7 requires DASH 3.1.2.1 or later\nYou wanted to install Web GUI 8.1 FP7, but your DASH version does not meet the required version.\n\nIM 1.8 displayed the following:\n\n     ERROR: The installed IBM Dashboard Application Services Hub version is 3.1.0.3, but requires version 3.1.2.1 or later.",
+      "rewrite_fallback": false,
+      "tool_called": true,
+      "candidate_ids": [
+        "techqa:swg21960632:parent",
+        "techqa:swg22011877:parent",
+        "techqa:swg21963295:parent",
+        "techqa:swg21967886:parent",
+        "techqa:swg21681385:parent",
+        "techqa:swg24039724:parent",
+        "techqa:swg21679259:parent",
+        "techqa:swg24043825:parent",
+        "techqa:swg24043504:parent",
+        "techqa:swg21960630:parent"
+      ],
+      "evidence": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg22011877:parent",
+          "source_file": "techqa://swg22011877",
+          "page_number": 1,
+          "excerpt": "IBM Dashboard Application Services Hub (DASH) should NOT be installed as part of Jazz for Service Management component to be used with IBM Spectrum Control. The following severe error is logged in the TCR310InstallTrace log file when installing it correctly and should be ignored: \n\ncom.ibm.tivoli.reporting.advanced.cognos.installer.actions.CollectOSDPInfo dashNotFound\nSEVERE: EXIT ^IBM DASH instance not found^n^\n\n\nA warning later lets you know the installation will continue without DASH. \n\n\nCTGTRI784W IBM Dashboard Application Services Hub (DASH) is not installed in this environment. Proceed, if you want to install Tivoli Common Reporting without DASH. \n\n \n\nThese messages are expected and do not indicate a problem. The installation will proceed.",
+          "title": "IBM SEVERE: EXIT IBM DASH instance not found & CTGTRI784W - United States",
+          "applicability": "IBM SEVERE: EXIT IBM DASH instance not found & CTGTRI784W - United States\n\nTECHNOTE (FAQ)\n\nQUESTION\n Should IBM Tivoli Common Reporting be installed with or without DASH when using it as part of the Cognos BI Reporting for IBM Spectrum Control? Which components of IBM Jazz for Service Management should be selected for installation? \n\nANSWER\nIBM Dashboard Application Services Hub (DASH) should NOT be installed as part of Jazz for Service Management component to be used with IBM Spectrum Control. ",
+          "relevance": 0.6441120063049309,
+          "tokens": 134,
+          "section": "ANSWER",
+          "start_char": 343,
+          "end_char": 1098,
+          "covers": [
+            "applicable_solution",
+            "required_steps"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S2",
+          "chunk_id": "techqa:swg21963295:parent",
+          "source_file": "techqa://swg21963295",
+          "page_number": 1,
+          "excerpt": "DIAGNOSING THE PROBLEM\n1) Confirm the Reporting services are installed properly and accessible directly. Open a web browser and enter the following URL for the reporting interface (this link should be used in the local environment): \n\nhttp://host.domain:port/tarf/servlet/dispatch \n\nNOTE: host.domain is the fully qualified IP address or hostname which hosts the reporting server (localhost). The default port number is 16310.\n\n2) Enter the user name <was_admin> and password <was_admin_password> to log on.\n\nA successful log on implies the reporting service has been properly installed. However, the integration script for DASH failed to execute.\n\n3) The \"cognosPortlet.war\" file should be missing in the following directory:\nWindows: JazzSM_Install_Home\\profile\\installedApps\\JazzSMNode01Cell\\isc.ear\nLinux/UNIX: JazzSM_Install_Home/profile/installedApps/JazzSMNode01Cell/isc.ear",
+          "title": "IBM Dashboard Services Hub (DASH) fails to display the Reporting option after the DASH and TCR services are installed from the Jazz for Service Management (JazzSM) bundle - United States",
+          "applicability": "IBM Dashboard Services Hub (DASH) fails to display the Reporting option after the DASH and TCR services are installed from the Jazz for Service Management (JazzSM) bundle - United States\n\nJazzSM Install TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n After DASH and TCR services are installed from the JazzSM bundle, the Reporting service option fails to be displayed in DASH. The TCR service can be run independently but cannot be enabled in DASH. \n\nSYMPTOM\nThe Reporting option is unavailable in DAS",
+          "relevance": 0.6324308981778036,
+          "tokens": 146,
+          "section": "DIAGNOSING THE PROBLEM",
+          "start_char": 1078,
+          "end_char": 1959,
+          "covers": [
+            "applicable_solution",
+            "required_steps"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S3",
+          "chunk_id": "techqa:swg21967886:parent",
+          "source_file": "techqa://swg21967886",
+          "page_number": 1,
+          "excerpt": "The patch level for a DASH release is recorded in this file: /profile/installedApps/JazzSMNode01Cell/isc.ear/isclite.war/WEB-INF/config/isc.version.properties \n\nThe isc.patch.level value will get updated with the patch level if it applies. Here is an example of the contents of this file: \n\n\nisc.name=IBM Dashboard Application Services Hub\nisc.version=3.1.1.0\nisc.release.name=IBM Dashboard Application Services Hub 3.1.2.0\nisc.build.level=201505020120\nisc.build.date=05/02/15\n*isc.patch.level=\n\n*isc.patch.level will get updated with the patch level, if this line doesn't exist or doesn't have a value, it's because there are no patches applied for the current DASH version.",
+          "title": "IBM Finding DASH version and patch level. - United States",
+          "applicability": "IBM Finding DASH version and patch level. - United States\n\nDASH; installed; patches; isc.version.properties TECHNOTE (FAQ)\n\nQUESTION\n How can I find the patch level of my current DASH install? \n\nCAUSE\nSome versions of DASH have additional cumulative patches that require previous patches be installed. Any installed patches don't show up in the output of the \"consolecli Version\" command.\n\nANSWER\nThe patch level for a DASH release is recorded in this file: /profile/installedApps/JazzSMNode01Cell/is",
+          "relevance": 0.6055250744327476,
+          "tokens": 152,
+          "section": "ANSWER",
+          "start_char": 397,
+          "end_char": 1072,
+          "covers": [
+            "applicable_solution",
+            "required_steps"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S4",
+          "chunk_id": "techqa:swg21679259:parent",
+          "source_file": "techqa://swg21679259",
+          "page_number": 1,
+          "excerpt": "5. Close Web browser windows completely and then login to the DASH server. \n 6. Test if logout works as desired.",
+          "title": "IBM Single sign off for WebSEAL and Dashboard Application Services Hub (DASH) - United States",
+          "applicability": "IBM Single sign off for WebSEAL and Dashboard Application Services Hub (DASH) - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n How can I configure Single Sign Off (SSO) for WebSEAL and Dashboard Application Services Hub (DASH) so that when a user logs out from DASH it logs the user out from WebSEAL too? \n\nSYMPTOM\nIf a user logs out from DASH it does not log out the user from WebSEAL automatically. Refreshing the page let's the user log in to WebSEAL without entering a user Id and ",
+          "relevance": 0.5867767490743504,
+          "tokens": 24,
+          "section": "RESOLVING THE PROBLEM",
+          "start_char": 1705,
+          "end_char": 1817,
+          "covers": [
+            "applicable_solution",
+            "required_steps"
+          ],
+          "instruction_group": true
+        }
+      ],
+      "original_tokens": 75949,
+      "context_tokens": 1204,
+      "status": "unanswerable",
+      "covered_facts": [],
+      "missing_facts": [],
+      "retries": 0,
+      "validation_failures": [],
+      "latency_ms": 90666.55020002509
+    },
+    "answer_quality": 0.0,
+    "error": null
+  },
+  {
+    "question_id": "DEV_Q007",
+    "answerable": true,
+    "expected_document": "swg21625776",
+    "hit_at_5": 1.0,
+    "hit_at_10": 1.0,
+    "mrr": 1.0,
+    "refused": true,
+    "answered": false,
+    "latency_ms": 90171.16879997775,
+    "response": {
+      "answer": "知识库无法回答该问题。",
+      "sources": [],
+      "confidence": 0.0
+    },
+    "trace": {
+      "original_query": "Which Socket Gateway should I be using with Netcool Omnibus (NOI) ?\nWhich Socket Gateway should I be using with Netcool Omnibus (NOI) ?\n\nThere are 2 versions of the gateway; nco-g-socket-java-2_0 and nco-g-socket-10_0 Users may be confused what version they should download or use",
+      "rewritten_query": "Which Socket Gateway should I be using with Netcool Omnibus (NOI)? There are 2 versions of the gateway; nco-g-socket-java-2_0 and nco-g-socket-10_0. Users may be confused what version they should download or use.",
+      "rewrite_fallback": false,
+      "tool_called": true,
+      "candidate_ids": [
+        "techqa:swg21625776:parent",
+        "techqa:swg21970417:parent",
+        "techqa:swg21688224:parent",
+        "techqa:swg21665219:parent",
+        "techqa:swg21687618:parent",
+        "techqa:swg21978428:parent",
+        "techqa:swg21962168:parent",
+        "techqa:swg21613418:parent",
+        "techqa:swg21977075:parent",
+        "techqa:swg21686541:parent"
+      ],
+      "evidence": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg21625776:parent",
+          "source_file": "techqa://swg21625776",
+          "page_number": 1,
+          "excerpt": "Netcool/OMNIbus V8.1\n\nThe Netcool/OMNIbus V8.1 version of this gateway supports the following Operating Systems:\n\nAIX, Linux, Solaris, Windows and zLinux.\n\nIf you are running Netcool/OMNIbus V8.1, a single package contains versions of the gateway for all supported Operating Systems. To obtain this package, use the Find by part number field to search for part number: CN6I1EN",
+          "title": "IBM Netcool/OMNIbus Integrations Release Notice - Socket Gateway (nco-g-socket-java-2_0) - United States",
+          "applicability": "IBM Netcool/OMNIbus Integrations Release Notice - Socket Gateway (nco-g-socket-java-2_0) - United States\n\nrelease note; downloads; nco-g-socket-java; Java Gateway for Socket NEWS\n\nABSTRACT\n A new version of the Netcool/OMNIbus Socket Gateway will be available to download from August 6, 2015. \n\nCONTENT\n \n\nYou can access the latest version of the guide written for this gateway on the IBM Knowledge Center:\n\nwww.ibm.com/support/knowledgecenter/SSSHTQ/omnibus/gateways/socketjavagw/wip/concept/socketj",
+          "relevance": 0.7919869466660749,
+          "tokens": 69,
+          "section": "Netcool/OMNIbus V8.1",
+          "start_char": 890,
+          "end_char": 1266,
+          "covers": [
+            "selection_rule"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S2",
+          "chunk_id": "techqa:swg21625776:parent",
+          "source_file": "techqa://swg21625776",
+          "page_number": 1,
+          "excerpt": "Netcool/OMNIbus V7.4.0\n\nIf you are running Netcool/OMNIbus V7.4.0, a separate package is supplied for each Operating System. To obtain this new package, use the Find by part number field to search for the part number that corresponds to your Operating System as shown in the table below.\n\nPart number Operating System CN6GZEN AIX CN6H1EN HPUX on Itanium CN6H2EN Linux CN6H3EN Linux for zSeries CN6H4EN Solaris CN6H5EN Windows",
+          "title": "IBM Netcool/OMNIbus Integrations Release Notice - Socket Gateway (nco-g-socket-java-2_0) - United States",
+          "applicability": "IBM Netcool/OMNIbus Integrations Release Notice - Socket Gateway (nco-g-socket-java-2_0) - United States\n\nrelease note; downloads; nco-g-socket-java; Java Gateway for Socket NEWS\n\nABSTRACT\n A new version of the Netcool/OMNIbus Socket Gateway will be available to download from August 6, 2015. \n\nCONTENT\n \n\nYou can access the latest version of the guide written for this gateway on the IBM Knowledge Center:\n\nwww.ibm.com/support/knowledgecenter/SSSHTQ/omnibus/gateways/socketjavagw/wip/concept/socketj",
+          "relevance": 0.7919869466660749,
+          "tokens": 79,
+          "section": "Netcool/OMNIbus V7.4.0",
+          "start_char": 1268,
+          "end_char": 1693,
+          "covers": [
+            "selection_rule"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S3",
+          "chunk_id": "techqa:swg21688224:parent",
+          "source_file": "techqa://swg21688224",
+          "page_number": 1,
+          "excerpt": "Netcool/OMNIbus V8.1\n\nIf you are running Netcool/OMNIbus V8.1, a single package contains versions of the framework for all supported Operating Systems. To obtain this new package, use the Find by part number field to search for part number: CNFT2EN",
+          "title": "IBM Netcool/OMNIbus Java Gateway Framework (nco-g-java 5_0) - United States",
+          "applicability": "IBM Netcool/OMNIbus Java Gateway Framework (nco-g-java 5_0) - United States\n\nrelease notice; downloads; Netcool/OMNIbus Java Gateway Framework; nco-g-java NEWS\n\nABSTRACT\n A new version of the Netcool/OMNIbus Java Gateway Framework will be available to download from November 24, 2016. \n\nCONTENT\n \n\nThis support package provides provides generic Java gateway support to OMNIbus. It serves as the framework for specific gateways implemented in Java.\n\nYou can download this package from the IBM Passport",
+          "relevance": 0.6983768619387639,
+          "tokens": 46,
+          "section": "Netcool/OMNIbus V8.1",
+          "start_char": 663,
+          "end_char": 911,
+          "covers": [
+            "selection_rule"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S4",
+          "chunk_id": "techqa:swg21688224:parent",
+          "source_file": "techqa://swg21688224",
+          "page_number": 1,
+          "excerpt": "Netcool/OMNIbus V7.4.0\n\nIf you are running Netcool/OMNIbus V7.4.0, a separate package is supplied for each Operating System. To obtain this new package, use the Find by part number field to search for the part number that corresponds to your Operating System as shown in the table below.\n\nPart number Operating System CNFQ8EN AIX CNFQ9EN HP-UX Integrity CNFR0EN Linux for zSeries CNFR1EN Linux CNFR2EN Solaris CNFR3EN Windows",
+          "title": "IBM Netcool/OMNIbus Java Gateway Framework (nco-g-java 5_0) - United States",
+          "applicability": "IBM Netcool/OMNIbus Java Gateway Framework (nco-g-java 5_0) - United States\n\nrelease notice; downloads; Netcool/OMNIbus Java Gateway Framework; nco-g-java NEWS\n\nABSTRACT\n A new version of the Netcool/OMNIbus Java Gateway Framework will be available to download from November 24, 2016. \n\nCONTENT\n \n\nThis support package provides provides generic Java gateway support to OMNIbus. It serves as the framework for specific gateways implemented in Java.\n\nYou can download this package from the IBM Passport",
+          "relevance": 0.6983768619387639,
+          "tokens": 78,
+          "section": "Netcool/OMNIbus V7.4.0",
+          "start_char": 1056,
+          "end_char": 1481,
+          "covers": [
+            "selection_rule"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S5",
+          "chunk_id": "techqa:swg21665219:parent",
+          "source_file": "techqa://swg21665219",
+          "page_number": 1,
+          "excerpt": "Netcool/OMNIbus V8.1\n\nIf you are running Netcool/OMNIbus V8.1, a single package contains versions of the gateway for all supported Operating Systems. To obtain this new package, use the Find by part number field to search for part number: CNS7AEN",
+          "title": "IBM Tivoli Netcool/OMNIbus Integrations Release Notice - Gateway for Message Bus (nco-g-xml-9_0) - United States",
+          "applicability": "IBM Tivoli Netcool/OMNIbus Integrations Release Notice - Gateway for Message Bus (nco-g-xml-9_0) - United States\n\nrelease notice; downloads; nco-g-xml; Gateway for Message Bus; JMS; MQTT; HTTP; HTTPS; Socket; XML; Kafka NEWS\n\nABSTRACT\n A new version of the Netcool/OMNIbus Gateway for Message Bus will be available to download from April 12, 2018. The gateway has added support to publish events to the Kafka cluster as a Kafka client. \n\nCONTENT\n \n\nThis version of the Message Bus Gateway contains th",
+          "relevance": 0.6586693874631823,
+          "tokens": 46,
+          "section": "Netcool/OMNIbus V8.1",
+          "start_char": 1341,
+          "end_char": 1587,
+          "covers": [
+            "selection_rule"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S6",
+          "chunk_id": "techqa:swg21665219:parent",
+          "source_file": "techqa://swg21665219",
+          "page_number": 1,
+          "excerpt": "Netcool/OMNIbus V7.4.0\n\nIf you are running Netcool/OMNIbus V7.4.0, a separate package is supplied for each Operating System. To obtain this new package, use the Find by part number field to search for the part number that corresponds to your Operating System as shown in the table below.\n\nPart number Operating System CNS75EN AIX CNS77EN Linux CNS78EN Solaris CNS79EN Windows CNS76EN zLinux",
+          "title": "IBM Tivoli Netcool/OMNIbus Integrations Release Notice - Gateway for Message Bus (nco-g-xml-9_0) - United States",
+          "applicability": "IBM Tivoli Netcool/OMNIbus Integrations Release Notice - Gateway for Message Bus (nco-g-xml-9_0) - United States\n\nrelease notice; downloads; nco-g-xml; Gateway for Message Bus; JMS; MQTT; HTTP; HTTPS; Socket; XML; Kafka NEWS\n\nABSTRACT\n A new version of the Netcool/OMNIbus Gateway for Message Bus will be available to download from April 12, 2018. The gateway has added support to publish events to the Kafka cluster as a Kafka client. \n\nCONTENT\n \n\nThis version of the Message Bus Gateway contains th",
+          "relevance": 0.6586693874631823,
+          "tokens": 73,
+          "section": "Netcool/OMNIbus V7.4.0",
+          "start_char": 1731,
+          "end_char": 2121,
+          "covers": [
+            "selection_rule"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S7",
+          "chunk_id": "techqa:swg21687618:parent",
+          "source_file": "techqa://swg21687618",
+          "page_number": 1,
+          "excerpt": "Netcool/OMNIbus V8.1\n\nIf you are running Netcool/OMNIbus V8.1, a single package contains versions of the gateway for all supported Operating Systems. To obtain this new package, use the Find by part number field to search for part number: CN6I4EN",
+          "title": "IBM Netcool/OMNIbus Integrations Release Notice - Gateway for BMC Remedy (nco-g-bmc-remedy-3_0) - United States",
+          "applicability": "IBM Netcool/OMNIbus Integrations Release Notice - Gateway for BMC Remedy (nco-g-bmc-remedy-3_0) - United States\n\nrelease notice; download; Java Gateway for BMC Remedy; nco-g-bmc-remedy NEWS\n\nABSTRACT\n A new version of the Netcool/OMNIbus Java Gateway for BMC Remedy will be available to download from August 6, 2015. \n\nCONTENT\n \n\nYou can access the latest version of the guide written for this gateway on the IBM Knowledge Center: \nwww-01.ibm.com/support/knowledgecenter/#!/SSSHTQ/omnibus/gateways/re",
+          "relevance": 0.6561951669329924,
+          "tokens": 46,
+          "section": "Netcool/OMNIbus V8.1",
+          "start_char": 886,
+          "end_char": 1132,
+          "covers": [
+            "selection_rule"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S8",
+          "chunk_id": "techqa:swg21978428:parent",
+          "source_file": "techqa://swg21978428",
+          "page_number": 1,
+          "excerpt": "Netcool/OMNIbus V8.1\n\nIf you are running Netcool/OMNIbus V8.1, a single package contains versions of the gateway for all supported Operating Systems. To obtain this new package, use the Find by part number field to search for part number: CNFT1EN",
+          "title": "IBM Tivoli Netcool/OMINbus Java Gateway for ServiceNow (nco_g_servicenow-3_0) - United States",
+          "applicability": "IBM Tivoli Netcool/OMINbus Java Gateway for ServiceNow (nco_g_servicenow-3_0) - United States\n\nrelease notice; downloads; Netcool/OMNIbus Java Gateway for ServiceNow; nco_g_servicenow NEWS\n\nABSTRACT\n This new gateway will be ready for downloading on November 24, 2016. \n\nCONTENT\n \n\nThis version addresses the following enhancement requests:\n\n * RFE 85941: Enhancement to add HTTP proxy support. New property updated to specify the HTTP proxy with optional port.\n * RFE 88118: Enhancement to allow the",
+          "relevance": 0.655303482522695,
+          "tokens": 46,
+          "section": "Netcool/OMNIbus V8.1",
+          "start_char": 1148,
+          "end_char": 1394,
+          "covers": [
+            "selection_rule"
+          ],
+          "instruction_group": false
+        }
+      ],
+      "original_tokens": 4319,
+      "context_tokens": 1790,
+      "status": "unanswerable",
+      "covered_facts": [],
+      "missing_facts": [],
+      "retries": 0,
+      "validation_failures": [],
+      "latency_ms": 90170.92920001596
+    },
+    "answer_quality": 0.0,
+    "error": null
+  },
+  {
+    "question_id": "TRAIN_Q006",
+    "answerable": true,
+    "expected_document": "swg22008493",
+    "hit_at_5": 1.0,
+    "hit_at_10": 1.0,
+    "mrr": 1.0,
+    "refused": false,
+    "answered": true,
+    "latency_ms": 30232.798999990337,
+    "response": {
+      "answer": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nTivoli Network Manager IP Edition 4.1.1 (Huawei MTOSI Collector install)\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone [S1]",
+      "sources": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg22008493:parent",
+          "source_file": "techqa://swg22008493",
+          "page_number": 1,
+          "quote": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nTivoli Network Manager IP Edition 4.1.1 (Huawei MTOSI Collector install)\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone"
+        }
+      ],
+      "confidence": 0.746
+    },
+    "trace": {
+      "original_query": "Is ITNM exposed to Apache CXF vulnerability (CVE-2017-3156)?\nIs ITNM versions are affected by Apache CXF vulnerability (CVE-2017-3156), If yes then what are all the version will be affected and where I can find the details?",
+      "rewritten_query": "Is ITNM exposed to Apache CXF vulnerability (CVE-2017-3156)? Is ITNM versions affected by Apache CXF vulnerability (CVE-2017-3156), if yes then what are all the versions affected and where can I find the details?",
+      "rewrite_fallback": false,
+      "tool_called": true,
+      "candidate_ids": [
+        "techqa:swg22008493:parent",
+        "techqa:swg22003397:parent",
+        "techqa:swg22011984:parent",
+        "techqa:swg22014078:parent",
+        "techqa:swg22015296:parent",
+        "techqa:swg22014481:parent",
+        "techqa:swg22015467:parent",
+        "techqa:swg22015297:parent",
+        "techqa:swg22013336:parent",
+        "techqa:swg22014053:parent"
+      ],
+      "evidence": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg22008493:parent",
+          "source_file": "techqa://swg22008493",
+          "page_number": 1,
+          "excerpt": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nTivoli Network Manager IP Edition 4.1.1 (Huawei MTOSI Collector install)\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone",
+          "title": "IBM Security Bulletin: IBM Tivoli Network Manager IP Edition is affected by an Apache CXF vulnerability (CVE-2017-3156) - United States",
+          "applicability": "IBM Security Bulletin: IBM Tivoli Network Manager IP Edition is affected by an Apache CXF vulnerability (CVE-2017-3156) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n Vulnerability has been addressed in the Apache CXF component of Tivoli Network Manager IP Edition. \n\nVULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Va",
+          "relevance": 0.7627862756665589,
+          "tokens": 231,
+          "section": "vulnerability/exposure/remediation",
+          "start_char": 266,
+          "end_char": 1538,
+          "covers": [
+            "vulnerability",
+            "affected_versions",
+            "remediation"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S2",
+          "chunk_id": "techqa:swg22003397:parent",
+          "source_file": "techqa://swg22003397",
+          "page_number": 1,
+          "excerpt": "VULNERABILITY DETAILS",
+          "title": "IBM Security Bulletin: Open Source Apache CXF Vulnerablities affect IBM Tivoli Application Dependency Discovery Manager (TADDM) (Multiple CVEs)\nNew CVEs added: CVE-2017-3156 - United States",
+          "applicability": "IBM Security Bulletin: Open Source Apache CXF Vulnerablities affect IBM Tivoli Application Dependency Discovery Manager (TADDM) (Multiple CVEs)\nNew CVEs added: CVE-2017-3156 - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n Vulnerabilities in Open Source Apache CXF affect IBM Tivoli Application Dependency Discovery Manager \n\nVULNERABILITY DETAILS\nNote: CVE-2017-3156 has been added as an additional CVE that is supported via this bulletin. If you have already installed this fix before, you are not requ",
+          "relevance": 0.706127124784985,
+          "tokens": 2,
+          "section": "vulnerability/exposure/remediation",
+          "start_char": 322,
+          "end_char": 343,
+          "covers": [
+            "vulnerability"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S3",
+          "chunk_id": "techqa:swg22011984:parent",
+          "source_file": "techqa://swg22011984",
+          "page_number": 1,
+          "excerpt": "CVE-ID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for more information\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nThis vulnerability is known to affect the following offerings: \n\n\n\n \n\nAffected IBM Initiate Master Data Service Affected Versions IBM Initiate Master Data Service 10.1 IBM InfoSphere Master Data Management 11.0 IBM InfoSphere Master Data Management 11.3 IBM InfoSphere Master Data Management 11.4 IBM InfoSphere Master Data Management 11.5 IBM InfoSphere Master Data Management 11.6 REMEDIATION/FIXES\n \n\nProduct VRMF Remediation/First Fix IBM Initiate Master Data Servic 10.1 10.1.031518_IM_Initiate_MasterDataService_ALL_Refresh Pack [http://www.ibm.com/support/fixcentral/quickorder?product=ibm%2FInformation+Management%2FInfoSphere+Master+Data+Management&fixids=10.1.031518_IM_Initiate_MasterDataService_ALL_RefreshPack&source=SAR] IBM InfoSphere Master Data Management Standard/Advanced Edition 11.0 11.0.0.7-MDM-SAE-FP07IF000 [http://www.ibm.com/support/fixcentral/quickorder?product=ibm%2FInformation+Management%2FInfoSphere+Master+Data+Management&fixids=11.0.0.7-MDM-SAE-FP07IF000_FC&source=SAR] IBM InfoSphere Master Data Management Standard/Advanced Edition 11.3 11.3.0.7-MDM-SE-AE-FP07IF000 [http://www.ibm.com/support/fixcentral/quickorder?product=ibm%2FInformation+Management%2FInfoSphere+Master+Data+Management&fixids=11.3.0.7-MDM-SE-AE-FP07IF000_FC&source=SAR] IBM InfoSphere Master Data",
+          "title": "IBM Security Bulletin: Mulitiple security vulnerabilities in Apache CXF affects IBM InfoSphere Master Data Management (CVE-2016-6812 CVE-2016-8739 CVE-2017-5653 CVE-2017-5656 CVE-2017-3156) - United States",
+          "applicability": "IBM Security Bulletin: Mulitiple security vulnerabilities in Apache CXF affects IBM InfoSphere Master Data Management (CVE-2016-6812 CVE-2016-8739 CVE-2017-5653 CVE-2017-5656 CVE-2017-3156) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n IBM Initiate Master Data Service is vulnerable to multiple Apache CXF issues and could allow remote attackers to steal a victim's cookie-based authentication credentials and read arbitrary files on the system. \n\nVULNERABILITY DETAILS\nCVEID: CVE-2016-6812 [http://cv",
+          "relevance": 0.6908131395526785,
+          "tokens": 331,
+          "section": "VULNERABILITY DETAILS",
+          "start_char": 3213,
+          "end_char": 5162,
+          "covers": [
+            "vulnerability",
+            "affected_versions",
+            "remediation"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S4",
+          "chunk_id": "techqa:swg22014078:parent",
+          "source_file": "techqa://swg22014078",
+          "page_number": 1,
+          "excerpt": "VULNERABILITY DETAILS\nCVEID: CVE-2017-12624 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12624]\nDESCRIPTION: Apache CXF is vulnerable to a denial of service. By using a specially crafted message attachment header, a remote attacker could exploit this vulnerability to cause the AX-WS and JAX-RS services stop responding.\nCVSS Base Score: 5.3\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/135095 [https://exchange.xforce.ibmcloud.com/vulnerabilities/135095] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L)\n\nAFFECTED PRODUCTS AND VERSIONS\nIBM Tivoli Network Manager IP Edition 4.2 Fix Pack 4 and earlier.\n\nREMEDIATION/FIXES\n \n\nProduct VMRF Remediation/First Fix IBM Tivoli Network Manager IP Edition 4.2.0.4 and earlier Upgrade to ITNM 4.2.0.5\nITNM 4.2.0.5 on IBM Support Fix Central [https://www-945.ibm.com/support/fixcentral/swg/selectFixes?parent=ibm~Tivoli&product=ibm/Tivoli/Tivoli+Network+Manager+IP+Edition&release=4.2.0.4&platform=All&function=all] \nPlease also note the end of support announcement [http://www-01.ibm.com/common/ssi/ShowDoc.wss?docURL=/common/ssi/rep_ca/8/897/ENUS917-138/index.html&lang=en&request_locale=en] from 12 September 2017 for selected Netcool product versions. You can find detailed information on whether the product version you have installed in your environment is affected by this end of service announcement by following the Netcool End of Support Knowledge Collection [https://www-01.ibm.com/support/entdocview.wss?uid=swg22009231] . If your product version is affected, IBM recommend to upgrade your product version to the latest supported version of your product. Please contact your IBM account manager for any question you might have or for any assistance you may require for upgrading an end of service announced offering. WORKAROUNDS AND MITIGATIONS\nNone",
+          "title": "IBM Security Bulletin: A security vulnerability has been identified in Apache CXF, which is shipped with IBM Tivoli Network Manager IP Edition (CVE-2017-12624). - United States",
+          "applicability": "IBM Security Bulletin: A security vulnerability has been identified in Apache CXF, which is shipped with IBM Tivoli Network Manager IP Edition (CVE-2017-12624). - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n Apache CXF is shipped with IBM Tivoli Network Manager IP Edition 4.2. Information about a security vulnerability affecting Apache CXF has been published here. \n\nVULNERABILITY DETAILS\nCVEID: CVE-2017-12624 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12624]\nDESCRIPTION: Apache CXF is",
+          "relevance": 0.6871706276057795,
+          "tokens": 345,
+          "section": "vulnerability/exposure/remediation",
+          "start_char": 367,
+          "end_char": 2282,
+          "covers": [
+            "vulnerability",
+            "affected_versions",
+            "remediation"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S5",
+          "chunk_id": "techqa:swg22015296:parent",
+          "source_file": "techqa://swg22015296",
+          "page_number": 1,
+          "excerpt": "VULNERABILITY DETAILS\nCVEID: CVE-2017-12624 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12624]\nDESCRIPTION: Apache CXF is vulnerable to a denial of service. By using a specially crafted message attachment header, a remote attacker could exploit this vulnerability to cause the JAX-WS and JAX-RS services stop responding.\nCVSS Base Score: 5.3\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/135095 [https://exchange.xforce.ibmcloud.com/vulnerabilities/135095] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L) \n\nAFFECTED PRODUCTS AND VERSIONS\nThis vulnerability affects all versions of Liberty for Java in IBM Cloud up to and including v3.18.\n\nREMEDIATION/FIXES\nTo upgrade to Liberty for Java v3.19-20180313-1017 [https://cf-jenkins.rtp.raleigh.ibm.com/files/OERuntimeMileStone/LibertyBuildpack/v3.9/20170419-1403/bluemix_files/] or higher, you must re-stage or re-push your application. \nTo find the current version of Liberty for Java in IBM Cloud being used, from the command-line Cloud Foundry client by running the following commands:\n\ncf ssh <appname> -c cat \"staging_info.yml\"\n\nLook for the following lines:\n\n{\"detected_buildpack\":\"Liberty for Java(TM) (WAR, liberty-18.0.0_1, buildpack-v3.19-20180313-1017, ibmjdk-1.8.0_20180214, env)\",\"start_command\":\".liberty/initial_startup.rb\"} \n\nTo re-stage your application using the command-line Cloud Foundry client, use the following command:\n\ncf restage <appname>\n\nTo re-push your application using the command-line Cloud Foundry client, use the following command:\n\ncf push <appname>\n\nWORKAROUNDS AND MITIGATIONS\nnone.\n\nADDITIONAL BLUEMIX ALERT INFORMATION\nMonitor the Bluemix console (https://console.ng.bluemix.net/status/ [https://console.ng.bluemix.net/status/]) for additional important product alerts.",
+          "title": "IBM Security Bulletin: Denial of Service in Apache CXF used by Liberty for Java for IBM Cloud (CVE-2017-12624) - United States",
+          "applicability": "IBM Security Bulletin: Denial of Service in Apache CXF used by Liberty for Java for IBM Cloud (CVE-2017-12624) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n There is a potential denial of service in Apache CXF that is used by WebSphere Application Server. \n\nVULNERABILITY DETAILS\nCVEID: CVE-2017-12624 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12624]\nDESCRIPTION: Apache CXF is vulnerable to a denial of service. By using a specially crafted message attachment header, a remote attacker ",
+          "relevance": 0.6738981939138523,
+          "tokens": 321,
+          "section": "vulnerability/exposure/remediation",
+          "start_char": 257,
+          "end_char": 2126,
+          "covers": [
+            "vulnerability",
+            "affected_versions",
+            "remediation"
+          ],
+          "instruction_group": false
+        }
+      ],
+      "original_tokens": 6628,
+      "context_tokens": 2172,
+      "status": "answered",
+      "covered_facts": [
+        "affected_versions",
+        "remediation",
+        "vulnerability"
+      ],
+      "missing_facts": [],
+      "retries": 0,
+      "validation_failures": [],
+      "latency_ms": 30232.585499994457
+    },
+    "answer_quality": 0.6542056074766355,
+    "error": null
+  },
+  {
+    "question_id": "TRAIN_Q007",
+    "answerable": true,
+    "expected_document": "swg21636093",
+    "hit_at_5": 0.0,
+    "hit_at_10": 0.0,
+    "mrr": 0.0,
+    "refused": true,
+    "answered": false,
+    "latency_ms": 143254.9409000203,
+    "response": {
+      "answer": "知识库无法回答该问题。",
+      "sources": [],
+      "confidence": 0.0
+    },
+    "trace": {
+      "original_query": "Why do I get an exception when calling MQ after migrating my BPM environment (2035 MQRC_NOT_AUTHORIZED) ?\nWe migrated our BPM environment from V8.0 to 8.5.7. When we attempt to call the MQ service we are getting the following exception:\n\n     [10/16/17 13:50:05:273 AST] 0000026d SystemOut     O\n     com.ibm.msg.client.jms.DetailedJMSSecurityException: JMSWMQ2013: The\n     security authentication was not valid that was supplied for QueueManager\n     'QM1' with connection mode 'Client' and host name 'MQ1(1414)'.\n     Please check if the supplied username and password are correct on the\n     QueueManager to which you are connecting.\n     ...\n     Caused by: com.ibm.mq.MQException: JMSCMQ0001: WebSphere MQ call failed\n     with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED').\n      at\n     com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.jav\n     a:204)\n      ... 162 more\n\nThe same MQ service is working fine in the old BPM environment. User name and password configured for the queue is correct. However, when we check the MQ logs, we observing the username is not used, instead the sys admin user seems to be used.",
+      "rewritten_query": "Why do I get an exception when calling MQ after migrating my BPM environment (2035 MQRC_NOT_AUTHORIZED) ? We migrated our BPM environment from V8.0 to 8.5.7. When we attempt to call the MQ service we are getting the following exception: [10/16/17 13:50:05:273 AST] 0000026d SystemOut O com.ibm.msg.client.jms.DetailedJMSSecurityException: JMSWMQ2013: The security authentication was not valid that was supplied for QueueManager 'QM1' with connection mode 'Client' and host name 'MQ1(1414)'. check if the supplied username and password are correct on the QueueManager to which you are connecting. ... Caused by: com.ibm.mq.MQException: JMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED'). at com.ibm.msg.client.wmq.common.internal.Reason.createException(Reason.jav a:204) ... 162 more The same MQ service is working fine in the old BPM environment. User name and password configured for the queue is correct. However, when we check the MQ logs, we observing the username is not used, instead the sys admin user seems to be used.",
+      "rewrite_fallback": true,
+      "tool_called": true,
+      "candidate_ids": [
+        "techqa:swg21614686:parent",
+        "techqa:swg21962081:parent",
+        "techqa:swg22006376:parent",
+        "techqa:swg21412761:parent",
+        "techqa:swg1PI81163:parent",
+        "techqa:swg21138961:parent",
+        "techqa:swg22013915:parent",
+        "techqa:swg1PM13765:parent",
+        "techqa:swg21516881:parent",
+        "techqa:swg21691988:parent"
+      ],
+      "evidence": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg21614686:parent",
+          "source_file": "techqa://swg21614686",
+          "page_number": 1,
+          "excerpt": "Queue Manager\nError Logs AMQ9635: Channel 'SYSTEM.DEF.SVRCONN' did not specify a valid CipherSpec.\nSolution Ensure that there is a cipher spec on the queue manager's server connection channel matching the cipher suite set on the client..\nBack to top\n\n\n\nCause 8 Using non-FIPS cipher, FIPS enabled on client (not on server) SystemOut.log or Console Output JMSWMQ0018: Failed to connect to queue manager\n\nJMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2393' ('MQRC_SSL_INITIALIZATION_ERROR').",
+          "title": "IBM Troubleshooting Java/JMS SSL Configurations - United States",
+          "applicability": "IBM Troubleshooting Java/JMS SSL Configurations - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n This document is intended to help diagnose WebSphere MQ V7 Java™ or JMS SSL setup errors. \nIt lists most of the common configuration errors that can cause an SSL connection from a Java/JMS client to a queue manager to fail, and gives the course of action to resolve the problem. \n\nIn each case the error can be diagnosed by a combination of the error seen in the client log - either a con",
+          "relevance": 0.6465975118825844,
+          "tokens": 103,
+          "section": "RESOLVING THE PROBLEM",
+          "start_char": 13430,
+          "end_char": 13952,
+          "covers": [
+            "required_steps"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S2",
+          "chunk_id": "techqa:swg21962081:parent",
+          "source_file": "techqa://swg21962081",
+          "page_number": 1,
+          "excerpt": "Disable channel authentication \n\n You will need to disable connection authentication, at least temporarily. There are known issues in FTM for Check with regard to using MQ connection authorization. These problems are actively being addressed and fixes will appear in a future fix pack. The target is fixpack 3.0.0.8.",
+          "title": "IBM MQ listener cannot be started with reason code: 2035 return - United States",
+          "applicability": "IBM MQ listener cannot be started with reason code: 2035 return - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED')\n\n\nSYMPTOM\n- MQ v8.0 installed on Windows with a QMGR \"FTM,QMANAGER\" created with all default settings, listener at port 1414, system.def.svrconn etc.\n- In MQ explorer, disabled CHLAUTH\n- When starting the Transaction Server \"txstart.bat\", getting the following error message ",
+          "relevance": 0.636441456479863,
+          "tokens": 59,
+          "section": "RESOLVING THE PROBLEM",
+          "start_char": 787,
+          "end_char": 1103,
+          "covers": [],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S3",
+          "chunk_id": "techqa:swg22006376:parent",
+          "source_file": "techqa://swg22006376",
+          "page_number": 1,
+          "excerpt": "When configure the Queue Connection Factory by navigating to JMS > Queue Connection Factories and providing all required attributes values for WebSphere MQ messaging provider and then testing a connection to MQ the error JMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED') is present. \n\nTo resolve : \n\nNavigate to ibm\\WebSphere MQ\\bin and run runmqsc maximo (maximo is QMGR name) \n\nDISPLAY QMGR notice configuration parameter CHLAUTH(ENABLED) That means that Channel Authorization Enabled. Please open the attached Pic1.bmp file. \n\nrun \n\nALTER QMGR CHLAUTH(DESABLED) \n\nrun \n\nDISPLAY QMGR noticed CHLAUTH(DISABLED) \n\nRestart MQ and Application Server and retest connection",
+          "title": "IBM Resolving JMSCMQ0001: WebSphere MQ call failed  when connecting  to MQ version  7.5 - United States",
+          "applicability": "IBM Resolving JMSCMQ0001: WebSphere MQ call failed  when connecting  to MQ version  7.5 - United States\n\nMQ; CHANNEL; TPAEINTEGRATION TECHNOTE (FAQ)\n\nQUESTION\n How to resolve JMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED') when configuring Maximo to use an MQ queue \n\nCAUSE\nThe QMGR configuration feature in MQ 7.5\n\nANSWER\nWhen configure the Queue Connection Factory by navigating to JMS > Queue Connection Factories and providing all requ",
+          "relevance": 0.6089404985328861,
+          "tokens": 130,
+          "section": "ANSWER",
+          "start_char": 384,
+          "end_char": 1112,
+          "covers": [
+            "required_steps"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S4",
+          "chunk_id": "techqa:swg21412761:parent",
+          "source_file": "techqa://swg21412761",
+          "page_number": 1,
+          "excerpt": "The warning messages that appear in the SystemOut.log file immediately after the message:\n\nCWSJY0003W: ActivationSpec '<name>' reconnected successfully.",
+          "title": "IBM CWSJY0003W messages with detailed exception message JMSWMQ1107 - United States",
+          "applicability": "IBM CWSJY0003W messages with detailed exception message JMSWMQ1107 - United States\n\nCWSJY0003W JMSWMQ1107 DetailedJMSException J2CA0206W TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n You notice CWSJY0003W messages with detailed exception message JMSWMQ1107 appear just after an Activation Specification has reconnected to WebSphere MQ. \n\nSYMPTOM\nWhen you use the WebSphere MQ messaging provider in WebSphere Application Server Version 7.x, you see the following warning messages in the application s",
+          "relevance": 0.6056381936345412,
+          "tokens": 25,
+          "section": "RESOLVING THE PROBLEM",
+          "start_char": 3449,
+          "end_char": 3601,
+          "covers": [],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S5",
+          "chunk_id": "techqa:swg1PI81163:parent",
+          "source_file": "techqa://swg1PI81163",
+          "page_number": 1,
+          "excerpt": "*  set the mappingConfigAlias to DefaultPrincipalMapping",
+          "title": "IBM PI81163: CONTAINER-MANAGED AUTHENTICATION ALIAS NOT APPLIED FOR JMS CONNECTION FACTORIES IF MAPPING-CONFIGURATION ALIAS IS NOT - United States",
+          "applicability": "IBM PI81163: CONTAINER-MANAGED AUTHENTICATION ALIAS NOT APPLIED FOR JMS CONNECTION FACTORIES IF MAPPING-CONFIGURATION ALIAS IS NOT - United States\n\nFIXES ARE AVAILABLE\n9.0.0.6: WebSphere Application Server traditional V9.0 Fix Pack 6 [http://www-01.ibm.com/support/docview.wss?uid=swg24044242]\n8.5.5.13: WebSphere Application Server V8.5.5 Fix Pack 13 [http://www-01.ibm.com/support/docview.wss?uid=swg24044479]\n9.0.0.7: WebSphere Application Server traditional V9.0 Fix Pack 7 [http://www-01.ibm.com",
+          "relevance": 0.5995408174616439,
+          "tokens": 6,
+          "section": "LOCAL FIX",
+          "start_char": 2994,
+          "end_char": 3050,
+          "covers": [
+            "required_steps"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S6",
+          "chunk_id": "techqa:swg21138961:parent",
+          "source_file": "techqa://swg21138961",
+          "page_number": 1,
+          "excerpt": "REFRESH SECURITY(*) \n\n\nWebSphere Application Server JMS Trace (trace.log)\nSome possible return codes in the WebSphere Application Server stack trace could include the following MQ return codes:\n\nMQJE001: An MQException occurred: Completion Code 2, Reason 2035\nThe return code 2035 means \"MQRC_NOT_AUTHORIZED\"\n\nMQJE001: An MQException occurred: Completion Code 2, Reason 2063\nThe return code 2063 means \"MQRC_SECURITY_ERROR\"\n\nIf it is not obvious which user ID is being used to authenticate with the Queue Manager, then you will need to enable the tracing both for the JMS client (and WebSphere Application Server, if you are using it) and the MQ server. See section 'Related URLs'.",
+          "title": "IBM MQJMS2013 (V6) JMSWMQ2013 (V7 and later) invalid security authentication (RC 2035) - United States",
+          "applicability": "IBM MQJMS2013 (V6) JMSWMQ2013 (V7 and later) invalid security authentication (RC 2035) - United States\n\nmqminfo permissions sec auth TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n You are running WebSphere MQ and your MQ JMS application fails with security authentication errors. \n\nSYMPTOM\nMQRC 2035 MQRC_NOT_AUTHORIZED \n\nMQRC 2063 MQRC_SECURITY_ERROR \n\nMQ V6:\nMQJMS2013: invalid security authentication supplied for MQQueueManager. \n\nMQ V7 and later:\nJMSWMQ2013: The security authentication was not ",
+          "relevance": 0.5891314968744537,
+          "tokens": 124,
+          "section": "RESOLVING THE PROBLEM",
+          "start_char": 3423,
+          "end_char": 4104,
+          "covers": [],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S7",
+          "chunk_id": "techqa:swg22013915:parent",
+          "source_file": "techqa://swg22013915",
+          "page_number": 1,
+          "excerpt": "Set the \"Topic string\" in WebSphere MQ to be the same value as the JMS",
+          "title": "IBM (JMS) WebSphere MQ failed: 2035 MQRC_NOT_AUTHORIZED - United States",
+          "applicability": "IBM (JMS) WebSphere MQ failed: 2035 MQRC_NOT_AUTHORIZED - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n User setting up JMS logging using WebSphere MQ embedded client in SSPcm configuration. \n\nSYMPTOM\n[Thread-41] ERROR JmsPublisherProxy$PublisherRunnable - Failed to send message to JMS \n\ncom.ibm.msg.client.jms.DetailedJMSSecurityException: JMSWMQ2006: Failed to open MQ topic 'SSPcm.Topic'.\nat com.ibm.msg.client.wmq.common.internal.Reason.reasonToException(Reason.java:521) ~[com.i",
+          "relevance": 0.5791613998593692,
+          "tokens": 17,
+          "section": "RESOLVING THE PROBLEM",
+          "start_char": 3449,
+          "end_char": 3519,
+          "covers": [
+            "required_steps"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S8",
+          "chunk_id": "techqa:swg1PM13765:parent",
+          "source_file": "techqa://swg1PM13765",
+          "page_number": 1,
+          "excerpt": "COMMENTS\n *  Problem summary:\n   In WebSphere Application Server Version 6, an MDB listener is\n   configured to monitor a queue or a topic.  When a message is\n   identified for processing by the MDB, a destructive get is\n   performed to obtain the message prior to invoking the onMessage\n   method of the MDB.\n   \n   If the MDB listener is using a bindings mode connection to the\n   queue manager, WebSphere manages the transaction in which the\n   message has been got, and the application server is\n   responsible for committing or backing out the message.\n   However, the MQ V7 JMS client incorrectly determines that it is\n   responsible for committing the MQ work.\n   \n   This causes the commit request to fail with compcode 2 and\n   rsncode 2012 (MQRC_ENVIRONMENT_ERROR).\n   \n   Exceptions similar to the following are seen in the servant\n   region:\n   \n   com.ibm.mq.MQException: JMSCMQ0001: WebSphere MQ call\n      failed with compcode '2' ('MQCC_FAILED') reason '2012'\n      ('MQRC_ENVIRONMENT_ERROR').\n   .at com.ibm.msg.client.wmq.common.internal.Reason.\n         createException(Reason.java:223)\n   .at com.ibm.msg.client.wmq.common.internal.Reason.\n         createException(Reason.java:275)\n   .at com.ibm.msg.client.wmq.internal.WMQSession.\n         syncpoint(WMQSession.java:1544)\n   .at com.ibm.msg.client.wmq.internal.WMQSession.\n         commit(WMQSession.java:774)\n   .at com.ibm.msg.client.jms.internal.JmsSessionImpl.\n         notifyMessagePostConsume(JmsSessionImpl.java:2203)",
+          "title": "IBM PM13765: MQCMIT FAILS: LINKED EXCEPTION:COM.IBM.MQ.MQEXCEPTION:JMSCMQ0001 WEBSPHERE MQ CALL FAILED WITH COMPCODE '2' REASON '2012' - United States",
+          "applicability": "IBM PM13765: MQCMIT FAILS: LINKED EXCEPTION:COM.IBM.MQ.MQEXCEPTION:JMSCMQ0001 WEBSPHERE MQ CALL FAILED WITH COMPCODE '2' REASON '2012' - United States\n\nz/os SUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS DUPLICATE OF ANOTHER APAR.\n    \n   \n   \n\nERROR DESCRIPTION\n *  MQCMIT fails with: linked exception:com.ibm.mq.MQException:\n   JMSCMQ0001: WebSphere MQ call failed with compcode '2'\n   ('MQCC_FAILED') reason: '2012' ('MQRC_ENVIRONMENT_ERROR').\n   .\n   The",
+          "relevance": 0.5763385191676815,
+          "tokens": 288,
+          "section": "COMMENTS",
+          "start_char": 1043,
+          "end_char": 2539,
+          "covers": [
+            "required_steps"
+          ],
+          "instruction_group": true
+        }
+      ],
+      "original_tokens": 13829,
+      "context_tokens": 2260,
+      "status": "unanswerable",
+      "covered_facts": [],
+      "missing_facts": [],
+      "retries": 0,
+      "validation_failures": [],
+      "latency_ms": 143254.75889997324
+    },
+    "answer_quality": 0.0,
+    "error": null
+  },
+  {
+    "question_id": "TRAIN_Q011",
+    "answerable": true,
+    "expected_document": "swg21966637",
+    "hit_at_5": 0.0,
+    "hit_at_10": 0.0,
+    "mrr": 0.0,
+    "refused": false,
+    "answered": true,
+    "latency_ms": 28003.18449997576,
+    "response": {
+      "answer": "* A valid Authorized User product authorization code can be used to license up to two (2) product installations used by the same individual. \n * A valid Site license allows for more than one user to license product installations using the same authorization code. \n * Compliance with your IBM software licensing agreement does not require a transfer of a license from one host machine/computer to a different one. \n * Compliance with your IBM software licensing agreement does not require the previously installed IBM SPSS product to be uninstalled in order to install and license the same product on a new host machine/computer. \n * Compliance with your IBM software licensing agreement does not require the removal of the license of the previously installed product. \n * Compliance with your IBM software licensing agreement does not require the return of previously issued licenses. [S1]\n2. License the software on the new host machine/computer. \n * If you have authorization code for the product, you may use this authorization code. \n * If you are using a pre-existing authorization code and receive a 'You are not allowed to generate any more new licenses' message, instructions for resolving this issue can be found here. [http://www.ibm.com/support/docview.wss?uid=swg21480566] \n * If you do not have an authorization code for the product, instructions for creating an authorization code can be found here. [http://www-01.ibm.com/support/docview.wss?uid=swg21980065] \n * If you have more than one authorization code available to you, instructions for confirming the authorization code can be found make sure you are here [http://www.ibm.com/support/docview.wss?uid=swg21486143]. \n\nComplete! \n\nYou should now be able to run your software. [S2]",
+      "sources": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg21985888:parent",
+          "source_file": "techqa://swg21985888",
+          "page_number": 1,
+          "quote": "* A valid Authorized User product authorization code can be used to license up to two (2) product installations used by the same individual. \n * A valid Site license allows for more than one user to license product installations using the same authorization code. \n * Compliance with your IBM software licensing agreement does not require a transfer of a license from one host machine/computer to a different one. \n * Compliance with your IBM software licensing agreement does not require the previously installed IBM SPSS product to be uninstalled in order to install and license the same product on a new host machine/computer. \n * Compliance with your IBM software licensing agreement does not require the removal of the license of the previously installed product. \n * Compliance with your IBM software licensing agreement does not require the return of previously issued licenses."
+        },
+        {
+          "source_id": "S2",
+          "chunk_id": "techqa:swg21985888:parent",
+          "source_file": "techqa://swg21985888",
+          "page_number": 1,
+          "quote": "2. License the software on the new host machine/computer. \n * If you have authorization code for the product, you may use this authorization code. \n * If you are using a pre-existing authorization code and receive a 'You are not allowed to generate any more new licenses' message, instructions for resolving this issue can be found here. [http://www.ibm.com/support/docview.wss?uid=swg21480566] \n * If you do not have an authorization code for the product, instructions for creating an authorization code can be found here. [http://www-01.ibm.com/support/docview.wss?uid=swg21980065] \n * If you have more than one authorization code available to you, instructions for confirming the authorization code can be found make sure you are here [http://www.ibm.com/support/docview.wss?uid=swg21486143]. \n\nComplete! \n\nYou should now be able to run your software."
+        }
+      ],
+      "confidence": 0.677
+    },
+    "trace": {
+      "original_query": "Load SPSS 25 on a new computer\nI purchased SPSS 25 with a 12 month license on Jan 27. I loaded it and used it on my MacBook Pro. I now have a new MacBookPro. I was able to download the program but get a message that says I don't have a license. I do have the activation code. Can you please help me use this product on my new computer? Thanks!",
+      "rewritten_query": "Load SPSS 25 on a new computer I purchased SPSS 25 with a 12 month license on Jan 27. I loaded it and used it on my MacBook Pro. I now have a new MacBookPro. I was able to download the program but get a message that says I don't have a license. I do have the activation code. Can you help me use this product on my new computer? Thanks!",
+      "rewrite_fallback": true,
+      "tool_called": true,
+      "candidate_ids": [
+        "techqa:swg21985888:parent",
+        "techqa:swg24043678:parent",
+        "techqa:ibm10715975:parent",
+        "techqa:swg24029274:parent",
+        "techqa:swg21476498:parent",
+        "techqa:swg21476991:parent",
+        "techqa:isg3T1018448:parent",
+        "techqa:swg21968795:parent",
+        "techqa:swg24041224:parent",
+        "techqa:swg21961173:parent"
+      ],
+      "evidence": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg21985888:parent",
+          "source_file": "techqa://swg21985888",
+          "page_number": 1,
+          "excerpt": "* A valid Authorized User product authorization code can be used to license up to two (2) product installations used by the same individual. \n * A valid Site license allows for more than one user to license product installations using the same authorization code. \n * Compliance with your IBM software licensing agreement does not require a transfer of a license from one host machine/computer to a different one. \n * Compliance with your IBM software licensing agreement does not require the previously installed IBM SPSS product to be uninstalled in order to install and license the same product on a new host machine/computer. \n * Compliance with your IBM software licensing agreement does not require the removal of the license of the previously installed product. \n * Compliance with your IBM software licensing agreement does not require the return of previously issued licenses.",
+          "title": "IBM How do I transfer my IBM SPSS product/software license from one machine to another? - United States",
+          "applicability": "IBM How do I transfer my IBM SPSS product/software license from one machine to another? - United States\n\nTECHNOTE (FAQ)\n\nQUESTION\n How do I transfer my IBM SPSS product/software license from one machine to another? \n\nANSWER\nIt is not possible, nor required, to transfer a license from an existing product installation to a new product installation in order to use the product on a new host machine/computer. \nDue to the nature of the IBM SPSS software licensing technology, a license created for use ",
+          "relevance": 0.6571297575725928,
+          "tokens": 148,
+          "section": "ANSWER",
+          "start_char": 692,
+          "end_char": 1577,
+          "covers": [
+            "activation_on_new_host",
+            "required_steps"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S2",
+          "chunk_id": "techqa:swg21985888:parent",
+          "source_file": "techqa://swg21985888",
+          "page_number": 1,
+          "excerpt": "2. License the software on the new host machine/computer. \n * If you have authorization code for the product, you may use this authorization code. \n * If you are using a pre-existing authorization code and receive a 'You are not allowed to generate any more new licenses' message, instructions for resolving this issue can be found here. [http://www.ibm.com/support/docview.wss?uid=swg21480566] \n * If you do not have an authorization code for the product, instructions for creating an authorization code can be found here. [http://www-01.ibm.com/support/docview.wss?uid=swg21980065] \n * If you have more than one authorization code available to you, instructions for confirming the authorization code can be found make sure you are here [http://www.ibm.com/support/docview.wss?uid=swg21486143]. \n\nComplete! \n\nYou should now be able to run your software.",
+          "title": "IBM How do I transfer my IBM SPSS product/software license from one machine to another? - United States",
+          "applicability": "IBM How do I transfer my IBM SPSS product/software license from one machine to another? - United States\n\nTECHNOTE (FAQ)\n\nQUESTION\n How do I transfer my IBM SPSS product/software license from one machine to another? \n\nANSWER\nIt is not possible, nor required, to transfer a license from an existing product installation to a new product installation in order to use the product on a new host machine/computer. \nDue to the nature of the IBM SPSS software licensing technology, a license created for use ",
+          "relevance": 0.6571297575725928,
+          "tokens": 167,
+          "section": "ANSWER",
+          "start_char": 2259,
+          "end_char": 3113,
+          "covers": [
+            "activation_on_new_host",
+            "required_steps"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S3",
+          "chunk_id": "techqa:swg24043678:parent",
+          "source_file": "techqa://swg24043678",
+          "page_number": 1,
+          "excerpt": "1.  Do one of the following:\n     If you are a returning customer, sign in.\n     If you are a new customer, register. \n 2.  If the Software download & media access window appears, click I agree. \n 3.  In the Find downloads & media window, click Download finder. \n 4.  Under Download finder, select the download you want, and click Continue. \n 5.  Under Select criteria, select a language and one or more platforms. \n 6.  Under Download options, select the options you want, and click Continue. \n 7.  Under Review “Current version” downloads, expand Current version and under Description, select the download you want, expand it and select the items you want. \n 8.  If applicable, under Select optional downloads, expand and select the items you want. \n 9.  Under Review downloading specifics, update the Download method or the Download location, if you want, and then click I agree, and click Download now. \n 10. In the Initial Setup dialog, change the Default download location, if you want. \n 11. If you are prompted, click OK to create the directory where you want the downloaded items to be stored. \n 12. Click OK to begin the download.\n\n\nUse the plus sign icon to expand the files in the download of your choice in order to avoid downloading unnecessary files. \n\nWhen the download has finished, Download complete appears in the Download Director dialog. The required and optional parts for each product are listed and described in detail. There is an option to download each licensed eAssembly. Each eAssembly contains all of the required and optional downloads needed for a particular product and platform combination.\n\nDownloading and assembling the product\n1. Download all of the parts that you need, both required and optional.\n2. Unpack each of the parts into a single temporary directory on your system. \n3. Follow the installation instructions provided in the download to install the product.",
+          "title": "IBM Downloading IBM SPSS Statistics 25 - United States",
+          "applicability": "IBM Downloading IBM SPSS Statistics 25 - United States\n\nDOWNLOADABLE FILES\n\nABSTRACT\n Downloading IBM SPSS Statistics 25 \n\nDOWNLOAD DESCRIPTION\nIBM® SPSS® Statistics is the world’s leading statistical software used to solve business and research problems by means of ad-hoc analysis, hypothesis testing, and predictive analytics. Organizations use IBM SPSS Statistics to understand data, analyze trends, forecast and plan to validate assumptions and drive accurate conclusions.\n\n\n\n\n\nIBM SPSS Release ",
+          "relevance": 0.5581106572690203,
+          "tokens": 368,
+          "section": "DOWNLOAD DESCRIPTION",
+          "start_char": 1570,
+          "end_char": 3474,
+          "covers": [
+            "activation_on_new_host",
+            "required_steps"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S4",
+          "chunk_id": "techqa:swg24043678:parent",
+          "source_file": "techqa://swg24043678",
+          "page_number": 1,
+          "excerpt": "9.  Under Review downloading specifics, update the Download method or the Download location, if you want, and then click I agree, and click Download now. \n 10. In the Initial Setup dialog, change the Default download location, if you want. \n 11. If you are prompted, click OK to create the directory where you want the downloaded items to be stored. \n 12. Click OK to begin the download.\n\n\nUse the plus sign icon to expand the files in the download of your choice in order to avoid downloading unnecessary files. \n\nWhen the download has finished, Download complete appears in the Download Director dialog. The required and optional parts for each product are listed and described in detail. There is an option to download each licensed eAssembly. Each eAssembly contains all of the required and optional downloads needed for a particular product and platform combination.\n\nDownloading and assembling the product\n1. Download all of the parts that you need, both required and optional.\n2. Unpack each of the parts into a single temporary directory on your system. \n3. Follow the installation instructions provided in the download to install the product. \n\nFor assistance with all questions on generating and accessing authorization codes, including how to enable additional add-on modules that you purchase, go to:\nhttp://public.dhe.ibm.com/software/analytics/spss/licensing/Auth_Codes_092910_2.html [http://public.dhe.ibm.com/software/analytics/spss/licensing/Auth_Codes_092910_2.html]\n\nAny customer with an active support contract can seek activation assistance by logging a support request online or by phone via links available at www.ibm.com/planetwide.\n\n\nDownload Options\nYou can download entire eAssemblies or individual eImages. The eAssemblies contain all required and optional eImages for each download package. This section lists the eAssemblies. The complete list of eAssemblies and associated eImages is provided below.\n\nIBM SPSS Statistics 25.0 Desktop\nMultilingual\nWindows: CJ278ML\nMac OS: CJ279ML\nLinux: CRJ27AML",
+          "title": "IBM Downloading IBM SPSS Statistics 25 - United States",
+          "applicability": "IBM Downloading IBM SPSS Statistics 25 - United States\n\nDOWNLOADABLE FILES\n\nABSTRACT\n Downloading IBM SPSS Statistics 25 \n\nDOWNLOAD DESCRIPTION\nIBM® SPSS® Statistics is the world’s leading statistical software used to solve business and research problems by means of ad-hoc analysis, hypothesis testing, and predictive analytics. Organizations use IBM SPSS Statistics to understand data, analyze trends, forecast and plan to validate assumptions and drive accurate conclusions.\n\n\n\n\n\nIBM SPSS Release ",
+          "relevance": 0.5581106572690203,
+          "tokens": 347,
+          "section": "DOWNLOAD DESCRIPTION",
+          "start_char": 2323,
+          "end_char": 4349,
+          "covers": [
+            "activation_on_new_host",
+            "required_steps"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S5",
+          "chunk_id": "techqa:ibm10715975:parent",
+          "source_file": "techqa://ibm10715975",
+          "page_number": 1,
+          "excerpt": "License Key Center [https://spss.subscribenet.com/control/ibmp/login]\n\nThe lock code is generated from the computer which needs a license. The License Authorization Wizard displays the code and you can also generate it by running the program \"echoid.exe\" which is found either in the product installation folder or in the bin sub-folder (depending on the program and platform in use). A typical lock code is a number, a dash, and then several hexadecimal characters (0-9 and A-F).\n\nExample: 4-87B3F",
+          "title": "IBM How to activate your IBM SPSS license for a client which in not able to access the internet. - United States",
+          "applicability": "IBM How to activate your IBM SPSS license for a client which in not able to access the internet. - United States\n\nHOW TO\n\nSUMMARY\nThe License Authorization Wizard fails when used from a computer which is not able to access the internet or in certain other cases where the IBM licensing server is blocked.\n\n\n\nSTEPS\nIn these cases you can use the attached HTML file to generate your license. Simply load the file up into your browser on an internet enabled computer and enter the authorization code and",
+          "relevance": 0.5473937918389997,
+          "tokens": 94,
+          "section": "SUMMARY",
+          "start_char": 655,
+          "end_char": 1153,
+          "covers": [
+            "activation_on_new_host",
+            "required_steps"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S6",
+          "chunk_id": "techqa:swg21476498:parent",
+          "source_file": "techqa://swg21476498",
+          "page_number": 1,
+          "excerpt": "Please contact SPSS Customer Service to verify the accuracy of the code. If you have a valid code, please use it in License Authorzation Wizard and verify that the corresponding license has been saved to your lservrc file. \n\nWe also see this error when an incorrect authorization code has been generated for your release of SPSS. Again Customer Service will be able to determine whether or not the code is valid. For North America you may use the contact information below.\n\nNorth America\nPhone: (800) 521-1337\nEMAIL: spsscs@us.ibm.com",
+          "title": "IBM SPSS Authorization codes are incorrectly generated - United States",
+          "applicability": "IBM SPSS Authorization codes are incorrectly generated - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n I have recently purchases an additional module for SPSS base such as CTABLES. I received the authorization code and entered it successfully. However when I start SPSS, the requested module is absent. Running command syntax for this module prompts me with the error message below. Why is this happening?\n\nError # 70xx\nThere is no license for <this module>\nThis command not executed.",
+          "relevance": 0.5207816077797223,
+          "tokens": 102,
+          "section": "RESOLVING THE PROBLEM",
+          "start_char": 554,
+          "end_char": 1089,
+          "covers": [
+            "activation_on_new_host",
+            "required_steps"
+          ],
+          "instruction_group": false
+        }
+      ],
+      "original_tokens": 13008,
+      "context_tokens": 2333,
+      "status": "answered",
+      "covered_facts": [
+        "activation_on_new_host",
+        "required_steps"
+      ],
+      "missing_facts": [],
+      "retries": 0,
+      "validation_failures": [],
+      "latency_ms": 28002.95900000492
+    },
+    "answer_quality": 0.0,
+    "error": null
+  },
+  {
+    "question_id": "DEV_Q002",
+    "answerable": true,
+    "expected_document": "swg21978390",
+    "hit_at_5": 1.0,
+    "hit_at_10": 1.0,
+    "mrr": 0.3333333333333333,
+    "refused": true,
+    "answered": false,
+    "latency_ms": 105774.19999998529,
+    "response": {
+      "answer": "知识库无法回答该问题。",
+      "sources": [],
+      "confidence": 0.0
+    },
+    "trace": {
+      "original_query": "Unable to open profile from P8 Content Engine Configuration manager (CMUI) on Redhat Linux 7.2, getting GPF and javacore dump.\nLaunch configmgr then try to open an existing profile. Once I click ok on the dialog box to\n\"Verify your application server setting before proceeding...\" Configuration manager would crash and GPF. I can see the javacore.txt and dmp file created.\nThe javacore.txt contains the following:\n\n0SECTION TITLE subcomponent dump routine NULL =============================== 1TICHARSET UTF-8 1TISIGINFO Dump Event \"gpf\" (00002000) received 1TIDATETIME Date: 2016/05/05 at 04:53:30 1TIFILENAME Javacore filename: /opt/IBM/FileNet/ContentEngine/tools/configure/javacore.20160505.045330.25035.0002.txt 1TIREQFLAGS Request Flags: 0x81 (exclusive+preempt) 1TIPREPSTATE Prep State: 0x100 (trace_disabled) 1TIPREPINFO Exclusive VM access not taken: data may not be consistent across javacore sections NULL ------------------------------------------------------------------------ 0SECTION GPINFO subcomponent dump routine NULL ================================ 2XHOSLEVEL OS Level : Linux 3.10.0-327.13.1.el7.x86_64 2XHCPUS Processors - 3XHCPUARCH Architecture : x86 3XHNUMCPUS How Many : 1 3XHNUMASUP NUMA is either not supported or has been disabled by user NULL\n1XHEXCPCODE J9Generic_Signal_Number: 00000004 1XHEXCPCODE Signal_Number: 0000000B 1XHEXCPCODE Error_Value: 00000000 1XHEXCPCODE Signal_Code: 00000080 1XHEXCPCODE Handler1: F72A2E6A 1XHEXCPCODE Handler2: F724D00A 1XHEXCPCODE InaccessibleAddress: 00000000 NULL\n1XHEXCPMODULE Module: /lib/libcairo.so.2 1XHEXCPMODULE Module_base_address: D55FC000\n\nThis is a Redhat Linux 7.2 environment with Content Platform Engine CPE 5.2.1.4.",
+      "rewritten_query": "Unable to open profile from P8 Content Engine Configuration manager (CMUI) on Redhat Linux 7.2, getting GPF and javacore dump. Launch configmgr then try to open an existing profile. Once I click ok on the dialog box to \"Verify your application server setting before proceeding...\" Configuration manager would crash and GPF. I can see the javacore.txt and dmp file created. The javacore.txt contains the following: 0SECTION TITLE subcomponent dump routine NULL =============================== 1TICHARSET UTF-8 1TISIGINFO Dump Event \"gpf\" (00002000) received 1TIDATETIME Date: 2016/05/05 at 04:53:30 1TIFILENAME Javacore filename: /opt/IBM/FileNet/ContentEngine/tools/configure/javacore.20160505.045330.25035.0002.txt 1TIREQFLAGS Request Flags: 0x81 (exclusive+preempt) 1TIPREPSTATE Prep State: 0x100 (trace_disabled) 1TIPREPINFO Exclusive VM access not taken: data may not be consistent across javacore sections NULL ------------------------------------------------------------------------ 0SECTION GPINFO subcomponent dump routine NULL ================================ 2XHOSLEVEL OS Level : Linux 3.10.0-327.13.1.el7.x86_64 2XHCPUS Processors - 3XHCPUARCH Architecture : x86 3XHNUMCPUS How Many : 1 3XHNUMASUP NUMA is either not supported or has been disabled by user NULL 1XHEXCPCODE J9Generic_Signal_Number: 00000004 1XHEXCPCODE Signal_Number: 0000000B 1XHEXCPCODE Error_Value: 00000000 1XHEXCPCODE Signal_Code: 00000080 1XHEXCPCODE Handler1: F72A2E6A 1XHEXCPCODE Handler2: F724D00A 1XHEXCPCODE InaccessibleAddress: 00000000 NULL 1XHEXCPMODULE Module: /lib/libcairo.so.2 1XHEXCPMODULE Module_base_address: D55FC000 This is a Redhat Linux 7.2 environment with Content Platform Engine CPE 5.2.1.4.",
+      "rewrite_fallback": true,
+      "tool_called": true,
+      "candidate_ids": [
+        "techqa:swg21673044:parent",
+        "techqa:swg21598554:parent",
+        "techqa:swg21978390:parent",
+        "techqa:swg1PM39529:parent",
+        "techqa:swg1LO68156:parent",
+        "techqa:swg1IC60317:parent",
+        "techqa:swg1IO10742:parent",
+        "techqa:swg1IT13861:parent",
+        "techqa:swg1IV87612:parent",
+        "techqa:swg1LI79173:parent"
+      ],
+      "evidence": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg21673044:parent",
+          "source_file": "techqa://swg21673044",
+          "page_number": 1,
+          "excerpt": "0SECTION TITLE subcomponent dump routine\nNULL ===============================\n1TICHARSET 1252\n1TISIGINFO Dump Event \"gpf\" (00002000) received \n1TIDATETIME Date: 2014/05/13 at 19:12:09\n1TIFILENAME Javacore filename: C:\\myRADinstallationDir\\s\\javacore.20140513.191202.5840.0002.txt\n1TIREQFLAGS Request Flags: 0x81 (exclusive+preempt)\n1TIPREPSTATE Prep State: 0x100 (trace_disabled)\n1TIPREPINFO Exclusive VM access not taken: data may not be consistent across javacore sections\nNULL ------------------------------------------------------------------------\n0SECTION GPINFO subcomponent dump routine\nNULL ================================\n2XHOSLEVEL OS Level : Windows 7 6.1 build 7601 Service Pack 1\n2XHCPUS Processors -\n3XHCPUARCH Architecture : amd64\n3XHNUMCPUS How Many : 2\n3XHNUMASUP NUMA is either not supported or has been disabled by user\nNULL \n1XHEXCPCODE Windows_ExceptionCode: C0000005",
+          "title": "IBM Internet Explorer 10 module mshtml.dll causes Rational Application Developer to crash - United States",
+          "applicability": "IBM Internet Explorer 10 module mshtml.dll causes Rational Application Developer to crash - United States\n\nIE10; RPE; RAD; IE10; mshtml TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n Internet Explorer 10 module mshtml.dll causes the product to crash when dragging and dropping a JQuery widget in the design pane of the Rich Page Editor in IBM Rational Application Developer for WebSphere Software. \n\nSYMPTOM\nWhen dragging and dropping a JQuery widget in the design pane of the Rich Page Editor in Rat",
+          "relevance": 0.6798846392360631,
+          "tokens": 186,
+          "section": "SYMPTOM",
+          "start_char": 2716,
+          "end_char": 3606,
+          "covers": [
+            "applicable_solution",
+            "required_steps"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S2",
+          "chunk_id": "techqa:swg21598554:parent",
+          "source_file": "techqa://swg21598554",
+          "page_number": 1,
+          "excerpt": "PROBLEM(ABSTRACT)\n Attempt to open the workbench in IBM Rational product based on Eclipse causes closing immediately or does not starting at all with following error: \" JVM terminated. Exit code=160\" \n\nSYMPTOM\n An Eclipse window displays the following message: JVM terminated. Exit code=160 \n\nAfter you close the Eclipse message window, a javacore file (for example, javacore.20120613.102137.20388.0002.txt) is created in the installation directory.\n\n\nCAUSE\nYour XULRunner library version is not compatible with Eclipse version used in product.\nEclipse SWT is only compatible with a range of XULRunner library versions that are installed with Firefox. \n\n * Eclipse 3.4.x: Mozilla 1.4 GTK2 - 1.7.x GTK2, XULRunner 1.8.x - 1.9.0.x.\n   \n   \n * Eclipse 3.6.x: Mozilla 1.4 GTK2 - 1.7.x GTK2, XULRunner 1.8.x - 1.9.x and 3.6.x (but not 2.x), WebKitGTK+ 1.2.x\n\nDIAGNOSING THE PROBLEM\nSteps: \n\n 1. Open the javacore file in the product installation directory in a text editor. \n    \n    \n 2. Search for the Module that caused the Java Virtual Machine to crash. \n    \n    If you have this problem, it will report:srctext=\"codesnippet\">/usr/lib/xulrunner-2/libxul.so. \n    \n    0SECTION TITLE subcomponent dump routine\n    NULL ===============================\n    1TICHARSET UTF-8\n    1TISIGINFO Dump Event \"gpf\" (00002000) received \n    1TIDATETIME Date: 2012/06/13 at 10:21:38\n    1TIFILENAME Javacore filename: /opt/IBM/RAD85/0529_GM/javacore.20120613.102137.20388.0002.txt\n    1TIREQFLAGS Request Flags: 0x81 (exclusive+preempt)\n    1TIPREPSTATE Prep State: 0x100 (trace_disabled)\n    1TIPREPINFO Exclusive VM access not taken: data may not be consistent across javacore sections\n    NULL ------------------------------------------------------------------------\n    0SECTION GPINFO subcomponent dump routine\n    NULL ================================\n    2XHOSLEVEL OS Level : Linux 2.6.18-308.4.1.el5\n    2XHCPUS Processors -\n    3XHCPUARCH Architecture : x86\n    3XHNUMCPUS How Many : 2\n    3XHNUMASUP NUMA is either not supported or has been disabled by user\n    NULL \n    1XHEXCPCODE J9Generic_Signal_Number: 00000004\n    1XHEXCPCODE Signal_Number: 0000000B\n    1XHEXCPCODE Error_Value: 00000000\n    1XHEXCPCODE Signal_Code: 00000001\n    1XHEXCPCODE Handler1: 00125A1A\n    1XHEXCPCODE Handler2: 001CCA67\n    1XHEXCPCODE InaccessibleAddress: 00D5F000\n    NULL \n    1XHEXCPMODULE Module: /usr/lib/xulrunner-2/libxul.so\n    \n    \n 3. Navigate to the directory that contains the library.\n    \n    \n 4. Use following commands to determine your XULRunner version.\n    \n    \n    [root@rhel5 ~]# cd /usr/lib/xulrunner-2",
+          "title": "IBM Eclipse based product stops with \"Exit code=160\" - United States",
+          "applicability": "IBM Eclipse based product stops with \"Exit code=160\" - United States\n\nRN8.5; SWT; xulrunner; IMF50; Exit code=160; 160; javacore; compatibility; 90172 TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n Attempt to open the workbench in IBM Rational product based on Eclipse causes closing immediately or does not starting at all with following error: \" JVM terminated. Exit code=160\" \n\nSYMPTOM\n An Eclipse window displays the following message: JVM terminated. Exit code=160 \n\nAfter you close the Eclipse ",
+          "relevance": 0.6255967449346284,
+          "tokens": 497,
+          "section": "PROBLEM(ABSTRACT)",
+          "start_char": 179,
+          "end_char": 2787,
+          "covers": [
+            "applicable_solution",
+            "required_steps"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S3",
+          "chunk_id": "techqa:swg21598554:parent",
+          "source_file": "techqa://swg21598554",
+          "page_number": 1,
+          "excerpt": "Procedure: \n\n 1. Download and install a 32 or 64 bit XULRunner in the supported range 1.8.1.3 - 3.6.x for your architecture.\n    \n    \n 2. Locate the -vmargs section in the eclipse.ini file that is included in the product installation. Note that some IBM Worklight Studio installations use JRE arguments from the Worklight.sh script instead of from the eclipse.ini file. If a Worklight.sh file is present in the same product directory as the eclipse.ini file, add your updates to the -vmargs sections of both files.\n    \n    \n 3. Locate the list of -vmargs arguments and add java system property org.eclipse.swt.browser.XULRunnerPath to point to the XULRunner's path. For example:\n    -vmargs -Dsdp.driver=RADO85-I20120529_2348 ... -Dorg.eclipse.swt.browser.XULRunnerPath=/home/xulrunner/1.8.1.3/xulrunner\n    \n    \n 4. Restart the product.",
+          "title": "IBM Eclipse based product stops with \"Exit code=160\" - United States",
+          "applicability": "IBM Eclipse based product stops with \"Exit code=160\" - United States\n\nRN8.5; SWT; xulrunner; IMF50; Exit code=160; 160; javacore; compatibility; 90172 TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n Attempt to open the workbench in IBM Rational product based on Eclipse causes closing immediately or does not starting at all with following error: \" JVM terminated. Exit code=160\" \n\nSYMPTOM\n An Eclipse window displays the following message: JVM terminated. Exit code=160 \n\nAfter you close the Eclipse ",
+          "relevance": 0.6255967449346284,
+          "tokens": 174,
+          "section": "RESOLVING THE PROBLEM",
+          "start_char": 2910,
+          "end_char": 3750,
+          "covers": [
+            "applicable_solution",
+            "required_steps"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S4",
+          "chunk_id": "techqa:swg21978390:parent",
+          "source_file": "techqa://swg21978390",
+          "page_number": 1,
+          "excerpt": "RESOLVING THE PROBLEM\nInstall the missing libraries \"adwaita-gtk2-theme\" (32 and 64 bit) and \"adwaita-gtk3-theme\" 64 bit. Please contact RedHat to obtain the missing libraries.",
+          "title": "IBM Unable to open a profile in FileNet Content Engine Configuration Manager User Interface (CMUI) on Redhat Linux 7.x - United States",
+          "applicability": "IBM Unable to open a profile in FileNet Content Engine Configuration Manager User Interface (CMUI) on Redhat Linux 7.x - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n Unable to open a profile in FileNet Content Engine Configuration Manager User Interface (CMUI) on Redhat Linux 7.x. \n\nSYMPTOM\nCMUI will javacore with the following in the javacore.txt \n\n1XHEXCPCODE J9Generic_Signal_Number: 00000004\n1XHEXCPCODE Signal_Number: 0000000B\n1XHEXCPCODE Error_Value: 00000000\n1XHEXCPCODE Sig",
+          "relevance": 0.5439020641625933,
+          "tokens": 32,
+          "section": "RESOLVING THE PROBLEM",
+          "start_char": 819,
+          "end_char": 995,
+          "covers": [
+            "applicable_solution",
+            "required_steps"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S5",
+          "chunk_id": "techqa:swg1PM39529:parent",
+          "source_file": "techqa://swg1PM39529",
+          "page_number": 1,
+          "excerpt": "ERROR DESCRIPTION\n *  Abstract:\n   Version of xulrunner supplied with RHEL 5.6 causes ClearQuest\n   7.1.2.2 client to abort on start-up\n   \n   javacore.txt file may contain the following information.\n   The dump\n   NULL\n   ----------------------------------------------------------------\n   --------\n   0SECTION       TITLE subcomponent dump routine\n   NULL           ===============================\n   1TISIGINFO     Dump Event 'abort' (00020000) received\n   1TIDATETIME    Date:                 2011/05/04 at 13:10:18\n   1TIFILENAME    Javacore filename:\n   /.../.../javacore.20110504.131017.7062.0003.txt\n   NULL\n   ----------------------------------------------------------------\n   --------\n   0SECTION       GPINFO subcomponent dump routine\n   NULL           ================================\n   2XHOSLEVEL     OS Level         : Linux 2.6.18-238.5.1.el5\n   2XHCPUS        Processors -",
+          "title": "IBM PM39529: Version of xulrunner supplied with RHEL 5.6 causes ClearQuest 7.1.2.2 client to abort on start-up - United States",
+          "applicability": "IBM PM39529: Version of xulrunner supplied with RHEL 5.6 causes ClearQuest 7.1.2.2 client to abort on start-up - United States\n\nAIX SUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS PERMANENT RESTRICTION.\n    \n   \n   \n\nERROR DESCRIPTION\n *  Abstract:\n   Version of xulrunner supplied with RHEL 5.6 causes ClearQuest\n   7.1.2.2 client to abort on start-up\n   \n   javacore.txt file may contain the following information.\n   The dump\n   NULL\n   -------------------",
+          "relevance": 0.5345345857606193,
+          "tokens": 176,
+          "section": "ERROR DESCRIPTION",
+          "start_char": 258,
+          "end_char": 1148,
+          "covers": [
+            "applicable_solution"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S6",
+          "chunk_id": "techqa:swg1IC60317:parent",
+          "source_file": "techqa://swg1IC60317",
+          "page_number": 1,
+          "excerpt": "*  The workaround is to change the password encryption on AIX from\n   ssha256 to another encryption algoithm.  No loadable password\n   algorithm should be used.",
+          "title": "IBM IC60317: DEVICE SERVER FAILS TO START WHEN SHA256 ENCRYPTION IS ACTIVE ON AIX - United States",
+          "applicability": "IBM IC60317: DEVICE SERVER FAILS TO START WHEN SHA256 ENCRYPTION IS ACTIVE ON AIX - United States\n\nAIX SUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS FIXED IF NEXT.\n    \n   \n   \n\nERROR DESCRIPTION\n *  The TPC Device Server will not start when the password\n   encryption on AIX is set to use the Secured\n   Hash Algorithm with a 256 bit key (SHA256).  The failure occurs\n   when Websphere attempts to\n   authenticate the user and password.  A javacore dump oc",
+          "relevance": 0.5292799881295407,
+          "tokens": 26,
+          "section": "LOCAL FIX",
+          "start_char": 2670,
+          "end_char": 2830,
+          "covers": [
+            "applicable_solution"
+          ],
+          "instruction_group": true
+        }
+      ],
+      "original_tokens": 5885,
+      "context_tokens": 2398,
+      "status": "unanswerable",
+      "covered_facts": [],
+      "missing_facts": [],
+      "retries": 0,
+      "validation_failures": [],
+      "latency_ms": 105773.87259999523
+    },
+    "answer_quality": 0.0,
+    "error": null
+  },
+  {
+    "question_id": "DEV_Q010",
+    "answerable": true,
+    "expected_document": "swg21317981",
+    "hit_at_5": 1.0,
+    "hit_at_10": 1.0,
+    "mrr": 1.0,
+    "refused": false,
+    "answered": true,
+    "latency_ms": 116530.86509997956,
+    "response": {
+      "answer": "At this point there is no way to salvage the database in its current state. The entire Portal database must be dropped and recreated using the specifications provided in the InfoCenter at this link: \n\n\nhttp://publib.boulder.ibm.com/infocenter/wpdoc/v6r1m0/topic/com.ibm.wp.e [http://publib.boulder.ibm.com/infocenter/wpdoc/v6r1m0/index.jsp?topic=/com.ibm.wp.ent.doc/config/aix_oracle_create_db.html]\nnt.doc/config/aix_oracle_create_db.html [http://publib.boulder.ibm.com/infocenter/wpdoc/v6r1m0/index.jsp?topic=/com.ibm.wp.ent.doc/config/aix_oracle_create_db.html] \n\nThis is the specific information in the Information Center pertaining to character encoding:\n\n=============================\n\nAll databases must be created using UNICODE Database and National character sets such as UTF8, AL32UTF8, or AL16UTF16. \n\n============================= [S1]",
+      "sources": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg21317981:parent",
+          "source_file": "techqa://swg21317981",
+          "page_number": 1,
+          "quote": "At this point there is no way to salvage the database in its current state. The entire Portal database must be dropped and recreated using the specifications provided in the InfoCenter at this link: \n\n\nhttp://publib.boulder.ibm.com/infocenter/wpdoc/v6r1m0/topic/com.ibm.wp.e [http://publib.boulder.ibm.com/infocenter/wpdoc/v6r1m0/index.jsp?topic=/com.ibm.wp.ent.doc/config/aix_oracle_create_db.html]\nnt.doc/config/aix_oracle_create_db.html [http://publib.boulder.ibm.com/infocenter/wpdoc/v6r1m0/index.jsp?topic=/com.ibm.wp.ent.doc/config/aix_oracle_create_db.html] \n\nThis is the specific information in the Information Center pertaining to character encoding:\n\n=============================\n\nAll databases must be created using UNICODE Database and National character sets such as UTF8, AL32UTF8, or AL16UTF16. \n\n============================="
+        }
+      ],
+      "confidence": 0.709
+    },
+    "trace": {
+      "original_query": "We transferred the database to an external database on our Portal 8.5 environment and now seeing errors, EJPDB0085W and EJPFD0016E in the logs\nAfter transferring the Portal database we seeing the following....\n\n     [3/1/16 6:22:19:481 CST] 00000071 DataStoreServ W com.ibm.wps.services.\n     datastore.DataStoreServiceImpl checkCorrectSetup EJPDB0085W: The\n     character encoding of the database is not UTF-8.\n     [3/1/16 6:22:19:528 CST] 00000071 Servlet       E com.ibm.wps.engine.\n     Servlet init EJPFD0016E: Initialization of service failed.\n                                      com.ibm.wps.util.DataBackendException:\n     EJPDB0160E: The sanity checks of the database layer failed.\n                     at com.ibm.wps.services.datastore.DataStoreServiceImpl.\n     checkCorrectSetup(DataStoreServiceImpl.java:712)\n                     at com.ibm.wps.services.datastore.DataStoreServiceImpl.\n     init(DataStoreServiceImpl.java:288)\n\n...\n\n     [3/1/16 6:22:19:824 CST] 00000071 DatabaseInsig W com.ibm.wps.datastore.\n     dbinsight.DatabaseInsight checkCharacterEncodingForOracle EJPDB0166W:\n     The character encoding of database domain [[Domain: jcr]] is not\n     correct. The value [WE8MSWIN1252] is set for key [NLS_CHARACTERSET] in\n     parameter section [NLS_DATABASE_PARAMETERS] where expected values only\n     can contain one of [[UTF8, AL16UTF16, AL32UTF8, UTFE]].\n\\",
+      "rewritten_query": "We transferred the database to an external database on our Portal 8.5 environment and now seeing errors, EJPDB0085W and EJPFD0016E in the logs After transferring the Portal database we seeing the following.... [3/1/16 6:22:19:481 CST] 00000071 DataStoreServ W com.ibm.wps.services. datastore.DataStoreServiceImpl checkCorrectSetup EJPDB0085W: The character encoding of the database is not UTF-8. [3/1/16 6:22:19:528 CST] 00000071 Servlet E com.ibm.wps.engine. Servlet init EJPFD0016E: Initialization of service failed. com.ibm.wps.util.DataBackendException: EJPDB0160E: The sanity checks of the database layer failed. at com.ibm.wps.services.datastore.DataStoreServiceImpl. checkCorrectSetup(DataStoreServiceImpl.java:712) at com.ibm.wps.services.datastore.DataStoreServiceImpl. init(DataStoreServiceImpl.java:288) ... [3/1/16 6:22:19:824 CST] 00000071 DatabaseInsig W com.ibm.wps.datastore. dbinsight.DatabaseInsight checkCharacterEncodingForOracle EJPDB0166W: The character encoding of database domain [[Domain: jcr]] is not correct. The value [WE8MSWIN1252] is set for key [NLS_CHARACTERSET] in parameter section [NLS_DATABASE_PARAMETERS] where expected values only can contain one of [[UTF8, AL16UTF16, AL32UTF8, UTFE]]. \\",
+      "rewrite_fallback": true,
+      "tool_called": true,
+      "candidate_ids": [
+        "techqa:swg21317981:parent",
+        "techqa:swg21383033:parent",
+        "techqa:swg1PM50683:parent",
+        "techqa:swg21457071:parent",
+        "techqa:swg21347750:parent",
+        "techqa:swg21385669:parent",
+        "techqa:swg21648810:parent",
+        "techqa:swg21366625:parent",
+        "techqa:swg21458279:parent",
+        "techqa:swg1PK45184:parent"
+      ],
+      "evidence": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg21317981:parent",
+          "source_file": "techqa://swg21317981",
+          "page_number": 1,
+          "excerpt": "At this point there is no way to salvage the database in its current state. The entire Portal database must be dropped and recreated using the specifications provided in the InfoCenter at this link: \n\n\nhttp://publib.boulder.ibm.com/infocenter/wpdoc/v6r1m0/topic/com.ibm.wp.e [http://publib.boulder.ibm.com/infocenter/wpdoc/v6r1m0/index.jsp?topic=/com.ibm.wp.ent.doc/config/aix_oracle_create_db.html]\nnt.doc/config/aix_oracle_create_db.html [http://publib.boulder.ibm.com/infocenter/wpdoc/v6r1m0/index.jsp?topic=/com.ibm.wp.ent.doc/config/aix_oracle_create_db.html] \n\nThis is the specific information in the Information Center pertaining to character encoding:\n\n=============================\n\nAll databases must be created using UNICODE Database and National character sets such as UTF8, AL32UTF8, or AL16UTF16. \n\n=============================",
+          "title": "IBM 'EJPDB0160E: The sanity checks of the database layer failed' error occurs during startup after successful database transfer - United States",
+          "applicability": "IBM 'EJPDB0160E: The sanity checks of the database layer failed' error occurs during startup after successful database transfer - United States\n\nEJPDB0160E: The sanity checks of the database layer failed. EJPDB0160E TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n After receiving a 'Build Successful' message during a database transfer for IBM® WebSphere® Portal, you attempt to start WebSphere_Portal and receives this error message, \"EJPDB0160E: The sanity checks of the database layer failed\". \n\nSY",
+          "relevance": 0.7053925377755728,
+          "tokens": 195,
+          "section": "",
+          "start_char": 4820,
+          "end_char": 5662,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S2",
+          "chunk_id": "techqa:swg21383033:parent",
+          "source_file": "techqa://swg21383033",
+          "page_number": 1,
+          "excerpt": "Reviewing the wkplc_comp.properties file: \n\n * \n * \n *  community.DbName=commun \n   customization.DbName=custom \n * \n * \n * \n *  community.DbUrl=jdbc:db2:commun \n   customization.DbUrl=jdbc:db2:commun \n * \n * \n * \n * \n * NOTE: \n * \n\n\nRun the database transfer a second time:  * \n * \n * \n * \n * customization.DbUrl=jdbc:db2:custom\n * \n * \n * \n * \n * \n *  ConfigEngine (.sh/.bat) database-transfer -DTransferDomainList=release,customization,community,jcr,feedback,likeminds \n\n \n\nCross reference information Segment Product Component Platform Version Edition Organizational Productivity- Portals & Collaboration WebSphere Portal End of Support Products AIX, HP-UX, IBM i, Linux, Solaris, Windows, z/OS 7.0, 6.1",
+          "title": "IBM Portal startup reports \"EJPDB0160E: The sanity checks of the database layer failed\" with correct UTF-8 encoding - United States",
+          "applicability": "IBM Portal startup reports \"EJPDB0160E: The sanity checks of the database layer failed\" with correct UTF-8 encoding - United States\n\ndatabase; sanity; transfer; layer; utf; utf-8; utf8; encoding; EJPDB0160E; layout; EJPDB0085W; EJPDB0159E TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n IBM® WebSphere® Portal is installed successfully. A DB2® database is configured for use with WebSphere Portal and a database transfer was successful from Derby™ to DB2. During the next startup of WebSphere Portal, ",
+          "relevance": 0.5801569607713519,
+          "tokens": 125,
+          "section": "",
+          "start_char": 1928,
+          "end_char": 2635,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S3",
+          "chunk_id": "techqa:swg1PM50683:parent",
+          "source_file": "techqa://swg1PM50683",
+          "page_number": 1,
+          "excerpt": "PROBLEM SUMMARY\n *  WARNING MESSAGES ABOUT PAGELOCK SETTINGS DISPLAYED IN THE LOG\n   WHEN WCM USES SQLSERVER DATABASE.",
+          "title": "IBM PM50683: INTERNAL TESTING: WARNING MESSAGES ABOUT PAGELOCK SETTINGS DISPL AYED IN THE LOG WHEN WCM USES SQLSERVER DATABASE. - United States",
+          "applicability": "IBM PM50683: INTERNAL TESTING: WARNING MESSAGES ABOUT PAGELOCK SETTINGS DISPL AYED IN THE LOG WHEN WCM USES SQLSERVER DATABASE. - United States\n\nA FIX IS AVAILABLE\nFixes integrated in WebSphere Portal 7.0.0.1 & 7.0.0.2 Combined Cumulative Fixes [http://www-01.ibm.com/support/docview.wss?uid=swg24029452]\n\n\n\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR.\n    \n   \n   \n\nERROR DESCRIPTION\n *  Update properties file for SQL2008 Transfer using 2.0 JDBC\n   Driver\n   Run create-database\n   Run setup-database\n  ",
+          "relevance": 0.564427146959467,
+          "tokens": 18,
+          "section": "",
+          "start_char": 3631,
+          "end_char": 3749,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S4",
+          "chunk_id": "techqa:swg1PM50683:parent",
+          "source_file": "techqa://swg1PM50683",
+          "page_number": 1,
+          "excerpt": "*  The issue has been resolved.\n   \n   \n    \n   \n   \n\nTEMPORARY FIX\n\nCOMMENTS",
+          "title": "IBM PM50683: INTERNAL TESTING: WARNING MESSAGES ABOUT PAGELOCK SETTINGS DISPL AYED IN THE LOG WHEN WCM USES SQLSERVER DATABASE. - United States",
+          "applicability": "IBM PM50683: INTERNAL TESTING: WARNING MESSAGES ABOUT PAGELOCK SETTINGS DISPL AYED IN THE LOG WHEN WCM USES SQLSERVER DATABASE. - United States\n\nA FIX IS AVAILABLE\nFixes integrated in WebSphere Portal 7.0.0.1 & 7.0.0.2 Combined Cumulative Fixes [http://www-01.ibm.com/support/docview.wss?uid=swg24029452]\n\n\n\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR.\n    \n   \n   \n\nERROR DESCRIPTION\n *  Update properties file for SQL2008 Transfer using 2.0 JDBC\n   Driver\n   Run create-database\n   Run setup-database\n  ",
+          "relevance": 0.564427146959467,
+          "tokens": 10,
+          "section": "",
+          "start_char": 3792,
+          "end_char": 3869,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S5",
+          "chunk_id": "techqa:swg21457071:parent",
+          "source_file": "techqa://swg21457071",
+          "page_number": 1,
+          "excerpt": "Create the metadata repository database in Oracle with a character set of AL32UTF8. The script provided will create a tablespace within an existing database. The required character set for use with IBM Information Server is AL32UTF8. If the database is configured to use another character set, data entered or transferred that contains characters not supported by the configured character set will not be stored, processed or displayed correctly by IBM Information Server. To avoid issues with unsupported characters use a database which is configured to use the AL32UTF8 character set.",
+          "title": "IBM Information Server Install with Oracle metadata repository fails with error CDIPR2122I - United States",
+          "applicability": "IBM Information Server Install with Oracle metadata repository fails with error CDIPR2122I - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n Information Server install fails with the following error:\n\nError: Ensure the Oracle database is configured in the correct UTF8 code page. Expected: NLS_CHARACTERSET = AL32UTF8 and NLS_NCHAR_CHARACTERSET = AL16UTF16. Found: NLS_CHARACTERSET = WE8MSWIN1252, NLS_NCHAR_CHARACTERSET = AL16UTF16. Resolution: If the Oracle database is not created in",
+          "relevance": 0.5377530330948068,
+          "tokens": 97,
+          "section": "",
+          "start_char": 787,
+          "end_char": 1373,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S6",
+          "chunk_id": "techqa:swg21347750:parent",
+          "source_file": "techqa://swg21347750",
+          "page_number": 1,
+          "excerpt": "Use the following script to find the values of the relevant Oracle database: \n\n \n\n * Connect system/<password>@<database_name> AS SYSDBA\n * \n *  \n * \n * select * from nls_database_parameters;\n\n\nSteps:  1. Launch SQL*Plus Worksheet \n 2. Logon to the correct database as SYSTEM \n 3. Type in the following: select * from nls_database_parameters; \n 4. Press 'execute' button. \n\n\nThis will return values such as: \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * NLS_CHARACTERSET WE8MSWIN1252\n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * NLS_NCHAR_CHARACTERSET AL16UTF16\n * \n * NLS_RDBMS_VERSION 10.2.0.3.0\n * \n * \n * \n\n\nThe most important settings have been highlighted, which are:  * NLS_CHARACTERSET = WE8MSWIN1252 \n * NLS_NCHAR_CHARACTERSET = AL16UTF16 \n * NLS_RDBMS_VERSION = 10.2.0.3.0",
+          "title": "IBM How to check the Oracle database character set and patch level for Controller - United States",
+          "applicability": "IBM How to check the Oracle database character set and patch level for Controller - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n Customer is unsure whether their Oracle server meets the requirements for use as a Controller database repository. \n\nCAUSE\nController requires two separate databases in order to work (see below). TIP: For some specialist tasks/need, Controller can be configured to use more than two separate databases if required. \n\n * When using Oracle to store these 2",
+          "relevance": 0.5339778177625112,
+          "tokens": 166,
+          "section": "",
+          "start_char": 1978,
+          "end_char": 2832,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S7",
+          "chunk_id": "techqa:swg21347750:parent",
+          "source_file": "techqa://swg21347750",
+          "page_number": 1,
+          "excerpt": "In this example, this shows that:  * The 'Database character set' is 'WE8MSWIN1252' \n * The 'National Character Set' is 'AL16UTF16' \n * The Oracle server is running version 10g Release 2, with patchset 3 installed",
+          "title": "IBM How to check the Oracle database character set and patch level for Controller - United States",
+          "applicability": "IBM How to check the Oracle database character set and patch level for Controller - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n Customer is unsure whether their Oracle server meets the requirements for use as a Controller database repository. \n\nCAUSE\nController requires two separate databases in order to work (see below). TIP: For some specialist tasks/need, Controller can be configured to use more than two separate databases if required. \n\n * When using Oracle to store these 2",
+          "relevance": 0.5339778177625112,
+          "tokens": 44,
+          "section": "",
+          "start_char": 2835,
+          "end_char": 3048,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S8",
+          "chunk_id": "techqa:swg21385669:parent",
+          "source_file": "techqa://swg21385669",
+          "page_number": 1,
+          "excerpt": "The server Engine internally works in what Oracle would call UTF8, which is a subset of the characters supported by AL32UTF8 and AL16UTF16. Specifically, it cannot deal with surrogate pairs; these are the Unicode code points that require more than two bytes in an AL16UTF16 encoding. \n\n \nWhen transferring data from the client to the Oracle Server, we can tell Oracle which Character Set we require or are going to provide, via the NLS_LANG environment variable. If this differs from the \nNLS_DATABASE_CHARACTERSET in the Oracle database, then Oracle will perform the mapping for us. If the two are the same, no mapping is done by Oracle. However, the catch is, the data is not checked that it is in this character set, which could be a problem when writing.",
+          "title": "IBM Impact on existing Oracle database when changing NLS_LANG in IBM InfoSphere DataStage - United States",
+          "applicability": "IBM Impact on existing Oracle database when changing NLS_LANG in IBM InfoSphere DataStage - United States\n\nnls_lang oracle database utf8 WE8ISO8859P1 TECHNOTE (FAQ)\n\nQUESTION\n The NLS_LANG environment variable setting in the dsenv file is currently AMERICAN_AMERICA.WE8ISO8859P1. \n\nWhat is the impact on the existing Oracle database if NLS_LANG is changed to AMERICAN_AMERICA.UTF8? \n\nANSWER\nThe server Engine internally works in what Oracle would call UTF8, which is a subset of the characters suppor",
+          "relevance": 0.5243001055819463,
+          "tokens": 144,
+          "section": "",
+          "start_char": 391,
+          "end_char": 1149,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": false
+        }
+      ],
+      "original_tokens": 7111,
+      "context_tokens": 2400,
+      "status": "answered",
+      "covered_facts": [
+        "requested_answer"
+      ],
+      "missing_facts": [],
+      "retries": 1,
+      "validation_failures": [
+        "Conflict claims must quote actual query/source substrings: source_claim 'NLS_CHARACTERSET = WE8MSWIN1252, NLS_NCHAR_CHARACTERSET = AL16UTF16. Found: NLS_CHARACTERSET = WE8MS' is absent from S5; copy a shorter exact span from this supplied source"
+      ],
+      "latency_ms": 116530.64310003538
+    },
+    "answer_quality": 0.7058823529411765,
+    "error": null
+  },
+  {
+    "question_id": "DEV_Q012",
+    "answerable": true,
+    "expected_document": "swg21959723",
+    "hit_at_5": 1.0,
+    "hit_at_10": 1.0,
+    "mrr": 1.0,
+    "refused": false,
+    "answered": true,
+    "latency_ms": 17717.0763000031,
+    "response": {
+      "answer": "This ARG_MAX kernel parameter adjusted to much larger from kernel release version 2.6.23, that is 2621440 (http://www.in-ulm.de/~mascheck/various/argmax [http://www.in-ulm.de/~mascheck/various/argmax]). \n\nBut we support upto Redhat 5.11 in Twinfin which is less than kernel release 2.6.23. So we have no way to allow ARG_MAX larger than 131072 at this time. [S1]",
+      "sources": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg21959723:parent",
+          "source_file": "techqa://swg21959723",
+          "page_number": 1,
+          "quote": "This ARG_MAX kernel parameter adjusted to much larger from kernel release version 2.6.23, that is 2621440 (http://www.in-ulm.de/~mascheck/various/argmax [http://www.in-ulm.de/~mascheck/various/argmax]). \n\nBut we support upto Redhat 5.11 in Twinfin which is less than kernel release 2.6.23. So we have no way to allow ARG_MAX larger than 131072 at this time."
+        }
+      ],
+      "confidence": 0.822
+    },
+    "trace": {
+      "original_query": "I receive the following during UDX compilation Can't exec \"/nz/kit/bin/adm/nzudxcompile\": Argument list too long",
+      "rewritten_query": "I receive the following during UDX compilation Can't exec \"/nz/kit/bin/adm/nzudxcompile\": Argument list too long",
+      "rewrite_fallback": false,
+      "tool_called": true,
+      "candidate_ids": [
+        "techqa:swg21959723:parent",
+        "techqa:swg21980250:parent",
+        "techqa:swg21679139:parent",
+        "techqa:swg21903166:parent",
+        "techqa:swg21571232:parent",
+        "techqa:swg21697329:parent",
+        "techqa:swg22002772:parent",
+        "techqa:swg21980466:parent",
+        "techqa:swg21967763:parent",
+        "techqa:swg21959930:parent"
+      ],
+      "evidence": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg21959723:parent",
+          "source_file": "techqa://swg21959723",
+          "page_number": 1,
+          "excerpt": "This ARG_MAX kernel parameter adjusted to much larger from kernel release version 2.6.23, that is 2621440 (http://www.in-ulm.de/~mascheck/various/argmax [http://www.in-ulm.de/~mascheck/various/argmax]). \n\nBut we support upto Redhat 5.11 in Twinfin which is less than kernel release 2.6.23. So we have no way to allow ARG_MAX larger than 131072 at this time.",
+          "title": "IBM UDX compilation error - United States",
+          "applicability": "IBM UDX compilation error - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nTHIS DOCUMENT APPLIES ONLY TO THE FOLLOWING LANGUAGE VERSION(S):\n English \n\nPROBLEM(ABSTRACT)\n Following error can be met during UDX compilation.\nCan't exec \"/nz/kit/bin/adm/nzudxcompile\": Argument list too long \n\nSYMPTOM\nnzudxcompile command returns an \"Argument list too long\" error and aborts.\n\n\nCAUSE\nARG_MAX configuration parameter limits the number of argument list in command line. In this case the client used more than 1",
+          "relevance": 0.8794965287533996,
+          "tokens": 77,
+          "section": "",
+          "start_char": 660,
+          "end_char": 1017,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S2",
+          "chunk_id": "techqa:swg21980250:parent",
+          "source_file": "techqa://swg21980250",
+          "page_number": 1,
+          "excerpt": "Nzudxcompile is used to compile the source object files for a UDX. IBM does not support 3rd party compilers for Netezza. Compilation must be done on Netezza host just as registration of the UDX must be done. It is not possible to copy the the object code from a remote client.",
+          "title": "IBM Do not find nzudxcompile within Netezza client installation for Linux. - United States",
+          "applicability": "IBM Do not find nzudxcompile within Netezza client installation for Linux. - United States\n\nnzudxcompile; UDX; Netezza; Linux TECHNOTE (FAQ)\n\nQUESTION\n Netezza client installed for Linux workstation, however we do not find “nzudxcompile” program as part of it. How to do UDX development remotely ? \n\nANSWER\nNzudxcompile is used to compile the source object files for a UDX. IBM does not support 3rd party compilers for Netezza. Compilation must be done on Netezza host just as registration of the UDX",
+          "relevance": 0.5706503899432599,
+          "tokens": 55,
+          "section": "",
+          "start_char": 307,
+          "end_char": 583,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S3",
+          "chunk_id": "techqa:swg21679139:parent",
+          "source_file": "techqa://swg21679139",
+          "page_number": 1,
+          "excerpt": "Example output:\n[root@nzhost1 upgrade]# du -h /nz/data.1.0 | tail \n64M /nz/data.1.0/kit/sbin\n96K /nz/data.1.0/kit/bin/adm\n7.5M /nz/data.1.0/kit/bin\n4.0K /nz/data.1.0/kit/log\n88K /nz/data.1.0/kit/sys/strings\n92K /nz/data.1.0/kit/sys\n72M /nz/data.1.0/kit\n24K /nz/data.1.0/security\n4.0K /nz/data.1.0/txmgr\n13G /nz/data.1.0\n[root@nzhost1 upgrade]#",
+          "title": "IBM Determining NZ Catalog Size - PureData System for Analytics - United States",
+          "applicability": "IBM Determining NZ Catalog Size - PureData System for Analytics - United States\n\nTECHNOTE (FAQ)\n\nQUESTION\n How do I determine the NZ Catalog Size? \n\nANSWER\n1 - Run the following nz command as nz user: /nz/support/contrib/bin/nz_catalog_size\nand grab the following information which contains the actual catalog size without core files.\n\nExample output:\n[nz@nzhost1 upgrade]# /nz/support/contrib/bin/nz_catalog_size | more\n/nz/data TOTAL directory size: 13G\n==========================\nCatalogs: 3.9G\n\n+",
+          "relevance": 0.545811410312142,
+          "tokens": 91,
+          "section": "",
+          "start_char": 752,
+          "end_char": 1095,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S4",
+          "chunk_id": "techqa:swg21679139:parent",
+          "source_file": "techqa://swg21679139",
+          "page_number": 1,
+          "excerpt": "1 - Run the following nz command as nz user: /nz/support/contrib/bin/nz_catalog_size\nand grab the following information which contains the actual catalog size without core files.\n\nExample output:\n[nz@nzhost1 upgrade]# /nz/support/contrib/bin/nz_catalog_size | more\n/nz/data TOTAL directory size: 13G\n==========================\nCatalogs: 3.9G\n\n+ CORE files: 0.0M\n+ CODE cache: 6.9M\n+ HISTORY data: 0.0M\n+ UDX files: 9.0G \n\n \n\n2 - If you do not have access to nz user, you can run the following command which will give you the total directory size including core files: du -h /nz/data.1.0 | tail",
+          "title": "IBM Determining NZ Catalog Size - PureData System for Analytics - United States",
+          "applicability": "IBM Determining NZ Catalog Size - PureData System for Analytics - United States\n\nTECHNOTE (FAQ)\n\nQUESTION\n How do I determine the NZ Catalog Size? \n\nANSWER\n1 - Run the following nz command as nz user: /nz/support/contrib/bin/nz_catalog_size\nand grab the following information which contains the actual catalog size without core files.\n\nExample output:\n[nz@nzhost1 upgrade]# /nz/support/contrib/bin/nz_catalog_size | more\n/nz/data TOTAL directory size: 13G\n==========================\nCatalogs: 3.9G\n\n+",
+          "relevance": 0.545811410312142,
+          "tokens": 135,
+          "section": "",
+          "start_char": 156,
+          "end_char": 749,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S5",
+          "chunk_id": "techqa:swg21903166:parent",
+          "source_file": "techqa://swg21903166",
+          "page_number": 1,
+          "excerpt": "Execute nzhealtcheck correctly either in daemon mode or standalone mode: \n\nDaemon mode: /nz/kit/bin/adm/nzhealthcheck \n\nStandalone Bin: (Takes a bit longer)\n/nz/support/contrib/bin/adm/nzhealthcheck/nzhealthcheck -S \nEnter root password for all data to be collected, if root password is not available you can enter ctl-D when prompted to continue but above issue may occur and data will not be collected for some rules.",
+          "title": "IBM No data collected when running nzhealthcheck - United States",
+          "applicability": "IBM No data collected when running nzhealthcheck - United States\n\nhealthcheck data collected TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n Run nzhealthcheck correctly to avoid excessive failures due to data not being collected \n\nSYMPTOM\n \nNetezza System Health Check 2.2\n\n\nFatal error.\nReason: System Health Check Daemon is not running\nProgram terminated.\n\n[nz@nzhost~]$ service nzhealthcheck start\n\nnzhostNPS environment\n==================================================\n\nHOME = /export/home/nz\nUS",
+          "relevance": 0.5213057356110561,
+          "tokens": 62,
+          "section": "",
+          "start_char": 13801,
+          "end_char": 14220,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S6",
+          "chunk_id": "techqa:swg21571232:parent",
+          "source_file": "techqa://swg21571232",
+          "page_number": 1,
+          "excerpt": "3. Once the UDX has been registered, alter it to allow for debug or trace mode. \n * MYDATABASE(ADMIN)=>alter function myFunction (int4) logmask debug,trace;\n\n\nPossible logmask options are: \n\n\nLOGMASK Option Description NONE No special debugging available (default) TRACE logMsg function calls with LOG_TRACE flag are generated DEBUG logMsg function calls with LOG_DEBUG flag are generated TRACE,DEBUG logMsg function calls with either LOG_DEBUG or LOG_TRACE are generated \nBy having two separate flags, you have varying levels of verbosity within the UDX. \n\n4. The database must be restarted to allow for the capture of debug messages. This can be done by running the following commands: \n * [nz@cs-spubox6 nz]$ nzstop\n * \n * [nz@cs-spubox6 nz]$ nzstart -log /nz/kit/log/init.log",
+          "title": "IBM Debug a user-defined function or aggregate (UDX) - United States",
+          "applicability": "IBM Debug a user-defined function or aggregate (UDX) - United States\n\nTECHNOTE (FAQ)\n\nQUESTION\n How can I debug my UDX? \n\nANSWER\nTo debug a User-Defined Function or Aggregate (UDX), you can add debug messages to your UDX that are only generated when the function or aggregate is in a debug mode.\n1. Add the logMsg function (similar to the following examples) in areas of your code that are likely to prove helpful to troubleshoot your code.\n\n\n * logMsg(LOG_DEBUG, \"Found a length of %d\\n\", lengths);\n",
+          "relevance": 0.5057184234264022,
+          "tokens": 147,
+          "section": "",
+          "start_char": 691,
+          "end_char": 1470,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S7",
+          "chunk_id": "techqa:swg21571232:parent",
+          "source_file": "techqa://swg21571232",
+          "page_number": 1,
+          "excerpt": "By using -log /nz/kit/log/init.log, you ensure that any debug messages generated by an NPS component will be written to the log file specified. \n\n5. Once the system is online, run the debug command: \n * [nz@cs-spubox6 nz]$ nzudxdbg --user admin --pw password -–on --file",
+          "title": "IBM Debug a user-defined function or aggregate (UDX) - United States",
+          "applicability": "IBM Debug a user-defined function or aggregate (UDX) - United States\n\nTECHNOTE (FAQ)\n\nQUESTION\n How can I debug my UDX? \n\nANSWER\nTo debug a User-Defined Function or Aggregate (UDX), you can add debug messages to your UDX that are only generated when the function or aggregate is in a debug mode.\n1. Add the logMsg function (similar to the following examples) in areas of your code that are likely to prove helpful to troubleshoot your code.\n\n\n * logMsg(LOG_DEBUG, \"Found a length of %d\\n\", lengths);\n",
+          "relevance": 0.5057184234264022,
+          "tokens": 56,
+          "section": "",
+          "start_char": 1473,
+          "end_char": 1743,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S8",
+          "chunk_id": "techqa:swg21697329:parent",
+          "source_file": "techqa://swg21697329",
+          "page_number": 1,
+          "excerpt": "Edit /etc/sudoers and change all the kit.7.2.0.3-P1 to point to the executables for the version you are trying to start up under. In my case that was kit.7.1.0.3-P1",
+          "title": "IBM nzstart error: user nz is not allowed to execute '/nz/kit.n.n.n.n/bin/adm/nz_update_ssh_config -D /nz/data.1.0' as root - United States",
+          "applicability": "IBM nzstart error: user nz is not allowed to execute '/nz/kit.n.n.n.n/bin/adm/nz_update_ssh_config -D /nz/data.1.0' as root - United States\n\nnetezza pda puredata analytics pure data upgrade nzupgrade TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n When reverting to the previous version after a failed upgrade, nzstart fails with the error above. \n\nCAUSE\nThe NPS upgrade process edits the /etc/sudoers file to put in the exact path of various executable that user nz needs to run as root (using sudo).",
+          "relevance": 0.5012015817611442,
+          "tokens": 45,
+          "section": "",
+          "start_char": 1340,
+          "end_char": 1504,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": false
+        }
+      ],
+      "original_tokens": 6596,
+      "context_tokens": 2235,
+      "status": "answered",
+      "covered_facts": [
+        "requested_answer"
+      ],
+      "missing_facts": [],
+      "retries": 0,
+      "validation_failures": [],
+      "latency_ms": 17716.82619996136
+    },
+    "answer_quality": 1.0,
+    "error": null
+  },
+  {
+    "question_id": "TRAIN_Q000",
+    "answerable": true,
+    "expected_document": "swg21996508",
+    "hit_at_5": 1.0,
+    "hit_at_10": 1.0,
+    "mrr": 1.0,
+    "refused": false,
+    "answered": true,
+    "latency_ms": 102823.54289997602,
+    "response": {
+      "answer": "To work around the issue, set environment variables that are needed by the application directly in the instance with:  * \n   \n * streamtool setproperty\n * -d <domain> -i <instance>\n   --application-ev <VARIABLE NAME>=<VARIABLE VALUE>\n * [S1]",
+      "sources": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg21996508:parent",
+          "source_file": "techqa://swg21996508",
+          "page_number": 1,
+          "quote": "To work around the issue, set environment variables that are needed by the application directly in the instance with:  * \n   \n * streamtool setproperty\n * -d <domain> -i <instance>\n   --application-ev <VARIABLE NAME>=<VARIABLE VALUE>\n *"
+        }
+      ],
+      "confidence": 0.781
+    },
+    "trace": {
+      "original_query": "User environment variables no longer getting picked up after upgrade to 4.1.1.1 or 4.1.1.2?\nHave you found that after upgrade to Streams 4.1.1.1 or 4.1.1.2, that environment variables set in your .bashrc are no longer being set? For example ODBCINI is not set for the database toolkit and you get\n\n     An SQL operation failed. The SQL state is 08003, the SQL code\n     is 0 and the SQL message is [unixODBC][Driver\n     Manager]Connnection does not exist.",
+      "rewritten_query": "User environment variables no longer getting picked up after upgrade to 4.1.1.1 or 4.1.1.2?\nHave you found that after upgrade to Streams 4.1.1.1 or 4.1.1.2, that environment variables set in your .bashrc are no longer being set? For example ODBCINI is not set for the database toolkit and you get\n\n     An SQL operation failed. The SQL state is 08003, the SQL code\n     is 0 and the SQL message is [unixODBC][Driver\n     Manager]Connnection does not exist.",
+      "rewrite_fallback": false,
+      "tool_called": true,
+      "candidate_ids": [
+        "techqa:swg21996508:parent",
+        "techqa:swg1IT18432:parent",
+        "techqa:swg1PM68165:parent",
+        "techqa:swg27038498:parent",
+        "techqa:swg21692171:parent",
+        "techqa:swg21987445:parent",
+        "techqa:swg21633028:parent",
+        "techqa:swg21489510:parent",
+        "techqa:swg21577580:parent",
+        "techqa:swg21340462:parent"
+      ],
+      "evidence": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg21996508:parent",
+          "source_file": "techqa://swg21996508",
+          "page_number": 1,
+          "excerpt": "To work around the issue, set environment variables that are needed by the application directly in the instance with:  * \n   \n * streamtool setproperty\n * -d <domain> -i <instance>\n   --application-ev <VARIABLE NAME>=<VARIABLE VALUE>\n *",
+          "title": "IBM STREAMS 4.1.1.1 and 4.1.1.2  JOBS DO NOT INHERIT THE ENVIRONMENT VARIABLES SET IN .BASHRC, WHEN STREAMS IS RUN AS A SYSTEM SERVICE - United States",
+          "applicability": "IBM STREAMS 4.1.1.1 and 4.1.1.2  JOBS DO NOT INHERIT THE ENVIRONMENT VARIABLES SET IN .BASHRC, WHEN STREAMS IS RUN AS A SYSTEM SERVICE - United States\n\nFLASH (ALERT)\n\nABSTRACT\n In Streams 4.1.1.1 and 4.1.1.2 Streams jobs may not pick up the user enviroment from the streams user's .bashrc. This behavior is different from earlier releases. With these versions, when Streams is run as a system service, application environment variables must be set with streamtool. \n\nCONTENT\nProblem Description\nWhen ",
+          "relevance": 0.817490444854815,
+          "tokens": 44,
+          "section": "",
+          "start_char": 973,
+          "end_char": 1209,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S2",
+          "chunk_id": "techqa:swg1IT18432:parent",
+          "source_file": "techqa://swg1IT18432",
+          "page_number": 1,
+          "excerpt": "*  Set environment variables directly in the instance with:\n   streamtool setproperty -d <domain> -i <instance>\n   --application-ev <VARIABLE NAME>=<VARIABLE VALUE>",
+          "title": "IBM IT18432: STREAMS JOBS DO NOT INHERIT THE ENVIRONMENT VARIABLES SET IN .BASHRC, WHEN RUN AS A SYSTEM SERVICE. - United States",
+          "applicability": "IBM IT18432: STREAMS JOBS DO NOT INHERIT THE ENVIRONMENT VARIABLES SET IN .BASHRC, WHEN RUN AS A SYSTEM SERVICE. - United States\n\nFIXES ARE AVAILABLE\nIBM Streams Version 4.1.1 Fix Pack 4 [http://www-01.ibm.com/support/docview.wss?uid=swg24043581]\nIBM Streams Version 4.1.1 Fix Pack 5 [http://www-01.ibm.com/support/docview.wss?uid=swg24044088]\nIBM Streams Version 4.1.1 Fix Pack 6 [http://www-01.ibm.com/support/docview.wss?uid=swg24044758]\n\n\n\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR.\n    \n   \n   \n\nER",
+          "relevance": 0.7811486780216002,
+          "tokens": 29,
+          "section": "",
+          "start_char": 1009,
+          "end_char": 1173,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S3",
+          "chunk_id": "techqa:swg1IT18432:parent",
+          "source_file": "techqa://swg1IT18432",
+          "page_number": 1,
+          "excerpt": "*  Fixed in 4.1.1.3\n   \n   \n    \n   \n   \n\nTEMPORARY FIX\n\nCOMMENTS",
+          "title": "IBM IT18432: STREAMS JOBS DO NOT INHERIT THE ENVIRONMENT VARIABLES SET IN .BASHRC, WHEN RUN AS A SYSTEM SERVICE. - United States",
+          "applicability": "IBM IT18432: STREAMS JOBS DO NOT INHERIT THE ENVIRONMENT VARIABLES SET IN .BASHRC, WHEN RUN AS A SYSTEM SERVICE. - United States\n\nFIXES ARE AVAILABLE\nIBM Streams Version 4.1.1 Fix Pack 4 [http://www-01.ibm.com/support/docview.wss?uid=swg24043581]\nIBM Streams Version 4.1.1 Fix Pack 5 [http://www-01.ibm.com/support/docview.wss?uid=swg24044088]\nIBM Streams Version 4.1.1 Fix Pack 6 [http://www-01.ibm.com/support/docview.wss?uid=swg24044758]\n\n\n\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR.\n    \n   \n   \n\nER",
+          "relevance": 0.7811486780216002,
+          "tokens": 13,
+          "section": "",
+          "start_char": 1280,
+          "end_char": 1345,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S4",
+          "chunk_id": "techqa:swg1PM68165:parent",
+          "source_file": "techqa://swg1PM68165",
+          "page_number": 1,
+          "excerpt": "PROBLEM SUMMARY\n *  ****************************************************************\n   * USERS AFFECTED:                                              *\n   * All Users                                                    *\n   ****************************************************************\n   * PROBLEM DESCRIPTION:                                         *\n   * See error description.                                       *\n   ****************************************************************\n   * RECOMMENDATION:                                              *\n   * Please upgrade to IBM Cognos TM1 10.1.1 or IBM Cognos TM1    *\n   * 9.5.2 FP3                                                    *\n   ****************************************************************",
+          "title": "IBM PM68165: THE ODBC INTERFACE OF TM1 10.1.0 AND TM1 10.1.0 FP1 SERVER FOR IBM AIX IS BROKEN - United States",
+          "applicability": "IBM PM68165: THE ODBC INTERFACE OF TM1 10.1.0 AND TM1 10.1.0 FP1 SERVER FOR IBM AIX IS BROKEN - United States\n\nSUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR.\n    \n   \n   \n\nERROR DESCRIPTION\n *  The ODBC interface of both TM1 10.1.0 and TM1 10.1.0.1 aka TM1\n   10.1.0 FP1 Server for IBM AIX is broken.??????In an IBM AIX LPAR\n   the customer installed ??- 64-bit TM1 9.5.2 Server for IBM\n   AIX??- 64-bit unixODBC ODBC Driver Manager??- 64-bit ",
+          "relevance": 0.5429678840172387,
+          "tokens": 305,
+          "section": "",
+          "start_char": 1821,
+          "end_char": 2585,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S5",
+          "chunk_id": "techqa:swg1PM68165:parent",
+          "source_file": "techqa://swg1PM68165",
+          "page_number": 1,
+          "excerpt": "*  Code Fix\n   \n   \n    \n   \n   \n\nTEMPORARY FIX\n\nCOMMENTS",
+          "title": "IBM PM68165: THE ODBC INTERFACE OF TM1 10.1.0 AND TM1 10.1.0 FP1 SERVER FOR IBM AIX IS BROKEN - United States",
+          "applicability": "IBM PM68165: THE ODBC INTERFACE OF TM1 10.1.0 AND TM1 10.1.0 FP1 SERVER FOR IBM AIX IS BROKEN - United States\n\nSUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR.\n    \n   \n   \n\nERROR DESCRIPTION\n *  The ODBC interface of both TM1 10.1.0 and TM1 10.1.0.1 aka TM1\n   10.1.0 FP1 Server for IBM AIX is broken.??????In an IBM AIX LPAR\n   the customer installed ??- 64-bit TM1 9.5.2 Server for IBM\n   AIX??- 64-bit unixODBC ODBC Driver Manager??- 64-bit ",
+          "relevance": 0.5429678840172387,
+          "tokens": 6,
+          "section": "",
+          "start_char": 2628,
+          "end_char": 2685,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S6",
+          "chunk_id": "techqa:swg27038498:parent",
+          "source_file": "techqa://swg27038498",
+          "page_number": 1,
+          "excerpt": "* The following example shows how to add this option to the makefile:\n   SPLC_FLAGS ?= -x-DODBC64 -a -z -t $(STREAMS_INSTALL)/toolkits/com.ibm.streams.db\n\n\n2. Set the following environment variables based on where the database client library is installed: \nexport STREAMS_ADAPTERS_ODBC_INCPATH=/opt/teradata/client/14.00/odbc_64/include \nexport STREAMS_ADAPTERS_ODBC_LIBPATH=usr/lib64 \n\n3. Create an odbc.ini file with the following information on the machine that runs the processing elements (PEs) that contain the ODBC operators.",
+          "title": "IBM Using a Teradata database with InfoSphere Streams ODBC operators - United States",
+          "applicability": "IBM Using a Teradata database with InfoSphere Streams ODBC operators - United States\n\nInfoSphere Streams; database toolkit; teradata and database toolkit; teradata; odbc operators RELEASE NOTES\n\nABSTRACT\n When you use the ODBC operators provided by the Database Toolkit in your InfoSphere Streams applications to connect to a Teradata database, you must specify additional database-specific configuration information. \n\nCONTENT\nInfoSphere Streams applications can use the ODBC operators provided by t",
+          "relevance": 0.5338327568903014,
+          "tokens": 86,
+          "section": "",
+          "start_char": 1550,
+          "end_char": 2082,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S7",
+          "chunk_id": "techqa:swg27038498:parent",
+          "source_file": "techqa://swg27038498",
+          "page_number": 1,
+          "excerpt": "IBM Using a Teradata database with InfoSphere Streams ODBC operators - United States\n\nInfoSphere Streams; database toolkit; teradata and database toolkit; teradata; odbc operators RELEASE NOTES\n\nABSTRACT\n When you use the ODBC operators provided by the Database Toolkit in your InfoSphere Streams applications to connect to a Teradata database, you must specify additional database-specific configuration information. \n\nCONTENT\nInfoSphere Streams applications can use the ODBC operators provided by the Database Toolkit to connect to external databases such as Teradata by using the DataDirect ODBC driver for Teradata, which is packaged with the Teradata ODBC driver.",
+          "title": "IBM Using a Teradata database with InfoSphere Streams ODBC operators - United States",
+          "applicability": "IBM Using a Teradata database with InfoSphere Streams ODBC operators - United States\n\nInfoSphere Streams; database toolkit; teradata and database toolkit; teradata; odbc operators RELEASE NOTES\n\nABSTRACT\n When you use the ODBC operators provided by the Database Toolkit in your InfoSphere Streams applications to connect to a Teradata database, you must specify additional database-specific configuration information. \n\nCONTENT\nInfoSphere Streams applications can use the ODBC operators provided by t",
+          "relevance": 0.5338327568903014,
+          "tokens": 102,
+          "section": "",
+          "start_char": 0,
+          "end_char": 668,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S8",
+          "chunk_id": "techqa:swg21692171:parent",
+          "source_file": "techqa://swg21692171",
+          "page_number": 1,
+          "excerpt": "The ODBC libraries are usually located in the path below:\n\n/usr/lib64/libodbc.so (64-bit)\n/usr/lib/libodbc.so (32-bit)\n\nAfter editing .bashrc, source the profile again or exit and login again for the new environment variables to take effect.\n\n/home/db2inst1: . ./.bashrc\n\nReference: Please refer to link \"Setting Up ODBC Environment\"\n\n\n3) Install IBM Data Server (DS) Driver .",
+          "title": "IBM HOWTO: Setup ODBC application connectivity on Linux - United States",
+          "applicability": "IBM HOWTO: Setup ODBC application connectivity on Linux - United States\n\nlinux; unixODBC; odbc; unix; setup; drivermanager; configure; odbc.ini; odbcinst.ini; dsn; isql TECHNOTE (FAQ)\n\nQUESTION\n How to setup ODBC application connectivity on Linux using the IBM Data Server Driver and unixODBC? \n\nCAUSE\nThere are no step by step instructions regarding how to install and configure the ODBC connectivity for an application.\n\nANSWER\n \n\nThis example assumes the application requiring ODBC connectivity wi",
+          "relevance": 0.5232319123607692,
+          "tokens": 73,
+          "section": "",
+          "start_char": 2508,
+          "end_char": 2884,
+          "covers": [
+            "requested_answer"
+          ],
+          "instruction_group": true
+        }
+      ],
+      "original_tokens": 5918,
+      "context_tokens": 2316,
+      "status": "answered",
+      "covered_facts": [
+        "requested_answer"
+      ],
+      "missing_facts": [],
+      "retries": 1,
+      "validation_failures": [
+        "Conflict claims must quote actual query/source substrings: query_claim 'Streams is run as a system service' is absent from QUESTION; copy a shorter exact span from QUESTION"
+      ],
+      "latency_ms": 102823.39490001323
+    },
+    "answer_quality": 1.0,
+    "error": null
+  },
+  {
+    "question_id": "TRAIN_Q001",
+    "answerable": true,
+    "expected_document": "swg21675316",
+    "hit_at_5": 1.0,
+    "hit_at_10": 1.0,
+    "mrr": 1.0,
+    "refused": false,
+    "answered": true,
+    "latency_ms": 25565.528100007214,
+    "response": {
+      "answer": "This is because the Exit() parser function in IPL is designed to exit the immediate scope. To carry the action outside of the User Defined Function to the Policy level one would have to set a variable that is then tested immediately after the User Defined Function call - for example: \n\n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * SetGlobalVar(\"ExitNow\", 1);\n * \n * Exit();\n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * SetGlobalVar(\"ExitNow\", 1);\n * \n * Exit();\n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * If(GetGlobalVar(\"ExitNow\") == 1)\n * \n * {\n   Log(ID+WP+\": Existing policy...\");\n   \n * Exit\n * ();\n   } [S1]",
+      "sources": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg21675316:parent",
+          "source_file": "techqa://swg21675316",
+          "page_number": 1,
+          "quote": "This is because the Exit() parser function in IPL is designed to exit the immediate scope. To carry the action outside of the User Defined Function to the Policy level one would have to set a variable that is then tested immediately after the User Defined Function call - for example: \n\n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * SetGlobalVar(\"ExitNow\", 1);\n * \n * Exit();\n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * SetGlobalVar(\"ExitNow\", 1);\n * \n * Exit();\n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * If(GetGlobalVar(\"ExitNow\") == 1)\n * \n * {\n   Log(ID+WP+\": Existing policy...\");\n   \n * Exit\n * ();\n   }"
+        }
+      ],
+      "confidence": 0.767
+    },
+    "trace": {
+      "original_query": "Netcool/Impact (all versions): How is the Exit() action function expected to work with User Defined Functions?\nNetcool/Impact (all versions)\n\nUsing the Exit() action function within a User Defined Function in a Policy will not exit the Policy process.",
+      "rewritten_query": "Netcool/Impact (all versions): How is the Exit() action function expected to work with User Defined Functions?\nNetcool/Impact (all versions)\n\nUsing the Exit() action function within a User Defined Function in a Policy will not exit the Policy process.",
+      "rewrite_fallback": false,
+      "tool_called": true,
+      "candidate_ids": [
+        "techqa:swg21675316:parent",
+        "techqa:swg21676634:parent",
+        "techqa:swg21675015:parent",
+        "techqa:swg21982326:parent",
+        "techqa:swg21418544:parent",
+        "techqa:swg1IV51846:parent",
+        "techqa:swg1IZ63086:parent",
+        "techqa:swg1IZ67491:parent",
+        "techqa:swg1IV81625:parent",
+        "techqa:swg21421783:parent"
+      ],
+      "evidence": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg21675316:parent",
+          "source_file": "techqa://swg21675316",
+          "page_number": 1,
+          "excerpt": "This is because the Exit() parser function in IPL is designed to exit the immediate scope. To carry the action outside of the User Defined Function to the Policy level one would have to set a variable that is then tested immediately after the User Defined Function call - for example: \n\n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * SetGlobalVar(\"ExitNow\", 1);\n * \n * Exit();\n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * SetGlobalVar(\"ExitNow\", 1);\n * \n * Exit();\n * \n * \n * \n * \n * \n * \n * \n * \n * \n * \n * If(GetGlobalVar(\"ExitNow\") == 1)\n * \n * {\n   Log(ID+WP+\": Existing policy...\");\n   \n * Exit\n * ();\n   }",
+          "title": "IBM Exit() action within User Defined Function in Impact Policy Language - United States",
+          "applicability": "IBM Exit() action within User Defined Function in Impact Policy Language - United States\n\nnetcool; impact; netcool/impact; nci; ipl; policy; language; exit; exit(); function; user; defined; custom; udf; parser; action; set; global; variable; var; get; setglobalvar; getglobalvar; globalvar TECHNOTE (FAQ)\n\nQUESTION\n and how to exit the Policy process from within a Custom Function \n\nCAUSE\nUsing the Exit() parser function within a User Defined (or Custom) Function in Impact Policy Language (IPL) wil",
+          "relevance": 0.7952267211333941,
+          "tokens": 189,
+          "section": "ANSWER",
+          "start_char": 584,
+          "end_char": 1325,
+          "covers": [
+            "applicable_solution",
+            "required_steps"
+          ],
+          "instruction_group": true
+        },
+        {
+          "source_id": "S2",
+          "chunk_id": "techqa:swg21676634:parent",
+          "source_file": "techqa://swg21676634",
+          "page_number": 1,
+          "excerpt": "Upon completion of the subsequent Policy, the Activate() action function returns the context (including all updates to the EventContainer and additional variables) back to the same point (immediately after the Activate()) in the original Policy, which is then processed to conclusion. \n\nIf one has the need to configure a return to the original Policy before the conclusion of the subsequent Policy; one can employ the Exit() parser function - please see TechNote \"Exit() action within User Defined Function in Impact Policy Language\" [ link below]. This will exit the immediate scope of the process and return to the same point (immediately after the Activate()) in the original Policy with the context including all updates to the EventContainer and additional variables acquired in the subsequent Policy.",
+          "title": "IBM Activate() action function usage - United States",
+          "applicability": "IBM Activate() action function usage - United States\n\nnetcool; impact; netcool/impact; nci; activate; action; function; exit; use; usage; apply; chain; policy; ipl; language TECHNOTE (FAQ)\n\nQUESTION\n Considerations when applying the Activate() function \n\nANSWER\nThe Activate() action function is a useful tool for moving the processing of an event from one Policy to another and providing the latter Policy with the updates and additions to the context performed in the former Policy. Here are a few ",
+          "relevance": 0.7265844710156072,
+          "tokens": 150,
+          "section": "ANSWER",
+          "start_char": 1374,
+          "end_char": 2181,
+          "covers": [
+            "applicable_solution",
+            "required_steps"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S3",
+          "chunk_id": "techqa:swg21675015:parent",
+          "source_file": "techqa://swg21675015",
+          "page_number": 1,
+          "excerpt": "The above can be greatly reduced by removing extraneous logging and declaring parameters directly within the action functions. Please note that, if one were to set this up as a user defined (or custom) function, the Exit() action would only exit the user defined function and not the Policy process. To address this one would set a variable in the user defined function to indicate that the Policy process is to exit and then test this variable upon return to the Policy and act appropriately. Please see the TechNote \"Exit() action within User Defined Function in Impact Policy Language\" [ link below].",
+          "title": "IBM Event Flagging with Go_NoGo checking - United States",
+          "applicability": "IBM Event Flagging with Go_NoGo checking - United States\n\nnetcool; impact; netcool/impact; nci; event; flag; flagging; go; nogo; no; check; checking; multiple; process; processing; reprocess; reprocessing; unwanted; unnecessary; undesireable TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n Counteracting unwanted multiple reprocessing of events through checking flag field before committing to the full Policy process. \n\nCAUSE\nIn high load environments it is possible for the EventReader to be running",
+          "relevance": 0.7175011491485833,
+          "tokens": 117,
+          "section": "RESOLVING THE PROBLEM",
+          "start_char": 2818,
+          "end_char": 3421,
+          "covers": [
+            "applicable_solution",
+            "required_steps"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S4",
+          "chunk_id": "techqa:swg21982326:parent",
+          "source_file": "techqa://swg21982326",
+          "page_number": 1,
+          "excerpt": "ANSWER\nUser Defined Functions (UDFs) are intended to provide a single point of maintenance for complex Policy routines that are called from multiple places within the Policy. And Function Library Policies are intended to also provide a single point of maintenance for complex Policy routines that are called from multiple Policies. They are a compromise between efficiency of maintenance and efficiency of processing. Calling a UDF is less efficient than employing a simple \"fall through\" style Policy script and multiple recursive function calls can significantly dig into the stack. \n\nA bit of history:\n\nWhen Impact moved from version 2 to 3 the Policy design moved from being a graphical flowchart \"Action Node Tree\" (.ant) to the current script style \"Impact Policy Language\" (.ipl) and Impact 3 offered an upgrade tool that converted .ant to .ipl. The trouble was that this performed a rather simplistic, best-effort conversion whereby each Action Node in the Impact 2 Policy was made into a UDF in Impact 3 and the branches between Action Nodes became function calls.\n\nShortly after Impact 3 was released there were a large number of cases where Impact 3 experienced stack overflow and memory issues. This was found to be due to the very large number of UDFs inherently created by the Impact 3 upgrade tool in the migrated Policies and recursive function calls from these dug into the stack so much as to cause ImpactServer crashes. Getting the message out that the upgrade tool was only a first step in converting the Impact 2 Policies took quite a while and this issue was still common up until Impact 5.\n\nRecently there seems to be an increase in the number of Policies being written in a C language style: declaring variables, defining functions and then running the main portion of the Policy as a series of function calls. This TechNote is an attempt to get the message back out there that this is not the most efficient method. Designing a \"fall through\" style Policy script is much more efficient and one should only use UDFs where one can show significant maintenance efficiency for a complex Policy routine that is called multiple times.",
+          "title": "IBM User Defined Function efficiency - United States",
+          "applicability": "IBM User Defined Function efficiency - United States\n\nnetcool; impact; netcool/impact; nci; user; defined; function; custom; udf; policy; library; efficient; efficiency; stack; over; flow; memory; overflow; out; of; OutOfMemoryError; error; slow; slowly; lag; drag; delay; process; processing; event TECHNOTE (FAQ)\n\nQUESTION\n Which is more efficient: using User Defined Functions or a fall through script Policy style? \n\nCAUSE\nUsing a User Defined Function to perform simple tasks or a task only call",
+          "relevance": 0.6563791280080209,
+          "tokens": 393,
+          "section": "ANSWER",
+          "start_char": 711,
+          "end_char": 2864,
+          "covers": [
+            "applicable_solution",
+            "required_steps"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S5",
+          "chunk_id": "techqa:swg21418544:parent",
+          "source_file": "techqa://swg21418544",
+          "page_number": 1,
+          "excerpt": "This behaviour fist came to light following upgrades from Impact 2.3 to 3.0 or 3.1 where clients relied upon the simple best efforts of the upgrader to translate .ant Policies into .ipl, resulting in each ActionNode becoming a Custom Function and the \"Flow Chart\" style structure becoming function calls. The resulting multiple nested function calls would simply overload the ImpactServer. The solution to this was to rewrite the Policies in \"pure\" Impact Policy Language and taking advantage of the script style capabilities and the inherent efficiencies of this \"fall through\" approach.",
+          "title": "IBM StackOverflow and User Defined Functions - United States",
+          "applicability": "IBM StackOverflow and User Defined Functions - United States\n\nnci; impact; netcool; policy; action node tree; impact policy language; stackoverflow; user; defined; function; functions; userdefined; custom; udf; userdefinedfunction; userdefinedfunctions; customfunction; customfunctions TECHNOTE (FAQ)\n\nQUESTION\n ImpactServer suffers from OutOfMemory issues and StackOverflow \n\nCAUSE\nPolicy design incorporating multiple, nested User Defined Functions (Custom Functions) delves too deeply into the sta",
+          "relevance": 0.6213002720594328,
+          "tokens": 109,
+          "section": "ANSWER",
+          "start_char": 949,
+          "end_char": 1537,
+          "covers": [
+            "applicable_solution",
+            "required_steps"
+          ],
+          "instruction_group": false
+        },
+        {
+          "source_id": "S6",
+          "chunk_id": "techqa:swg1IV51846:parent",
+          "source_file": "techqa://swg1IV51846",
+          "page_number": 1,
+          "excerpt": "*  Exit() function behavior are the same in both Impact 5.x and\n   Impact 6.x.\n   It is as 6.1 document described.",
+          "title": "IBM IV51846: EXIT() FUNCTION BEHAVIOR ARE THE SAME IN BOTH IMPACT 5.X AND IMPACT 6.X AS 6.1 DOCUMENTATION DESCRIBED. - United States",
+          "applicability": "IBM IV51846: EXIT() FUNCTION BEHAVIOR ARE THE SAME IN BOTH IMPACT 5.X AND IMPACT 6.X AS 6.1 DOCUMENTATION DESCRIBED. - United States\n\nSUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS DOCUMENTATION ERROR.\n    \n   \n   \n\nERROR DESCRIPTION\n *  For Impact 5.1.1\n   According to the document:\n   You can use the Exit function anywhere in a policy where you\n   want to\n   terminate processing.\n   \n   The Exit() function terminates a policy, when it's called\n   outsi",
+          "relevance": 0.6153802014861567,
+          "tokens": 30,
+          "section": "LOCAL FIX",
+          "start_char": 766,
+          "end_char": 880,
+          "covers": [],
+          "instruction_group": true
+        }
+      ],
+      "original_tokens": 5614,
+      "context_tokens": 2222,
+      "status": "answered",
+      "covered_facts": [
+        "applicable_solution",
+        "required_steps"
+      ],
+      "missing_facts": [],
+      "retries": 0,
+      "validation_failures": [],
+      "latency_ms": 25565.386699978262
+    },
+    "answer_quality": 0.8275862068965517,
+    "error": null
+  }
+]

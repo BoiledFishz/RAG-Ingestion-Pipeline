@@ -1,0 +1,6 @@
+{
+  "complete": false,
+  "expected": 10,
+  "completed": 2,
+  "reason": "Stopped after detecting unsupported claims in partial answers; changing protocol requires fresh directory. GPU resource state also changed."
+}

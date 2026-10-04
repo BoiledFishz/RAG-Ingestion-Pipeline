@@ -1,0 +1,21 @@
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=1: Claim contains a critical literal absent from question/source
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.service Agent status=partial candidates=10 context_tokens=1204 latency_ms=172892.72
+INFO __main__ DEV_Q000 completed (1/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.service Agent status=partial candidates=10 context_tokens=1790 latency_ms=127940.59
+INFO __main__ DEV_Q007 completed (2/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING rag.techqa.claims Fact-audit protocol repair: Coverage needs actual source AND answer quote IDs
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=1: Coverage needs actual source AND answer quote IDs

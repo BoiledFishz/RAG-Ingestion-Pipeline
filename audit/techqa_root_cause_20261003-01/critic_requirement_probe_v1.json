@@ -1,0 +1,147 @@
+{
+  "complete": true,
+  "records": [
+    {
+      "id": "TRAIN_Q007",
+      "mode": "actual_selected_blocks",
+      "baseline": {
+        "passed": true,
+        "score": 0.9,
+        "issues": []
+      },
+      "critic": {
+        "passed": true,
+        "score": 0.9,
+        "issues": [],
+        "principal_request": "Why do I get an exception when calling MQ after migrating my BPM environment (2035 MQRC_NOTAUTHORIZED)? We migrated our BPM environment from V8.0 to 8.5.7. When we attempt to call the MQ service we are getting the following exception: [10/16/17 13:50:05:273 AST] 0000026d SystemOut O com.ibm.msg.client.jms.DetailedJMSSecurityException: JMSWMQ2013: The security authentication was not valid that was supplied for QueueManager 'QM1' with connection mode 'Client' and host name 'MQ1(1414). Please check",
+        "required_facts": [
+          "configured_identity",
+          "required_steps"
+        ],
+        "covered_facts": [
+          "configured_identity",
+          "required_steps"
+        ],
+        "missing_facts": [],
+        "incorrect_facts": []
+      },
+      "error": null,
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 1749,
+        "output_tokens": 453,
+        "latency_ms": 0
+      }
+    },
+    {
+      "id": "TRAIN_Q007",
+      "mode": "current_answer_with_complementary_evidence",
+      "baseline": {
+        "passed": false,
+        "score": 0.4,
+        "issues": [
+          {
+            "code": "fact_6db148c717",
+            "description": "EVIDENCE未明确指出用户ID问题的具体原因，仅提到使用Java System Property user.name配置的用户，但未确认该用户是否正确。",
+            "suggestion": "Correct this claim using supplied evidence"
+          },
+          {
+            "code": "fact_e8e0d07ca2",
+            "description": "EVIDENCE未提供具体的解决步骤来验证或修改Java System Property user.name，以确保其与MQ队列管理器的用户匹配。",
+            "suggestion": "Correct this claim using supplied evidence"
+          },
+          {
+            "code": "fact_5231535a17",
+            "description": "EVIDENCE未提及检查MQ队列管理器上的用户权限设置，以确保该用户具有正确的访问权限。",
+            "suggestion": "Correct this claim using supplied evidence"
+          }
+        ]
+      },
+      "error": "ValueError: Fact coverage requires exact source AND actual-answer quotes",
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 2153,
+        "output_tokens": 753,
+        "latency_ms": 0
+      }
+    },
+    {
+      "id": "TRAIN_Q011",
+      "mode": "actual_selected_blocks",
+      "baseline": {
+        "passed": false,
+        "score": 0.4,
+        "issues": [
+          {
+            "code": "answer_not_sufficient",
+            "description": "Selected blocks 1 do not establish the principal request: Load SPSS 25 on a new computer",
+            "suggestion": "Select a directly applicable solution from supplied evidence; if required facts remain unavailable, refuse rather than invent them"
+          }
+        ]
+      },
+      "critic": {
+        "passed": true,
+        "score": 0.9,
+        "issues": [],
+        "principal_request": "Load SPSS 25 on a new computer and activate/license the installed product on the new host using the already-owned code.",
+        "required_facts": [
+          "activation_on_new_host",
+          "required_steps"
+        ],
+        "covered_facts": [
+          "activation_on_new_host",
+          "required_steps"
+        ],
+        "missing_facts": [],
+        "incorrect_facts": []
+      },
+      "error": null,
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 771,
+        "output_tokens": 338,
+        "latency_ms": 0
+      }
+    },
+    {
+      "id": "TRAIN_Q011",
+      "mode": "current_answer_with_complementary_evidence",
+      "baseline": {
+        "passed": false,
+        "score": 0.4,
+        "issues": [
+          {
+            "code": "fact_916d49e694",
+            "description": "The evidence does not provide instructions for the user to check if the activation code is correctly entered.",
+            "suggestion": "Correct this claim using supplied evidence"
+          },
+          {
+            "code": "fact_d6ad81f6d6",
+            "description": "The evidence does not address the possibility of the activation code being invalid.",
+            "suggestion": "Correct this claim using supplied evidence"
+          },
+          {
+            "code": "fact_6d185c3530",
+            "description": "The evidence does not mention the user's current login status or if they are logged in as the primary contact.",
+            "suggestion": "Correct this claim using supplied evidence"
+          }
+        ]
+      },
+      "error": "ValueError: Fact coverage requires exact source AND actual-answer quotes",
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 995,
+        "output_tokens": 368,
+        "latency_ms": 0
+      }
+    }
+  ]
+}

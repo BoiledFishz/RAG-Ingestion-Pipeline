@@ -1,0 +1,42 @@
+{
+  "scope": "code/adapter and fault-path verification; not factual acceptance",
+  "pytest": [
+    {
+      "cwd": ".",
+      "count": 81,
+      "passed": true
+    },
+    {
+      "cwd": "enterprise-ai-agent",
+      "count": 52,
+      "passed": true
+    },
+    {
+      "cwd": "agentic-rag-homework",
+      "count": 59,
+      "passed": true
+    }
+  ],
+  "total_tests": 192,
+  "ruff_passed": true,
+  "mypy": [
+    {
+      "project": "root",
+      "source_files": 45,
+      "passed": true
+    },
+    {
+      "project": "enterprise",
+      "source_files": 26,
+      "passed": true
+    },
+    {
+      "project": "agentic",
+      "source_files": 26,
+      "passed": true
+    }
+  ],
+  "warning": "Starlette/httpx TestClient deprecation; not a failing test",
+  "code_commit": "1fda5bb",
+  "source_sha256": "a5d1ea846f4e5bac1de05c9bb4b1b7b49ff2fa6a2b46b30755adc85ab71ced17"
+}

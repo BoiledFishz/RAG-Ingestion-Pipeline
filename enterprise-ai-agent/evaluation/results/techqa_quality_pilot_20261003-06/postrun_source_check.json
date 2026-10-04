@@ -1,0 +1,33 @@
+{
+  "git_commit": {
+    "before": "2a464fe714a26a1db3a424f2d64f557285a3e3be",
+    "after": "2a464fe714a26a1db3a424f2d64f557285a3e3be",
+    "unchanged": true
+  },
+  "source_sha256": {
+    "before": "9e3aa4be883912ac3d9cdea01c278d38abd95dd83cd7200d194e05dfcc932d97",
+    "after": "9e3aa4be883912ac3d9cdea01c278d38abd95dd83cd7200d194e05dfcc932d97",
+    "unchanged": true
+  },
+  "source_file_count": {
+    "before": 136,
+    "after": 136,
+    "unchanged": true
+  },
+  "corpus_archive_sha256": {
+    "before": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+    "after": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+    "unchanged": true
+  },
+  "artifact_sha256": {
+    "before": {
+      "config/techqa_thresholds.json": "3ee2b1fbf2b762078669c68754d44f2697cc36d7aa5d3a1fb0e67e2538ab7a69",
+      ".rag_data/techqa_semantic/manifest.json": "222a9214bc192ca7e829b139ad10cf405bcac297de11de5140fdbf55e5f1f12b"
+    },
+    "after": {
+      "config/techqa_thresholds.json": "3ee2b1fbf2b762078669c68754d44f2697cc36d7aa5d3a1fb0e67e2538ab7a69",
+      ".rag_data/techqa_semantic/manifest.json": "222a9214bc192ca7e829b139ad10cf405bcac297de11de5140fdbf55e5f1f12b"
+    },
+    "unchanged": true
+  }
+}

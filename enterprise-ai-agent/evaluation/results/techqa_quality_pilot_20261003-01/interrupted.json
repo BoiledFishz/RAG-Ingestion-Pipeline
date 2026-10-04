@@ -1,0 +1,6 @@
+{
+  "complete": false,
+  "expected": 10,
+  "completed": 4,
+  "reason": "Stopped for protocol repair after 3 validation refusals and one dependency failure; no source changes or resumed checkpoint"
+}

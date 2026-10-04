@@ -1,0 +1,31 @@
+[
+  {
+    "label": "enterprise06",
+    "file": "audit/techqa_source_snapshots_20261003-01/enterprise06_source.zip",
+    "source_sha256": "9e3aa4be883912ac3d9cdea01c278d38abd95dd83cd7200d194e05dfcc932d97",
+    "file_count": 136,
+    "zip_sha256": "40409c7e1fc5e9a612abc458935b3e683ea4ca60f1f134e4577d272fba387e64",
+    "method": "06 reconstructed by removing only the subsequent helper/guard; aggregate hash matches recorded runtime exactly"
+  },
+  {
+    "label": "critic04",
+    "file": "audit/techqa_source_snapshots_20261003-01/critic04_source.zip",
+    "source_sha256": "af8c9000ee94c9832cf8a334a4b909a3fc9c300662a7a6d94cf7f304ce26dce6",
+    "file_count": 136,
+    "zip_sha256": "27d30a778f1526555fdb70d9bd2a059a0565bc1fb3e897d79ccdb8646d943f39",
+    "method": "current source copied without changes; hash matches current native component protocol"
+  },
+  {
+    "label": "critic05_and_enterprise07",
+    "file": "audit/techqa_source_snapshots_20261003-01/final_experimental_source.zip",
+    "source_sha256": "a5d1ea846f4e5bac1de05c9bb4b1b7b49ff2fa6a2b46b30755adc85ab71ced17",
+    "file_count": 136,
+    "zip_sha256": "9f786bed1a8916b5f42e60f087b3fce0f16401f186faac222365d59c79688707",
+    "method": "current unchanged source; matches both native runtime protocols",
+    "protocol_paths": [
+      "agentic-rag-homework/evaluation/results/techqa_critic_components_20261003-05/protocol.json",
+      "enterprise-ai-agent/evaluation/results/techqa_quality_pilot_20261003-07_default/run_config.json"
+    ],
+    "git_code_commit": "1fda5bb"
+  }
+]

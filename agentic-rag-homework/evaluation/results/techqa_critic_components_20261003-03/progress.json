@@ -1,0 +1,175 @@
+[
+  {
+    "case": "symptom_without_solution",
+    "version": "improved_critic",
+    "expected_valid": false,
+    "run": {
+      "final_diagnosis": "SYMPTOM\nJMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED') [1]",
+      "passed": false,
+      "answer_sufficient": false,
+      "retries": 2,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "SYMPTOM\nJMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED') [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.4,
+            "issues": [
+              {
+                "code": "fact_09167adf96",
+                "description": "Missing required fact: required_steps",
+                "suggestion": "Address this exact request fact using supplied evidence; preserve conditions; refuse if evidence is insufficient"
+              }
+            ],
+            "principal_request": "Explain why configured credentials are not being used and how to select the intended outbound identity after migrating the BPM environment from V8.0 to 8.5.7, and provide concrete applicable configuration steps.",
+            "required_facts": [
+              "configured_identity",
+              "required_steps"
+            ],
+            "covered_facts": [
+              "configured_identity"
+            ],
+            "missing_facts": [
+              "required_steps"
+            ],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        },
+        {
+          "attempt": 2,
+          "diagnosis": "SYMPTOM\nJMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED') [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.0,
+            "issues": [
+              {
+                "code": "invalid_model_output",
+                "description": "Model validation: ValueError: Claim/source entailment failed: c0: The provided source does not explicitly state that the application server provides a blank username to MQ when no credentials are supplied. It only describes the default behavior,但; c1: The provided source does not explicitly state th",
+                "suggestion": "Return concise schema-valid JSON; for evidence selection false requires [] and true requires allowed IDs. Use only evidence"
+              }
+            ],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": [
+            {
+              "issue_id": "fact_09167adf96",
+              "description": "Missing required fact: required_steps",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "Missing required fact: required_steps"
+            }
+          ]
+        },
+        {
+          "attempt": 3,
+          "diagnosis": "SYMPTOM\nJMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED') [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.0,
+            "issues": [
+              {
+                "code": "invalid_model_output",
+                "description": "Model validation: ValueError: Claim/source entailment failed: c0: The claim does not directly address the issue of the username not being used and the sys admin user being used instead. The source only explains the default behavior when no user-­",
+                "suggestion": "Return concise schema-valid JSON; for evidence selection false requires [] and true requires allowed IDs. Use only evidence"
+              }
+            ],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": [
+            {
+              "issue_id": "invalid_model_output",
+              "description": "Model validation: ValueError: Claim/source entailment failed: c0: The provided source does not explicitly state that the application server provides a blank username to MQ when no credentials are supplied. It only describes the default behavior,但; c1: The provided source does not explicitly state th",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "Model validation: ValueError: Claim/source entailment failed: c0: The provided source does not explicitly state that the application server provides a blank username to MQ when no credentials are supplied. It only describes the default behavior,但; c1: The provided source does not explicitly state th"
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "llm_calls": 7,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 9999,
+        "output_tokens": 1452,
+        "latency_ms": 105165.50329996971
+      }
+    },
+    "initial_accepted": false,
+    "final_accepted": false,
+    "calls": 7,
+    "tokens": 11451,
+    "retries": 2,
+    "latency_ms": 105165.50329996971,
+    "error": true,
+    "raw_model_outputs": [
+      "{\n  \"principal_request\": \"Explain why configured credentials are not being used and how to select the intended outbound identity after migrating the BPM environment from V8.0 to 8.5.7, and provide concrete applicable configuration steps.\",\n  \"operation_check\": {\n    \"requested_operation\": \"Select the intended outbound identity for MQ connections in the BPM environment after migration.\",\n    \"answered_operation\": \"Explain why configured credentials are not being used and provide configuration steps to select the intended outbound identity.\",\n    \"reason\": \"The answer addresses the issue of why configured credentials are not being used and provides steps to configure the intended outbound identity.\",\n    \"matches\": true\n  },\n  \"coverage\": {\n    \"configured_identity\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_0\",\n      \"answer_quote_id\": \"a0\"\n    },\n    \"required_steps\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_4\",\n      \"answer_quote_id\": \"a0\"\n    }\n  },\n  \"incorrect_facts\": []\n}",
+      "{\n  \"claims\": [\n    {\n      \"text\": \"When no credentials are supplied by the application on the createConnection call, WebSphere Application Server provides a blank username to MQ, causing the connection to use the system administrative user (e.g., 'mqm' on UNIX/Linux or 'MUSR_MQADMIN' on Windows) instead of the configured credentials.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"To select the intended outbound identity, configure the component-managed authentication alias using wsadmin scripting. This can be done with JACL or Jython scripts as shown in the evidence.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"Configuring the component-managed authentication alias ensures that the correct username and password are used for the MQ connection, preventing the use of the system administrative user.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"After configuring the component-managed authentication alias, verify the settings by checking the MQ connection factory configuration in the WebSphere Application Server.\",\n      \"source_id\": \"1\"\n    }\n  ],\n  \"coverage\": {\n    \"configured_identity\": true,\n    \"required_steps\": true\n  }\n}",
+      "{\n  \"c0\": {\n    \"supported\": false,\n    \"quote_id\": \"\",\n    \"reason\": \"The provided source does not explicitly state that the application server provides a blank username to MQ when no credentials are supplied. It only describes the default behavior,但\" },\n  \"c1\": {\n    \"supported\": false,\n    \"quote_id\": \"\",\n    \"reason\": \"The provided source does not explicitly state that configuring the component-managed authentication alias ensures the correct username and password are used. It only describes the \" },\n  \"c2\": {\n    \"supported\": false,\n    \"quote_id\": \"\",\n    \"reason\": \"The provided source does not explicitly state that configuring the component-managed authentication alias ensures the correct username and password are used. It only describes the \" },\n  \"c3\": {\n    \"supported\": false,\n    \"quote_id\": \"\",\n    \"reason\": \"The provided source does not explicitly state that verifying the settings involves checking the MQ connection factory configuration. It only describes the default behavior and \" }\n}",
+      "{\n  \"resolutions\": [\n    {\n      \"issue_id\": \"fact_09167adf96\",\n      \"resolved\": true,\n      \"source_ids\": [\"1\"],\n      \"evidence_quote\": \"If no credentials are supplied by the application on the createConnection call, and neither of the component managed or container managed security systems described below are configured, then WebSphere Application Server provides a blank username to MQ. This causes MQ to authorise the client based on the userid that the MQ listener is running under. In the majority of cases this is 'mqm' on UNIX/Linux systems and 'MUSR_MQADMIN' on Windows.\",\n      \"answer_quote\": \"If no credentials are supplied by the application on the createConnection call, and neither of the component managed or container managed security systems described below are configured, then WebSphere Application Server provides a blank username to MQ. This causes MQ to authorise the client based on the userid that the MQ listener is running under. In the majority of cases this is 'mqm' on UNIX/Linux systems and 'MUSR_MQADMIN' on Windows.\",\n      \"remaining_problem\": \"\"\n    }\n  ]\n}",
+      "{\n  \"claims\": [\n    {\n      \"text\": \"If no credentials are supplied by the application on the createConnection call, and neither of the component managed or container managed security systems described below are configured, then WebSphere Application Server provides a blank username to MQ. This causes MQ to authorise the client based on the userid that the MQ listener is running under, which in the majority of cases is 'mqm' on UNIX/Linux systems and 'MUSR_MQADMIN' on Windows.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"The configured username and password are correct, but the application server is using the default identity 'mqm' or 'MUSR_MQADMIN' instead of the intended outbound identity.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"To select the intended outbound identity, configure the component-managed authentication alias using wsadmin scripting.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"The steps to configure the component-managed authentication alias are provided in the evidence.\",\n      \"source_id\": \"1\"\n    }\n  ],\n  \"coverage\": {\n    \"configured_identity\": true,\n    \"required_steps\": true\n  }\n}",
+      "{\n  \"c0\": {\n    \"supported\": false,\n    \"quote_id\": \"\",\n    \"reason\": \"The claim does not directly address the issue of the username not being used and the sys admin user being used instead. The source only explains the default behavior when no user-­\" },\"c1\": {\n    \"supported\": true,\n    \"quote_id\": \"c1_1\",\n    \"reason\": \"The source states that if no credentials are supplied, WebSphere Application Server provides a blank username to MQ, causing MQ to authorize the client based on the userid that the\" },\"c2\": {\n    \"supported\": true,\n    \"quote_id\": \"c2_1\",\n    \"reason\": \"The source explains that to select the intended outbound identity, the component-managed authentication alias can be configured using wsadmin scripting, which is consistent with c2\" },\"c3\": {\n    \"supported\": true,\n    \"quote_id\": \"c3_1\",\n    \"reason\": \"The source provides scripting samples for configuring the component-managed authentication alias using wsadmin, which supports the claim that the steps to configure it are provided\"\n  }\n}",
+      "{\n  \"resolutions\": [\n    {\n      \"issue_id\": \"invalid_model_output\",\n      \"resolved\": true,\n      \"source_ids\": [\"1\"],\n      \"evidence_quote\": \"If no credentials are supplied by the application on the createConnection call, and neither of the component managed or container managed security systems described below are configured, then WebSphere Application Server provides a blank username to MQ. This causes MQ to authorise the client based on the userid that the MQ listener is running under. In the majority of cases this is 'mqm' on UNIX/Linux systems and 'MUSR_MQADMIN' on Windows.\",\n      \"answer_quote\": \"As these are administrative MQ users, they will be blocked by default in WebSphere MQ V7.1 and higher, with a AMQ9777 error logged in the error logs of the queue manager.\",\n      \"remaining_problem\": \"\"\n    }\n  ]\n}"
+    ]
+  },
+  {
+    "case": "insufficient_evidence_refusal",
+    "version": "improved_critic",
+    "expected_valid": true,
+    "run": {
+      "final_diagnosis": "证据不足，无法给出可靠诊断。 [1]",
+      "passed": true,
+      "answer_sufficient": false,
+      "retries": 0,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "证据不足，无法给出可靠诊断。 [1]",
+          "critique": {
+            "passed": true,
+            "score": 0.9,
+            "issues": [],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        }
+      ],
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 794,
+        "output_tokens": 200,
+        "latency_ms": 10579.921199998353
+      }
+    },
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 1,
+    "tokens": 994,
+    "retries": 0,
+    "latency_ms": 10579.921199998353,
+    "error": false,
+    "raw_model_outputs": [
+      "{\n  \"principal_request\": \"Explain why configured credentials are not being used and how to select the intended outbound identity, and provide concrete applicable configuration steps to ensure the correct identity is used when calling MQ after migrating the BPM environment.\",\n  \"operation_check\": {\n    \"requested_operation\": \"Calling MQ service after BPM environment migration.\",\n    \"answered_operation\": \"Explaining why configured credentials are not being used and how to select the intended outbound identity, and providing concrete applicable configuration steps\",\n    \"reason\": \"The answer addresses the core issue of why the configured credentials are not being used and provides steps to correct the issue.\",\n    \"matches\": true\n  },\n  \"coverage\": {\n    \"configured_identity\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_0\",\n      \"answer_quote_id\": \"a0\"\n    },\n    \"required_steps\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_0\",\n      \"answer_quote_id\": \"a0\"\n    }\n  },\n  \"incorrect_facts\": []\n}"
+    ]
+  }
+]

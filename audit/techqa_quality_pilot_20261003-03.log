@@ -1,0 +1,138 @@
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=1: Claim contains a critical literal absent from question/source
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=2: Claim contains a critical literal absent from question/source
+INFO agents.rag_agent.service Agent status=invalid_evidence candidates=10 context_tokens=1204 latency_ms=38662.04
+INFO __main__ DEV_Q000 completed (1/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=1: Claim/source entailment failed: c1: The source does not explicitly mention the nco-g-socket-10_0 version for Netcool/OMNIbus V8.1. It only discusses the nco-g-socket-java-2_0 version for V8.1 and the nco-g-socket-10_; c3: The source discusses the nco-g-socket-10_0 version for Netcool/OMNIbus V7.4.0, not V8.1. It does not provide information about the nco-g-socket-10_0 version for V8.1.
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.service Agent status=partial candidates=10 context_tokens=1790 latency_ms=64763.26
+INFO __main__ DEV_Q007 completed (2/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING rag.techqa.claims Fact-audit protocol repair: Coverage needs actual source AND answer quote IDs
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=1: Coverage needs actual source AND answer quote IDs
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=2: Claim/source entailment failed: c0: The claim does not explicitly state that Tivoli Network Manager IP Edition is affected by the Apache CXF vulnerability (CVE-2017-3156). It only mentions that the vulnerability has ; c1: The claim does not explicitly state that Tivoli Network Manager IP Edition is affected by the Apache CXF vulnerability (CVE-2017-3156). It only mentions that the vulnerability has ; c2: The claim does not explicitly state that Tivoli Network Manager IP Edition is affected by the Apache CXF vulnerability (CVE-2017-3156). It only mentions that the vulnerability has ; c3: The claim does not explicitly state that Tivoli Network Manager IP Edition is affected by the Apache CXF vulnerability (CVE-2017-3156). It only mentions that the vulnerability has 
+INFO agents.rag_agent.service Agent status=invalid_evidence candidates=10 context_tokens=2172 latency_ms=99810.39
+INFO __main__ TRAIN_Q006 completed (3/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.rewrite Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 112, in generate
+    raise ValueError("Structured generation exceeded its token budget")
+ValueError: Structured generation exceeded its token budget
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 90, in rewrite
+    await self.model.generate(prompt, RewriteDraft.model_json_schema())
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 118, in generate
+    raise DependencyUnavailable("Ollama structured generation failed") from exc
+models.errors.DependencyUnavailable: Ollama structured generation failed
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=1: Claim/source entailment failed: c0: The source does not explicitly state that CHLAUTH(ENABLED) is the cause of the issue. The source only mentions that CHLAUTH(ENABLED) is a configuration parameter and provides a way; c1: The source does not explicitly state that disabling CHLAUTH will resolve the issue. The source only mentions that CHLAUTH(ENABLED) is a configuration parameter and provides a way; c2: The source does not explicitly state that checking the JMS Connection Factory configuration will resolve the issue. The source only mentions that the mappingConfigAlias needs to be; c3: The source does not explicitly state that refreshing security settings with the command REFRESH SECURITY(*) will resolve the issue. The source only mentions that this command can
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=2: Claim/source entailment failed: c0: The provided source does not explicitly state that the CHLAUTH(ENABLED) parameter is the cause of the issue. The source only mentions that CHLAUTH(ENABLED) is a configuration that,; c1: The provided source does not explicitly state that disabling CHLAUTH(ENABLED) will resolve the issue. The source only mentions that disabling CHLAUTH can be a resolution, but it is; c2: The provided source does not mention that setting the mappingConfigAlias to DefaultPrincipalMapping is necessary to resolve the issue. The source only discusses this setting in the; c3: The provided source does not explicitly state that refreshing security settings with the command REFRESH SECURITY(*) will resolve the MQRC_NOT_AUTHORIZED issue. The source only
+INFO agents.rag_agent.service Agent status=invalid_evidence candidates=10 context_tokens=2260 latency_ms=75707.88
+INFO __main__ TRAIN_Q007 completed (4/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.rewrite Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=1: Claim/source entailment failed: c3: The source does not mention the 'echoid.exe' program or generating a lock code as a solution for activation issues.
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.service Agent status=answered candidates=10 context_tokens=2333 latency_ms=60902.62
+INFO __main__ TRAIN_Q011 completed (5/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.rewrite Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=1: Claim/source entailment failed: c0: The provided source does not mention XULRunner or any version incompatibility issues with IBM FileNet Content Engine CPE 5.2.1.4 on Redhat Linux 7.2. The source discusses issues in; c1: The provided source does not explicitly recommend downloading and installing a compatible version of XULRunner within the range 1.8.1.3 - 3.6.x. The source discusses a similar; c2: The provided source does not explicitly state that adding the java system property org.eclipse.swt.browser.XULRunnerPath is necessary. The source discusses a similar; c3: The provided source does not explicitly state that restarting the IBM FileNet Content Engine CPE 5.2.1.4 is necessary after making the changes. The source discusses a similar
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=2: Claim/source entailment failed: c0: The provided source does not mention IBM FileNet Content Engine CPE 5.2.1.4 or Redhat Linux 7.2. The claims are based on a different product (IBM Eclipse-based product) and a more ; c1: The provided source does not mention IBM FileNet Content Engine CPE 5.2.1.4 or Redhat Linux 7.2. The claims are based on a different product (IBM Eclipse-based product) and a more ; c2: The provided source does not mention IBM FileNet Content Engine CPE 5.2.1.4 or Redhat Linux 7.2. The claims are based on a different product (IBM Eclipse-based product) and a more ; c3: The provided source does not mention IBM FileNet Content Engine CPE 5.2.1.4 or Redhat Linux 7.2. The claims are based on a different product (IBM Eclipse-based product) and a more
+INFO agents.rag_agent.service Agent status=invalid_evidence candidates=10 context_tokens=2398 latency_ms=77302.06
+INFO __main__ DEV_Q002 completed (6/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.rewrite Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 112, in generate
+    raise ValueError("Structured generation exceeded its token budget")
+ValueError: Structured generation exceeded its token budget
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 90, in rewrite
+    await self.model.generate(prompt, RewriteDraft.model_json_schema())
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 118, in generate
+    raise DependencyUnavailable("Ollama structured generation failed") from exc
+models.errors.DependencyUnavailable: Ollama structured generation failed
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=1: Claim/source entailment failed: c2: The provided source does not mention IBM WebSphere Portal or the specific issue with EJPDB0085W and EJPFD0016E. The claim is about Oracle database configuration for IBM Information; c3: The provided source does not mention the specific issue with EJPDB0085W and EJPFD0016E. The claim is about a database transfer configuration for WebSphere Portal, which is not the
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.service Agent status=answered candidates=10 context_tokens=2400 latency_ms=70305.31
+INFO __main__ DEV_Q010 completed (7/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=1: Claim/source entailment failed: c0: The source does not explicitly state that the ARG_MAX configuration parameter is set to a value lower than 2621440 on Redhat 5.11. It only mentions that Redhat 5.11 is less than 2.; c2: The source does not explicitly state that compilation of UDX must be done on the Netezza host. It only mentions that compilation must be done on the Netezza host, but does not rule
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=2: Claim/source entailment failed: c0: The source does not explicitly state that Redhat 5.11 has an ARG_MAX configuration parameter of 131072. The source mentions that Redhat 5.11 is less than kernel release 2.6.23, but
+INFO agents.rag_agent.service Agent status=invalid_evidence candidates=10 context_tokens=2235 latency_ms=43065.31
+INFO __main__ DEV_Q012 completed (8/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=1: Claim/source entailment failed: c2: The source does not provide the exact environment variables mentioned in the claim. It only provides an example of how to add the option to the makefile and mentions the required O; c3: The source does not provide the exact instruction to create an odbc.ini file as mentioned in the claim. It only mentions the need to specify additional database-specific configu
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+WARNING agents.rag_agent.service Invalid structured evidence, attempt=2: Answer audit found unsupported/incorrect claims: The issue is fixed in Streams 4.1.1.3, but the user is still experiencing the problem after the upgrade.
+INFO agents.rag_agent.service Agent status=invalid_evidence candidates=10 context_tokens=2316 latency_ms=68722.20
+INFO __main__ TRAIN_Q000 completed (9/10) error=None
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://127.0.0.1:11435/search "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO httpx HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+INFO agents.rag_agent.service Agent status=answered candidates=10 context_tokens=2222 latency_ms=42744.95
+INFO __main__ TRAIN_Q001 completed (10/10) error=None
+INFO __main__ TechQA evaluation summary: {'dataset': 'IBM TechQA development regression: regression_questions.json', 'dataset_path': '..\\audit\\techqa_root_cause_20261003-01\\regression_questions.json', 'collection': 'semantic', 'retrieval_backend': 'techqa', 'protocol': 'open full-corpus retrieval; N labels concern official DOC_IDS only', 'profile': 'ollama', 'model': 'qwen2.5:7b', 'evaluation_top_k': 10, 'answer_quality_method': 'answer-body token F1 multiplied by correct document citation', 'question_count': 10, 'complete': True, 'resumed': False, 'reused_questions': 0, 'answerable_count': 10, 'unanswerable_count': 0, 'hit_at_5': 0.7, 'hit_at_10': 0.7, 'mrr': 0.6333333333333333, 'unanswerable_refusal_accuracy': 0.0, 'answer_quality': 0.10681225207540997, 'answerable_acceptance': 0.4, 'average_latency_ms': 64199.32052001241, 'error_count': 0}

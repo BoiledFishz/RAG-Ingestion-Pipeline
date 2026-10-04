@@ -1,0 +1,48 @@
+{
+  "question_id": "TRAIN_Q006",
+  "question": "Is ITNM exposed to Apache CXF vulnerability (CVE-2017-3156)?\nIs ITNM versions are affected by Apache CXF vulnerability (CVE-2017-3156), If yes then what are all the version will be affected and where I can find the details?",
+  "source_parent": "IBM Security Bulletin: IBM Tivoli Network Manager IP Edition is affected by an Apache CXF vulnerability (CVE-2017-3156) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n Vulnerability has been addressed in the Apache CXF component of Tivoli Network Manager IP Edition. \n\nVULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nTivoli Network Manager IP Edition 4.1.1 (Huawei MTOSI Collector install)\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone\n\nGET NOTIFIED ABOUT FUTURE SECURITY BULLETINS\n Subscribe to My Notifications [ http://www-01.ibm.com/software/support/einfo.html] to be notified of important product support alerts like this. \n\nREFERENCES\nComplete CVSS v3 Guide [http://www.first.org/cvss/user-guide] \nOn-line Calculator v3 [http://www.first.org/cvss/calculator/3.0] \n\nRELATED INFORMATION\nIBM Secure Engineering Web Portal [http://www.ibm.com/security/secure-engineering/bulletins.html] \nIBM Product Security Incident Response Blog [http://www.ibm.com/blogs/psirt] \n\nCHANGE HISTORY\n 15 September 2017 : Original Version Published \n\n*The CVSS Environment Score is customer environment specific and will ultimately impact the Overall CVSS Score. Customers can evaluate the impact of this vulnerability in their environments by accessing the links in the Reference section of this Security Bulletin. \n\nDISCLAIMER\nAccording to the Forum of Incident Response and Security Teams (FIRST), the Common Vulnerability Scoring System (CVSS) is an \"industry open standard designed to convey vulnerability severity and help to determine urgency and priority of response.\" IBM PROVIDES THE CVSS SCORES \"AS IS\" WITHOUT WARRANTY OF ANY KIND, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. CUSTOMERS ARE RESPONSIBLE FOR ASSESSING THE IMPACT OF ANY ACTUAL OR POTENTIAL SECURITY VULNERABILITY.",
+  "annotation": "AI-assisted engineering reading of actual original source, not independent human audit",
+  "scale": "0 missing/wrong; 1 partial; 2 complete",
+  "records": [
+    {
+      "variant": "archived_actual_answer",
+      "answer": "AFFECTED PRODUCTS AND VERSIONS\nTivoli Network Manager IP Edition 4.1.1 (Huawei MTOSI Collector install)\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install) [1]\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone [4]",
+      "official_body_token_f1": 0.10377358490566038,
+      "ai_assisted_slot_ratings": {
+        "cve": 0,
+        "affected_scope": 2,
+        "affected_versions": 2,
+        "vulnerability_description": 0,
+        "remediation_and_details": 2
+      },
+      "human_factual_metric": null
+    },
+    {
+      "variant": "unchanged_official_reference",
+      "answer": "CVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N)",
+      "official_body_token_f1": 1.0,
+      "ai_assisted_slot_ratings": {
+        "cve": 2,
+        "affected_scope": 0,
+        "affected_versions": 0,
+        "vulnerability_description": 2,
+        "remediation_and_details": 0
+      },
+      "human_factual_metric": null
+    },
+    {
+      "variant": "target_document_derived",
+      "answer": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nTivoli Network Manager IP Edition 4.1.1 (Huawei MTOSI Collector install)\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone",
+      "official_body_token_f1": 0.6542056074766355,
+      "ai_assisted_slot_ratings": {
+        "cve": 2,
+        "affected_scope": 2,
+        "affected_versions": 2,
+        "vulnerability_description": 2,
+        "remediation_and_details": 2
+      },
+      "human_factual_metric": null
+    }
+  ]
+}

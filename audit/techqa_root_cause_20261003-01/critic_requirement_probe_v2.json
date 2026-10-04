@@ -1,0 +1,160 @@
+{
+  "complete": true,
+  "records": [
+    {
+      "id": "TRAIN_Q007",
+      "mode": "actual_selected_blocks",
+      "baseline": {
+        "passed": true,
+        "score": 0.9,
+        "issues": []
+      },
+      "critic": {
+        "passed": true,
+        "score": 0.9,
+        "issues": [],
+        "principal_request": "Why do I get an exception when calling MQ after migrating my BPM environment (2035 MQRC_NOTAUTHORIZED)?",
+        "required_facts": [
+          "configured_identity",
+          "required_steps"
+        ],
+        "covered_facts": [
+          "configured_identity",
+          "required_steps"
+        ],
+        "missing_facts": [],
+        "incorrect_facts": []
+      },
+      "error": null,
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 1781,
+        "output_tokens": 385,
+        "latency_ms": 25423.84130001301
+      }
+    },
+    {
+      "id": "TRAIN_Q007",
+      "mode": "current_answer_with_complementary_evidence",
+      "baseline": {
+        "passed": false,
+        "score": 0.4,
+        "issues": [
+          {
+            "code": "fact_6db148c717",
+            "description": "EVIDENCE未明确指出用户ID问题的具体原因，仅提到使用Java System Property user.name配置的用户，但未确认该用户是否正确。",
+            "suggestion": "Correct this claim using supplied evidence"
+          },
+          {
+            "code": "fact_e8e0d07ca2",
+            "description": "EVIDENCE未提供具体的解决步骤来验证或修改Java System Property user.name，以确保其与MQ队列管理器的用户匹配。",
+            "suggestion": "Correct this claim using supplied evidence"
+          },
+          {
+            "code": "fact_5231535a17",
+            "description": "EVIDENCE未提及检查MQ队列管理器上的用户权限设置，以确保该用户具有正确的访问权限。",
+            "suggestion": "Correct this claim using supplied evidence"
+          }
+        ]
+      },
+      "critic": null,
+      "error": "ValueError: Fact coverage requires exact source AND actual-answer quotes",
+      "metrics": {
+        "llm_calls": 2,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 4403,
+        "output_tokens": 696,
+        "latency_ms": 36426.12060002284
+      }
+    },
+    {
+      "id": "TRAIN_Q011",
+      "mode": "actual_selected_blocks",
+      "baseline": {
+        "passed": false,
+        "score": 0.4,
+        "issues": [
+          {
+            "code": "answer_not_sufficient",
+            "description": "Selected blocks 1 do not establish the principal request: Load SPSS 25 on a new computer",
+            "suggestion": "Select a directly applicable solution from supplied evidence; if required facts remain unavailable, refuse rather than invent them"
+          }
+        ]
+      },
+      "critic": null,
+      "error": "ValueError: Fact coverage requires exact source AND actual-answer quotes",
+      "metrics": {
+        "llm_calls": 2,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 1645,
+        "output_tokens": 581,
+        "latency_ms": 35604.380499979015
+      }
+    },
+    {
+      "id": "TRAIN_Q011",
+      "mode": "current_answer_with_complementary_evidence",
+      "baseline": {
+        "passed": false,
+        "score": 0.4,
+        "issues": [
+          {
+            "code": "fact_916d49e694",
+            "description": "The evidence does not provide instructions for the user to check if the activation code is correctly entered.",
+            "suggestion": "Correct this claim using supplied evidence"
+          },
+          {
+            "code": "fact_d6ad81f6d6",
+            "description": "The evidence does not address the possibility of the activation code being invalid.",
+            "suggestion": "Correct this claim using supplied evidence"
+          },
+          {
+            "code": "fact_6d185c3530",
+            "description": "The evidence does not mention the user's current login status or if they are logged in as the primary contact.",
+            "suggestion": "Correct this claim using supplied evidence"
+          }
+        ]
+      },
+      "critic": {
+        "passed": false,
+        "score": 0.4,
+        "issues": [
+          {
+            "code": "fact_4b14ef1f31",
+            "description": "Missing required fact: activation_on_new_host",
+            "suggestion": "Address this exact request fact using supplied evidence; preserve conditions; refuse if evidence is insufficient"
+          },
+          {
+            "code": "fact_09167adf96",
+            "description": "Missing required fact: required_steps",
+            "suggestion": "Address this exact request fact using supplied evidence; preserve conditions; refuse if evidence is insufficient"
+          }
+        ],
+        "principal_request": "Help activate SPSS 25 on a new MacBook Pro using the existing activation code.",
+        "required_facts": [
+          "activation_on_new_host",
+          "required_steps"
+        ],
+        "covered_facts": [],
+        "missing_facts": [
+          "activation_on_new_host",
+          "required_steps"
+        ],
+        "incorrect_facts": []
+      },
+      "error": null,
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 1024,
+        "output_tokens": 270,
+        "latency_ms": 16723.028199980035
+      }
+    }
+  ]
+}

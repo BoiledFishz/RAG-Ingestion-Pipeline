@@ -1,0 +1,237 @@
+{
+  "source_result": "enterprise-ai-agent/evaluation/results/techqa_quality_pilot_20261003-06",
+  "source_code_sha256": "9e3aa4be883912ac3d9cdea01c278d38abd95dd83cd7200d194e05dfcc932d97",
+  "scale": "0 missing/incorrect, 1 partial, 2 complete. Refusal zeros denote absent substantive answer, not a measured hallucination rate. For nonprocedural factual questions step completeness means required explanation coverage.",
+  "rows": [
+    {
+      "question_id": "DEV_Q000",
+      "official_metric": {
+        "hit_at_5": 0.0,
+        "hit_at_10": 0.0,
+        "mrr": 0.0,
+        "answer_quality": 0.0,
+        "answered": false,
+        "refused": true,
+        "latency_ms": 90667.0851999661
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 0,
+        "factual_correctness": 0,
+        "applicability_correctness": 0,
+        "step_completeness": 0,
+        "answer_relevance": 0,
+        "presentation_quality": 2
+      },
+      "reason": "Safe retrieval-limited refusal; original installation requirement remains unanswered. Zero coverage does not prove hallucination.",
+      "human_factual_metric": null,
+      "annotation": "primary AI engineering review; not independent human audit"
+    },
+    {
+      "question_id": "DEV_Q007",
+      "official_metric": {
+        "hit_at_5": 1.0,
+        "hit_at_10": 1.0,
+        "mrr": 1.0,
+        "answer_quality": 0.0,
+        "answered": false,
+        "refused": true,
+        "latency_ms": 90171.16879997775
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 0,
+        "factual_correctness": 0,
+        "applicability_correctness": 0,
+        "step_completeness": 0,
+        "answer_relevance": 0,
+        "presentation_quality": 2
+      },
+      "reason": "Comparison unanswered. Correct Parent contains one package release information, not a complete comparison of both packages.",
+      "human_factual_metric": null,
+      "annotation": "primary AI engineering review; not independent human audit"
+    },
+    {
+      "question_id": "TRAIN_Q006",
+      "official_metric": {
+        "hit_at_5": 1.0,
+        "hit_at_10": 1.0,
+        "mrr": 1.0,
+        "answer_quality": 0.6542056074766355,
+        "answered": true,
+        "refused": false,
+        "latency_ms": 30232.798999990337
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 2,
+        "factual_correctness": 2,
+        "applicability_correctness": 2,
+        "step_completeness": 2,
+        "answer_relevance": 2,
+        "presentation_quality": 1
+      },
+      "reason": "Actual body retains CVE, vulnerability description, versions, Huawei MTOSI Collector exposure condition and both fixes. CVSS/URL boilerplate remains.",
+      "human_factual_metric": null,
+      "annotation": "primary AI engineering review; not independent human audit"
+    },
+    {
+      "question_id": "TRAIN_Q007",
+      "official_metric": {
+        "hit_at_5": 0.0,
+        "hit_at_10": 0.0,
+        "mrr": 0.0,
+        "answer_quality": 0.0,
+        "answered": false,
+        "refused": true,
+        "latency_ms": 143254.9409000203
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 0,
+        "factual_correctness": 0,
+        "applicability_correctness": 0,
+        "step_completeness": 0,
+        "answer_relevance": 0,
+        "presentation_quality": 2
+      },
+      "reason": "Refuses the wrong-topic candidates rather than approving CHLAUTH workaround; configured-identity request remains unanswered.",
+      "human_factual_metric": null,
+      "annotation": "primary AI engineering review; not independent human audit"
+    },
+    {
+      "question_id": "TRAIN_Q011",
+      "official_metric": {
+        "hit_at_5": 0.0,
+        "hit_at_10": 0.0,
+        "mrr": 0.0,
+        "answer_quality": 0.0,
+        "answered": true,
+        "refused": false,
+        "latency_ms": 28003.18449997576
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 1,
+        "factual_correctness": 2,
+        "applicability_correctness": 1,
+        "step_completeness": 1,
+        "answer_relevance": 1,
+        "presentation_quality": 0
+      },
+      "reason": "Source-grounded generic license policy and reuse of authorization code, but no concrete Release25 Mac wizard steps; step2 without step1 and irrelevant code-acquisition alternatives.",
+      "human_factual_metric": null,
+      "annotation": "primary AI engineering review; not independent human audit"
+    },
+    {
+      "question_id": "DEV_Q002",
+      "official_metric": {
+        "hit_at_5": 1.0,
+        "hit_at_10": 1.0,
+        "mrr": 0.3333333333333333,
+        "answer_quality": 0.0,
+        "answered": false,
+        "refused": true,
+        "latency_ms": 105774.19999998529
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 0,
+        "factual_correctness": 0,
+        "applicability_correctness": 0,
+        "step_completeness": 0,
+        "answer_relevance": 0,
+        "presentation_quality": 2
+      },
+      "reason": "False refusal of the previously successful P8/adwaita control; missing actual answer does not imply fabricated factual claims.",
+      "human_factual_metric": null,
+      "annotation": "primary AI engineering review; not independent human audit"
+    },
+    {
+      "question_id": "DEV_Q010",
+      "official_metric": {
+        "hit_at_5": 1.0,
+        "hit_at_10": 1.0,
+        "mrr": 1.0,
+        "answer_quality": 0.7058823529411765,
+        "answered": true,
+        "refused": false,
+        "latency_ms": 116530.86509997956
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 2,
+        "factual_correctness": 2,
+        "applicability_correctness": 2,
+        "step_completeness": 2,
+        "answer_relevance": 2,
+        "presentation_quality": 0
+      },
+      "reason": "Correct Portal/Oracle character-set remedy in actual body and correct source. Broken duplicated URL formatting harms presentation.",
+      "human_factual_metric": null,
+      "annotation": "primary AI engineering review; not independent human audit"
+    },
+    {
+      "question_id": "DEV_Q012",
+      "official_metric": {
+        "hit_at_5": 1.0,
+        "hit_at_10": 1.0,
+        "mrr": 1.0,
+        "answer_quality": 1.0,
+        "answered": true,
+        "refused": false,
+        "latency_ms": 17717.0763000031
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 2,
+        "factual_correctness": 2,
+        "applicability_correctness": 2,
+        "step_completeness": 2,
+        "answer_relevance": 2,
+        "presentation_quality": 1
+      },
+      "reason": "Correct documented kernel/ARG_MAX explanation, including supported-version constraint.",
+      "human_factual_metric": null,
+      "annotation": "primary AI engineering review; not independent human audit"
+    },
+    {
+      "question_id": "TRAIN_Q000",
+      "official_metric": {
+        "hit_at_5": 1.0,
+        "hit_at_10": 1.0,
+        "mrr": 1.0,
+        "answer_quality": 1.0,
+        "answered": true,
+        "refused": false,
+        "latency_ms": 102823.54289997602
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 2,
+        "factual_correctness": 2,
+        "applicability_correctness": 2,
+        "step_completeness": 1,
+        "answer_relevance": 2,
+        "presentation_quality": 0
+      },
+      "reason": "Documented Streams workaround includes command and domain/instance/application flags, but copy artefacts split an executable command into ambiguous bullets.",
+      "human_factual_metric": null,
+      "annotation": "primary AI engineering review; not independent human audit"
+    },
+    {
+      "question_id": "TRAIN_Q001",
+      "official_metric": {
+        "hit_at_5": 1.0,
+        "hit_at_10": 1.0,
+        "mrr": 1.0,
+        "answer_quality": 0.8275862068965517,
+        "answered": true,
+        "refused": false,
+        "latency_ms": 25565.528100007214
+      },
+      "ai_assisted_factual_metric": {
+        "required_fact_coverage": 2,
+        "factual_correctness": 2,
+        "applicability_correctness": 2,
+        "step_completeness": 2,
+        "answer_relevance": 2,
+        "presentation_quality": 0
+      },
+      "reason": "Exit immediate-scope behavior and global-variable workaround are supported. Repeated empty bullets/code fragments harm presentation.",
+      "human_factual_metric": null,
+      "annotation": "primary AI engineering review; not independent human audit"
+    }
+  ]
+}

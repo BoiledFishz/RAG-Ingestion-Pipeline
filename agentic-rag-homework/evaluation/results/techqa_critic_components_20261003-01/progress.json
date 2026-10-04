@@ -1,0 +1,1943 @@
+[
+  {
+    "case": "correct_answer",
+    "version": "no_critic",
+    "expected_valid": true,
+    "run": null,
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 0,
+    "tokens": 0,
+    "retries": 0,
+    "latency_ms": 0,
+    "error": false
+  },
+  {
+    "case": "correct_answer",
+    "version": "legacy_critic",
+    "expected_valid": true,
+    "run": {
+      "final_diagnosis": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nTivoli Network Manager IP Edition 4.1.1 (Huawei MTOSI Collector install)\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone [1]",
+      "passed": true,
+      "answer_sufficient": true,
+      "retries": 0,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nTivoli Network Manager IP Edition 4.1.1 (Huawei MTOSI Collector install)\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone [1]",
+          "critique": {
+            "passed": true,
+            "score": 0.9,
+            "issues": [],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        }
+      ],
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 759,
+        "output_tokens": 16,
+        "latency_ms": 2576.921400032006
+      }
+    },
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 1,
+    "tokens": 775,
+    "retries": 0,
+    "latency_ms": 2576.921400032006,
+    "error": false,
+    "raw_model_outputs": [
+      "{\n  \"verdict\": \"pass\",\n  \"issues\": []\n}"
+    ]
+  },
+  {
+    "case": "correct_answer",
+    "version": "improved_critic",
+    "expected_valid": true,
+    "run": {
+      "final_diagnosis": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nTivoli Network Manager IP Edition 4.1.1 (Huawei MTOSI Collector install)\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone [1]",
+      "passed": true,
+      "answer_sufficient": true,
+      "retries": 0,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nTivoli Network Manager IP Edition 4.1.1 (Huawei MTOSI Collector install)\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone [1]",
+          "critique": {
+            "passed": true,
+            "score": 0.9,
+            "issues": [],
+            "principal_request": "Check if ITNM is exposed to Apache CXF vulnerability (CVE-2017-3156) and identify affected versions and remediation details.",
+            "required_facts": [
+              "affected_versions",
+              "remediation",
+              "vulnerability"
+            ],
+            "covered_facts": [
+              "affected_versions",
+              "remediation",
+              "vulnerability"
+            ],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        }
+      ],
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 1075,
+        "output_tokens": 218,
+        "latency_ms": 15856.413800036535
+      }
+    },
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 1,
+    "tokens": 1293,
+    "retries": 0,
+    "latency_ms": 15856.413800036535,
+    "error": false,
+    "raw_model_outputs": [
+      "{\n  \"principal_request\": \"Check if ITNM is exposed to Apache CXF vulnerability (CVE-2017-3156) and identify affected versions and remediation details.\",\n  \"operation_check\": {\n    \"requested_operation\": \"Check for Apache CXF vulnerability (CVE-2017-3156) in ITNM and identify affected versions and remediation details.\",\n    \"answered_operation\": \"Identified the vulnerability details, affected versions, and remediation details for the Apache CXF vulnerability (CVE-2017-3156) in ITNM.\",\n    \"reason\": \"The answer provided the vulnerability details, affected versions, and remediation steps for the Apache CXF vulnerability (CVE-2017-3156) in ITNM.\",\n    \"matches\": true\n  },\n  \"coverage\": {\n    \"affected_versions\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_2\",\n      \"answer_quote_id\": \"a2\"\n    },\n    \"remediation\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_3\",\n      \"answer_quote_id\": \"a3\"\n    },\n    \"vulnerability\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_0\",\n      \"answer_quote_id\": \"a0\"\n    }\n  },\n  \"incorrect_facts\": []\n}"
+    ]
+  },
+  {
+    "case": "missing_last_step",
+    "version": "no_critic",
+    "expected_valid": false,
+    "run": null,
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 0,
+    "tokens": 0,
+    "retries": 0,
+    "latency_ms": 0,
+    "error": false
+  },
+  {
+    "case": "missing_last_step",
+    "version": "legacy_critic",
+    "expected_valid": false,
+    "run": {
+      "final_diagnosis": "Below is a picture of the warning: \n\n[/support/docview.wss?uid=swg21966637&aid=1] [/support/docview.wss?uid=swg21966637&aid=1]\n\nIf you encounter this message, perform the following procedure:\n\n\n 1.  If open, close the IBM SPSS Statistics product. \n 2.  If open, close the License Authorization Wizard. \n 3.  Open Finder. \n 4.  Select the 'Go' menu. \n 5.  Select the 'Utilities' menu. \n 6.  Open the 'Terminal' program. \n 7.  Type (copy/paste) the following command:\n     \n     cd /Applications/IBM/SPSS/Statistics/ \n 8.   \n 9.  Press Enter/Return. \n 10. Perform the procedure corresponding to the Statistics product version as described below:\n\nStatistics Release 25  1. Type (copy/paste) the following command: \n    \n    sudo chown -R root:admin 25\n    \n 2. Press Enter/Return. \n 3. Close Terminal. \n 4. Launch the License Authorization Wizard. \n 5. The warning message should no longer appear. \n  [1]",
+      "passed": true,
+      "answer_sufficient": true,
+      "retries": 0,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "Below is a picture of the warning: \n\n[/support/docview.wss?uid=swg21966637&aid=1] [/support/docview.wss?uid=swg21966637&aid=1]\n\nIf you encounter this message, perform the following procedure:\n\n\n 1.  If open, close the IBM SPSS Statistics product. \n 2.  If open, close the License Authorization Wizard. \n 3.  Open Finder. \n 4.  Select the 'Go' menu. \n 5.  Select the 'Utilities' menu. \n 6.  Open the 'Terminal' program. \n 7.  Type (copy/paste) the following command:\n     \n     cd /Applications/IBM/SPSS/Statistics/ \n 8.   \n 9.  Press Enter/Return. \n 10. Perform the procedure corresponding to the Statistics product version as described below:\n\nStatistics Release 25  1. Type (copy/paste) the following command: \n    \n    sudo chown -R root:admin 25\n    \n 2. Press Enter/Return. \n 3. Close Terminal. \n 4. Launch the License Authorization Wizard. \n 5. The warning message should no longer appear. \n  [1]",
+          "critique": {
+            "passed": true,
+            "score": 0.9,
+            "issues": [],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        }
+      ],
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 821,
+        "output_tokens": 16,
+        "latency_ms": 2059.4845000305213
+      }
+    },
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 1,
+    "tokens": 837,
+    "retries": 0,
+    "latency_ms": 2059.4845000305213,
+    "error": false,
+    "raw_model_outputs": [
+      "{\n  \"verdict\": \"pass\",\n  \"issues\": []\n}"
+    ]
+  },
+  {
+    "case": "missing_last_step",
+    "version": "improved_critic",
+    "expected_valid": false,
+    "run": {
+      "final_diagnosis": "Below is a picture of the warning: \n\n[/support/docview.wss?uid=swg21966637&aid=1] [/support/docview.wss?uid=swg21966637&aid=1]\n\nIf you encounter this message, perform the following procedure:\n\n\n 1.  If open, close the IBM SPSS Statistics product. \n 2.  If open, close the License Authorization Wizard. \n 3.  Open Finder. \n 4.  Select the 'Go' menu. \n 5.  Select the 'Utilities' menu. \n 6.  Open the 'Terminal' program. \n 7.  Type (copy/paste) the following command:\n     \n     cd /Applications/IBM/SPSS/Statistics/ \n 8.   \n 9.  Press Enter/Return. \n 10. Perform the procedure corresponding to the Statistics product version as described below:\n\nStatistics Release 25  1. Type (copy/paste) the following command: \n    \n    sudo chown -R root:admin 25\n    \n 2. Press Enter/Return. \n 3. Close Terminal. \n 4. Launch the License Authorization Wizard. \n 5. The warning message should no longer appear. \n  [1]",
+      "passed": true,
+      "answer_sufficient": true,
+      "retries": 0,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "Below is a picture of the warning: \n\n[/support/docview.wss?uid=swg21966637&aid=1] [/support/docview.wss?uid=swg21966637&aid=1]\n\nIf you encounter this message, perform the following procedure:\n\n\n 1.  If open, close the IBM SPSS Statistics product. \n 2.  If open, close the License Authorization Wizard. \n 3.  Open Finder. \n 4.  Select the 'Go' menu. \n 5.  Select the 'Utilities' menu. \n 6.  Open the 'Terminal' program. \n 7.  Type (copy/paste) the following command:\n     \n     cd /Applications/IBM/SPSS/Statistics/ \n 8.   \n 9.  Press Enter/Return. \n 10. Perform the procedure corresponding to the Statistics product version as described below:\n\nStatistics Release 25  1. Type (copy/paste) the following command: \n    \n    sudo chown -R root:admin 25\n    \n 2. Press Enter/Return. \n 3. Close Terminal. \n 4. Launch the License Authorization Wizard. \n 5. The warning message should no longer appear. \n  [1]",
+          "critique": {
+            "passed": true,
+            "score": 0.9,
+            "issues": [],
+            "principal_request": "Help activate SPSS 25 on a new MacBook Pro using the existing activation code.",
+            "required_facts": [
+              "activation_on_new_host",
+              "required_steps"
+            ],
+            "covered_facts": [
+              "activation_on_new_host",
+              "required_steps"
+            ],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        }
+      ],
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 1082,
+        "output_tokens": 176,
+        "latency_ms": 11194.732200005092
+      }
+    },
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 1,
+    "tokens": 1258,
+    "retries": 0,
+    "latency_ms": 11194.732200005092,
+    "error": false,
+    "raw_model_outputs": [
+      "{\n  \"principal_request\": \"Help activate SPSS 25 on a new MacBook Pro using the existing activation code.\",\n  \"operation_check\": {\n    \"requested_operation\": \"Activate SPSS 25 on a new computer.\",\n    \"answered_operation\": \"Provided steps to activate SPSS 25 on a new computer.\",\n    \"reason\": \"The answer provided the necessary steps to activate SPSS 25 on a new computer, including closing the product and the License Authorization Wizard, navigating to the Terminal, and running the appropriate command.\",\n    \"matches\": true\n  },\n  \"coverage\": {\n    \"activation_on_new_host\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_2\",\n      \"answer_quote_id\": \"a2\"\n    },\n    \"required_steps\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_2\",\n      \"answer_quote_id\": \"a2\"\n    }\n  },\n  \"incorrect_facts\": []\n}"
+    ]
+  },
+  {
+    "case": "missing_exposure_condition",
+    "version": "no_critic",
+    "expected_valid": false,
+    "run": null,
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 0,
+    "tokens": 0,
+    "retries": 0,
+    "latency_ms": 0,
+    "error": false
+  },
+  {
+    "case": "missing_exposure_condition",
+    "version": "legacy_critic",
+    "expected_valid": false,
+    "run": {
+      "final_diagnosis": "Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information. [1]\nIBM Tivoli Network Manager IP Edition 4.1.1 & 4.2.0 are affected by the Apache CXF vulnerability (CVE-2017-3156). [1]\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install) is also affected by the Apache CXF vulnerability (CVE-2017-3156). [1]\nFor Tivoli Network Manager IP Edition 4.1.1, IBM recommends calling their service and referencing APAR IV99816 to obtain a fix if needed. [1]\nFor Tivoli Network Manager IP Edition 4.2.0, CXF 3.1.10 has been upgraded in 4.2 FixPack 3 to address the vulnerability. [1]\nNo workarounds or mitigations are provided for this vulnerability. [1]",
+      "passed": false,
+      "answer_sufficient": false,
+      "retries": 2,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nIBM Tivoli Network Manager IP Edition 4.1.1 & 4.2.0\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.4,
+            "issues": [
+              {
+                "code": "fact_b3f6d82b15",
+                "description": "ITNM versions 4.1.1 and 4.2.0 are affected, but specific versions are not clearly stated.",
+                "suggestion": "Correct this claim using supplied evidence"
+              },
+              {
+                "code": "fact_3eafc3ee4b",
+                "description": "The evidence does not provide a direct link to the affected versions of ITNM.",
+                "suggestion": "Correct this claim using supplied evidence"
+              },
+              {
+                "code": "fact_60188bf14a",
+                "description": "No specific workaround is provided for ITNM.",
+                "suggestion": "Correct this claim using supplied evidence"
+              }
+            ],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        },
+        {
+          "attempt": 2,
+          "diagnosis": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nIBM Tivoli Network Manager IP Edition 4.1.1 & 4.2.0\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.0,
+            "issues": [
+              {
+                "code": "invalid_model_output",
+                "description": "Model validation: ValueError: Claim contains a critical literal absent from question/source",
+                "suggestion": "Return concise schema-valid JSON; for evidence selection false requires [] and true requires allowed IDs. Use only evidence"
+              }
+            ],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": [
+            {
+              "issue_id": "fact_b3f6d82b15",
+              "description": "ITNM versions 4.1.1 and 4.2.0 are affected, but specific versions are not clearly stated.",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "ITNM versions 4.1.1 and 4.2.0 are affected, but specific versions are not clearly stated."
+            },
+            {
+              "issue_id": "fact_3eafc3ee4b",
+              "description": "The evidence does not provide a direct link to the affected versions of ITNM.",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "The evidence does not provide a direct link to the affected versions of ITNM."
+            },
+            {
+              "issue_id": "fact_60188bf14a",
+              "description": "No specific workaround is provided for ITNM.",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "No specific workaround is provided for ITNM."
+            }
+          ]
+        },
+        {
+          "attempt": 3,
+          "diagnosis": "Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information. [1]\nIBM Tivoli Network Manager IP Edition 4.1.1 & 4.2.0 are affected by the Apache CXF vulnerability (CVE-2017-3156). [1]\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install) is also affected by the Apache CXF vulnerability (CVE-2017-3156). [1]\nFor Tivoli Network Manager IP Edition 4.1.1, IBM recommends calling their service and referencing APAR IV99816 to obtain a fix if needed. [1]\nFor Tivoli Network Manager IP Edition 4.2.0, CXF 3.1.10 has been upgraded in 4.2 FixPack 3 to address the vulnerability. [1]\nNo workarounds or mitigations are provided for this vulnerability. [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.4,
+            "issues": [
+              {
+                "code": "fact_a4e7d07181",
+                "description": "The evidence does not explicitly state that ITNM is affected by the Apache CXF vulnerability (CVE-2017-3156).",
+                "suggestion": "Correct this claim using supplied evidence"
+              },
+              {
+                "code": "fact_f50d24d5ac",
+                "description": "The evidence does not provide a comprehensive list of all affected versions of ITNM.",
+                "suggestion": "Correct this claim using supplied evidence"
+              },
+              {
+                "code": "fact_d1c0dd4c36",
+                "description": "The evidence does not specify where to find detailed information about the vulnerability.",
+                "suggestion": "Correct this claim using supplied evidence"
+              }
+            ],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": [
+            {
+              "issue_id": "invalid_model_output",
+              "description": "Model validation: ValueError: Claim contains a critical literal absent from question/source",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "Model validation: ValueError: Claim contains a critical literal absent from question/source"
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "llm_calls": 5,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 4971,
+        "output_tokens": 891,
+        "latency_ms": 66661.486099998
+      }
+    },
+    "initial_accepted": false,
+    "final_accepted": false,
+    "calls": 5,
+    "tokens": 5862,
+    "retries": 2,
+    "latency_ms": 66661.486099998,
+    "error": true,
+    "raw_model_outputs": [
+      "{\n  \"verdict\": \"revise\",\n  \"issues\": [\n    \"ITNM versions 4.1.1 and 4.2.0 are affected, but specific versions are not clearly stated.\",\n    \"The evidence does not provide a direct link to the affected versions of ITNM.\",\n    \"No specific workaround is provided for ITNM.\"\n  ]\n}",
+      "{\n  \"claims\": [\n    {\n      \"text\": \"Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"IBM Tivoli Network Manager IP Edition 4.1.1 and 4.2.0 are affected by this vulnerability.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"For Tivoli Network Manager IP Edition 4.1.1, IBM has provided an APAR (IV99816) to address the issue. For Tivoli Network Manager IP Edition 4.2.0, CXF 3.1.10 has been upgraded in FixPack 3.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"For more information on the current CVSS score, visit https://exchange.xforce.ibmcloud.com/vulnerabilities/130249.\",\n      \"source_id\": \"1\"\n    }\n  ],\n  \"coverage\": {\n    \"vulnerability\": true,\n    \"affected_versions\": true,\n    \"remediation\": true\n  }\n}",
+      "{\n  \"claims\": [\n    {\n      \"text\": \"Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"IBM Tivoli Network Manager IP Edition 4.1.1 & 4.2.0 are affected by the Apache CXF vulnerability (CVE-2017-3156).\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"Tivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install) is also affected by the Apache CXF vulnerability (CVE-2017-3156).\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"For Tivoli Network Manager IP Edition 4.1.1, IBM recommends calling their service and referencing APAR IV99816 to obtain a fix if needed.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"For Tivoli Network Manager IP Edition 4.2.0, CXF 3.1.10 has been upgraded in 4.2 FixPack 3 to address the vulnerability.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"No workarounds or mitigations are provided for this vulnerability.\",\n      \"source_id\": \"1\"\n    }\n  ],\n  \"coverage\": {\n    \"vulnerability\": true,\n    \"affected_versions\": true,\n    \"remediation\": true\n  }\n}",
+      "{\n  \"c0\": {\n    \"supported\": true,\n    \"quote_id\": \"c0_0\",\n    \"reason\": \"The source explicitly states that Tivoli Network Manager IP Edition 4.1.1 and 4.2.0 are affected by the Apache CXF vulnerability (CVE-2017-3156).\"\n  },\n  \"c1\": {\n    \"supported\": true,\n    \"quote_id\": \"c1_0\",\n    \"reason\": \"The source explicitly states that Tivoli Network Manager IP Edition 4.1.1 and 4.2.0 are affected by the Apache CXF vulnerability (CVE-2017-3156).\"\n  },\n  \"c2\": {\n    \"supported\": true,\n    \"quote_id\": \"c2_0\",\n    \"reason\": \"The source explicitly states that Tivoli Network Manager IP Edition 4.2.0 is affected by the Apache CXF vulnerability (CVE-2017-3156).\"\n  },\n  \"c3\": {\n    \"supported\": true,\n    \"quote_id\": \"c3_3\",\n    \"reason\": \"The source explicitly states that IBM recommends calling their service and referencing APAR IV99816 to obtain a fix if needed for Tivoli Network Manager IP Edition 4.1.1.\"\n  },\n  \"c4\": {\n    \"supported\": true,\n    \"quote_id\": \"c4_3\",\n    \"reason\": \"The source explicitly states that CXF 3.1.10 has been upgraded in Tivoli Network Manager IP Edition 4.2.0 FixPack 3 to address the vulnerability.\"\n  },\n  \"c5\": {\n    \"supported\": true,\n    \"quote_id\": \"c5_4\",\n    \"reason\": \"The source explicitly states that no workarounds or mitigations are provided for this vulnerability.\"\n  }\n}",
+      "{\n  \"verdict\": \"revise\",\n  \"issues\": [\n    \"The evidence does not explicitly state that ITNM is affected by the Apache CXF vulnerability (CVE-2017-3156).\",\n    \"The evidence does not provide a comprehensive list of all affected versions of ITNM.\",\n    \"The evidence does not specify where to find detailed information about the vulnerability.\"\n  ]\n}"
+    ]
+  },
+  {
+    "case": "missing_exposure_condition",
+    "version": "improved_critic",
+    "expected_valid": false,
+    "run": {
+      "final_diagnosis": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nIBM Tivoli Network Manager IP Edition 4.1.1 & 4.2.0\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone [1]",
+      "passed": true,
+      "answer_sufficient": true,
+      "retries": 0,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nIBM Tivoli Network Manager IP Edition 4.1.1 & 4.2.0\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone [1]",
+          "critique": {
+            "passed": true,
+            "score": 0.9,
+            "issues": [],
+            "principal_request": "Check if ITNM is exposed to Apache CXF vulnerability (CVE-2017-3156) and identify affected versions and remediation details.",
+            "required_facts": [
+              "affected_versions",
+              "remediation",
+              "vulnerability"
+            ],
+            "covered_facts": [
+              "affected_versions",
+              "remediation",
+              "vulnerability"
+            ],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        }
+      ],
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 1071,
+        "output_tokens": 209,
+        "latency_ms": 15737.860399996862
+      }
+    },
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 1,
+    "tokens": 1280,
+    "retries": 0,
+    "latency_ms": 15737.860399996862,
+    "error": false,
+    "raw_model_outputs": [
+      "{\n  \"principal_request\": \"Check if ITNM is exposed to Apache CXF vulnerability (CVE-2017-3156) and identify affected versions and remediation details.\",\n  \"operation_check\": {\n    \"requested_operation\": \"Check for Apache CXF vulnerability (CVE-2017-3156) in ITNM and identify affected versions and remediation details.\",\n    \"answered_operation\": \"Identified the vulnerability details, affected versions, and remediation steps for ITNM.\",\n    \"reason\": \"The answer provided the details of the vulnerability, affected versions, and remediation steps, which align with the requested operation.\",\n    \"matches\": true\n  },\n  \"coverage\": {\n    \"affected_versions\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_2\",\n      \"answer_quote_id\": \"a2\"\n    },\n    \"remediation\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_3\",\n      \"answer_quote_id\": \"a3\"\n    },\n    \"vulnerability\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_0\",\n      \"answer_quote_id\": \"a0\"\n    }\n  },\n  \"incorrect_facts\": []\n}"
+    ]
+  },
+  {
+    "case": "adjacent_version",
+    "version": "no_critic",
+    "expected_valid": false,
+    "run": null,
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 0,
+    "tokens": 0,
+    "retries": 0,
+    "latency_ms": 0,
+    "error": false
+  },
+  {
+    "case": "adjacent_version",
+    "version": "legacy_critic",
+    "expected_valid": false,
+    "run": {
+      "final_diagnosis": "Close the IBM SPSS Statistics product and the License Authorization Wizard if open. [1]\nOpen Terminal and navigate to the IBM SPSS Statistics application directory. [1]\nRun the command `sudo chown -R root:admin 25` to change the file permissions. [1]\nClose Terminal, launch the License Authorization Wizard, and license the product. [1]",
+      "passed": false,
+      "answer_sufficient": false,
+      "retries": 2,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "Below is a picture of the warning: \n\n[/support/docview.wss?uid=swg21966637&aid=1] [/support/docview.wss?uid=swg21966637&aid=1]\n\nIf you encounter this message, perform the following procedure:\n\n\n 1.  If open, close the IBM SPSS Statistics product. \n 2.  If open, close the License Authorization Wizard. \n 3.  Open Finder. \n 4.  Select the 'Go' menu. \n 5.  Select the 'Utilities' menu. \n 6.  Open the 'Terminal' program. \n 7.  Type (copy/paste) the following command:\n     \n     cd /Applications/IBM/SPSS/Statistics/ \n 8.   \n 9.  Press Enter/Return. \n 10. Perform the procedure corresponding to the Statistics product version as described below:\n\nStatistics Release 25  1. Type (copy/paste) the following command: \n    \n    sudo chown -R root:admin 20\n    \n 2. Press Enter/Return. \n 3. Close Terminal. \n 4. Launch the License Authorization Wizard. \n 5. The warning message should no longer appear. \n 6. License your IBM SPSS Statistics product. [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.4,
+            "issues": [
+              {
+                "code": "fact_7d8523caec",
+                "description": "The command for chown is incorrect; it should be 25 instead of 20.",
+                "suggestion": "Correct this claim using supplied evidence"
+              },
+              {
+                "code": "fact_8dc4e40328",
+                "description": "The evidence does not address the issue of the license not being recognized.",
+                "suggestion": "Correct this claim using supplied evidence"
+              },
+              {
+                "code": "fact_ea49185a21",
+                "description": "The evidence does not confirm that the activation code has been entered correctly.",
+                "suggestion": "Correct this claim using supplied evidence"
+              }
+            ],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        },
+        {
+          "attempt": 2,
+          "diagnosis": "Below is a picture of the warning: \n\n[/support/docview.wss?uid=swg21966637&aid=1] [/support/docview.wss?uid=swg21966637&aid=1]\n\nIf you encounter this message, perform the following procedure:\n\n\n 1.  If open, close the IBM SPSS Statistics product. \n 2.  If open, close the License Authorization Wizard. \n 3.  Open Finder. \n 4.  Select the 'Go' menu. \n 5.  Select the 'Utilities' menu. \n 6.  Open the 'Terminal' program. \n 7.  Type (copy/paste) the following command:\n     \n     cd /Applications/IBM/SPSS/Statistics/ \n 8.   \n 9.  Press Enter/Return. \n 10. Perform the procedure corresponding to the Statistics product version as described below:\n\nStatistics Release 25  1. Type (copy/paste) the following command: \n    \n    sudo chown -R root:admin 20\n    \n 2. Press Enter/Return. \n 3. Close Terminal. \n 4. Launch the License Authorization Wizard. \n 5. The warning message should no longer appear. \n 6. License your IBM SPSS Statistics product. [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.0,
+            "issues": [
+              {
+                "code": "invalid_model_output",
+                "description": "Model validation: ValueError: Claim contains a critical literal absent from question/source",
+                "suggestion": "Return concise schema-valid JSON; for evidence selection false requires [] and true requires allowed IDs. Use only evidence"
+              }
+            ],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": [
+            {
+              "issue_id": "fact_7d8523caec",
+              "description": "The command for chown is incorrect; it should be 25 instead of 20.",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "The command for chown is incorrect; it should be 25 instead of 20."
+            },
+            {
+              "issue_id": "fact_8dc4e40328",
+              "description": "The evidence does not address the issue of the license not being recognized.",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "The evidence does not address the issue of the license not being recognized."
+            },
+            {
+              "issue_id": "fact_ea49185a21",
+              "description": "The evidence does not confirm that the activation code has been entered correctly.",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "The evidence does not confirm that the activation code has been entered correctly."
+            }
+          ]
+        },
+        {
+          "attempt": 3,
+          "diagnosis": "Close the IBM SPSS Statistics product and the License Authorization Wizard if open. [1]\nOpen Terminal and navigate to the IBM SPSS Statistics application directory. [1]\nRun the command `sudo chown -R root:admin 25` to change the file permissions. [1]\nClose Terminal, launch the License Authorization Wizard, and license the product. [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.4,
+            "issues": [
+              {
+                "code": "fact_d277a38b06",
+                "description": "The evidence does not specify the exact path to the SPSS 25 application.",
+                "suggestion": "Correct this claim using supplied evidence"
+              },
+              {
+                "code": "fact_47e873fc87",
+                "description": "The evidence does not mention the activation code.",
+                "suggestion": "Correct this claim using supplied evidence"
+              },
+              {
+                "code": "fact_be72bae59b",
+                "description": "The evidence does not provide a workaround if the command fails.",
+                "suggestion": "Correct this claim using supplied evidence"
+              }
+            ],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": [
+            {
+              "issue_id": "invalid_model_output",
+              "description": "Model validation: ValueError: Claim contains a critical literal absent from question/source",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "Model validation: ValueError: Claim contains a critical literal absent from question/source"
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "llm_calls": 5,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 4613,
+        "output_tokens": 593,
+        "latency_ms": 38500.91960001737
+      }
+    },
+    "initial_accepted": false,
+    "final_accepted": false,
+    "calls": 5,
+    "tokens": 5206,
+    "retries": 2,
+    "latency_ms": 38500.91960001737,
+    "error": true,
+    "raw_model_outputs": [
+      "{\n  \"verdict\": \"revise\",\n  \"issues\": [\n    \"The command for chown is incorrect; it should be 25 instead of 20.\",\n    \"The evidence does not address the issue of the license not being recognized.\",\n    \"The evidence does not confirm that the activation code has been entered correctly.\"\n  ]\n}",
+      "{\n  \"claims\": [\n    {\n      \"text\": \"If open, close the IBM SPSS Statistics product.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"If open, close the License Authorization Wizard.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"Open Finder, select the 'Go' menu, select the 'Utilities' menu, and open the 'Terminal' program.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"Type (copy/paste) the following command: cd /Applications/IBM/SPSS/Statistics/ and press Enter/Return.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"Type (copy/paste) the following command: sudo chown -R root:admin 25, press Enter/Return, close Terminal, launch the License Authorization Wizard, and the warning message should no longer appear.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"License your IBM SPSS Statistics product.\",\n      \"source_id\": \"1\"\n    }\n  ],\n  \"coverage\": {\n    \"activation_on_new_host\": true,\n    \"required_steps\": true\n  }\n}",
+      "{\n  \"claims\": [\n    {\n      \"text\": \"Close the IBM SPSS Statistics product and the License Authorization Wizard if open.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"Open Terminal and navigate to the IBM SPSS Statistics application directory.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"Run the command `sudo chown -R root:admin 25` to change the file permissions.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"Close Terminal, launch the License Authorization Wizard, and license the product.\",\n      \"source_id\": \"1\"\n    }\n  ],\n  \"coverage\": {\n    \"activation_on_new_host\": true,\n    \"required_steps\": true\n  }\n}",
+      "{\n  \"c0\": {\n    \"supported\": true,\n    \"quote_id\": \"c0_0\",\n    \"reason\": \"\"\n  },\n  \"c1\": {\n    \"supported\": true,\n    \"quote_id\": \"c1_0\",\n    \"reason\": \"\"\n  },\n  \"c2\": {\n    \"supported\": true,\n    \"quote_id\": \"c2_0\",\n    \"reason\": \"\"\n  },\n  \"c3\": {\n    \"supported\": true,\n    \"quote_id\": \"c3_0\",\n    \"reason\": \"\"\n  }\n}",
+      "{\n  \"verdict\": \"revise\",\n  \"issues\": [\n    \"The evidence does not specify the exact path to the SPSS 25 application.\",\n    \"The evidence does not mention the activation code.\",\n    \"The evidence does not provide a workaround if the command fails.\"\n  ]\n}"
+    ]
+  },
+  {
+    "case": "adjacent_version",
+    "version": "improved_critic",
+    "expected_valid": false,
+    "run": {
+      "final_diagnosis": "Below is a picture of the warning: \n\n[/support/docview.wss?uid=swg21966637&aid=1] [/support/docview.wss?uid=swg21966637&aid=1]\n\nIf you encounter this message, perform the following procedure:\n\n\n 1.  If open, close the IBM SPSS Statistics product. \n 2.  If open, close the License Authorization Wizard. \n 3.  Open Finder. \n 4.  Select the 'Go' menu. \n 5.  Select the 'Utilities' menu. \n 6.  Open the 'Terminal' program. \n 7.  Type (copy/paste) the following command:\n     \n     cd /Applications/IBM/SPSS/Statistics/ \n 8.   \n 9.  Press Enter/Return. \n 10. Perform the procedure corresponding to the Statistics product version as described below:\n\nStatistics Release 25  1. Type (copy/paste) the following command: \n    \n    sudo chown -R root:admin 20\n    \n 2. Press Enter/Return. \n 3. Close Terminal. \n 4. Launch the License Authorization Wizard. \n 5. The warning message should no longer appear. \n 6. License your IBM SPSS Statistics product. [1]",
+      "passed": true,
+      "answer_sufficient": true,
+      "retries": 0,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "Below is a picture of the warning: \n\n[/support/docview.wss?uid=swg21966637&aid=1] [/support/docview.wss?uid=swg21966637&aid=1]\n\nIf you encounter this message, perform the following procedure:\n\n\n 1.  If open, close the IBM SPSS Statistics product. \n 2.  If open, close the License Authorization Wizard. \n 3.  Open Finder. \n 4.  Select the 'Go' menu. \n 5.  Select the 'Utilities' menu. \n 6.  Open the 'Terminal' program. \n 7.  Type (copy/paste) the following command:\n     \n     cd /Applications/IBM/SPSS/Statistics/ \n 8.   \n 9.  Press Enter/Return. \n 10. Perform the procedure corresponding to the Statistics product version as described below:\n\nStatistics Release 25  1. Type (copy/paste) the following command: \n    \n    sudo chown -R root:admin 20\n    \n 2. Press Enter/Return. \n 3. Close Terminal. \n 4. Launch the License Authorization Wizard. \n 5. The warning message should no longer appear. \n 6. License your IBM SPSS Statistics product. [1]",
+          "critique": {
+            "passed": true,
+            "score": 0.9,
+            "issues": [],
+            "principal_request": "Help activate SPSS 25 on a new MacBook Pro using the existing activation code.",
+            "required_facts": [
+              "activation_on_new_host",
+              "required_steps"
+            ],
+            "covered_facts": [
+              "activation_on_new_host",
+              "required_steps"
+            ],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        }
+      ],
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 1098,
+        "output_tokens": 156,
+        "latency_ms": 10159.503699978814
+      }
+    },
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 1,
+    "tokens": 1254,
+    "retries": 0,
+    "latency_ms": 10159.503699978814,
+    "error": false,
+    "raw_model_outputs": [
+      "{\n  \"principal_request\": \"Help activate SPSS 25 on a new MacBook Pro using the existing activation code.\",\n  \"operation_check\": {\n    \"requested_operation\": \"Activate SPSS 25 on a new computer.\",\n    \"answered_operation\": \"Provided steps to activate SPSS 25 on a new computer.\",\n    \"reason\": \"The answer provided the steps to activate SPSS 25, which matches the requested operation.\",\n    \"matches\": true\n  },\n  \"coverage\": {\n    \"activation_on_new_host\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_2\",\n      \"answer_quote_id\": \"a2\"\n    },\n    \"required_steps\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_2\",\n      \"answer_quote_id\": \"a2\"\n    }\n  },\n  \"incorrect_facts\": []\n}"
+    ]
+  },
+  {
+    "case": "wrong_operation",
+    "version": "no_critic",
+    "expected_valid": false,
+    "run": null,
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 0,
+    "tokens": 0,
+    "retries": 0,
+    "latency_ms": 0,
+    "error": false
+  },
+  {
+    "case": "wrong_operation",
+    "version": "legacy_critic",
+    "expected_valid": false,
+    "run": {
+      "final_diagnosis": "The license key center is a secure site. Only the Primary contact (generally the person who purchased your product), site technical contact, or their designated contacts are able to access it.\n\n\nIf you already have access navigate to: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm.com/predictiveanalytics/get-help/] \n- Select SPSS Statistics Version 25, 24, 23... Scroll down to Licensing section - Get your license key \n\n\nClick on Button: \"Visit the License Key Center\" or use the direct link below:\nhttps://spss.subscribenet.com/control/ibmp/login [https://spss.subscribenet.com/control/ibmp/login]\n\nIf you continue to have issues, please review our SPSS licensing forum https://developer.ibm.com/answers/topics/spsslicensing.html [https://developer.ibm.com/answers/topics/spsslicensing.html] [2]",
+      "passed": false,
+      "answer_sufficient": false,
+      "retries": 2,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "The license key center is a secure site. Only the Primary contact (generally the person who purchased your product), site technical contact, or their designated contacts are able to access it.\n\n\nIf you already have access navigate to: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm.com/predictiveanalytics/get-help/] \n- Select SPSS Statistics Version 25, 24, 23... Scroll down to Licensing section - Get your license key \n\n\nClick on Button: \"Visit the License Key Center\" or use the direct link below:\nhttps://spss.subscribenet.com/control/ibmp/login [https://spss.subscribenet.com/control/ibmp/login]\n\nIf you continue to have issues, please review our SPSS licensing forum https://developer.ibm.com/answers/topics/spsslicensing.html [https://developer.ibm.com/answers/topics/spsslicensing.html] [2]",
+          "critique": {
+            "passed": false,
+            "score": 0.4,
+            "issues": [
+              {
+                "code": "fact_d274248a03",
+                "description": "The evidence does not confirm the user has access to the license key center.",
+                "suggestion": "Correct this claim using supplied evidence"
+              },
+              {
+                "code": "fact_3a9833937e",
+                "description": "The evidence does not provide a step-by-step guide for the user to verify their license on the new computer.",
+                "suggestion": "Correct this claim using supplied evidence"
+              },
+              {
+                "code": "fact_724227ff28",
+                "description": "The evidence does not address potential issues with the activation code or the installation process.",
+                "suggestion": "Correct this claim using supplied evidence"
+              }
+            ],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        },
+        {
+          "attempt": 2,
+          "diagnosis": "The license key center is a secure site. Only the Primary contact (generally the person who purchased your product), site technical contact, or their designated contacts are able to access it.\n\n\nIf you already have access navigate to: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm.com/predictiveanalytics/get-help/] \n- Select SPSS Statistics Version 25, 24, 23... Scroll down to Licensing section - Get your license key \n\n\nClick on Button: \"Visit the License Key Center\" or use the direct link below:\nhttps://spss.subscribenet.com/control/ibmp/login [https://spss.subscribenet.com/control/ibmp/login]\n\nIf you continue to have issues, please review our SPSS licensing forum https://developer.ibm.com/answers/topics/spsslicensing.html [https://developer.ibm.com/answers/topics/spsslicensing.html] [2]",
+          "critique": {
+            "passed": false,
+            "score": 0.0,
+            "issues": [
+              {
+                "code": "invalid_model_output",
+                "description": "Model validation: ValueError: Claim/source entailment failed: c0: The provided source does not support the specific commands and paths mentioned in the claim. The source does not mention the `sudo chown -R root:admin 25` command or the path `/usr; c1: The provided source does not support the recomme",
+                "suggestion": "Return concise schema-valid JSON; for evidence selection false requires [] and true requires allowed IDs. Use only evidence"
+              }
+            ],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": [
+            {
+              "issue_id": "fact_d274248a03",
+              "description": "The evidence does not confirm the user has access to the license key center.",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "The evidence does not confirm the user has access to the license key center."
+            },
+            {
+              "issue_id": "fact_3a9833937e",
+              "description": "The evidence does not provide a step-by-step guide for the user to verify their license on the new computer.",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "The evidence does not provide a step-by-step guide for the user to verify their license on the new computer."
+            },
+            {
+              "issue_id": "fact_724227ff28",
+              "description": "The evidence does not address potential issues with the activation code or the installation process.",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "The evidence does not address potential issues with the activation code or the installation process."
+            }
+          ]
+        },
+        {
+          "attempt": 3,
+          "diagnosis": "The license key center is a secure site. Only the Primary contact (generally the person who purchased your product), site technical contact, or their designated contacts are able to access it.\n\n\nIf you already have access navigate to: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm.com/predictiveanalytics/get-help/] \n- Select SPSS Statistics Version 25, 24, 23... Scroll down to Licensing section - Get your license key \n\n\nClick on Button: \"Visit the License Key Center\" or use the direct link below:\nhttps://spss.subscribenet.com/control/ibmp/login [https://spss.subscribenet.com/control/ibmp/login]\n\nIf you continue to have issues, please review our SPSS licensing forum https://developer.ibm.com/answers/topics/spsslicensing.html [https://developer.ibm.com/answers/topics/spsslicensing.html] [2]",
+          "critique": {
+            "passed": false,
+            "score": 0.0,
+            "issues": [
+              {
+                "code": "invalid_model_output",
+                "description": "Model validation: ValueError: Claim/source entailment failed: c0: The provided source does not mention the specific command `sudo chown -R root:admin 25` for SPSS 25. The source only provides a general procedure for handling license issues, but a",
+                "suggestion": "Return concise schema-valid JSON; for evidence selection false requires [] and true requires allowed IDs. Use only evidence"
+              }
+            ],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": [
+            {
+              "issue_id": "invalid_model_output",
+              "description": "Model validation: ValueError: Claim/source entailment failed: c0: The provided source does not support the specific commands and paths mentioned in the claim. The source does not mention the `sudo chown -R root:admin 25` command or the path `/usr; c1: The provided source does not support the recomme",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "Model validation: ValueError: Claim/source entailment failed: c0: The provided source does not support the specific commands and paths mentioned in the claim. The source does not mention the `sudo chown -R root:admin 25` command or the path `/usr; c1: The provided source does not support the recomme"
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "llm_calls": 5,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 4504,
+        "output_tokens": 836,
+        "latency_ms": 54300.04459997872
+      }
+    },
+    "initial_accepted": false,
+    "final_accepted": false,
+    "calls": 5,
+    "tokens": 5340,
+    "retries": 2,
+    "latency_ms": 54300.04459997872,
+    "error": true,
+    "raw_model_outputs": [
+      "{\n  \"verdict\": \"revise\",\n  \"issues\": [\n    \"The evidence does not confirm the user has access to the license key center.\",\n    \"The evidence does not provide a step-by-step guide for the user to verify their license on the new computer.\",\n    \"The evidence does not address potential issues with the activation code or the installation process.\"\n  ]\n}",
+      "{\n  \"claims\": [\n    {\n      \"text\": \"To activate SPSS 25 on your new MacBook Pro, follow these steps:\\n1. Close the IBM SPSS Statistics product if open.\\n2. Close the License Authorization Wizard if open.\\n3. Open Finder and select the 'Go' menu, then the 'Utilities' menu.\\n4. Open the 'Terminal' program.\\n5. Type (copy/paste) the following command:\\ncd /Applications/IBM/SPSS/Statistics/\\n6. Press Enter/Return.\\n7. Type (copy/paste) the following command:\\nsudo chown -R root:admin 25\\n8. Press Enter/Return.\\n9. Close Terminal.\\n10. Launch the License Authorization Wizard.\\n11. Enter your activation code when prompted.\\n12. The warning message should no longer appear.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"If you encounter issues, visit the IBM SPSS Statistics support page: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm.com/predictiveanalytics/get-help/]. Navigate to the Licensing section and get your license key. If you continue to have issues, review the SPSS licensing forum: https://developer.ibm.com/answers/topics/spsslicensing.html [https://developer.ibm.com/answers/topics/spsslicensing.html].\",\n      \"source_id\": \"2\"\n    }\n  ],\n  \"coverage\": {\n    \"activation_on_new_host\": true,\n    \"required_steps\": true\n  }\n}",
+      "{\n  \"c0\": {\n    \"supported\": false,\n    \"quote_id\": \"\",\n    \"reason\": \"The provided source does not support the specific commands and paths mentioned in the claim. The source does not mention the `sudo chown -R root:admin 25` command or the path `/usr\"},\"c1\": {\n    \"supported\": false,\n    \"quote_id\": \"\",\n    \"reason\": \"The provided source does not support the recommendation to visit the IBM SPSS Statistics support page or the licensing forum. The source only provides information on accessing the \"}\n}",
+      "{\n  \"claims\": [\n    {\n      \"text\": \"If you encounter this message, perform the following procedure:\\n\\n1. If open, close the IBM SPSS Statistics product.\\n2. If open, close the License Authorization Wizard.\\n3. Open Finder.\\n4. Select the 'Go' menu.\\n5. Select the 'Utilities' menu.\\n6. Open the 'Terminal' program.\\n7. Type (copy/paste) the following command:\\n\\n    cd /Applications/IBM/SPSS/Statistics/\\n8. Press Enter/Return.\\n9. Perform the procedure corresponding to the Statistics product version as described below:\\n\\nStatistics Release 25  1. Type (copy/paste) the following command: \\n\\n    sudo chown -R root:admin 25\\n\\n2. Press Enter/Return.\\n3. Close Terminal.\\n4. Launch the License Authorization Wizard.\\n5. The warning message should no longer appear.\\n6. License your IBM SPSS Statistics product.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"The license key center is a secure site. Only the Primary contact (generally the person who purchased your product), site technical contact, or their designated contacts are able to access it.\\n\\nIf you already have access navigate to: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm.com/predictiveanalytics/get-help/] \\n- Select SPSS Statistics Version 25, 24, 23... Scroll down to Licensing section - Get your license key \\n\\nClick on Button: \\\"Visit the License Key Center\\\" or use the direct link below:\\nhttps://spss.subscribenet.com/control/ibmp/login [https://spss.subscribenet.com/control/ibmp/login]\",\n      \"source_id\": \"2\"\n    }\n  ],\n  \"coverage\": {\n    \"activation_on_new_host\": true,\n    \"required_steps\": true\n  }\n}",
+      "{\n  \"c0\": {\n    \"supported\": false,\n    \"quote_id\": \"\",\n    \"reason\": \"The provided source does not mention the specific command `sudo chown -R root:admin 25` for SPSS 25. The source only provides a general procedure for handling license issues, but a\"\n  },\n  \"c1\": {\n    \"supported\": true,\n    \"quote_id\": \"c1_0\",\n    \"reason\": \"The source explicitly states that the license key center is a secure site and only the Primary contact, site technical contact, or their designated contacts can access it. The URL \"\n  }\n}"
+    ]
+  },
+  {
+    "case": "wrong_operation",
+    "version": "improved_critic",
+    "expected_valid": false,
+    "run": {
+      "final_diagnosis": "To activate SPSS 25 on your new MacBook Pro, follow these steps after ensuring you have the activation code. [1]\n1. Close the IBM SPSS Statistics product if open. [1]\n2. Close the License Authorization Wizard if open. [1]\n3. Open Finder and navigate to the Terminal program. [1]\n4. Change the ownership of the SPSS 25 folder using the command: sudo chown -R root:admin 25. [1]\n5. Launch the License Authorization Wizard and enter your activation code. [1]",
+      "passed": false,
+      "answer_sufficient": false,
+      "retries": 2,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "The license key center is a secure site. Only the Primary contact (generally the person who purchased your product), site technical contact, or their designated contacts are able to access it.\n\n\nIf you already have access navigate to: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm.com/predictiveanalytics/get-help/] \n- Select SPSS Statistics Version 25, 24, 23... Scroll down to Licensing section - Get your license key \n\n\nClick on Button: \"Visit the License Key Center\" or use the direct link below:\nhttps://spss.subscribenet.com/control/ibmp/login [https://spss.subscribenet.com/control/ibmp/login]\n\nIf you continue to have issues, please review our SPSS licensing forum https://developer.ibm.com/answers/topics/spsslicensing.html [https://developer.ibm.com/answers/topics/spsslicensing.html] [2]",
+          "critique": {
+            "passed": false,
+            "score": 0.4,
+            "issues": [
+              {
+                "code": "fact_4b14ef1f31",
+                "description": "Missing required fact: activation_on_new_host",
+                "suggestion": "Address this exact request fact using supplied evidence; preserve conditions; refuse if evidence is insufficient"
+              },
+              {
+                "code": "fact_09167adf96",
+                "description": "Missing required fact: required_steps",
+                "suggestion": "Address this exact request fact using supplied evidence; preserve conditions; refuse if evidence is insufficient"
+              },
+              {
+                "code": "fact_0988f2ad51",
+                "description": "Answer operation does not address principal request: The answer does not provide specific steps to activate the software on the new computer using the existing activation code.",
+                "suggestion": "Address this exact request fact using supplied evidence; preserve conditions; refuse if evidence is insufficient"
+              }
+            ],
+            "principal_request": "Help activate SPSS 25 on a new MacBook Pro using the existing activation code.",
+            "required_facts": [
+              "activation_on_new_host",
+              "required_steps"
+            ],
+            "covered_facts": [],
+            "missing_facts": [
+              "activation_on_new_host",
+              "required_steps"
+            ],
+            "incorrect_facts": [
+              "Answer operation does not address principal request: The answer does not provide specific steps to activate the software on the new computer using the existing activation code."
+            ]
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        },
+        {
+          "attempt": 2,
+          "diagnosis": "To activate SPSS 25 on your new MacBook Pro, follow these steps after ensuring you have the activation code. [1]\n1. Close the IBM SPSS Statistics product if open. [1]\n2. Close the License Authorization Wizard if open. [1]\n3. Open Finder and navigate to the Terminal program. [1]\n4. Change the ownership of the SPSS 25 folder using the command: sudo chown -R root:admin 25. [1]\n5. Launch the License Authorization Wizard and enter your activation code. [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.3,
+            "issues": [
+              {
+                "code": "fact_4b14ef1f31",
+                "description": "Missing required fact: activation_on_new_host",
+                "suggestion": "Previous issue lacks explicit repair proof"
+              },
+              {
+                "code": "fact_09167adf96",
+                "description": "Missing required fact: required_steps",
+                "suggestion": "Previous issue lacks explicit repair proof"
+              },
+              {
+                "code": "fact_0988f2ad51",
+                "description": "Answer operation does not address principal request: The answer does not provide specific steps to activate the software on the new computer using the existing activation code.",
+                "suggestion": "Previous issue lacks explicit repair proof"
+              }
+            ],
+            "principal_request": "Help activate SPSS 25 on a new MacBook Pro using the existing activation code.",
+            "required_facts": [
+              "activation_on_new_host",
+              "required_steps"
+            ],
+            "covered_facts": [
+              "activation_on_new_host",
+              "required_steps"
+            ],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": [
+            {
+              "issue_id": "fact_4b14ef1f31",
+              "description": "Missing required fact: activation_on_new_host",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "Missing required fact: activation_on_new_host"
+            },
+            {
+              "issue_id": "fact_09167adf96",
+              "description": "Missing required fact: required_steps",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "Missing required fact: required_steps"
+            },
+            {
+              "issue_id": "fact_0988f2ad51",
+              "description": "Answer operation does not address principal request: The answer does not provide specific steps to activate the software on the new computer using the existing activation code.",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "Answer operation does not address principal request: The answer does not provide specific steps to activate the software on the new computer using the existing activation code."
+            }
+          ]
+        },
+        {
+          "attempt": 3,
+          "diagnosis": "To activate SPSS 25 on your new MacBook Pro, follow these steps after ensuring you have the activation code. [1]\n1. Close the IBM SPSS Statistics product if open. [1]\n2. Close the License Authorization Wizard if open. [1]\n3. Open Finder and navigate to the Terminal program. [1]\n4. Change the ownership of the SPSS 25 folder using the command: sudo chown -R root:admin 25. [1]\n5. Launch the License Authorization Wizard and enter your activation code. [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.3,
+            "issues": [
+              {
+                "code": "fact_4b14ef1f31",
+                "description": "Missing required fact: activation_on_new_host",
+                "suggestion": "Previous issue lacks explicit repair proof"
+              },
+              {
+                "code": "fact_09167adf96",
+                "description": "Missing required fact: required_steps",
+                "suggestion": "Previous issue lacks explicit repair proof"
+              },
+              {
+                "code": "fact_0988f2ad51",
+                "description": "Answer operation does not address principal request: The answer does not provide specific steps to activate the software on the new computer using the existing activation code.",
+                "suggestion": "Previous issue lacks explicit repair proof"
+              }
+            ],
+            "principal_request": "Help activate SPSS 25 on a new MacBook Pro using the existing activation code.",
+            "required_facts": [
+              "activation_on_new_host",
+              "required_steps"
+            ],
+            "covered_facts": [
+              "activation_on_new_host",
+              "required_steps"
+            ],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": [
+            {
+              "issue_id": "fact_4b14ef1f31",
+              "description": "Missing required fact: activation_on_new_host",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "Missing required fact: activation_on_new_host"
+            },
+            {
+              "issue_id": "fact_09167adf96",
+              "description": "Missing required fact: required_steps",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "Missing required fact: required_steps"
+            },
+            {
+              "issue_id": "fact_0988f2ad51",
+              "description": "Answer operation does not address principal request: The answer does not provide specific steps to activate the software on the new computer using the existing activation code.",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "Answer operation does not address principal request: The answer does not provide specific steps to activate the software on the new computer using the existing activation code."
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "llm_calls": 9,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 10724,
+        "output_tokens": 2049,
+        "latency_ms": 124758.81239998853
+      }
+    },
+    "initial_accepted": false,
+    "final_accepted": false,
+    "calls": 9,
+    "tokens": 12773,
+    "retries": 2,
+    "latency_ms": 124758.81239998853,
+    "error": false,
+    "raw_model_outputs": [
+      "{\n  \"principal_request\": \"Help activate SPSS 25 on a new MacBook Pro using the existing activation code.\",\n  \"operation_check\": {\n    \"requested_operation\": \"Activate SPSS 25 on a new computer using an existing activation code.\",\n    \"answered_operation\": \"Provide instructions to access the License Key Center and obtain a license key, but does not directly address activating the software on the new computer.\",\n    \"reason\": \"The answer does not provide specific steps to activate the software on the new computer using the existing activation code.\",\n    \"matches\": false\n  },\n  \"coverage\": {\n    \"activation_on_new_host\": {\n      \"covered\": false,\n      \"evidence_quote_id\": \"\",\n      \"answer_quote_id\": \"\"\n    },\n    \"required_steps\": {\n      \"covered\": false,\n      \"evidence_quote_id\": \"\",\n      \"answer_quote_id\": \"\"\n    }\n  },\n  \"incorrect_facts\": [\n    \"The answer suggests accessing the License Key Center to obtain a license key, but does not provide specific steps to activate the software on the new computer using the existing activation code.\"\n  ]\n}",
+      "{\n  \"claims\": [\n    {\n      \"text\": \"To activate SPSS 25 on your new MacBook Pro, follow these steps after ensuring you have the activation code.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"1. Close the IBM SPSS Statistics product if open.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"2. Close the License Authorization Wizard if open.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"3. Open Finder and navigate to the Terminal program.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"4. Change the ownership of the SPSS 25 folder using the command: sudo chown -R root:admin 25.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"5. Launch the License Authorization Wizard and enter your activation code.\",\n      \"source_id\": \"1\"\n    }\n  ],\n  \"coverage\": {\n    \"activation_on_new_host\": true,\n    \"required_steps\": true\n  }\n}",
+      "{\n  \"c0\": {\n    \"supported\": true,\n    \"quote_id\": \"c0_2\",\n    \"reason\": \"\"\n  },\n  \"c1\": {\n    \"supported\": true,\n    \"quote_id\": \"c1_0\",\n    \"reason\": \"\"\n  },\n  \"c2\": {\n    \"supported\": true,\n    \"quote_id\": \"c2_0\",\n    \"reason\": \"\"\n  },\n  \"c3\": {\n    \"supported\": true,\n    \"quote_id\": \"c3_0\",\n    \"reason\": \"\"\n  },\n  \"c4\": {\n    \"supported\": true,\n    \"quote_id\": \"c4_0\",\n    \"reason\": \"\"\n  },\n  \"c5\": {\n    \"supported\": true,\n    \"quote_id\": \"c5_0\",\n    \"reason\": \"\"\n  }\n}",
+      "{\n  \"principal_request\": \"Help activate SPSS 25 on a new MacBook Pro using the existing activation code.\",\n  \"operation_check\": {\n    \"requested_operation\": \"Activate SPSS 25 on a new computer.\",\n    \"answered_operation\": \"Provide steps to activate SPSS 25 on a new computer using the existing activation code.\",\n    \"reason\": \"The answer provides the necessary steps to activate SPSS 25 on a new computer, which matches the requested operation.\",\n    \"matches\": true\n  },\n  \"coverage\": {\n    \"activation_on_new_host\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_2\",\n      \"answer_quote_id\": \"a0\"\n    },\n    \"required_steps\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_2\",\n      \"answer_quote_id\": \"a0\"\n    }\n  },\n  \"incorrect_facts\": []\n}",
+      "{\n  \"resolutions\": [\n    {\n      \"issue_id\": \"fact_4b14ef1f31\",\n      \"resolved\": true,\n      \"source_ids\": [\"1\"],\n      \"evidence_quote\": \"1. If open, close the IBM SPSS Statistics product.\\n2. If open, close the License Authorization Wizard.\",\n      \"answer_quote\": \"1. Close the IBM SPSS Statistics product if open.\\n2. Close the License Authorization Wizard if open.\",\n      \"remaining_problem\": \"\"\n    },\n    {\n      \"issue_id\": \"fact_09167adf96\",\n      \"resolved\": true,\n      \"source_ids\": [\"1\"],\n      \"evidence_quote\": \"3. Open Finder and navigate to the Terminal program.\",\n      \"answer_quote\": \"3. Open Finder and navigate to the Terminal program.\",\n      \"remaining_problem\": \"\"\n    },\n    {\n      \"issue_id\": \"fact_0988f2ad51\",\n      \"resolved\": true,\n      \"source_ids\": [\"1\"],\n      \"evidence_quote\": \"7. Type (copy/paste) the following command:\\ncd /Applications/IBM/SPSS/Statistics/\\nsudo chown -R root:admin 25\",\n      \"answer_quote\": \"4. Change the ownership of the SPSS 25 folder using the command: sudo chown -R root:admin 25.\",\n      \"remaining_problem\": \"\"\n    }\n  ]\n}",
+      "{\n  \"claims\": [\n    {\n      \"text\": \"To activate SPSS 25 on your new MacBook Pro, follow these steps after ensuring you have the activation code.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"1. Close the IBM SPSS Statistics product if open.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"2. Close the License Authorization Wizard if open.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"3. Open Finder and navigate to the Terminal program.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"4. Change the ownership of the SPSS 25 folder using the command: sudo chown -R root:admin 25.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"5. Launch the License Authorization Wizard and enter your activation code.\",\n      \"source_id\": \"1\"\n    }\n  ],\n  \"coverage\": {\n    \"activation_on_new_host\": true,\n    \"required_steps\": true\n  }\n}",
+      "{\n  \"c0\": {\n    \"supported\": true,\n    \"quote_id\": \"c0_2\",\n    \"reason\": \"\"\n  },\n  \"c1\": {\n    \"supported\": true,\n    \"quote_id\": \"c1_0\",\n    \"reason\": \"\"\n  },\n  \"c2\": {\n    \"supported\": true,\n    \"quote_id\": \"c2_0\",\n    \"reason\": \"\"\n  },\n  \"c3\": {\n    \"supported\": true,\n    \"quote_id\": \"c3_0\",\n    \"reason\": \"\"\n  },\n  \"c4\": {\n    \"supported\": true,\n    \"quote_id\": \"c4_0\",\n    \"reason\": \"\"\n  },\n  \"c5\": {\n    \"supported\": true,\n    \"quote_id\": \"c5_0\",\n    \"reason\": \"\"\n  }\n}",
+      "{\n  \"principal_request\": \"Help activate SPSS 25 on a new MacBook Pro using the existing activation code.\",\n  \"operation_check\": {\n    \"requested_operation\": \"Activate SPSS 25 on a new computer.\",\n    \"answered_operation\": \"Provide steps to activate SPSS 25 on a new computer using the existing activation code.\",\n    \"reason\": \"The answer provides the necessary steps to activate SPSS 25 on a new computer, which matches the requested operation.\",\n    \"matches\": true\n  },\n  \"coverage\": {\n    \"activation_on_new_host\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_2\",\n      \"answer_quote_id\": \"a0\"\n    },\n    \"required_steps\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_2\",\n      \"answer_quote_id\": \"a0\"\n    }\n  },\n  \"incorrect_facts\": []\n}",
+      "{\n  \"resolutions\": [\n    {\n      \"issue_id\": \"fact_4b14ef1f31\",\n      \"resolved\": true,\n      \"source_ids\": [\"1\"],\n      \"evidence_quote\": \"If you encounter this message, perform the following procedure:\\n\\n1. If open, close the IBM SPSS Statistics product.\\n2. If open, close the License Authorization Wizard.\\n3. Open Finder.\\n4. Select the 'Go' menu.\\n5. Select the 'Utilities' menu.\\n6. Open the 'Terminal' program.\\n7. Type (copy/paste) the following command:\\n   cd /Applications/IBM/SPSS/Statistics/ \\n8. Press Enter/Return.\\n9. Perform the procedure corresponding to the Statistics product version as described below:\",\n      \"answer_quote\": \"1. Close the IBM SPSS Statistics product if open.\\n2. Close the License Authorization Wizard if open.\\n3. Open Finder and navigate to the Terminal program.\",\n      \"remaining_problem\": \"\"\n    },\n    {\n      \"issue_id\": \"fact_09167adf96\",\n      \"resolved\": true,\n      \"source_ids\": [\"1\"],\n      \"evidence_quote\": \"If you encounter this message, perform the following procedure:\\n\\n1. If open, close the IBM SPSS Statistics product.\\n2. If open, close the License Authorization Wizard.\\n3. Open Finder.\\n4. Select the 'Go' menu.\\n5. Select the 'Utilities' menu.\\n6. Open the 'Terminal' program.\\n7. Type (copy/paste) the following command:\\n   cd /Applications/IBM/SPSS/Statistics/ \\n8. Press Enter/Return.\\n9. Perform the procedure corresponding to the Statistics product version as described below:\",\n      \"answer_quote\": \"1. Close the IBM SPSS Statistics product if open.\\n2. Close the License Authorization Wizard if open.\\n3. Open Finder and navigate to the Terminal program.\",\n      \"remaining_problem\": \"\"\n    },\n    {\n      \"issue_id\": \"fact_0988f2ad51\",\n      \"resolved\": true,\n      \"source_ids\": [\"1\"],\n      \"evidence_quote\": \"If you encounter this message, perform the following procedure:\\n\\n1. If open, close the IBM SPSS Statistics product.\\n2. If open, close the License Authorization Wizard.\\n3. Open Finder.\\n4. Select the 'Go' menu.\\n5. Select the 'Utilities' menu.\\n6. Open the 'Terminal' program.\\n7. Type (copy/paste) the following command:\\n   cd /Applications/IBM/SPSS/Statistics/ \\n8. Press Enter/Return.\\n9. Perform the procedure corresponding to the Statistics product version as described below:\",\n      \"answer_quote\": \"1. Close the IBM SPSS Statistics product if open.\\n2. Close the License Authorization Wizard if open.\\n3. Open Finder and navigate to the Terminal program.\\n4. Change the ownership of the SPSS 25 folder using the command: sudo chown -R root:admin 25.\\n5. Launch the License Authorization Wizard and enter your activation code.\",\n      \"remaining_problem\": \"\"\n    }\n  ]\n}"
+    ]
+  },
+  {
+    "case": "wrong_component",
+    "version": "no_critic",
+    "expected_valid": false,
+    "run": null,
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 0,
+    "tokens": 0,
+    "retries": 0,
+    "latency_ms": 0,
+    "error": false
+  },
+  {
+    "case": "wrong_component",
+    "version": "legacy_critic",
+    "expected_valid": false,
+    "run": {
+      "final_diagnosis": "Default behaviour when no credentials are supplied in the application server \n\nIf no credentials are supplied by the application on the createConnection call, and neither of the component managed or container managed security systems described below are configured, then WebSphere Application Server provides a blank username to MQ. This causes MQ to authorise the client based on the userid that the MQ listener is running under. In the majority of cases this is 'mqm' on UNIX/Linux systems and 'MUSR_MQADMIN' on Windows. \n\nAs these are administrative MQ users, they will be blocked by default in WebSphere MQ V7.1 and higher, with a AMQ9777 error logged in the error logs of the queue manager.\n\nDefault container-managed authentication alias for outbound connections \n\nFor cases where it is impractical to change the application to use container-managed security, or to change it to supply a username and password directly on the createConnection call, it is possible to supply a default. \n\nThis default is called the \"container-managed authentication alias\" and cannot be configured via the administrative console (since WebSphere Application Server Version 7.0 when it was removed from the panels MQ connection factories). The below scripting samples show how to configure it using wsadmin: \n\n * JACL:\n   wsadmin>set cell [ $AdminConfig getid \"/Cell:mycell\" ]\n   \n   mycell(cells/mycell|cell.xml#Cell_1)\n   \n   wsadmin>$AdminTask listWMQConnectionFactories $cell\n   \n   MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)\n   \n   wsadmin>$AdminTask modifyWMQConnectionFactory MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104) { -containerAuthAlias myalias }\n   \n   MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104) \n * Jython:\n   wsadmin>cell = AdminConfig.getid(\"/Cell:mycell\")\n   \n   wsadmin>AdminTask.listWMQConnectionFactories(cell)\n   \n   'MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)'\n   \n   wsadmin>AdminTask.modifyWMQConnectionFactory('MyCF(cells/mycell|resos urces.xml#MQConnectionFactory_1247500675104)', \"-containerAuthAlias myalias\")\n   \n   'MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)' [1]",
+      "passed": false,
+      "answer_sufficient": false,
+      "retries": 2,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "Default behaviour when no credentials are supplied in the application server \n\nIf no credentials are supplied by the application on the createConnection call, and neither of the component managed or container managed security systems described below are configured, then WebSphere Application Server provides a blank username to MQ. This causes MQ to authorise the client based on the userid that the MQ listener is running under. In the majority of cases this is 'mqm' on UNIX/Linux systems and 'MUSR_MQADMIN' on Windows. \n\nAs these are administrative MQ users, they will be blocked by default in WebSphere MQ V7.1 and higher, with a AMQ9777 error logged in the error logs of the queue manager.\n\nDefault container-managed authentication alias for outbound connections \n\nFor cases where it is impractical to change the application to use container-managed security, or to change it to supply a username and password directly on the createConnection call, it is possible to supply a default. \n\nThis default is called the \"container-managed authentication alias\" and cannot be configured via the administrative console (since WebSphere Application Server Version 7.0 when it was removed from the panels MQ connection factories). The below scripting samples show how to configure it using wsadmin: \n\n * JACL:\n   wsadmin>set cell [ $AdminConfig getid \"/Cell:mycell\" ]\n   \n   mycell(cells/mycell|cell.xml#Cell_1)\n   \n   wsadmin>$AdminTask listWMQConnectionFactories $cell\n   \n   MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)\n   \n   wsadmin>$AdminTask modifyWMQConnectionFactory MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104) { -containerAuthAlias myalias }\n   \n   MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104) \n * Jython:\n   wsadmin>cell = AdminConfig.getid(\"/Cell:mycell\")\n   \n   wsadmin>AdminTask.listWMQConnectionFactories(cell)\n   \n   'MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)'\n   \n   wsadmin>AdminTask.modifyWMQConnectionFactory('MyCF(cells/mycell|resos urces.xml#MQConnectionFactory_1247500675104)', \"-containerAuthAlias myalias\")\n   \n   'MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)' [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.4,
+            "issues": [
+              {
+                "code": "fact_4592ba460b",
+                "description": "The evidence does not address the specific issue of why the sys admin user is being used instead of the configured username.",
+                "suggestion": "Correct this claim using supplied evidence"
+              },
+              {
+                "code": "fact_9b3eb59984",
+                "description": "The evidence does not mention the need to check the application server's security settings or configuration changes required for the migration.",
+                "suggestion": "Correct this claim using supplied evidence"
+              },
+              {
+                "code": "fact_8443afcb3b",
+                "description": "The evidence does not provide a clear explanation of how the migration from BPM V8.0 to V8.5.7 might have affected the authentication process.",
+                "suggestion": "Correct this claim using supplied evidence"
+              }
+            ],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        },
+        {
+          "attempt": 2,
+          "diagnosis": "Default behaviour when no credentials are supplied in the application server \n\nIf no credentials are supplied by the application on the createConnection call, and neither of the component managed or container managed security systems described below are configured, then WebSphere Application Server provides a blank username to MQ. This causes MQ to authorise the client based on the userid that the MQ listener is running under. In the majority of cases this is 'mqm' on UNIX/Linux systems and 'MUSR_MQADMIN' on Windows. \n\nAs these are administrative MQ users, they will be blocked by default in WebSphere MQ V7.1 and higher, with a AMQ9777 error logged in the error logs of the queue manager.\n\nDefault container-managed authentication alias for outbound connections \n\nFor cases where it is impractical to change the application to use container-managed security, or to change it to supply a username and password directly on the createConnection call, it is possible to supply a default. \n\nThis default is called the \"container-managed authentication alias\" and cannot be configured via the administrative console (since WebSphere Application Server Version 7.0 when it was removed from the panels MQ connection factories). The below scripting samples show how to configure it using wsadmin: \n\n * JACL:\n   wsadmin>set cell [ $AdminConfig getid \"/Cell:mycell\" ]\n   \n   mycell(cells/mycell|cell.xml#Cell_1)\n   \n   wsadmin>$AdminTask listWMQConnectionFactories $cell\n   \n   MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)\n   \n   wsadmin>$AdminTask modifyWMQConnectionFactory MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104) { -containerAuthAlias myalias }\n   \n   MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104) \n * Jython:\n   wsadmin>cell = AdminConfig.getid(\"/Cell:mycell\")\n   \n   wsadmin>AdminTask.listWMQConnectionFactories(cell)\n   \n   'MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)'\n   \n   wsadmin>AdminTask.modifyWMQConnectionFactory('MyCF(cells/mycell|resos urces.xml#MQConnectionFactory_1247500675104)', \"-containerAuthAlias myalias\")\n   \n   'MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)' [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.0,
+            "issues": [
+              {
+                "code": "invalid_model_output",
+                "description": "Model validation: ValueError: Inline command/code must retain exact source syntax",
+                "suggestion": "Return concise schema-valid JSON; for evidence selection false requires [] and true requires allowed IDs. Use only evidence"
+              }
+            ],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": [
+            {
+              "issue_id": "fact_4592ba460b",
+              "description": "The evidence does not address the specific issue of why the sys admin user is being used instead of the configured username.",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "The evidence does not address the specific issue of why the sys admin user is being used instead of the configured username."
+            },
+            {
+              "issue_id": "fact_9b3eb59984",
+              "description": "The evidence does not mention the need to check the application server's security settings or configuration changes required for the migration.",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "The evidence does not mention the need to check the application server's security settings or configuration changes required for the migration."
+            },
+            {
+              "issue_id": "fact_8443afcb3b",
+              "description": "The evidence does not provide a clear explanation of how the migration from BPM V8.0 to V8.5.7 might have affected the authentication process.",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "The evidence does not provide a clear explanation of how the migration from BPM V8.0 to V8.5.7 might have affected the authentication process."
+            }
+          ]
+        },
+        {
+          "attempt": 3,
+          "diagnosis": "Default behaviour when no credentials are supplied in the application server \n\nIf no credentials are supplied by the application on the createConnection call, and neither of the component managed or container managed security systems described below are configured, then WebSphere Application Server provides a blank username to MQ. This causes MQ to authorise the client based on the userid that the MQ listener is running under. In the majority of cases this is 'mqm' on UNIX/Linux systems and 'MUSR_MQADMIN' on Windows. \n\nAs these are administrative MQ users, they will be blocked by default in WebSphere MQ V7.1 and higher, with a AMQ9777 error logged in the error logs of the queue manager.\n\nDefault container-managed authentication alias for outbound connections \n\nFor cases where it is impractical to change the application to use container-managed security, or to change it to supply a username and password directly on the createConnection call, it is possible to supply a default. \n\nThis default is called the \"container-managed authentication alias\" and cannot be configured via the administrative console (since WebSphere Application Server Version 7.0 when it was removed from the panels MQ connection factories). The below scripting samples show how to configure it using wsadmin: \n\n * JACL:\n   wsadmin>set cell [ $AdminConfig getid \"/Cell:mycell\" ]\n   \n   mycell(cells/mycell|cell.xml#Cell_1)\n   \n   wsadmin>$AdminTask listWMQConnectionFactories $cell\n   \n   MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)\n   \n   wsadmin>$AdminTask modifyWMQConnectionFactory MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104) { -containerAuthAlias myalias }\n   \n   MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104) \n * Jython:\n   wsadmin>cell = AdminConfig.getid(\"/Cell:mycell\")\n   \n   wsadmin>AdminTask.listWMQConnectionFactories(cell)\n   \n   'MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)'\n   \n   wsadmin>AdminTask.modifyWMQConnectionFactory('MyCF(cells/mycell|resos urces.xml#MQConnectionFactory_1247500675104)', \"-containerAuthAlias myalias\")\n   \n   'MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)' [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.0,
+            "issues": [
+              {
+                "code": "invalid_model_output",
+                "description": "Model validation: ValueError: Claim/source entailment failed: c0: The claim does not directly address the issue of the username not being used and the sys admin user being used instead. The source discusses the default behavior when no username/`",
+                "suggestion": "Return concise schema-valid JSON; for evidence selection false requires [] and true requires allowed IDs. Use only evidence"
+              }
+            ],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": [
+            {
+              "issue_id": "invalid_model_output",
+              "description": "Model validation: ValueError: Inline command/code must retain exact source syntax",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "Model validation: ValueError: Inline command/code must retain exact source syntax"
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "llm_calls": 4,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 6725,
+        "output_tokens": 846,
+        "latency_ms": 57229.72389997449
+      }
+    },
+    "initial_accepted": false,
+    "final_accepted": false,
+    "calls": 4,
+    "tokens": 7571,
+    "retries": 2,
+    "latency_ms": 57229.72389997449,
+    "error": true,
+    "raw_model_outputs": [
+      "{\n  \"verdict\": \"revise\",\n  \"issues\": [\n    \"The evidence does not address the specific issue of why the sys admin user is being used instead of the configured username.\",\n    \"The evidence does not mention the need to check the application server's security settings or configuration changes required for the migration.\",\n    \"The evidence does not provide a clear explanation of how the migration from BPM V8.0 to V8.5.7 might have affected the authentication process.\"\n  ]\n}",
+      "{\n  \"claims\": [\n    {\n      \"text\": \"When no credentials are supplied by the application on the createConnection call, and neither of the component managed or container managed security systems are configured, WebSphere Application Server provides a blank username to MQ. This causes MQ to authorize the client based on the userid that the MQ listener is running under, which in the majority of cases is 'mqm' on UNIX/Linux systems and 'MUSR_MQADMIN' on Windows.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"For cases where it is impractical to change the application to use container-managed security, or to change it to supply a username and password directly on the createConnection call, it is possible to supply a default called the 'component-managed authentication alias'. This can be configured using wsadmin scripting.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"The configured username and password are correct, but the application server is using the default 'component-managed authentication alias' instead of the intended outbound identity, which is causing the 'MQRC_NOT_AUTHORIZED' exception.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"To select the intended outbound identity, configure the 'component-managed authentication alias' using wsadmin scripting. For JACL, use the command: `wsadmin>$AdminTask modifyWMQConnectionFactory MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104) { -componentAuthAlias myalias }`. For Jython, use the command: `wsadmin>AdminTask.modifyWMQConnectionFactory('MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)', \\\"-componentAuthAlias myalias\\\")`.\",\n      \"source_id\": \"1\"\n    }\n  ],\n  \"coverage\": {\n    \"configured_identity\": true,\n    \"required_steps\": true\n  }\n}",
+      "{\n  \"claims\": [\n    {\n      \"text\": \"When no credentials are supplied by the application on the createConnection call, WebSphere Application Server provides a blank username to MQ, causing MQ to authorize the client based on the userid that the MQ listener is running under. In the majority of cases, this is 'mqm' on UNIX/Linux systems and 'MUSR_MQADMIN' on Windows.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"The configured username and password are correct, but the application server is using the default administrative user ('mqm' or 'MUSR_MQADMIN') instead of the intended outbound identity.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"To select the intended outbound identity, configure the component-managed authentication alias using wsadmin scripting.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"The following steps can be used to configure the component-managed authentication alias using JACL or Jython scripting.\",\n      \"source_id\": \"1\"\n    }\n  ],\n  \"coverage\": {\n    \"configured_identity\": true,\n    \"required_steps\": true\n  }\n}",
+      "{\n  \"c0\": {\n    \"supported\": false,\n    \"quote_id\": \"\",\n    \"reason\": \"The claim does not directly address the issue of the username not being used and the sys admin user being used instead. The source discusses the default behavior when no username/`\"\n  },\n  \"c1\": {\n    \"supported\": true,\n    \"quote_id\": \"c1_1\",\n    \"reason\": \"The source states that if no credentials are supplied, WebSphere Application Server provides a blank username to MQ, causing MQ to authorize the client based on the userid that the\"\n  },\n  \"c2\": {\n    \"supported\": true,\n    \"quote_id\": \"c2_1\",\n    \"reason\": \"The source suggests that to select the intended outbound identity, configuring the component-managed authentication alias is necessary.\"\n  },\n  \"c3\": {\n    \"supported\": true,\n    \"quote_id\": \"c3_1\",\n    \"reason\": \"The source provides scripting examples for configuring the component-managed authentication alias using JACL or Jython scripting.\"\n  }\n}"
+    ]
+  },
+  {
+    "case": "wrong_component",
+    "version": "improved_critic",
+    "expected_valid": false,
+    "run": {
+      "final_diagnosis": "Default behaviour when no credentials are supplied in the application server \n\nIf no credentials are supplied by the application on the createConnection call, and neither of the component managed or container managed security systems described below are configured, then WebSphere Application Server provides a blank username to MQ. This causes MQ to authorise the client based on the userid that the MQ listener is running under. In the majority of cases this is 'mqm' on UNIX/Linux systems and 'MUSR_MQADMIN' on Windows. \n\nAs these are administrative MQ users, they will be blocked by default in WebSphere MQ V7.1 and higher, with a AMQ9777 error logged in the error logs of the queue manager.\n\nDefault container-managed authentication alias for outbound connections \n\nFor cases where it is impractical to change the application to use container-managed security, or to change it to supply a username and password directly on the createConnection call, it is possible to supply a default. \n\nThis default is called the \"container-managed authentication alias\" and cannot be configured via the administrative console (since WebSphere Application Server Version 7.0 when it was removed from the panels MQ connection factories). The below scripting samples show how to configure it using wsadmin: \n\n * JACL:\n   wsadmin>set cell [ $AdminConfig getid \"/Cell:mycell\" ]\n   \n   mycell(cells/mycell|cell.xml#Cell_1)\n   \n   wsadmin>$AdminTask listWMQConnectionFactories $cell\n   \n   MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)\n   \n   wsadmin>$AdminTask modifyWMQConnectionFactory MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104) { -containerAuthAlias myalias }\n   \n   MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104) \n * Jython:\n   wsadmin>cell = AdminConfig.getid(\"/Cell:mycell\")\n   \n   wsadmin>AdminTask.listWMQConnectionFactories(cell)\n   \n   'MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)'\n   \n   wsadmin>AdminTask.modifyWMQConnectionFactory('MyCF(cells/mycell|resos urces.xml#MQConnectionFactory_1247500675104)', \"-containerAuthAlias myalias\")\n   \n   'MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)' [1]",
+      "passed": true,
+      "answer_sufficient": true,
+      "retries": 0,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "Default behaviour when no credentials are supplied in the application server \n\nIf no credentials are supplied by the application on the createConnection call, and neither of the component managed or container managed security systems described below are configured, then WebSphere Application Server provides a blank username to MQ. This causes MQ to authorise the client based on the userid that the MQ listener is running under. In the majority of cases this is 'mqm' on UNIX/Linux systems and 'MUSR_MQADMIN' on Windows. \n\nAs these are administrative MQ users, they will be blocked by default in WebSphere MQ V7.1 and higher, with a AMQ9777 error logged in the error logs of the queue manager.\n\nDefault container-managed authentication alias for outbound connections \n\nFor cases where it is impractical to change the application to use container-managed security, or to change it to supply a username and password directly on the createConnection call, it is possible to supply a default. \n\nThis default is called the \"container-managed authentication alias\" and cannot be configured via the administrative console (since WebSphere Application Server Version 7.0 when it was removed from the panels MQ connection factories). The below scripting samples show how to configure it using wsadmin: \n\n * JACL:\n   wsadmin>set cell [ $AdminConfig getid \"/Cell:mycell\" ]\n   \n   mycell(cells/mycell|cell.xml#Cell_1)\n   \n   wsadmin>$AdminTask listWMQConnectionFactories $cell\n   \n   MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)\n   \n   wsadmin>$AdminTask modifyWMQConnectionFactory MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104) { -containerAuthAlias myalias }\n   \n   MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104) \n * Jython:\n   wsadmin>cell = AdminConfig.getid(\"/Cell:mycell\")\n   \n   wsadmin>AdminTask.listWMQConnectionFactories(cell)\n   \n   'MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)'\n   \n   wsadmin>AdminTask.modifyWMQConnectionFactory('MyCF(cells/mycell|resos urces.xml#MQConnectionFactory_1247500675104)', \"-containerAuthAlias myalias\")\n   \n   'MyCF(cells/mycell|resources.xml#MQConnectionFactory_1247500675104)' [1]",
+          "critique": {
+            "passed": true,
+            "score": 0.9,
+            "issues": [],
+            "principal_request": "Explain why configured credentials are not being used and how to select the intended outbound identity after migrating the BPM environment from V8.0 to 8.5.7, and provide concrete steps to configure the component-managed authentication alias.",
+            "required_facts": [
+              "configured_identity",
+              "required_steps"
+            ],
+            "covered_facts": [
+              "configured_identity",
+              "required_steps"
+            ],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        }
+      ],
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 1785,
+        "output_tokens": 197,
+        "latency_ms": 14639.434300013818
+      }
+    },
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 1,
+    "tokens": 1982,
+    "retries": 0,
+    "latency_ms": 14639.434300013818,
+    "error": false,
+    "raw_model_outputs": [
+      "{\n  \"principal_request\": \"Explain why configured credentials are not being used and how to select the intended outbound identity after migrating the BPM environment from V8.0 to 8.5.7, and provide concrete steps to configure the component-managed authentication alias.\",\n  \"operation_check\": {\n    \"requested_operation\": \"Select the intended outbound identity and configure the component-managed authentication alias.\",\n    \"answered_operation\": \"Explained why configured credentials are not being used and provided steps to configure the component-managed authentication alias.\",\n    \"reason\": \"The answer provided the reason why the configured credentials are not being used and gave detailed steps to configure the component-managed authentication alias.\",\n    \"matches\": true\n  },\n  \"coverage\": {\n    \"configured_identity\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_0\",\n      \"answer_quote_id\": \"a0\"\n    },\n    \"required_steps\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_4\",\n      \"answer_quote_id\": \"a4\"\n    }\n  },\n  \"incorrect_facts\": []\n}"
+    ]
+  },
+  {
+    "case": "symptom_without_solution",
+    "version": "no_critic",
+    "expected_valid": false,
+    "run": null,
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 0,
+    "tokens": 0,
+    "retries": 0,
+    "latency_ms": 0,
+    "error": false
+  },
+  {
+    "case": "symptom_without_solution",
+    "version": "legacy_critic",
+    "expected_valid": false,
+    "run": {
+      "final_diagnosis": "SYMPTOM\nJMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED') [1]",
+      "passed": true,
+      "answer_sufficient": true,
+      "retries": 0,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "SYMPTOM\nJMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED') [1]",
+          "critique": {
+            "passed": true,
+            "score": 0.9,
+            "issues": [],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        }
+      ],
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 988,
+        "output_tokens": 16,
+        "latency_ms": 1814.6971000242047
+      }
+    },
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 1,
+    "tokens": 1004,
+    "retries": 0,
+    "latency_ms": 1814.6971000242047,
+    "error": false,
+    "raw_model_outputs": [
+      "{\n  \"verdict\": \"pass\",\n  \"issues\": []\n}"
+    ]
+  },
+  {
+    "case": "symptom_without_solution",
+    "version": "improved_critic",
+    "expected_valid": false,
+    "run": {
+      "final_diagnosis": "SYMPTOM\nJMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED') [1]",
+      "passed": true,
+      "answer_sufficient": true,
+      "retries": 0,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "SYMPTOM\nJMSCMQ0001: WebSphere MQ call failed with compcode '2' ('MQCC_FAILED') reason '2035' ('MQRC_NOT_AUTHORIZED') [1]",
+          "critique": {
+            "passed": true,
+            "score": 0.9,
+            "issues": [],
+            "principal_request": "Explain why configured credentials are not being used and how to select the intended outbound identity after migrating the BPM environment from V8.0 to 8.5.7, and provide concrete applicable configuration steps.",
+            "required_facts": [
+              "configured_identity",
+              "required_steps"
+            ],
+            "covered_facts": [
+              "configured_identity",
+              "required_steps"
+            ],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        }
+      ],
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 1354,
+        "output_tokens": 197,
+        "latency_ms": 12336.415899975691
+      }
+    },
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 1,
+    "tokens": 1551,
+    "retries": 0,
+    "latency_ms": 12336.415899975691,
+    "error": false,
+    "raw_model_outputs": [
+      "{\n  \"principal_request\": \"Explain why configured credentials are not being used and how to select the intended outbound identity after migrating the BPM environment from V8.0 to 8.5.7, and provide concrete applicable configuration steps.\",\n  \"operation_check\": {\n    \"requested_operation\": \"Select the intended outbound identity for MQ connections in the BPM environment after migration.\",\n    \"answered_operation\": \"Explain why configured credentials are not being used and provide configuration steps to select the intended outbound identity.\",\n    \"reason\": \"The answer addresses the issue of why configured credentials are not being used and provides concrete steps to configure the intended outbound identity.\",\n    \"matches\": true\n  },\n  \"coverage\": {\n    \"configured_identity\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_0\",\n      \"answer_quote_id\": \"a0\"\n    },\n    \"required_steps\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_4\",\n      \"answer_quote_id\": \"a0\"\n    }\n  },\n  \"incorrect_facts\": []\n}"
+    ]
+  },
+  {
+    "case": "licensing_for_installation_title",
+    "version": "no_critic",
+    "expected_valid": false,
+    "run": null,
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 0,
+    "tokens": 0,
+    "retries": 0,
+    "latency_ms": 0,
+    "error": false
+  },
+  {
+    "case": "licensing_for_installation_title",
+    "version": "legacy_critic",
+    "expected_valid": false,
+    "run": {
+      "final_diagnosis": "Close IBM SPSS Statistics product and License Authorization Wizard before proceeding. [1]\nOpen Terminal and navigate to the SPSS Statistics application directory. [1]\nRun the command `sudo chown -R root:admin 25` to change the file permissions. [1]\nClose Terminal, launch the License Authorization Wizard, and the warning message should no longer appear. [1]",
+      "passed": true,
+      "answer_sufficient": true,
+      "retries": 2,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "The license key center is a secure site. Only the Primary contact (generally the person who purchased your product), site technical contact, or their designated contacts are able to access it.\n\n\nIf you already have access navigate to: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm.com/predictiveanalytics/get-help/] \n- Select SPSS Statistics Version 25, 24, 23... Scroll down to Licensing section - Get your license key \n\n\nClick on Button: \"Visit the License Key Center\" or use the direct link below:\nhttps://spss.subscribenet.com/control/ibmp/login [https://spss.subscribenet.com/control/ibmp/login]\n\nIf you continue to have issues, please review our SPSS licensing forum https://developer.ibm.com/answers/topics/spsslicensing.html [https://developer.ibm.com/answers/topics/spsslicensing.html] [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.4,
+            "issues": [
+              {
+                "code": "fact_79effa4f84",
+                "description": "The evidence does not provide steps to load SPSS 25 on a new computer.",
+                "suggestion": "Correct this claim using supplied evidence"
+              },
+              {
+                "code": "fact_4165e14bc1",
+                "description": "The evidence focuses on resolving a warning message rather than installation.",
+                "suggestion": "Correct this claim using supplied evidence"
+              },
+              {
+                "code": "fact_bec83223b0",
+                "description": "The evidence does not include the license key or activation process.",
+                "suggestion": "Correct this claim using supplied evidence"
+              }
+            ],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        },
+        {
+          "attempt": 2,
+          "diagnosis": "The license key center is a secure site. Only the Primary contact (generally the person who purchased your product), site technical contact, or their designated contacts are able to access it.\n\n\nIf you already have access navigate to: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm.com/predictiveanalytics/get-help/] \n- Select SPSS Statistics Version 25, 24, 23... Scroll down to Licensing section - Get your license key \n\n\nClick on Button: \"Visit the License Key Center\" or use the direct link below:\nhttps://spss.subscribenet.com/control/ibmp/login [https://spss.subscribenet.com/control/ibmp/login]\n\nIf you continue to have issues, please review our SPSS licensing forum https://developer.ibm.com/answers/topics/spsslicensing.html [https://developer.ibm.com/answers/topics/spsslicensing.html] [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.0,
+            "issues": [
+              {
+                "code": "invalid_model_output",
+                "description": "Model validation: ValueError: Claim contains a critical literal absent from question/source",
+                "suggestion": "Return concise schema-valid JSON; for evidence selection false requires [] and true requires allowed IDs. Use only evidence"
+              }
+            ],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": [
+            {
+              "issue_id": "fact_79effa4f84",
+              "description": "The evidence does not provide steps to load SPSS 25 on a new computer.",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "The evidence does not provide steps to load SPSS 25 on a new computer."
+            },
+            {
+              "issue_id": "fact_4165e14bc1",
+              "description": "The evidence focuses on resolving a warning message rather than installation.",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "The evidence focuses on resolving a warning message rather than installation."
+            },
+            {
+              "issue_id": "fact_bec83223b0",
+              "description": "The evidence does not include the license key or activation process.",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "The evidence does not include the license key or activation process."
+            }
+          ]
+        },
+        {
+          "attempt": 3,
+          "diagnosis": "Close IBM SPSS Statistics product and License Authorization Wizard before proceeding. [1]\nOpen Terminal and navigate to the SPSS Statistics application directory. [1]\nRun the command `sudo chown -R root:admin 25` to change the file permissions. [1]\nClose Terminal, launch the License Authorization Wizard, and the warning message should no longer appear. [1]",
+          "critique": {
+            "passed": true,
+            "score": 0.9,
+            "issues": [],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": [
+            {
+              "issue_id": "invalid_model_output",
+              "description": "Model validation: ValueError: Claim contains a critical literal absent from question/source",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "Model validation: ValueError: Claim contains a critical literal absent from question/source"
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "llm_calls": 5,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 3925,
+        "output_tokens": 483,
+        "latency_ms": 31352.68479998922
+      }
+    },
+    "initial_accepted": false,
+    "final_accepted": true,
+    "calls": 5,
+    "tokens": 4408,
+    "retries": 2,
+    "latency_ms": 31352.68479998922,
+    "error": true,
+    "raw_model_outputs": [
+      "{\n  \"verdict\": \"revise\",\n  \"issues\": [\n    \"The evidence does not provide steps to load SPSS 25 on a new computer.\",\n    \"The evidence focuses on resolving a warning message rather than installation.\",\n    \"The evidence does not include the license key or activation process.\"\n  ]\n}",
+      "{\n  \"claims\": [\n    {\n      \"text\": \"To load SPSS 25 on a new computer, follow these steps: If open, close the IBM SPSS Statistics product. If open, close the License Authorization Wizard. Open Finder. Select the 'Go' menu. Select the 'Utilities' menu. Open the 'Terminal' program. Type (copy/paste) the following command: cd /Applications/IBM/SPSS/Statistics/. Press Enter/Return. For Statistics Release 25, type (copy/paste) the following command: sudo chown -R root:admin 25. Press Enter/Return. Close Terminal. Launch the License Authorization Wizard. The warning message should no longer appear.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"After completing the above steps, license your IBM SPSS Statistics product.\",\n      \"source_id\": \"1\"\n    }\n  ],\n  \"coverage\": {\n    \"requested_answer\": true\n  }\n}",
+      "{\n  \"claims\": [\n    {\n      \"text\": \"Close IBM SPSS Statistics product and License Authorization Wizard before proceeding.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"Open Terminal and navigate to the SPSS Statistics application directory.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"Run the command `sudo chown -R root:admin 25` to change the file permissions.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"Close Terminal, launch the License Authorization Wizard, and the warning message should no longer appear.\",\n      \"source_id\": \"1\"\n    }\n  ],\n  \"coverage\": {\n    \"requested_answer\": true\n  }\n}",
+      "{\n  \"c0\": {\n    \"supported\": true,\n    \"quote_id\": \"c0_2\",\n    \"reason\": \"\"\n  },\n  \"c1\": {\n    \"supported\": true,\n    \"quote_id\": \"c1_1\",\n    \"reason\": \"\"\n  },\n  \"c2\": {\n    \"supported\": true,\n    \"quote_id\": \"c2_2\",\n    \"reason\": \"\"\n  },\n  \"c3\": {\n    \"supported\": true,\n    \"quote_id\": \"c3_2\",\n    \"reason\": \"\"\n  }\n}",
+      "{\n  \"verdict\": \"pass\",\n  \"issues\": []\n}"
+    ]
+  },
+  {
+    "case": "licensing_for_installation_title",
+    "version": "improved_critic",
+    "expected_valid": false,
+    "run": {
+      "final_diagnosis": "Close IBM SPSS Statistics product and License Authorization Wizard if open. [1]\nOpen Terminal and navigate to the IBM SPSS Statistics application directory. [1]\nRun the command 'sudo chown -R root:admin Statistics' to change the file permissions. [1]\nClose Terminal, launch License Authorization Wizard, and the warning message should no longer appear. [1]",
+      "passed": false,
+      "answer_sufficient": false,
+      "retries": 2,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "The license key center is a secure site. Only the Primary contact (generally the person who purchased your product), site technical contact, or their designated contacts are able to access it.\n\n\nIf you already have access navigate to: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm.com/predictiveanalytics/get-help/] \n- Select SPSS Statistics Version 25, 24, 23... Scroll down to Licensing section - Get your license key \n\n\nClick on Button: \"Visit the License Key Center\" or use the direct link below:\nhttps://spss.subscribenet.com/control/ibmp/login [https://spss.subscribenet.com/control/ibmp/login]\n\nIf you continue to have issues, please review our SPSS licensing forum https://developer.ibm.com/answers/topics/spsslicensing.html [https://developer.ibm.com/answers/topics/spsslicensing.html] [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.4,
+            "issues": [
+              {
+                "code": "fact_0d658c4200",
+                "description": "Missing required fact: requested_answer",
+                "suggestion": "Address this exact request fact using supplied evidence; preserve conditions; refuse if evidence is insufficient"
+              },
+              {
+                "code": "fact_25a34c331e",
+                "description": "Answer operation does not address principal request: The answer provides instructions on how to obtain a license key and does not directly address the installation or loading of SPSS 25 on a new computer.",
+                "suggestion": "Address this exact request fact using supplied evidence; preserve conditions; refuse if evidence is insufficient"
+              }
+            ],
+            "principal_request": "Load SPSS 25 on a new computer",
+            "required_facts": [
+              "requested_answer"
+            ],
+            "covered_facts": [],
+            "missing_facts": [
+              "requested_answer"
+            ],
+            "incorrect_facts": [
+              "Answer operation does not address principal request: The answer provides instructions on how to obtain a license key and does not directly address the installation or loading of SPSS 25 on a new computer."
+            ]
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        },
+        {
+          "attempt": 2,
+          "diagnosis": "The license key center is a secure site. Only the Primary contact (generally the person who purchased your product), site technical contact, or their designated contacts are able to access it.\n\n\nIf you already have access navigate to: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm.com/predictiveanalytics/get-help/] \n- Select SPSS Statistics Version 25, 24, 23... Scroll down to Licensing section - Get your license key \n\n\nClick on Button: \"Visit the License Key Center\" or use the direct link below:\nhttps://spss.subscribenet.com/control/ibmp/login [https://spss.subscribenet.com/control/ibmp/login]\n\nIf you continue to have issues, please review our SPSS licensing forum https://developer.ibm.com/answers/topics/spsslicensing.html [https://developer.ibm.com/answers/topics/spsslicensing.html] [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.0,
+            "issues": [
+              {
+                "code": "invalid_model_output",
+                "description": "Model validation: ValueError: Claim/source entailment failed: c0: The claim includes a command 'sudo chown -R root:admin 25' which is not present in the source. The source instead provides the command 'sudo chown -R root:admin Statistics' to set ",
+                "suggestion": "Return concise schema-valid JSON; for evidence selection false requires [] and true requires allowed IDs. Use only evidence"
+              }
+            ],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": [
+            {
+              "issue_id": "fact_0d658c4200",
+              "description": "Missing required fact: requested_answer",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "The new answer does not provide instructions on how to install or load SPSS 25 on a new computer."
+            },
+            {
+              "issue_id": "fact_25a34c331e",
+              "description": "Answer operation does not address principal request: The answer provides instructions on how to obtain a license key and does not directly address the installation or loading of SPSS 25 on a new computer.",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "The answer does not directly address the installation or loading of SPSS 25 on a new computer."
+            }
+          ]
+        },
+        {
+          "attempt": 3,
+          "diagnosis": "Close IBM SPSS Statistics product and License Authorization Wizard if open. [1]\nOpen Terminal and navigate to the IBM SPSS Statistics application directory. [1]\nRun the command 'sudo chown -R root:admin Statistics' to change the file permissions. [1]\nClose Terminal, launch License Authorization Wizard, and the warning message should no longer appear. [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.4,
+            "issues": [
+              {
+                "code": "fact_0d658c4200",
+                "description": "Missing required fact: requested_answer",
+                "suggestion": "Address this exact request fact using supplied evidence; preserve conditions; refuse if evidence is insufficient"
+              },
+              {
+                "code": "fact_cc33434f3a",
+                "description": "Answer operation does not address principal request: The answer provided a procedure to address a warning message, but it does not directly address the operation of loading SPSS 25. The answer focuses on resolving a permission issue that might prevent the software from启动。",
+                "suggestion": "Address this exact request fact using supplied evidence; preserve conditions; refuse if evidence is insufficient"
+              }
+            ],
+            "principal_request": "Load SPSS 25 on a new computer",
+            "required_facts": [
+              "requested_answer"
+            ],
+            "covered_facts": [],
+            "missing_facts": [
+              "requested_answer"
+            ],
+            "incorrect_facts": [
+              "Answer operation does not address principal request: The answer provided a procedure to address a warning message, but it does not directly address the operation of loading SPSS 25. The answer focuses on resolving a permission issue that might prevent the software from启动。"
+            ]
+          },
+          "resolved_previous_issues": [
+            "invalid_model_output"
+          ],
+          "issue_resolutions": [
+            {
+              "issue_id": "invalid_model_output",
+              "description": "Model validation: ValueError: Claim/source entailment failed: c0: The claim includes a command 'sudo chown -R root:admin 25' which is not present in the source. The source instead provides the command 'sudo chown -R root:admin Statistics' to set ",
+              "resolved": true,
+              "supporting_evidence_ids": [
+                "1"
+              ],
+              "remaining_problem": ""
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "llm_calls": 8,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 5909,
+        "output_tokens": 1399,
+        "latency_ms": 89030.7773000095
+      }
+    },
+    "initial_accepted": false,
+    "final_accepted": false,
+    "calls": 8,
+    "tokens": 7308,
+    "retries": 2,
+    "latency_ms": 89030.7773000095,
+    "error": true,
+    "raw_model_outputs": [
+      "{\n  \"principal_request\": \"Load SPSS 25 on a new computer\",\n  \"operation_check\": {\n    \"requested_operation\": \"Load SPSS 25\",\n    \"answered_operation\": \"Obtain and apply a license key for SPSS 25\",\n    \"reason\": \"The answer provides instructions on how to obtain a license key and does not directly address the installation or loading of SPSS 25 on a new computer.\",\n    \"matches\": false\n  },\n  \"coverage\": {\n    \"requested_answer\": {\n      \"covered\": false,\n      \"evidence_quote_id\": \"\",\n      \"answer_quote_id\": \"\"\n    }\n  },\n  \"incorrect_facts\": [\n    \"The answer does not provide instructions on how to install or load SPSS 25 on a new computer.\"\n  ]\n}",
+      "{\n  \"claims\": [\n    {\n      \"text\": \"To load SPSS 25 on a new computer, follow these steps: If open, close the IBM SPSS Statistics product and the License Authorization Wizard. Open Terminal and navigate to the SPSS Statistics application directory. Run the command 'sudo chown -R root:admin 25' to change the file permissions. Close Terminal, launch the License Authorization Wizard, and license your IBM SPSS Statistics product.\",\n      \"source_id\": \"1\"\n    }\n  ],\n  \"coverage\": {\n    \"requested_answer\": true\n  }\n}",
+      "{\n  \"c0\": {\n    \"supported\": false,\n    \"quote_id\": \"\",\n    \"reason\": \"The claim includes a command 'sudo chown -R root:admin 25' which is not present in the source. The source instead provides the command 'sudo chown -R root:admin Statistics' to set \"}\n}",
+      "{\n  \"resolutions\": [\n    {\n      \"issue_id\": \"fact_0d658c4200\",\n      \"resolved\": false,\n      \"source_ids\": [],\n      \"evidence_quote\": \"Below is a picture of the warning: \\n\\n[/support/docview.wss?uid=swg21966637&aid=1] [/support/docview.wss?uid=swg21966637&aid=1]\\n\\nIf you encounter this message, perform the following procedure:\\n\\n\\n 1.  If open, close the IBM SPSS Statistics product. \\n 2.  If open, close the License Authorization Wizard. \\n 3.  Open Finder. \\n 4.  Select the 'Go' menu. \\n 5.  Select the 'Utilities' menu. \\n 6.  Open the 'Terminal' program. \\n 7.  Type (copy/paste) the following command:\\n     \\n     cd /Applications/IBM/SPSS/Statistics/ \\n 8.   \\n 9.  Press Enter/Return. \\n 10. Perform the procedure corresponding to the Statistics product version as described below:\\n\\nStatistics Release 25  1. Type (copy/paste) the following command: \\n    \\n    sudo chown -R root:admin 25\\n    \\n 2. Press Enter/Return. \\n 3. Close Terminal. \\n 4. Launch the License Authorization Wizard. \\n 5. The warning message should no longer appear. \\n 6. License your IBM SPSS Statistics product.\",\n      \"answer_quote\": \"The license key center is a secure site. Only the Primary contact (generally the person who purchased your product), site technical contact, or their designated contacts are able to access it.\\n\\n\\nIf you already have access navigate to: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm.com/predictiveanalytics/get-help/] \\n- Select SPSS Statistics Version 25, 24, 23... Scroll down to Licensing section - Get your license key \\n\\n\\nClick on Button: \",\n      \"remaining_problem\": \"The new answer does not provide instructions on how to install or load SPSS 25 on a new computer.\"\n    },\n    {\n      \"issue_id\": \"fact_25a34c331e\",\n      \"resolved\": false,\n      \"source_ids\": [],\n      \"evidence_quote\": \"The license key center is a secure site. Only the Primary contact (generally the person who purchased your product), site technical contact, or their designated contacts are able to access it.\\n\\n\\nIf you already have access navigate to: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm.com/predictiveanalytics/get-help/] \\n- Select SPSS Statistics Version 25, 24, 23... Scroll down to Licensing section - Get your license key \\n\\n\\nClick on Button: \",\n      \"answer_quote\": \"The license key center is a secure site. Only the Primary contact (generally the person who purchased your product), site technical contact, or their designated contacts are able to access it.\\n\\n\\nIf you already have access navigate to: https://www.ibm.com/analytics/us/en/spss/spss-support/ [https://developer.ibm.com/predictiveanalytics/get-help/] \\n- Select SPSS Statistics Version 25, 24, 23... Scroll down to Licensing section - Get your license key \\n\\n\\nClick on Button: \",\n      \"remaining_problem\": \"The answer does not directly address the installation or loading of SPSS 25 on a new computer.\"\n    }\n  ]\n}",
+      "{\n  \"claims\": [\n    {\n      \"text\": \"Close IBM SPSS Statistics product and License Authorization Wizard if open.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"Open Terminal and navigate to the IBM SPSS Statistics application directory.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"Run the command 'sudo chown -R root:admin Statistics' to change the file permissions.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"Close Terminal, launch License Authorization Wizard, and the warning message should no longer appear.\",\n      \"source_id\": \"1\"\n    }\n  ],\n  \"coverage\": {\n    \"requested_answer\": true\n  }\n}",
+      "{\n  \"c0\": {\n    \"supported\": true,\n    \"quote_id\": \"c0_0\",\n    \"reason\": \"\"\n  },\n  \"c1\": {\n    \"supported\": true,\n    \"quote_id\": \"c1_0\",\n    \"reason\": \"\"\n  },\n  \"c2\": {\n    \"supported\": true,\n    \"quote_id\": \"c2_0\",\n    \"reason\": \"\"\n  },\n  \"c3\": {\n    \"supported\": true,\n    \"quote_id\": \"c3_0\",\n    \"reason\": \"\"\n  }\n}",
+      "{\n  \"principal_request\": \"Load SPSS 25 on a new computer\",\n  \"operation_check\": {\n    \"requested_operation\": \"Load SPSS 25\",\n    \"answered_operation\": \"Close IBM SPSS Statistics product and License Authorization Wizard if open, change file permissions, and launch License Authorization Wizard\",\n    \"reason\": \"The answer provided a procedure to address a warning message, but it does not directly address the operation of loading SPSS 25. The answer focuses on resolving a permission issue that might prevent the software from启动。\",\n    \"matches\": false\n  },\n  \"coverage\": {\n    \"requested_answer\": {\n      \"covered\": false,\n      \"evidence_quote_id\": \"\",\n      \"answer_quote_id\": \"\"\n    }\n  },\n  \"incorrect_facts\": [\n    \"The answer provided does not directly address the principal request of loading SPSS 25.\"\n  ]\n}",
+      "{\n  \"resolutions\": [\n    {\n      \"issue_id\": \"invalid_model_output\",\n      \"resolved\": true,\n      \"source_ids\": [\"1\"],\n      \"evidence_quote\": \"Statistics Release 25  1. Type (copy/paste) the following command: \\n    \\n    sudo chown -R root:admin 25\\n    \\n 2. Press Enter/Return.\",\n      \"answer_quote\": \"Run the command 'sudo chown -R root:admin Statistics' to change the file permissions.\",\n      \"remaining_problem\": \"\"\n    }\n  ]\n}"
+    ]
+  },
+  {
+    "case": "supported_refusal",
+    "version": "no_critic",
+    "expected_valid": false,
+    "run": null,
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 0,
+    "tokens": 0,
+    "retries": 0,
+    "latency_ms": 0,
+    "error": false
+  },
+  {
+    "case": "supported_refusal",
+    "version": "legacy_critic",
+    "expected_valid": false,
+    "run": {
+      "final_diagnosis": "证据不足，无法给出可靠诊断。 [1]",
+      "passed": true,
+      "answer_sufficient": false,
+      "retries": 0,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "证据不足，无法给出可靠诊断。 [1]",
+          "critique": {
+            "passed": true,
+            "score": 0.9,
+            "issues": [],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        }
+      ],
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 385,
+        "output_tokens": 14,
+        "latency_ms": 2098.6021000426263
+      }
+    },
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 1,
+    "tokens": 399,
+    "retries": 0,
+    "latency_ms": 2098.6021000426263,
+    "error": false,
+    "raw_model_outputs": [
+      "{\n  \"sufficient\": false,\n  \"source_ids\": []\n}"
+    ]
+  },
+  {
+    "case": "supported_refusal",
+    "version": "improved_critic",
+    "expected_valid": false,
+    "run": {
+      "final_diagnosis": "Apache CXF vulnerability (CVE-2017-3156) is related to weaker security due to the failure to use OAuth2 Hawk and JOSE MAC Validation code, which could be exploited by remote attackers using timing attacks. [1]\nTivoli Network Manager IP Edition 4.1.1 and 4.2.0 are affected by this vulnerability. [1]\nFor Tivoli Network Manager IP Edition 4.1.1, IBM recommends calling service and referencing APAR IV99816 to obtain a fix if needed. [1]\nFor Tivoli Network Manager IP Edition 4.2.0, the vulnerability has been fixed in FixPack 3 by upgrading to CXF 3.1.10. [1]",
+      "passed": false,
+      "answer_sufficient": false,
+      "retries": 2,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "证据不足，无法给出可靠诊断。 [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.4,
+            "issues": [
+              {
+                "code": "supported_answer_refused",
+                "description": "Supplied evidence establishes all required request facts",
+                "suggestion": "Render the complete supported answer, keeping conditions"
+              }
+            ],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        },
+        {
+          "attempt": 2,
+          "diagnosis": "Apache CXF vulnerability (CVE-2017-3156) is related to weaker security due to the failure to use OAuth2 Hawk and JOSE MAC Validation code, which could be exploited by remote attackers using timing attacks. [1]\nTivoli Network Manager IP Edition 4.1.1 and 4.2.0 are affected by this vulnerability. [1]\nFor Tivoli Network Manager IP Edition 4.1.1, IBM recommends calling service and referencing APAR IV99816 to obtain a fix if needed. [1]\nFor Tivoli Network Manager IP Edition 4.2.0, the vulnerability has been fixed in FixPack 3 by upgrading to CXF 3.1.10. [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.3,
+            "issues": [
+              {
+                "code": "supported_answer_refused",
+                "description": "Supplied evidence establishes all required request facts",
+                "suggestion": "Previous issue lacks explicit repair proof"
+              }
+            ],
+            "principal_request": "Check if ITNM (Tivoli Network Manager IP Edition) versions 4.1.1 and 4.2.0 are affected by the Apache CXF vulnerability (CVE-2017-3156) and provide details on affected versions and remediation.",
+            "required_facts": [
+              "affected_versions",
+              "remediation",
+              "vulnerability"
+            ],
+            "covered_facts": [
+              "affected_versions",
+              "remediation",
+              "vulnerability"
+            ],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": [
+            {
+              "issue_id": "supported_answer_refused",
+              "description": "Supplied evidence establishes all required request facts",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "Supplied evidence establishes all required request facts"
+            }
+          ]
+        },
+        {
+          "attempt": 3,
+          "diagnosis": "Apache CXF vulnerability (CVE-2017-3156) is related to weaker security due to the failure to use OAuth2 Hawk and JOSE MAC Validation code, which could be exploited by remote attackers using timing attacks. [1]\nTivoli Network Manager IP Edition 4.1.1 and 4.2.0 are affected by this vulnerability. [1]\nFor Tivoli Network Manager IP Edition 4.1.1, IBM recommends calling service and referencing APAR IV99816 to obtain a fix if needed. [1]\nFor Tivoli Network Manager IP Edition 4.2.0, the vulnerability has been fixed in FixPack 3 by upgrading to CXF 3.1.10. [1]",
+          "critique": {
+            "passed": false,
+            "score": 0.3,
+            "issues": [
+              {
+                "code": "supported_answer_refused",
+                "description": "Supplied evidence establishes all required request facts",
+                "suggestion": "Previous issue lacks explicit repair proof"
+              }
+            ],
+            "principal_request": "Check if ITNM (Tivoli Network Manager IP Edition) versions 4.1.1 and 4.2.0 are affected by the Apache CXF vulnerability (CVE-2017-3156) and provide details on affected versions and remediation.",
+            "required_facts": [
+              "affected_versions",
+              "remediation",
+              "vulnerability"
+            ],
+            "covered_facts": [
+              "affected_versions",
+              "remediation",
+              "vulnerability"
+            ],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": [
+            {
+              "issue_id": "supported_answer_refused",
+              "description": "Supplied evidence establishes all required request facts",
+              "resolved": false,
+              "supporting_evidence_ids": [],
+              "remaining_problem": "Supplied evidence establishes all required request facts"
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "llm_calls": 9,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 7847,
+        "output_tokens": 1658,
+        "latency_ms": 117985.13649997767
+      }
+    },
+    "initial_accepted": false,
+    "final_accepted": false,
+    "calls": 9,
+    "tokens": 9505,
+    "retries": 2,
+    "latency_ms": 117985.13649997767,
+    "error": false,
+    "raw_model_outputs": [
+      "{\n  \"principal_request\": \"Check if ITNM is exposed to Apache CXF vulnerability (CVE-2017-3156) and identify affected versions and remediation details.\",\n  \"operation_check\": {\n    \"requested_operation\": \"Check for Apache CXF vulnerability (CVE-2017-3156) in ITNM and identify affected versions and remediation details.\",\n    \"answered_operation\": \"Identified the vulnerability details, affected versions, and remediation details for the Apache CXF vulnerability (CVE-2017-3156) in ITNM.\",\n    \"reason\": \"The answer provided the vulnerability details, affected versions, and remediation details, which match the requested operation.\",\n    \"matches\": true\n  },\n  \"coverage\": {\n    \"affected_versions\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_2\",\n      \"answer_quote_id\": \"a2\"\n    },\n    \"remediation\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_3\",\n      \"answer_quote_id\": \"a3\"\n    },\n    \"vulnerability\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_0\",\n      \"answer_quote_id\": \"a0\"\n    }\n  },\n  \"incorrect_facts\": []\n}",
+      "{\n  \"claims\": [\n    {\n      \"text\": \"Apache CXF vulnerability (CVE-2017-3156) is related to weaker security due to the failure to use OAuth2 Hawk and JOSE MAC Validation code, which could be exploited by remote attackers using timing attacks.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"Tivoli Network Manager IP Edition 4.1.1 and 4.2.0 are affected by this vulnerability.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"For Tivoli Network Manager IP Edition 4.1.1, IBM recommends calling service and referencing APAR IV99816 to obtain a fix if needed.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"For Tivoli Network Manager IP Edition 4.2.0, the vulnerability has been fixed in FixPack 3 by upgrading to CXF 3.1.10.\",\n      \"source_id\": \"1\"\n    }\n  ],\n  \"coverage\": {\n    \"vulnerability\": true,\n    \"affected_versions\": true,\n    \"remediation\": true\n  }\n}",
+      "{\n  \"c0\": {\n    \"supported\": true,\n    \"quote_id\": \"c0_2\",\n    \"reason\": \"The source explicitly states that Tivoli Network Manager IP Edition 4.1.1 and 4.2.0 are affected by the vulnerability.\"\n  },\n  \"c1\": {\n    \"supported\": true,\n    \"quote_id\": \"c1_2\",\n    \"reason\": \"The source explicitly states that Tivoli Network Manager IP Edition 4.1.1 and 4.2.0 are affected by the vulnerability.\"\n  },\n  \"c2\": {\n    \"supported\": true,\n    \"quote_id\": \"c2_3\",\n    \"reason\": \"The source explicitly recommends calling IBM service and referencing APAR IV99816 for Tivoli Network Manager IP Edition 4.1.1.\"\n  },\n  \"c3\": {\n    \"supported\": true,\n    \"quote_id\": \"c3_3\",\n    \"reason\": \"The source explicitly states that the vulnerability has been fixed in Tivoli Network Manager IP Edition 4.2.0 FixPack 3 by upgrading to CXF 3.1.10.\"\n  }\n}",
+      "{\n  \"principal_request\": \"Check if ITNM (Tivoli Network Manager IP Edition) versions 4.1.1 and 4.2.0 are affected by the Apache CXF vulnerability (CVE-2017-3156) and provide details on affected versions and remediation.\",\n  \"operation_check\": {\n    \"requested_operation\": \"Check for Apache CXF vulnerability (CVE-2017-3156) in ITNM versions 4.1.1 and 4.2.0.\",\n    \"answered_operation\": \"Identified the vulnerability and provided affected versions and remediation details.\",\n    \"reason\": \"The answer provided the affected versions and remediation details for the specified ITNM versions.\",\n    \"matches\": true\n  },\n  \"coverage\": {\n    \"affected_versions\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_2\",\n      \"answer_quote_id\": \"a0\"\n    },\n    \"remediation\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_3\",\n      \"answer_quote_id\": \"a1\"\n    },\n    \"vulnerability\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_0\",\n      \"answer_quote_id\": \"a0\"\n    }\n  },\n  \"incorrect_facts\": []\n}",
+      "{\n  \"resolutions\": [\n    {\n      \"issue_id\": \"supported_answer_refused\",\n      \"resolved\": true,\n      \"source_ids\": [\"1\"],\n      \"evidence_quote\": \"Tivoli Network Manager IP Edition 4.1.1 and 4.2.0 are affected by this vulnerability. [1]\",\n      \"answer_quote\": \"Tivoli Network Manager IP Edition 4.1.1 and 4.2.0 are affected by this vulnerability. [1]\\nFor Tivoli Network Manager IP Edition 4.1.1, IBM recommends calling service and referencing APAR IV99816 to obtain a fix if needed. [1]\\nFor Tivoli Network Manager IP Edition 4.2.0, the vulnerability has been fixed in FixPack 3 by upgrading to CXF 3.1.10. [1]\",\n      \"remaining_problem\": \"\"\n    }\n  ]\n}",
+      "{\n  \"claims\": [\n    {\n      \"text\": \"Apache CXF vulnerability (CVE-2017-3156) is related to weaker security due to the failure to use OAuth2 Hawk and JOSE MAC Validation code, which could be exploited by remote attackers using timing attacks.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"Tivoli Network Manager IP Edition 4.1.1 and 4.2.0 are affected by this vulnerability.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"For Tivoli Network Manager IP Edition 4.1.1, IBM recommends calling service and referencing APAR IV99816 to obtain a fix if needed.\",\n      \"source_id\": \"1\"\n    },\n    {\n      \"text\": \"For Tivoli Network Manager IP Edition 4.2.0, the vulnerability has been fixed in FixPack 3 by upgrading to CXF 3.1.10.\",\n      \"source_id\": \"1\"\n    }\n  ],\n  \"coverage\": {\n    \"vulnerability\": true,\n    \"affected_versions\": true,\n    \"remediation\": true\n  }\n}",
+      "{\n  \"c0\": {\n    \"supported\": true,\n    \"quote_id\": \"c0_2\",\n    \"reason\": \"The source explicitly states that Tivoli Network Manager IP Edition 4.1.1 and 4.2.0 are affected by the vulnerability.\"\n  },\n  \"c1\": {\n    \"supported\": true,\n    \"quote_id\": \"c1_2\",\n    \"reason\": \"The source explicitly states that Tivoli Network Manager IP Edition 4.1.1 and 4.2.0 are affected by the vulnerability.\"\n  },\n  \"c2\": {\n    \"supported\": true,\n    \"quote_id\": \"c2_3\",\n    \"reason\": \"The source explicitly recommends calling IBM service and referencing APAR IV99816 for Tivoli Network Manager IP Edition 4.1.1.\"\n  },\n  \"c3\": {\n    \"supported\": true,\n    \"quote_id\": \"c3_3\",\n    \"reason\": \"The source explicitly states that the vulnerability has been fixed in Tivoli Network Manager IP Edition 4.2.0 FixPack 3 by upgrading to CXF 3.1.10.\"\n  }\n}",
+      "{\n  \"principal_request\": \"Check if ITNM (Tivoli Network Manager IP Edition) versions 4.1.1 and 4.2.0 are affected by the Apache CXF vulnerability (CVE-2017-3156) and provide details on affected versions and remediation.\",\n  \"operation_check\": {\n    \"requested_operation\": \"Check for Apache CXF vulnerability (CVE-2017-3156) in ITNM versions 4.1.1 and 4.2.0.\",\n    \"answered_operation\": \"Identified the vulnerability and provided affected versions and remediation details.\",\n    \"reason\": \"The answer provided the affected versions and remediation details for the specified ITNM versions.\",\n    \"matches\": true\n  },\n  \"coverage\": {\n    \"affected_versions\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_2\",\n      \"answer_quote_id\": \"a0\"\n    },\n    \"remediation\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_3\",\n      \"answer_quote_id\": \"a1\"\n    },\n    \"vulnerability\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_0\",\n      \"answer_quote_id\": \"a0\"\n    }\n  },\n  \"incorrect_facts\": []\n}",
+      "{\n  \"resolutions\": [\n    {\n      \"issue_id\": \"supported_answer_refused\",\n      \"resolved\": true,\n      \"source_ids\": [\"1\"],\n      \"evidence_quote\": \"Tivoli Network Manager IP Edition 4.1.1 and 4.2.0 are affected by this vulnerability. [1]\",\n      \"answer_quote\": \"Tivoli Network Manager IP Edition 4.1.1 and 4.2.0 are affected by this vulnerability. [1]\\nFor Tivoli Network Manager IP Edition 4.1.1, IBM recommends calling service and referencing APAR IV99816 to obtain a fix if needed. [1]\\nFor Tivoli Network Manager IP Edition 4.2.0, the vulnerability has been fixed in FixPack 3 by upgrading to CXF 3.1.10. [1]\",\n      \"remaining_problem\": \"\"\n    }\n  ]\n}"
+    ]
+  },
+  {
+    "case": "insufficient_evidence_refusal",
+    "version": "no_critic",
+    "expected_valid": true,
+    "run": null,
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 0,
+    "tokens": 0,
+    "retries": 0,
+    "latency_ms": 0,
+    "error": false
+  },
+  {
+    "case": "insufficient_evidence_refusal",
+    "version": "legacy_critic",
+    "expected_valid": true,
+    "run": {
+      "final_diagnosis": "证据不足，无法给出可靠诊断。 [1]",
+      "passed": true,
+      "answer_sufficient": false,
+      "retries": 0,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "证据不足，无法给出可靠诊断。 [1]",
+          "critique": {
+            "passed": true,
+            "score": 0.9,
+            "issues": [],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        }
+      ],
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 397,
+        "output_tokens": 14,
+        "latency_ms": 1940.6590999569744
+      }
+    },
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 1,
+    "tokens": 411,
+    "retries": 0,
+    "latency_ms": 1940.6590999569744,
+    "error": false,
+    "raw_model_outputs": [
+      "{\n  \"sufficient\": false,\n  \"source_ids\": []\n}"
+    ]
+  },
+  {
+    "case": "insufficient_evidence_refusal",
+    "version": "improved_critic",
+    "expected_valid": true,
+    "run": {
+      "final_diagnosis": "证据不足，无法给出可靠诊断。 [1]",
+      "passed": true,
+      "answer_sufficient": false,
+      "retries": 0,
+      "attempts": [
+        {
+          "attempt": 1,
+          "diagnosis": "证据不足，无法给出可靠诊断。 [1]",
+          "critique": {
+            "passed": true,
+            "score": 0.9,
+            "issues": [],
+            "principal_request": "",
+            "required_facts": [],
+            "covered_facts": [],
+            "missing_facts": [],
+            "incorrect_facts": []
+          },
+          "resolved_previous_issues": [],
+          "issue_resolutions": []
+        }
+      ],
+      "metrics": {
+        "llm_calls": 1,
+        "model_errors": 0,
+        "tool_calls": 0,
+        "input_tokens": 794,
+        "output_tokens": 219,
+        "latency_ms": 11671.21479997877
+      }
+    },
+    "initial_accepted": true,
+    "final_accepted": true,
+    "calls": 1,
+    "tokens": 1013,
+    "retries": 0,
+    "latency_ms": 11671.21479997877,
+    "error": false,
+    "raw_model_outputs": [
+      "{\n  \"principal_request\": \"Explain why configured credentials are not being used and how to select the intended outbound identity, and provide concrete applicable configuration steps to ensure the correct identity is used when calling MQ after migrating the BPM environment.\",\n  \"operation_check\": {\n    \"requested_operation\": \"Call MQ service after BPM environment migration.\",\n    \"answered_operation\": \"Explain why configured credentials are not being used and how to select the intended outbound identity, and provide concrete applicable configuration steps.\",\n    \"reason\": \"The answer addresses the core issue of why the configured credentials are not being used and provides steps to ensure the correct identity is selected.\",\n    \"matches\": true\n  },\n  \"coverage\": {\n    \"configured_identity\": {\n      \"covered\": true,\n      \"evidence_quote_id\": \"e0_0\",\n      \"answer_quote_id\": \"a0\"\n    },\n    \"required_steps\": {\n      \"covered\": false,\n      \"evidence_quote_id\": \"\",\n      \"answer_quote_id\": \"\"\n    }\n  },\n  \"incorrect_facts\": [\n    \"The answer does not provide concrete applicable configuration steps to ensure the correct identity is used.\"\n  ]\n}"
+    ]
+  }
+]

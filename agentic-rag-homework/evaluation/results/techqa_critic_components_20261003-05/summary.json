@@ -1,0 +1,23 @@
+{
+  "complete": true,
+  "cases": 2,
+  "observations": 2,
+  "protocol": "controlled real-source corruptions; engineering/AI-assisted labels",
+  "dataset_sha256": "609bc2f512c93ad1564d6357e8123885b0956853386cb4a20e3dd145c4a6d520",
+  "summary": {
+    "improved_critic": {
+      "defect_recall": 1.0,
+      "false_accept_rate": 0.0,
+      "false_reject_rate": null,
+      "average_retry": 2.0,
+      "llm_calls": 7.0,
+      "tokens": 8488.0,
+      "latency_ms": 97435.6509000063,
+      "protocol_error_cases": 2,
+      "issue_repair_rate": null,
+      "new_issue_rate": null,
+      "final_fact_coverage": null
+    }
+  },
+  "protocol_unchanged": true
+}
