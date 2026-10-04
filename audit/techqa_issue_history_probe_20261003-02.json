@@ -1,0 +1,125 @@
+{
+  "scope": "deterministic driver fault-path probe; real-source corruption, scripted critic outputs; not native LLM evaluation",
+  "source_parent_sha256": "2a1856f557a0ae5575a6841660f1d18325f2bf5e847991dc86b095df862865cd",
+  "expected_passed": false,
+  "actual_passed": false,
+  "checked_issue_ids_per_attempt": [
+    [],
+    [
+      "missing_condition"
+    ],
+    [
+      "missing_condition",
+      "invalid_model_output"
+    ]
+  ],
+  "run": {
+    "final_diagnosis": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nIBM Tivoli Network Manager IP Edition 4.1.1 & 4.2.0\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone [1]",
+    "passed": false,
+    "answer_sufficient": false,
+    "retries": 2,
+    "attempts": [
+      {
+        "attempt": 1,
+        "diagnosis": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nIBM Tivoli Network Manager IP Edition 4.1.1 & 4.2.0\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone [1]",
+        "critique": {
+          "passed": false,
+          "score": 0.2,
+          "issues": [
+            {
+              "code": "missing_condition",
+              "description": "Affected versions are conditional on Huawei MTOSI Collector installation",
+              "suggestion": "Verify the outstanding issue"
+            }
+          ],
+          "principal_request": "",
+          "required_facts": [],
+          "covered_facts": [],
+          "missing_facts": [],
+          "incorrect_facts": []
+        },
+        "resolved_previous_issues": [],
+        "issue_resolutions": []
+      },
+      {
+        "attempt": 2,
+        "diagnosis": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nIBM Tivoli Network Manager IP Edition 4.1.1 & 4.2.0\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone [1]",
+        "critique": {
+          "passed": false,
+          "score": 0.2,
+          "issues": [
+            {
+              "code": "invalid_model_output",
+              "description": "Protocol repair pending",
+              "suggestion": "Verify the outstanding issue"
+            }
+          ],
+          "principal_request": "",
+          "required_facts": [],
+          "covered_facts": [],
+          "missing_facts": [],
+          "incorrect_facts": []
+        },
+        "resolved_previous_issues": [],
+        "issue_resolutions": [
+          {
+            "issue_id": "missing_condition",
+            "description": "Affected versions are conditional on Huawei MTOSI Collector installation",
+            "resolved": false,
+            "supporting_evidence_ids": [],
+            "remaining_problem": "Affected versions are conditional on Huawei MTOSI Collector installation"
+          }
+        ]
+      },
+      {
+        "attempt": 3,
+        "diagnosis": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3156 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3156]\nDESCRIPTION: Apache CXF could provide weaker than expected security, caused by the failure to use the OAuth2 Hawk and JOSE MAC Validation code. A remote attacker could exploit this vulnerability using timing attacks to obtain sensitive information.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/130249 [https://exchange.xforce.ibmcloud.com/vulnerabilities/130249] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nIBM Tivoli Network Manager IP Edition 4.1.1 & 4.2.0\nTivoli Network Manager IP Edition 4.2.0 (Huawei MTOSI Collector install)\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/First Fix Tivoli Network Manager IP Edition 4.1.1 IV99816 Please call IBM service and reference APAR IV99816, to obtain a fix if needed for 4.1.1 release. Tivoli Network Manager IP Edition 4.2.0 IV99816 CXF 3.1.10 has been upgraded in 4.2 FixPack 3.\nhttp://www-01.ibm.com/support/docview.wss?uid=swg24043575 [http://www-01.ibm.com/support/docview.wss?uid=swg24043575] WORKAROUNDS AND MITIGATIONS\nNone [1]",
+        "critique": {
+          "passed": false,
+          "score": 0.3,
+          "issues": [
+            {
+              "code": "missing_condition",
+              "description": "Affected versions are conditional on Huawei MTOSI Collector installation",
+              "suggestion": "Previous issue lacks explicit repair proof"
+            }
+          ],
+          "principal_request": "",
+          "required_facts": [],
+          "covered_facts": [],
+          "missing_facts": [],
+          "incorrect_facts": []
+        },
+        "resolved_previous_issues": [
+          "invalid_model_output"
+        ],
+        "issue_resolutions": [
+          {
+            "issue_id": "missing_condition",
+            "description": "Affected versions are conditional on Huawei MTOSI Collector installation",
+            "resolved": false,
+            "supporting_evidence_ids": [],
+            "remaining_problem": "Affected versions are conditional on Huawei MTOSI Collector installation"
+          },
+          {
+            "issue_id": "invalid_model_output",
+            "description": "Protocol repair pending",
+            "resolved": true,
+            "supporting_evidence_ids": [
+              "1"
+            ],
+            "remaining_problem": ""
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "llm_calls": 0,
+      "model_errors": 0,
+      "tool_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "latency_ms": 3.8155000074766576
+    }
+  }
+}

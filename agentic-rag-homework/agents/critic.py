@@ -11,7 +11,12 @@ from typing import Literal, Protocol
 
 import httpx
 from pydantic import BaseModel, ConfigDict, Field, model_validator
-from rag.techqa.claims import audit_requirements
+from rag.techqa.claims import (
+    audit_requirements,
+    copied_procedure_is_incomplete,
+    copied_version_condition_is_missing,
+    symptom_only_without_action,
+)
 from rag.techqa.evidence import selection_schema
 from rag.techqa.query import component_conflict, operation_conflict, requirement_error_conflict
 
@@ -469,6 +474,17 @@ class LLMCritic:
                 and set(item["source_ids"]) <= cited and bool(item["evidence_quote"])
                 and bool(item["answer_quote"]) and item["answer_quote"] in diagnosis
                 and any(item["evidence_quote"] in blocks[k] for k in item["source_ids"]))
+            missing_fact = issue.description.removeprefix("Missing required fact: ")
+            # An exact but unrelated quote must not clear a fact which is still
+            # absent. Reapply the bounded integrity guards even if this round's
+            # general audit failed its output protocol.
+            if (missing_fact in critique.missing_facts
+                    or missing_fact == "affected_versions" and any(
+                        copied_version_condition_is_missing(diagnosis, blocks[k]) for k in cited)
+                    or missing_fact == "required_steps" and (
+                        symptom_only_without_action(diagnosis) or any(
+                            copied_procedure_is_incomplete(diagnosis, blocks[k]) for k in cited))):
+                proved = False
             results.append(IssueResolution(issue_id=issue.code, description=issue.description,
                 resolved=proved, supporting_evidence_ids=item["source_ids"] if proved else [],
                 remaining_problem="" if proved else item["remaining_problem"] or issue.description))
@@ -587,6 +603,10 @@ class CriticLoop:
                 repairs = [IssueResolution(issue_id=i.code, description=i.description,
                     resolved=False, remaining_problem="Repair verification failed: "
                     + i.description) for i in feedback]
+            checked = {r.issue_id for r in repairs}
+            repairs.extend(IssueResolution(issue_id=i.code, description=i.description,
+                resolved=False, remaining_problem="No explicit repair result: " + i.description)
+                for i in feedback if i.code not in checked)
             unresolved = [r for r in repairs if not r.resolved]
             if (self.critic.fact_audit and critique.passed and unresolved
                     and not diagnosis.startswith(INSUFFICIENT_DIAGNOSIS)):
@@ -608,7 +628,11 @@ class CriticLoop:
             previous = diagnosis
             if critique.passed or dependency_failed:
                 break
-            feedback = critique.issues
+            # A different issue (including a protocol error) cannot replace an
+            # unresolved earlier obligation. Only explicit proof removes it.
+            pending = {issue.code: issue for issue in feedback if issue.code not in resolved}
+            pending.update({issue.code: issue for issue in critique.issues})
+            feedback = list(pending.values())
         measured = self.model_meter.delta(before) if self.model_meter else Metrics()
         measured.latency_ms = (time.perf_counter() - started) * 1000
         return CriticLoopRun(
