@@ -1,0 +1,19 @@
+{
+  "status": "failed",
+  "checked_files": 493,
+  "mismatches": [
+    "config/retrieval.yaml",
+    "config/techqa_thresholds.json",
+    "src/rag/__init__.py",
+    "src/rag/api/runtime.py",
+    "src/rag/generation/prompts.py",
+    "src/rag/generation/service.py",
+    "src/rag/ingestion/cli.py",
+    "src/rag/ingestion/vector_store.py"
+  ],
+  "workingtree_online_source_unchanged": true,
+  "gitattributes_before_sha256": "62d1b1be9c4eaba4d0b1be1d07853f425ba5a606fe67c3f424b6c52c3389fcb6",
+  "gitattributes_after_sha256": "6a11539cd82dd00b7ee6098f8a83d2e1d92d8b7d3d7b342bbc13af9333584e9d",
+  "commit": "8532f7876ebeb88886ced37e9def004d96310a61",
+  "scope": "Git representation repair only; old source bytes remain frozen; no online/evaluation calls"
+}
