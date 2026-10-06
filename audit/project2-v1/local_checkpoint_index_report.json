@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "checked_files": 493,
+  "mismatches": [],
+  "workingtree_online_source_unchanged": true,
+  "gitattributes_before_sha256": "62d1b1be9c4eaba4d0b1be1d07853f425ba5a606fe67c3f424b6c52c3389fcb6",
+  "gitattributes_after_sha256": "6a11539cd82dd00b7ee6098f8a83d2e1d92d8b7d3d7b342bbc13af9333584e9d",
+  "commit": "10c0f3c8f581e77a8c86d63c17ad0e3ceac8eecc",
+  "scope": "Git representation repair only; old source bytes remain frozen; no online/evaluation calls"
+}

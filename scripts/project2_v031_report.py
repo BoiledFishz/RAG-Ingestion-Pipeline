@@ -35,17 +35,16 @@ def number(value):
 
 def metric_text(item: dict) -> str:
     interval=lambda values:'['+', '.join(number(x) for x in values)+']'
-    return f"{number(item.get('numerator'))}/{number(item.get('denominator'))}；均值{number(item.get('mean'))}，范围{interval(item.get('range',[]))}，95%CI {interval(item.get('ci95',[]))}"
+    description='（仅描述，不作结论）' if item.get('interpretation')=='仅描述，不作结论' else ''
+    return f"{number(item.get('numerator'))}/{number(item.get('denominator'))}；均值{number(item.get('mean'))}，范围{interval(item.get('range',[]))}，95%CI {interval(item.get('ci95',[]))}{description}"
 
 
 def qa_text(summary: dict) -> str:
     text=[]
-    for name in ('recall_at_5','recall_at_10','mrr','partial'):
-        item=summary['metrics'][name];text.append(f"{name}: {metric_text(item)}")
+    for name,label in (('recall_at_5','R@5'),('recall_at_10','R@10'),('mrr','MRR')):
+        item=summary['metrics'][name];text.append(f"{label}: {metric_text(item)}")
     facts=summary['required_facts']
     text.append(f"待独立评分{facts['unscored_answer_observations']}份；匹配旧双评分{facts['matched_answer_observations']}份，事实覆盖仅为条件子集，不代表全体")
-    for role,item in facts['metrics'].items():
-        text.append(f"{role}事实覆盖(条件子集): {metric_text(item)}")
     text.append(f"相对v0退化记录{len(summary['regression_items'])}条（题目×重复×指标，非题数）")
     return '；'.join(text)
 
@@ -128,7 +127,7 @@ def one_page(root: Path, report: dict) -> str:
         q=native['n_quality'];scope='' if native['complete'] else '（该轮不完整，仅描述）'
         fmt=lambda values:'['+', '.join(number(x) for x in values)+']'
         lines.append(f"第{native['repair_rounds']}轮N拒答{scope}（非门禁）：{q['numerator']}/{q['denominator']}；聚类95%CI {fmt(q['cluster_bootstrap95'])}；三重复均值 {number(q['mean'])}、范围 {fmt(q['range'])}。失败/超时不算正确拒答，冻结v0结论不变。")
-    if progress:lines.append(f"最新真实子门禁第{progress['repair_round']}轮：{progress['requests']}/{progress['expected']}；失败观察{progress['failed_observations']}。未完成不判通过。")
+    if progress:lines.append(f"最新真实子门禁第{progress['repair_round']}轮：{progress['requests']}/{progress['expected']}；失败观察{progress['failed_observations']}。"+('未完成不判通过。' if progress['requests']!=progress['expected'] else ''))
     lines+=['','**规格修订**','', '；'.join(f"{entry['version']}：{entry['delta_count']}处" for entry in report['revision_history'])+'。v0.3.1仅防睡眠、心跳检测、整批选择及16/6调用下限；原公式/熔断/状态矩阵不变。',
             '', '**两表一致性**','',f"{report['two_table_consistency']['status']}：批准表/运行表各{report['two_table_consistency']['approved_rows']}行，批准状态保持待实施；旧v0的{report['baseline_sut_files_unchanged']}份源码/配置哈希不变。文档检查{report['document_checks']}行PASS。",
             '', '停止原因：'+(report['stop_reason'] or '无；继续执行，尚未完成全部阶段。'),
@@ -136,6 +135,8 @@ def one_page(root: Path, report: dict) -> str:
             '',f"[机器证据与CI明细](<{(root/'audit/project2-v1/summary.json').as_posix()}>) · [续跑记录](<{(root/'specs/project2/progress.md').as_posix()}>) · [规格哈希与授权](<{(root/'specs/project2/v0.3.1/approval_addendum.md').as_posix()}>)。"]
     review=root/'evals/project2-v1/ch12/independent_review/human_template.json'
     if review.exists():lines.append(f"[待独立评分模板（另存副本填写）](<{review.as_posix()}>)。")
+    checkpoint=report.get('local_checkpoint')
+    if checkpoint:lines.append(f"Git字节校验（{checkpoint['commit'][:7]}）：{checkpoint['status']}，{checkpoint['checked_files']}份文件；工作区冻结源码未变，两份失败记录保留。")
     return '\n'.join(lines)+'\n'
 
 
@@ -244,6 +245,7 @@ def generate(root: Path) -> str:
         if sha(path)!=frozen[key]:raise ValueError('Frozen baseline score changed')
         report['baseline_v0_qa_metrics'][partition]={'metrics':read(path)['metrics'],'source':path.relative_to(root).as_posix(),'sha256':sha(path)}
     report['quality_receipt']=(completion or {}).get('quality')
+    report['local_checkpoint']=read(audit/'local_checkpoint_index_report.json')
     lines=['# Project 2 自动执行汇总','',f"程序状态：**{status}**。"+(reason or '完整阶段门禁尚未全部通过。'),
            f"分支 `{branch}`；held-out累计 **{held_calls}次阶段调用 / {held_repeats}次重复**。",'',
            '| 阶段 | 完整门禁 |','| --- | --- |']

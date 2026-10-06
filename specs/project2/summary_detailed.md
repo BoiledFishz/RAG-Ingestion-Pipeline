@@ -41,7 +41,7 @@ v0.3.1仅新增S08.2操作性段落（1处精确插入、4项授权操作）；�
 ### 两表一致性
 
 程序比对 **passed**：批准表61行、运行表61行；ID无缺失/新增/重复，批准状态与执行状态分开。冻结v0的65份源码/配置哈希不变。
-证据：[文档输出](<C:/Users/zacha/Documents/Ingestion Pipeline/audit/project2-v1/docs_check_v031.log>) · [批次协议](<C:/Users/zacha/Documents/Ingestion Pipeline/evals/project2-v1/calibration_v031/protocol.json>) · [两表比对](<C:/Users/zacha/Documents/Ingestion Pipeline/audit/project2-v1/v031_traceability_comparison.json>)。新增本地提交0。
+证据：[文档输出](<C:/Users/zacha/Documents/Ingestion Pipeline/audit/project2-v1/docs_check_v031.log>) · [批次协议](<C:/Users/zacha/Documents/Ingestion Pipeline/evals/project2-v1/calibration_v031/protocol.json>) · [两表比对](<C:/Users/zacha/Documents/Ingestion Pipeline/audit/project2-v1/v031_traceability_comparison.json>)。新增本地提交3。
 
 需要本人处理：
 
