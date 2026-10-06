@@ -16,3 +16,13 @@
 /enterprise-ai-agent/tools/techqa_document_query.py -text
 /splits.json -text
 /splits.json.sha256 -text
+
+# These baseline files are already frozen with their current CRLF bytes.
+/config/retrieval.yaml -text
+/config/techqa_thresholds.json -text
+/src/rag/__init__.py -text
+/src/rag/api/runtime.py -text
+/src/rag/generation/prompts.py -text
+/src/rag/generation/service.py -text
+/src/rag/ingestion/cli.py -text
+/src/rag/ingestion/vector_store.py -text

@@ -1,0 +1,15 @@
+{
+  "status": "failed",
+  "checked_files": 493,
+  "mismatches": [
+    "config/retrieval.yaml",
+    "config/techqa_thresholds.json",
+    "src/rag/__init__.py",
+    "src/rag/api/runtime.py",
+    "src/rag/generation/prompts.py",
+    "src/rag/generation/service.py",
+    "src/rag/ingestion/cli.py",
+    "src/rag/ingestion/vector_store.py"
+  ],
+  "scope": "committed bytes vs evidence/source hashes; not answer quality"
+}
