@@ -1,0 +1,47 @@
+{
+  "status": "selected",
+  "limits": {
+    "attempts": 19,
+    "llm_calls": 6,
+    "seconds": 37.941018
+  },
+  "paths": {
+    "rag_only": {
+      "status": "selected",
+      "p95": {
+        "attempts": 10,
+        "llm_calls": 3,
+        "elapsed_seconds": 25.29401199996937
+      },
+      "limits": {
+        "attempts": 13,
+        "llm_calls": 4,
+        "seconds": 37.941018
+      }
+    },
+    "combination": {
+      "status": "selected",
+      "p95": {
+        "attempts": 15,
+        "llm_calls": 3,
+        "elapsed_seconds": 21.97301149996929
+      },
+      "limits": {
+        "attempts": 19,
+        "llm_calls": 4,
+        "seconds": 32.959517
+      }
+    }
+  },
+  "requests": 300,
+  "expected": 300,
+  "host_suspended": false,
+  "reason": null,
+  "batch": 2,
+  "heldout_calls": 0,
+  "protocol_sha256": "2c4036a2bc6774fd7b3be7dc2d9d514a547be5ce28113c6a11d1f46983e1171f",
+  "raw_sha256": "1d6ebf673476b494ff191b227ee9b765dd2a8e9f50019709e4c66f538ce40ba5",
+  "failure": null,
+  "production_limits_changed": false,
+  "spec_manifest_sha256": "80455fc850af285c0c4af7998f2ead9061b9b13e649037bd64bebe931971df28"
+}

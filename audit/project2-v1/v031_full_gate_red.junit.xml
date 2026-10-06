@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="2.406" timestamp="2026-10-05T22:11:13.544807-07:00" hostname="szy"><testcase classname="tests.project2.test_v031_full_gate" name="test_full_gate_rejects_empty_or_claimed_pass_without_native_evidence" time="0.002"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\run_project2_ch12_gate.py'">def test_full_gate_rejects_empty_or_claimed_pass_without_native_evidence():
+        path=ROOT/'scripts/run_project2_ch12_gate.py'
+        spec=importlib.util.spec_from_file_location('full_gate',path)
+&gt;       m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\project2\test_v031_full_gate.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+&lt;frozen importlib._bootstrap_external&gt;:755: in exec_module
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:892: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;_frozen_importlib_external.SourceFileLoader object at 0x00000124362BE090&gt;
+path = 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\run_project2_ch12_gate.py'
+
+&gt;   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\run_project2_ch12_gate.py'
+
+&lt;frozen importlib._bootstrap_external&gt;:950: FileNotFoundError</failure></testcase></testsuite></testsuites>

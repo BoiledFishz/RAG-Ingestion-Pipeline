@@ -1,0 +1,2349 @@
+{
+  "stage": "ch12",
+  "status": "pending_independent_ratings",
+  "sources": {
+    "evals/project2-v1/ch12/qa-tune/summary.json": "9bda2535c05616bfa01191af22c8bb58419f712f1907a89b0f058b3600f43370",
+    "evals/project2-v1/ch12/qa-tune/scored.json": "11a0051067bace795bf7857b8a3129dfdaef3d5b5ca9737d4afe70b765b8386e",
+    "evals/protocol_v0/facts_tune.human_frozen.json": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+    "evals/project2-v1/ch12/qa-held-out/summary.json": "bc54d1dce126fddabf224dd17ef156cdf793c958a6cf5efb6d2b50b2abe6862c",
+    "evals/project2-v1/ch12/qa-held-out/scored.json": "fe8350e3384de32b6f9b8162e9d9802b654e0543d7f8faf4d53fb3183476aac0",
+    "evals/protocol_v0/facts_held-out.human_frozen.json": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916"
+  },
+  "items": [
+    {
+      "partition": "tune",
+      "question_id": "TRAIN_Q577",
+      "question": [
+        "My SystemOut.log is overfilled by messages SECJ0371W (LTPA token expired). I am sick and tired of them. Can I disable them?",
+        "My SystemOut.log is overfilled by messages SECJ0371W (LTPA token expired). I am sick and tired of them. Can I disable them? "
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "step",
+          "fact_id": "F1",
+          "reference_quote": "A security custom property will be used to disable the logging\n   of the SECJ0371W message",
+          "text": "A security custom property will be used to disable the logging of the SECJ0371W message"
+        },
+        {
+          "category": "command",
+          "fact_id": "F2",
+          "reference_quote": "com.ibm.websphere.security.ltpa.disableSECJ0371W=true",
+          "text": "com.ibm.websphere.security.ltpa.disableSECJ0371W=true"
+        }
+      ],
+      "definition_content_sha256": "78b6cd37d682a07ebf08966749846b6454339c4be735fc2a288969d0e9cddfa9",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "6ce139c0c65b2bbf491090a24d46603c793a16c401e677d4daeb2556d424334c"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "6ce139c0c65b2bbf491090a24d46603c793a16c401e677d4daeb2556d424334c"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "6ce139c0c65b2bbf491090a24d46603c793a16c401e677d4daeb2556d424334c"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "tune",
+      "question_id": "DEV_Q254",
+      "question": [
+        "Why do I receive the message, \"IKJ79154I INSTALLATION EXIT IKJEESX0 REQUESTED TERMINATION. \" for a TSO SEND command?",
+        "If you issue the TSO SEND command in a batch job and receive this message:\n\nIKJ79154I INSTALLATION EXIT IKJEESX0 REQUESTED TERMINATION.\nIKJ79154I REASON CODE X'00000004'."
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "coded a facility class for the FEK.CMD.SEND and FEK.CMD.SEND.CLEAR",
+          "text": "coded a facility class for the FEK.CMD.SEND and FEK.CMD.SEND.CLEAR"
+        }
+      ],
+      "definition_content_sha256": "a0f7d1cd591f10b3b9438aa3993083fb1d8e86d41b05a3374f6bfb4b44bfe8d6",
+      "single_fact_exception": true,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "9d01d56939f20890ec799940fa86f8763d83806a31c8d25dfebace4353760671"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "9d01d56939f20890ec799940fa86f8763d83806a31c8d25dfebace4353760671"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "9d01d56939f20890ec799940fa86f8763d83806a31c8d25dfebace4353760671"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "tune",
+      "question_id": "TRAIN_Q567",
+      "question": [
+        "Why the Editor for Messages logon page does not work?",
+        "\n\nWe have Editor for Messages installed on a Windows server. Users are accessing the web UI from a terminal server session that has been replaced recently. Users cannot login anymore from the new environment.\n\nThe fails as follows : the Editor for Messages logon page loads but when the user wants to validate their user/password by clicking on the \"login\" button, nothing occurs."
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "condition",
+          "fact_id": "F1",
+          "reference_quote": "Editor for Messages supports Microsoft Internet Explorer only",
+          "text": "Editor for Messages supports Microsoft Internet Explorer only"
+        },
+        {
+          "category": "condition",
+          "fact_id": "F2",
+          "reference_quote": "Mozilla Firefox and Google Chrome are not supported",
+          "text": "Mozilla Firefox and Google Chrome are not supported"
+        },
+        {
+          "category": "version",
+          "fact_id": "F3",
+          "reference_quote": "IE 6, IE 7, IE 8, IE 9 (compatibility view), IE 10(Compatibility view), IE 11(Compatibility view)",
+          "text": "IE 6, IE 7, IE 8, IE 9 (compatibility view), IE 10(Compatibility view), IE 11(Compatibility view)"
+        }
+      ],
+      "definition_content_sha256": "54d6356229cab669d27d2f564cdd03066433c4e0bcfd3273356d7110cebc9be0",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "526e5a9593142a9aac62f9ff8d360335a4426bcbce725a3354f36c376d50c2b4"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "526e5a9593142a9aac62f9ff8d360335a4426bcbce725a3354f36c376d50c2b4"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "526e5a9593142a9aac62f9ff8d360335a4426bcbce725a3354f36c376d50c2b4"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "tune",
+      "question_id": "DEV_Q306",
+      "question": [
+        "Unable to view batches in DotEdit",
+        "\n\nHi all,\n\nIs there any limitation to view batches in Dot Edit client application, because I am unable to see batches with QID more than 1119.\n\nAlso unable to see batches with status as \"Pending\". \n"
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "step",
+          "fact_id": "F1",
+          "reference_quote": "Backup the \\Datacap\\DotEdit\\apps.ini file",
+          "text": "Backup the \\Datacap\\DotEdit\\apps.ini file"
+        },
+        {
+          "category": "condition",
+          "fact_id": "F2",
+          "reference_quote": "If the file does not exist, create a new one or copy it from \\Datacap\\tmweb.net",
+          "text": "If the file does not exist, create a new one or copy it from \\Datacap\\tmweb.net"
+        },
+        {
+          "category": "step",
+          "fact_id": "F3",
+          "reference_quote": "Find the app to be modified (for example [APT]). If it does not exist, create a new section with the application name listed between square brackets",
+          "text": "Find the app to be modified (for example [APT]). If it does not exist, create a new section with the application name listed between square brackets"
+        },
+        {
+          "category": "command",
+          "fact_id": "F4",
+          "reference_quote": "Add a new line containing BatchLimit=xxx, where xxx is the number of batches to be displayed",
+          "text": "Add a new line containing BatchLimit=xxx, where xxx is the number of batches to be displayed"
+        },
+        {
+          "category": "step",
+          "fact_id": "F5",
+          "reference_quote": "Save the file",
+          "text": "Save the file"
+        }
+      ],
+      "definition_content_sha256": "d86d0065b199f0abccb7c23e865a9bc9e9a954c4db25e71ee897261261b082dd",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "b9ccd00b3712b8e70f08755d3810620f34a191d677d8b2fce056ae66c08150b7"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "b9ccd00b3712b8e70f08755d3810620f34a191d677d8b2fce056ae66c08150b7"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "b9ccd00b3712b8e70f08755d3810620f34a191d677d8b2fce056ae66c08150b7"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F4",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F5",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "tune",
+      "question_id": "DEV_Q040",
+      "question": [
+        "Why Plug-in log file reports an error message after install & configure the WebSphere Plugin 8.5 version on a Apache 2.4 webserver.",
+        "\n\nDuring web server start-up, errors like the following will be logged into the Plug-in log file (http_plugin.log):\n\nERROR: lib_security: loadSecurityLibrary: Failed to load gsk library from /opt/IBM/WebSphere/Plugins/gsk8/gsk8_64 ERROR: ws_transport: transportInitializeSecurity: Unable to load security library ERROR: ws_server: serverAddTransport: Failed to initialize security ERROR: ws_server: serverAddTransport: HTTPS Transport is skipped\n\nNote: This is after install & configure the WebSphere Plugin 8.5 version on a Apache 2.4 webserver  on a Linux platform"
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "command",
+          "fact_id": "F1",
+          "reference_quote": "you must set the LD_LIBRARY_PATH environment variable",
+          "text": "you must set the LD_LIBRARY_PATH environment variable"
+        },
+        {
+          "category": "step",
+          "fact_id": "F2",
+          "reference_quote": "to point to the library directory of the GSKit that comes with the IBM web server Plug-in",
+          "text": "to point to the library directory of the GSKit that comes with the IBM web server Plug-in"
+        },
+        {
+          "category": "condition",
+          "fact_id": "F3",
+          "reference_quote": "The precise directory location will depend of the version of Plug-in, and on the bit depth being used (32-bit or 64-bit)",
+          "text": "The precise directory location will depend of the version of Plug-in, and on the bit depth being used (32-bit or 64-bit)"
+        }
+      ],
+      "definition_content_sha256": "6a5f25f5018450f663b853fc06db6eb441f7588d08b2b94f0f007021eddc59c6",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "306d7ed56d09ea51f320d56e2ab3e55fa2bbbaafc25d611c458cc05edf60f03e"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "306d7ed56d09ea51f320d56e2ab3e55fa2bbbaafc25d611c458cc05edf60f03e"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "306d7ed56d09ea51f320d56e2ab3e55fa2bbbaafc25d611c458cc05edf60f03e"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "tune",
+      "question_id": "TRAIN_Q362",
+      "question": [
+        "Help with Security Bulletin: Vulnerability in Diffie-Hellman ciphers affects IBM Image Construction and CompositionTool. (CVE-2015-4000)",
+        "I need to understand details regarding \"Security Bulletin: Vulnerability in Diffie-Hellman ciphers affects IBM Image Construction and CompositionTool. (CVE-2015-4000\". Where can I find this information? "
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice",
+          "text": "The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice"
+        },
+        {
+          "category": "condition",
+          "fact_id": "F2",
+          "reference_quote": "An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher",
+          "text": "An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher"
+        },
+        {
+          "category": "other",
+          "fact_id": "F3",
+          "reference_quote": "commonly referred to as \"Logjam\"",
+          "text": "commonly referred to as \"Logjam\""
+        },
+        {
+          "category": "other",
+          "fact_id": "F4",
+          "reference_quote": "CVSS Base Score: 4.3",
+          "text": "CVSS Base Score: 4.3"
+        },
+        {
+          "category": "other",
+          "fact_id": "F5",
+          "reference_quote": "(AV:N/AC:M/Au:N/C:P/I:N/A:N)",
+          "text": "(AV:N/AC:M/Au:N/C:P/I:N/A:N)"
+        }
+      ],
+      "definition_content_sha256": "7ea450fb00efd2c6f666daf2e786da6566ce2c125a5f27bf895ef3f538be1ed6",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "32be2cdc30710d3e4a1e084c6879b1778b95aca4a4f800664e4c10eb2b9e0a57"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "32be2cdc30710d3e4a1e084c6879b1778b95aca4a4f800664e4c10eb2b9e0a57"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "32be2cdc30710d3e4a1e084c6879b1778b95aca4a4f800664e4c10eb2b9e0a57"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F4",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F5",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "tune",
+      "question_id": "DEV_Q088",
+      "question": [
+        "CQWEB  can\\'t retrieve repository dropdown list options in RedHat Linux, how to deal with it ?",
+        "I setup a cq demo env in redhat linux with oracle database, CQ 7.1.2, LRKS 8.1.3,  Linux CQ client can login CQ as the following picture 1, but CQWEB login page can't retrieve the repository dropdown list options as the following picture 2.  I used cqreg to register CQ database:\n\ncqreg add_dbset -v ORACLE -s 192.168.0.84 -d ESBDB -u cqadmin -p cqadmin -dbset CQ_DEMO_ORACLE -co LOB_TYPE=CLOB -force\n\nWhat's matter for this happen? "
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "condition",
+          "fact_id": "F1",
+          "reference_quote": "Normally, at the end of a ClearQuest installation on UNIX® based platforms, the cqreg initialize command runs automatically",
+          "text": "Normally, at the end of a ClearQuest installation on UNIX® based platforms, the cqreg initialize command runs automatically"
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "The command creates the registry structure for database sets",
+          "text": "The command creates the registry structure for database sets"
+        },
+        {
+          "category": "condition",
+          "fact_id": "F3",
+          "reference_quote": "During the installation, the command did not run successfully",
+          "text": "During the installation, the command did not run successfully"
+        }
+      ],
+      "definition_content_sha256": "f5c37ece1660f436b01e9b12626ad6dba3b4cbc2c48ca2571e01af9e0c35034d",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "ff93ec3c094fee8c67ad1e1d38e73afc26936af1a0f256723eed1e77614a70a2"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "ff93ec3c094fee8c67ad1e1d38e73afc26936af1a0f256723eed1e77614a70a2"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "ff93ec3c094fee8c67ad1e1d38e73afc26936af1a0f256723eed1e77614a70a2"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "tune",
+      "question_id": "DEV_Q029",
+      "question": [
+        "Recurrent RES StaleConnectionException",
+        "How to prevent rule execution failing because of recurrent StaleConnectionException on ODM 8.8 Rule Execution Server? "
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "step",
+          "fact_id": "F1",
+          "reference_quote": "Configure the WebSphere Application Server data source connection pool so as to eliminate occurrences of StaleConnectionException",
+          "text": "Configure the WebSphere Application Server data source connection pool so as to eliminate occurrences of StaleConnectionException"
+        },
+        {
+          "category": "step",
+          "fact_id": "F2",
+          "reference_quote": "Set the Minimum connections to 0 to avoid situations where a connection is kept in the pool to meet the minimum requirement, even though it may have been idle for longer than Unused timeout",
+          "text": "Set the Minimum connections to 0 to avoid situations where a connection is kept in the pool to meet the minimum requirement, even though it may have been idle for longer than Unused timeout"
+        },
+        {
+          "category": "condition",
+          "fact_id": "F3",
+          "reference_quote": "Set the values for Unused timeout and Reap timeout so that the sum does not exceed any network level idle connection timeout",
+          "text": "Set the values for Unused timeout and Reap timeout so that the sum does not exceed any network level idle connection timeout"
+        }
+      ],
+      "definition_content_sha256": "9d3c0c454ae4eb7562ec9fae9fa4d6c545980312ce136d17e1bc8ab629f28eaa",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "c9acfeab26486e18a82ef2ce373dd47cf09082d334396948e88e08e5cf783756"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "c9acfeab26486e18a82ef2ce373dd47cf09082d334396948e88e08e5cf783756"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "c9acfeab26486e18a82ef2ce373dd47cf09082d334396948e88e08e5cf783756"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "tune",
+      "question_id": "TRAIN_Q247",
+      "question": [
+        "Why is the reload() not clearing the attribute cache so I can see my newly updated LDAP data in real time?",
+        "You are leveraging the reload() functionality as described in the blog post:\n  https://www.ibm.com/developerworks/community/blogs/PortalL2Thoughts/entry/how_to_programatically_refresh_data_from_ldap64?lang=en\n\nto refresh the attribute cache after a change has been made to data within your LDAP. The purpose of this reload() is to update the data in real time on the Portal server. You discover that you are calling the reload(); however, the newly updated data is not immediately available to the application. How can this be fixed?\n"
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "This APAR fixes the issue. It clears the cache properly even if\n   base entry is different than name in repository.",
+          "text": "This APAR fixes the issue. It clears the cache properly even if base entry is different than name in repository."
+        },
+        {
+          "category": "version",
+          "fact_id": "F2",
+          "reference_quote": "The fix for this APAR is currently targeted for inclusion in\n   fix packs 8.0.0.13 and 8.5.5.9.",
+          "text": "The fix for this APAR is currently targeted for inclusion in fix packs 8.0.0.13 and 8.5.5.9."
+        }
+      ],
+      "definition_content_sha256": "2f8670fd058469e06c7f73c67f16fa3b3a3b3c7cdb84f349ad24caa10efdba29",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "325065e4b1c811708060d392ebeb3dd2045367842214c05ee9e85e9f7d50303f"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "325065e4b1c811708060d392ebeb3dd2045367842214c05ee9e85e9f7d50303f"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "325065e4b1c811708060d392ebeb3dd2045367842214c05ee9e85e9f7d50303f"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "tune",
+      "question_id": "TRAIN_Q458",
+      "question": [
+        "Error TASK001X while upgrading Portal 8.0.0.1 to 8.0.0.1 CF14 during import-nodes sub-task",
+        " Error TASK001X while upgrading Portal 8.0.0.1 to 8.0.0.1 CF14 during import-nodes sub-task"
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "step",
+          "fact_id": "F1",
+          "reference_quote": "Applications > WebSphere enterprise applications >\nJavaContentRepository",
+          "text": "Applications > WebSphere enterprise applications > JavaContentRepository"
+        },
+        {
+          "category": "step",
+          "fact_id": "F2",
+          "reference_quote": "Target specific application status > Check the\nbox for the WebSphere_Portal server > Click Enable Auto Start",
+          "text": "Target specific application status > Check the box for the WebSphere_Portal server > Click Enable Auto Start"
+        },
+        {
+          "category": "step",
+          "fact_id": "F3",
+          "reference_quote": "Save\nchanges > restart Portal",
+          "text": "Save changes > restart Portal"
+        },
+        {
+          "category": "step",
+          "fact_id": "F4",
+          "reference_quote": "After making this change please attempt the CF upgrade again",
+          "text": "After making this change please attempt the CF upgrade again"
+        }
+      ],
+      "definition_content_sha256": "fb51b1f39ad205c8c42432ddbd8a57413f42a3e0b667a8cf066d2f3b3f1a866e",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "016b910fefe1b52a37f686c3724073e94893aafb67e47af182c6d89dac82121a"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "016b910fefe1b52a37f686c3724073e94893aafb67e47af182c6d89dac82121a"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "016b910fefe1b52a37f686c3724073e94893aafb67e47af182c6d89dac82121a"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F4",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "tune",
+      "question_id": "DEV_Q154",
+      "question": [
+        "Why are some Datatypes corrupt after Impact cluster failover/failback ?",
+        "\n\nRunning Impact 7.1.0.11. The symptom is whenever Impact does a failover, a couple DataTypes\nturn out empty.\n\nI've checked the type files before and after Impact failover and the difference happens in the property\n\n*.SQL.USERPARAMETERS\n\nThis property no longer exists for the corrupted datatypes\".\n"
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "step",
+          "fact_id": "F1",
+          "reference_quote": "Add the property to $NCHOME/impact/etc/<SERVERNAME>_server.props file \nwhere size limit can be 8192, 16384, 32768, etc..",
+          "text": "Add the property to $NCHOME/impact/etc/<SERVERNAME>_server.props file where size limit can be 8192, 16384, 32768, etc.."
+        },
+        {
+          "category": "condition",
+          "fact_id": "F2",
+          "reference_quote": "The property would have to be added to all ImpactServers in the Cluster and would require a restart to enable",
+          "text": "The property would have to be added to all ImpactServers in the Cluster and would require a restart to enable"
+        },
+        {
+          "category": "condition",
+          "fact_id": "F3",
+          "reference_quote": "ensure that there are no trailing white-space characters on the property",
+          "text": "ensure that there are no trailing white-space characters on the property"
+        },
+        {
+          "category": "version",
+          "fact_id": "F4",
+          "reference_quote": "The APAR is not an issue in Impact 6 and 7, but one would still have to include this property with an appropriate value",
+          "text": "The APAR is not an issue in Impact 6 and 7, but one would still have to include this property with an appropriate value"
+        },
+        {
+          "category": "condition",
+          "fact_id": "F5",
+          "reference_quote": "The character length includes the whole USERPARAMETERS property name as well as the definition",
+          "text": "The character length includes the whole USERPARAMETERS property name as well as the definition"
+        }
+      ],
+      "definition_content_sha256": "c76ec0b39a40f8a591fa98de2cf29df45c51869f57d7eea893c3dbf36e1cfbe8",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "2474a4dce81dc743d4dc64896cc86049ce18b02cddb552cd8f67fa6c4f1dece3"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "2474a4dce81dc743d4dc64896cc86049ce18b02cddb552cd8f67fa6c4f1dece3"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F4",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F5",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "tune",
+      "question_id": "DEV_Q302",
+      "question": [
+        "How can I export a private key from DataPower Gateway Appliance?",
+        "\n\nIs it possible to export a private key from DataPower Gateway Appliance?"
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "command",
+          "fact_id": "F1",
+          "reference_quote": "HSM-enabled DataPower appliances support the export of private keys using the crypto-export command",
+          "text": "HSM-enabled DataPower appliances support the export of private keys using the crypto-export command"
+        },
+        {
+          "category": "condition",
+          "fact_id": "F2",
+          "reference_quote": "HSMs must be initialized and in the same key sharing domain on exporting and importing machines",
+          "text": "HSMs must be initialized and in the same key sharing domain on exporting and importing machines"
+        },
+        {
+          "category": "condition",
+          "fact_id": "F3",
+          "reference_quote": "The private key in question must be marked exportable at keygen time (see keygen's exportable option)",
+          "text": "The private key in question must be marked exportable at keygen time (see keygen's exportable option)"
+        },
+        {
+          "category": "condition",
+          "fact_id": "F4",
+          "reference_quote": "HSMs on exporting and importing machines must share internal key-wrapping keys (see hsm-clone-kwk command)",
+          "text": "HSMs on exporting and importing machines must share internal key-wrapping keys (see hsm-clone-kwk command)"
+        }
+      ],
+      "definition_content_sha256": "5343739fa97ecbe695b47c6bb23a2db3526559ae32adcd91dbaafd2a13e235ac",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "1bf01034db1f985dee900d567323c86fbb08685cf216fd3e96c6ea24136ea00b"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "1bf01034db1f985dee900d567323c86fbb08685cf216fd3e96c6ea24136ea00b"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F4",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "tune",
+      "question_id": "DEV_Q025",
+      "question": [
+        "How to import a certificate in ITCAM for Data Power ?",
+        "How can I import a certificate in ITCAM for Data Power?"
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "command",
+          "fact_id": "F1",
+          "reference_quote": "Import the certification file into the agent by doing the following command",
+          "text": "Import the certification file into the agent by doing the following command"
+        },
+        {
+          "category": "condition",
+          "fact_id": "F2",
+          "reference_quote": "You can use either .cer or .pem",
+          "text": "You can use either .cer or .pem"
+        },
+        {
+          "category": "condition",
+          "fact_id": "F3",
+          "reference_quote": "Make sure the file is in ASCII not binary",
+          "text": "Make sure the file is in ASCII not binary"
+        }
+      ],
+      "definition_content_sha256": "5186b8d015b7f5421f019a78ee8dc3ab1253bfb8e556c3b23f1cb2443e382155",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "ee1883f700cb37c55cd0430a86ec3e4b737d995145836d01f947b45ba7af53df"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "ee1883f700cb37c55cd0430a86ec3e4b737d995145836d01f947b45ba7af53df"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "ee1883f700cb37c55cd0430a86ec3e4b737d995145836d01f947b45ba7af53df"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "tune",
+      "question_id": "TRAIN_Q232",
+      "question": [
+        "Help with Security Bulletin: MQSISTOP/STARTMSGFLOW commands with unauthorized user succeed affects WMB and IIB (CVE-2015-5011)",
+        "I need to understand details regarding Security Bulletin: MQSISTOP/STARTMSGFLOW commands with unauthorized user succeed affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-5011). Where can I find this information? "
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "IBM Integration Bus could allow a local user to start and stop a service that they should not have access to",
+          "text": "IBM Integration Bus could allow a local user to start and stop a service that they should not have access to"
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "CVSS Base Score: 4",
+          "text": "CVSS Base Score: 4"
+        },
+        {
+          "category": "other",
+          "fact_id": "F3",
+          "reference_quote": "(CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N)",
+          "text": "(CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N)"
+        }
+      ],
+      "definition_content_sha256": "c3450be20db98b415f1e8f10f9449694b2357c6c02049fef3b34389849e995a2",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "67ce7574372dd53b8e2a39f93f017b3d5d648dec979a63151f473111ce18bbaf"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "tune",
+      "question_id": "TRAIN_Q116",
+      "question": [
+        "Why does my upgrade to Portal 8001 CF14 fail with the following errors, ADMA5008E, ADMA0063E, ADMA5069E, WASX7017E?",
+        "Why does my upgrade to Portal 8001 CF14 fail with the following errors, ADMA5008E, ADMA0063E, ADMA5069E, WASX7017E?"
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "condition",
+          "fact_id": "F1",
+          "reference_quote": "This exception can happen during ejbdeploy after the WebSphere Application Server has been upgraded, and old OSGI cache remains for the ejbdeploy tool",
+          "text": "This exception can happen during ejbdeploy after the WebSphere Application Server has been upgraded, and old OSGI cache remains for the ejbdeploy tool"
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "The OSGI class of the ejbdeploy tool contains class information within the deploytool folder and can become stale if the content inside deploytool has changed",
+          "text": "The OSGI class of the ejbdeploy tool contains class information within the deploytool folder and can become stale if the content inside deploytool has changed"
+        }
+      ],
+      "definition_content_sha256": "cac7818a29f92a2b405c258663aca6181304148917445c73cf51142561a80c40",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "2d39de48fd2b0ce51ee9026bf8a936a93fe315e8960ae33862afb045be29cdce"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "2d39de48fd2b0ce51ee9026bf8a936a93fe315e8960ae33862afb045be29cdce"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "2d39de48fd2b0ce51ee9026bf8a936a93fe315e8960ae33862afb045be29cdce"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "tune",
+      "question_id": "DEV_Q220",
+      "question": [
+        "Help with Security Bulletin: TLS padding vulnerability affects IBM PureApplication System (CVE-2014-8730)",
+        "I need to understand details regarding \"Security Bulletin: TLS padding vulnerability affects IBM PureApplication System (CVE-2014-8730)\". Where can I find this information? "
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "IBM PureApplication Server bundles IBM HTTP Server, which could allow a remote attacker to obtain sensitive information, caused by the failure to check the contents of the padding bytes when using CBC cipher suites of some TLS implementations",
+          "text": "IBM PureApplication Server bundles IBM HTTP Server, which could allow a remote attacker to obtain sensitive information, caused by the failure to check the contents of the padding bytes when using CBC cipher suites of some TLS implementations"
+        },
+        {
+          "category": "condition",
+          "fact_id": "F2",
+          "reference_quote": "A remote user with the ability to conduct a man-in-the-middle attack could exploit this vulnerability via a POODLE (Padding Oracle On Downgraded Legacy Encryption) like attack",
+          "text": "A remote user with the ability to conduct a man-in-the-middle attack could exploit this vulnerability via a POODLE (Padding Oracle On Downgraded Legacy Encryption) like attack"
+        },
+        {
+          "category": "other",
+          "fact_id": "F3",
+          "reference_quote": "CVSS Base Score: 4.3",
+          "text": "CVSS Base Score: 4.3"
+        },
+        {
+          "category": "other",
+          "fact_id": "F4",
+          "reference_quote": "(AV:N/AC:M/Au:N/C:P/I:N/A:N)",
+          "text": "(AV:N/AC:M/Au:N/C:P/I:N/A:N)"
+        }
+      ],
+      "definition_content_sha256": "d0470c322f4a6fc9fc13b6dca57b3f7345948eceaf76bbdc5b87915d63c966e4",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "ca8d2e8102f63715ef1404bd280657c0e1c513212c2d1f616110367fb8936a75"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "ca8d2e8102f63715ef1404bd280657c0e1c513212c2d1f616110367fb8936a75"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F4",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "tune",
+      "question_id": "TRAIN_Q256",
+      "question": [
+        "Error running krzgrant.sql script provided with 6.3.1.2-TIV-ITM_KRZ-IF0003.tar",
+        "When running the krzgrant.sql script provided in the package - 6.3.1.2-TIV-ITM_KRZ-IF0003.tar get the following errors:\n\nERROR at line 1:\nORA-00942: table or view does not exist ORA-06512: at line 50 \n\nHow to correct this?"
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "command",
+          "fact_id": "F1",
+          "reference_quote": "Run the krzgrant.sql script",
+          "text": "Run the krzgrant.sql script"
+        },
+        {
+          "category": "version",
+          "fact_id": "F2",
+          "reference_quote": "6.3.1-TIV-ITM_KRZ-FP0001",
+          "text": "6.3.1-TIV-ITM_KRZ-FP0001"
+        }
+      ],
+      "definition_content_sha256": "d4535186d2d747704bd5615198ca4f5f679958c0fc8784c4a030a7c9c48456b0",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 2,
+          "group_sha256": "f0a9efae22246fff10c29da1fe84bd224a581708b6563f3afe639b33254474a8"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "tune",
+      "question_id": "TRAIN_Q226",
+      "question": [
+        "Can I disable RC4 cyphers in TIP?",
+        "How can one disable the RC4 cypers in Tivoli Integrated Portal?"
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "step",
+          "fact_id": "F1",
+          "reference_quote": "Log into the Websphere Application server and navigate to:\n    SSL certificate and key management > SSL configurations > NodeDefaultSSLSettings > Quality of protection (QoP)",
+          "text": "Log into the Websphere Application server and navigate to: SSL certificate and key management > SSL configurations > NodeDefaultSSLSettings > Quality of protection (QoP)"
+        },
+        {
+          "category": "step",
+          "fact_id": "F2",
+          "reference_quote": "Select the *RC4* ciphers from the \"Selected ciphers\" list, and then click the \"<<Remove\" button",
+          "text": "Select the *RC4* ciphers from the \"Selected ciphers\" list, and then click the \"<<Remove\" button"
+        },
+        {
+          "category": "step",
+          "fact_id": "F3",
+          "reference_quote": "Click the \"Apply\" button, and then the \"Save (to the master configuration)\" link",
+          "text": "Click the \"Apply\" button, and then the \"Save (to the master configuration)\" link"
+        },
+        {
+          "category": "step",
+          "fact_id": "F4",
+          "reference_quote": "Restart TIP",
+          "text": "Restart TIP"
+        }
+      ],
+      "definition_content_sha256": "36f16eb73eefaaa098969462126e0c8a512f47b9e76e1e329092f1612ef2ea9b",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 2,
+          "group_sha256": "3bc4d38d7b045ffb8953a05f7d7171a5b6414cc78193d275d6e472b32bac0358"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F4",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "tune",
+      "question_id": "DEV_Q140",
+      "question": [
+        "Why get SQL1227N when replay db2look output on DB2 V9.7 FP11?",
+        "Why get below SQL1227N when replay db2look output on DB2 V9.7 FP11?\n\n     -----\n     UPDATE SYSSTAT.COLUMNS SET COLCARD=4, NUMNULLS=1, SUB_COUNT=-1, SUB_DELIM_LENGTH=-1, \n     AVGCOLLENCHAR=7, HIGH2KEY='', LOW2KEY='        ', AVGCOLLEN=12 WHERE COLNAME = 'COL1' \n     AND TABNAME = 'TAB1' AND TABSCHEMA = 'DB2INST1'\n     DB21034E  The command was processed as an SQL statement because it was not a\n     valid Command Line Processor command.  During SQL processing it returned:\n     SQL1227N  The catalog statistic \"\" for column \"HIGH2KEY\" is out of range for\n     its target column, has an invalid format, or is inconsistent in relation to\n     some other statistic. Reason Code = \"3\".  SQLSTATE=23521\n     -----"
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "It is an known limitation of current DB2 V9.7 and above versions' runstats",
+          "text": "It is an known limitation of current DB2 V9.7 and above versions' runstats"
+        }
+      ],
+      "definition_content_sha256": "0c9f4510c700e6e2fb9b8101bb3e7a1667a5348a12af7b615701824abb195c9e",
+      "single_fact_exception": true,
+      "observations": [
+        {
+          "repeat": 2,
+          "group_sha256": "eb4b1c28809bcf50b7b0e0e519cb796b8aa4cfb7a7de00d4e017d7d3f77ec4d8"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "held-out",
+      "question_id": "TRAIN_Q549",
+      "question": [
+        "What does the end-file-message mean while doing a launchpad.sh in the MS\"",
+        "I am getting an end-file-message means while doing a launchpad.sh in the MS. How do I solve the problem?"
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "step",
+          "fact_id": "F1",
+          "reference_quote": "Use the commands shown below to verify you have them installed, otherwise contact your Linux system administrator and installt these required libraries.",
+          "text": "Use the commands shown below to verify you have them installed, otherwise contact your Linux system administrator and installt these required libraries."
+        }
+      ],
+      "definition_content_sha256": "259c840ff6361cf9f7adbdfbb38194126166aaab7b6c438a8e5fc5b4aba45ddc",
+      "single_fact_exception": true,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "5832234e74817a19ba7f235d38c7e0ce1eff623928a3d489438d33bc6776d5de"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "5832234e74817a19ba7f235d38c7e0ce1eff623928a3d489438d33bc6776d5de"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "5832234e74817a19ba7f235d38c7e0ce1eff623928a3d489438d33bc6776d5de"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "held-out",
+      "question_id": "TRAIN_Q117",
+      "question": [
+        "Should I upgrade to Oracle JDK 8 if I am using IBM Mobile Foundation, IBM Worklight, IBM Worklight Foundation, or IBM MobileFirst Platform Foundation products?",
+        "These is an upgrade available to replace Oracle JDK 7 with Oracle JDK 8. Does IBM Mobile Foundation, IBM Worklight, IBM Worklight Foundation, and the IBM MobileFirst Platform Foundation products support the use of Oracle JDK 8? "
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "The IBM Mobile Foundation, IBM Worklight, IBM Worklight Foundation, and IBM MobileFirst Platform Foundation products support Oracle JDK 7, but do not support Oracle JDK 8.",
+          "text": "The IBM Mobile Foundation, IBM Worklight, IBM Worklight Foundation, and IBM MobileFirst Platform Foundation products support Oracle JDK 7, but do not support Oracle JDK 8."
+        }
+      ],
+      "definition_content_sha256": "7c916e23ea511d9b5ef1193e78cdd4541f26b7a28998add38bb57904c0ab9138",
+      "single_fact_exception": true,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "f4f26c36eb3df72137682513aa9987e77afbf8b4983aed5aa412fdde3272390d"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "f4f26c36eb3df72137682513aa9987e77afbf8b4983aed5aa412fdde3272390d"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "f4f26c36eb3df72137682513aa9987e77afbf8b4983aed5aa412fdde3272390d"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "held-out",
+      "question_id": "TRAIN_Q478",
+      "question": [
+        "How to define shared libraries for ODM ruleApps on WAS traditional?",
+        "What is the proper way to define a shared lib for RuleApps without giving up the isolated mode of the XU resource adapter? Is it \"works as designed\" that isolating of the XU prevents the resource adapter from seeing shared lib classes from other classloaders? "
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "In order to support the existence of multiple versions of the driver jars, the \"Isolate this resource provider\" configuration helps to ensure there are no conflicts.",
+          "text": "In order to support the existence of multiple versions of the driver jars, the \"Isolate this resource provider\" configuration helps to ensure there are no conflicts."
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "This needs to be configured on each JDBC Provider.",
+          "text": "This needs to be configured on each JDBC Provider."
+        },
+        {
+          "category": "condition",
+          "fact_id": "F3",
+          "reference_quote": "In this scenario, the resource provider classes from different versions of the jars are not imported or accessed to verify if the isolation has indeed worked.",
+          "text": "In this scenario, the resource provider classes from different versions of the jars are not imported or accessed to verify if the isolation has indeed worked."
+        },
+        {
+          "category": "other",
+          "fact_id": "F4",
+          "reference_quote": "Go to the JDBC Provider and enable \"isolate the resource provider\".",
+          "text": "Go to the JDBC Provider and enable \"isolate the resource provider\"."
+        },
+        {
+          "category": "condition",
+          "fact_id": "F5",
+          "reference_quote": "When \"Isolate this resource provider\" is enabled, it ensures that only the jar that was specified in the classpath will be used for all the datasources under that particular JDBC provider.",
+          "text": "When \"Isolate this resource provider\" is enabled, it ensures that only the jar that was specified in the classpath will be used for all the datasources under that particular JDBC provider."
+        }
+      ],
+      "definition_content_sha256": "80fc6ba6b18d39c5e81c0a11219b02d6e3659d528a34923e306878e0cbecf04a",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "33c68aa86bb8cf04c5ee1bb55e45ae8b59fb446d2a3858d40eabae77dd879844"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "33c68aa86bb8cf04c5ee1bb55e45ae8b59fb446d2a3858d40eabae77dd879844"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "33c68aa86bb8cf04c5ee1bb55e45ae8b59fb446d2a3858d40eabae77dd879844"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F4",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F5",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "held-out",
+      "question_id": "TRAIN_Q214",
+      "question": [
+        "Help with Security Bulletin: Vulnerabilities in IBM Dojo Toolkit affect IBM Image Construction and Composition Tool (CVE-2014-8917)",
+        "I need to understand details regarding \"Security Bulletin: Vulnerabilities in IBM Dojo Toolkit affect IBM Image Construction and Composition Tool (CVE-2014-8917)\". Where can I find this information? "
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "condition",
+          "fact_id": "F1",
+          "reference_quote": "DESCRIPTION: IBM Dojo Toolkit is vulnerable to cross-site scripting, caused by improper validation of user-supplied input.",
+          "text": "IBM Dojo Toolkit is vulnerable to cross-site scripting, caused by improper validation of user-supplied input"
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "CVSS Base Score: 4.3",
+          "text": "CVSS Base Score: 4.3"
+        },
+        {
+          "category": "other",
+          "fact_id": "F3",
+          "reference_quote": "CVSS Vector: (AV:N/AC:M/Au:N/C:N/I:P/A:N)",
+          "text": "CVSS Vector: (AV:N/AC:M/Au:N/C:N/I:P/A:N)"
+        }
+      ],
+      "definition_content_sha256": "4903b3e46160ef8fa9e8fb9927d0f495cd775435146c8b32f98f68a4a2147b38",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "c27bbbdc36a06d4b820145b6666ada411e8c47f6962a3791308fc84cbf72d154"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "c27bbbdc36a06d4b820145b6666ada411e8c47f6962a3791308fc84cbf72d154"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "c27bbbdc36a06d4b820145b6666ada411e8c47f6962a3791308fc84cbf72d154"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "held-out",
+      "question_id": "TRAIN_Q318",
+      "question": [
+        "fixlets do not appear in console bigfix",
+        "\n\nWork with ILTM 9.2.7 / 9.5.4.38. In the bigfix console the fixlets do not appear, under the tree: Sites-> IBM License Reporting (ILTM) v9 -> Fixlets and Task.\n\nAttached image. Do you have any ideas?\n\nGreetings and thank you BigFix"
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "step",
+          "fact_id": "F1",
+          "reference_quote": "Check with the firewall/proxy/IPS/network admin and ask them to check the logs for dropped packets or downloads and to adjust the rules to allow the BES Support site content through.",
+          "text": "Check with the firewall/proxy/IPS/network admin and ask them to check the logs for dropped packets or downloads and to adjust the rules to allow the BES Support site content through."
+        },
+        {
+          "category": "condition",
+          "fact_id": "F2",
+          "reference_quote": "Try turning off Internet Explorer Enhanced Security Configuration [https://blogs.technet.microsoft.com/chenley/2011/03/10/how-to-turn-off-internet-explorer-enhanced-security-configuration/] for Administrators to see if this resolves the issue.",
+          "text": "Try turning off Internet Explorer Enhanced Security Configuration [https://blogs.technet.microsoft.com/chenley/2011/03/10/how-to-turn-off-internet-explorer-enhanced-security-configuration/] for Administrators to see if this resolves the issue."
+        }
+      ],
+      "definition_content_sha256": "34cf5591a4b55caaf48f5231f05e72c32c74ee8bc2ebfdaae515b89b169c5ec9",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "05b60780a9b7cf2704a23cd626a0a125bc6b4c0c8eee0ed8c6fdbcc5669b4fda"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "05b60780a9b7cf2704a23cd626a0a125bc6b4c0c8eee0ed8c6fdbcc5669b4fda"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "05b60780a9b7cf2704a23cd626a0a125bc6b4c0c8eee0ed8c6fdbcc5669b4fda"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "held-out",
+      "question_id": "TRAIN_Q319",
+      "question": [
+        "Why does my login fail when I use the ltpa-usrnm attribute?",
+        "You use a Domino server as your LDAP, and the login attribute you want to use is ltpa-usrnm. This is acceptable, as the login attribute can be set accordingly in the wimconfig.xml. When the search string is built for the login, it is in the form, cn=username, o=orgname.\n\nThis cause the following exception to the returned:\n\n[3/30/16 9:56:03:453 CDT] 000000f7 exception E com.ibm.ws.wim.adapter.ldap.LdapConnection getAttributes CWWIM4520E The 'javax.naming.InvalidNameException: \"CN=username/O=orgname\": [LDAP: error code 34 - Invalid DN Syntax]; remaining name '\"CN=username/O=orgname'\"; "
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "command",
+          "fact_id": "F1",
+          "reference_quote": "$AdminTask configureAdminWIMUserRegistry {-customProperties\n   {\"com.ibm.ws.wim.registry.allowDNPrincipalNameAsLiteral\n   =true\"} }",
+          "text": "$AdminTask configureAdminWIMUserRegistry {-customProperties {\"com.ibm.ws.wim.registry.allowDNPrincipalNameAsLiteral =true\"} }"
+        },
+        {
+          "category": "condition",
+          "fact_id": "F2",
+          "reference_quote": "When this property is set, VMM determines whether the login\n   name ends with a baseEntry. If the login name does not end\n   with a baseEntry it is not treated as a DN and the login is\n   successful.",
+          "text": "When this property is set, VMM determines whether the login name ends with a baseEntry; if not, it is not treated as a DN and login succeeds"
+        },
+        {
+          "category": "version",
+          "fact_id": "F3",
+          "reference_quote": "The fix for this APAR is currently targeted for inclusion in\n   fix packs 8.0.0.4 and 8.5.0.1.",
+          "text": "The fix for this APAR is targeted for inclusion in fix packs 8.0.0.4 and 8.5.0.1"
+        }
+      ],
+      "definition_content_sha256": "3e7ca67acac577193a34a0e0f60f994ffaed135fc15a47e464ecdc224d60b778",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "2646563313630310e2cf7b8b5f0eb034f33082e787cc625f9c5f5bce1e45d5c4"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "2646563313630310e2cf7b8b5f0eb034f33082e787cc625f9c5f5bce1e45d5c4"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "2646563313630310e2cf7b8b5f0eb034f33082e787cc625f9c5f5bce1e45d5c4"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "held-out",
+      "question_id": "TRAIN_Q496",
+      "question": [
+        "Why am I getting an SSL Key Exception (RSA premaster secret error) when trying to create a syndication pair?",
+        "\n\nWhen trying to create the syndication pair for a virtual portal, I am getting the following exception:\n\n\"IWKWC0016E: The remote service can not be retrieved. Either the URL you entered is incorrect, the server you indicated does not contain IBM Web Content Manager or the web service has been incorrectly configured and could not be located. Check the log for more details https://1.23.456.789 <-- your ip address or hostname will be shown here\n\n/wps/wcm/vpname/basicauth/SyndicationServlet?reqlocale=en_US& javax.net.ssl.SSLKeyException: RSA premaster secret error\""
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "The default restricted policy file has a 2048 key size limit.",
+          "text": "The default restricted policy file has a 2048 key size limit."
+        },
+        {
+          "category": "condition",
+          "fact_id": "F2",
+          "reference_quote": "If the RSA key size exceeds this limit then this error is expected.",
+          "text": "If the RSA key size exceeds this limit then this error is expected."
+        }
+      ],
+      "definition_content_sha256": "2badbd27f802676bdca757ee80158f983b4936bb41839fea2531d50acbe93744",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "46d90e99d0b794ab9e98c65a74661f3aa8996ea9367fdebd257e6023bc8b2c73"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "46d90e99d0b794ab9e98c65a74661f3aa8996ea9367fdebd257e6023bc8b2c73"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "46d90e99d0b794ab9e98c65a74661f3aa8996ea9367fdebd257e6023bc8b2c73"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "held-out",
+      "question_id": "TRAIN_Q145",
+      "question": [
+        "How can I obtain a Java thread dump against an execution group in IIB v10?",
+        "\n\nThis Q&A is abstracted from a PMR\n\nHow can I obtain a Java thread dump against an execution group in IIB v10?\n"
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "command",
+          "fact_id": "F1",
+          "reference_quote": "Use this command to generate a Java dump on IIB v10.0.0.9+:\nmqsichangeproperties <Int.Node> -e <Int.Server> -o ComIbmInternalSupportManager/Java/JVM -n dump -v <dump_type>",
+          "text": "Use command on IIB v10.0.0.9+: mqsichangeproperties <Int.Node> -e <Int.Server> -o ComIbmInternalSupportManager/Java/JVM -n dump -v <dump_type>"
+        }
+      ],
+      "definition_content_sha256": "a46f6966c9fc6ed1e2ce7a623931d354007bea5adab7ec2f9ca0ec89c4557222",
+      "single_fact_exception": true,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "f2a60a1201850b79946a112973c0f05a43e3bc235a0e238721df334b73dda6de"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "f2a60a1201850b79946a112973c0f05a43e3bc235a0e238721df334b73dda6de"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "f2a60a1201850b79946a112973c0f05a43e3bc235a0e238721df334b73dda6de"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "held-out",
+      "question_id": "TRAIN_Q525",
+      "question": [
+        "Can I change the ITCAM J2EE Agent Monitoring Level via the TEPS in version 7.1.1?",
+        "\n\nIn the 7.1 version of the J2EE agent I could use the Agent Configuration to change the Monitoring Level for the agent- https://www.ibm.com/support/knowledgecenter/en/SS3JRN_7.2.0/com.ibm.itcamfapps_ad.doc_72/J2EE_agent_tema_install_guide/step10.html\n\nSo how can I change the Monitoring Level in the 7.1.1 agent?\n"
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "version",
+          "fact_id": "F1",
+          "reference_quote": "In the older release of the J2EE agent (v6.2 FP6), there was an option to specify the Monitoring Level, Sampling Rate and other parameters (threshold values, time intervals, etc..) during the configuration phase of the agent itself.",
+          "text": "In the older release of the J2EE agent (v6.2 FP6), there was an option to specify the Monitoring Level, Sampling Rate and other parameters (threshold values, time intervals, etc..) during the configuration phase of the agent itself."
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "The default values for the Monitoring Level and the Sampling Rate are L1 and 2% respectively.",
+          "text": "The default values for the Monitoring Level and the Sampling Rate are L1 and 2% respectively."
+        },
+        {
+          "category": "other",
+          "fact_id": "F3",
+          "reference_quote": "In the $ITM_HOME/config (Unix) dir or %ITM_HOME%\\TMAITM6 (Windows), you will find the <hostname>_yj.xml file.",
+          "text": "In the $ITM_HOME/config (Unix) dir or %ITM_HOME%\\TMAITM6 (Windows), you will find the <hostname>_yj.xml file."
+        },
+        {
+          "category": "other",
+          "fact_id": "F4",
+          "reference_quote": "Save file, restart the agent.",
+          "text": "Save file, restart the agent."
+        },
+        {
+          "category": "condition",
+          "fact_id": "F5",
+          "reference_quote": "If you are deploying a new Weblogic application, stop the agent, modify the <hostname>_yj_<wls_instance>.xml file then restart the agent again.",
+          "text": "If you are deploying a new Weblogic application, stop the agent, modify the <hostname>_yj_<wls_instance>.xml file then restart the agent again."
+        }
+      ],
+      "definition_content_sha256": "53fd20f2ccbc90c7ee9719db0d2dac9fd53fc21007b3aee4cfeade2c3a3efb0e",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 1,
+          "group_sha256": "e644f4c1cad3b537506d5c5c8fa7faf5cc692b15888915b653571ad6722d8fd3"
+        },
+        {
+          "repeat": 2,
+          "group_sha256": "e644f4c1cad3b537506d5c5c8fa7faf5cc692b15888915b653571ad6722d8fd3"
+        },
+        {
+          "repeat": 3,
+          "group_sha256": "e644f4c1cad3b537506d5c5c8fa7faf5cc692b15888915b653571ad6722d8fd3"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F4",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F5",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "held-out",
+      "question_id": "DEV_Q066",
+      "question": [
+        "Help with Action required for IIIB V9 and WMB V8 Hypervisor Editions for security vulnerabilities in Red Hat Linux",
+        "I need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux. Where can I find this information? "
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 ship with versions of Red Hat Enterprise Linux (RHEL) Server that are vulnerable to CVE-2016-8677, CVE-2016-8678 CVE-2016-9298, CVE-2014-9915, CVE-2016-10046, CVE-2016-10047, CVE-2016-10048, CVE-2016-10049, CVE-2016-10050, CVE-2016-10051, CVE-2016-10052, CVE-2016-10053, CVE-2016-10054, CVE-2016-10055, CVE-2016-10056, CVE-2016-10057, CVE-2016-10058, CVE-2016-10059, CVE-2016-10060, CVE-2016-10061, CVE-2016-10062, CVE-2016-10063, CVE-2016-10064, CVE-2016-10065, CVE-2016-10066, CVE-2016-10067, CVE-2016-10068, CVE-2016-10069, CVE-2016-10070, CVE-2016-10071, CVE-2016-10144, CVE-2016-10145, CVE-2016-10146, CVE-2017-5506, CVE-2017-5507, CVE-2017-5508, CVE-2017-5511, CVE-2017-6498, CVE-2017-6499, CVE-2017-6500, CVE-2017-6501, CVE-2017-6502, CVE-2016-10252 and CVE-2017-6497",
+          "text": "IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 ship with versions of Red Hat Enterprise Linux (RHEL) Server that are vulnerable to CVE-2016-8677, CVE-2016-8678 CVE-2016-9298, CVE-2014-9915, CVE-2016-10046, CVE-2016-10047, CVE-2016-10048, CVE-2016-10049, CVE-2016-10050, CVE-2016-10051, CVE-2016-10052, CVE-2016-10053, CVE-2016-10054, CVE-2016-10055, CVE-2016-10056, CVE-2016-10057, CVE-2016-10058, CVE-2016-10059, CVE-2016-10060, CVE-2016-10061, CVE-2016-10062, CVE-2016-10063, CVE-2016-10064, CVE-2016-10065, CVE-2016-10066, CVE-2016-10067, CVE-2016-10068, CVE-2016-10069, CVE-2016-10070, CVE-2016-10071, CVE-2016-10144, CVE-2016-10145, CVE-2016-10146, CVE-2017-5506, CVE-2017-5507, CVE-2017-5508, CVE-2017-5511, CVE-2017-6498, CVE-2017-6499, CVE-2017-6500, CVE-2017-6501, CVE-2017-6502, CVE-2016-10252 and CVE-2017-6497"
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 ship with Red Hat Enterprise Linux (RHEL) Server 6.2.",
+          "text": "IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 ship with Red Hat Enterprise Linux (RHEL) Server 6.2."
+        }
+      ],
+      "definition_content_sha256": "9733aac42dc1bcced6c61f1519d8a6f696c68318ad13a7d23de9f3050aedcfbc",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 2,
+          "group_sha256": "5ff76dc802cd5c56d916e7e8dc821493f961b2744d20ac7dfae114b190d0df81"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "held-out",
+      "question_id": "TRAIN_Q305",
+      "question": [
+        "Need help accessing my SPSS access code?",
+        "I downloaded SPSS GradPack (Standard) 25 6 Months for my Mac. The IBM SPSS Statistics 24 licensing page pops up for me to enter the code. I enter the code provided and then hit next, and it tells me the code is too short to be valid? What code do I use then? I need this resolved fast, my first assignment is due soon. I was only given a 16-digit access code, not a 20-digit?\n\n\n\nThis dW Answers question is about an IBM document with the Title:\nSPSS Student Version and Graduate Pack Resources"
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "version",
+          "fact_id": "F1",
+          "reference_quote": "For installation & licensing issues on Student version and Graduate pack, contact your vendor.",
+          "text": "For installation & licensing issues on Student version and Graduate pack, contact your vendor."
+        }
+      ],
+      "definition_content_sha256": "f8bedb64ba65f6cdef86f94eab421c16ab6c54155313ae2b322ca039dfcc895e",
+      "single_fact_exception": true,
+      "observations": [
+        {
+          "repeat": 2,
+          "group_sha256": "8916fce67b0afcdcb2ef2e9ccd458fe658d2b513e6bf0bf4fbe777f4c6e906b9"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "held-out",
+      "question_id": "DEV_Q109",
+      "question": [
+        "Help with Security Bulletin: Authentication vulnerability affects IIB V10.0.0.4 onwards (CVE-2016-8918 )",
+        "I need to understand details regarding Security Bulletin: Authentication vulnerability affects IBM Integration Bus V10.0.0.4 onwards (CVE-2016-8918 ). Where can I find this information? "
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "condition",
+          "fact_id": "F1",
+          "reference_quote": "DESCRIPTION: In non-default configurations, IBM Integration Bus could allow a remote user to authenticate without providing valid credentials.",
+          "text": "In non-default configurations, IBM Integration Bus could allow a remote user to authenticate without providing valid credentials"
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "CVSS Base Score: 5.9",
+          "text": "CVSS Base Score: 5.9"
+        },
+        {
+          "category": "other",
+          "fact_id": "F3",
+          "reference_quote": "CVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N)",
+          "text": "CVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N)"
+        }
+      ],
+      "definition_content_sha256": "49e74d94b99f20a0c8328756750f2d03baadb6f01c48f1d26c786cdd7368e4dd",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 2,
+          "group_sha256": "72bbbe336583db16bd936cf25034592b2aa948aab701182247cb7884a4c3aba4"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "held-out",
+      "question_id": "DEV_Q064",
+      "question": [
+        "Is MQ or MQ Appliance impacted by Sweet32 Birthday Attack if we are running triple-DES cipher.?",
+        "Is MQ or MQ Appliance impacted by Sweet32 Birthday Attack if we are running triple-DES cipher.?"
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "version",
+          "fact_id": "F1",
+          "reference_quote": "* IBM MQ  * Maintenance levels between 8.0.0.0 and 8.0.0.5 \n    * 9.0.0.0 only",
+          "text": "IBM MQ: Maintenance levels between 8.0.0.0 and 8.0.0.5, and 9.0.0.0 only"
+        },
+        {
+          "category": "version",
+          "fact_id": "F2",
+          "reference_quote": "* IBM MQ Appliance  * Maintenance levels between 8.0.0.0 and 8.0.0.5",
+          "text": "IBM MQ Appliance: Maintenance levels between 8.0.0.0 and 8.0.0.5"
+        },
+        {
+          "category": "version",
+          "fact_id": "F3",
+          "reference_quote": "* IBM WebSphere MQ  * Maintenance levels between 7.0.1.0 and 7.0.1.14",
+          "text": "IBM WebSphere MQ: Maintenance levels between 7.0.1.0 and 7.0.1.14"
+        },
+        {
+          "category": "version",
+          "fact_id": "F4",
+          "reference_quote": "* Maintenance levels between 7.1.0.0 and 7.1.0.8",
+          "text": "IBM WebSphere MQ: Maintenance levels between 7.1.0.0 and 7.1.0.8"
+        },
+        {
+          "category": "version",
+          "fact_id": "F5",
+          "reference_quote": "* Maintenance levels between 7.5.0.0 and 7.5.0.7",
+          "text": "IBM WebSphere MQ: Maintenance levels between 7.5.0.0 and 7.5.0.7"
+        }
+      ],
+      "definition_content_sha256": "c54efab042c8d27dc96849ce935c2f6667a6e82e3f0629eee2cb47f04e0d4688",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 2,
+          "group_sha256": "eeb248bcb176268d8f2da6a734cbf94467f5a1185d7b15892aa62a1419438e3b"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F4",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F5",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "held-out",
+      "question_id": "DEV_Q080",
+      "question": [
+        "Why is the OUTPUT_TYPE specified in the properties file for the custom scripting feature ignored?",
+        "\n\nWhy is the OUTPUT_TYPE specified in the properties file for the custom scripting feature ignored in ITM V6?\n\nSpecifying \"I\" for INTEGER, or \"F\" for FLOAT for the OUTPUT_TYPE doesn't work, but specifying OUTPUT_TYPE=S results in STRING type for the first token."
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "OUTPUT_TYPE (STRING|INTEGER|FLOAT - Optional - default string).",
+          "text": "OUTPUT_TYPE (STRING|INTEGER|FLOAT - Optional - default string)."
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "It defines the type of the first token returned by each row of the script;",
+          "text": "It defines the type of the first token returned by each row of the script;"
+        }
+      ],
+      "definition_content_sha256": "71e4fc476b8b6557f4b356b542b7f940b470c6c51c4dc6091afa88bc4ab9e746",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 2,
+          "group_sha256": "e74b1d45c1f6b494a747128c81d3cb633aef6ae42741151d66a8c73b4599bda5"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "held-out",
+      "question_id": "TRAIN_Q513",
+      "question": [
+        "Help with Security Bulletin: WMB and IIB are affected by denial of service vulnerability (CVE-2014-8901)",
+        "I need to understand details regarding Security Bulletin: WebSphere Message Broker and IBM Integration Bus are affected by denial of service vulnerability (CVE-2014-8901). Where can I find this information? "
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "condition",
+          "fact_id": "F1",
+          "reference_quote": "DESCRIPTION: IBM XML4J and XML4C libraries contain a denial of service vulnerability when loading specially crafted content. This causes the CPU to consume 100% of available resources and creates serious performance degradation to the system.",
+          "text": "IBM XML4J and XML4C libraries contain a denial of service vulnerability when loading specially crafted content, causing CPU to consume 100% resources"
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "CVSS Base Score: 4",
+          "text": "CVSS Base Score: 4"
+        },
+        {
+          "category": "other",
+          "fact_id": "F3",
+          "reference_quote": "CVSS Vector: (AV:N/AC:L/Au:S/C:N/I:N/A:P)",
+          "text": "CVSS Vector: (AV:N/AC:L/Au:S/C:N/I:N/A:P)"
+        }
+      ],
+      "definition_content_sha256": "deaa59ba1eb816eeea51cbd7e76bfed781f316d07efc03bc67098ed975866102",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 2,
+          "group_sha256": "98b9426625626d19892d5906278ef5be5ed9090df1effaa261283da74073219b"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    },
+    {
+      "partition": "held-out",
+      "question_id": "TRAIN_Q589",
+      "question": [
+        "How to have IBM HTTP Server re-direct an application URL from HTTPS to HTTP?",
+        "We have an application which uses SSL, but we need to make this http only. We disabled all the SSL, but many clients URLs are still pointing to https. So we need a HTTP Server redirect to change these URLs from https to http. Is this possible? "
+      ],
+      "answer_body": "",
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "First, make sure the LoadModule line for mod_rewrite is uncommented in the httpd.conf",
+          "text": "First, make sure the LoadModule line for mod_rewrite is uncommented in the httpd.conf"
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "LoadModule rewrite_module modules/mod_rewrite.so",
+          "text": "LoadModule rewrite_module modules/mod_rewrite.so"
+        },
+        {
+          "category": "other",
+          "fact_id": "F3",
+          "reference_quote": "RewriteEngine on",
+          "text": "RewriteEngine on"
+        },
+        {
+          "category": "other",
+          "fact_id": "F4",
+          "reference_quote": "RewriteRule ^(.*) https://%{SERVER_NAME}%{REQUEST_URI} [R,L]",
+          "text": "RewriteRule ^(.*) https://%{SERVER_NAME}%{REQUEST_URI} [R,L]"
+        },
+        {
+          "category": "other",
+          "fact_id": "F5",
+          "reference_quote": "Finally, restart the IBM HTTP Server after making the preceding changes",
+          "text": "Finally, restart the IBM HTTP Server after making the preceding changes"
+        }
+      ],
+      "definition_content_sha256": "33da1819c8f798d39c972da08e5650fecc57d4baebdeb883aee7b9c7844eb10a",
+      "single_fact_exception": false,
+      "observations": [
+        {
+          "repeat": 2,
+          "group_sha256": "fb2b9b5b0a690ebf2210ad12ac44ab7cb8d66111eaaa4444a351e26945a20ccf"
+        }
+      ],
+      "human_annotator": "",
+      "human_approved": false,
+      "human_scores": [
+        {
+          "fact_id": "F1",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F2",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F3",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F4",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        },
+        {
+          "fact_id": "F5",
+          "score": null,
+          "answer_quote": "",
+          "notes": ""
+        }
+      ],
+      "independent_llm_status": "未执行",
+      "independent_llm_scores": []
+    }
+  ],
+  "scope": "offline fact rating only; gold never enters online Worker",
+  "rules": [
+    "仅评答案正文；sources引用内容不计答案覆盖。",
+    "0=未覆盖/错误，1=部分覆盖，2=完整且正确。",
+    "1/2分引文必须是答案正文逐字片段；不修改已批准事实。",
+    "人工与不同于Qwen的模型独立评分；不先查看另一个评分。",
+    "分歧保留，不强行合并；单事实例外单独报告。",
+    "空白不是0分；完成评分后另存副本并填写真实评分者身份。"
+  ]
+}

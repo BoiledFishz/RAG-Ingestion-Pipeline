@@ -1,0 +1,43 @@
+PASSED version=v0.2 scenarios=42 spec_lines=236 samples=50 conflicts=none
+AC12-01 一致 counts=[18296] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-02 一致 counts=[0] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-03 一致 counts=[0] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-04 一致 counts=[] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-05 一致 counts=[1322, 1585] intersection=807 — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-06 一致 counts=[0, 0] intersection=0 — 已有真实fixture索引scope与full不匹配；仅隔离配置指向它即可触发前置校验，源库不修改
+AC12-07 一致 counts=[1322, 1585] intersection=807 — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-08 一致 counts=[] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-09 一致 counts=[11126] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-10 一致 counts=[3736] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-11 一致 counts=[1322, 1585] intersection=807 — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-12 一致 counts=[42569] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-13 一致 counts=[18296] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-14 一致 counts=[214] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-15 一致 counts=[13960] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-16 一致 counts=[309] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-17 一致 counts=[6451] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-18 一致 counts=[11126] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-19 一致 counts=[13881] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-20 一致 counts=[13881] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-21 一致 counts=[40526] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-22 一致 counts=[1771, 724] intersection=2 — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC12-23 一致 counts=[6451] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC13-01 一致 counts=[4867] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC13-02 一致 counts=[58237] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC13-03 一致 counts=[192] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC13-04 一致 counts=[978] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC13-05 一致 counts=[3533] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC13-06 一致 counts=[142] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC14-01 一致 counts=[673] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC14-02 一致 counts=[316] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC14-03 一致 counts=[235] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC14-04 一致 counts=[3736] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC15-01 一致 counts=[18296] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC15-02 一致 counts=[3736] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC15-03 一致 counts=[42569] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC15-04 一致 counts=[9823] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC16-01 一致 counts=[3736] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC16-02 一致 counts=[18296] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC16-03 一致 counts=[40526] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC16-04 一致 counts=[3736] intersection=None — 真实语料前提可构造；在线状态/故障/预算契约仍未执行
+AC00-01 一致 counts=[1413, 547] intersection=125 — 真实语料前提可构造；在线状态/故障/预算契约仍未执行

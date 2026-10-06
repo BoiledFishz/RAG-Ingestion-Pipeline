@@ -1,0 +1,25 @@
+{
+  "started_at": "2026-10-06T00:38:38.533183+00:00",
+  "base_commit": "74601e4a587ce70d6d9d82012bc5f42b42a0501d",
+  "branch": "codex/project2-ch12",
+  "current_stage": "Chap12",
+  "execution_status": "stopped_s14_acceptance",
+  "stop_reason": "批准S14未满足：tune原成功对照7题退化；80份答案仍缺独立双评分。工程门禁通过，质量未验收；本阶段held-out已消费一次，不改配置重跑，不把阶段记为完整通过或推进Chap13。",
+  "heldout_stage_calls_project2": 1,
+  "heldout_repetitions_project2": 3,
+  "resume_progress_previously_present": true,
+  "updated_at": "2026-10-06T22:46:23.072634+00:00",
+  "active_spec_version": "v0.3.1",
+  "repair_rounds": 0,
+  "previous_v02_repair_rounds": 2,
+  "v03_authorization_date": "2026-10-05",
+  "calibration_progress": 300,
+  "calibration_batch": 2,
+  "native_progress": {
+    "repair_round": 1,
+    "requests": 555,
+    "expected": 555,
+    "failed_observations": 0,
+    "records": "audit/project2-v1/v031_native_requests_round1.jsonl"
+  }
+}

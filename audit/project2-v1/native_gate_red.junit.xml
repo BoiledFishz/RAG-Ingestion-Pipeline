@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.724" timestamp="2026-10-05T19:11:23.489063-07:00" hostname="szy"><testcase classname="tests.project2.test_native_gate" name="test_real_completed_and_real_no_answer_are_both_demonstrated" time="0.003"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\run_project2_native_gate.py'">def test_real_completed_and_real_no_answer_are_both_demonstrated() -&gt; None:
+        spec = importlib.util.spec_from_file_location("project2_native_gate", ROOT / "scripts/run_project2_native_gate.py")
+        module = importlib.util.module_from_spec(spec)
+&gt;       spec.loader.exec_module(module)
+
+tests\project2\test_native_gate.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+&lt;frozen importlib._bootstrap_external&gt;:755: in exec_module
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:892: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;_frozen_importlib_external.SourceFileLoader object at 0x0000015603BB4DD0&gt;
+path = 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\run_project2_native_gate.py'
+
+&gt;   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\run_project2_native_gate.py'
+
+&lt;frozen importlib._bootstrap_external&gt;:950: FileNotFoundError</failure></testcase></testsuite></testsuites>

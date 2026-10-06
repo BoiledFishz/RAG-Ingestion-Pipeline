@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="3" time="0.848" timestamp="2026-10-05T19:50:19.695592-07:00" hostname="szy"><testcase classname="tests.project2.test_v03_calibration" name="test_complete_registered_set_and_all_tune_n_are_frozen" time="0.001"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v03_calibration.py'">def test_complete_registered_set_and_all_tune_n_are_frozen():
+&gt;       registration = module().registration(ROOT)
+                       ^^^^^^^^
+
+tests\project2\test_v03_calibration.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\project2\test_v03_calibration.py:12: in module
+    spec.loader.exec_module(value)
+&lt;frozen importlib._bootstrap_external&gt;:755: in exec_module
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:892: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;_frozen_importlib_external.SourceFileLoader object at 0x000001B36C4E2210&gt;
+path = 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v03_calibration.py'
+
+&gt;   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v03_calibration.py'
+
+&lt;frozen importlib._bootstrap_external&gt;:950: FileNotFoundError</failure></testcase><testcase classname="tests.project2.test_v03_calibration" name="test_budget_formula_and_fuse_never_select_on_success_subset" time="0.001"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v03_calibration.py'">def test_budget_formula_and_fuse_never_select_on_success_subset():
+&gt;       m = module()
+            ^^^^^^^^
+
+tests\project2\test_v03_calibration.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\project2\test_v03_calibration.py:12: in module
+    spec.loader.exec_module(value)
+&lt;frozen importlib._bootstrap_external&gt;:755: in exec_module
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:892: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;_frozen_importlib_external.SourceFileLoader object at 0x000001B36C4E2090&gt;
+path = 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v03_calibration.py'
+
+&gt;   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v03_calibration.py'
+
+&lt;frozen importlib._bootstrap_external&gt;:950: FileNotFoundError</failure></testcase><testcase classname="tests.project2.test_v03_calibration" name="test_p95_nearest_rank_and_rounding" time="0.001"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v03_calibration.py'">def test_p95_nearest_rank_and_rounding():
+&gt;       m = module()
+            ^^^^^^^^
+
+tests\project2\test_v03_calibration.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\project2\test_v03_calibration.py:12: in module
+    spec.loader.exec_module(value)
+&lt;frozen importlib._bootstrap_external&gt;:755: in exec_module
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:892: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;_frozen_importlib_external.SourceFileLoader object at 0x000001B36C539550&gt;
+path = 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v03_calibration.py'
+
+&gt;   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v03_calibration.py'
+
+&lt;frozen importlib._bootstrap_external&gt;:950: FileNotFoundError</failure></testcase></testsuite></testsuites>

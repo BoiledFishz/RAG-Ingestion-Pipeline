@@ -1,0 +1,109 @@
+{
+  "stage": "Chap12",
+  "spec_version": "v0.3.1",
+  "gate_scope": "native_combination_subgate",
+  "system_gate_executed": false,
+  "status": "failed",
+  "checks": [
+    {
+      "check": "AC12-01",
+      "expected": true,
+      "observed": true,
+      "status": "passed"
+    },
+    {
+      "check": "AC12-23(a)",
+      "expected": true,
+      "observed": false,
+      "status": "failed"
+    }
+  ],
+  "failure_items": [
+    "AC12-23(a)"
+  ],
+  "repair_rounds": 0,
+  "complete": false,
+  "records_sha256": "a590d6d86d9f1628cbf0f10354be27c3a4ee76e23f19ed600a7f35fb33b9e954",
+  "limits": {
+    "attempts": 19,
+    "llm_calls": 6,
+    "seconds": 37.941018
+  },
+  "heldout_stage_calls_project2": 0,
+  "heldout_repetitions_project2": 0,
+  "n_quality": {
+    "metric_is_gate": false,
+    "numerator": 0,
+    "denominator": 54,
+    "wilson95_pooled_descriptive": [
+      0,
+      0.0664135880908964
+    ],
+    "cluster_bootstrap95": [
+      0.0,
+      0.0
+    ],
+    "independent_query_clusters": 18,
+    "mean": 0.0,
+    "range": [
+      0.0,
+      0.0
+    ],
+    "repeats": [
+      {
+        "repeat": 1,
+        "refusals": 0,
+        "total": 18,
+        "wilson95": [
+          0,
+          0.17587922364665765
+        ],
+        "states": {
+          "failed": 6,
+          "completed": 6,
+          "timeout": 6
+        }
+      },
+      {
+        "repeat": 2,
+        "refusals": 0,
+        "total": 18,
+        "wilson95": [
+          0,
+          0.17587922364665765
+        ],
+        "states": {
+          "failed": 6,
+          "completed": 6,
+          "timeout": 6
+        }
+      },
+      {
+        "repeat": 3,
+        "refusals": 0,
+        "total": 18,
+        "wilson95": [
+          0,
+          0.17587922364665765
+        ],
+        "states": {
+          "failed": 6,
+          "completed": 6,
+          "timeout": 6
+        }
+      }
+    ],
+    "baseline_v0_conclusion_unchanged": true,
+    "project2_claims_quality_improvement": false,
+    "scope_limitation": "Official N label covers original candidate documents, not absence of any full-corpus answer; accepted cases require independent applicability review."
+  },
+  "original_challenge": [],
+  "conformance": {
+    "numerator": 54,
+    "denominator": 54,
+    "wilson95": [
+      0.9335864119091037,
+      1
+    ]
+  }
+}

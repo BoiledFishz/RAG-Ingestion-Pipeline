@@ -1,0 +1,300 @@
+{
+  "schema_version": 1,
+  "stage": "Chap12",
+  "gate_scope": "native_combination_subgate",
+  "system_gate_executed": false,
+  "generated_at": "2026-10-06T02:14:08.569005+00:00",
+  "status": "failed",
+  "checks": [
+    {
+      "check": "AC12-01",
+      "scenario_id": "AC12-01",
+      "expected": {
+        "worker_states": "RAG=completed;DB=completed",
+        "overall": "completed"
+      },
+      "observed": {
+        "worker_states": "RAG=timeout;DB=completed",
+        "overall": "partial"
+      },
+      "status": "failed",
+      "http_status": 200,
+      "result": {
+        "contract_version": "project2-v1",
+        "run_id": "da3bea96a8f746a8977c7c8350a9e7a8",
+        "status": "partial",
+        "workers": {
+          "rag": {
+            "contract_version": "project2-v1",
+            "run_id": "da3bea96a8f746a8977c7c8350a9e7a8",
+            "task_id": "rag_explain",
+            "worker": "rag",
+            "status": "timeout",
+            "payload": {},
+            "evidence": [],
+            "limitations": [],
+            "error": {
+              "category": "dependency_attempt_limit",
+              "retryable": false
+            },
+            "usage": {}
+          },
+          "database": {
+            "contract_version": "project2-v1",
+            "run_id": "da3bea96a8f746a8977c7c8350a9e7a8",
+            "task_id": "techqa_document_query",
+            "worker": "database",
+            "status": "completed",
+            "payload": {
+              "groups": [
+                {
+                  "predicate": [
+                    "MQ"
+                  ],
+                  "count": 18296,
+                  "samples": [
+                    {
+                      "doc_id": "ibm10715697",
+                      "title": "IBM Security Bulletin: IBM QRadar Network Security is affected by Linux kernel vulnerabilities - United States"
+                    },
+                    {
+                      "doc_id": "ibm10716113",
+                      "title": "IBM Security Bulletin: Invalid user group vulnerability in IBM MQ on Unix platform(CVE-2018-1551) - United States"
+                    },
+                    {
+                      "doc_id": "ibm10716253",
+                      "title": "IBM Product readme for IBM MQ Appliance V9.1 and its maintenance - United States"
+                    },
+                    {
+                      "doc_id": "ibm10716469",
+                      "title": "IBM Readme for IBM MQ V9.1 and its maintenance - United States"
+                    },
+                    {
+                      "doc_id": "ibm10717517",
+                      "title": "IBM Security Bulletin: IBM MQ Appliance affected by an OpenSSL vulnerability (CVE-2018-0739) - United States"
+                    }
+                  ]
+                }
+              ],
+              "intersection": null,
+              "delta_a_minus_b": null,
+              "measurement_complete": true,
+              "unit": "original_document",
+              "data_version": {
+                "scope": "full",
+                "document_count": "801996",
+                "complete": "true",
+                "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+                "format_version": "1"
+              },
+              "rules_version": "techqa-fts-predicate-v1",
+              "operation": "document_count",
+              "samples_truncated": true
+            },
+            "evidence": [
+              {
+                "source_id": "Q1",
+                "predicate": [
+                  "MQ"
+                ],
+                "count": 18296,
+                "scope": "full",
+                "measurement_complete": true
+              }
+            ],
+            "limitations": [
+              "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
+              "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
+              "同一文档可命中两个比较组；tokenizer的词干和标点处理可能扩大字面匹配。",
+              "统计只覆盖明确授权的数据快照；示例文档为有限行，不代表完整清单。"
+            ],
+            "error": null,
+            "usage": {
+              "attempts": 4,
+              "llm_calls": 0,
+              "attempts_by_kind": {
+                "db": 4
+              },
+              "absolute_deadline": 1791252910.8436568,
+              "observed_tokens": null,
+              "estimated_tokens": null,
+              "cost": null
+            }
+          }
+        },
+        "usage": {
+          "attempts": 16,
+          "llm_calls": 1,
+          "attempts_by_kind": {
+            "db": 14,
+            "llm": 1,
+            "embedding": 1
+          },
+          "absolute_deadline": 1791252910.8436568,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "limitations": [
+          "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
+          "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
+          "同一文档可命中两个比较组；tokenizer的词干和标点处理可能扩大字面匹配。",
+          "统计只覆盖明确授权的数据快照；示例文档为有限行，不代表完整清单。"
+        ]
+      },
+      "elapsed_ms": 16650.87620005943,
+      "evidence_type": "真实运行",
+      "transport": "in-process ASGI HTTP; native separate model/FAISS process"
+    },
+    {
+      "check": "AC12-23",
+      "scenario_id": "AC12-23",
+      "expected": {
+        "worker_states": "RAG=no_data;DB=completed",
+        "overall": "partial"
+      },
+      "observed": {
+        "worker_states": "RAG=timeout;DB=completed",
+        "overall": "partial"
+      },
+      "status": "failed",
+      "http_status": 200,
+      "result": {
+        "contract_version": "project2-v1",
+        "run_id": "1630acc684e14704a9ce50e90d6337d4",
+        "status": "partial",
+        "workers": {
+          "rag": {
+            "contract_version": "project2-v1",
+            "run_id": "1630acc684e14704a9ce50e90d6337d4",
+            "task_id": "rag_explain",
+            "worker": "rag",
+            "status": "timeout",
+            "payload": {},
+            "evidence": [],
+            "limitations": [],
+            "error": {
+              "category": "dependency_attempt_limit",
+              "retryable": false
+            },
+            "usage": {}
+          },
+          "database": {
+            "contract_version": "project2-v1",
+            "run_id": "1630acc684e14704a9ce50e90d6337d4",
+            "task_id": "techqa_document_query",
+            "worker": "database",
+            "status": "completed",
+            "payload": {
+              "groups": [
+                {
+                  "predicate": [
+                    "BPM"
+                  ],
+                  "count": 6451,
+                  "samples": [
+                    {
+                      "doc_id": "isg3T1027627",
+                      "title": "IBM WebSphere Application Server for IBM i - United States"
+                    },
+                    {
+                      "doc_id": "swg1IC63728",
+                      "title": "IBM IC63728: INITIALISE CONTEXTOBJECT EMF PACKAGE ON SERVER STARTUP - United States"
+                    },
+                    {
+                      "doc_id": "swg1IC74897",
+                      "title": "IBM IC74897: INSTALLING SNAPSHOT TO RUNTIME ENVIRONMENT FAILS WHEN THE SYSTEM ASSET INSTALLATION SERVICE IS MISSING. - United States"
+                    },
+                    {
+                      "doc_id": "swg1IC74898",
+                      "title": "IBM IC74898: JAVASCRIPT API SCOPE DOES NOT WORK CORRECTLY WITH TOOLKITS - United States"
+                    },
+                    {
+                      "doc_id": "swg1IC74924",
+                      "title": "IBM IC74924: DOUBLE WILD CARD SEARCHES AGAINST LDAP ARE EXPENSIVE - United States"
+                    }
+                  ]
+                }
+              ],
+              "intersection": null,
+              "delta_a_minus_b": null,
+              "measurement_complete": true,
+              "unit": "original_document",
+              "data_version": {
+                "scope": "full",
+                "document_count": "801996",
+                "complete": "true",
+                "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+                "format_version": "1"
+              },
+              "rules_version": "techqa-fts-predicate-v1",
+              "operation": "document_count",
+              "samples_truncated": true
+            },
+            "evidence": [
+              {
+                "source_id": "Q1",
+                "predicate": [
+                  "BPM"
+                ],
+                "count": 6451,
+                "scope": "full",
+                "measurement_complete": true
+              }
+            ],
+            "limitations": [
+              "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
+              "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
+              "同一文档可命中两个比较组；tokenizer的词干和标点处理可能扩大字面匹配。",
+              "统计只覆盖明确授权的数据快照；示例文档为有限行，不代表完整清单。"
+            ],
+            "error": null,
+            "usage": {
+              "attempts": 4,
+              "llm_calls": 0,
+              "attempts_by_kind": {
+                "db": 4
+              },
+              "absolute_deadline": 1791252927.4948516,
+              "observed_tokens": null,
+              "estimated_tokens": null,
+              "cost": null
+            }
+          }
+        },
+        "usage": {
+          "attempts": 16,
+          "llm_calls": 1,
+          "attempts_by_kind": {
+            "db": 14,
+            "llm": 1,
+            "embedding": 1
+          },
+          "absolute_deadline": 1791252927.4948516,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "limitations": [
+          "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
+          "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
+          "同一文档可命中两个比较组；tokenizer的词干和标点处理可能扩大字面匹配。",
+          "统计只覆盖明确授权的数据快照；示例文档为有限行，不代表完整清单。"
+        ]
+      },
+      "elapsed_ms": 11051.786599913612,
+      "evidence_type": "真实运行",
+      "transport": "in-process ASGI HTTP; native separate model/FAISS process"
+    }
+  ],
+  "failure_items": [
+    "AC12-01",
+    "AC12-23"
+  ],
+  "repair_rounds": 1,
+  "registration_sha256": "9c6d1798b298fbfe8a04bc04684ae312a93bea4bb93abb6a7196e6e3ca442128",
+  "heldout_stage_calls_project2": 0,
+  "heldout_repetitions_project2": 0,
+  "not_completed_stage_gate": true,
+  "not_quality_evaluation": true
+}

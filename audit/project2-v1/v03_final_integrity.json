@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "baseline_sut_files": 65,
+  "changed_baseline_files": [],
+  "protected_spec_files": 31,
+  "v03_manifest_sha256": "354b94f1357167a347ed4da99e34a8bcacefd91919d75e074c22df8426265653",
+  "calibration_frozen_files": 3,
+  "scope": "read-only file/hash verification; not system gate or answer quality",
+  "checked_at": "2026-10-06T04:40:39.920653+00:00"
+}

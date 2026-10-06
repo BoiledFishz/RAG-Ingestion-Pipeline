@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="2.000" timestamp="2026-10-06T10:40:50.682599-07:00" hostname="szy"><testcase classname="tests.project2.test_v031_evaluation" name="test_failed_inference_cannot_disappear_from_recall_denominator" time="0.036"><failure message="AttributeError: module 'p2_stage_eval' has no attribute 'retrieved_ids'">def test_failed_inference_cannot_disappear_from_recall_denominator():
+        module=load()
+&gt;       assert module.retrieved_ids({'status':'failed','payload':{}})==[]
+               ^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'p2_stage_eval' has no attribute 'retrieved_ids'
+
+tests\project2\test_v031_evaluation.py:67: AttributeError</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,589 @@
+2026-10-05 21:52:32,693 INFO calibration rag_only P2-COMPARE-01 repeat=1 attempts=9 llm=2 seconds=30.54 completed=1/300
+2026-10-05 21:52:41,911 INFO calibration rag_only P2-COMPARE-01 repeat=2 attempts=9 llm=2 seconds=9.18 completed=2/300
+2026-10-05 21:52:48,881 INFO calibration rag_only P2-COMPARE-01 repeat=3 attempts=7 llm=2 seconds=6.95 completed=3/300
+2026-10-05 21:53:07,741 INFO calibration rag_only P2-COMPARE-02 repeat=1 attempts=10 llm=3 seconds=18.84 completed=4/300
+2026-10-05 21:53:20,356 INFO calibration rag_only P2-COMPARE-02 repeat=2 attempts=8 llm=3 seconds=12.59 completed=5/300
+2026-10-05 21:53:32,734 INFO calibration rag_only P2-COMPARE-02 repeat=3 attempts=8 llm=3 seconds=12.35 completed=6/300
+2026-10-05 21:53:51,369 INFO calibration rag_only P2-COMPARE-03 repeat=1 attempts=10 llm=3 seconds=18.61 completed=7/300
+2026-10-05 21:54:02,632 INFO calibration rag_only P2-COMPARE-03 repeat=2 attempts=8 llm=3 seconds=11.23 completed=8/300
+2026-10-05 21:54:13,995 INFO calibration rag_only P2-COMPARE-03 repeat=3 attempts=8 llm=3 seconds=11.34 completed=9/300
+2026-10-05 21:54:41,769 INFO calibration rag_only P2-COMPARE-04 repeat=1 attempts=12 llm=5 seconds=27.75 completed=10/300
+2026-10-05 21:55:04,109 INFO calibration rag_only P2-COMPARE-04 repeat=2 attempts=10 llm=5 seconds=22.32 completed=11/300
+2026-10-05 21:55:25,873 INFO calibration rag_only P2-COMPARE-04 repeat=3 attempts=10 llm=5 seconds=21.71 completed=12/300
+2026-10-05 21:55:44,311 INFO calibration rag_only P2-COMPARE-05 repeat=1 attempts=10 llm=3 seconds=18.41 completed=13/300
+2026-10-05 21:55:54,904 INFO calibration rag_only P2-COMPARE-05 repeat=2 attempts=8 llm=3 seconds=10.57 completed=14/300
+2026-10-05 21:56:05,447 INFO calibration rag_only P2-COMPARE-05 repeat=3 attempts=8 llm=3 seconds=10.52 completed=15/300
+2026-10-05 21:56:18,732 INFO calibration rag_only P2-COMPARE-06 repeat=1 attempts=10 llm=3 seconds=13.26 completed=16/300
+2026-10-05 21:56:27,597 INFO calibration rag_only P2-COMPARE-06 repeat=2 attempts=8 llm=3 seconds=8.84 completed=17/300
+2026-10-05 21:56:36,500 INFO calibration rag_only P2-COMPARE-06 repeat=3 attempts=8 llm=3 seconds=8.88 completed=18/300
+2026-10-05 21:56:53,540 INFO calibration rag_only P2-COMPARE-07 repeat=1 attempts=10 llm=3 seconds=17.01 completed=19/300
+2026-10-05 21:57:05,338 INFO calibration rag_only P2-COMPARE-07 repeat=2 attempts=8 llm=3 seconds=11.77 completed=20/300
+2026-10-05 21:57:16,155 INFO calibration rag_only P2-COMPARE-07 repeat=3 attempts=8 llm=3 seconds=10.77 completed=21/300
+2026-10-05 21:57:36,309 INFO calibration rag_only P2-COMPARE-08 repeat=1 attempts=9 llm=2 seconds=20.11 completed=22/300
+2026-10-05 21:57:47,109 INFO calibration rag_only P2-COMPARE-08 repeat=2 attempts=7 llm=2 seconds=10.75 completed=23/300
+2026-10-05 21:57:57,914 INFO calibration rag_only P2-COMPARE-08 repeat=3 attempts=7 llm=2 seconds=10.78 completed=24/300
+2026-10-05 21:58:23,232 INFO calibration rag_only P2-PLATFORM-01 repeat=1 attempts=10 llm=3 seconds=25.29 completed=25/300
+2026-10-05 21:58:39,931 INFO calibration rag_only P2-PLATFORM-01 repeat=2 attempts=8 llm=3 seconds=16.66 completed=26/300
+2026-10-05 21:58:56,829 INFO calibration rag_only P2-PLATFORM-01 repeat=3 attempts=8 llm=3 seconds=16.87 completed=27/300
+2026-10-05 21:59:13,070 INFO calibration rag_only P2-PLATFORM-02 repeat=1 attempts=10 llm=3 seconds=16.22 completed=28/300
+2026-10-05 21:59:24,103 INFO calibration rag_only P2-PLATFORM-02 repeat=2 attempts=8 llm=3 seconds=10.98 completed=29/300
+2026-10-05 21:59:35,186 INFO calibration rag_only P2-PLATFORM-02 repeat=3 attempts=8 llm=3 seconds=11.06 completed=30/300
+2026-10-05 21:59:53,709 INFO calibration rag_only P2-PLATFORM-03 repeat=1 attempts=10 llm=3 seconds=18.50 completed=31/300
+2026-10-05 22:00:05,723 INFO calibration rag_only P2-PLATFORM-03 repeat=2 attempts=8 llm=3 seconds=11.99 completed=32/300
+2026-10-05 22:00:18,077 INFO calibration rag_only P2-PLATFORM-03 repeat=3 attempts=8 llm=3 seconds=12.31 completed=33/300
+2026-10-05 22:00:41,634 INFO calibration rag_only P2-PLATFORM-04 repeat=1 attempts=10 llm=3 seconds=23.52 completed=34/300
+2026-10-05 22:00:56,369 INFO calibration rag_only P2-PLATFORM-04 repeat=2 attempts=8 llm=3 seconds=14.69 completed=35/300
+2026-10-05 22:01:11,234 INFO calibration rag_only P2-PLATFORM-04 repeat=3 attempts=8 llm=3 seconds=14.84 completed=36/300
+2026-10-05 22:01:36,914 INFO calibration rag_only P2-PLATFORM-05 repeat=1 attempts=10 llm=3 seconds=25.66 completed=37/300
+2026-10-05 22:01:58,352 INFO calibration rag_only P2-PLATFORM-05 repeat=2 attempts=8 llm=3 seconds=21.40 completed=38/300
+2026-10-05 22:02:18,485 INFO calibration rag_only P2-PLATFORM-05 repeat=3 attempts=8 llm=3 seconds=20.07 completed=39/300
+2026-10-05 22:02:35,119 INFO calibration rag_only P2-PLATFORM-06 repeat=1 attempts=9 llm=2 seconds=16.59 completed=40/300
+2026-10-05 22:02:44,161 INFO calibration rag_only P2-PLATFORM-06 repeat=2 attempts=7 llm=2 seconds=9.02 completed=41/300
+2026-10-05 22:02:53,032 INFO calibration rag_only P2-PLATFORM-06 repeat=3 attempts=7 llm=2 seconds=8.85 completed=42/300
+2026-10-05 22:03:23,598 INFO calibration rag_only P2-PLATFORM-07 repeat=1 attempts=10 llm=3 seconds=30.54 completed=43/300
+2026-10-05 22:03:42,348 INFO calibration rag_only P2-PLATFORM-07 repeat=2 attempts=8 llm=3 seconds=18.71 completed=44/300
+2026-10-05 22:04:01,936 INFO calibration rag_only P2-PLATFORM-07 repeat=3 attempts=8 llm=3 seconds=19.56 completed=45/300
+2026-10-05 22:04:24,301 INFO calibration rag_only P2-PLATFORM-08 repeat=1 attempts=10 llm=3 seconds=22.34 completed=46/300
+2026-10-05 22:04:42,135 INFO calibration rag_only P2-PLATFORM-08 repeat=2 attempts=8 llm=3 seconds=17.81 completed=47/300
+2026-10-05 22:05:01,120 INFO calibration rag_only P2-PLATFORM-08 repeat=3 attempts=8 llm=3 seconds=18.96 completed=48/300
+2026-10-05 22:05:23,159 INFO calibration rag_only P2-IDENTIFIER-01 repeat=1 attempts=10 llm=3 seconds=22.02 completed=49/300
+2026-10-05 22:05:37,651 INFO calibration rag_only P2-IDENTIFIER-01 repeat=2 attempts=8 llm=3 seconds=14.45 completed=50/300
+2026-10-05 22:05:52,133 INFO calibration rag_only P2-IDENTIFIER-01 repeat=3 attempts=8 llm=3 seconds=14.46 completed=51/300
+2026-10-05 22:06:13,767 INFO calibration rag_only P2-IDENTIFIER-02 repeat=1 attempts=10 llm=3 seconds=21.61 completed=52/300
+2026-10-05 22:06:28,660 INFO calibration rag_only P2-IDENTIFIER-02 repeat=2 attempts=8 llm=3 seconds=14.87 completed=53/300
+2026-10-05 22:06:43,443 INFO calibration rag_only P2-IDENTIFIER-02 repeat=3 attempts=8 llm=3 seconds=14.76 completed=54/300
+2026-10-05 22:07:01,840 INFO calibration rag_only P2-IDENTIFIER-03 repeat=1 attempts=10 llm=3 seconds=18.35 completed=55/300
+2026-10-05 22:07:12,866 INFO calibration rag_only P2-IDENTIFIER-03 repeat=2 attempts=8 llm=3 seconds=11.00 completed=56/300
+2026-10-05 22:07:24,225 INFO calibration rag_only P2-IDENTIFIER-03 repeat=3 attempts=8 llm=3 seconds=11.25 completed=57/300
+2026-10-05 22:07:42,801 INFO calibration rag_only P2-IDENTIFIER-04 repeat=1 attempts=10 llm=3 seconds=18.53 completed=58/300
+2026-10-05 22:07:51,440 INFO calibration rag_only P2-IDENTIFIER-04 repeat=2 attempts=8 llm=3 seconds=8.59 completed=59/300
+2026-10-05 22:08:00,080 INFO calibration rag_only P2-IDENTIFIER-04 repeat=3 attempts=8 llm=3 seconds=8.61 completed=60/300
+2026-10-05 22:08:20,706 INFO calibration rag_only P2-IDENTIFIER-05 repeat=1 attempts=10 llm=3 seconds=20.60 completed=61/300
+2026-10-05 22:08:34,491 INFO calibration rag_only P2-IDENTIFIER-05 repeat=2 attempts=8 llm=3 seconds=13.76 completed=62/300
+2026-10-05 22:08:47,790 INFO calibration rag_only P2-IDENTIFIER-05 repeat=3 attempts=8 llm=3 seconds=13.26 completed=63/300
+2026-10-05 22:09:10,123 INFO calibration rag_only P2-IDENTIFIER-06 repeat=1 attempts=10 llm=3 seconds=22.31 completed=64/300
+2026-10-05 22:09:24,937 INFO calibration rag_only P2-IDENTIFIER-06 repeat=2 attempts=8 llm=3 seconds=14.77 completed=65/300
+2026-10-05 22:09:40,227 INFO calibration rag_only P2-IDENTIFIER-06 repeat=3 attempts=8 llm=3 seconds=15.27 completed=66/300
+2026-10-05 22:10:08,367 INFO calibration rag_only P2-IDENTIFIER-07 repeat=1 attempts=10 llm=3 seconds=28.11 completed=67/300
+2026-10-05 22:10:24,210 INFO calibration rag_only P2-IDENTIFIER-07 repeat=2 attempts=8 llm=3 seconds=15.79 completed=68/300
+2026-10-05 22:10:42,932 INFO calibration rag_only P2-IDENTIFIER-07 repeat=3 attempts=8 llm=3 seconds=18.70 completed=69/300
+2026-10-05 22:11:13,387 INFO calibration rag_only P2-IDENTIFIER-08 repeat=1 attempts=10 llm=3 seconds=30.39 completed=70/300
+2026-10-05 22:11:36,857 INFO calibration rag_only P2-IDENTIFIER-08 repeat=2 attempts=8 llm=3 seconds=23.42 completed=71/300
+2026-10-05 22:12:05,652 INFO calibration rag_only P2-IDENTIFIER-08 repeat=3 attempts=8 llm=3 seconds=28.75 completed=72/300
+2026-10-05 22:12:20,855 INFO calibration rag_only P2-VERSION-01 repeat=1 attempts=10 llm=3 seconds=15.16 completed=73/300
+2026-10-05 22:12:29,979 INFO calibration rag_only P2-VERSION-01 repeat=2 attempts=8 llm=3 seconds=9.06 completed=74/300
+2026-10-05 22:12:37,669 INFO calibration rag_only P2-VERSION-01 repeat=3 attempts=8 llm=3 seconds=7.65 completed=75/300
+2026-10-05 22:12:53,250 INFO calibration rag_only P2-VERSION-02 repeat=1 attempts=10 llm=3 seconds=15.55 completed=76/300
+2026-10-05 22:13:04,732 INFO calibration rag_only P2-VERSION-02 repeat=2 attempts=8 llm=3 seconds=11.45 completed=77/300
+2026-10-05 22:13:17,188 INFO calibration rag_only P2-VERSION-02 repeat=3 attempts=8 llm=3 seconds=12.40 completed=78/300
+2026-10-05 22:13:34,964 INFO calibration rag_only P2-VERSION-03 repeat=1 attempts=10 llm=3 seconds=17.73 completed=79/300
+2026-10-05 22:13:44,859 INFO calibration rag_only P2-VERSION-03 repeat=2 attempts=8 llm=3 seconds=9.82 completed=80/300
+2026-10-05 22:13:54,428 INFO calibration rag_only P2-VERSION-03 repeat=3 attempts=8 llm=3 seconds=9.54 completed=81/300
+2026-10-05 22:14:10,704 INFO calibration rag_only P2-VERSION-04 repeat=1 attempts=10 llm=3 seconds=16.25 completed=82/300
+2026-10-05 22:14:19,483 INFO calibration rag_only P2-VERSION-04 repeat=2 attempts=8 llm=3 seconds=8.74 completed=83/300
+2026-10-05 22:14:28,132 INFO calibration rag_only P2-VERSION-04 repeat=3 attempts=8 llm=3 seconds=8.61 completed=84/300
+2026-10-05 22:14:45,165 INFO calibration rag_only P2-VERSION-05 repeat=1 attempts=10 llm=3 seconds=16.99 completed=85/300
+2026-10-05 22:14:55,580 INFO calibration rag_only P2-VERSION-05 repeat=2 attempts=8 llm=3 seconds=10.37 completed=86/300
+2026-10-05 22:15:07,873 INFO calibration rag_only P2-VERSION-05 repeat=3 attempts=8 llm=3 seconds=12.25 completed=87/300
+2026-10-05 22:15:30,077 INFO calibration rag_only P2-VERSION-06 repeat=1 attempts=10 llm=3 seconds=22.16 completed=88/300
+2026-10-05 22:15:48,288 INFO calibration rag_only P2-VERSION-06 repeat=2 attempts=10 llm=3 seconds=18.13 completed=89/300
+2026-10-05 22:16:01,694 INFO calibration rag_only P2-VERSION-06 repeat=3 attempts=8 llm=3 seconds=13.36 completed=90/300
+2026-10-05 22:16:21,423 INFO calibration rag_only P2-VERSION-07 repeat=1 attempts=10 llm=3 seconds=19.68 completed=91/300
+2026-10-05 22:16:32,558 INFO calibration rag_only P2-VERSION-07 repeat=2 attempts=8 llm=3 seconds=11.09 completed=92/300
+2026-10-05 22:16:44,016 INFO calibration rag_only P2-VERSION-07 repeat=3 attempts=8 llm=3 seconds=11.43 completed=93/300
+2026-10-05 22:17:02,971 INFO calibration rag_only P2-VERSION-08 repeat=1 attempts=10 llm=3 seconds=18.90 completed=94/300
+2026-10-05 22:17:21,262 INFO calibration rag_only P2-VERSION-08 repeat=2 attempts=8 llm=3 seconds=18.25 completed=95/300
+2026-10-05 22:17:37,725 INFO calibration rag_only P2-VERSION-08 repeat=3 attempts=8 llm=3 seconds=16.42 completed=96/300
+2026-10-05 22:17:54,233 INFO calibration rag_only P2-ENTITY-01 repeat=1 attempts=10 llm=3 seconds=16.46 completed=97/300
+2026-10-05 22:18:05,930 INFO calibration rag_only P2-ENTITY-01 repeat=2 attempts=8 llm=3 seconds=11.65 completed=98/300
+2026-10-05 22:18:16,264 INFO calibration rag_only P2-ENTITY-01 repeat=3 attempts=8 llm=3 seconds=10.29 completed=99/300
+2026-10-05 22:18:35,415 INFO calibration rag_only P2-ENTITY-02 repeat=1 attempts=10 llm=3 seconds=19.09 completed=100/300
+2026-10-05 22:18:46,502 INFO calibration rag_only P2-ENTITY-02 repeat=2 attempts=8 llm=3 seconds=11.04 completed=101/300
+2026-10-05 22:18:57,928 INFO calibration rag_only P2-ENTITY-02 repeat=3 attempts=8 llm=3 seconds=11.40 completed=102/300
+2026-10-05 22:19:12,573 INFO calibration rag_only P2-ENTITY-03 repeat=1 attempts=10 llm=3 seconds=14.62 completed=103/300
+2026-10-05 22:19:20,607 INFO calibration rag_only P2-ENTITY-03 repeat=2 attempts=8 llm=3 seconds=8.01 completed=104/300
+2026-10-05 22:19:28,239 INFO calibration rag_only P2-ENTITY-03 repeat=3 attempts=8 llm=3 seconds=7.60 completed=105/300
+2026-10-05 22:19:42,203 INFO calibration rag_only P2-ENTITY-04 repeat=1 attempts=9 llm=2 seconds=13.94 completed=106/300
+2026-10-05 22:19:49,876 INFO calibration rag_only P2-ENTITY-04 repeat=2 attempts=7 llm=2 seconds=7.65 completed=107/300
+2026-10-05 22:19:57,386 INFO calibration rag_only P2-ENTITY-04 repeat=3 attempts=7 llm=2 seconds=7.49 completed=108/300
+2026-10-05 22:20:10,564 INFO calibration rag_only P2-ENTITY-05 repeat=1 attempts=10 llm=3 seconds=13.15 completed=109/300
+2026-10-05 22:20:18,420 INFO calibration rag_only P2-ENTITY-05 repeat=2 attempts=8 llm=3 seconds=7.83 completed=110/300
+2026-10-05 22:20:26,327 INFO calibration rag_only P2-ENTITY-05 repeat=3 attempts=8 llm=3 seconds=7.88 completed=111/300
+2026-10-05 22:20:37,251 INFO calibration rag_only P2-ENTITY-06 repeat=1 attempts=10 llm=3 seconds=10.90 completed=112/300
+2026-10-05 22:20:45,158 INFO calibration rag_only P2-ENTITY-06 repeat=2 attempts=8 llm=3 seconds=7.85 completed=113/300
+2026-10-05 22:20:51,983 INFO calibration rag_only P2-ENTITY-06 repeat=3 attempts=8 llm=3 seconds=6.76 completed=114/300
+2026-10-05 22:21:04,489 INFO calibration rag_only P2-ENTITY-07 repeat=1 attempts=10 llm=3 seconds=12.48 completed=115/300
+2026-10-05 22:21:11,503 INFO calibration rag_only P2-ENTITY-07 repeat=2 attempts=8 llm=3 seconds=6.99 completed=116/300
+2026-10-05 22:21:18,211 INFO calibration rag_only P2-ENTITY-07 repeat=3 attempts=8 llm=3 seconds=6.68 completed=117/300
+2026-10-05 22:21:36,726 INFO calibration rag_only P2-ENTITY-08 repeat=1 attempts=10 llm=3 seconds=18.49 completed=118/300
+2026-10-05 22:21:49,312 INFO calibration rag_only P2-ENTITY-08 repeat=2 attempts=8 llm=3 seconds=12.54 completed=119/300
+2026-10-05 22:22:00,265 INFO calibration rag_only P2-ENTITY-08 repeat=3 attempts=8 llm=3 seconds=10.91 completed=120/300
+2026-10-05 22:22:16,046 INFO calibration rag_only P2-NOANSWER-01 repeat=1 attempts=10 llm=3 seconds=15.76 completed=121/300
+2026-10-05 22:22:26,550 INFO calibration rag_only P2-NOANSWER-01 repeat=2 attempts=8 llm=3 seconds=10.47 completed=122/300
+2026-10-05 22:22:37,249 INFO calibration rag_only P2-NOANSWER-01 repeat=3 attempts=8 llm=3 seconds=10.68 completed=123/300
+2026-10-05 22:22:50,072 INFO calibration rag_only P2-NOANSWER-02 repeat=1 attempts=10 llm=3 seconds=12.80 completed=124/300
+2026-10-05 22:22:57,832 INFO calibration rag_only P2-NOANSWER-02 repeat=2 attempts=8 llm=3 seconds=7.74 completed=125/300
+2026-10-05 22:23:05,928 INFO calibration rag_only P2-NOANSWER-02 repeat=3 attempts=8 llm=3 seconds=8.07 completed=126/300
+2026-10-05 22:23:17,112 INFO calibration rag_only P2-NOANSWER-03 repeat=1 attempts=10 llm=3 seconds=11.15 completed=127/300
+2026-10-05 22:23:25,262 INFO calibration rag_only P2-NOANSWER-03 repeat=2 attempts=8 llm=3 seconds=8.08 completed=128/300
+2026-10-05 22:23:32,802 INFO calibration rag_only P2-NOANSWER-03 repeat=3 attempts=8 llm=3 seconds=7.52 completed=129/300
+2026-10-05 22:23:43,428 INFO calibration rag_only P2-NOANSWER-04 repeat=1 attempts=9 llm=2 seconds=10.60 completed=130/300
+2026-10-05 22:23:49,695 INFO calibration rag_only P2-NOANSWER-04 repeat=2 attempts=7 llm=2 seconds=6.24 completed=131/300
+2026-10-05 22:23:54,830 INFO calibration rag_only P2-NOANSWER-04 repeat=3 attempts=7 llm=2 seconds=5.11 completed=132/300
+2026-10-05 22:24:06,374 INFO calibration rag_only P2-NOANSWER-05 repeat=1 attempts=10 llm=3 seconds=11.52 completed=133/300
+2026-10-05 22:24:12,930 INFO calibration rag_only P2-NOANSWER-05 repeat=2 attempts=8 llm=3 seconds=6.52 completed=134/300
+2026-10-05 22:24:19,443 INFO calibration rag_only P2-NOANSWER-05 repeat=3 attempts=8 llm=3 seconds=6.48 completed=135/300
+2026-10-05 22:24:31,254 INFO calibration rag_only P2-NOANSWER-06 repeat=1 attempts=10 llm=3 seconds=11.79 completed=136/300
+2026-10-05 22:24:38,782 INFO calibration rag_only P2-NOANSWER-06 repeat=2 attempts=8 llm=3 seconds=7.50 completed=137/300
+2026-10-05 22:24:46,505 INFO calibration rag_only P2-NOANSWER-06 repeat=3 attempts=8 llm=3 seconds=7.70 completed=138/300
+2026-10-05 22:25:00,980 INFO calibration rag_only P2-NOANSWER-07 repeat=1 attempts=10 llm=3 seconds=14.45 completed=139/300
+2026-10-05 22:25:10,703 INFO calibration rag_only P2-NOANSWER-07 repeat=2 attempts=8 llm=3 seconds=9.70 completed=140/300
+2026-10-05 22:25:20,833 INFO calibration rag_only P2-NOANSWER-07 repeat=3 attempts=8 llm=3 seconds=10.10 completed=141/300
+2026-10-05 22:25:34,874 INFO calibration rag_only P2-NOANSWER-08 repeat=1 attempts=10 llm=3 seconds=14.02 completed=142/300
+2026-10-05 22:25:42,697 INFO calibration rag_only P2-NOANSWER-08 repeat=2 attempts=8 llm=3 seconds=7.77 completed=143/300
+2026-10-05 22:25:50,639 INFO calibration rag_only P2-NOANSWER-08 repeat=3 attempts=8 llm=3 seconds=7.92 completed=144/300
+2026-10-05 22:26:00,701 INFO calibration rag_only P2-NOANSWER-09 repeat=1 attempts=10 llm=3 seconds=10.04 completed=145/300
+2026-10-05 22:26:07,405 INFO calibration rag_only P2-NOANSWER-09 repeat=2 attempts=8 llm=3 seconds=6.68 completed=146/300
+2026-10-05 22:26:14,079 INFO calibration rag_only P2-NOANSWER-09 repeat=3 attempts=8 llm=3 seconds=6.65 completed=147/300
+2026-10-05 22:26:26,325 INFO calibration rag_only P2-NOANSWER-10 repeat=1 attempts=10 llm=3 seconds=12.22 completed=148/300
+2026-10-05 22:26:34,306 INFO calibration rag_only P2-NOANSWER-10 repeat=2 attempts=8 llm=3 seconds=7.95 completed=149/300
+2026-10-05 22:26:42,385 INFO calibration rag_only P2-NOANSWER-10 repeat=3 attempts=8 llm=3 seconds=8.05 completed=150/300
+2026-10-05 22:26:43,819 INFO Database request=0cf50f3370424ec2ad0ce7a20c97db03 status=completed counts=[1413, 547]
+2026-10-05 22:26:56,360 INFO Project2 run=0cf50f3370424ec2ad0ce7a20c97db03 status=partial attempts=14
+2026-10-05 22:26:56,362 INFO calibration combination P2-COMPARE-01 repeat=1 attempts=14 llm=2 seconds=13.95 completed=151/300
+2026-10-05 22:26:56,705 INFO Database request=029ecbb7b775497a9ca89ce398a3adb3 status=completed counts=[1413, 547]
+2026-10-05 22:27:06,723 INFO Project2 run=029ecbb7b775497a9ca89ce398a3adb3 status=partial attempts=14
+2026-10-05 22:27:06,726 INFO calibration combination P2-COMPARE-01 repeat=2 attempts=14 llm=2 seconds=10.32 completed=152/300
+2026-10-05 22:27:07,062 INFO Database request=440d948d832643d39725bb9ab4f37819 status=completed counts=[1413, 547]
+2026-10-05 22:27:16,794 INFO Project2 run=440d948d832643d39725bb9ab4f37819 status=partial attempts=14
+2026-10-05 22:27:16,796 INFO calibration combination P2-COMPARE-01 repeat=3 attempts=14 llm=2 seconds=10.04 completed=153/300
+2026-10-05 22:27:18,163 INFO Database request=8a48b38c53f04e9589f511a672ab651d status=completed counts=[1771, 724]
+2026-10-05 22:27:37,583 INFO Project2 run=8a48b38c53f04e9589f511a672ab651d status=completed attempts=15
+2026-10-05 22:27:37,588 INFO calibration combination P2-COMPARE-02 repeat=1 attempts=15 llm=3 seconds=20.76 completed=154/300
+2026-10-05 22:27:39,416 INFO Database request=7c754718fbc642aea7aa1b8047a956d3 status=completed counts=[1771, 724]
+2026-10-05 22:28:00,577 INFO Project2 run=7c754718fbc642aea7aa1b8047a956d3 status=partial attempts=16
+2026-10-05 22:28:00,581 INFO calibration combination P2-COMPARE-02 repeat=2 attempts=16 llm=4 seconds=22.91 completed=155/300
+2026-10-05 22:28:02,358 INFO Database request=684ce1b3def845cd88555c2e75329a6a status=completed counts=[1771, 724]
+2026-10-05 22:28:22,595 INFO Project2 run=684ce1b3def845cd88555c2e75329a6a status=partial attempts=16
+2026-10-05 22:28:22,598 INFO calibration combination P2-COMPARE-02 repeat=3 attempts=16 llm=4 seconds=21.97 completed=156/300
+2026-10-05 22:28:23,801 INFO Database request=6e85d7dbd7324b7585e0dea95370db86 status=completed counts=[1322, 1585]
+2026-10-05 22:28:39,148 INFO Project2 run=6e85d7dbd7324b7585e0dea95370db86 status=completed attempts=15
+2026-10-05 22:28:39,151 INFO calibration combination P2-COMPARE-03 repeat=1 attempts=15 llm=3 seconds=16.52 completed=157/300
+2026-10-05 22:28:39,618 INFO Database request=1f0ce37db84547da8926256e7f013f0a status=completed counts=[1322, 1585]
+2026-10-05 22:28:52,220 INFO Project2 run=1f0ce37db84547da8926256e7f013f0a status=completed attempts=15
+2026-10-05 22:28:52,224 INFO calibration combination P2-COMPARE-03 repeat=2 attempts=15 llm=3 seconds=13.05 completed=158/300
+2026-10-05 22:28:52,745 INFO Database request=83292afebef4471b8be01c755ce0a72a status=completed counts=[1322, 1585]
+2026-10-05 22:29:04,094 INFO Project2 run=83292afebef4471b8be01c755ce0a72a status=completed attempts=15
+2026-10-05 22:29:04,097 INFO calibration combination P2-COMPARE-03 repeat=3 attempts=15 llm=3 seconds=11.84 completed=159/300
+2026-10-05 22:29:04,120 INFO calibration combination P2-COMPARE-04 repeat=1 attempts=0 llm=0 seconds=0.00 completed=160/300
+2026-10-05 22:29:04,146 INFO calibration combination P2-COMPARE-04 repeat=2 attempts=0 llm=0 seconds=0.00 completed=161/300
+2026-10-05 22:29:04,170 INFO calibration combination P2-COMPARE-04 repeat=3 attempts=0 llm=0 seconds=0.00 completed=162/300
+2026-10-05 22:29:04,550 INFO Database request=a094a98e88ee46e2b021956d8010ad74 status=completed counts=[1322, 1585]
+2026-10-05 22:29:18,356 INFO Project2 run=a094a98e88ee46e2b021956d8010ad74 status=completed attempts=15
+2026-10-05 22:29:18,360 INFO calibration combination P2-COMPARE-05 repeat=1 attempts=15 llm=3 seconds=14.17 completed=163/300
+2026-10-05 22:29:18,822 INFO Database request=26a5f2ff943543bb862634bba0078c33 status=completed counts=[1322, 1585]
+2026-10-05 22:29:29,899 INFO Project2 run=26a5f2ff943543bb862634bba0078c33 status=completed attempts=15
+2026-10-05 22:29:29,902 INFO calibration combination P2-COMPARE-05 repeat=2 attempts=15 llm=3 seconds=11.52 completed=164/300
+2026-10-05 22:29:30,365 INFO Database request=ebb4bdd525674ae7afa0f8ccaa12f7ef status=completed counts=[1322, 1585]
+2026-10-05 22:29:41,796 INFO Project2 run=ebb4bdd525674ae7afa0f8ccaa12f7ef status=completed attempts=15
+2026-10-05 22:29:41,800 INFO calibration combination P2-COMPARE-05 repeat=3 attempts=15 llm=3 seconds=11.87 completed=165/300
+2026-10-05 22:29:41,887 INFO Database request=4fc3747896bd45c4878e4da6fa416b35 status=no_data counts=[0, 0]
+2026-10-05 22:29:53,707 INFO Project2 run=4fc3747896bd45c4878e4da6fa416b35 status=partial attempts=15
+2026-10-05 22:29:53,710 INFO calibration combination P2-COMPARE-06 repeat=1 attempts=15 llm=3 seconds=11.88 completed=166/300
+2026-10-05 22:29:53,762 INFO Database request=96d3197981cc4c7b8d655c629bd581f2 status=no_data counts=[0, 0]
+2026-10-05 22:30:02,855 INFO Project2 run=96d3197981cc4c7b8d655c629bd581f2 status=partial attempts=15
+2026-10-05 22:30:02,858 INFO calibration combination P2-COMPARE-06 repeat=2 attempts=15 llm=3 seconds=9.12 completed=167/300
+2026-10-05 22:30:02,900 INFO Database request=2dcfaf84150c4dd2847fe5e4bf7f9ca5 status=no_data counts=[0, 0]
+2026-10-05 22:30:11,500 INFO Project2 run=2dcfaf84150c4dd2847fe5e4bf7f9ca5 status=partial attempts=15
+2026-10-05 22:30:11,502 INFO calibration combination P2-COMPARE-06 repeat=3 attempts=15 llm=3 seconds=8.62 completed=168/300
+2026-10-05 22:30:12,903 INFO Database request=30e4079e9d984a849aab01dcfcc9ddfb status=completed counts=[1322, 1585]
+2026-10-05 22:30:25,494 INFO Project2 run=30e4079e9d984a849aab01dcfcc9ddfb status=completed attempts=15
+2026-10-05 22:30:25,496 INFO calibration combination P2-COMPARE-07 repeat=1 attempts=15 llm=3 seconds=13.97 completed=169/300
+2026-10-05 22:30:25,957 INFO Database request=b5e42fe0dcf2438387a41ddbbbc78d37 status=completed counts=[1322, 1585]
+2026-10-05 22:30:35,380 INFO Project2 run=b5e42fe0dcf2438387a41ddbbbc78d37 status=completed attempts=15
+2026-10-05 22:30:35,382 INFO calibration combination P2-COMPARE-07 repeat=2 attempts=15 llm=3 seconds=9.86 completed=170/300
+2026-10-05 22:30:35,849 INFO Database request=762b9e82af714c129332aa19315ef50d status=completed counts=[1322, 1585]
+2026-10-05 22:30:46,169 INFO Project2 run=762b9e82af714c129332aa19315ef50d status=completed attempts=15
+2026-10-05 22:30:46,173 INFO calibration combination P2-COMPARE-07 repeat=3 attempts=15 llm=3 seconds=10.76 completed=171/300
+2026-10-05 22:30:46,254 INFO calibration combination P2-COMPARE-08 repeat=1 attempts=0 llm=0 seconds=0.00 completed=172/300
+2026-10-05 22:30:46,320 INFO calibration combination P2-COMPARE-08 repeat=2 attempts=0 llm=0 seconds=0.00 completed=173/300
+2026-10-05 22:30:46,392 INFO calibration combination P2-COMPARE-08 repeat=3 attempts=0 llm=0 seconds=0.00 completed=174/300
+2026-10-05 22:30:49,369 INFO Database request=aa76f3320f3f43a6a99fc4f994d4c547 status=completed counts=[11126]
+2026-10-05 22:31:10,395 INFO Project2 run=aa76f3320f3f43a6a99fc4f994d4c547 status=completed attempts=12
+2026-10-05 22:31:10,398 INFO calibration combination P2-PLATFORM-01 repeat=1 attempts=12 llm=3 seconds=23.98 completed=175/300
+2026-10-05 22:31:13,476 INFO Database request=f9a9406e18394a12b7a7bf961ad98a44 status=completed counts=[11126]
+2026-10-05 22:31:35,178 INFO Project2 run=f9a9406e18394a12b7a7bf961ad98a44 status=completed attempts=12
+2026-10-05 22:31:35,181 INFO calibration combination P2-PLATFORM-01 repeat=2 attempts=12 llm=3 seconds=24.73 completed=176/300
+2026-10-05 22:31:38,107 INFO Database request=87d625bd2e884280a73fd84141497d41 status=completed counts=[11126]
+2026-10-05 22:31:55,898 INFO Project2 run=87d625bd2e884280a73fd84141497d41 status=completed attempts=12
+2026-10-05 22:31:55,902 INFO calibration combination P2-PLATFORM-01 repeat=3 attempts=12 llm=3 seconds=20.68 completed=177/300
+2026-10-05 22:31:57,971 INFO Database request=89f0a7bc51394d5caaf51604f4fcd04e status=completed counts=[12259]
+2026-10-05 22:32:11,955 INFO Project2 run=89f0a7bc51394d5caaf51604f4fcd04e status=completed attempts=12
+2026-10-05 22:32:11,957 INFO calibration combination P2-PLATFORM-02 repeat=1 attempts=12 llm=3 seconds=16.03 completed=178/300
+2026-10-05 22:32:12,370 INFO Database request=a205ae0529c7457ab6d0515b517d7912 status=completed counts=[12259]
+2026-10-05 22:32:22,633 INFO Project2 run=a205ae0529c7457ab6d0515b517d7912 status=completed attempts=12
+2026-10-05 22:32:22,636 INFO calibration combination P2-PLATFORM-02 repeat=2 attempts=12 llm=3 seconds=10.65 completed=179/300
+2026-10-05 22:32:22,987 INFO Database request=0d238f07192b471cb97e3693efdaa13b status=completed counts=[12259]
+2026-10-05 22:32:32,867 INFO Project2 run=0d238f07192b471cb97e3693efdaa13b status=completed attempts=12
+2026-10-05 22:32:32,871 INFO calibration combination P2-PLATFORM-02 repeat=3 attempts=12 llm=3 seconds=10.21 completed=180/300
+2026-10-05 22:32:33,601 INFO Database request=75eed216fa1a4d1c85ceea5b49ce7ee8 status=completed counts=[178]
+2026-10-05 22:32:47,656 INFO Project2 run=75eed216fa1a4d1c85ceea5b49ce7ee8 status=completed attempts=12
+2026-10-05 22:32:47,659 INFO calibration combination P2-PLATFORM-03 repeat=1 attempts=12 llm=3 seconds=14.76 completed=181/300
+2026-10-05 22:32:48,397 INFO Database request=31b334d2460e4a3e98d0ca777157c60f status=completed counts=[178]
+2026-10-05 22:32:58,972 INFO Project2 run=31b334d2460e4a3e98d0ca777157c60f status=completed attempts=12
+2026-10-05 22:32:58,974 INFO calibration combination P2-PLATFORM-03 repeat=2 attempts=12 llm=3 seconds=11.26 completed=182/300
+2026-10-05 22:32:59,126 INFO Database request=b7023220f3444226a3a7c5d4d14e9853 status=completed counts=[178]
+2026-10-05 22:33:09,730 INFO Project2 run=b7023220f3444226a3a7c5d4d14e9853 status=completed attempts=12
+2026-10-05 22:33:09,733 INFO calibration combination P2-PLATFORM-03 repeat=3 attempts=12 llm=3 seconds=10.74 completed=183/300
+2026-10-05 22:33:10,243 INFO Database request=b830e03ec2264396b43896270f8ee77c status=completed counts=[2004]
+2026-10-05 22:33:27,529 INFO Project2 run=b830e03ec2264396b43896270f8ee77c status=completed attempts=12
+2026-10-05 22:33:27,533 INFO calibration combination P2-PLATFORM-04 repeat=1 attempts=12 llm=3 seconds=17.78 completed=184/300
+2026-10-05 22:33:27,635 INFO Database request=954f1c9aed0d404781c0ccf262b4887c status=completed counts=[2004]
+2026-10-05 22:33:41,299 INFO Project2 run=954f1c9aed0d404781c0ccf262b4887c status=completed attempts=12
+2026-10-05 22:33:41,302 INFO calibration combination P2-PLATFORM-04 repeat=2 attempts=12 llm=3 seconds=13.75 completed=185/300
+2026-10-05 22:33:41,399 INFO Database request=e170ba707376475592402e3fac892208 status=completed counts=[2004]
+2026-10-05 22:33:54,970 INFO Project2 run=e170ba707376475592402e3fac892208 status=completed attempts=12
+2026-10-05 22:33:54,973 INFO calibration combination P2-PLATFORM-04 repeat=3 attempts=12 llm=3 seconds=13.65 completed=186/300
+2026-10-05 22:33:55,611 INFO Database request=ba0ab22c2c454fc9a9facc025ee13a6f status=completed counts=[1492]
+2026-10-05 22:34:16,897 INFO Project2 run=ba0ab22c2c454fc9a9facc025ee13a6f status=completed attempts=12
+2026-10-05 22:34:16,900 INFO calibration combination P2-PLATFORM-05 repeat=1 attempts=12 llm=3 seconds=21.90 completed=187/300
+2026-10-05 22:34:17,582 INFO Database request=bc1bf445e0ca471a8b8ab31c44c69c3b status=completed counts=[1492]
+2026-10-05 22:34:35,200 INFO Project2 run=bc1bf445e0ca471a8b8ab31c44c69c3b status=completed attempts=12
+2026-10-05 22:34:35,203 INFO calibration combination P2-PLATFORM-05 repeat=2 attempts=12 llm=3 seconds=18.27 completed=188/300
+2026-10-05 22:34:35,345 INFO Database request=82834ca091da457585170e0c2c88b1fc status=completed counts=[1492]
+2026-10-05 22:34:52,148 INFO Project2 run=82834ca091da457585170e0c2c88b1fc status=completed attempts=12
+2026-10-05 22:34:52,151 INFO calibration combination P2-PLATFORM-05 repeat=3 attempts=12 llm=3 seconds=16.93 completed=189/300
+2026-10-05 22:34:52,559 INFO Database request=73edc34ebe35438fbb1e7df5e5b348fd status=completed counts=[214]
+2026-10-05 22:35:02,859 INFO Project2 run=73edc34ebe35438fbb1e7df5e5b348fd status=partial attempts=11
+2026-10-05 22:35:02,861 INFO calibration combination P2-PLATFORM-06 repeat=1 attempts=11 llm=2 seconds=10.69 completed=190/300
+2026-10-05 22:35:02,973 INFO Database request=14d602ba4e7a4c319358047cda22b1a5 status=completed counts=[214]
+2026-10-05 22:35:10,975 INFO Project2 run=14d602ba4e7a4c319358047cda22b1a5 status=partial attempts=11
+2026-10-05 22:35:10,978 INFO calibration combination P2-PLATFORM-06 repeat=2 attempts=11 llm=2 seconds=8.09 completed=191/300
+2026-10-05 22:35:11,115 INFO Database request=26fcbc7b8095440a9719347034a72698 status=completed counts=[214]
+2026-10-05 22:35:20,836 INFO Project2 run=26fcbc7b8095440a9719347034a72698 status=partial attempts=11
+2026-10-05 22:35:20,839 INFO calibration combination P2-PLATFORM-06 repeat=3 attempts=11 llm=2 seconds=9.84 completed=192/300
+2026-10-05 22:35:23,806 INFO Database request=e60237838fa845e28f530b56ac903b10 status=completed counts=[13960]
+2026-10-05 22:35:46,068 INFO Project2 run=e60237838fa845e28f530b56ac903b10 status=completed attempts=12
+2026-10-05 22:35:46,071 INFO calibration combination P2-PLATFORM-07 repeat=1 attempts=12 llm=3 seconds=25.19 completed=193/300
+2026-10-05 22:35:46,462 INFO Database request=275a421f40d6449981c7fa97373b19e4 status=completed counts=[13960]
+2026-10-05 22:36:05,663 INFO Project2 run=275a421f40d6449981c7fa97373b19e4 status=completed attempts=12
+2026-10-05 22:36:05,666 INFO calibration combination P2-PLATFORM-07 repeat=2 attempts=12 llm=3 seconds=19.57 completed=194/300
+2026-10-05 22:36:06,104 INFO Database request=ae1f00249bb34e44ac3020623e46a253 status=completed counts=[13960]
+2026-10-05 22:36:25,603 INFO Project2 run=ae1f00249bb34e44ac3020623e46a253 status=completed attempts=12
+2026-10-05 22:36:25,606 INFO calibration combination P2-PLATFORM-07 repeat=3 attempts=12 llm=3 seconds=19.91 completed=195/300
+2026-10-05 22:36:25,729 INFO Database request=13685ecc31a74d658047157de1afe01d status=completed counts=[309]
+2026-10-05 22:36:45,683 INFO Project2 run=13685ecc31a74d658047157de1afe01d status=completed attempts=12
+2026-10-05 22:36:45,686 INFO calibration combination P2-PLATFORM-08 repeat=1 attempts=12 llm=3 seconds=20.05 completed=196/300
+2026-10-05 22:36:45,760 INFO Database request=0c70b7b06cd24245a2cafa0b6b6e7187 status=completed counts=[309]
+2026-10-05 22:37:04,773 INFO Project2 run=0c70b7b06cd24245a2cafa0b6b6e7187 status=completed attempts=12
+2026-10-05 22:37:04,776 INFO calibration combination P2-PLATFORM-08 repeat=2 attempts=12 llm=3 seconds=19.06 completed=197/300
+2026-10-05 22:37:04,941 INFO Database request=b7a7b366afac4774bd7e3df3253b5bfb status=completed counts=[309]
+2026-10-05 22:37:21,659 INFO Project2 run=b7a7b366afac4774bd7e3df3253b5bfb status=completed attempts=12
+2026-10-05 22:37:21,661 INFO calibration combination P2-PLATFORM-08 repeat=3 attempts=12 llm=3 seconds=16.84 completed=198/300
+2026-10-05 22:37:22,998 INFO Database request=9f0931172bf24625b09d3ab2ff0f975d status=completed counts=[6451]
+2026-10-05 22:37:39,903 INFO Project2 run=9f0931172bf24625b09d3ab2ff0f975d status=completed attempts=12
+2026-10-05 22:37:39,906 INFO calibration combination P2-IDENTIFIER-01 repeat=1 attempts=12 llm=3 seconds=18.22 completed=199/300
+2026-10-05 22:37:40,123 INFO Database request=25dd1ac432ef470999e5485d2ab29285 status=completed counts=[6451]
+2026-10-05 22:37:54,515 INFO Project2 run=25dd1ac432ef470999e5485d2ab29285 status=completed attempts=12
+2026-10-05 22:37:54,517 INFO calibration combination P2-IDENTIFIER-01 repeat=2 attempts=12 llm=3 seconds=14.59 completed=200/300
+2026-10-05 22:37:54,716 INFO Database request=dfe9867d9c074a258f496b95762033e2 status=completed counts=[6451]
+2026-10-05 22:38:08,328 INFO Project2 run=dfe9867d9c074a258f496b95762033e2 status=completed attempts=12
+2026-10-05 22:38:08,330 INFO calibration combination P2-IDENTIFIER-01 repeat=3 attempts=12 llm=3 seconds=13.79 completed=201/300
+2026-10-05 22:38:11,594 INFO Database request=5d81115dd11741d399b87bf384423a0c status=completed counts=[18296]
+2026-10-05 22:38:29,654 INFO Project2 run=5d81115dd11741d399b87bf384423a0c status=completed attempts=12
+2026-10-05 22:38:29,657 INFO calibration combination P2-IDENTIFIER-02 repeat=1 attempts=12 llm=3 seconds=21.30 completed=202/300
+2026-10-05 22:38:30,147 INFO Database request=1e48ceb6efdc47d1a0133d98d0cec66d status=completed counts=[18296]
+2026-10-05 22:38:44,719 INFO Project2 run=1e48ceb6efdc47d1a0133d98d0cec66d status=completed attempts=12
+2026-10-05 22:38:44,721 INFO calibration combination P2-IDENTIFIER-02 repeat=2 attempts=12 llm=3 seconds=15.04 completed=203/300
+2026-10-05 22:38:45,190 INFO Database request=f19f11b1249a4c3492bbd58646c6fcd5 status=completed counts=[18296]
+2026-10-05 22:38:59,764 INFO Project2 run=f19f11b1249a4c3492bbd58646c6fcd5 status=completed attempts=12
+2026-10-05 22:38:59,766 INFO calibration combination P2-IDENTIFIER-02 repeat=3 attempts=12 llm=3 seconds=15.02 completed=204/300
+2026-10-05 22:39:00,216 INFO Database request=1dd5523076f8479f9508e4f9bea337ee status=completed counts=[13881]
+2026-10-05 22:39:13,308 INFO Project2 run=1dd5523076f8479f9508e4f9bea337ee status=completed attempts=12
+2026-10-05 22:39:13,311 INFO calibration combination P2-IDENTIFIER-03 repeat=1 attempts=12 llm=3 seconds=13.52 completed=205/300
+2026-10-05 22:39:16,029 INFO Database request=86f20548eb8444e1a741adb0596bf20b status=completed counts=[13881]
+2026-10-05 22:39:26,311 INFO Project2 run=86f20548eb8444e1a741adb0596bf20b status=completed attempts=12
+2026-10-05 22:39:26,314 INFO calibration combination P2-IDENTIFIER-03 repeat=2 attempts=12 llm=3 seconds=12.98 completed=206/300
+2026-10-05 22:39:26,733 INFO Database request=02a4c1ea4afa41c68a910f9fafe50720 status=completed counts=[13881]
+2026-10-05 22:39:37,290 INFO Project2 run=02a4c1ea4afa41c68a910f9fafe50720 status=completed attempts=12
+2026-10-05 22:39:37,292 INFO calibration combination P2-IDENTIFIER-03 repeat=3 attempts=12 llm=3 seconds=10.95 completed=207/300
+2026-10-05 22:39:37,746 INFO Database request=399d615b6d1c49569b5b326d111251b8 status=completed counts=[13881]
+2026-10-05 22:39:50,983 INFO Project2 run=399d615b6d1c49569b5b326d111251b8 status=completed attempts=12
+2026-10-05 22:39:50,991 INFO calibration combination P2-IDENTIFIER-04 repeat=1 attempts=12 llm=3 seconds=13.66 completed=208/300
+2026-10-05 22:39:53,947 INFO Database request=5d76902cff3848e4ac0e841402c61316 status=completed counts=[13881]
+2026-10-05 22:40:04,284 INFO Project2 run=5d76902cff3848e4ac0e841402c61316 status=completed attempts=12
+2026-10-05 22:40:04,287 INFO calibration combination P2-IDENTIFIER-04 repeat=2 attempts=12 llm=3 seconds=13.24 completed=209/300
+2026-10-05 22:40:04,698 INFO Database request=bf30c6304ba04e6c9d1f166f72864f78 status=completed counts=[13881]
+2026-10-05 22:40:13,511 INFO Project2 run=bf30c6304ba04e6c9d1f166f72864f78 status=completed attempts=12
+2026-10-05 22:40:13,514 INFO calibration combination P2-IDENTIFIER-04 repeat=3 attempts=12 llm=3 seconds=9.20 completed=210/300
+2026-10-05 22:40:19,853 INFO Database request=05baffbb23f74f3e85ee25feb94c96c4 status=completed counts=[40526]
+2026-10-05 22:40:35,699 INFO Project2 run=05baffbb23f74f3e85ee25feb94c96c4 status=completed attempts=12
+2026-10-05 22:40:35,702 INFO calibration combination P2-IDENTIFIER-05 repeat=1 attempts=12 llm=3 seconds=22.15 completed=211/300
+2026-10-05 22:40:36,718 INFO Database request=43b7076d418144f2872d2fc89d23f410 status=completed counts=[40526]
+2026-10-05 22:40:49,681 INFO Project2 run=43b7076d418144f2872d2fc89d23f410 status=completed attempts=12
+2026-10-05 22:40:49,684 INFO calibration combination P2-IDENTIFIER-05 repeat=2 attempts=12 llm=3 seconds=13.96 completed=212/300
+2026-10-05 22:40:50,631 INFO Database request=d574cfc4618144029269d80c1ce18ec1 status=completed counts=[40526]
+2026-10-05 22:41:03,166 INFO Project2 run=d574cfc4618144029269d80c1ce18ec1 status=completed attempts=12
+2026-10-05 22:41:03,168 INFO calibration combination P2-IDENTIFIER-05 repeat=3 attempts=12 llm=3 seconds=13.46 completed=213/300
+2026-10-05 22:41:03,868 INFO Database request=85daed77522942acab396d25e2780d66 status=completed counts=[3736]
+2026-10-05 22:41:20,491 INFO Project2 run=85daed77522942acab396d25e2780d66 status=completed attempts=12
+2026-10-05 22:41:20,494 INFO calibration combination P2-IDENTIFIER-06 repeat=1 attempts=12 llm=3 seconds=17.30 completed=214/300
+2026-10-05 22:41:20,671 INFO Database request=ef7e3107241241128928db7a1dd5c48c status=completed counts=[3736]
+2026-10-05 22:41:33,769 INFO Project2 run=ef7e3107241241128928db7a1dd5c48c status=completed attempts=12
+2026-10-05 22:41:33,773 INFO calibration combination P2-IDENTIFIER-06 repeat=2 attempts=12 llm=3 seconds=13.25 completed=215/300
+2026-10-05 22:41:33,910 INFO Database request=7dd2e9545f6c4bddb6934c706b381a58 status=completed counts=[3736]
+2026-10-05 22:41:46,534 INFO Project2 run=7dd2e9545f6c4bddb6934c706b381a58 status=completed attempts=12
+2026-10-05 22:41:46,536 INFO calibration combination P2-IDENTIFIER-06 repeat=3 attempts=12 llm=3 seconds=12.74 completed=216/300
+2026-10-05 22:41:47,397 INFO Database request=c0aa4ae565ae4c17b2fe3d1b09eb2d87 status=completed counts=[4867]
+2026-10-05 22:42:09,430 INFO Project2 run=c0aa4ae565ae4c17b2fe3d1b09eb2d87 status=completed attempts=12
+2026-10-05 22:42:09,433 INFO calibration combination P2-IDENTIFIER-07 repeat=1 attempts=12 llm=3 seconds=22.87 completed=217/300
+2026-10-05 22:42:09,606 INFO Database request=c59454f4426d45c198d25de4d92a88a3 status=completed counts=[4867]
+2026-10-05 22:42:24,829 INFO Project2 run=c59454f4426d45c198d25de4d92a88a3 status=completed attempts=12
+2026-10-05 22:42:24,832 INFO calibration combination P2-IDENTIFIER-07 repeat=2 attempts=12 llm=3 seconds=15.38 completed=218/300
+2026-10-05 22:42:26,004 INFO Database request=a87dc551b2194936bf7849b8076c8ac6 status=completed counts=[4867]
+2026-10-05 22:42:40,260 INFO Project2 run=a87dc551b2194936bf7849b8076c8ac6 status=completed attempts=12
+2026-10-05 22:42:40,262 INFO calibration combination P2-IDENTIFIER-07 repeat=3 attempts=12 llm=3 seconds=15.38 completed=219/300
+2026-10-05 22:42:48,006 INFO Database request=95b912df5a844e2c86405579002ce8cf status=completed counts=[58237]
+2026-10-05 22:43:10,167 INFO Project2 run=95b912df5a844e2c86405579002ce8cf status=completed attempts=12
+2026-10-05 22:43:10,169 INFO calibration combination P2-IDENTIFIER-08 repeat=1 attempts=12 llm=3 seconds=29.88 completed=220/300
+2026-10-05 22:43:11,327 INFO Database request=982ef8ed5cf5486e950f8515978a3992 status=completed counts=[58237]
+2026-10-05 22:43:30,865 INFO Project2 run=982ef8ed5cf5486e950f8515978a3992 status=completed attempts=12
+2026-10-05 22:43:30,868 INFO calibration combination P2-IDENTIFIER-08 repeat=2 attempts=12 llm=3 seconds=20.67 completed=221/300
+2026-10-05 22:43:31,978 INFO Database request=6ad5244c849c432f854f46d343c24782 status=completed counts=[58237]
+2026-10-05 22:43:50,699 INFO Project2 run=6ad5244c849c432f854f46d343c24782 status=completed attempts=12
+2026-10-05 22:43:50,702 INFO calibration combination P2-IDENTIFIER-08 repeat=3 attempts=12 llm=3 seconds=19.81 completed=222/300
+2026-10-05 22:43:51,059 INFO Database request=bf578668279f41bb97248969b8116b14 status=completed counts=[192]
+2026-10-05 22:44:00,176 INFO Project2 run=bf578668279f41bb97248969b8116b14 status=completed attempts=12
+2026-10-05 22:44:00,179 INFO calibration combination P2-VERSION-01 repeat=1 attempts=12 llm=3 seconds=9.45 completed=223/300
+2026-10-05 22:44:00,265 INFO Database request=b62737e86a534e2a8215505f20e3c125 status=completed counts=[192]
+2026-10-05 22:44:07,680 INFO Project2 run=b62737e86a534e2a8215505f20e3c125 status=completed attempts=12
+2026-10-05 22:44:07,682 INFO calibration combination P2-VERSION-01 repeat=2 attempts=12 llm=3 seconds=7.48 completed=224/300
+2026-10-05 22:44:07,776 INFO Database request=be3cbdd1756e43d9ba4c3faa87cc43c3 status=completed counts=[192]
+2026-10-05 22:44:15,557 INFO Project2 run=be3cbdd1756e43d9ba4c3faa87cc43c3 status=completed attempts=12
+2026-10-05 22:44:15,561 INFO calibration combination P2-VERSION-01 repeat=3 attempts=12 llm=3 seconds=7.85 completed=225/300
+2026-10-05 22:44:16,364 INFO Database request=d3a113e9b7404e5daa8db816f24311fc status=completed counts=[978]
+2026-10-05 22:44:30,772 INFO Project2 run=d3a113e9b7404e5daa8db816f24311fc status=completed attempts=12
+2026-10-05 22:44:30,774 INFO calibration combination P2-VERSION-02 repeat=1 attempts=12 llm=3 seconds=15.14 completed=226/300
+2026-10-05 22:44:31,383 INFO Database request=e8a237fb0fd840409761d3fbc0f689a7 status=completed counts=[978]
+2026-10-05 22:44:42,417 INFO Project2 run=e8a237fb0fd840409761d3fbc0f689a7 status=completed attempts=12
+2026-10-05 22:44:42,420 INFO calibration combination P2-VERSION-02 repeat=2 attempts=12 llm=3 seconds=11.61 completed=227/300
+2026-10-05 22:44:42,636 INFO Database request=fbe91c4678fa452b85890b2ed095fe2e status=completed counts=[978]
+2026-10-05 22:44:53,715 INFO Project2 run=fbe91c4678fa452b85890b2ed095fe2e status=completed attempts=12
+2026-10-05 22:44:53,718 INFO calibration combination P2-VERSION-02 repeat=3 attempts=12 llm=3 seconds=11.27 completed=228/300
+2026-10-05 22:44:54,769 INFO Database request=983374c6c6f843eea11057fa491789c2 status=completed counts=[3533]
+2026-10-05 22:45:06,884 INFO Project2 run=983374c6c6f843eea11057fa491789c2 status=completed attempts=12
+2026-10-05 22:45:06,888 INFO calibration combination P2-VERSION-03 repeat=1 attempts=12 llm=3 seconds=13.14 completed=229/300
+2026-10-05 22:45:08,118 INFO Database request=de161bad993548aeb735a6b55e16475d status=completed counts=[3533]
+2026-10-05 22:45:17,132 INFO Project2 run=de161bad993548aeb735a6b55e16475d status=completed attempts=12
+2026-10-05 22:45:17,134 INFO calibration combination P2-VERSION-03 repeat=2 attempts=12 llm=3 seconds=10.20 completed=230/300
+2026-10-05 22:45:17,361 INFO Database request=bb6ed6af1c2e45acbb373223fb6ef6c7 status=completed counts=[3533]
+2026-10-05 22:45:25,310 INFO Project2 run=bb6ed6af1c2e45acbb373223fb6ef6c7 status=completed attempts=12
+2026-10-05 22:45:25,313 INFO calibration combination P2-VERSION-03 repeat=3 attempts=12 llm=3 seconds=8.15 completed=231/300
+2026-10-05 22:45:25,452 INFO Database request=f93ae4bbefb042be8b55ea9de9b19627 status=completed counts=[142]
+2026-10-05 22:45:35,667 INFO Project2 run=f93ae4bbefb042be8b55ea9de9b19627 status=completed attempts=12
+2026-10-05 22:45:35,669 INFO calibration combination P2-VERSION-04 repeat=1 attempts=12 llm=3 seconds=10.33 completed=232/300
+2026-10-05 22:45:35,732 INFO Database request=3511c4190d47484fabb19d3bff5ace72 status=completed counts=[142]
+2026-10-05 22:45:43,009 INFO Project2 run=3511c4190d47484fabb19d3bff5ace72 status=completed attempts=12
+2026-10-05 22:45:43,013 INFO calibration combination P2-VERSION-04 repeat=2 attempts=12 llm=3 seconds=7.32 completed=233/300
+2026-10-05 22:45:43,076 INFO Database request=1e7d1817d35841afb464267db4e9d7e0 status=completed counts=[142]
+2026-10-05 22:45:50,513 INFO Project2 run=1e7d1817d35841afb464267db4e9d7e0 status=completed attempts=12
+2026-10-05 22:45:50,515 INFO calibration combination P2-VERSION-04 repeat=3 attempts=12 llm=3 seconds=7.48 completed=234/300
+2026-10-05 22:45:50,899 INFO Database request=3f1d83153603461a80754d5dfd528ea8 status=completed counts=[673]
+2026-10-05 22:46:03,515 INFO Project2 run=3f1d83153603461a80754d5dfd528ea8 status=completed attempts=12
+2026-10-05 22:46:03,518 INFO calibration combination P2-VERSION-05 repeat=1 attempts=12 llm=3 seconds=12.98 completed=235/300
+2026-10-05 22:46:03,670 INFO Database request=db8bed6c46e3465c80ada64563e06e74 status=completed counts=[673]
+2026-10-05 22:46:13,271 INFO Project2 run=db8bed6c46e3465c80ada64563e06e74 status=completed attempts=12
+2026-10-05 22:46:13,274 INFO calibration combination P2-VERSION-05 repeat=2 attempts=12 llm=3 seconds=9.73 completed=236/300
+2026-10-05 22:46:13,419 INFO Database request=c6872d3715b341fe902a6a1f58c0fffa status=completed counts=[673]
+2026-10-05 22:46:22,485 INFO Project2 run=c6872d3715b341fe902a6a1f58c0fffa status=completed attempts=12
+2026-10-05 22:46:22,487 INFO calibration combination P2-VERSION-05 repeat=3 attempts=12 llm=3 seconds=9.19 completed=237/300
+2026-10-05 22:46:22,649 INFO Database request=333a11dc231749adaf25af58eecc6291 status=completed counts=[316]
+2026-10-05 22:46:37,321 INFO Project2 run=333a11dc231749adaf25af58eecc6291 status=completed attempts=12
+2026-10-05 22:46:37,324 INFO calibration combination P2-VERSION-06 repeat=1 attempts=12 llm=3 seconds=14.81 completed=238/300
+2026-10-05 22:46:37,395 INFO Database request=738797e6e01b4aed848b375890ad0275 status=completed counts=[316]
+2026-10-05 22:46:51,778 INFO Project2 run=738797e6e01b4aed848b375890ad0275 status=completed attempts=12
+2026-10-05 22:46:51,783 INFO calibration combination P2-VERSION-06 repeat=2 attempts=12 llm=3 seconds=14.43 completed=239/300
+2026-10-05 22:46:52,104 INFO Database request=b5c937e3f7134137b1aedf6eff1c54da status=completed counts=[316]
+2026-10-05 22:47:05,044 INFO Project2 run=b5c937e3f7134137b1aedf6eff1c54da status=completed attempts=12
+2026-10-05 22:47:05,047 INFO calibration combination P2-VERSION-06 repeat=3 attempts=12 llm=3 seconds=13.18 completed=240/300
+2026-10-05 22:47:05,299 INFO Database request=817129b8e6a744e693b357cefb5df047 status=completed counts=[235]
+2026-10-05 22:47:17,559 INFO Project2 run=817129b8e6a744e693b357cefb5df047 status=completed attempts=12
+2026-10-05 22:47:17,561 INFO calibration combination P2-VERSION-07 repeat=1 attempts=12 llm=3 seconds=12.49 completed=241/300
+2026-10-05 22:47:17,643 INFO Database request=5b2a0741765948a3ad7c18bec326c3ce status=completed counts=[235]
+2026-10-05 22:47:26,811 INFO Project2 run=5b2a0741765948a3ad7c18bec326c3ce status=completed attempts=12
+2026-10-05 22:47:26,813 INFO calibration combination P2-VERSION-07 repeat=2 attempts=12 llm=3 seconds=9.22 completed=242/300
+2026-10-05 22:47:26,893 INFO Database request=a70e62e1196f4eac9a1a1f232a6f7abb status=completed counts=[235]
+2026-10-05 22:47:35,896 INFO Project2 run=a70e62e1196f4eac9a1a1f232a6f7abb status=completed attempts=12
+2026-10-05 22:47:35,898 INFO calibration combination P2-VERSION-07 repeat=3 attempts=12 llm=3 seconds=9.06 completed=243/300
+2026-10-05 22:47:36,806 INFO Database request=678b2abfc774403fa42492f8d6079867 status=completed counts=[3736]
+2026-10-05 22:47:49,713 INFO Project2 run=678b2abfc774403fa42492f8d6079867 status=completed attempts=12
+2026-10-05 22:47:49,716 INFO calibration combination P2-VERSION-08 repeat=1 attempts=12 llm=3 seconds=13.79 completed=244/300
+2026-10-05 22:47:49,875 INFO Database request=8a554119159a4cb580f0a5ae456fb11e status=completed counts=[3736]
+2026-10-05 22:48:00,122 INFO Project2 run=8a554119159a4cb580f0a5ae456fb11e status=completed attempts=12
+2026-10-05 22:48:00,124 INFO calibration combination P2-VERSION-08 repeat=2 attempts=12 llm=3 seconds=10.39 completed=245/300
+2026-10-05 22:48:00,273 INFO Database request=dca228db510e4215a7392353a15d8759 status=completed counts=[3736]
+2026-10-05 22:48:10,393 INFO Project2 run=dca228db510e4215a7392353a15d8759 status=completed attempts=12
+2026-10-05 22:48:10,395 INFO calibration combination P2-VERSION-08 repeat=3 attempts=12 llm=3 seconds=10.25 completed=246/300
+2026-10-05 22:48:13,732 INFO Database request=e2e4eca42da148c3bd2eac37f70b29b0 status=completed counts=[18296]
+2026-10-05 22:48:23,804 INFO Project2 run=e2e4eca42da148c3bd2eac37f70b29b0 status=completed attempts=12
+2026-10-05 22:48:23,806 INFO calibration combination P2-ENTITY-01 repeat=1 attempts=12 llm=3 seconds=13.39 completed=247/300
+2026-10-05 22:48:24,288 INFO Database request=d69ace3098394bec9a092e31600a910f status=completed counts=[18296]
+2026-10-05 22:48:31,681 INFO Project2 run=d69ace3098394bec9a092e31600a910f status=completed attempts=12
+2026-10-05 22:48:31,684 INFO calibration combination P2-ENTITY-01 repeat=2 attempts=12 llm=3 seconds=7.85 completed=248/300
+2026-10-05 22:48:32,332 INFO Database request=a2732fd8d76e4043ac0c8be2e988eb78 status=completed counts=[18296]
+2026-10-05 22:48:40,257 INFO Project2 run=a2732fd8d76e4043ac0c8be2e988eb78 status=completed attempts=12
+2026-10-05 22:48:40,259 INFO calibration combination P2-ENTITY-01 repeat=3 attempts=12 llm=3 seconds=8.55 completed=249/300
+2026-10-05 22:48:40,981 INFO Database request=1e4f4832e047495a88520403d38570c3 status=completed counts=[3736]
+2026-10-05 22:48:54,914 INFO Project2 run=1e4f4832e047495a88520403d38570c3 status=completed attempts=12
+2026-10-05 22:48:54,917 INFO calibration combination P2-ENTITY-02 repeat=1 attempts=12 llm=3 seconds=14.63 completed=250/300
+2026-10-05 22:48:55,891 INFO Database request=5ac599c745ae482f929da81ab661c673 status=completed counts=[3736]
+2026-10-05 22:49:06,999 INFO Project2 run=5ac599c745ae482f929da81ab661c673 status=completed attempts=12
+2026-10-05 22:49:07,001 INFO calibration combination P2-ENTITY-02 repeat=2 attempts=12 llm=3 seconds=12.04 completed=251/300
+2026-10-05 22:49:07,954 INFO Database request=3268f3a0ecb94c4fabe2e6dbbe161510 status=completed counts=[3736]
+2026-10-05 22:49:17,980 INFO Project2 run=3268f3a0ecb94c4fabe2e6dbbe161510 status=completed attempts=12
+2026-10-05 22:49:17,982 INFO calibration combination P2-ENTITY-02 repeat=3 attempts=12 llm=3 seconds=10.94 completed=252/300
+2026-10-05 22:49:26,241 INFO Database request=d51ddf95ac41465ab2f9c799d6eb127e status=completed counts=[42569]
+2026-10-05 22:49:36,272 INFO Project2 run=d51ddf95ac41465ab2f9c799d6eb127e status=completed attempts=12
+2026-10-05 22:49:36,274 INFO calibration combination P2-ENTITY-03 repeat=1 attempts=12 llm=3 seconds=18.27 completed=253/300
+2026-10-05 22:49:37,115 INFO Database request=cdc670f866d3472aa0e6f46c0c86b44b status=completed counts=[42569]
+2026-10-05 22:49:44,280 INFO Project2 run=cdc670f866d3472aa0e6f46c0c86b44b status=completed attempts=12
+2026-10-05 22:49:44,283 INFO calibration combination P2-ENTITY-03 repeat=2 attempts=12 llm=3 seconds=7.97 completed=254/300
+2026-10-05 22:49:45,178 INFO Database request=0f8d9ed932b64a94ac34399795b06e8d status=completed counts=[42569]
+2026-10-05 22:49:52,564 INFO Project2 run=0f8d9ed932b64a94ac34399795b06e8d status=completed attempts=12
+2026-10-05 22:49:52,567 INFO calibration combination P2-ENTITY-03 repeat=3 attempts=12 llm=3 seconds=8.26 completed=255/300
+2026-10-05 22:49:54,016 INFO Database request=25c6e082175543a1a5b493bfb35262ba status=completed counts=[9823]
+2026-10-05 22:50:03,560 INFO Project2 run=25c6e082175543a1a5b493bfb35262ba status=partial attempts=11
+2026-10-05 22:50:03,564 INFO calibration combination P2-ENTITY-04 repeat=1 attempts=11 llm=2 seconds=10.97 completed=256/300
+2026-10-05 22:50:03,857 INFO Database request=d0e2f3af10fe4b08b4d459e2bff57bf1 status=completed counts=[9823]
+2026-10-05 22:50:10,537 INFO Project2 run=d0e2f3af10fe4b08b4d459e2bff57bf1 status=partial attempts=11
+2026-10-05 22:50:10,540 INFO calibration combination P2-ENTITY-04 repeat=2 attempts=11 llm=2 seconds=6.95 completed=257/300
+2026-10-05 22:50:10,813 INFO Database request=863b2f9193d5460a980a17b6fba4560a status=completed counts=[9823]
+2026-10-05 22:50:17,429 INFO Project2 run=863b2f9193d5460a980a17b6fba4560a status=partial attempts=11
+2026-10-05 22:50:17,431 INFO calibration combination P2-ENTITY-04 repeat=3 attempts=11 llm=2 seconds=6.87 completed=258/300
+2026-10-05 22:50:18,226 INFO Database request=828451b1e8bd4be28cdea7680a41f934 status=completed counts=[3736]
+2026-10-05 22:50:28,868 INFO Project2 run=828451b1e8bd4be28cdea7680a41f934 status=completed attempts=12
+2026-10-05 22:50:28,871 INFO calibration combination P2-ENTITY-05 repeat=1 attempts=12 llm=3 seconds=11.42 completed=259/300
+2026-10-05 22:50:29,865 INFO Database request=cd77ce6705a2458b880948f31dd69787 status=completed counts=[3736]
+2026-10-05 22:50:37,202 INFO Project2 run=cd77ce6705a2458b880948f31dd69787 status=completed attempts=12
+2026-10-05 22:50:37,204 INFO calibration combination P2-ENTITY-05 repeat=2 attempts=12 llm=3 seconds=8.29 completed=260/300
+2026-10-05 22:50:37,352 INFO Database request=8b86385fbc1347c58a438eb044b0432d status=completed counts=[3736]
+2026-10-05 22:50:44,231 INFO Project2 run=8b86385fbc1347c58a438eb044b0432d status=completed attempts=12
+2026-10-05 22:50:44,234 INFO calibration combination P2-ENTITY-05 repeat=3 attempts=12 llm=3 seconds=7.01 completed=261/300
+2026-10-05 22:50:47,353 INFO Database request=1272d258b7514d2586f35d064a3f7bab status=completed counts=[18296]
+2026-10-05 22:50:56,641 INFO Project2 run=1272d258b7514d2586f35d064a3f7bab status=completed attempts=12
+2026-10-05 22:50:56,643 INFO calibration combination P2-ENTITY-06 repeat=1 attempts=12 llm=3 seconds=12.39 completed=262/300
+2026-10-05 22:50:57,092 INFO Database request=8668b01753c24f5cb2a265a1269987e7 status=completed counts=[18296]
+2026-10-05 22:51:05,249 INFO Project2 run=8668b01753c24f5cb2a265a1269987e7 status=completed attempts=12
+2026-10-05 22:51:05,253 INFO calibration combination P2-ENTITY-06 repeat=2 attempts=12 llm=3 seconds=8.58 completed=263/300
+2026-10-05 22:51:05,753 INFO Database request=8050ca743e774dca8fdf15c3016a458c status=completed counts=[18296]
+2026-10-05 22:51:12,709 INFO Project2 run=8050ca743e774dca8fdf15c3016a458c status=completed attempts=12
+2026-10-05 22:51:12,711 INFO calibration combination P2-ENTITY-06 repeat=3 attempts=12 llm=3 seconds=7.43 completed=264/300
+2026-10-05 22:51:20,274 INFO Database request=0a192598407346f6a0cd23056f5016d5 status=completed counts=[40526]
+2026-10-05 22:51:29,928 INFO Project2 run=0a192598407346f6a0cd23056f5016d5 status=completed attempts=12
+2026-10-05 22:51:29,931 INFO calibration combination P2-ENTITY-07 repeat=1 attempts=12 llm=3 seconds=17.19 completed=265/300
+2026-10-05 22:51:30,891 INFO Database request=fffec5ae22024e21be53b0f8ee9b67ef status=completed counts=[40526]
+2026-10-05 22:51:37,743 INFO Project2 run=fffec5ae22024e21be53b0f8ee9b67ef status=completed attempts=12
+2026-10-05 22:51:37,745 INFO calibration combination P2-ENTITY-07 repeat=2 attempts=12 llm=3 seconds=7.77 completed=266/300
+2026-10-05 22:51:38,699 INFO Database request=08d0984d4a904357b835107cfae5bc5d status=completed counts=[40526]
+2026-10-05 22:51:45,447 INFO Project2 run=08d0984d4a904357b835107cfae5bc5d status=completed attempts=12
+2026-10-05 22:51:45,450 INFO calibration combination P2-ENTITY-07 repeat=3 attempts=12 llm=3 seconds=7.68 completed=267/300
+2026-10-05 22:51:46,192 INFO Database request=7e0d88ce2a3046deb6d7c91653efa1db status=completed counts=[3736]
+2026-10-05 22:51:59,180 INFO Project2 run=7e0d88ce2a3046deb6d7c91653efa1db status=completed attempts=12
+2026-10-05 22:51:59,183 INFO calibration combination P2-ENTITY-08 repeat=1 attempts=12 llm=3 seconds=13.71 completed=268/300
+2026-10-05 22:51:59,363 INFO Database request=b9ac5ac1a84c40618eea474ee1f4544e status=completed counts=[3736]
+2026-10-05 22:52:09,877 INFO Project2 run=b9ac5ac1a84c40618eea474ee1f4544e status=completed attempts=12
+2026-10-05 22:52:09,880 INFO calibration combination P2-ENTITY-08 repeat=2 attempts=12 llm=3 seconds=10.67 completed=269/300
+2026-10-05 22:52:10,051 INFO Database request=35c28f5efb394561812ba4760135a9b7 status=completed counts=[3736]
+2026-10-05 22:52:20,614 INFO Project2 run=35c28f5efb394561812ba4760135a9b7 status=completed attempts=12
+2026-10-05 22:52:20,619 INFO calibration combination P2-ENTITY-08 repeat=3 attempts=12 llm=3 seconds=10.71 completed=270/300
+2026-10-05 22:52:21,889 INFO Database request=8a48ef84ba5a443a9763b483787ef943 status=completed counts=[6451]
+2026-10-05 22:52:34,828 INFO Project2 run=8a48ef84ba5a443a9763b483787ef943 status=completed attempts=12
+2026-10-05 22:52:34,831 INFO calibration combination P2-NOANSWER-01 repeat=1 attempts=12 llm=3 seconds=14.18 completed=271/300
+2026-10-05 22:52:35,045 INFO Database request=351f2bc54c234b71a834b2a7325dfa51 status=completed counts=[6451]
+2026-10-05 22:52:46,368 INFO Project2 run=351f2bc54c234b71a834b2a7325dfa51 status=completed attempts=12
+2026-10-05 22:52:46,370 INFO calibration combination P2-NOANSWER-01 repeat=2 attempts=12 llm=3 seconds=11.52 completed=272/300
+2026-10-05 22:52:46,584 INFO Database request=a6cad7bb6b6e4f57b6182d8d37a74ed9 status=completed counts=[6451]
+2026-10-05 22:52:56,887 INFO Project2 run=a6cad7bb6b6e4f57b6182d8d37a74ed9 status=completed attempts=12
+2026-10-05 22:52:56,889 INFO calibration combination P2-NOANSWER-01 repeat=3 attempts=12 llm=3 seconds=10.49 completed=273/300
+2026-10-05 22:52:58,057 INFO Database request=723d4782a9da404c8a1534ebb2953136 status=completed counts=[1873]
+2026-10-05 22:53:08,269 INFO Project2 run=723d4782a9da404c8a1534ebb2953136 status=completed attempts=12
+2026-10-05 22:53:08,271 INFO calibration combination P2-NOANSWER-02 repeat=1 attempts=12 llm=3 seconds=11.34 completed=274/300
+2026-10-05 22:53:08,551 INFO Database request=9d374d3f4d624dffaff3557efce934f4 status=completed counts=[1873]
+2026-10-05 22:53:15,624 INFO Project2 run=9d374d3f4d624dffaff3557efce934f4 status=completed attempts=12
+2026-10-05 22:53:15,627 INFO calibration combination P2-NOANSWER-02 repeat=2 attempts=12 llm=3 seconds=7.32 completed=275/300
+2026-10-05 22:53:15,848 INFO Database request=b8f39cb6f3a34de9baa668d88f98cba2 status=completed counts=[1873]
+2026-10-05 22:53:23,009 INFO Project2 run=b8f39cb6f3a34de9baa668d88f98cba2 status=completed attempts=12
+2026-10-05 22:53:23,012 INFO calibration combination P2-NOANSWER-02 repeat=3 attempts=12 llm=3 seconds=7.36 completed=276/300
+2026-10-05 22:53:24,439 INFO Database request=10c78000774940b8a15f62ce3f5ce5be status=completed counts=[8643]
+2026-10-05 22:53:33,635 INFO Project2 run=10c78000774940b8a15f62ce3f5ce5be status=completed attempts=12
+2026-10-05 22:53:33,638 INFO calibration combination P2-NOANSWER-03 repeat=1 attempts=12 llm=3 seconds=10.60 completed=277/300
+2026-10-05 22:53:33,859 INFO Database request=59054e2c47b546c885856260ce79f407 status=completed counts=[8643]
+2026-10-05 22:53:40,289 INFO Project2 run=59054e2c47b546c885856260ce79f407 status=completed attempts=12
+2026-10-05 22:53:40,291 INFO calibration combination P2-NOANSWER-03 repeat=2 attempts=12 llm=3 seconds=6.63 completed=278/300
+2026-10-05 22:53:40,540 INFO Database request=36e30d8a3e0b44bbb915ebec3987d95d status=completed counts=[8643]
+2026-10-05 22:53:46,764 INFO Project2 run=36e30d8a3e0b44bbb915ebec3987d95d status=completed attempts=12
+2026-10-05 22:53:46,766 INFO calibration combination P2-NOANSWER-03 repeat=3 attempts=12 llm=3 seconds=6.45 completed=279/300
+2026-10-05 22:53:47,938 INFO Database request=12be3d2797214848823e848a97dd1d4c status=completed counts=[6451]
+2026-10-05 22:53:55,357 INFO Project2 run=12be3d2797214848823e848a97dd1d4c status=partial attempts=11
+2026-10-05 22:53:55,359 INFO calibration combination P2-NOANSWER-04 repeat=1 attempts=11 llm=2 seconds=8.57 completed=280/300
+2026-10-05 22:53:55,545 INFO Database request=5a61cc18a5f7428d9e9024521b0c1872 status=completed counts=[6451]
+2026-10-05 22:54:00,386 INFO Project2 run=5a61cc18a5f7428d9e9024521b0c1872 status=partial attempts=11
+2026-10-05 22:54:00,388 INFO calibration combination P2-NOANSWER-04 repeat=2 attempts=11 llm=2 seconds=5.00 completed=281/300
+2026-10-05 22:54:00,612 INFO Database request=6379ec07940749c099bf8cbf0ad9fd9b status=completed counts=[6451]
+2026-10-05 22:54:05,256 INFO Project2 run=6379ec07940749c099bf8cbf0ad9fd9b status=partial attempts=11
+2026-10-05 22:54:05,258 INFO calibration combination P2-NOANSWER-04 repeat=3 attempts=11 llm=2 seconds=4.85 completed=282/300
+2026-10-05 22:54:05,680 INFO Database request=8c66f08debe84b29bf068238f7881c76 status=completed counts=[2288]
+2026-10-05 22:54:14,610 INFO Project2 run=8c66f08debe84b29bf068238f7881c76 status=completed attempts=12
+2026-10-05 22:54:14,612 INFO calibration combination P2-NOANSWER-05 repeat=1 attempts=12 llm=3 seconds=9.33 completed=283/300
+2026-10-05 22:54:14,709 INFO Database request=ad498827095b4352ab0899ec58a05e8e status=completed counts=[2288]
+2026-10-05 22:54:20,667 INFO Project2 run=ad498827095b4352ab0899ec58a05e8e status=completed attempts=12
+2026-10-05 22:54:20,669 INFO calibration combination P2-NOANSWER-05 repeat=2 attempts=12 llm=3 seconds=6.03 completed=284/300
+2026-10-05 22:54:20,769 INFO Database request=cc7c1333134848d698dfb33e6781bda1 status=completed counts=[2288]
+2026-10-05 22:54:26,597 INFO Project2 run=cc7c1333134848d698dfb33e6781bda1 status=completed attempts=12
+2026-10-05 22:54:26,599 INFO calibration combination P2-NOANSWER-05 repeat=3 attempts=12 llm=3 seconds=5.91 completed=285/300
+2026-10-05 22:54:27,343 INFO Database request=576c21a5436542359a13cae711b6013d status=completed counts=[3736]
+2026-10-05 22:54:37,368 INFO Project2 run=576c21a5436542359a13cae711b6013d status=completed attempts=12
+2026-10-05 22:54:37,371 INFO calibration combination P2-NOANSWER-06 repeat=1 attempts=12 llm=3 seconds=10.75 completed=286/300
+2026-10-05 22:54:37,529 INFO Database request=3c236de3e16443a19e88c4bd3c3d1ec6 status=completed counts=[3736]
+2026-10-05 22:54:44,733 INFO Project2 run=3c236de3e16443a19e88c4bd3c3d1ec6 status=completed attempts=12
+2026-10-05 22:54:44,736 INFO calibration combination P2-NOANSWER-06 repeat=2 attempts=12 llm=3 seconds=7.34 completed=287/300
+2026-10-05 22:54:44,896 INFO Database request=3a6522071e6f4ad19e0933a68d27df49 status=completed counts=[3736]
+2026-10-05 22:54:51,841 INFO Project2 run=3a6522071e6f4ad19e0933a68d27df49 status=completed attempts=12
+2026-10-05 22:54:51,845 INFO calibration combination P2-NOANSWER-06 repeat=3 attempts=12 llm=3 seconds=7.09 completed=288/300
+2026-10-05 22:54:51,998 INFO Database request=25f7ddf666db4e869832ef2af5033c78 status=completed counts=[3736]
+2026-10-05 22:55:03,499 INFO Project2 run=25f7ddf666db4e869832ef2af5033c78 status=completed attempts=12
+2026-10-05 22:55:03,501 INFO calibration combination P2-NOANSWER-07 repeat=1 attempts=12 llm=3 seconds=11.63 completed=289/300
+2026-10-05 22:55:03,649 INFO Database request=a1c88bbdb154444195627147a43ce243 status=completed counts=[3736]
+2026-10-05 22:55:12,010 INFO Project2 run=a1c88bbdb154444195627147a43ce243 status=completed attempts=12
+2026-10-05 22:55:12,013 INFO calibration combination P2-NOANSWER-07 repeat=2 attempts=12 llm=3 seconds=8.49 completed=290/300
+2026-10-05 22:55:12,151 INFO Database request=f349413c5ac04a07b3c8526cf9191829 status=completed counts=[3736]
+2026-10-05 22:55:20,748 INFO Project2 run=f349413c5ac04a07b3c8526cf9191829 status=completed attempts=12
+2026-10-05 22:55:20,751 INFO calibration combination P2-NOANSWER-07 repeat=3 attempts=12 llm=3 seconds=8.71 completed=291/300
+2026-10-05 22:55:27,913 INFO Database request=da317e77060f4694a2efc0776bf9d63d status=completed counts=[46777]
+2026-10-05 22:55:37,390 INFO Project2 run=da317e77060f4694a2efc0776bf9d63d status=completed attempts=12
+2026-10-05 22:55:37,392 INFO calibration combination P2-NOANSWER-08 repeat=1 attempts=12 llm=3 seconds=16.61 completed=292/300
+2026-10-05 22:55:38,261 INFO Database request=e4d6e9e43c8e4c42a7dc92fe79b155a8 status=completed counts=[46777]
+2026-10-05 22:55:44,993 INFO Project2 run=e4d6e9e43c8e4c42a7dc92fe79b155a8 status=completed attempts=12
+2026-10-05 22:55:44,994 INFO calibration combination P2-NOANSWER-08 repeat=2 attempts=12 llm=3 seconds=7.58 completed=293/300
+2026-10-05 22:55:45,851 INFO Database request=b49a12faf7744ee39f6dffb139811473 status=completed counts=[46777]
+2026-10-05 22:55:52,604 INFO Project2 run=b49a12faf7744ee39f6dffb139811473 status=completed attempts=12
+2026-10-05 22:55:52,606 INFO calibration combination P2-NOANSWER-08 repeat=3 attempts=12 llm=3 seconds=7.59 completed=294/300
+2026-10-05 22:55:54,040 INFO Database request=322a79e2bc78486188620f71c914dc17 status=completed counts=[9823]
+2026-10-05 22:56:03,158 INFO Project2 run=322a79e2bc78486188620f71c914dc17 status=completed attempts=12
+2026-10-05 22:56:03,161 INFO calibration combination P2-NOANSWER-09 repeat=1 attempts=12 llm=3 seconds=10.53 completed=295/300
+2026-10-05 22:56:03,434 INFO Database request=330c059e1a0148bd924941794c1b0947 status=completed counts=[9823]
+2026-10-05 22:56:09,472 INFO Project2 run=330c059e1a0148bd924941794c1b0947 status=completed attempts=12
+2026-10-05 22:56:09,474 INFO calibration combination P2-NOANSWER-09 repeat=2 attempts=12 llm=3 seconds=6.29 completed=296/300
+2026-10-05 22:56:09,736 INFO Database request=e7cd4d9473164ed5ad1a6883fea07d07 status=completed counts=[9823]
+2026-10-05 22:56:15,633 INFO Project2 run=e7cd4d9473164ed5ad1a6883fea07d07 status=completed attempts=12
+2026-10-05 22:56:15,635 INFO calibration combination P2-NOANSWER-09 repeat=3 attempts=12 llm=3 seconds=6.14 completed=297/300
+2026-10-05 22:56:16,281 INFO Database request=83f382ccc07f4b0bbd5ade3d1923b216 status=completed counts=[1938]
+2026-10-05 22:56:25,812 INFO Project2 run=83f382ccc07f4b0bbd5ade3d1923b216 status=completed attempts=12
+2026-10-05 22:56:25,814 INFO calibration combination P2-NOANSWER-10 repeat=1 attempts=12 llm=3 seconds=10.16 completed=298/300
+2026-10-05 22:56:25,966 INFO Database request=20ba499f6c014c338102c620311e8090 status=completed counts=[1938]
+2026-10-05 22:56:32,672 INFO Project2 run=20ba499f6c014c338102c620311e8090 status=completed attempts=12
+2026-10-05 22:56:32,675 INFO calibration combination P2-NOANSWER-10 repeat=2 attempts=12 llm=3 seconds=6.84 completed=299/300
+2026-10-05 22:56:32,822 INFO Database request=6d6f06e5d6764f66a9fc8ca9ce39dec8 status=completed counts=[1938]
+2026-10-05 22:56:39,411 INFO Project2 run=6d6f06e5d6764f66a9fc8ca9ce39dec8 status=completed attempts=12
+2026-10-05 22:56:39,413 INFO calibration combination P2-NOANSWER-10 repeat=3 attempts=12 llm=3 seconds=6.72 completed=300/300
+2026-10-05 22:56:39,911 INFO batch=2 result=selected requests=300

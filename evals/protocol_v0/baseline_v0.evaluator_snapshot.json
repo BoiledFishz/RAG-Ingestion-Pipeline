@@ -1,0 +1,15 @@
+{
+  "files": {
+    "evaluation_protocol/__init__.py": "33ca9154b2e9c4706c16f6186909cbf6663e5571128d246ee649266e659df4d4",
+    "evaluation_protocol/annotations.py": "3123c55803f5f13d61e6460c22b67656ebf6abc69e4f40f38c8e7019fb942920",
+    "evaluation_protocol/review.py": "e38e1b0b504029ee52c81c80ff92b006930926550c8704da2443d9ae55c76cd9",
+    "evaluation_protocol/runner.py": "26d0577091b98a516a2048c305538151757f124c86ff889bdc9d66587ae2de48",
+    "evaluation_protocol/statistics.py": "f1855b1132bc57001681538cad1494376a29a69d17fcd39a01fa0b8dbf1265c2",
+    "evaluation_protocol/storage.py": "6fbb8e1abad7f5cc57ab0f79c95f4ee3b972d428d8c16fd7e63236402f237b44",
+    "evaluation_protocol/worker.py": "f69ae3e4ae514195d040b22130be44f27966bfac56df0ca6b7d097ff650b4859",
+    "review_eval.py": "3024e61273a87e426d7b982dafdacec3625a0b7c9441c60cb369d9dfa560c118",
+    "run_eval.py": "0e5f914a362d551a98976c44d6d521a9e3dbd62cdc65d881aedd4fccc468c3d7"
+  },
+  "runtime_sha256": "525b107d86e9f3b43cea30b320ba51c1610d7310fd93ffbb4e788859ed3efb87",
+  "sha256": "0efa166f137631641e0c10aa3fa824a501c6455d2c364e93e52c0695722caff5"
+}

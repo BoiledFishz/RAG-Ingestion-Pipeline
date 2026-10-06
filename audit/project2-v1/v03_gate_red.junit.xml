@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="1.065" timestamp="2026-10-05T20:01:30.917032-07:00" hostname="szy"><testcase classname="tests.project2.test_v03_native_gate" name="test_status_gate_cannot_claim_refusal_quality" time="0.002"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\run_project2_v03_gate.py'">def test_status_gate_cannot_claim_refusal_quality():
+&gt;       m = loader()
+            ^^^^^^^^
+
+tests\project2\test_v03_native_gate.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\project2\test_v03_native_gate.py:10: in loader
+    spec.loader.exec_module(m)
+&lt;frozen importlib._bootstrap_external&gt;:755: in exec_module
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:892: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;_frozen_importlib_external.SourceFileLoader object at 0x000001BCDDF8E2D0&gt;
+path = 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\run_project2_v03_gate.py'
+
+&gt;   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\run_project2_v03_gate.py'
+
+&lt;frozen importlib._bootstrap_external&gt;:950: FileNotFoundError</failure></testcase><testcase classname="tests.project2.test_v03_native_gate" name="test_nontraceable_result_fails" time="0.003"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\run_project2_v03_gate.py'">def test_nontraceable_result_fails():
+&gt;       m = loader(); bad = result(); bad['workers']['rag']['run_id'] = 'other'
+            ^^^^^^^^
+
+tests\project2\test_v03_native_gate.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\project2\test_v03_native_gate.py:10: in loader
+    spec.loader.exec_module(m)
+&lt;frozen importlib._bootstrap_external&gt;:755: in exec_module
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:892: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;_frozen_importlib_external.SourceFileLoader object at 0x000001BCDDF8E150&gt;
+path = 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\run_project2_v03_gate.py'
+
+&gt;   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\run_project2_v03_gate.py'
+
+&lt;frozen importlib._bootstrap_external&gt;:950: FileNotFoundError</failure></testcase></testsuite></testsuites>

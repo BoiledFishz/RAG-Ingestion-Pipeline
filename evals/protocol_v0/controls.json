@@ -1,0 +1,1434 @@
+{
+  "historical_path": "enterprise-ai-agent/evaluation/results/techqa_semantic_v3/runs.json",
+  "historical_sha256": "9a89e489d3a7939d580c753d564eb0509cbe56bce42383c8eae52b9291ea4bc0",
+  "records": [
+    {
+      "group_sha256": "c9acfeab26486e18a82ef2ce373dd47cf09082d334396948e88e08e5cf783756",
+      "original_run": {
+        "answer_quality": 0.8674698795180723,
+        "answerable": true,
+        "answered": true,
+        "error": null,
+        "expected_document": "swg21496354",
+        "hit_at_10": 1.0,
+        "hit_at_5": 1.0,
+        "latency_ms": 15929.029400052968,
+        "mrr": 1.0,
+        "question_id": "DEV_Q029",
+        "refused": false,
+        "response": {
+          "answer": "Configure the WebSphere Application Server data source connection pool [http://publib.boulder.ibm.com/infocenter/wasinfo/v7r0/index.jsp?topic=/com.ibm.websphere.nd.multiplatform.doc/info/ae/ae/udat_conpoolset.html] so as to eliminate occurrences of StaleConnectionException : \n\n * Set the Minimum connections to 0 to avoid situations where a connection is kept in the pool to meet the minimum requirement, even though it may have been idle for longer than Unused timeout \n * Set the values for Unused timeout and Reap timeout so that the sum does not exceed any network level idle connection timeout [S1]",
+          "confidence": 0.739,
+          "sources": [
+            {
+              "chunk_id": "techqa:swg21496354:parent",
+              "page_number": 1,
+              "quote": "Configure the WebSphere Application Server data source connection pool [http://publib.boulder.ibm.com/infocenter/wasinfo/v7r0/index.jsp?topic=/com.ibm.websphere.nd.multiplatform.doc/info/ae/ae/udat_conpoolset.html] so as to eliminate occurrences of StaleConnectionException : \n\n * Set the Minimum connections to 0 to avoid situations where a connection is kept in the pool to meet the minimum requirement, even though it may have been idle for longer than Unused timeout \n * Set the values for Unused timeout and Reap timeout so that the sum does not exceed any network level idle connection timeout",
+              "source_file": "techqa://swg21496354",
+              "source_id": "S1"
+            }
+          ]
+        },
+        "trace": {
+          "candidate_ids": [
+            "techqa:swg21496354:parent",
+            "techqa:swg21615801:parent",
+            "techqa:swg21678842:parent",
+            "techqa:swg21679940:parent",
+            "techqa:swg21678244:parent",
+            "techqa:swg21679672:parent",
+            "techqa:swg27039844:parent",
+            "techqa:swg21677736:parent",
+            "techqa:swg21670706:parent",
+            "techqa:swg21461650:parent"
+          ],
+          "context_tokens": 2186,
+          "evidence": [
+            {
+              "applicability": "IBM JRules or ODM module fails to access database with StaleConnectionException - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n JRules and ODM modules such as Rule Execution Server (RES) and Rule Team Server (RTS) / Decision Center (DC) may fail to access their data source with the following type of exception present in the log:\n\ncom.ibm.websphere.ce.cm.StaleConnectionException: Io exception: Connection timed out \n\nSYMPTOM\nThe problem may occur when a JRules or ODM module accesse",
+              "chunk_id": "techqa:swg21496354:parent",
+              "excerpt": "Configure the WebSphere Application Server data source connection pool [http://publib.boulder.ibm.com/infocenter/wasinfo/v7r0/index.jsp?topic=/com.ibm.websphere.nd.multiplatform.doc/info/ae/ae/udat_conpoolset.html] so as to eliminate occurrences of StaleConnectionException : \n\n * Set the Minimum connections to 0 to avoid situations where a connection is kept in the pool to meet the minimum requirement, even though it may have been idle for longer than Unused timeout \n * Set the values for Unused timeout and Reap timeout so that the sum does not exceed any network level idle connection timeout",
+              "page_number": 1,
+              "relevance": 0.7523324222932011,
+              "source_file": "techqa://swg21496354",
+              "source_id": "S1",
+              "title": "IBM JRules or ODM module fails to access database with StaleConnectionException - United States",
+              "tokens": 103
+            },
+            {
+              "applicability": "IBM Rule Execution Server on WebLogic unable to load ruleset after period of inactivity - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n An error occurs when Rule Execution Server hosted on WebLogic attempts to retrieve the ruleset from the database after a long time without any request. \n\nSYMPTOM\nAn error like the following one shows in the log (here the database used is DB2):\n\n/MyRuleApp/MyRules 1.368 - The interaction ruleEngine.loadUptodateRuleset has failed ilog.rules.res.xu.",
+              "chunk_id": "techqa:swg21615801:parent",
+              "excerpt": "In the WebLogic administration console, go to Services -> JDBC -> Data Sources-> <Rule Execution Server data source> -> Connection Pool and take the following actions: \n\n * Enable \"Test Connections On Reserve\". \n * Set a \"Test Frequency\" in seconds. \n * Set a \"Test Table Name\". \n * Set a value for the \"Seconds to Trust an Idle Pool Connection\" property.",
+              "page_number": 1,
+              "relevance": 0.6695738547312919,
+              "source_file": "techqa://swg21615801",
+              "source_id": "S2",
+              "title": "IBM Rule Execution Server on WebLogic unable to load ruleset after period of inactivity - United States",
+              "tokens": 78
+            },
+            {
+              "applicability": "IBM Cannot retrieve the HTDS Description File for a ruleset on Rule Execution Server console (ODM) - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n In the Rule Execution Server (RES) console, we are unable to retrieve the HTDS Description File for the deployed ruleset. The corresponding Java XOM has been deployed on to RES. \n\nSYMPTOM\n \n\n- In the RES console, under the Explorer tab, after expanding the RuleApp and selecting a ruleset, the link \"Retrieve HTDS Description File\" under",
+              "chunk_id": "techqa:swg21678842:parent",
+              "excerpt": "1. If working with ODM 8.5.0, please upgrade to ODM v8.5.1 (which contains the fix for APAR RS01418 [http://www.ibm.com/support/docview.wss?uid=swg1RS01418]) or later, to allow users mapped to resdeployers and resmonitors roles to be able to retrieve the HTDS Description file as well. If unable to do so immediately, make sure the user is mapped to the resAdministrators role, which is mapped to the Monitor role on WebSphere Application Server.",
+              "page_number": 1,
+              "relevance": 0.618865497948611,
+              "source_file": "techqa://swg21678842",
+              "source_id": "S3",
+              "title": "IBM Cannot retrieve the HTDS Description File for a ruleset on Rule Execution Server console (ODM) - United States",
+              "tokens": 97
+            },
+            {
+              "applicability": "IBM Ruleset parsing fails with IncompatibleClassChangeError - United States\n\nTECHNOTE (FAQ)\n\nQUESTION\n How to prevent an error such as the one shown below upon ruleset parsing?\n\nilog.rules.res.session.IlrSessionCreationException: An error occurred while the rule session was created:\ncom.ibm.rules.res.xu.internal.XUException: The ruleset parsing process failed.\nCaused by: java.lang.IncompatibleClassChangeError: org.objectweb.asm.ClassVisitor\nat ilog.jit.asm.IlxASMClassTranslator.translate(IlxASMC",
+              "chunk_id": "techqa:swg21679940:parent",
+              "excerpt": "Make sure that the Rule Execution Server XU resource adapter has the option \"Isolate this resource provider\" checked if you are using WebSphere Application Server 8.5 or 8.5.5, as per the instructions in documentation: Deploying the XU RAR [http://www-01.ibm.com/support/knowledgecenter/SSQP76_8.6.0/com.ibm.odm.distrib.config.was/config_ds_res_was8/tsk_was_deploy_xu.html?lang=en]",
+              "page_number": 1,
+              "relevance": 0.6047360106717986,
+              "source_file": "techqa://swg21679940",
+              "source_id": "S4",
+              "title": "IBM Ruleset parsing fails with IncompatibleClassChangeError - United States",
+              "tokens": 74
+            },
+            {
+              "applicability": "IBM Cannot access Decision Center or Rule Execution Server console (ODM) - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n After installing Decision Center and Decision Server, I try to access the Decision Center and Rule Execution Server (RES) consoles, and get a 'Page not found' error \n\nRESOLVING THE PROBLEM\n \n\n1. From the application server console, check if the application EAR files for the Decision Center and the RES Management are deployed and have been started. \n\n2. From the",
+              "chunk_id": "techqa:swg21678244:parent",
+              "excerpt": "1. From the application server console, check if the application EAR files for the Decision Center and the RES Management are deployed and have been started. \n\n2. From the application server administration console, check the HTTP port number. Make sure you use this port number to access the console. For example, by default, the HTTP port number for WebSphere Application Server is 9080, but it might be configured to 9081 for the profile on which the ODM application is installed. \n\n3. Check that the HTTP port is not being used [http://www.ibm.com/support/docview.wss?uid=swg21264632] by another process. If it is, stop the other process and try to access the console again.\n\n4. Examine the server logs. If they contain the following exception:",
+              "page_number": 1,
+              "relevance": 0.5927403265793376,
+              "source_file": "techqa://swg21678244",
+              "source_id": "S5",
+              "title": "IBM Cannot access Decision Center or Rule Execution Server console (ODM) - United States",
+              "tokens": 148
+            },
+            {
+              "applicability": "IBM Get the list of versions deployed on Rule Execution Server for a given rule using API (ODM) - United States\n\nTECHNOTE (FAQ)\n\nQUESTION\n How do I get the list of versions deployed on Rule Execution Server (RES) for a given rule? \n\nANSWER\n\nRefer to the Java EE rule session sample [http://pic.dhe.ibm.com/infocenter/dmanager/v8r5m1/index.jsp?topic=%2Fcom.ibm.odm.dserver.rules.samples%2Fres_smp_topics%2Fsmp_res_javaee.html] for an example of how to connect to RES to retrieve and manipulate deploye",
+              "chunk_id": "techqa:swg21679672:parent",
+              "excerpt": "Refer to the Java EE rule session sample [http://pic.dhe.ibm.com/infocenter/dmanager/v8r5m1/index.jsp?topic=%2Fcom.ibm.odm.dserver.rules.samples%2Fres_smp_topics%2Fsmp_res_javaee.html] for an example of how to connect to RES to retrieve and manipulate deployed RuleApps through a management session [http://pic.dhe.ibm.com/infocenter/dmanager/v8r5m1/index.jsp?topic=%2Fcom.ibm.odm.dserver.rules.ref.res%2Fhtml%2Fapi%2Fhtml%2Filog%2Frules%2Fres%2Fmodel%2FIlrRepositoryBase.html].",
+              "page_number": 1,
+              "relevance": 0.5761595774554804,
+              "source_file": "techqa://swg21679672",
+              "source_id": "S6",
+              "title": "IBM Get the list of versions deployed on Rule Execution Server for a given rule using API (ODM) - United States",
+              "tokens": 106
+            },
+            {
+              "applicability": "IBM Webcast Replay: ODM Rule Execution Server configuration and tuning - United States\n\nwste_webcast; WSTE; Support Technical Exchange; education; presentation; webcast; STEwebcastDocument; Operational Decision Manager Management Rule Execution Server JRules XOM XU RES ruleset topology integration WEBCAST\n\nABSTRACT\n This WebSphere Support Technical Exchange is designed to discuss the most common options to configure and tune Rule Execution Server (RES). It highlights RES execution patterns, XOM ",
+              "chunk_id": "techqa:swg27039844:parent",
+              "excerpt": "IBM Webcast Replay: ODM Rule Execution Server configuration and tuning - United States\n\nwste_webcast; WSTE; Support Technical Exchange; education; presentation; webcast; STEwebcastDocument; Operational Decision Manager Management Rule Execution Server JRules XOM XU RES ruleset topology integration WEBCAST\n\nABSTRACT\n This WebSphere Support Technical Exchange is designed to discuss the most common options to configure and tune Rule Execution Server (RES). It highlights RES execution patterns, XOM deployment, management, performance and troubleshooting.\n\n\nLevel of Difficulty: Intermediate \n\nPresenter(s): Franck Delporte\n\nDate: 06 November 2013 \n\nPRESENTATION\n[http://www.ibm.com/i/v16/icons/weblecture.gif]WSTE_ODM_RES_20131030.pdf [/support/docview.wss?uid=swg27039844&aid=2]WSTE_ODM_RES_20131030.pdf [/support/docview.wss?uid=swg27039844&aid=1]",
+              "page_number": 1,
+              "relevance": 0.5699034583040862,
+              "source_file": "techqa://swg27039844",
+              "source_id": "S7",
+              "title": "IBM Webcast Replay: ODM Rule Execution Server configuration and tuning - United States",
+              "tokens": 141
+            },
+            {
+              "applicability": "IBM Missing files error when running a remote Decision Validation Services (DVS) test from Rule Designer - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n When trying to execute a Decision Validation Services (DVS) test from Rule Designer on a remote installation of Rule Execution Server (RES), a missing files error is seen.\n\n\n\nSYMPTOM\nWhen we try to run a DVS test using the Run Configuration from Rule Designer, the Run button remains greyed out. \n\nThe error says: \"The RES componen",
+              "chunk_id": "techqa:swg21677736:parent",
+              "excerpt": "Install ODM Decision Server on the machine where Rule Designer is to be run.",
+              "page_number": 1,
+              "relevance": 0.5526140148778254,
+              "source_file": "techqa://swg21677736",
+              "source_id": "S8",
+              "title": "IBM Missing files error when running a remote Decision Validation Services (DVS) test from Rule Designer - United States",
+              "tokens": 15
+            }
+          ],
+          "latency_ms": 15928.71040001046,
+          "original_query": "Recurrent RES StaleConnectionException\nHow to prevent rule execution failing because of recurrent StaleConnectionException on ODM 8.8 Rule Execution Server?",
+          "original_tokens": 5222,
+          "retries": 0,
+          "rewrite_fallback": false,
+          "rewritten_query": "Recurrent RES StaleConnectionException\nHow to prevent rule execution from failing due to recurrent StaleConnectionException on ODM 8.8 Rule Execution Server?",
+          "status": "answered",
+          "tool_called": true
+        }
+      },
+      "question_id": "DEV_Q029"
+    },
+    {
+      "group_sha256": "0be45c3a98957b42d1e8ac3d3309a2fa3749305a3af791ee7c930cf995fb8a74",
+      "original_run": {
+        "answer_quality": 1.0,
+        "answerable": true,
+        "answered": true,
+        "error": null,
+        "expected_document": "swg21978390",
+        "hit_at_10": 1.0,
+        "hit_at_5": 1.0,
+        "latency_ms": 35507.08819995634,
+        "mrr": 0.3333333333333333,
+        "question_id": "DEV_Q002",
+        "refused": false,
+        "response": {
+          "answer": "Install the missing libraries \"adwaita-gtk2-theme\" (32 and 64 bit) and \"adwaita-gtk3-theme\" 64 bit. Please contact RedHat to obtain the missing libraries. [S3]",
+          "confidence": 0.604,
+          "sources": [
+            {
+              "chunk_id": "techqa:swg21978390:parent",
+              "page_number": 1,
+              "quote": "Install the missing libraries \"adwaita-gtk2-theme\" (32 and 64 bit) and \"adwaita-gtk3-theme\" 64 bit. Please contact RedHat to obtain the missing libraries.",
+              "source_file": "techqa://swg21978390",
+              "source_id": "S3"
+            }
+          ]
+        },
+        "trace": {
+          "candidate_ids": [
+            "techqa:swg21673044:parent",
+            "techqa:swg21598554:parent",
+            "techqa:swg21978390:parent",
+            "techqa:swg1PM39529:parent",
+            "techqa:swg1LO68156:parent",
+            "techqa:swg1IC60317:parent",
+            "techqa:swg1IO10742:parent",
+            "techqa:swg1IT13861:parent",
+            "techqa:swg1IV87612:parent",
+            "techqa:swg1LI79173:parent"
+          ],
+          "context_tokens": 2200,
+          "evidence": [
+            {
+              "applicability": "IBM Internet Explorer 10 module mshtml.dll causes Rational Application Developer to crash - United States\n\nIE10; RPE; RAD; IE10; mshtml TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n Internet Explorer 10 module mshtml.dll causes the product to crash when dragging and dropping a JQuery widget in the design pane of the Rich Page Editor in IBM Rational Application Developer for WebSphere Software. \n\nSYMPTOM\nWhen dragging and dropping a JQuery widget in the design pane of the Rich Page Editor in Rat",
+              "chunk_id": "techqa:swg21673044:parent",
+              "excerpt": "Microsoft support is working a in a fix for Internet Explorer 10. \n\n \n\nWORKAROUND: \n\nUpgrade to Internet Explorer 11.\n\n \n\n\nCross reference information Segment Product Component Platform Version Edition Software Development Rational Application Developer Standard Edition for WebSphere Software Web Development Windows 8.0.4.3",
+              "page_number": 1,
+              "relevance": 0.6798846392360631,
+              "source_file": "techqa://swg21673044",
+              "source_id": "S1",
+              "title": "IBM Internet Explorer 10 module mshtml.dll causes Rational Application Developer to crash - United States",
+              "tokens": 49
+            },
+            {
+              "applicability": "IBM Eclipse based product stops with \"Exit code=160\" - United States\n\nRN8.5; SWT; xulrunner; IMF50; Exit code=160; 160; javacore; compatibility; 90172 TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n Attempt to open the workbench in IBM Rational product based on Eclipse causes closing immediately or does not starting at all with following error: \" JVM terminated. Exit code=160\" \n\nSYMPTOM\n An Eclipse window displays the following message: JVM terminated. Exit code=160 \n\nAfter you close the Eclipse ",
+              "chunk_id": "techqa:swg21598554:parent",
+              "excerpt": "Procedure: \n\n 1. Download and install a 32 or 64 bit XULRunner in the supported range 1.8.1.3 - 3.6.x for your architecture.\n    \n    \n 2. Locate the -vmargs section in the eclipse.ini file that is included in the product installation. Note that some IBM Worklight Studio installations use JRE arguments from the Worklight.sh script instead of from the eclipse.ini file. If a Worklight.sh file is present in the same product directory as the eclipse.ini file, add your updates to the -vmargs sections of both files.\n    \n    \n 3. Locate the list of -vmargs arguments and add java system property org.eclipse.swt.browser.XULRunnerPath to point to the XULRunner's path. For example:\n    -vmargs -Dsdp.driver=RADO85-I20120529_2348 ... -Dorg.eclipse.swt.browser.XULRunnerPath=/home/xulrunner/1.8.1.3/xulrunner\n    \n    \n 4. Restart the product.",
+              "page_number": 1,
+              "relevance": 0.6255967449346284,
+              "source_file": "techqa://swg21598554",
+              "source_id": "S2",
+              "title": "IBM Eclipse based product stops with \"Exit code=160\" - United States",
+              "tokens": 174
+            },
+            {
+              "applicability": "IBM Unable to open a profile in FileNet Content Engine Configuration Manager User Interface (CMUI) on Redhat Linux 7.x - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n Unable to open a profile in FileNet Content Engine Configuration Manager User Interface (CMUI) on Redhat Linux 7.x. \n\nSYMPTOM\nCMUI will javacore with the following in the javacore.txt \n\n1XHEXCPCODE J9Generic_Signal_Number: 00000004\n1XHEXCPCODE Signal_Number: 0000000B\n1XHEXCPCODE Error_Value: 00000000\n1XHEXCPCODE Sig",
+              "chunk_id": "techqa:swg21978390:parent",
+              "excerpt": "Install the missing libraries \"adwaita-gtk2-theme\" (32 and 64 bit) and \"adwaita-gtk3-theme\" 64 bit. Please contact RedHat to obtain the missing libraries.",
+              "page_number": 1,
+              "relevance": 0.5439020641625933,
+              "source_file": "techqa://swg21978390",
+              "source_id": "S3",
+              "title": "IBM Unable to open a profile in FileNet Content Engine Configuration Manager User Interface (CMUI) on Redhat Linux 7.x - United States",
+              "tokens": 29
+            },
+            {
+              "applicability": "IBM PM39529: Version of xulrunner supplied with RHEL 5.6 causes ClearQuest 7.1.2.2 client to abort on start-up - United States\n\nAIX SUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS PERMANENT RESTRICTION.\n    \n   \n   \n\nERROR DESCRIPTION\n *  Abstract:\n   Version of xulrunner supplied with RHEL 5.6 causes ClearQuest\n   7.1.2.2 client to abort on start-up\n   \n   javacore.txt file may contain the following information.\n   The dump\n   NULL\n   -------------------",
+              "chunk_id": "techqa:swg1PM39529:parent",
+              "excerpt": "*  After analysis of this APAR we have determined we won't fix\n   this issue due to: low priority/severity, the risk of a fix\n   and a straightforward workaround (see technote\n   http://www-01.ibm.com/support/docview.wss?uid=swg21394977). [http://www-01.ibm.com/support/docview.wss?uid=swg21394977).]",
+              "page_number": 1,
+              "relevance": 0.5345345857606193,
+              "source_file": "techqa://swg1PM39529",
+              "source_id": "S4",
+              "title": "IBM PM39529: Version of xulrunner supplied with RHEL 5.6 causes ClearQuest 7.1.2.2 client to abort on start-up - United States",
+              "tokens": 61
+            },
+            {
+              "applicability": "IBM LO68156: NOTES2.EXE EXITED UNEXPECTEDLY IN J9JIT24.DLL - United States\n\nSUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS RETURNED (APAR CANNOT BE RESOLVED WITHOUT ADDITIONAL INFO FROM IBM OR CUSTOMER.)\n    \n   \n   \n\nERROR DESCRIPTION\n *  Notes2.exe of a specific PC crashed repeatedly in j9jit24.dll.\n   The steps to reproduce is unknown.\n   \n   Java Core\n   \n   0SECTION       GPINFO subcomponent dump routine\n   NULL           ===========================",
+              "chunk_id": "techqa:swg1LO68156:parent",
+              "excerpt": "TEMPORARY FIX\n\nCOMMENTS\n *  This APAR is associated with SPR# ANIA8SFHPY.\n   The record was returned to the person who created it for more\n    information.",
+              "page_number": 1,
+              "relevance": 0.5338286688284745,
+              "source_file": "techqa://swg1LO68156",
+              "source_id": "S5",
+              "title": "IBM LO68156: NOTES2.EXE EXITED UNEXPECTEDLY IN J9JIT24.DLL - United States",
+              "tokens": 27
+            },
+            {
+              "applicability": "IBM IC60317: DEVICE SERVER FAILS TO START WHEN SHA256 ENCRYPTION IS ACTIVE ON AIX - United States\n\nAIX SUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS FIXED IF NEXT.\n    \n   \n   \n\nERROR DESCRIPTION\n *  The TPC Device Server will not start when the password\n   encryption on AIX is set to use the Secured\n   Hash Algorithm with a 256 bit key (SHA256).  The failure occurs\n   when Websphere attempts to\n   authenticate the user and password.  A javacore dump oc",
+              "chunk_id": "techqa:swg1IC60317:parent",
+              "excerpt": "*  The workaround is to change the password encryption on AIX from\n   ssha256 to another encryption algoithm.  No loadable password\n   algorithm should be used.",
+              "page_number": 1,
+              "relevance": 0.5292799881295407,
+              "source_file": "techqa://swg1IC60317",
+              "source_id": "S6",
+              "title": "IBM IC60317: DEVICE SERVER FAILS TO START WHEN SHA256 ENCRYPTION IS ACTIVE ON AIX - United States",
+              "tokens": 26
+            },
+            {
+              "applicability": "IBM IO10742: ITDI GENERAL PROTECTION FAULT CAUSED BY JVM LIBRARY - United States\n\nz/os SUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR.\n    \n   \n   \n\nERROR DESCRIPTION\n *  PRODUCT VERSION\n   ITDI 6.1.1 FP6\n   OS: Windows Server 2003\n   \n   \n   PROBLEM DESCRIPTION\n   After a long running ITDI JVM can crash for a GPF (general\n   protection fault). Thed javacore shows:\n   \n   *****START\n   NULL\n   -----------------------------------------------",
+              "chunk_id": "techqa:swg1IO10742:parent",
+              "excerpt": "*  This crash is caused becuase of the JVM. Replacing the JVM with\n   a JRE Service Refresh  Windows / IA32 - 5.0 Service Refresh\n   9-SSU (Windows / IA32) (pwi32devifx-20090327) (J9)\n   solves the problem.",
+              "page_number": 1,
+              "relevance": 0.5134558793185635,
+              "source_file": "techqa://swg1IO10742",
+              "source_id": "S7",
+              "title": "IBM IO10742: ITDI GENERAL PROTECTION FAULT CAUSED BY JVM LIBRARY - United States",
+              "tokens": 43
+            },
+            {
+              "applicability": "IBM IT13861: IBM MQ MFT HAS BEEN ENHANCED TO SUPPORT AIX XLC 13.1 FROM FIX PACK 7.5.0.6 - United States\n\nSUBSCRIBE TO THIS APAR\nBy subscribing, you receive periodic emails alerting you to the status of the APAR, along with a link to the fix after it becomes available. You can track this item individually or track all items by product.\n\nNotify me when this APAR changes.\n\nNotify me when an APAR for this component changes.\n\n\n\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR.\n    \n   \n   \n\nERROR DESCRIPTION\n ",
+              "chunk_id": "techqa:swg1IT13861:parent",
+              "excerpt": "PROBLEM SUMMARY\n *  ****************************************************************\n   USERS AFFECTED:\n   This issue affects users of IBM MQ Managed File Transfer (MFT)\n   7.5 and 8.0 on AIX who wish to use the xlc runtime at version\n   13.1 or higher.\n   \n   \n   Platforms affected:\n   AIX\n   \n   ****************************************************************\n   PROBLEM DESCRIPTION:\n   A code issue in the compiler used to build IBM MQ Managed File\n   Transfer meant that MFT command failed to run and a javacore was\n   produced.",
+              "page_number": 1,
+              "relevance": 0.5107606193465979,
+              "source_file": "techqa://swg1IT13861",
+              "source_id": "S8",
+              "title": "IBM IT13861: IBM MQ MFT HAS BEEN ENHANCED TO SUPPORT AIX XLC 13.1 FROM FIX PACK 7.5.0.6 - United States",
+              "tokens": 202
+            }
+          ],
+          "latency_ms": 35506.8797999993,
+          "original_query": "Unable to open profile from P8 Content Engine Configuration manager (CMUI) on Redhat Linux 7.2, getting GPF and javacore dump.\nLaunch configmgr then try to open an existing profile. Once I click ok on the dialog box to\n\"Verify your application server setting before proceeding...\" Configuration manager would crash and GPF. I can see the javacore.txt and dmp file created.\nThe javacore.txt contains the following:\n\n0SECTION TITLE subcomponent dump routine NULL =============================== 1TICHARSET UTF-8 1TISIGINFO Dump Event \"gpf\" (00002000) received 1TIDATETIME Date: 2016/05/05 at 04:53:30 1TIFILENAME Javacore filename: /opt/IBM/FileNet/ContentEngine/tools/configure/javacore.20160505.045330.25035.0002.txt 1TIREQFLAGS Request Flags: 0x81 (exclusive+preempt) 1TIPREPSTATE Prep State: 0x100 (trace_disabled) 1TIPREPINFO Exclusive VM access not taken: data may not be consistent across javacore sections NULL ------------------------------------------------------------------------ 0SECTION GPINFO subcomponent dump routine NULL ================================ 2XHOSLEVEL OS Level : Linux 3.10.0-327.13.1.el7.x86_64 2XHCPUS Processors - 3XHCPUARCH Architecture : x86 3XHNUMCPUS How Many : 1 3XHNUMASUP NUMA is either not supported or has been disabled by user NULL\n1XHEXCPCODE J9Generic_Signal_Number: 00000004 1XHEXCPCODE Signal_Number: 0000000B 1XHEXCPCODE Error_Value: 00000000 1XHEXCPCODE Signal_Code: 00000080 1XHEXCPCODE Handler1: F72A2E6A 1XHEXCPCODE Handler2: F724D00A 1XHEXCPCODE InaccessibleAddress: 00000000 NULL\n1XHEXCPMODULE Module: /lib/libcairo.so.2 1XHEXCPMODULE Module_base_address: D55FC000\n\nThis is a Redhat Linux 7.2 environment with Content Platform Engine CPE 5.2.1.4.",
+          "original_tokens": 5885,
+          "retries": 0,
+          "rewrite_fallback": true,
+          "rewritten_query": "Unable to open profile from P8 Content Engine Configuration manager (CMUI) on Redhat Linux 7.2, getting GPF and javacore dump. Launch configmgr then try to open an existing profile. Once I click ok on the dialog box to \"Verify your application server setting before proceeding...\" Configuration manager would crash and GPF. I can see the javacore.txt and dmp file created. The javacore.txt contains the following: 0SECTION TITLE subcomponent dump routine NULL =============================== 1TICHARSET UTF-8 1TISIGINFO Dump Event \"gpf\" (00002000) received 1TIDATETIME Date: 2016/05/05 at 04:53:30 1TIFILENAME Javacore filename: /opt/IBM/FileNet/ContentEngine/tools/configure/javacore.20160505.045330.25035.0002.txt 1TIREQFLAGS Request Flags: 0x81 (exclusive+preempt) 1TIPREPSTATE Prep State: 0x100 (trace_disabled) 1TIPREPINFO Exclusive VM access not taken: data may not be consistent across javacore sections NULL ------------------------------------------------------------------------ 0SECTION GPINFO subcomponent dump routine NULL ================================ 2XHOSLEVEL OS Level : Linux 3.10.0-327.13.1.el7.x86_64 2XHCPUS Processors - 3XHCPUARCH Architecture : x86 3XHNUMCPUS How Many : 1 3XHNUMASUP NUMA is either not supported or has been disabled by user NULL 1XHEXCPCODE J9Generic_Signal_Number: 00000004 1XHEXCPCODE Signal_Number: 0000000B 1XHEXCPCODE Error_Value: 00000000 1XHEXCPCODE Signal_Code: 00000080 1XHEXCPCODE Handler1: F72A2E6A 1XHEXCPCODE Handler2: F724D00A 1XHEXCPCODE InaccessibleAddress: 00000000 NULL 1XHEXCPMODULE Module: /lib/libcairo.so.2 1XHEXCPMODULE Module_base_address: D55FC000 This is a Redhat Linux 7.2 environment with Content Platform Engine CPE 5.2.1.4.",
+          "status": "answered",
+          "tool_called": true
+        }
+      },
+      "question_id": "DEV_Q002"
+    },
+    {
+      "group_sha256": "2474a4dce81dc743d4dc64896cc86049ce18b02cddb552cd8f67fa6c4f1dece3",
+      "original_run": {
+        "answer_quality": 0.9197080291970803,
+        "answerable": true,
+        "answered": true,
+        "error": null,
+        "expected_document": "swg21598417",
+        "hit_at_10": 1.0,
+        "hit_at_5": 1.0,
+        "latency_ms": 14924.590800015721,
+        "mrr": 0.25,
+        "question_id": "DEV_Q154",
+        "refused": false,
+        "response": {
+          "answer": "Additional comments associated with APAR IZ81446 release notes: \n\n\n\"a new property is added to increase the file size limit:\n\n\n\n * \n\n\nAdd the property to $NCHOME/impact/etc/<SERVERNAME>_server.props file \nwhere size limit can be 8192, 16384, 32768, etc.. \" \n\nThe property would have to be added to all ImpactServers in the Cluster and would require a restart to enable - ensuring that the ImpactServer started as Primary had the correct, uncorrupted .type file to be replicated across the Cluster. Also ensure that there are no trailing white-space characters on the property as these invalidate properties in lower versions of Impact. \n\nThe APAR is not an issue in Impact 6 and 7, but one would still have to include this property with an appropriate value to handle a large character length for the USERPARAMETERS parameter. [S4]",
+          "confidence": 0.62,
+          "sources": [
+            {
+              "chunk_id": "techqa:swg21598417:parent",
+              "page_number": 1,
+              "quote": "Additional comments associated with APAR IZ81446 release notes: \n\n\n\"a new property is added to increase the file size limit:\n\n\n\n * \n\n\nAdd the property to $NCHOME/impact/etc/<SERVERNAME>_server.props file \nwhere size limit can be 8192, 16384, 32768, etc.. \" \n\nThe property would have to be added to all ImpactServers in the Cluster and would require a restart to enable - ensuring that the ImpactServer started as Primary had the correct, uncorrupted .type file to be replicated across the Cluster. Also ensure that there are no trailing white-space characters on the property as these invalidate properties in lower versions of Impact. \n\nThe APAR is not an issue in Impact 6 and 7, but one would still have to include this property with an appropriate value to handle a large character length for the USERPARAMETERS parameter.",
+              "source_file": "techqa://swg21598417",
+              "source_id": "S4"
+            }
+          ]
+        },
+        "trace": {
+          "candidate_ids": [
+            "techqa:swg21588811:parent",
+            "techqa:swg21619295:parent",
+            "techqa:swg1IV11127:parent",
+            "techqa:swg21598417:parent",
+            "techqa:swg1IZ81446:parent",
+            "techqa:swg21503932:parent",
+            "techqa:swg27037710:parent",
+            "techqa:swg21358512:parent",
+            "techqa:ssg1S1009244:parent",
+            "techqa:swg21973907:parent"
+          ],
+          "context_tokens": 1989,
+          "evidence": [
+            {
+              "applicability": "IBM Existing DataType no longer visible through GUI client - United States\n\nnetcool; impact; netcool/impact; nci; data; type; types; datatype; datatypes; missing; vanish; vanished; gone; deleted; disappear; disappeared; it is an ex-datatype TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n Error produced in netcool.log and netcool-errors.log:\nERROR [TaskPaneServlet] Could not get DataTypes for DataSource: <DataSourceName> \n\nSYMPTOM\nThe DataType is not visible in GUI and the Client is unable to save",
+              "chunk_id": "techqa:swg21588811:parent",
+              "excerpt": "The DataTypes are corrupted and require a manual rebuild to resolve. This must be performed while the ImpactServer or the Cluster (if there is more than one ImpactServer) is shutdown.\n\n\n\n\n\nThe DataType .type files reside in the directory:\n\n\n\n *",
+              "page_number": 1,
+              "relevance": 0.648540018081639,
+              "source_file": "techqa://swg21588811",
+              "source_id": "S1",
+              "title": "IBM Existing DataType no longer visible through GUI client - United States",
+              "tokens": 44
+            },
+            {
+              "applicability": "IBM Build-up of XinY disaster recovery files in a Cluster - United States\n\nnetcool; impact; netcool/impact; nci; xiny; data; source; type; item; datasource; datatype; dataitem; file; system; roots TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n A build-up of \"orphaned\" file system records can start to impinge upon the Impact Server's processing capability. \n\nCAUSE\nDuring failover and failback a mismatch between DataItems and the file system records can occur and the file system records are no lon",
+              "chunk_id": "techqa:swg21619295:parent",
+              "excerpt": "Immediate resolution is possible in a similar fashion to that covered in the TechNote \"Memory growing, diskspace used up\" (link below) in that one removes the files (except the roots file) from: \n\n\n\n\n *",
+              "page_number": 1,
+              "relevance": 0.5875008227072309,
+              "source_file": "techqa://swg21619295",
+              "source_id": "S2",
+              "title": "IBM Build-up of XinY disaster recovery files in a Cluster - United States",
+              "tokens": 40
+            },
+            {
+              "applicability": "IBM IV11127: DEFAULT SET TO LOW [IMPACT.CLUSTER.READLIMIT=<SIZE LIMIT>] - United States\n\nDIRECT LINKS TO FIXES\n6.1.0-TIV-BSM-FP0004-zlinux [http://www.ibm.com/support/fixcentral/quickorder?product=ibm%2FTivoli%2FTivoli+Business+Service+Manager&fixids=6.1.0-TIV-BSM-FP0004-zlinux&source=SAR]\n6.1.0-TIV-BSM-FP0004-windows [http://www.ibm.com/support/fixcentral/quickorder?product=ibm%2FTivoli%2FTivoli+Business+Service+Manager&fixids=6.1.0-TIV-BSM-FP0004-windows&source=SAR]\n6.1.0-TIV-BSM-FP0004-solari",
+              "chunk_id": "techqa:swg1IV11127:parent",
+              "excerpt": "*  USERPARAMETERS in configuratrion files are bigger than 16K, this\n   fix set default value of impact.cluster.readlimit to 32768.",
+              "page_number": 1,
+              "relevance": 0.5855217190951395,
+              "source_file": "techqa://swg1IV11127",
+              "source_id": "S3",
+              "title": "IBM IV11127: DEFAULT SET TO LOW [IMPACT.CLUSTER.READLIMIT=<SIZE LIMIT>] - United States",
+              "tokens": 24
+            },
+            {
+              "applicability": "IBM DataType incorrect on Secondary - United States\n\nnetcool; impact; netcool/impact; nci; data; type; datatype; .type; replication; cluster; sync; error; 500; mark; invalid TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n The DataType is not being correctly replicated across the ImpactServer Cluster \n\nSYMPTOM\nThe .type file of the Secondary ImpactServer configuration is truncated with the error message: \n\n * \n * \n\n\nCAUSE\nAPAR \"IZ81446: IMPACT 511 CLUSTER UNABLE TO REPLICATE DATATYPES WITH USERPAR",
+              "chunk_id": "techqa:swg21598417:parent",
+              "excerpt": "Additional comments associated with APAR IZ81446 release notes: \n\n\n\"a new property is added to increase the file size limit:\n\n\n\n * \n\n\nAdd the property to $NCHOME/impact/etc/<SERVERNAME>_server.props file \nwhere size limit can be 8192, 16384, 32768, etc.. \" \n\nThe property would have to be added to all ImpactServers in the Cluster and would require a restart to enable - ensuring that the ImpactServer started as Primary had the correct, uncorrupted .type file to be replicated across the Cluster. Also ensure that there are no trailing white-space characters on the property as these invalidate properties in lower versions of Impact. \n\nThe APAR is not an issue in Impact 6 and 7, but one would still have to include this property with an appropriate value to handle a large character length for the USERPARAMETERS parameter.",
+              "page_number": 1,
+              "relevance": 0.5686465614131426,
+              "source_file": "techqa://swg21598417",
+              "source_id": "S4",
+              "title": "IBM DataType incorrect on Secondary - United States",
+              "tokens": 150
+            },
+            {
+              "applicability": "IBM IZ81446: IMPACT 511 CLUSTER UNABLE TO REPLICATE DATATYPES WITH USERPARMETERS VALUES IN EXCESS OF ~16,000 CHARACTERS. - United States\n\nSUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR.\n    \n   \n   \n\nERROR DESCRIPTION\n *  Netcool/Impact 5.1.1 (both base build and Fix Pack 1) attempting\n   to replicate a DataType with a USERPARMETERS property value in\n   excess of ~16,300 characters fails upon encountering the\n   parameter and the Secondary ",
+              "chunk_id": "techqa:swg1IZ81446:parent",
+              "excerpt": "*  A workaround, and best practice, is to only map the fields\n   required by the DataType/Policy for Impact to perform its\n   function.  However, this is vulnerable to edits of the DataType\n   that require a refresh of the table mapping - the entire table\n   is pulled in and unwanted fields would have to be removed again\n   (tedious operation that increases the potential for\n   misconifguration).",
+              "page_number": 1,
+              "relevance": 0.5446447662219134,
+              "source_file": "techqa://swg1IZ81446",
+              "source_id": "S5",
+              "title": "IBM IZ81446: IMPACT 511 CLUSTER UNABLE TO REPLICATE DATATYPES WITH USERPARMETERS VALUES IN EXCESS OF ~16,000 CHARACTERS. - United States",
+              "tokens": 70
+            },
+            {
+              "applicability": "IBM Cluster replication failing error: Failed to start Impact instance - United States\n\nnetcool; impact; nci; cluster; secondary; primary; policylist; netcool/impact; resilience; failover; back; backup; up; back-up; fail; over; fail-over; 2ndry; member TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n Attempting to start the Secondary ImpactServer fails. Secondary ImpactServer fails to start. Cluster replication fails. \n\nSYMPTOM\nSecondary ImpactServer fails to start, configuration not fully copied ",
+              "chunk_id": "techqa:swg21503932:parent",
+              "excerpt": "For this example - rebuild the PolicyList [link below]. \n\nPerform these actions as the user used to install and run Impact:",
+              "page_number": 1,
+              "relevance": 0.502267264035341,
+              "source_file": "techqa://swg21503932",
+              "source_id": "S6",
+              "title": "IBM Cluster replication failing error: Failed to start Impact instance - United States",
+              "tokens": 24
+            },
+            {
+              "applicability": "IBM Fix list for Informix 12.10.xC1 - United States\n\nFix list Fix list Fix list Fixlist Fixlists List of Updates List of Updates List of Updates list of defects list of defects list of defects FixListDocument FixListDocument maintenance refresh pack cumulative fix fix pack service pack 12.10 12.10.xC1 12.10.FC1 12.10.UC1 12.10.TC1 PRODUCT DOCUMENTATION\n\nABSTRACT\n Informix Server provides periodic fixes for release 12.10 The following list is the most recent report of fixes for customer-reported ",
+              "chunk_id": "techqa:swg27037710:parent",
+              "excerpt": "EXISTS SPECIFIC_NAME; FAILS WITH 201: SYNTAX ERROR IC87802 HOW TO DETERMINE HOW MANY TEMPORARY DBSPACES REQUIRED? IC87805 PREPARED STATEMENT CAN CAUSE HUGE ALLOCATION OF RALLOC MEMORY WHEN CALLED REPEATEDLY WITH DIFFERENT TYPES OF HOST VARIABLES IC87814 BTS OUT OF MEMORY ERROR POSSIBLE AND CAUSING A MEMORY CORRUPTION WHEN OCCURRING IC88153 THE EXAMPLE GIVEN TO CREATE A COMPOSITE BTS INDEX SHOWS THE INCORRECT KEYWORD DEFAULT_QUERY_FIELD IC88157 BTS QUERY FINDS NO ROWS WITH WILDCARD IC88170 AUTO_CRSD() SHRINK THRESHOLD DOES NOT CONSIDER EMPTY TABLES IC88171 EMPTY LIST TYPE COLLECTION IN EXPLICIT CASTING CAUSES ASSERT FAILED IC88172 ALTER TABLE MODIFY DOES NOT MODIFY THE COLUMN WHEN THERE ARE FRAGMENT LEVEL STATISTICS FOR THIS COLUMN IC88201 AFTER ALL THE MEMBERS IN CLUSTER HAVE BEEN RESTARTED EXCEPT CM, ONSTAT -G CMSM DOES NOT DISPLAY A STATUS OF FAILOVER ARBITRATOR IC88202 CM DOES NOT",
+              "page_number": 1,
+              "relevance": 0.49270737509121854,
+              "source_file": "techqa://swg27037710",
+              "source_id": "S7",
+              "title": "IBM Fix list for Informix 12.10.xC1 - United States",
+              "tokens": 142
+            },
+            {
+              "applicability": "IBM Required properties to enable Impact to connect to SecureMode ObjectServers - United States\n\nNetcool; Netcool/Impact; nci; Impact; ObjectServer; ObjServ; SecureMode; EventReader; DataSource; DataType; -secure; secure; mode; data; source; type; object; server; event; reader; omnibus; omni TECHNOTE (FAQ)\n\nQUESTION\n Clarification of the current $IMPACT_HOME/doc/HOWTO_SecureMode3x.txt documentation, and the required properties to enable Impact connection to ObjectServers that are running with th",
+              "chunk_id": "techqa:swg21358512:parent",
+              "excerpt": "The ImpactServer properties: \n\n * \n * \n * \n * \n\n\nare no longer pertinent in Impact 4.x, 5.x, 6.x & 7.x onwards and the documentation in: \n\n * \n\n\nis misleading. APAR IZ37843 was raised for the documentation to be updated.",
+              "page_number": 1,
+              "relevance": 0.46596636130263713,
+              "source_file": "techqa://swg21358512",
+              "source_id": "S8",
+              "title": "IBM Required properties to enable Impact to connect to SecureMode ObjectServers - United States",
+              "tokens": 48
+            }
+          ],
+          "latency_ms": 14924.398400005884,
+          "original_query": "Why are some Datatypes corrupt after Impact cluster failover/failback ?\nRunning Impact 7.1.0.11. The symptom is whenever Impact does a failover, a couple DataTypes\nturn out empty.\n\nI've checked the type files before and after Impact failover and the difference happens in the property\n\n*.SQL.USERPARAMETERS\n\nThis property no longer exists for the corrupted datatypes\".",
+          "original_tokens": 6425,
+          "retries": 0,
+          "rewrite_fallback": true,
+          "rewritten_query": "Why are some Datatypes corrupt after Impact cluster failover/failback ? Running Impact 7.1.0.11. The symptom is whenever Impact does a failover, a couple DataTypes turn out empty. I've checked the type files before and after Impact failover and the difference happens in the property *.SQL.USERPARAMETERS This property no longer exists for the corrupted datatypes\".",
+          "status": "answered",
+          "tool_called": true
+        }
+      },
+      "question_id": "DEV_Q154"
+    },
+    {
+      "group_sha256": "34582bf33b57709edeba1f36c02bbebc9981ee8363e0499a2d9ea8deb261943d",
+      "original_run": {
+        "answer_quality": 0.875,
+        "answerable": true,
+        "answered": true,
+        "error": null,
+        "expected_document": "swg22014367",
+        "hit_at_10": 1.0,
+        "hit_at_5": 1.0,
+        "latency_ms": 15071.553799964022,
+        "mrr": 1.0,
+        "question_id": "DEV_Q307",
+        "refused": false,
+        "response": {
+          "answer": "AFFECTED PRODUCTS AND VERSIONS\nAll versions of WebSphere MQ 5.3 and MQ 8 for HPE NonStop Server [S1]",
+          "confidence": 0.781,
+          "sources": [
+            {
+              "chunk_id": "techqa:swg22014367:parent",
+              "page_number": 1,
+              "quote": "AFFECTED PRODUCTS AND VERSIONS\nAll versions of WebSphere MQ 5.3 and MQ 8 for HPE NonStop Server",
+              "source_file": "techqa://swg22014367",
+              "source_id": "S1"
+            }
+          ]
+        },
+        "trace": {
+          "candidate_ids": [
+            "techqa:swg22014367:parent",
+            "techqa:swg21699052:parent",
+            "techqa:swg21676496:parent",
+            "techqa:swg21999421:parent",
+            "techqa:swg21677029:parent",
+            "techqa:swg21986593:parent",
+            "techqa:swg21988864:parent",
+            "techqa:swg21966723:parent",
+            "techqa:swg21700425:parent",
+            "techqa:swg21971447:parent"
+          ],
+          "context_tokens": 2389,
+          "evidence": [
+            {
+              "applicability": "IBM Security Bulletin: Vulnerabilities in OpenSSL affect WebSphere MQ 5.3 and MQ 8 for HPE NonStop Server (CVE-2017-3735) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n IBM WebSphere MQ 5.3 and IBM MQ 8 for HPE NonStop have addressed a vulnerability in which OpenSSL could allow a remote attacker to obtain sensitive information, caused by an error while parsing an IPAddressFamily extension in an X.509 certificate \n\nVULNERABILITY DETAILS\nCVEID: CVE-2017-3735 [http://cve.mitre.org/cgi-bin/cvename.cgi",
+              "chunk_id": "techqa:swg22014367:parent",
+              "excerpt": "AFFECTED PRODUCTS AND VERSIONS\nAll versions of WebSphere MQ 5.3 and MQ 8 for HPE NonStop Server",
+              "page_number": 1,
+              "relevance": 0.8162600108401152,
+              "source_file": "techqa://swg22014367",
+              "source_id": "S1",
+              "title": "IBM Security Bulletin: Vulnerabilities in OpenSSL affect WebSphere MQ 5.3 and MQ 8 for HPE NonStop Server (CVE-2017-3735) - United States",
+              "tokens": 19
+            },
+            {
+              "applicability": "IBM Security Bulletin: Vulnerabilities in OpenSSL affect IBM WebSphere MQ (HP-NSS and OVMS platforms) and Eclipse Paho MQTT C Client libraries (Windows and Linux platforms) (CVE-2014-3570, CVE-2014-3572, CVE-2015-0204, CVE-2015-0205) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n OpenSSL vulnerabilities were disclosed on January 8, 2015 by the OpenSSL Project. This includes “FREAK: Factoring Attack on RSA-EXPORT keys\" TLS/SSL client and server vulnerability. OpenSSL is used by IBM WebSphere MQ on ",
+              "chunk_id": "techqa:swg21699052:parent",
+              "excerpt": "AFFECTED PRODUCTS AND VERSIONS\nIBM MQ Appliance M2000 \n\nIBM WebSphere MQ for OpenVMS V6 \n\nIBM WebSphere MQ V5.3 for HP NonStop \n\nIBM WebSphere MQ Client for HP Integrity NonStop Server - SupportPac MAT1 \n\nIBM MQ Client for HP Integrity NonStop Server - SupportPac MQC8 \n\nIBM Mobile Messaging and M2M Client Pack (Eclipse Paho MQTT C Client libraries only) - Support Pac MA9B",
+              "page_number": 1,
+              "relevance": 0.7891871657920457,
+              "source_file": "techqa://swg21699052",
+              "source_id": "S2",
+              "title": "IBM Security Bulletin: Vulnerabilities in OpenSSL affect IBM WebSphere MQ (HP-NSS and OVMS platforms) and Eclipse Paho MQTT C Client libraries (Windows and Linux platforms) (CVE-2014-3570, CVE-2014-3572, CVE-2015-0204, CVE-2015-0205) - United States",
+              "tokens": 66
+            },
+            {
+              "applicability": "IBM Security Bulletin: WebSphere MQ is affected by the following OpenSSL vulnerabilities: CVE-2014-0224 & CVE-2014-3470 - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n Security vulnerabilities have been discovered in OpenSSL that were reported on June 5th 2014 by the OpenSSL project. \n\nVULNERABILITY DETAILS\nCVE-ID: CVE-2014-0224 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0224]\nDESCRIPTION: OpenSSL is vulnerable to a man-in-the-middle attack, caused by the use of weak keying material in",
+              "chunk_id": "techqa:swg21676496:parent",
+              "excerpt": "AFFECTED PRODUCTS AND VERSIONS\nThe man-in-the-middle attack vulnerability (CVE-2014-0224) is known to affect the following offerings; \n\n * IBM WebSphere MQ V5.3 for HP NonStop Server \n * Support Pac MAT1 - IBM WebSphere MQ client for HP Integrity NonStop Server \n * Support Pac MA9B - IBM Mobile Messaging and M2M Client Pack - Eclipse Paho MQTT C Client libraries for Linux & Windows platforms only\n\n\nIn addition, the denial of service vulnerability (CVE-2014-3470) is known to affect the following offerings;  * Support Pac MA9B - IBM Mobile Messaging and M2M Client Pack - Eclipse Paho MQTT C Client libraries for Linux & Windows platforms only\n\n\nNote that the Paho MQTT C client libraries provided for Linux and Windows platforms in IBM WebSphere MQ 7.1 and IBM WebSphere MQ 7.5 are also affected.",
+              "page_number": 1,
+              "relevance": 0.7836567599087015,
+              "source_file": "techqa://swg21676496",
+              "source_id": "S3",
+              "title": "IBM Security Bulletin: WebSphere MQ is affected by the following OpenSSL vulnerabilities: CVE-2014-0224 & CVE-2014-3470 - United States",
+              "tokens": 145
+            },
+            {
+              "applicability": "IBM Security Bulletin: IBM WebSphere MQ v5.3.1.12 and earlier on NonStop Server affected by multiple OpenSSL vulnerabilities - CVE-2016-6306, CVE-2016-2177, CVE-2016-2182 and CVE-2016-2183 - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n OpenSSL vulnerabilities were disclosed on September 22 and 26, 2016 by the OpenSSL Project. OpenSSL is used by IBM WebSphere MQ v5.3.1 on NonStop Server. IBM WebSphere MQ v5.3.1 on NonStop Server has addressed the applicable CVEs. \n\nVULNERABILITY DETAILS\nCVEID: CVE-",
+              "chunk_id": "techqa:swg21999421:parent",
+              "excerpt": "AFFECTED PRODUCTS AND VERSIONS\nAll versions of IBM WebSphere MQ v5.3 from IBM WebSphere MQ v5.3.1.0 up to IBM WebSphere MQ v5.3.1.12",
+              "page_number": 1,
+              "relevance": 0.7699072206916141,
+              "source_file": "techqa://swg21999421",
+              "source_id": "S4",
+              "title": "IBM Security Bulletin: IBM WebSphere MQ v5.3.1.12 and earlier on NonStop Server affected by multiple OpenSSL vulnerabilities - CVE-2016-6306, CVE-2016-2177, CVE-2016-2182 and CVE-2016-2183 - United States",
+              "tokens": 36
+            },
+            {
+              "applicability": "IBM 【セキュリティ情報】: IBM WebSphere MQ におけるOpenSSLの脆弱性 (CVE-2014-0224 & CVE-2014-3470) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n 2014年6月5日にオープンソースの暗号通信ライブラリであるOpenSSL に、情報漏洩のセキュリティ脆弱性が報告されました。この脆弱性に関するWebSphereMQの影響を記載します。\n\n\n\nVULNERABILITY DETAILS\nCVE-ID: CVE-2014-0224 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0224]\nOpenSSL には、Change Cipher Spec プロトコルの実装に脆弱性が存在します。\nサーバとクライアントの間の SSL 通信が中間者攻撃 (man-in-the-middle attack) によって解読されたり、改ざんされたりする可能性があります。\n\nCVSS Base Score: 5.8\nCVSS Temporal S",
+              "chunk_id": "techqa:swg21677029:parent",
+              "excerpt": "AFFECTED PRODUCTS AND VERSIONS\nCVE-2014-0224の脆弱性は、次のコンポーネント(サポート・パック/Eclipseプロジェクト)を使用されている場合、影響があります。 \n\n * WebSphere MQ V5.3 for HP NonStop Server \n * Support Pac MAT1 - WebSphere MQ client for HP Integrity NonStop Server \n * Support Pac MA9B - IBM Mobile Messaging and M2M Client Pack - Eclipse Paho MQTT C Client libraries for Linux & Windows platforms only\n\n\nCVE-2014-3470の脆弱性は、次のコンポーネント(サポート・パック/Eclipseプロジェクト)を使用されている場合、影響があります。  * Support Pac MA9B - IBM Mobile Messaging and M2M Client Pack - Eclipse Paho MQTT C Client libraries for Linux & Windows platforms only\n\n\nNote : Paho MQTT C クライアント・ライブラリーは、IBM WebSphere MQ 7.1, 7.5 のLinux, Windowsプラットフォームでも提供されており、ユーザーがこのライブラリを使用している場合は影響があります。 \n\n下記の製品では、プラットフォーム、バージョン、リリースに関わらず影響がありません。  * IBM WebSphere MQ Client \n * IBM WebSphere MQ Server \n * IBM WebSphere MQ Managed File Transfer \n * IBM WebSphere MQ Advanced Message Security",
+              "page_number": 1,
+              "relevance": 0.7694108078768287,
+              "source_file": "techqa://swg21677029",
+              "source_id": "S5",
+              "title": "IBM 【セキュリティ情報】: IBM WebSphere MQ におけるOpenSSLの脆弱性 (CVE-2014-0224 & CVE-2014-3470) - United States",
+              "tokens": 328
+            },
+            {
+              "applicability": "IBM Security Bulletin: Vulnerabilities in OpenSSL affect WebSphere MQ 5.3 for HP NonStop Server (CVE-2015-3194) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n OpenSSL vulnerabilities were disclosed on December 3, 2015 by the OpenSSL Project. OpenSSL is used by WebSphere MQ V5.3 for HP NonStop Server. This bulletin has addressed the applicable CVE. \n\nVULNERABILITY DETAILS\nCVEID: CVE-2015-3194 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3194]\nDESCRIPTION: OpenSSL is vulnerable to a denia",
+              "chunk_id": "techqa:swg21986593:parent",
+              "excerpt": "IBM Security Bulletin: Vulnerabilities in OpenSSL affect WebSphere MQ 5.3 for HP NonStop Server (CVE-2015-3194) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n OpenSSL vulnerabilities were disclosed on December 3, 2015 by the OpenSSL Project. OpenSSL is used by WebSphere MQ V5.3 for HP NonStop Server. This bulletin has addressed the applicable CVE.",
+              "page_number": 1,
+              "relevance": 0.7548015314276687,
+              "source_file": "techqa://swg21986593",
+              "source_id": "S6",
+              "title": "IBM Security Bulletin: Vulnerabilities in OpenSSL affect WebSphere MQ 5.3 for HP NonStop Server (CVE-2015-3194) - United States",
+              "tokens": 61
+            },
+            {
+              "applicability": "IBM 【セキュリティ情報】WebSphere MQ 5.3 for HP NonStop ServerへのOpenSSLの脆弱性の影響   (CVE-2015-3194) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n OpenSSLの脆弱性はOpenSSL Projectによって2015年12月3日に開示されました。 OpenSSLは、WebSphere MQ V5.3 for HP NonStop Serverで使用されています。このCVEに対処しました。\n\n\nVULNERABILITY DETAILS\n脆弱性の詳細：\nCVEID: CVE-2015-3194 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3194]\nDESCRIPTION: OpenSSL is vulnerable to a denial of service, caused by a NULL pointer dereference when verifying certificates via a ",
+              "chunk_id": "techqa:swg21988864:parent",
+              "excerpt": "AFFECTED PRODUCTS AND VERSIONS\n影響のある製品・バージョン：\n\n\n次の製品に影響があります。 \n\n * WebSphere MQ 5.3 for HP NonStop Server 5.3.1.10 and 5.3.1.11",
+              "page_number": 1,
+              "relevance": 0.7454844067408122,
+              "source_file": "techqa://swg21988864",
+              "source_id": "S7",
+              "title": "IBM 【セキュリティ情報】WebSphere MQ 5.3 for HP NonStop ServerへのOpenSSLの脆弱性の影響   (CVE-2015-3194) - United States",
+              "tokens": 56
+            },
+            {
+              "applicability": "IBM Security Bulletin: Multiple OpenSSL Vulnerabilities affect IBM WebSphere MQ 5.3 on HP NonStop (CVE-2015-1788) (CVE-2015-1789) (CVE-2015-1791) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n OpenSSL vulnerabilities were disclosed on June 11, 2015 by the OpenSSL Project. OpenSSL is used by WebSphere MQ 5.3 (HPNSS) has addressed the applicable CVEs. \n\nVULNERABILITY DETAILS\nCVEID: CVE-2015-1788 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1788]\nDESCRIPTION: OpenSSL is vulnerable to a den",
+              "chunk_id": "techqa:swg21966723:parent",
+              "excerpt": "AFFECTED PRODUCTS AND VERSIONS\nIBM WebSphere MQ V5.3 for HP NonStop",
+              "page_number": 1,
+              "relevance": 0.7360194199338004,
+              "source_file": "techqa://swg21966723",
+              "source_id": "S8",
+              "title": "IBM Security Bulletin: Multiple OpenSSL Vulnerabilities affect IBM WebSphere MQ 5.3 on HP NonStop (CVE-2015-1788) (CVE-2015-1789) (CVE-2015-1791) - United States",
+              "tokens": 13
+            }
+          ],
+          "latency_ms": 15071.375900006387,
+          "original_query": "Help with Security Bulletin: Vulnerabilities in OpenSSL affect WebSphere MQ 5.3 for HP NonStop Server (CVE-2017-3735)\nI need to understand details regarding Security Bulletin: Vulnerabilities in OpenSSL affect WebSphere MQ 5.3 for HP NonStop Server (CVE-2017-3735). What  versions of the product are affected?",
+          "original_tokens": 11540,
+          "retries": 0,
+          "rewrite_fallback": false,
+          "rewritten_query": "What versions of WebSphere MQ 5.3 for HP NonStop Server are affected by the vulnerabilities in OpenSSL (CVE-2017-3735)?",
+          "status": "answered",
+          "tool_called": true
+        }
+      },
+      "question_id": "DEV_Q307"
+    },
+    {
+      "group_sha256": "ee1883f700cb37c55cd0430a86ec3e4b737d995145836d01f947b45ba7af53df",
+      "original_run": {
+        "answer_quality": 0.7586206896551724,
+        "answerable": true,
+        "answered": true,
+        "error": null,
+        "expected_document": "swg21959588",
+        "hit_at_10": 1.0,
+        "hit_at_5": 1.0,
+        "latency_ms": 21263.11609998811,
+        "mrr": 1.0,
+        "question_id": "DEV_Q025",
+        "refused": false,
+        "response": {
+          "answer": "Import the certification file into the agent by doing the following command:\n\nNote : You can use either .cer or .pem. \nMake sure the file is in ASCII not binary. \nWhere the /usr/ITM/JRE is your Java location and <fileName> is your file name.\n\nex: \n/usr/ITM/JRE/aix526/jre/bin/keytool -import -trustcacerts -alias \nligitalsso -keystore /usr/ITM/JRE/aix526/jre/bin/lib/security/cacerts \n-storepass <fileName> -file /NEWSSL-sscert.cer [S1]",
+          "confidence": 0.803,
+          "sources": [
+            {
+              "chunk_id": "techqa:swg21959588:parent",
+              "page_number": 1,
+              "quote": "Import the certification file into the agent by doing the following command:\n\nNote : You can use either .cer or .pem. \nMake sure the file is in ASCII not binary. \nWhere the /usr/ITM/JRE is your Java location and <fileName> is your file name.\n\nex: \n/usr/ITM/JRE/aix526/jre/bin/keytool -import -trustcacerts -alias \nligitalsso -keystore /usr/ITM/JRE/aix526/jre/bin/lib/security/cacerts \n-storepass <fileName> -file /NEWSSL-sscert.cer",
+              "source_file": "techqa://swg21959588",
+              "source_id": "S1"
+            }
+          ]
+        },
+        "trace": {
+          "candidate_ids": [
+            "techqa:swg21959588:parent",
+            "techqa:swg21646081:parent",
+            "techqa:swg21982765:parent",
+            "techqa:swg21469114:parent",
+            "techqa:swg21697897:parent",
+            "techqa:swg21637725:parent",
+            "techqa:swg24040589:parent",
+            "techqa:swg1IV84761:parent",
+            "techqa:swg21404180:parent",
+            "techqa:swg21677664:parent"
+          ],
+          "context_tokens": 2242,
+          "evidence": [
+            {
+              "applicability": "IBM Importing a Certificate for the ITCAM Agent for Data Power (BN Agent) - United States\n\nCAMDPALL CAMDPSEC Certification Import Importing TECHNOTE (FAQ)\n\nTHIS DOCUMENT APPLIES ONLY TO THE FOLLOWING LANGUAGE VERSION(S):\n US English \n\nQUESTION\n How to import a Certificate for the TCAM Agent for Data Power (BN Agent) ? \n\nCAUSE\nCertification is missing. \nTrouble shooting Hint - The trace log will show an error that looks like this:\n[2015-05-28T05:58:45.248-0430] - ERROR - BODAPPS57 - pool-1-thread",
+              "chunk_id": "techqa:swg21959588:parent",
+              "excerpt": "Import the certification file into the agent by doing the following command:\n\nNote : You can use either .cer or .pem. \nMake sure the file is in ASCII not binary. \nWhere the /usr/ITM/JRE is your Java location and <fileName> is your file name.\n\nex: \n/usr/ITM/JRE/aix526/jre/bin/keytool -import -trustcacerts -alias \nligitalsso -keystore /usr/ITM/JRE/aix526/jre/bin/lib/security/cacerts \n-storepass <fileName> -file /NEWSSL-sscert.cer",
+              "page_number": 1,
+              "relevance": 0.8513941212283207,
+              "source_file": "techqa://swg21959588",
+              "source_id": "S1",
+              "title": "IBM Importing a Certificate for the ITCAM Agent for Data Power (BN Agent) - United States",
+              "tokens": 66
+            },
+            {
+              "applicability": "IBM ITCAM Agent for Data Power Certification. - United States\n\nCAMDPSEC CAMDPALL Certficate BN \"Data Power\" DP TECHNOTE (TROUBLESHOOTING)\n\nTHIS DOCUMENT APPLIES ONLY TO THE FOLLOWING LANGUAGE VERSION(S):\n US English \n\nPROBLEM(ABSTRACT)\n How to create DP certification? \n\nSYMPTOM\n Messages look similar to the following in the trace log logfile: \n\n[2013-07-30T17:39:19.461+0000] - ERROR - a25sops003 - pool-1-thread-3 - \ncom.ibm.management.soa.dp.monitor.agent.server.KBNSomaDomainList.getDoma \nin - [",
+              "chunk_id": "techqa:swg21646081:parent",
+              "excerpt": "1. Attached zip file includes the instruction of how to generate a new certificate. \n\n\nGenerate a new certificate for Tivoli DP agent.zip [/support/docview.wss?uid=swg21646081&aid=2]Generate a new certificate for Tivoli DP agent.zip [/support/docview.wss?uid=swg21646081&aid=1]",
+              "page_number": 1,
+              "relevance": 0.7588034130306137,
+              "source_file": "techqa://swg21646081",
+              "source_id": "S2",
+              "title": "IBM ITCAM Agent for Data Power Certification. - United States",
+              "tokens": 62
+            },
+            {
+              "applicability": "IBM A Single ITCAM Agent for DataPower with Multiple DP appliances with different certificate - United States\n\nITCAM Agent DataPower Multiple different certificate TECHNOTE (FAQ)\n\nTHIS DOCUMENT APPLIES ONLY TO THE FOLLOWING LANGUAGE VERSION(S):\n US English \n\nQUESTION\n Can there be 2 certificates for a single ITCAM Agent for DataPower (aka. BN Agent) to deal with multiple DP appliances ? \n\nANSWER\n \n\n * For DataPower agent v7.1 FP2 and FP3 -\n\nOn agent side, we can configure 1 certificate for every",
+              "chunk_id": "techqa:swg21982765:parent",
+              "excerpt": "* For DataPower agent v7.1 FP2 and FP3 -\n\nOn agent side, we can configure 1 certificate for every DP appliance. And the configuration is only used for agent to import the certificate info cacerts as trusted certificate. When agent is started, it will load the valid certificate from cacerts to connect to DP appliance. \n\nSo you need not care the key alias, you only need configure the valid certificate for every DP appliance. \n\n*** For FP2/FP3, you only need configure the certificate as \"SSL Proxy Profile\" as below \n[/support/docview.wss?uid=swg21982765&aid=1] [/support/docview.wss?uid=swg21982765&aid=1] \n\n\n\n * For DataPower agent v7.1 FP1 (include IF01 and IF02) and earlier version -",
+              "page_number": 1,
+              "relevance": 0.6851981399824775,
+              "source_file": "techqa://swg21982765",
+              "source_id": "S3",
+              "title": "IBM A Single ITCAM Agent for DataPower with Multiple DP appliances with different certificate - United States",
+              "tokens": 147
+            },
+            {
+              "applicability": "IBM Collecting Data : ITCAM for Agent Data Power - United States\n\nCAMDPALL CAMDPINST Must Gather MustGather Agent DataPower Data Power ITCAM \"Agent for Data Power\" \"Agent for DataPower\" TECHNOTE (FAQ)\n\nQUESTION\n For Problem Determination of ITCAM for Agent Data Power, what logs are required ? \n\nCAUSE\nInformation required for ITCAM Agent for Data Power problem determination.\n\nANSWER\nPlease provide following from each environment that is experiencing the problem :\n\n\n 1. Platform and version number",
+              "chunk_id": "techqa:swg21469114:parent",
+              "excerpt": "Please provide following from each environment that is experiencing the problem :\n\n\n 1. Platform and version number.\n2. MachineType and Appliance Firmware level. \n3. The result of following command from '<ITM_HOME>/bin' directory \nfrom all the machines (Agent, ITM product) related to this issue. \n\"cinfo -i\" from UNIX platform \n\"kincinfo -i\" from Windows platform \n4. Detailed description of problem and STEP BY STEP problem recreation senario.\n(Messages and other information displaced in screen)\n5. If System stops on UNIX system, zip up the core dumps from Agent for DP installed machine \nat <ITM_HOME>/bin directory.\n6. Helpful screenshots if appropriate. \n7. Export of \"SNMP Settings\" on the device. \n\n8. Logs/config files - Please send following information from Agent for DP installed machine,",
+              "page_number": 1,
+              "relevance": 0.638510315467341,
+              "source_file": "techqa://swg21469114",
+              "source_id": "S4",
+              "title": "IBM Collecting Data : ITCAM for Agent Data Power - United States",
+              "tokens": 156
+            },
+            {
+              "applicability": "IBM Proof of  \"ITCAM Agent for Data Power version 6.3\" End of Service (EOS) - United States\n\nCAMDPALL CAPDPENV Proof \"Data Power\" \"6.3\" DataPower \"End of Service\" EOS TECHNOTE (FAQ)\n\nTHIS DOCUMENT APPLIES ONLY TO THE FOLLOWING LANGUAGE VERSION(S):\n US English \n\nQUESTION\n Customer can not find the product EOS date from IBM Software support lifecycle.\nProvide the formal proof that the product \"ITCAM Agent for Data Power version 6.3\" \n(2 character product code : BN) is out of service. \n\nCAUSE\nWe sh",
+              "chunk_id": "techqa:swg21697897:parent",
+              "excerpt": "The ITCAM for Data Power agent version 6.3 went EOS in April 2014 since the container \n\n package (ITCAM for SOA platform version 6.2.2) service is ended.\n\n \n\nPRODUCT ALIAS/SYNONYM\n ITCAMfAD ITCAM for App Diagnostics",
+              "page_number": 1,
+              "relevance": 0.6299514373377224,
+              "source_file": "techqa://swg21697897",
+              "source_id": "S5",
+              "title": "IBM Proof of  \"ITCAM Agent for Data Power version 6.3\" End of Service (EOS) - United States",
+              "tokens": 42
+            },
+            {
+              "applicability": "IBM Detailed System Requirements for ITCAM Agent for DataPower - United States\n\nCAMDPALL CAMDPENV Detailed Requirement System Agent Data Power \"Agent for Data Power\" Software Hardware BN TECHNOTE (FAQ)\n\nQUESTION\n The supported version of Operating Systems and Data Power appliances (for ITCAM Agent for Data Power) \n\nANSWER\n \n\n * Supported Operating Systems and Supported versions of WebSphere DataPower Appliance - ITCAM Agent for Data Power Version Link to the documentation Version 7.1 http://publ",
+              "chunk_id": "techqa:swg21637725:parent",
+              "excerpt": "* Supported Operating Systems and Supported versions of WebSphere DataPower Appliance - ITCAM Agent for Data Power Version Link to the documentation Version 7.1 http://publib.boulder.ibm.com/infocenter/tivihelp/v24r1/index.jsp?topic=%2Fcom.ibm.itcama.doc_7.1%2Fprerequisites%2Fitcamfapps71_reqs.htm [http://publib.boulder.ibm.com/infocenter/tivihelp/v24r1/index.jsp?topic=%2Fcom.ibm.itcama.doc_7.1%2Fprerequisites%2Fitcamfapps71_reqs.htm] \n   \n   note: Click on the tab \"DataPower Monitoring Agent\" to access the info. Version 6.3 \n   (EXPIRED, Not in support) http://publib.boulder.ibm.com/infocenter/tivihelp/v24r1/index.jsp?topic=%2Fcom.ibm.itcamsoa.doc_6.2.2%2Frequirements.htm&path=3_7_6_0 [http://publib.boulder.ibm.com/infocenter/tivihelp/v24r1/index.jsp?topic=%2Fcom.ibm.itcamsoa.doc_6.2.2%2Frequirements.htm&path=3_7_6_0]",
+              "page_number": 1,
+              "relevance": 0.6294346993982032,
+              "source_file": "techqa://swg21637725",
+              "source_id": "S6",
+              "title": "IBM Detailed System Requirements for ITCAM Agent for DataPower - United States",
+              "tokens": 176
+            },
+            {
+              "applicability": "IBM ITCAM Agent for WebSphere DataPower Applications: 7.1.0-TIV-ITM_WDP-FP0002 - United States\n\nDataPower; BN; KBN DOWNLOADABLE FILES\n\nABSTRACT\n This fix resolves the enhancements listed in the \"Problems Fixed\"\nsection below. \n\nDOWNLOAD DESCRIPTION\nCopyright International Business Machines Corporation 2015.\n\n\nAll rights reserved.\n\nComponent: IBM(R) Tivoli(R) Composite Application Manager Agent for WebSphere DataPower Appliance\nVersion 7.1 Fix Pack 2\n\nComponent ID: 5724SOADP\n\nFix Pack: 2, 7.1.0-T",
+              "chunk_id": "techqa:swg24040589:parent",
+              "excerpt": "APAR: IV67898\nAbstract: AFTER DISABLING SSLV3 ON DATA POWER DEVICE NO DATA IN ITCAM FOR DP AGENT \nAdditional Information: After disabling SSLv3 on a Data Power device the ITCAM DP (BN) agent will not be able to poll the DataPower XML management \ninterface. There will be missing device statistic data in the TEP. The BN agent is not able to use TLS.",
+              "page_number": 1,
+              "relevance": 0.6287524090167451,
+              "source_file": "techqa://swg24040589",
+              "source_id": "S7",
+              "title": "IBM ITCAM Agent for WebSphere DataPower Applications: 7.1.0-TIV-ITM_WDP-FP0002 - United States",
+              "tokens": 67
+            },
+            {
+              "applicability": "IBM IV84761: ITCAM FOR SOA DATAPOWER DATA COLLECTOR ATTEMPTS TOO MANY CONNECTIONS TO AN UNRESPONSIVE DATA POWER APPLIANCE - United States\n\nA README IS AVAILABLE\nIBM Tivoli Composite Application Manager for SOA 7.2 Interim Fix 12 README 7.2.0.1-TIV-ITCAMSOA-IF0012 [http://www-01.ibm.com/support/docview.wss?uid=isg400003852]\n\n\nSUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR.\n    \n   \n   \n\nERROR DESCRIPTION\n *  Description: When the ITCAM for S",
+              "chunk_id": "techqa:swg1IV84761:parent",
+              "excerpt": "*  na",
+              "page_number": 1,
+              "relevance": 0.6031575674640747,
+              "source_file": "techqa://swg1IV84761",
+              "source_id": "S8",
+              "title": "IBM IV84761: ITCAM FOR SOA DATAPOWER DATA COLLECTOR ATTEMPTS TOO MANY CONNECTIONS TO AN UNRESPONSIVE DATA POWER APPLIANCE - United States",
+              "tokens": 2
+            }
+          ],
+          "latency_ms": 21262.404900044203,
+          "original_query": "How to import a certificate in ITCAM for Data Power ?\nHow can I import a certificate in ITCAM for Data Power?",
+          "original_tokens": 7595,
+          "retries": 0,
+          "rewrite_fallback": false,
+          "rewritten_query": "How to import a certificate in ITCAM for Data Power?",
+          "status": "answered",
+          "tool_called": true
+        }
+      },
+      "question_id": "DEV_Q025"
+    },
+    {
+      "group_sha256": "306d7ed56d09ea51f320d56e2ab3e55fa2bbbaafc25d611c458cc05edf60f03e",
+      "original_run": {
+        "answer_quality": 1.0,
+        "answerable": true,
+        "answered": true,
+        "error": null,
+        "expected_document": "swg21600618",
+        "hit_at_10": 1.0,
+        "hit_at_5": 1.0,
+        "latency_ms": 19749.645399977453,
+        "mrr": 1.0,
+        "question_id": "DEV_Q040",
+        "refused": false,
+        "response": {
+          "answer": "To resolve the problem, you must set the LD_LIBRARY_PATH environment variable to point to the library directory of the GSKit that comes with the IBM web server Plug-in. The precise directory location will depend of the version of Plug-in, and on the bit depth being used (32-bit or 64-bit). [S1]",
+          "confidence": 0.774,
+          "sources": [
+            {
+              "chunk_id": "techqa:swg21600618:parent",
+              "page_number": 1,
+              "quote": "To resolve the problem, you must set the LD_LIBRARY_PATH environment variable to point to the library directory of the GSKit that comes with the IBM web server Plug-in. The precise directory location will depend of the version of Plug-in, and on the bit depth being used (32-bit or 64-bit).",
+              "source_file": "techqa://swg21600618",
+              "source_id": "S1"
+            }
+          ]
+        },
+        "trace": {
+          "candidate_ids": [
+            "techqa:swg21600618:parent",
+            "techqa:swg1PI76789:parent",
+            "techqa:nas8N1019946:parent",
+            "techqa:swg21316538:parent",
+            "techqa:swg21448961:parent",
+            "techqa:swg21660794:parent",
+            "techqa:swg21177702:parent",
+            "techqa:swg21628233:parent",
+            "techqa:swg21381320:parent",
+            "techqa:swg1PK74014:parent"
+          ],
+          "context_tokens": 1775,
+          "evidence": [
+            {
+              "applicability": "IBM web server Plugin may need LD_LIBRARY_PATH when used with Apache 2.2 - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n IBM web server Plug-in provides the connection between the web server tier and the IBM WebSphere Application Server (WAS) tier.\n\nWhen using Apache 2.2 web server on Linux operating systems, the IBM web server Plug-in may need to have the LD_LIBRARY_PATH environment variable set in a certain way, in order to be able to locate the IBM Global Security Kit (GSKit) ",
+              "chunk_id": "techqa:swg21600618:parent",
+              "excerpt": "To resolve the problem, you must set the LD_LIBRARY_PATH environment variable to point to the library directory of the GSKit that comes with the IBM web server Plug-in. The precise directory location will depend of the version of Plug-in, and on the bit depth being used (32-bit or 64-bit).",
+              "page_number": 1,
+              "relevance": 0.8056603912712595,
+              "source_file": "techqa://swg21600618",
+              "source_id": "S1",
+              "title": "IBM web server Plugin may need LD_LIBRARY_PATH when used with Apache 2.2 - United States",
+              "tokens": 55
+            },
+            {
+              "applicability": "IBM PI76789: HTTPS REQUESTS FAIL WITH A 500 INTERNAL SERVER ERROR WITH THE 64-BIT PLUGIN ON WINDOWS. - United States\n\nz/os  FIXES ARE AVAILABLE\n9.0.0.6: WebSphere Application Server traditional V9.0 Fix Pack 6 [http://www-01.ibm.com/support/docview.wss?uid=swg24044242]\n9.0.0.7: WebSphere Application Server traditional V9.0 Fix Pack 7 [http://www-01.ibm.com/support/docview.wss?uid=swg24044620]\n\n\nSUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR",
+              "chunk_id": "techqa:swg1PI76789:parent",
+              "excerpt": "*  The 64-bit Windows WAS plugin was updated to load the 64-bit GSK\n   library instead of the 32-bit library.",
+              "page_number": 1,
+              "relevance": 0.740062845026227,
+              "source_file": "techqa://swg1PI76789",
+              "source_id": "S2",
+              "title": "IBM PI76789: HTTPS REQUESTS FAIL WITH A 500 INTERNAL SERVER ERROR WITH THE 64-BIT PLUGIN ON WINDOWS. - United States",
+              "tokens": 20
+            },
+            {
+              "applicability": "IBM HTTP 500 Internal Server Error is Received with an Apache HTTP Server Configured For SSL and IBM WebSphere Application Server v8.5 on the IBM i - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n If you have an IBM i Apache HTTP Server configured for SSL that is associated with an IBM WebSphere Application Server v8.5 or later profile, an HTTP 500 Internal Server Error might occur when accessing your web application. \n\nSYMPTOM\nHTTP 500 Internal Server Error received in your web b",
+              "chunk_id": "techqa:nas8N1019946:parent",
+              "excerpt": "ERROR: lib_security: logSSLError: str_security (gsk error 202): Key database file was not found.\nERROR: lib_security: initializeSecurity: Failed to initialize GSK environment. Secure transports are not possible.\nERROR: ws_transport: transportInitializeSecurity: Failed to initialize security. Secure transports are not possible.\nERROR: ws_server: serverAddTransport: Failed to initialize security. Secure transports are not possible.\nERROR: ws_server: serverAddTransport: HTTPS Transport is skipped. IMPORTANT: If a HTTP transport is defined, it will be used for communication to the application server.",
+              "page_number": 1,
+              "relevance": 0.6885943933346508,
+              "source_file": "techqa://nas8N1019946",
+              "source_id": "S3",
+              "title": "IBM HTTP 500 Internal Server Error is Received with an Apache HTTP Server Configured For SSL and IBM WebSphere Application Server v8.5 on the IBM i - United States",
+              "tokens": 87
+            },
+            {
+              "applicability": "IBM GSK_BAD_FORMAT_OR_INVALID_FORMAT error in plug-in log when SSL is configured between the WebSphere HTTP Plug-in and WebSphere Application Server - United States\n\nGSK_BAD_FORMAT_OR_INVALID_FORMAT; (gsk error 106); SSL; WAS; PLUG IN; plugin; plug-in TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n When SSL has been configured between the IBM® WebSphere® plug-in and an IBM WebSphere Application Server, the Web server plug-in log shows the following error during plug-in initialization:\n\nERROR: lib",
+              "chunk_id": "techqa:swg21316538:parent",
+              "excerpt": "Review the plugin-cfg.xml to ensure all \"keyring\" and \"stashfile\" properties are pointing to their appropriate files. A correct configuration for the above example would be: \n\n \n\n<Property Name=\"keyring\" Value=\"/usr/HTTPServer20/Plugins/etc/blue2/newkey.kdb\" /> \n<Property Name=\"stashfile\" Value=\"/usr/HTTPServer20/Plugins/etc/blue2/newkey.sth\" />",
+              "page_number": 1,
+              "relevance": 0.6667697123846998,
+              "source_file": "techqa://swg21316538",
+              "source_id": "S4",
+              "title": "IBM GSK_BAD_FORMAT_OR_INVALID_FORMAT error in plug-in log when SSL is configured between the WebSphere HTTP Plug-in and WebSphere Application Server - United States",
+              "tokens": 64
+            },
+            {
+              "applicability": "IBM Plug-in 7.0 runtime error PluginInstallRoot is not defined - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n The IBM web server Plug-in configuration file generated from IBM Websphere Application Server v6.x does not include the PluginInstallRoot property. The IBM web server Plug-in v7.0 runtime requires the PluginInstallRoot property in order to use HTTPS connections. If the PluginInstallRoot property does not exist in the plugin-cfg.xml file, the Plug-in v7.0 runtime will giv",
+              "chunk_id": "techqa:swg21448961:parent",
+              "excerpt": "To resolve the problem, edit the plugin-cfg.xml file and manually add the PluginInstallRoot property just below the other properties near the top of the file.",
+              "page_number": 1,
+              "relevance": 0.6074623015295217,
+              "source_file": "techqa://swg21448961",
+              "source_id": "S5",
+              "title": "IBM Plug-in 7.0 runtime error PluginInstallRoot is not defined - United States",
+              "tokens": 29
+            },
+            {
+              "applicability": "IBM Starting Rational CCRC WAN server results in the errors \"parser: handleLogEnd: Failed to open log file...\" - United States\n\nCCRC; WAN server; IHS; error.log; http_plugin.log; gsk TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n Attempts to start IBM Rational ClearCase Remote Client (CCRC) WAN server results in the errors \"parser: handleLogEnd: Failed to open log file: 'c:\\\\Program Files\\\\IBM\\\\WebSphere\\\\Plugins\\\\logs\\\\http_plugin.log', OS Err: 3\". \n\nSYMPTOM\nStart CCRC WAN server on your machin",
+              "chunk_id": "techqa:swg21660794:parent",
+              "excerpt": "Apply one of the following solutions: \n\n \n\n * Solution to Cause 1:\n   \n   Chose one of the following options to resolve the error message about the http_plugin.log.",
+              "page_number": 1,
+              "relevance": 0.6021894653793859,
+              "source_file": "techqa://swg21660794",
+              "source_id": "S6",
+              "title": "IBM Starting Rational CCRC WAN server results in the errors \"parser: handleLogEnd: Failed to open log file...\" - United States",
+              "tokens": 28
+            },
+            {
+              "applicability": "IBM HTTP plug-in log records \"gsk error 408 (GSK_ERROR_BAD_KEYFILE_PASSWORD)\" - United States\n\nSSL; gsk; gskit; initialize; plug; plugin; Web; Start; security; bad keyfile; GSK_ERROR_BAD_KEYFILE_PASSWORD TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n When starting the IBM HTTP Server, the following error is recorded in the WebSphere Application Server http_plugin.log\n\n\"gsk error 408 (GSK_ERROR_BAD_KEYFILE_PASSWORD)\" \n\nCAUSE\nThis error occurs if the plugin-key.sth file for the HTTPS transport in ",
+              "chunk_id": "techqa:swg21177702:parent",
+              "excerpt": "To correct the problem, perform the following steps:",
+              "page_number": 1,
+              "relevance": 0.5898405895211507,
+              "source_file": "techqa://swg21177702",
+              "source_id": "S7",
+              "title": "IBM HTTP plug-in log records \"gsk error 408 (GSK_ERROR_BAD_KEYFILE_PASSWORD)\" - United States",
+              "tokens": 9
+            },
+            {
+              "applicability": "IBM Plugin fails to initialize GSKIT during IHS startup when using the WAS 8.5 Liberty profile - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n When using the Websphere Application Server V8.5 Liberty profile with IBM Worklight, the plugin fails with a GSK error 429 (GSK_ERROR_PKCS11_LIBRARY_NOTLOADED). \n\nSYMPTOM\n \n\nPlugin debug log shows the following during IHS startup. \n\n[Fri Mar 08 12:43:43 2013] 00000c50 00000600 - DEBUG: lib_security: \ninitializeSecurity: Initializing... \n[F",
+              "chunk_id": "techqa:swg21628233:parent",
+              "excerpt": "Removing SSLPKCSDriver=\"REPLACE\" and SSLPKCSPassword=\"REPLACE\" from the plugin-cfg.xml resolves the issue.",
+              "page_number": 1,
+              "relevance": 0.585940489496404,
+              "source_file": "techqa://swg21628233",
+              "source_id": "S8",
+              "title": "IBM Plugin fails to initialize GSKIT during IHS startup when using the WAS 8.5 Liberty profile - United States",
+              "tokens": 21
+            }
+          ],
+          "latency_ms": 19749.433399992995,
+          "original_query": "Why Plug-in log file reports an error message after install & configure the WebSphere Plugin 8.5 version on a Apache 2.4 webserver.\nDuring web server start-up, errors like the following will be logged into the Plug-in log file (http_plugin.log):\n\nERROR: lib_security: loadSecurityLibrary: Failed to load gsk library from /opt/IBM/WebSphere/Plugins/gsk8/gsk8_64 ERROR: ws_transport: transportInitializeSecurity: Unable to load security library ERROR: ws_server: serverAddTransport: Failed to initialize security ERROR: ws_server: serverAddTransport: HTTPS Transport is skipped\n\nNote: This is after install & configure the WebSphere Plugin 8.5 version on a Apache 2.4 webserver  on a Linux platform",
+          "original_tokens": 28766,
+          "retries": 0,
+          "rewrite_fallback": false,
+          "rewritten_query": "Why does the Plug-in log file report an error message after installing and configuring the WebSphere Plugin 8.5 version on an Apache 2.4 webserver?\nDuring web server start-up, errors like the following will be logged into the Plug-in log file (http_plugin.log):\n\nERROR: lib_security: loadSecurityLibrary: Failed to load gsk library from /opt/IBM/WebSphere/Plugins/gsk8/gsk8_64\nERROR: ws_transport: transportInitializeSecurity: Unable to load security library\nERROR: ws_server: serverAddTransport: Failed to initialize security\nERROR: ws_server: serverAddTransport: HTTPS Transport is skipped\n\nNote: This issue occurs after installing and configuring the WebSphere Plugin 8.5 version on an Apache 2.4 webserver on a Linux platform.",
+          "status": "answered",
+          "tool_called": true
+        }
+      },
+      "question_id": "DEV_Q040"
+    },
+    {
+      "group_sha256": "1bf01034db1f985dee900d567323c86fbb08685cf216fd3e96c6ea24136ea00b",
+      "original_run": {
+        "answer_quality": 0.6056338028169014,
+        "answerable": true,
+        "answered": true,
+        "error": null,
+        "expected_document": "swg21412061",
+        "hit_at_10": 1.0,
+        "hit_at_5": 1.0,
+        "latency_ms": 15845.87979997741,
+        "mrr": 1.0,
+        "question_id": "DEV_Q302",
+        "refused": false,
+        "response": {
+          "answer": "HSM-enabled DataPower appliances support the export of private keys using the crypto-export command. For key export to work, various conditions must be met: \n\n * HSMs must be initialized and in the same key sharing domain on exporting and importing machines \n * The private key in question must be marked exportable at keygen time (see keygen's exportable option) \n * HSMs on exporting and importing machines must share internal key-wrapping keys (see hsm-clone-kwk command). A key-wrapping key is a key that encrypts another key. [S1]\nQuestion: Can the HSM device store certificates? \n\nAnswer: No. The HSM device only stores private keys.\n\nQuestion: Can I export private keys from the HSM device?\nAnswer: Yes. Private keys can be exported from the HSM device using the crypto-export command and imported into another HSM device using the crypto-import command as long as the hardware platforms are compatible. 9235 appliances with HSM are compatible with each other in terms of exported HSM keys. 7198 and 7199 appliances with HSM are compatible with each other in terms of exported HSM keys. HSM keys cannot be exported from a 9235 appliance and imported into a 7198/7199 appliance or vice-versa. [S2]",
+          "confidence": 0.72,
+          "sources": [
+            {
+              "chunk_id": "techqa:swg21412061:parent",
+              "page_number": 1,
+              "quote": "HSM-enabled DataPower appliances support the export of private keys using the crypto-export command. For key export to work, various conditions must be met: \n\n * HSMs must be initialized and in the same key sharing domain on exporting and importing machines \n * The private key in question must be marked exportable at keygen time (see keygen's exportable option) \n * HSMs on exporting and importing machines must share internal key-wrapping keys (see hsm-clone-kwk command). A key-wrapping key is a key that encrypts another key.",
+              "source_file": "techqa://swg21412061",
+              "source_id": "S1"
+            },
+            {
+              "chunk_id": "techqa:swg21412060:parent",
+              "page_number": 1,
+              "quote": "Question: Can the HSM device store certificates? \n\nAnswer: No. The HSM device only stores private keys.\n\nQuestion: Can I export private keys from the HSM device?\nAnswer: Yes. Private keys can be exported from the HSM device using the crypto-export command and imported into another HSM device using the crypto-import command as long as the hardware platforms are compatible. 9235 appliances with HSM are compatible with each other in terms of exported HSM keys. 7198 and 7199 appliances with HSM are compatible with each other in terms of exported HSM keys. HSM keys cannot be exported from a 9235 appliance and imported into a 7198/7199 appliance or vice-versa.",
+              "source_file": "techqa://swg21412060",
+              "source_id": "S2"
+            }
+          ]
+        },
+        "trace": {
+          "candidate_ids": [
+            "techqa:swg21412061:parent",
+            "techqa:swg21412060:parent",
+            "techqa:swg21446015:parent",
+            "techqa:swg1IT08761:parent",
+            "techqa:swg1IT07604:parent",
+            "techqa:swg21516505:parent",
+            "techqa:swg1IT06901:parent",
+            "techqa:swg1IT01034:parent",
+            "techqa:swg21699042:parent",
+            "techqa:swg1IT17122:parent"
+          ],
+          "context_tokens": 2046,
+          "evidence": [
+            {
+              "applicability": "IBM How to export and import keys from an HSM-enabled IBM WebSphere DataPower SOA Appliance - United States\n\nTECHNOTE (FAQ)\n\nQUESTION\n How do I export and import private keys between the same or different Hardware Security Module (HSM) enabled IBM WebSphere DataPower SOA Appliance? \n\nANSWER\nHSM-enabled DataPower appliances support the export of private keys using the crypto-export command. For key export to work, various conditions must be met: \n\n * HSMs must be initialized and in the same key s",
+              "chunk_id": "techqa:swg21412061:parent",
+              "excerpt": "HSM-enabled DataPower appliances support the export of private keys using the crypto-export command. For key export to work, various conditions must be met: \n\n * HSMs must be initialized and in the same key sharing domain on exporting and importing machines \n * The private key in question must be marked exportable at keygen time (see keygen's exportable option) \n * HSMs on exporting and importing machines must share internal key-wrapping keys (see hsm-clone-kwk command). A key-wrapping key is a key that encrypts another key.",
+              "page_number": 1,
+              "relevance": 0.7309554309278663,
+              "source_file": "techqa://swg21412061",
+              "source_id": "S1",
+              "title": "IBM How to export and import keys from an HSM-enabled IBM WebSphere DataPower SOA Appliance - United States",
+              "tokens": 92
+            },
+            {
+              "applicability": "IBM Frequently asked questions about HSM device with WebSphere DataPower - United States\n\nHSM DataPower FAQ TECHNOTE (FAQ)\n\nQUESTION\n The following are questions and answers related to the Hardware Security Module (HSM) device if purchased with a 9235, 7198, or 7199 WebSphere DataPower Appliance. Questions that only apply to specific hardware platforms indicate this in parentheses. \n\nANSWER\nQuestion: Can the HSM device store certificates? \n\nAnswer: No. The HSM device only stores private keys.\n\nQ",
+              "chunk_id": "techqa:swg21412060:parent",
+              "excerpt": "Question: Can the HSM device store certificates? \n\nAnswer: No. The HSM device only stores private keys.\n\nQuestion: Can I export private keys from the HSM device?\nAnswer: Yes. Private keys can be exported from the HSM device using the crypto-export command and imported into another HSM device using the crypto-import command as long as the hardware platforms are compatible. 9235 appliances with HSM are compatible with each other in terms of exported HSM keys. 7198 and 7199 appliances with HSM are compatible with each other in terms of exported HSM keys. HSM keys cannot be exported from a 9235 appliance and imported into a 7198/7199 appliance or vice-versa.",
+              "page_number": 1,
+              "relevance": 0.7167316617762289,
+              "source_file": "techqa://swg21412060",
+              "source_id": "S2",
+              "title": "IBM Frequently asked questions about HSM device with WebSphere DataPower - United States",
+              "tokens": 117
+            },
+            {
+              "applicability": "IBM How to configure a public key authentication mode for a DataPower SFTP service - United States\n\nsftp; pub key; public key; backend; datapower; 9235; 9004; 9003 TECHNOTE (FAQ)\n\nQUESTION\n How can I configure a public key user authentication mode for a WebSphere DataPower SOA appliance service that creates files on an SFTP backend? \n\nANSWER\nSee Using the WebSphere DataPower SOAP appliance to send files to an SFTP Back-End [http://www.ibm.com/support/docview.wss?uid=swg21444610] for information ",
+              "chunk_id": "techqa:swg21446015:parent",
+              "excerpt": "1. In the DataPower WebGUI, select Administrator->Crypto Tools and then Generate Key after entering the following values. See the related URLs section below for more information on Crypto Tools.  * In the \"Common Name (CN)\" field, enter the user name to be authenticated in the SSH server. \n     * Do not set a password, leave the password field blank. \n     * Export Private Key = on which exports the private key to the temporary folder on the appliance so that it can be recovered if necessary.\n    \n    \n 2. In the SSH Client Profile object configuration  * Enter the \"User Name\" to be used to authenticate in the SSH server (the same user name you used in the key's Common Name) \n     * Check the Public Key checkbox, and uncheck the Password check box to ensure only public key authentication will be used. \n     * Choose the new key you created in the User Private Key pull down menu.",
+              "page_number": 1,
+              "relevance": 0.6497302739933569,
+              "source_file": "techqa://swg21446015",
+              "source_id": "S3",
+              "title": "IBM How to configure a public key authentication mode for a DataPower SFTP service - United States",
+              "tokens": 178
+            },
+            {
+              "applicability": "IBM IT08761: AN SFTP SERVER FRONT SIDE HANDLER RECONFIGURED BY MODIFYING HOST-PRIVATE-KEY GOES TO THE DOWN STATE - United States\n\nFIXES ARE AVAILABLE\nFix packs for DataPower B2B Appliance version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034956]\nFix packs for DataPower Integration Appliance version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034957]\nFix packs for DataPower B2B Appliance version 6.0.1 [http://www-01.ibm.com/support/docview.wss?uid=swg24036409]\nFix packs ",
+              "chunk_id": "techqa:swg1IT08761:parent",
+              "excerpt": "*  Save the new configuration and shutdown-restart the DataPower\n   appliance to bring the SFTP Server Front Side Handler to the up\n   state.",
+              "page_number": 1,
+              "relevance": 0.6449490604462993,
+              "source_file": "techqa://swg1IT08761",
+              "source_id": "S4",
+              "title": "IBM IT08761: AN SFTP SERVER FRONT SIDE HANDLER RECONFIGURED BY MODIFYING HOST-PRIVATE-KEY GOES TO THE DOWN STATE - United States",
+              "tokens": 23
+            },
+            {
+              "applicability": "IBM IT07604: CVE-2015-0138: GSKIT MIGHT ACCEPT A WEAK EPHEMERAL RSA KEY FOR NON EXPORT CIPHERSUITES IN SSLV3.0 AND TLS 1.0 - United States\n\nFIXES ARE AVAILABLE\nFix packs for DataPower XML Security Gateway version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034955]\nFix packs for DataPower B2B Appliance version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034956]\nFix packs for DataPower Integration Appliance version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034",
+              "chunk_id": "techqa:swg1IT07604:parent",
+              "excerpt": "PROBLEM SUMMARY\n *  SSL/TLS client in DataPower might accept a Weak Ephemeral\n   RSA Key for non export CipherSuites.",
+              "page_number": 1,
+              "relevance": 0.6393181501260483,
+              "source_file": "techqa://swg1IT07604",
+              "source_id": "S5",
+              "title": "IBM IT07604: CVE-2015-0138: GSKIT MIGHT ACCEPT A WEAK EPHEMERAL RSA KEY FOR NON EXPORT CIPHERSUITES IN SSLV3.0 AND TLS 1.0 - United States",
+              "tokens": 19
+            },
+            {
+              "applicability": "IBM Migrating from a Type 9235 IBM WebSphere DataPower appliance to a Type 7198 or 7199 appliance - United States\n\n7199 7198 9235 9005 migration move import export secure backup TECHNOTE (FAQ)\n\nQUESTION\n How do you move your configuration from a Type 9235 DataPower appliance to a Type 7198 or 7199 appliance? \n\nANSWER\nType 7198 and 7199 hardware\nThe Type 7198 appliance is a 1U rack-mountable appliance. All technical specifications of the Type 7198 appliance can be found in announcement 111-153 [h",
+              "chunk_id": "techqa:swg21516505:parent",
+              "excerpt": "* Keys and certificates: The export and import process does not include the cryptographic material, so you must regenerate and upload all the keys and certificates to the Type 7198 or 7199 appliance. Also, all objects using these keys and certificates are in the \"down\" state. After the keys and certificates are regenerated and uploaded, reboot the appliance (or restart the domain) to make sure all objects are in the \"up\" state. \n * Hardware security module: On HSM-equipped appliances, private keys exported from Type 9235 appliances cannot be imported on to a Type 7198 or 7199 appliance. The HSM must first be initialized using the procedures documented in the DataPower Knowledge Center [https://www.ibm.com/support/knowledgecenter/en/SS9H2Y_5.0.0/com.ibm.dp.doc/welcome_dp.html] under Hardware Security Module. Then, you must regenerate and upload all the keys to the HSM.",
+              "page_number": 1,
+              "relevance": 0.6376908362577589,
+              "source_file": "techqa://swg21516505",
+              "source_id": "S6",
+              "title": "IBM Migrating from a Type 9235 IBM WebSphere DataPower appliance to a Type 7198 or 7199 appliance - United States",
+              "tokens": 164
+            },
+            {
+              "applicability": "IBM IT06901: CVE-2015-0204 - SSL/TLS CLIENTS MIGHT SILENTLY DOWNGRADE RSA CIPHERS TO EXPORT_RSA - United States\n\nFIXES ARE AVAILABLE\nFix packs for DataPower XML Security Gateway version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034955]\nFix packs for DataPower B2B Appliance version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034956]\nFix packs for DataPower Integration Appliance version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034957]\nFix packs for DataPowe",
+              "chunk_id": "techqa:swg1IT06901:parent",
+              "excerpt": "PROBLEM SUMMARY\n *  SSL/TLS client in DataPower might provide weaker than expected\n   security in some scenarios.",
+              "page_number": 1,
+              "relevance": 0.624902397178914,
+              "source_file": "techqa://swg1IT06901",
+              "source_id": "S7",
+              "title": "IBM IT06901: CVE-2015-0204 - SSL/TLS CLIENTS MIGHT SILENTLY DOWNGRADE RSA CIPHERS TO EXPORT_RSA - United States",
+              "tokens": 17
+            },
+            {
+              "applicability": "IBM IT01034: WEBGUI HANGS WHEN CREATING NEW SELF-SIGNED CERTIFICATE - United States\n\nFIXES ARE AVAILABLE\nFix packs for DataPower XML Security Gateway version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034955]\nFix packs for DataPower B2B Appliance version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034956]\nFix packs for DataPower Integration Appliance version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034957]\nFix packs for DataPower Low Latency Appliance vers",
+              "chunk_id": "techqa:swg1IT01034:parent",
+              "excerpt": "*  Set Export Private Key to ON.\n   \n   \n    \n   \n   \n\nPROBLEM SUMMARY\n *  Affected is the use of Crypto Tools to generate a key and\n   certificate. WebGUI might not show the results and appears to\n   not complete.",
+              "page_number": 1,
+              "relevance": 0.6053307451420038,
+              "source_file": "techqa://swg1IT01034",
+              "source_id": "S8",
+              "title": "IBM IT01034: WEBGUI HANGS WHEN CREATING NEW SELF-SIGNED CERTIFICATE - United States",
+              "tokens": 37
+            }
+          ],
+          "latency_ms": 15845.41300003184,
+          "original_query": "How can I export a private key from DataPower Gateway Appliance?\nIs it possible to export a private key from DataPower Gateway Appliance?",
+          "original_tokens": 6351,
+          "retries": 0,
+          "rewrite_fallback": true,
+          "rewritten_query": "How can I export a private key from DataPower Gateway Appliance? Is it possible to export a private key from DataPower Gateway Appliance?",
+          "status": "answered",
+          "tool_called": true
+        }
+      },
+      "question_id": "DEV_Q302"
+    },
+    {
+      "group_sha256": "47257f02376c4df9d4c474633f65e33e3e3d7a3daa5fbd28313b1fd27b2e5ec6",
+      "original_run": {
+        "answer_quality": 0.6701030927835051,
+        "answerable": true,
+        "answered": true,
+        "error": null,
+        "expected_document": "swg21647231",
+        "hit_at_10": 1.0,
+        "hit_at_5": 1.0,
+        "latency_ms": 13650.61810001498,
+        "mrr": 1.0,
+        "question_id": "DEV_Q215",
+        "refused": false,
+        "response": {
+          "answer": "IBM WebSphere MQ server version 7.0 and later releases provide sharing conversations (SHARECNV) attribute on SVRCONN channel that specifies the maximum number of conversations that can share each TCP/IP channel instance. This feature can be configured in DataPower as it uses client connection with queue manager SVRCONN channel. \nThe default setting of sharing conversations (SHARECNV) value is zero in DataPower mq-qm object. The same default value for MQ SVRCONN channel is 10. The sharing conversations value is \nnegotiated between MQ server and DataPower and the lower value takes effect. However, in current versions of the DataPower firmware, the sharing conversations setting of 1 is treated as 0 when negotiating with MQ server.\n\nThere are three use cases to configure Sharing Conversations in DataPower mq-qm object: [S1]",
+          "confidence": 0.741,
+          "sources": [
+            {
+              "chunk_id": "techqa:swg21647231:parent",
+              "page_number": 1,
+              "quote": "IBM WebSphere MQ server version 7.0 and later releases provide sharing conversations (SHARECNV) attribute on SVRCONN channel that specifies the maximum number of conversations that can share each TCP/IP channel instance. This feature can be configured in DataPower as it uses client connection with queue manager SVRCONN channel. \nThe default setting of sharing conversations (SHARECNV) value is zero in DataPower mq-qm object. The same default value for MQ SVRCONN channel is 10. The sharing conversations value is \nnegotiated between MQ server and DataPower and the lower value takes effect. However, in current versions of the DataPower firmware, the sharing conversations setting of 1 is treated as 0 when negotiating with MQ server.\n\nThere are three use cases to configure Sharing Conversations in DataPower mq-qm object:",
+              "source_file": "techqa://swg21647231",
+              "source_id": "S1"
+            }
+          ]
+        },
+        "trace": {
+          "candidate_ids": [
+            "techqa:swg21647231:parent",
+            "techqa:swg1IC91594:parent",
+            "techqa:swg1IC69197:parent",
+            "techqa:swg1IT02476:parent",
+            "techqa:swg1IT15293:parent",
+            "techqa:swg1IT04771:parent",
+            "techqa:swg1IC89569:parent",
+            "techqa:swg1IC99575:parent",
+            "techqa:swg21578742:parent",
+            "techqa:swg1IT08838:parent"
+          ],
+          "context_tokens": 1895,
+          "evidence": [
+            {
+              "applicability": "IBM When to enable Conversation Sharing in DataPower MQ Queue Manager (mq-qm) object - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n When to enable Sharing Conversations in DataPower MQ Queue Manager (mq-qm) object along with SHARECNV attribute of the MQ SVRCONN channel? \n\nRESOLVING THE PROBLEM\nIBM WebSphere MQ server version 7.0 and later releases provide sharing conversations (SHARECNV) attribute on SVRCONN channel that specifies the maximum number of conversations that can sha",
+              "chunk_id": "techqa:swg21647231:parent",
+              "excerpt": "IBM WebSphere MQ server version 7.0 and later releases provide sharing conversations (SHARECNV) attribute on SVRCONN channel that specifies the maximum number of conversations that can share each TCP/IP channel instance. This feature can be configured in DataPower as it uses client connection with queue manager SVRCONN channel. \nThe default setting of sharing conversations (SHARECNV) value is zero in DataPower mq-qm object. The same default value for MQ SVRCONN channel is 10. The sharing conversations value is \nnegotiated between MQ server and DataPower and the lower value takes effect. However, in current versions of the DataPower firmware, the sharing conversations setting of 1 is treated as 0 when negotiating with MQ server.\n\nThere are three use cases to configure Sharing Conversations in DataPower mq-qm object:",
+              "page_number": 1,
+              "relevance": 0.7553523134961853,
+              "source_file": "techqa://swg21647231",
+              "source_id": "S1",
+              "title": "IBM When to enable Conversation Sharing in DataPower MQ Queue Manager (mq-qm) object - United States",
+              "tokens": 139
+            },
+            {
+              "applicability": "IBM IC91594: CONVERSATION SHARING DOES NOT NEGOTIATE FULL DUPLEX CHANNEL WHEN QMGR CHANNEL SHARING CONVERSATION IS SET AT 1 - United States\n\nFIXES ARE AVAILABLE\nFix packs for DataPower B2B Appliance version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034956]\nFix packs for DataPower Integration Appliance version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034957]\nFix packs for DataPower Service Gateway version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034959]",
+              "chunk_id": "techqa:swg1IC91594:parent",
+              "excerpt": "PROBLEM SUMMARY\n *  Users of the sharing conversation feature of MQ Queue Manager\n   are likely to see this problem.",
+              "page_number": 1,
+              "relevance": 0.6736755696120434,
+              "source_file": "techqa://swg1IC91594",
+              "source_id": "S2",
+              "title": "IBM IC91594: CONVERSATION SHARING DOES NOT NEGOTIATE FULL DUPLEX CHANNEL WHEN QMGR CHANNEL SHARING CONVERSATION IS SET AT 1 - United States",
+              "tokens": 20
+            },
+            {
+              "applicability": "IBM IC69197: DATAPOWER DEVICE CRASHES WHEN SHARED CONVERSATIONS ARE TURNED ON AND WRONG USERNAME OR PASSWORD IS USED - United States\n\nSUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR.\n    \n   \n   \n\nERROR DESCRIPTION\n *  IBM WebSphere DataPower Appliances\n   \n   Firmware version: 3.8.1.0\n   \n   Problem description: When trying to use the wrong userid and/or\n   password on MQ connection, the appliance crashes if sharing\n   conversation is turne",
+              "chunk_id": "techqa:swg1IC69197:parent",
+              "excerpt": "*  Workaround: Verify that the correct password/userid is used.\n   \n   \n    \n   \n   \n\nPROBLEM SUMMARY\n *  Crash when sharing conversation is on and the connection is\n   rejected by channel exit",
+              "page_number": 1,
+              "relevance": 0.6482235456321779,
+              "source_file": "techqa://swg1IC69197",
+              "source_id": "S3",
+              "title": "IBM IC69197: DATAPOWER DEVICE CRASHES WHEN SHARED CONVERSATIONS ARE TURNED ON AND WRONG USERNAME OR PASSWORD IS USED - United States",
+              "tokens": 27
+            },
+            {
+              "applicability": "IBM IT02476: WITH SHARING CONVERSATION ENABLED, MQ-QM OBJECTS RUN INTO PENDING STATE AND HIGH CPU IS OBSERVED WHEN THERE IS MQ ERROR - United States\n\nFIXES ARE AVAILABLE\nFix packs for DataPower B2B Appliance version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034956]\nFix packs for DataPower Integration Appliance version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034957]\nFix packs for DataPower Service Gateway version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg",
+              "chunk_id": "techqa:swg1IT02476:parent",
+              "excerpt": "*  Disable sharing conversation.\n   \n   \n    \n   \n   \n\nPROBLEM SUMMARY\n *  An administrator might see high CPU utilization and DataPower\n   in a hang condition with DataPower MQ Queue Manager objects\n   using sharing conversation. This might occur with a high traffic\n   load at the time of an MQ error.",
+              "page_number": 1,
+              "relevance": 0.6272966317714324,
+              "source_file": "techqa://swg1IT02476",
+              "source_id": "S4",
+              "title": "IBM IT02476: WITH SHARING CONVERSATION ENABLED, MQ-QM OBJECTS RUN INTO PENDING STATE AND HIGH CPU IS OBSERVED WHEN THERE IS MQ ERROR - United States",
+              "tokens": 47
+            },
+            {
+              "applicability": "IBM IT15293: LARGE MQ-QM SHARING-CONVERSATIONS VALUE MIGHT CAUSE HIGH CPU USAGE UNDER HIGH TRAFFIC LOAD - United States\n\nFIXES ARE AVAILABLE\nFix packs for DataPower Gateway version 7.2 [http://www-01.ibm.com/support/docview.wss?uid=swg24039783]\nFix packs for DataPower Gateway version 7.5 [http://www-01.ibm.com/support/docview.wss?uid=swg24041543]\nFix packs for DataPower Gateway version 7.5.1 [http://www-01.ibm.com/support/docview.wss?uid=swg24042194]\nFix packs for DataPower Gateway version 7.5.2",
+              "chunk_id": "techqa:swg1IT15293:parent",
+              "excerpt": "PROBLEM SUMMARY\n *  Affected is use of MQ shared conversations.\n   \n   When sending a message to the IBM MQ Queue Manager via MQPUT,\n   there could be a race condition between shared conversations\n   when\n   they try to write to the same multiplexed physical connection,\n   causing high CPU usage.",
+              "page_number": 1,
+              "relevance": 0.6074606187085888,
+              "source_file": "techqa://swg1IT15293",
+              "source_id": "S5",
+              "title": "IBM IT15293: LARGE MQ-QM SHARING-CONVERSATIONS VALUE MIGHT CAUSE HIGH CPU USAGE UNDER HIGH TRAFFIC LOAD - United States",
+              "tokens": 50
+            },
+            {
+              "applicability": "IBM IT04771: A DATAPOWER APPLIANCE CONFIGURED FOR MQ SHARING CONVERSATIONS MIGHT RESTART IF THE NETWORK IS UNSTABLE - United States\n\nFIXES ARE AVAILABLE\nFix packs for DataPower B2B Appliance version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034956]\nFix packs for DataPower Integration Appliance version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034957]\nFix packs for DataPower Service Gateway version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034959]\nFix pac",
+              "chunk_id": "techqa:swg1IT04771:parent",
+              "excerpt": "*  Resolve any network issues between the DataPower appliance and\n   the WebSphere MQ server.\n   \n   \n    \n   \n   \n\nPROBLEM SUMMARY\n *  Customers who use the shared conversation function of MQ with\n   an unstable network are likely to see this problem.\n   \n   DataPower might restart with MQ using a network which is\n   experiences errors.",
+              "page_number": 1,
+              "relevance": 0.6058383785000594,
+              "source_file": "techqa://swg1IT04771",
+              "source_id": "S6",
+              "title": "IBM IT04771: A DATAPOWER APPLIANCE CONFIGURED FOR MQ SHARING CONVERSATIONS MIGHT RESTART IF THE NETWORK IS UNSTABLE - United States",
+              "tokens": 51
+            },
+            {
+              "applicability": "IBM IC89569: MQ FRONTSIDE HANDLER QUIESCE BEHAVIOR IS CHANGED TO HANDLE PENDING MQGET CORRECTLY. - United States\n\nSUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR.\n    \n   \n   \n\nERROR DESCRIPTION\n *  When Sharing Conversation option is set and quiesce operation\n   was\n   invoked in MQ front side handler while DataPower seding a\n   request to the backend, then\n   after the backside response is returned, a timeout error\n   happens in MQ front s",
+              "chunk_id": "techqa:swg1IC89569:parent",
+              "excerpt": "PROBLEM SUMMARY\n *  DataPower Appliance customers who quiesce MQ Front Side Handler\n   with sharing conversation are likely to see this problem.\n   \n   After quiescing MQ Front Side Handler, PutQueue of MQ Front Side\n   Handler for the ongoing transaction would fail if MQ Queue\n   Manager of MQ Front Side Handler is using sharing conversation.",
+              "page_number": 1,
+              "relevance": 0.5891906325930835,
+              "source_file": "techqa://swg1IC89569",
+              "source_id": "S7",
+              "title": "IBM IC89569: MQ FRONTSIDE HANDLER QUIESCE BEHAVIOR IS CHANGED TO HANDLE PENDING MQGET CORRECTLY. - United States",
+              "tokens": 55
+            },
+            {
+              "applicability": "IBM IC99575: FAILED TO DETECT NETWORK FAILURE IMMEDIATELY WITH SHARED CONVERSATION ENABLED IN MQ QUEUE MANAGER - United States\n\nFIXES ARE AVAILABLE\nFix packs for DataPower B2B Appliance version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034956]\nFix packs for DataPower Integration Appliance version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034957]\nFix packs for DataPower Service Gateway version 6.0 [http://www-01.ibm.com/support/docview.wss?uid=swg24034959]\nFix packs fo",
+              "chunk_id": "techqa:swg1IC99575:parent",
+              "excerpt": "PROBLEM SUMMARY\n *  Affected is use of MQ sharing conversation.\n   \n   \n   DataPower MQ Components (MQ Front Side Handler and MQ url-open)\n   might not detect a network error immediately.",
+              "page_number": 1,
+              "relevance": 0.5720310124159894,
+              "source_file": "techqa://swg1IC99575",
+              "source_id": "S8",
+              "title": "IBM IC99575: FAILED TO DETECT NETWORK FAILURE IMMEDIATELY WITH SHARED CONVERSATION ENABLED IN MQ QUEUE MANAGER - United States",
+              "tokens": 31
+            }
+          ],
+          "latency_ms": 13650.393199990503,
+          "original_query": "When should I use conversation sharing in DataPower MQ queue managers?\nMQ version 7.0 introduced a new feature, conversation sharing. Are there any special values on DataPower when configuring conversation sharing?",
+          "original_tokens": 6886,
+          "retries": 0,
+          "rewrite_fallback": true,
+          "rewritten_query": "When should I use conversation sharing in DataPower MQ queue managers? MQ version 7.0 introduced a new feature, conversation sharing. Are there any special values on DataPower when configuring conversation sharing?",
+          "status": "answered",
+          "tool_called": true
+        }
+      },
+      "question_id": "DEV_Q215"
+    },
+    {
+      "group_sha256": "9d01d56939f20890ec799940fa86f8763d83806a31c8d25dfebace4353760671",
+      "original_run": {
+        "answer_quality": 0.7142857142857143,
+        "answerable": true,
+        "answered": true,
+        "error": null,
+        "expected_document": "swg21980860",
+        "hit_at_10": 1.0,
+        "hit_at_5": 1.0,
+        "latency_ms": 15166.764899971895,
+        "mrr": 1.0,
+        "question_id": "DEV_Q254",
+        "refused": false,
+        "response": {
+          "answer": "Code the appropriate security definitions for FEK.CMD.SEND and FEK.CMD.SEND.CLEAR. [S1]",
+          "confidence": 0.818,
+          "sources": [
+            {
+              "chunk_id": "techqa:swg21980860:parent",
+              "page_number": 1,
+              "quote": "Code the appropriate security definitions for FEK.CMD.SEND and FEK.CMD.SEND.CLEAR.",
+              "source_file": "techqa://swg21980860",
+              "source_id": "S1"
+            }
+          ]
+        },
+        "trace": {
+          "candidate_ids": [
+            "techqa:swg21980860:parent",
+            "techqa:swg21047577:parent",
+            "techqa:swg1PK44012:parent",
+            "techqa:swg1PI61854:parent",
+            "techqa:swg1PM64839:parent",
+            "techqa:swg1PQ03199:parent",
+            "techqa:swg1PM64372:parent",
+            "techqa:swg1PQ62210:parent",
+            "techqa:swg1PI64166:parent",
+            "techqa:swg1PN76616:parent"
+          ],
+          "context_tokens": 2105,
+          "evidence": [
+            {
+              "applicability": "IBM RDz TSO EXIT IKJEESX0 TERMINATES with RC04 - United States\n\nIKJEESX0 TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n IBM Rational Developer for z Systems (RDz) using TSO Send command may result in the error IKJ79154I for TSO EXIT IKJEESX0, RC 04\n\n\nSYMPTOM\nIssuing the TSO SEND command in a batch job may terminate with this message: \n\nIKJ79154I INSTALLATION EXIT IKJEESX0 REQUESTED TERMINATION. \nIKJ79154I REASON CODE X'00000004'. \n\n\nCAUSE\nThe RDz TSO Send command will invoke a TSO exit, IKJEESX0",
+              "chunk_id": "techqa:swg21980860:parent",
+              "excerpt": "Code the appropriate security definitions for FEK.CMD.SEND and FEK.CMD.SEND.CLEAR.",
+              "page_number": 1,
+              "relevance": 0.8738649519385153,
+              "source_file": "techqa://swg21980860",
+              "source_id": "S1",
+              "title": "IBM RDz TSO EXIT IKJEESX0 TERMINATES with RC04 - United States",
+              "tokens": 20
+            },
+            {
+              "applicability": "IBM EYU9XENF RC 20 Reason code 56 Invocation error - United States\n\nEYU9XENF RC = 20 RC20 Reason code 56 RSN56 Invocation 5655M1501 R100 R102 R310 5655-M15 5655M15 HCP3100 JCP3102 5655M1500 R320 R50M JCI650M 5655S9700 R600 R60M 5655-S97 5655S97 JCI660M R700 R70M JCI670M 5655Y0400 R800 R80M 5655-Y04 5655Y04 FMID JCI680M CPSM cpsmpddb TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n You follow the instructions to add EYU9XENF to the TSO authorized command table. But, when you enter the command from ",
+              "chunk_id": "techqa:swg21047577:parent",
+              "excerpt": "Correct the TSO STEPLIB library allocation to ensure all concatenated libraries are authorized OR invoke EYU9XENF using a TSO batch job as follows:",
+              "page_number": 1,
+              "relevance": 0.5913246799596248,
+              "source_file": "techqa://swg21047577",
+              "source_id": "S2",
+              "title": "IBM EYU9XENF RC 20 Reason code 56 Invocation error - United States",
+              "tokens": 23
+            },
+            {
+              "applicability": "IBM PK44012: BATCH SPOC ENDED WITH RC08 WHEN ISSUED QRY OLC WITHOUT ROUTE - United States\n\nz/os  A FIX IS AVAILABLE\nObtain the fix for this APAR.\n\n\nSUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR.\n    \n   \n   \n\nERROR DESCRIPTION\n *  We issued QRY OLC LIBRARY(OLCSTAT) SHOW(ALL) without ROUTE, and\n   the Batch SPOC utility ended with RC08.\n   This is similar command as INITIATE OLC and TERMINATE OLC, and\n   send only to command master. So, we ",
+              "chunk_id": "techqa:swg1PK44012:parent",
+              "excerpt": "IMP2       00000010  0000400C  Invalid cmd for XRF alternate\n      IMP1       00000004  00001000  IMS not master, cmd ignored\n   \n   Response for: QUERY OLC LIBRARY(OLCSTAT) SHOW(ALL)\n   MbrName    CC Library    ACBLIB   FMTLIB  MODBLKS  Modid DSName\n   ---------------------------------------------------------------\n   IMP5        0 OLCSTAT         A        A        A      0 IMS10P\n   \n   =============================\n   \n   New Function for CSLOMCMD/CSLOMI APIs, TSO SPOC (DFSSPOC), Batch\n   SPOC (CSLUSPOC), REXX SPOC API\n   ----------------------------------------------------------------\n   A new enhancement is being introduced with this maintenance that\n   allows the user to specify ROUTE=% as it pertains to the routing\n   of a command to command processing clients within the IMSplex.\n   \n   When ROUTE=% is specified, OM routes the command to the first",
+              "page_number": 1,
+              "relevance": 0.5837832639311074,
+              "source_file": "techqa://swg1PK44012",
+              "source_id": "S3",
+              "title": "IBM PK44012: BATCH SPOC ENDED WITH RC08 WHEN ISSUED QRY OLC WITHOUT ROUTE - United States",
+              "tokens": 146
+            },
+            {
+              "applicability": "IBM PI61854: MSGDFS3596E RETCODE=FFFFFC70, RSNCODE=00000064 AT /OPN TIME ON A ISC/TCPIP IMS SESSION WITH CICS. - United States\n\nz/os  A FIX IS AVAILABLE\nObtain the fix for this APAR.\n\n\nSUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR.\n    \n   \n   \n\nERROR DESCRIPTION\n *  On a IMS-CICS ISC link via TCPIP the following error message\n   is received as response to a /OPN command:\n   DFS3596E ISC TCPIP DETECTED AN ERROR, SENDACK, RETCODE=FFFFFC70,\n",
+              "chunk_id": "techqa:swg1PI61854:parent",
+              "excerpt": "CICS was issued.\n   2. DFSCTER0 was invoked to perform the signon.  DFSCTER0\n   called a signon exit DFSCSGN0.\n   3. DFSCSGN0 rejected the signon, set up R15 with a negative\n   value x'FFFFFC70' as a complemented value of a user defined\n   message number x'390' (912).\n   4. DFSCTER0 set a reason code of 100 (x'64') upon returning\n   to the caller.\n   5. The ISC TCP/IP DDM logic failed to detect this negative\n   value in R15, issued MSGDFS3595E RETCODE=FFFFFC70, RSNCODE=\n   00000064.",
+              "page_number": 1,
+              "relevance": 0.5595720016958479,
+              "source_file": "techqa://swg1PI61854",
+              "source_id": "S4",
+              "title": "IBM PI61854: MSGDFS3596E RETCODE=FFFFFC70, RSNCODE=00000064 AT /OPN TIME ON A ISC/TCPIP IMS SESSION WITH CICS. - United States",
+              "tokens": 104
+            },
+            {
+              "applicability": "IBM PM64839: RECEIVE MESSAGE - TSOLNK RC=20 (DEC) REASON CODE=24 (DEC), WHEN RUNNING IMS BATCH WITH SAF CONTROLLED AUDITING TO SMF ACTIVE. - United States\n\nz/os  A FIX IS AVAILABLE\nObtain the fix for this APAR.\n\n\nSUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR.\n    \n   \n   \n\nERROR DESCRIPTION\n *  When running an IMS batch job, with SAF controlled auditing\n   to SMF active, receive the following message:\n   \n     TSOLNK RC=20 (Dec) REASON COD",
+              "chunk_id": "techqa:swg1PM64839:parent",
+              "excerpt": "*  Sample JCL to run FM/IMS under TSO as a work around:\n   \n    //STEP01   EXEC PGM=IKJEFT01,DYNAMNBR=100\n    //SYSTSIN  DD *\n      CALL 'FMN.SFMNMOD1(FMNIMS)'\n    //SYSPRINT DD SYSOUT=*\n    //SYSTSPRT DD SYSOUT=*\n    //FMIMSIN DD *\n    $$FILEM IEB REGNTYPE=DLI,\n       .\n       .\n       .\n    $$FILEM     PROC=*\n    EXIT\n    /*",
+              "page_number": 1,
+              "relevance": 0.5564060824580603,
+              "source_file": "techqa://swg1PM64839",
+              "source_id": "S5",
+              "title": "IBM PM64839: RECEIVE MESSAGE - TSOLNK RC=20 (DEC) REASON CODE=24 (DEC), WHEN RUNNING IMS BATCH WITH SAF CONTROLLED AUDITING TO SMF ACTIVE. - United States",
+              "tokens": 66
+            },
+            {
+              "applicability": "IBM PQ03199: LPR FAILS WITH ABEND0D6 REASON CODE 22 WHEN TSO PREFIX OR BATCH JOB USERID STARTS WITH CHARACTERS 'JOB' - United States\n\nz/os  A FIX IS AVAILABLE\nObtain the fix for this APAR.\n\n\nSUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR.\n    \n   \n   \n\nERROR DESCRIPTION\n *  LPR fails with abendS00D6 rsn00000022 when invoked from a batch\n   job with a userid starting with 'JOB'.  The same error occurs\n   if LPR is invoked under interactive T",
+              "chunk_id": "techqa:swg1PQ03199:parent",
+              "excerpt": "*  Change the TSO PREFIX or batch job userid to something other\n   than JOBxxxxx.",
+              "page_number": 1,
+              "relevance": 0.554703606561255,
+              "source_file": "techqa://swg1PQ03199",
+              "source_id": "S6",
+              "title": "IBM PQ03199: LPR FAILS WITH ABEND0D6 REASON CODE 22 WHEN TSO PREFIX OR BATCH JOB USERID STARTS WITH CHARACTERS 'JOB' - United States",
+              "tokens": 15
+            },
+            {
+              "applicability": "IBM PQ62210: ABEND S026 REASON=0E0D0101 DURING TERMINATION. - United States\n\nSUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR.\n    \n   \n   \n\nERROR DESCRIPTION\n *  During termination DFSRTM00 does a freemain of all previously\n   loaded modules. This includes the XCF event exit. Since DFSMRCL0\n   is the first resource mgr in IEAVTRML, this happens very early\n   in the MVS cleanup process for the region. The XCF structures\n   remain connected, a",
+              "chunk_id": "techqa:swg1PQ62210:parent",
+              "excerpt": "PROBLEM SUMMARY\n *  ****************************************************************\n   * USERS AFFECTED: All IMS R810 customers running DL/I batch    *\n   *                 applications in an NWAY data sharing         *\n   *                 environment.                                 *\n   ****************************************************************\n   * PROBLEM DESCRIPTION: The customer was running batch DL/I     *\n   *                      applications in a data sharing          *\n   *                      environment. A batch job was            *\n   *                      terminated with an ABENDS0026 with      *\n   *                      a REASON code of 0E0D0101.              *\n   ****************************************************************\n   * RECOMMENDATION: INSTALL CORRECTIVE SERVICE FOR APAR/PTF      *\n   ****************************************************************",
+              "page_number": 1,
+              "relevance": 0.5456946295569475,
+              "source_file": "techqa://swg1PQ62210",
+              "source_id": "S7",
+              "title": "IBM PQ62210: ABEND S026 REASON=0E0D0101 DURING TERMINATION. - United States",
+              "tokens": 330
+            }
+          ],
+          "latency_ms": 15166.384699987248,
+          "original_query": "Why do I receive the message, \"IKJ79154I INSTALLATION EXIT IKJEESX0 REQUESTED TERMINATION. \" for a TSO SEND command?\nIf you issue the TSO SEND command in a batch job and receive this message:\n\nIKJ79154I INSTALLATION EXIT IKJEESX0 REQUESTED TERMINATION.\nIKJ79154I REASON CODE X'00000004'.",
+          "original_tokens": 11174,
+          "retries": 0,
+          "rewrite_fallback": true,
+          "rewritten_query": "Why do I receive the message, \"IKJ79154I INSTALLATION EXIT IKJEESX0 REQUESTED TERMINATION. \" for a TSO SEND command? If you issue the TSO SEND command in a batch job and receive this message: IKJ79154I INSTALLATION EXIT IKJEESX0 REQUESTED TERMINATION. IKJ79154I REASON CODE X'00000004'.",
+          "status": "answered",
+          "tool_called": true
+        }
+      },
+      "question_id": "DEV_Q254"
+    },
+    {
+      "group_sha256": "b9ccd00b3712b8e70f08755d3810620f34a191d677d8b2fce056ae66c08150b7",
+      "original_run": {
+        "answer_quality": 0.9704142011834319,
+        "answerable": true,
+        "answered": true,
+        "error": null,
+        "expected_document": "swg21642839",
+        "hit_at_10": 1.0,
+        "hit_at_5": 1.0,
+        "latency_ms": 15380.64009998925,
+        "mrr": 0.5,
+        "question_id": "DEV_Q306",
+        "refused": false,
+        "response": {
+          "answer": "Please do the following: \n\n 1. Backup the \\Datacap\\DotEdit\\apps.ini file. If the file does not exist, create a new one or copy it from \\Datacap\\tmweb.net. \n 2. Open it in notepad.exe or other editor. \n 3. Find the app to be modified (for example [APT]). If it does not exist, create a new section with the application name listed between square brackets. \n 4. Add a new line containing BatchLimit=xxx, where xxx is the number of batches to be displayed. \n 5. Save the file. [S2]",
+          "confidence": 0.604,
+          "sources": [
+            {
+              "chunk_id": "techqa:swg21642839:parent",
+              "page_number": 1,
+              "quote": "Please do the following: \n\n 1. Backup the \\Datacap\\DotEdit\\apps.ini file. If the file does not exist, create a new one or copy it from \\Datacap\\tmweb.net. \n 2. Open it in notepad.exe or other editor. \n 3. Find the app to be modified (for example [APT]). If it does not exist, create a new section with the application name listed between square brackets. \n 4. Add a new line containing BatchLimit=xxx, where xxx is the number of batches to be displayed. \n 5. Save the file.",
+              "source_file": "techqa://swg21642839",
+              "source_id": "S2"
+            }
+          ]
+        },
+        "trace": {
+          "candidate_ids": [
+            "techqa:swg21694159:parent",
+            "techqa:swg21642839:parent",
+            "techqa:swg27048683:parent",
+            "techqa:swg21676844:parent",
+            "techqa:swg21597217:parent",
+            "techqa:swg21644372:parent",
+            "techqa:isg3T1024750:parent",
+            "techqa:swg21280068:parent",
+            "techqa:swg1IO19842:parent",
+            "techqa:swg1IO20050:parent"
+          ],
+          "context_tokens": 2184,
+          "evidence": [
+            {
+              "applicability": "IBM Why my IBM Datacap Taskmaster DotScan shows batches in verification step? - United States\n\nDCAP; TMWeb TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n I am working on IBM Datcap Taskmaster Capture 8.1.0.2. When I login to the Taskmaster DotScan tool as administrator, I can see batches listed for the verification step. Since the verification step cannot be executed from DotScan, I am not sure if I should be even allowed to see all the batches pending for the verification step. \n\nRESOLVING THE ",
+              "chunk_id": "techqa:swg21694159:parent",
+              "excerpt": "This is happening because when configuring the workflow in the Administrator tab in Taskmaster Web, the Verify task was assigned to use Multiple programs.- If it is changed to use DotEdit as the program to use for Verify, then you will not see Verify as one of the options in DotScan in the first place, so the current situation will not arise.",
+              "page_number": 1,
+              "relevance": 0.606551046171599,
+              "source_file": "techqa://swg21694159",
+              "source_id": "S1",
+              "title": "IBM Why my IBM Datacap Taskmaster DotScan shows batches in verification step? - United States",
+              "tokens": 68
+            },
+            {
+              "applicability": "IBM How do I adjust the number of batches that DotEdit displays in IBM Datacap Taskmaster Capture? - United States\n\nbatch; list TECHNOTE (FAQ)\n\nQUESTION\n I want to increase the number of batches that IBM Datacap DotEdit displays. It only displays 100 and there are more than 100 batches available. What needs to be done to increase the list? \n\nCAUSE\nThe default limit is 100 rows, but this number can be modified by editing the file \\Datacap\\DotEdit\\apps.ini file.\n\nANSWER\nPlease do the following: \n\n",
+              "chunk_id": "techqa:swg21642839:parent",
+              "excerpt": "Please do the following: \n\n 1. Backup the \\Datacap\\DotEdit\\apps.ini file. If the file does not exist, create a new one or copy it from \\Datacap\\tmweb.net. \n 2. Open it in notepad.exe or other editor. \n 3. Find the app to be modified (for example [APT]). If it does not exist, create a new section with the application name listed between square brackets. \n 4. Add a new line containing BatchLimit=xxx, where xxx is the number of batches to be displayed. \n 5. Save the file.",
+              "page_number": 1,
+              "relevance": 0.5442648684805993,
+              "source_file": "techqa://swg21642839",
+              "source_id": "S2",
+              "title": "IBM How do I adjust the number of batches that DotEdit displays in IBM Datacap Taskmaster Capture? - United States",
+              "tokens": 115
+            },
+            {
+              "applicability": "IBM Datacap Version 9.0.1 Feature Pack 2 - Readme - United States\n\nPRODUCT README\n\nABSTRACT\n IBM Datacap 9.0.1 Feature Pack 2 - Readme \n\nCONTENT\nAbout IBM Datacap 9.0.1 Feature Pack 2 \n\nReview this document for installation instructions and other important information before you install IBM® Datacap 9.0.1 Feature Pack 2, which cumulatively contains all feature pack updates since IBM Datacap Version 9.0.1 was released. \n\n \n\nUpgrading to IBM Datacap 9.0.1 Feature Pack 2 \n\nTo upgrade your system to",
+              "chunk_id": "techqa:swg27048683:parent",
+              "excerpt": "marking an item for Rescan, Review or Delete IO24380 GetBarcodeBP() action no longer assigns barcode value to a field automatically in 9.0.1 IO24380 PageIDByBCSep action causes script error in 9.0.1 with certain images that contain barcodes have large blobs of data on it. IO24404 Vscancl.aspx does not show PDF thumbnail. IO24405 If Start Batch Panel fails validation, second time Submit crashes Desktop IO24412 mvscan() scan hangs in tree mode, if folder has less than max docs, and there is a subfolder in it IO24442 Fingerprint positions written to setup DCO even when FPXML is enabled IO24450 Datacap Desktop crashes on Verify when using SystemT extractors and pulling back ALL values into parent and child fields IO24462 Unable to use ISIS scan feature within Datacap 9.0.1 Fastdoc IO24471 When logging off, the running batch should be held even if the user did not hold it manually. IO24495",
+              "page_number": 1,
+              "relevance": 0.5187892535877943,
+              "source_file": "techqa://swg27048683",
+              "source_id": "S3",
+              "title": "IBM Datacap Version 9.0.1 Feature Pack 2 - Readme - United States",
+              "tokens": 172
+            },
+            {
+              "applicability": "IBM Unable to connect to application in DotEdit or DotScan on client for IBM Datacap Taskmaster Capture - United States\n\nadmin database TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n On a client environment DotEdit and Dot Scan are unable to connect to the Admin Database for any application in IBM Datacap TaskmasterCapture. \n\nSYMPTOM\nIn the DotEdit logs the client system receives generic error \"CConnection::Couldn't secure parameters\".\n\n\nCAUSE\nEither the encryption keys are not valid or a roamin",
+              "chunk_id": "techqa:swg21676844:parent",
+              "excerpt": "Copy from Taskmaster server C:\\Datacap\\Taskmaster\\dc_KTF.xml to your local system C:\\Datacap\\Taskmaster\n\n\n 1. On client system open a Command Prompt window \n 2. Type\n    cd c:\\Datacap\\Taskmaster \n 3. Then type\n    dcskey.exe -i \n 4. If you are still unable to connect then Remove the client system from the domain \n 5. On the client delete the local folder of the domain user \n 6. Reconnect the client to the domain \n 7. Log into client with domain user \n 8. Repeat steps 1 through 4 and connect with DotEdit and DotScan",
+              "page_number": 1,
+              "relevance": 0.5106896257050029,
+              "source_file": "techqa://swg21676844",
+              "source_id": "S4",
+              "title": "IBM Unable to connect to application in DotEdit or DotScan on client for IBM Datacap Taskmaster Capture - United States",
+              "tokens": 108
+            },
+            {
+              "applicability": "IBM User unable to run batches from the Taskmaster Client Job Monitor in IBM Datacap Taskmaster Capture - United States\n\nTaskmaster Client; tmclient.exe; Run Task dialog; Job Monitor; privilege TECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n An operator cannot run batches through Taskmaster Client's Job Monitor window. \n\nSYMPTOM\nWhen logged into Taskmaster Client, the operator can only run batches using an Operations shortcut. Running a batch through the general Job Monitor does not work by doubl",
+              "chunk_id": "techqa:swg21597217:parent",
+              "excerpt": "Grant the user or group the 'Run Task dialog' privilege.\n\n\n 1. Run Taskmaster Client and login as admin or a user with full rights. \n 2. From the Settings menu select Users (or Groups). \n 3. Highlight the user (or group) to grant the privilege to and check the Run Task dialog box. \n 4. Click Apply, then Done to close the window.",
+              "page_number": 1,
+              "relevance": 0.49584642295411513,
+              "source_file": "techqa://swg21597217",
+              "source_id": "S5",
+              "title": "IBM User unable to run batches from the Taskmaster Client Job Monitor in IBM Datacap Taskmaster Capture - United States",
+              "tokens": 76
+            },
+            {
+              "applicability": "IBM Unable to save daily metrics values entered in List view - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n The metric store is initialized with a daily calendar. User entered values for a daily metric type in the List view are not saved when clicking the OK button.\nValues for all other business calendar levels can be saved without any problems.\n\nAnother known problem is when attempting to remove metrics from a strategy element fails in a similar fashion if there are a large num",
+              "chunk_id": "techqa:swg21644372:parent",
+              "excerpt": "Increase the dispatcher limit to 8192 using the following steps :",
+              "page_number": 1,
+              "relevance": 0.4828620588305161,
+              "source_file": "techqa://swg21644372",
+              "source_id": "S6",
+              "title": "IBM Unable to save daily metrics values entered in List view - United States",
+              "tokens": 11
+            },
+            {
+              "applicability": "IBM The \"Job submission requests\" is larger than \"Jobs submitted\" - United States\n\nTECHNOTE (TROUBLESHOOTING)\n\nPROBLEM(ABSTRACT)\n In \"badmin perfmon view\" output, the \"Job submission requests\" is larger than \"Jobs submitted\". \n\nCAUSE\nWhen a user reaches his MAX PENDING JOBS limitation, the job submission requests sent to MBATCHD will be rejected. Meanwhile, a job ID is consumed. That's why you can see the \"Job submission requests\" is larger than \"Jobs submitted\" in the \"badmin perfmon view\" outp",
+              "chunk_id": "techqa:isg3T1024750:parent",
+              "excerpt": "If the user's max pending jobs limitation is desired, it is expected behavior. Otherwise, you can enlarge the user's MAX PENDING JOBS limitation if needed. Or investigate the reason of the rejected jobs and resolve it accordingly.\n\n\nThe parameter MAX_PEND_JOBS can be set in lsb.params. After setting this parameter, please restart mbatchd to take effect.",
+              "page_number": 1,
+              "relevance": 0.4778193222755187,
+              "source_file": "techqa://isg3T1024750",
+              "source_id": "S7",
+              "title": "IBM The \"Job submission requests\" is larger than \"Jobs submitted\" - United States",
+              "tokens": 69
+            },
+            {
+              "applicability": "IBM All ToDo's view shows Due Date with periods (dots) rather than slashes - United States\n\nperiod; dot; date syntax; date format; date formatting; between numbers; day; month; year; slash notation; forward slash; backslash; symbol; character TECHNOTE (FAQ)\n\nQUESTION\nIn the ToDo's > All ToDo's view of your mail file in Lotus Notes/Domino® the Due Date column shows in dot notation (ex: 05.07.2007) instead of 05/07/2007 while the Status column show the date as expected, with the slashes.\n\nCAUSE\nTh",
+              "chunk_id": "techqa:swg21280068:parent",
+              "excerpt": "The reason this changes only the Due Date column and not the Status column is because the Due Date column is based on the DueDateTime field in the ToDo document. This is a Date/Time field type, and because it is not subjected to any further manipulation by Notes formula language it is formatted based upon the OS Regional Settings.",
+              "page_number": 1,
+              "relevance": 0.4580101844603855,
+              "source_file": "techqa://swg21280068",
+              "source_id": "S8",
+              "title": "IBM All ToDo's view shows Due Date with periods (dots) rather than slashes - United States",
+              "tokens": 62
+            }
+          ],
+          "latency_ms": 15380.426699994132,
+          "original_query": "Unable to view batches in DotEdit\nHi all,\n\nIs there any limitation to view batches in Dot Edit client application, because I am unable to see batches with QID more than 1119.\n\nAlso unable to see batches with status as \"Pending\".",
+          "original_tokens": 5346,
+          "retries": 0,
+          "rewrite_fallback": false,
+          "rewritten_query": "Unable to view batches in DotEdit\nHi all,\n\nIs there any limitation to view batches in Dot Edit client application, because I am unable to see batches with QID more than 1119.\n\nAlso unable to see batches with status as 'Pending'.",
+          "status": "answered",
+          "tool_called": true
+        }
+      },
+      "question_id": "DEV_Q306"
+    }
+  ],
+  "selection": "tune-only, 10 unique query groups; historical body-F1 >= .6 and correct citation",
+  "status": "historically successful; factual completeness awaits human annotation"
+}

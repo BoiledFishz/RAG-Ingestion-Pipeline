@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="3" time="1.620" timestamp="2026-10-05T18:54:47.541504-07:00" hostname="szy"><testcase classname="tests.project2.test_v02_documents" name="test_v02_scope_is_limited_to_registered_data_predicates" time="0.230"><failure message="ValueError: AC12-02: unexpected/oracle request keys">def test_v02_scope_is_limited_to_registered_data_predicates() -&gt; None:
+&gt;       result = validator().validate(DOCS, ROOT)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\project2\test_v02_documents.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+specs\project2\v0.2\check_docs.py:232: in validate
+    ensure(set(request) == {"sample_id", "query", "analysis_operation", "include_samples", "sample_limit"}, f"{identifier}: unexpected/oracle request keys")
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'AC12-02: unexpected/oracle request keys'
+
+    def ensure(condition: bool, message: str) -&gt; None:
+        if not condition:
+&gt;           raise ValueError(message)
+E           ValueError: AC12-02: unexpected/oracle request keys
+
+specs\project2\v0.2\check_docs.py:49: ValueError</failure></testcase><testcase classname="tests.project2.test_v02_documents" name="test_protected_matrix_edit_is_rejected" time="0.320" /><testcase classname="tests.project2.test_v02_documents" name="test_hash_rewriting_cannot_authorize_a_new_scenario" time="0.281" /></testsuite></testsuites>

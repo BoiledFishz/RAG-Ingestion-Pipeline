@@ -3,3 +3,16 @@
 *.py text eol=lf
 *.toml text eol=lf
 *.pdf binary
+
+# Frozen Project 2 and evaluation evidence must retain exact hashed bytes.
+/specs/project2/** -text
+/evals/project2-v1/** -text
+/evals/protocol_v0/** -text
+/audit/project2-v1/** -text
+/enterprise-ai-agent/agents/project2/** -text
+/enterprise-ai-agent/tests/project2/** -text
+/enterprise-ai-agent/api/project2_main.py -text
+/enterprise-ai-agent/models/project2.py -text
+/enterprise-ai-agent/tools/techqa_document_query.py -text
+/splits.json -text
+/splits.json.sha256 -text

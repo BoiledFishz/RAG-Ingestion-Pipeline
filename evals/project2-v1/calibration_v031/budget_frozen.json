@@ -1,0 +1,12 @@
+{
+  "status": "frozen",
+  "version": "project2-v0.3.1-budget-v1",
+  "limits": {
+    "attempts": 19,
+    "llm_calls": 6,
+    "seconds": 37.941018
+  },
+  "selected_batch": 2,
+  "decision_manifest_sha256": "619aaaad88b5f2c075fa1d7d93b8fce27d1533d691d5b4dec5fcd267a8e169f3",
+  "spec_manifest_sha256": "80455fc850af285c0c4af7998f2ead9061b9b13e649037bd64bebe931971df28"
+}

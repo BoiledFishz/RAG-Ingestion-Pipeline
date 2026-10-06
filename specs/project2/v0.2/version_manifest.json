@@ -1,0 +1,27 @@
+{
+  "version": "v0.2",
+  "authorization_date": "2026-10-05",
+  "files": {
+    "acceptance_scenarios.csv": "0f4d24796d9fcf8723c717999b8b4170bee9c9485d2e250d67cd6527b808b413",
+    "approval_record.md": "4261db500b9fcc04108cb308efd7903b2134cff0c976fc4f3b1622e363eeef70",
+    "check_docs.py": "dc767c12506f142fd2518c3f0b04d8d6163fc498f8d776262128cee062d00706",
+    "clarifications.md": "45dc6a0cf119f36595c21a78ed806bd581c83a55438e1bf21220fb0869a63db3",
+    "delta.json": "79f4b5c419a1db7b3635eac01803e81740fbae437ac48c6739d9dfb3ef929c50",
+    "delta.md": "16356db5287f9573c29138435494629e9cdb23fb9a49d6171ec23687bd59ec04",
+    "plan.md": "5bcb62ed931773092015ed6b9fddacdda7f2e984562e95a6b6097c0a3159960b",
+    "requirements_v0.1.md": "7aa3441bf33c7d3b94501d99d6a7e99e0ba486e03413abf3e530c6a847f6ea7b",
+    "review_sheet.md": "580f62088c9173dfb800f4fb9d687dd4ea6929d2e503233e6e4ff4a12b7ade0e",
+    "review_sheet_signed_2026-10-05.md": "81cea2ea6241f0f51da3eecd45d999a99ebb2c939c6445e57197a0673a00b048",
+    "spec.md": "f9fbb7925bfc971e18f4b45213cabd13e6bc72253b8e18b5d7960679420209f6",
+    "task_preregistration.json": "ecd190e06afc173ab485ccba8c1a16e6256ede19b575ecd1ceb00891de86d63f",
+    "task_preregistration.json.sha256": "981c10858e4642fb14995f5c5447bfeccdb9e7242c1f5f443cd63451df62c2ea",
+    "tasks.md": "f457b121170c34070252f754eb324984594f13f77426f51f81b39a1d846afb35",
+    "traceability.csv": "14c308d2759dd8c0b127d385770b650753bca8d405bac67da5116c0a5790bde2",
+    "zero_predicate_registration.json": "317217920ffea15edab5578518114dbcb31cdf78059bbe920872afc08953701d"
+  },
+  "excluded": [
+    "version_manifest.json",
+    "approval_addendum.md"
+  ],
+  "exclusion_reason": "Avoid recursive self/authorization hash; addendum quotes this manifest hash"
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="0.952" timestamp="2026-10-05T22:48:19.837513-07:00" hostname="szy"><testcase classname="tests.project2.test_v031_reporting" name="test_prior_batch_count_and_censor_are_read_from_immutable_records" time="0.082"><failure message="AttributeError: module 'p2_report' has no attribute 'old_batch'">def test_prior_batch_count_and_censor_are_read_from_immutable_records():
+        m=load();folder=ROOT/'evals/project2-v1/calibration_v03'
+        rows=[json.loads(x) for x in (folder/'requests.jsonl').read_text(encoding='utf-8').splitlines()]
+&gt;       batch=m.old_batch(folder)
+              ^^^^^^^^^^^
+E       AttributeError: module 'p2_report' has no attribute 'old_batch'
+
+tests\project2\test_v031_reporting.py:17: AttributeError</failure></testcase><testcase classname="tests.project2.test_v031_reporting" name="test_comparison_rendering_is_compact_and_contains_ci_and_declines" time="0.002"><failure message="AttributeError: module 'p2_report' has no attribute 'comparison_text'">def test_comparison_rendering_is_compact_and_contains_ci_and_declines():
+        m=load()
+        value={'new_version':{'complete':{'numerator':9,'denominator':12,'mean':.75,'ci95':[.4,.9]}},'regression_items':[{'sample_id':'an official query'}]}
+&gt;       text=m.comparison_text(value)
+             ^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'p2_report' has no attribute 'comparison_text'
+
+tests\project2\test_v031_reporting.py:24: AttributeError</failure></testcase></testsuite></testsuites>

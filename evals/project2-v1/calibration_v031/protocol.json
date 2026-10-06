@@ -1,0 +1,1978 @@
+{
+  "version": "project2-v0.3.1-whole-batches-v1",
+  "authorization_date": "2026-10-05",
+  "partition": "tune",
+  "seed": 20261005,
+  "repeats": 3,
+  "paths": [
+    "rag_only",
+    "combination"
+  ],
+  "samples": [
+    {
+      "sample_id": "P2-COMPARE-01",
+      "query": "Does ODM 8.5.1 support MQ 9.0?\n\n\nDoes ODM 8.5.1 support MQ 9.0 where ODM Rule Execution Server is running on WAS 8.5.0.2 (embedded with ODM)?\n\nNo MQ version is specified in ODM 8.5.1 System Requirements.",
+      "query_sha256": "f38a6ef8bb91bc101429357c4fb15940803f2f4151c582bed8fdaf254669e605",
+      "analysis_operation": "compare_document_counts",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-COMPARE-02",
+      "query": "I can't find the JDBC driver for my DB2.\nI am running BPM 8.0.1 with DB2 10.1.0.\n\n \n\nReading this technote:\nhttp://www-01.ibm.com/support/docview.wss\n\n\"Use the JDBC driver of your database product instead of the JDBC delivered with IBM Business Process Manager (BPM)\"I am trying to download the latest JDBC driver from the following technote:\n\nhttp://www-01.ibm.com/support/docview.wss\n\nIt looks like the link for the JDBC driver download for DB2 10.1.0 is greyed out. Where can I download this driver?",
+      "query_sha256": "29c0b8e6079d0d0e18954ee5840b83d528230f8749866c8a39298cc3d70c972e",
+      "analysis_operation": "compare_document_counts",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-COMPARE-03",
+      "query": "Help with Action required for IIB H.E. V9 and WMB H.E. V8 for security vulnerabilities in Red Hat Linux (CVE-2011-5320, CVE-2017-15670, CVE-2017-15671, CVE-2017-15804)\nI need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux. Where can I find this information? ",
+      "query_sha256": "cee5b19dac28af6d557499d663a97e1c7bb421b4b95500659c69705bb9db7858",
+      "analysis_operation": "compare_document_counts",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-COMPARE-04",
+      "query": "A .NET API error is thrown when attempting to install ICC 4.0.1\nA .NET API error is thrown when attempting to install ICC 4.0.1. The error claims that either an incorrect version of the IBM FileNet P8 Content Processing Engine (CPE) .NET API 5.2.1.2 is installed or that it is missing some components.  How do I fix this?",
+      "query_sha256": "aa56577c7b571e7431e687936f97ff38b8bd833d0a1a33b8ef9a5f1a4f3cf263",
+      "analysis_operation": "compare_document_counts",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-COMPARE-05",
+      "query": "Help with Action required for IIB H.E. V9 & WMB H.E. V8 for security vulnerabilities in Red Hat Linux\n\n\nI need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux.\n\nThis is related to CVEID:\nCVE-2017-15277\nCVE-2017-15281\n\nWhere can I find this information?",
+      "query_sha256": "458f9f7f407a99d3c8054bad35a5ee6bee0c48efc9fe448ddf2424dcbddade42",
+      "analysis_operation": "compare_document_counts",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-COMPARE-06",
+      "query": "Are there any probes that can connecto the Nokia NSP EPC v17.9 and Nokia NSP RAN v17.3 using JMS/HTTP?\nThe customer has asked if there are any probes that can connect to their Nokia servers, both of which use a HTTP/JMS interface:\n\n Nokia NSP EPC v17.9 \n Nokia NSP RAN v17.3 ",
+      "query_sha256": "4d8c352599136a4202687efb7c0ef91b0eb6ca606646842464c78a20d0041960",
+      "analysis_operation": "compare_document_counts",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-COMPARE-07",
+      "query": "Help with Action required for IIB H.E.V9 and WMB H.E. V8 for security vulnerabilities in Red Hat Linux\n\n\nI need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux.\n\nWhere can I find this information?",
+      "query_sha256": "be2e9041bbd58a1157e79a6f2b18e20e92ebfdcdd4266a96897b026c384063ba",
+      "analysis_operation": "compare_document_counts",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-COMPARE-08",
+      "query": "Why are the users unable to login to Web GUI 8.1 after I modify timeout to 2147483647 in security.xml file ?\n\n\nI followed the Web GUI 8.1 reference guide here to switching off the session timeout\n\nhttp://www-01.ibm.com/support/knowledgecenter/SSSHTQ_8.1.0/com.ibm.netcool_OMNIbus.doc_8.1.0/webtop/wip/task/web_adm_settimeout.html\n\nAfter I edited /config/cells/JazzSMNode01Cell/security.xml file, modified timeout setting to 2147483647, users are not able to login anymore.",
+      "query_sha256": "509159a37ee8b8b6ec3303c38c35a65a312194afc9a63185e1d1688e72838851",
+      "analysis_operation": "compare_document_counts",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-PLATFORM-01",
+      "query": "Why does my install of the latest Installation Manager on a Linux Ingram Server not function?\n\n\nI've installed the latest Installation Manager on an Ingram Server that I mount to different Linux machines where I have installed WebSphere Application Server. I received the following error when trying to use the Installation Manager:\n\n     00:02.25 ERROR [main] org.eclipse.equinox.log.internal.\n     ExtendedLogReaderServiceFactory safeLogged\n       Application error\n       java.lang.NoClassDefFoundError: org.eclipse.jface.dialogs.\n     ProgressMonitorDialog\n         at java.lang.ClassLoader.defineClassImpl(Native Method)\n         at java.lang.ClassLoader.defineClass(ClassLoader.java:324)\n         at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.\n     defineClass(DefaultClassLoader.java:188)\n         at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.\n     defineClassHoldingLock(ClasspathManager.java:632)\n\nI have unmounted and remounted the drive but does not appear to resolve the issue.",
+      "query_sha256": "3533558486eba01f8f292d6f34377e984e68f507669be8f0d2d747935c72e560",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-PLATFORM-02",
+      "query": "How do to restore corrupted Object server DB using data from Backup Object server in Linux?\nError: E-REG-002-025: Region 'table_store', from directory '/opt/IBM/tivoli/netcool/omnibus/db/NCOMS/', has been recovered in a corrupt state: Extent statistics mismatch Error: E-OBX-102-020: Failed to start the storage system. (-490:Extent statistics mismatch) ",
+      "query_sha256": "bd9c2661a8e3c59e84dcd96fa20e6ac681b365e07ff2d7b46abf782953f082d1",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-PLATFORM-03",
+      "query": "How to start PC DMgr as a Windows service?\n hi all. I just installed BPM 8.5.0.1 Process Center on a Windows 2008 R2 cloud server. The default BPM85 typical installation installs ProcessCenter Quickstart web page for starting the Dmgr and NodeMgr servers using the installation admin user . However, logout stops the services started by and attached to the admin user. I need to have this ProcessCenter (and Deployment Env Process SErvers) BPM85 DMgr / Node/ WASND started as a managed Windows managed service. I didn't see a Service Definition page to select run as Windows service. Can I possibly run BPMConfig -start dmgrprofile as a Windows service or is a profile update to my dmgr (hope not) needed to do this? ",
+      "query_sha256": "ee4b0049cfdeb6e784fa594bc76a70e9027b197609c795e558e686b205516e73",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-PLATFORM-04",
+      "query": "How do I transfer my SPSS 24 license key to a new computer?\nI need to transfer my SPSS 24 license key to a new computer. I was able to download IBM® SPSS® Statistics Standard GradPack 24 for Windows (12-Mo Rental) onto the new computer, but every time I put in the activation code, I am met with this error message: \n\nAuthorization failed.: You are not allowed to generate any more new licenses.\nEnd Of Transaction. \nNo additional authorizations are permitted on this code. \nWhat should I do?\n\n\n\nThis dW Answers question is about an IBM document with the Title: \nSPSS Student Version and Graduate Pack Resources",
+      "query_sha256": "d4cb135e538c84fa527710a34e449e74c62981c91c7b2ac2dfd5a5397efc0947",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-PLATFORM-05",
+      "query": "DSNT408I SQLCODE -401 creating stored procedure CIUSNTSR after upgrading to DB2 11\n\n\nWhy would CIUSNTSR stored procedure creation fail with message DSNT408I and SQLCODE=-401? I am running CICS Interdependency Analyzer for z/OS (CICS IA) CIUDBCQ JCL when the failure occurs. This happened after I upgraded z/OS DB2 to V11.\n\nHere are the messages I receive:\n\n     DSNT408I SQLCODE = -401, ERROR:  THE OPERANDS OF AN ARITHMETIC OR COMPARISON OPERATION ARE\n     NOT COMPARABLE\n     DSNT418I SQLSTATE  = 42818 SQLSTATE RETURN CODE\n     DSNT415I SQLERRP   = DSNXOBFC SQL PROCEDURE DETECTING ERROR\n     DSNT416I SQLERRD   = 930 0  1  -1  0  0 SQL DIAGNOSTIC INFORMATION\n     DSNT416I SQLERRD   = X'000003A2' X'00000000' X'00000001' X'FFFFFFFF' X'00000000' X'00000000'\n     SQL DIAGNOSTIC INFORMATION\n",
+      "query_sha256": "bb80cba03e3e5cedb8b09724d4a5258622d6ca66f221ca3d4d4d39ea8d65de3d",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-PLATFORM-06",
+      "query": "What are the files created in $TEMP on startup of IIB or WMB?\nWhat are the 0 byte files created in $TEMP/.com_ibm_tools_attach directory upon IBM Integration Bus (IIB) / WebSphere Message Broker (WMB) startup?\nFor example: The following files are created on UNIX / Windows if $TEMP is /tmp:\n/tmp/.com_ibm_tools_attach/_attachlock\n/tmp/.com_ibm_tools_attach/_master\n/tmp/.com_ibm_tools_attach/_notifier",
+      "query_sha256": "b410ced83608032ccdde45f342e6ab5d71e9e451ee687a9e733e64776b9ec202",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-PLATFORM-07",
+      "query": "CICS VR FRLOG option that logs changes to VSAM datasets\nIs the information about the NONE option for FRLOG in the CICS VSAM Recovery for z/OS (CICS VR) documentation correct? If it is not, what information is logged when NONE is specified?\n\nI am working on a POC for the Classic change data capture (CDC) for VSAM. In order for Classic CDC to capture changes from a VSAM file, it has to be altered to have a FRLOG option.\n\nAccording to the CICS VR documentation, FRLOG has NULL, NONE, REDO, UNDO, and ALL options. By default I would think FRLOG(ALL) option will give everything in the log. However when using this option, customer cannot run their batch update job after the alter. The file cannot be opened by the batch job. We were told by Classic team to use the FRLOG=NONE option and this option actually worked. I am really confused because according to the manual NONE option will not log any changes. Here is the paragraph from the manual:",
+      "query_sha256": "7072afc9d08f97a44daf59f949d1aeea3364b071daff1f1d4aeac21fc2b9f331",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-PLATFORM-08",
+      "query": "SPSS will not start on Mac\n\n\nI downloaded SPSS about 3 weeks ago. On the day when I downloaded it, it was working fine. Last week, I tried starting SPSS but it did not start. I tried reinstalling it, it still would not open. I've updated JAVA (thought this would be a problem), it slowly opened the program but then now that I have reinstalled it and entered in my code, I've used up my code and I have no authorization. But just now, I started SPSS and the same problem is happening. The IBM SPSS name screen appears but nothing happens.\n\n    SPSS would not start.\n\n    Even if it does start, I have licensing problems.\n",
+      "query_sha256": "7ee07fd36f04f847677be4f49c82f20ce95b7bc66a37a81cbda6ba3f1670df4b",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-01",
+      "query": "Why the exception \"BO Service is not supported or disabled in this profile\" when trying to publish from IID to a local Process Server?\nWhen trying to publish a project from IBM Integration Designer (IID) to the local Process Server, it fails with error ADMA5014E in SystemOut.log. The FFDC log is showing exception of BO Service is not supported or disabled in this profile; Trace:\n\nFFDC Exception:java.lang.ExceptionInInitializerError SourceId:com.ibm.ws.bpm.cmdfrmwrk.task.WBICleanupTask ProbeId:200 java.lang.ExceptionInInitializerError at java.lang.J9VMInternals.initialize(J9VMInternals.java:259) \n....\nCaused by: java.lang.IllegalStateException: BO Service is not supported or disabled in this profile. at com.ibm.ws.bo.BOCore.init(BOCore.java:107) ....",
+      "query_sha256": "5c15a28787a894b4bd4359942911b57751590e8c97271c302f53374ff8524aaa",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-02",
+      "query": "Help with Security Bulletin: IBM MQ Clients can send a specially crafted message that could cause a channel to SIGSEGV. (CVE-2017-1747)\nI need to understand details regarding Security Bulletin: IBM MQ Clients can send a specially crafted message that could cause a channel to SIGSEGV. (CVE-2017-1747). Where can I find this information? ",
+      "query_sha256": "50bb45f5911c496ca2ee75cf6f73ae55019c56ec98714d4086f52f53d16918a0",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-03",
+      "query": "Security Bulletin: Non-configured connections could cause denial of service in IBM WebSphere MQ Internet Pass-Thru (CVE-2017-1118)\nI need to understand details regarding Security Bulletin: Non-configured connections could cause denial of service in IBM WebSphere MQ Internet Pass-Thru (CVE-2017-1118). Where can I find this information?\n",
+      "query_sha256": "53aeba478cc8fecc2769f74d0d2755928332fe04fd9ab9f811072d06e26b213a",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-04",
+      "query": "Help with Security Bulletin: IBM WebSphere MQ MQXR insecure passwords (CVE-2015-2012)\nI need to understand details regarding Security Bulletin: IBM WebSphere MQ MQXR insecure passwords (CVE-2015-2012). Where can I find this information? ",
+      "query_sha256": "1712487d221041a37e0969d5facde7f571b4e6f9acff1e636eeb585629bf7128",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-05",
+      "query": "How to generate Javacores automatically in on hung threads reported in SystemOut.log for WebSphere Application Server?\nNeed Javacores to be generated on hung threads messages reported in SystemOut.log for WebSphere Applicaiton Server.Example:WSVR0605W: Thread has been active for and may be hung. There are in total in the server that may be hung.",
+      "query_sha256": "2231d8d9249b7b7ebd0d491699a1b229517f6d668c60a6c54edf51754e9535fa",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-06",
+      "query": "Is DataPower affected by the bash environment variable vulnerability CVE-2014-6271 or CVE-2014-7169\nIs DataPower affected by the recent vulnerability reported through CVE-2014-6271 or CVE-2014-7169?\n\nhttp://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-6271 http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-7169",
+      "query_sha256": "95592dc813de46efc60a191d67292d685ad1d93e86bed84ab0bb0ca8e9238129",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-07",
+      "query": "Help with Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects WMB & IIB (CVE-2015-4000)\nI need to understand details regarding Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000). This vulnerability is commonly referred to as \"Logjam\". Where can I find this information?",
+      "query_sha256": "85eefa4b784b2d5921169a59483f659dbdaf8d08947b898c10747a97a8892d31",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-08",
+      "query": "Executing a scenario suite with a Scenario Service Provider (SSP) over HTTPS\nHow to configure the machines hosting the WebSphere Operational Decision Management modules with regard to HTTPS when executing scenario suites ?\nHow to avoid the exception below while requesting from Decision Center the execution of a scenario suite on Scenario Service Provider (SSP) over HTTPS ?\n Exception caught while contacting RES ilog.rules.res.util.http.IlrConnectionException: IO error when contacting \"/res/repositoryService\"\n ....\n Caused by: javax.net.ssl.SSLHandshakeException: com.ibm.jsse2.util.g: PKIX path building failed: java.security.cert.CertPathBuilderException: unable to find valid certification path to requested target",
+      "query_sha256": "fa94d6406b4f19c3050b79d7007043e00e88433fda181e4305a7de9b52c16e3a",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-VERSION-01",
+      "query": "Netcool/Impact 6.1.0: How to change the HSQLDB password?\nNetcool/Impact 6.1.0: How to change the HSQLDB password?",
+      "query_sha256": "d5e1045cbcf55f56a88a8dd4b5145b818e35d2979e53eda12a208406beeb5d8f",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-VERSION-02",
+      "query": "Is WebSphere Transformation Extender (WTX) supported for IBM Integration Bus V10?\nWhen will WebSphere Transformation Extender (WTX) be supported for IBM Integration Bus V10?",
+      "query_sha256": "23a2a7190e4016e2e090651e639b5444e3c2bd492f2ae8121aa35e81bed3612d",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-VERSION-03",
+      "query": "Cognos Workspace Advanced Users are unable to see features. Why?\n\n\nCertain Workspace Advanced users cannot open Report Studio. This happens with certain custom roles.\n\nEnvironment: IBM Cognos 10.2.2.x",
+      "query_sha256": "789e29e5195f63b8e29d243f0518c0d57ddf1f4322cca552868f3a36616eb717",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-VERSION-04",
+      "query": "ITNM 4.2 Fix Pack 3 link and build number?.\nITNM 4.2 FP3 is available, if yes then where we can download?. ",
+      "query_sha256": "c23421bc31d0f8a7dc657923a3a9b12dab3afd0d75c526833c04d46a4ae40d63",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-VERSION-05",
+      "query": "How to refresh a DataPower WebService Proxy which WSDL got changed?\nI have made changes to a WSDL stored in DP local filesystem.\n\nHow can I make the WSP reflect this change since DataPower Gateway 7.1.0 WebService Proxy WebGUI doesn't offer the \"Refresh\" button anymore?\n\nIs there a best practice to refresh the WSP if I modified my WSDL?",
+      "query_sha256": "27e806cc91f576da9a16c2b7024cc966547fd14301d71dade278ae0dcabd315e",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-VERSION-06",
+      "query": "How to create batches for bulk upload\n\n\nI am new in datacap 9.0 .I just started developing with datacap studio and currently I have learned  to recognize, capture and export the data into filenet.\n\nNow I want to Create batches of image or pdf files so that I can process images and pdf .\n\n \n\nAs per requirement client is sharing document at one shared location.I need to pickup all the documnets from shared location. For creating batches which tool I should use? how it works?\n\n \n\nCan anyone help how I proceed with this.\n\n \n\nRegards,\n\nChhaya Sahu\n",
+      "query_sha256": "a4e5df7cec9e7a2c12f84da8816736a05e6645f78be0f917591de4cf960c1552",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-VERSION-07",
+      "query": "Error while installing SpSS modeler trial version\nI have downloaded the SPSS modeller trial version (18.1) (64 bit) and trying to install the same. I get the following error 1152: Error extracting modelerClient64.msi to the temporary location\n",
+      "query_sha256": "ba2137da948ef0e52d7879310ba50feb01720d3195c87f6a68291a0dfd459d09",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-VERSION-08",
+      "query": "When should I use conversation sharing in DataPower MQ queue managers?\nMQ version 7.0 introduced a new feature, conversation sharing. Are there any special values on DataPower when configuring conversation sharing?",
+      "query_sha256": "c1633bc0820f1830510b084999861389ee1c97993701d69e578d1d422398b193",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-ENTITY-01",
+      "query": "How do I tell when there are mismatched MQ jars in my application server?\nMismatched jar files can cause strange and unpredictable errors when using the MQ JMS classes. ",
+      "query_sha256": "0312a53158deb660fa0c16cb3e68818c29a2366c4b7240cc13e968af4b9625f8",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-ENTITY-02",
+      "query": "I am receiving AC power supply failures on my DataPower 9235 appliance. How can I resolve this?\n\n\nI am observing the following errors on my DataPower 9235 device:\n\n[failure] Power supply '1' has no AC input power, or is not present. [failure] Power supply '2' has no AC input power, or is not present.\nDo i need to replace the power supplies?",
+      "query_sha256": "070bd6335c054090120ed864fc4e2cf3b03bafe964a5123693f09688e7cc96b9",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-ENTITY-03",
+      "query": "How to turn on event debug to troubleshoot Impact Event Processing stopping ?\nImpact support has requested a set of recreate logs with event logging turned on. What are the steps to do this?\n",
+      "query_sha256": "b5c01c130b468de7bea4c25eff65aa053411bd23bce8f1c31da11d49ca684699",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-ENTITY-04",
+      "query": "Can Portal prevent the usage of simultaneous logins with the same userID?\nIs it possible for WebSphere Portal to limit the usage of a userID to one authenticated session as a time? In other words, prevent authenticating to Portal as \"user1\" from one browser and then simultaneously authenticating to Portal again as \"user1\" from another browser? ",
+      "query_sha256": "11b5706becc8fff5d975f5ab75365bacf30a0bcc10a91b7ecaeaa401c5beb532",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-ENTITY-05",
+      "query": "DataPower remote log targets, tracking efficieny\nHow can I track the efficiency of my log target (remote endpoint)? ",
+      "query_sha256": "cbca0b84877f0d474655d701c35cd28197e78a4bdfb9433143471081c75a9957",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-ENTITY-06",
+      "query": "MQSeries Events correlation\nHow are MQSeries Events cleared? ",
+      "query_sha256": "e0843c352d431ce55afb79963ada8c8010106ab1c7bc7bd003e32201633467e8",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-ENTITY-07",
+      "query": "How to check IBM Java ORB build version in WebSphere Application Server?\nJust a simple question: How to check IBM Java ORB build version in WebSphere Application Server? ",
+      "query_sha256": "a73ce09eb3907e6043b4f5fa1650fe73c45efb27002a2b0fe860109dd76b7da5",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-ENTITY-08",
+      "query": "How do I downgrade an IBM Gateway, DataPower, appliance to a lower major firmware release?\nI would like to know the proper, and supported, method to downgrade an appliance to prevent any issues or problems. ",
+      "query_sha256": "7008cbedc0a4f5982e255cf82723d106743c094734a66dd07cbfabfb66cc4cbe",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-NOANSWER-01",
+      "query": "Is Java 7 supported for BPM?\nWhat versions of BPM support Java 7?",
+      "query_sha256": "a5d0667a18e672eaf89f2272d8ee0dee3fca89cce84fe4f7f6e7f51425315dbb",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-NOANSWER-02",
+      "query": "Is MQ V7.0.1 is going out of support?\nWhen is the last date of support?",
+      "query_sha256": "817e4256d3e9bce5469cba5d17963bbd53038e96d0082cc27f672afba8b3f6ce",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-NOANSWER-03",
+      "query": "Is there a scripting feature in ITM?\nIs there a scripting feature in ITM? ",
+      "query_sha256": "c0cbaaf707f84d49629eafaf2ad12d50e3007f38d7b1e418fd1f181a011b462b",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-NOANSWER-04",
+      "query": "Is Java 7 supported for BPM?\nWhat versions of BPM, if any,  support Java 7?",
+      "query_sha256": "23c533707359b13ff7881436e81ed2690a82635bca1663dcaa056fd8a9f7509d",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-NOANSWER-05",
+      "query": "can Datacap support to Arabic language?\ncan Datacap support to Arabic language?",
+      "query_sha256": "25dfd715856fc3da85e110b9600647582961ec82241e17df0ed92f1aab3b8b10",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-NOANSWER-06",
+      "query": "Does DataPower support SHA-2?\n\n\nIs DataPower able to support SHA-2 (SHA256)?\n  1",
+      "query_sha256": "afc7c741d2aaf0484cd7eedafad430dc494a3037e29fc5049ae9933d22ce1514",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-NOANSWER-07",
+      "query": "DataPower support for SHA-2\nDoes DataPower support the SHA-256 cryptographic hash function?",
+      "query_sha256": "5d1c1a8056635c3ff7a8c76c306215f43eeb228b294a44dad49b75f363140425",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-NOANSWER-08",
+      "query": "Can I disable RC4 cyphers in TIP?\nHow can one disable the RC4 cypers in Tivoli Integrated Portal?",
+      "query_sha256": "c41b3e351dc3dc7f97adc2c2a00636254b2efbb859fa508840a2b9aaeebd526c",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-NOANSWER-09",
+      "query": "How do I configure WebSphere Portal with OpenLDAP?\nHow do I configure WebSphere Portal with OpenLDAP?\n",
+      "query_sha256": "09ef68a24e7421d69e0a0970a526e2e85dbc64397793878bd79692c24f2cc599",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-NOANSWER-10",
+      "query": "Can my system run MQ V8.0?\nWhere are the system requirements listed, and are there any significant changes? ",
+      "query_sha256": "a7123382bc668e0c1a11adab2161ebca757d8380659ef85bb46db595a5355653",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    }
+  ],
+  "n_samples": [
+    {
+      "sample_id": "P2-N-069-6065fa6e89ed101b",
+      "query": "How do I resolve this error Cannot load module librfccm.o, when trying to start the SAP monitoring agent?\nThe ITCAM  SAP agent won't start, I'm getting this errorDependent module librfccm.o could not be loaded. 0509-022 Cannot load module librfccm.o.\n",
+      "query_sha256": "6065fa6e89ed101b4a86ee4fbc05022d21c9f8261d3c78b4a1869436232a15e9",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-031-ed2d87308630d406",
+      "query": "Can CMS certificates be created with a keysize greater than 1024?\nWe are trying to determine if a keysize can be greater than 1024. Any insight would be appreciated. ",
+      "query_sha256": "ed2d87308630d406e34760da925e0f437f352901ed8d3890b72327eef3b12075",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-176-5c15a28787a894b4",
+      "query": "Why the exception \"BO Service is not supported or disabled in this profile\" when trying to publish from IID to a local Process Server?\nWhen trying to publish a project from IBM Integration Designer (IID) to the local Process Server, it fails with error ADMA5014E in SystemOut.log. The FFDC log is showing exception of BO Service is not supported or disabled in this profile; Trace:\n\nFFDC Exception:java.lang.ExceptionInInitializerError SourceId:com.ibm.ws.bpm.cmdfrmwrk.task.WBICleanupTask ProbeId:200 java.lang.ExceptionInInitializerError at java.lang.J9VMInternals.initialize(J9VMInternals.java:259) \n....\nCaused by: java.lang.IllegalStateException: BO Service is not supported or disabled in this profile. at com.ibm.ws.bo.BOCore.init(BOCore.java:107) ....",
+      "query_sha256": "5c15a28787a894b4bd4359942911b57751590e8c97271c302f53374ff8524aaa",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-051-53aeba478cc8fecc",
+      "query": "Security Bulletin: Non-configured connections could cause denial of service in IBM WebSphere MQ Internet Pass-Thru (CVE-2017-1118)\nI need to understand details regarding Security Bulletin: Non-configured connections could cause denial of service in IBM WebSphere MQ Internet Pass-Thru (CVE-2017-1118). Where can I find this information?\n",
+      "query_sha256": "53aeba478cc8fecc2769f74d0d2755928332fe04fd9ab9f811072d06e26b213a",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-138-370c11ac2db4a616",
+      "query": "Clustering Decision Validation Services\nHow can we cluster Decision Validation Services (DVS)? ",
+      "query_sha256": "370c11ac2db4a616e566ddac4f745ca517ff5ef56909cc98000e2dafe5517b26",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-149-2231d8d9249b7b7e",
+      "query": "How to generate Javacores automatically in on hung threads reported in SystemOut.log for WebSphere Application Server?\nNeed Javacores to be generated on hung threads messages reported in SystemOut.log for WebSphere Applicaiton Server.Example:WSVR0605W: Thread has been active for and may be hung. There are in total in the server that may be hung.",
+      "query_sha256": "2231d8d9249b7b7ebd0d491699a1b229517f6d668c60a6c54edf51754e9535fa",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-094-29c0b8e6079d0d0e",
+      "query": "I can't find the JDBC driver for my DB2.\nI am running BPM 8.0.1 with DB2 10.1.0.\n\n \n\nReading this technote:\nhttp://www-01.ibm.com/support/docview.wss\n\n\"Use the JDBC driver of your database product instead of the JDBC delivered with IBM Business Process Manager (BPM)\"I am trying to download the latest JDBC driver from the following technote:\n\nhttp://www-01.ibm.com/support/docview.wss\n\nIt looks like the link for the JDBC driver download for DB2 10.1.0 is greyed out. Where can I download this driver?",
+      "query_sha256": "29c0b8e6079d0d0e18954ee5840b83d528230f8749866c8a39298cc3d70c972e",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-180-74eeb147b4def056",
+      "query": "IIS/SSL related error after appliying FP41 on WAS7.0\n\n\nhi\n\nGetting below error while hitting the application URL, after upgrading fix pack from 7.0.0.29 to 7.0.0.41\n\nSSLHandshakeE E SSLC0008E: Unable to initialize SSL connection. Unauthorized access was denied or security settings have expired. Exception is javax.net.ssl.SSLHandshakeException: Client requested protocol SSLv3 not enabled or not supported",
+      "query_sha256": "74eeb147b4def056dc0643f7391803aad9c32643d90775e01f47a7ef5eecb9c1",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-010-9c8f93778f375705",
+      "query": "How can I configure J2EE Tomcat DC to run as Windows Service?\nI'm trying to configure ITCAM J2EE v7.1.1 Tomcat DC to run as a Windows Service but it fails. Is this type of configuration supported? If so, what is the right procedure to do that?\n",
+      "query_sha256": "9c8f93778f375705dec6a6c2afae7b33ae67ce3c019baa21f1a2dc1b89ea887e",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-032-85eefa4b784b2d59",
+      "query": "Help with Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects WMB & IIB (CVE-2015-4000)\nI need to understand details regarding Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000). This vulnerability is commonly referred to as \"Logjam\". Where can I find this information?",
+      "query_sha256": "85eefa4b784b2d5921169a59483f659dbdaf8d08947b898c10747a97a8892d31",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-013-b5c01c130b468de7",
+      "query": "How to turn on event debug to troubleshoot Impact Event Processing stopping ?\nImpact support has requested a set of recreate logs with event logging turned on. What are the steps to do this?\n",
+      "query_sha256": "b5c01c130b468de7bea4c25eff65aa053411bd23bce8f1c31da11d49ca684699",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-007-fa94d6406b4f19c3",
+      "query": "Executing a scenario suite with a Scenario Service Provider (SSP) over HTTPS\nHow to configure the machines hosting the WebSphere Operational Decision Management modules with regard to HTTPS when executing scenario suites ?\nHow to avoid the exception below while requesting from Decision Center the execution of a scenario suite on Scenario Service Provider (SSP) over HTTPS ?\n Exception caught while contacting RES ilog.rules.res.util.http.IlrConnectionException: IO error when contacting \"/res/repositoryService\"\n ....\n Caused by: javax.net.ssl.SSLHandshakeException: com.ibm.jsse2.util.g: PKIX path building failed: java.security.cert.CertPathBuilderException: unable to find valid certification path to requested target",
+      "query_sha256": "fa94d6406b4f19c3050b79d7007043e00e88433fda181e4305a7de9b52c16e3a",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-067-458f9f7f407a99d3",
+      "query": "Help with Action required for IIB H.E. V9 & WMB H.E. V8 for security vulnerabilities in Red Hat Linux\n\n\nI need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux.\n\nThis is related to CVEID:\nCVE-2017-15277\nCVE-2017-15281\n\nWhere can I find this information?",
+      "query_sha256": "458f9f7f407a99d3c8054bad35a5ee6bee0c48efc9fe448ddf2424dcbddade42",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-020-be2e9041bbd58a11",
+      "query": "Help with Action required for IIB H.E.V9 and WMB H.E. V8 for security vulnerabilities in Red Hat Linux\n\n\nI need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux.\n\nWhere can I find this information?",
+      "query_sha256": "be2e9041bbd58a1157e79a6f2b18e20e92ebfdcdd4266a96897b026c384063ba",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-074-9fbad50a88241c07",
+      "query": "Help with Security Bulletin: IIB is affected by WebAdmin Session Timeout vulnerability (CVE-2017-1693)\nI need to understand details regarding Security Bulletin: IBM Integration Bus is affected by WebAdmin Session Timeout vulnerability (CVE-2017-1693). Where can I find this information? ",
+      "query_sha256": "9fbad50a88241c07df924346f8cd0ace3fdd972317718c1a4be8f395b07e6a98",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-102-5bc358ac9996ad11",
+      "query": "BPM v8012 is compatible with oracle 12c or 11.2.0.4?\nDoes anyone know if BPM v8012 is compatible with Oracle 12c or 11.2.0.4? ",
+      "query_sha256": "5bc358ac9996ad11e0c08fa5038cfdfe4dba0edee71caabe558d02086b56a8c3",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-163-b631f07768ac6b43",
+      "query": "WAS 8.5.x - Writing a JMS message to a remote queue takes a long time. How to write the message faster?\nWe are writing a jms message from a websphere cell (cellA) to a queue hosted by another websphere cell (cellB).Sometimes we noticed that writing a message is very slow. Usually when a local queue will be used the time to write this messages is about 8 ms, but if the queue is located on a other cell is took significant longer (about 3000ms+ ).\n\nOur findings: After enabling following trace \"=info: com.ibm.ws.sib.trm.=finest\" the problem is related to:\n\n \n\n- com.ibm.ws.cluster.selection.NoAvailableTargetExceptionImpl\n \n\n- WaitForWLMDat 3 (com.ibm.ws.sib.trm.wlm.client.WaitForWLMData) [:] Sleeping for 2999 ms \"\nBecause of the sleep time the writing to the queue is slowed down. How to prevent the sleeping time of 3 seconds, when writing a message to a remote queue?",
+      "query_sha256": "b631f07768ac6b43787369b7af48fdc4a10625ee6c46f0bc927a90488b4dc63f",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-023-7b12a99b91642b55",
+      "query": "Where can I find a description of the key differences between releases of DB2 ?\nI am planning an upgrade to the latest release of DB2 and I am looking for the main differences with the previous release. I my case, more specifically between version 10.5 and version 11.1. Where can I find information on this ? ",
+      "query_sha256": "7b12a99b91642b551c32f52aef32c676fe1f8caec13649bbd4d3d8b650cd1f2d",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-162-23a2a7190e4016e2",
+      "query": "Is WebSphere Transformation Extender (WTX) supported for IBM Integration Bus V10?\nWhen will WebSphere Transformation Extender (WTX) be supported for IBM Integration Bus V10?",
+      "query_sha256": "23a2a7190e4016e2e090651e639b5444e3c2bd492f2ae8121aa35e81bed3612d",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-160-cbca0b84877f0d47",
+      "query": "DataPower remote log targets, tracking efficieny\nHow can I track the efficiency of my log target (remote endpoint)? ",
+      "query_sha256": "cbca0b84877f0d474655d701c35cd28197e78a4bdfb9433143471081c75a9957",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-062-b558ad4ded310a7b",
+      "query": "Help with Security Bulletin: IIB is affected by Web UI security vulnerability (CVE-2017-1694)\nI need to understand details regarding Security Bulletin: IBM Integration Bus is affected by Web UI security vulnerability (CVE-2017-1694). Where can I find this information? ",
+      "query_sha256": "b558ad4ded310a7bf8997b447d0d4ead42ce0567417b10ff892b68f821eccaee",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-130-fe8137b141deec9f",
+      "query": "What can be done about \"Too many open files\" messages in the DASH systemOut?\nWhat can be done about \"Too many open files\" messages in the DASH systemOut log on a system running Linux? ",
+      "query_sha256": "fe8137b141deec9fcf8a2a1acb4ae4323a6492c31dd48ec76078df33cf3ed3a3",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-006-461e8e275d4a252f",
+      "query": "DcDesktop Verification batch panel\n Hi\n\nWhat is the purpose of page type drop down list in Verification batch panel?\n\nWhere can this be used?\n\nCan this be disabled or made invisible?\n\nThanks in advance. ",
+      "query_sha256": "461e8e275d4a252f95361aa70bcc4be48a89f3cfff0fba1315ab5518db990065",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-009-063770798e2dddc5",
+      "query": "MessageSet Project cannot be referenced in multiple Applications\n\n\nThe same MessageSet Project cannot be referenced in multiple Applications or Libraries in WMB V8.\n\nIs there any specific reason for having this restriction ?\n\nThanks.",
+      "query_sha256": "063770798e2dddc5deffa9b3dbbc666ac1a2fba4c7a36eae4bfc5bc283f4be0f",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-052-dc4e4f07229c9117",
+      "query": "How to fnd out more about performance problems in WebSphere Application Server which are in relationship with DB2? (Analyze long running sql-queries)\nI want to analyze a WAS/DB2 performance problem and want to investigate the root-cause of the issue. In my WAS SystemOut.log file I noticed a lot of hanging threads that hang in java.net.SocketInputStream.socketRead0(). For example:\n\n\"WebContainer : 0\" at java/net/SocketInputStream.socketRead0() at java/net/SocketInputStream.read() at com.xyz.methodABC() ...\nThis indicates that the server still waits for result-sets from the database. So how to find out more about such db-performance-issues?",
+      "query_sha256": "dc4e4f07229c9117fc14d836471218ae3ecc78c3675612e7f405b3432b93ba7e",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-077-067c14293c4b17d6",
+      "query": "Subnodes are still present on TEP after unconfiguring SOA DC\nAfter unconfiguring the ITCAM for SOA DC via the unconfig.sh script, I can still see SOA subnodes and workspaces on TEP.The Websphere instances were restarted and are no longer collecting data and forwarding to the D4 agent.I have shut down the ITCAM agent and deleted the offline entries for the managed systems, but the subnodes appear back once you restart the ITCAM agent.How can I remove them?",
+      "query_sha256": "067c14293c4b17d635bd49dd1a5cdcc04020c2e1e07f30eadd19dfdbbce8ea13",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-134-cf0b5938cfd32790",
+      "query": "CICS TS support for IBM SDK Java Version 8\nDo any of the current releases of CICS Transaction Server for z/OS (CICS TS) support the new IBM SDK, Java™ Technology Edition V8? ",
+      "query_sha256": "cf0b5938cfd3279047c7a76659b28a90c6181b3357b20942f0869eb29ea4a9e1",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-122-2aeb08537c966c35",
+      "query": "Why are we seeing high CPU and hung threads in WebSphere Application Server?\nDuring the job execution in WebSphere Compute Grid we are seeing high CPU along with many hung threads reporting\nWSVR0605W from BatchFileLoggerInfo.getDirectoryList method.\nIn Sysprint many threads are hung with this stack:\nBossLog: { 0426} <time stamp> SYSTEM=CPU4 CELL=FGDCELL NODE=FGDNODE4 CLUSTER=WFGDS1 SERVER=WFGDS14 PID=0X060835 TID=0 X2ED98E0000000162 t=8897F0 c=UNK ./bbgrjtr.cpp+733 tag= ... BBOO0221W: WSVR0605W: Thread \"WebSphere WLM Dispatch Thread t=008a6b70\" (0000006a) has been active for 683953 milliseconds and may be hung.\n....",
+      "query_sha256": "2aeb08537c966c351122b6f3531e33813410166ae72d1c842bcfc315f095f963",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-034-f01164c77188724c",
+      "query": "How to check IBM Java ORB build version in WebSphere Application Server?\nJust a simple question:How to check IBM Java ORB build version in WebSphere Application Server?",
+      "query_sha256": "f01164c77188724cd766c9b6ed67069c6fd36c73f6e6cd874dad39e06a6ef4e9",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-064-b410ced83608032c",
+      "query": "What are the files created in $TEMP on startup of IIB or WMB?\nWhat are the 0 byte files created in $TEMP/.com_ibm_tools_attach directory upon IBM Integration Bus (IIB) / WebSphere Message Broker (WMB) startup?\nFor example: The following files are created on UNIX / Windows if $TEMP is /tmp:\n/tmp/.com_ibm_tools_attach/_attachlock\n/tmp/.com_ibm_tools_attach/_master\n/tmp/.com_ibm_tools_attach/_notifier",
+      "query_sha256": "b410ced83608032ccdde45f342e6ab5d71e9e451ee687a9e733e64776b9ec202",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-015-c0cbaaf707f84d49",
+      "query": "Is there a scripting feature in ITM?\nIs there a scripting feature in ITM? ",
+      "query_sha256": "c0cbaaf707f84d49629eafaf2ad12d50e3007f38d7b1e418fd1f181a011b462b",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-036-19ba57bade6321d7",
+      "query": "How to resolve DataPower firmware loading error % Loading firmware failed: Internal receive API error (3)?\nMessage % Loading firmware failed: Internal receive API error (3) was observed during firmware update. How do you resolve this issue? ",
+      "query_sha256": "19ba57bade6321d7f120301e729a228cb2da9cff87cce7bfc72dddbadf0a5d15",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-021-27923f771cd0ac6e",
+      "query": "Is there a way to not use cache inside a HttpRequest node?\nIs there a way in IBM Integration Bus (IIB) or WebSphere Message Broker (WMB) to not use cache inside a HttpRequest node? ",
+      "query_sha256": "27923f771cd0ac6e97aa955d34acae20a85211d3b7378892b47ebdd16dde7cdd",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-070-4a4e31cf0c61084a",
+      "query": "Security Bulletin: Weak Cipher available in IBM API Connect (CVE-2015-2808)\nI need to understand details regarding Security Bulletin: Weak Cipher available in IBM API Connect (CVE-2015-2808). Where can I find this information? ",
+      "query_sha256": "4a4e31cf0c61084af88a033ea58a8a9a1f430e3041cd0c1effc027e34ab91b7a",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-039-7072afc9d08f97a4",
+      "query": "CICS VR FRLOG option that logs changes to VSAM datasets\nIs the information about the NONE option for FRLOG in the CICS VSAM Recovery for z/OS (CICS VR) documentation correct? If it is not, what information is logged when NONE is specified?\n\nI am working on a POC for the Classic change data capture (CDC) for VSAM. In order for Classic CDC to capture changes from a VSAM file, it has to be altered to have a FRLOG option.\n\nAccording to the CICS VR documentation, FRLOG has NULL, NONE, REDO, UNDO, and ALL options. By default I would think FRLOG(ALL) option will give everything in the log. However when using this option, customer cannot run their batch update job after the alter. The file cannot be opened by the batch job. We were told by Classic team to use the FRLOG=NONE option and this option actually worked. I am really confused because according to the manual NONE option will not log any changes. Here is the paragraph from the manual:",
+      "query_sha256": "7072afc9d08f97a44daf59f949d1aeea3364b071daff1f1d4aeac21fc2b9f331",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-090-57e49836ac86281a",
+      "query": "Datacap Navigator Verify\nWhen i run a Batch for Verification in Datacap Navigator.. Fields are not getting displayed .. same fields can be seen in tmweb. How do I access the client log in Internet Explorer?",
+      "query_sha256": "57e49836ac86281a7dc61a06ed275d26a1b76e607d0e4f7fb9dd75c209079f4e",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-057-c0a9fb63a845a15b",
+      "query": "Problem with EJB WebService and empty beans.xml in META-INF directory\nWhen using a EJB WebService (EAR file attached) with a empty beans.xml file in the META-INF directory (my intent is to use CDI), the project can be deployed correctly, but when the EJB WebService is called, I get the following error message:\n[24/04/14 21:33:34:913 CEST] 0000003b id= com.ibm.ws.webbeans.WebBeansInitializer E An error occured while starting application context path : [/SampleEJBWebService] [24/04/14 21:33:35:028 CEST] 0000003b id= com.ibm.ws.logging.internal.impl.IncidentImpl I FFDC1015I: An FFDC Incident has been created: \"java.lang.NullPointerException com.ibm.ws.webcontainer.osgi.VirtualHost startWebApp\" at ffdc_14.04.24_21.33.34.0.log\nWhen I remove the beans.xml file, everything works fine without any problems.\nNow my question is:  Are there any workarounds available?",
+      "query_sha256": "c0a9fb63a845a15b1777367964ca341ed59cf9b471a84ac610d3c0c2fdb62387",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-084-fd06ae8393839a7e",
+      "query": "VMware agent SSL hand shake failure after ESX upgrade\n\n\nWe did an update to our VCentre server, bringing it to 5.5 update 3e, i.e. 5.5.0,4180647 As a result the VMware agent does not connect now and logs this error:\n\nSEVERE: Connection.open: SSL handshake failed to: 192.168.1.2\n\nWe switched off SSL certification validation but it did not solve.",
+      "query_sha256": "fd06ae8393839a7e5335003f1b0bdcaae81c8fb75a95f48df2ac63b05a2e11b5",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-116-b6aa14625b7af482",
+      "query": "Help with Action required for SOA Policy Gateway Pattern For Red Hat Enterprise Linux Server for the GNU C library (glibc) vulnerability (CVE-2015-0235)\nI need to understand details regarding \"Action required for SOA Policy Gateway Pattern For Red Hat Enterprise Linux Server for the GNU C library (glibc) vulnerability (CVE-2015-0235)\". This vulnerability that has been referred to as “GHOST”. \nWhere can I find this information? ",
+      "query_sha256": "b6aa14625b7af4821d0beb42943243204da6de6717b9ad4c7ad03fbf6c361395",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-177-6e9dc7dc6017b682",
+      "query": "OpenSSL Heartbleed (CVE-2014-0160) vulnerability and IBM Support Assistant ISA\n Ref. IBM Product Security Incident Response Team - https://www-304.ibm.com/connections/blogs/PSIRT/entry/openssl_heartbleed_cve_2014_0160?lang=en_us\n\nAny statements we can share regarding OpenSSL usage in ISA (v4, v5)since it's neither listed here in NOT affected by this vulnerability? ",
+      "query_sha256": "6e9dc7dc6017b682d4a80dea5cd2408aff102147596822e8b0525a79053f7760",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-003-f240ce7b051d0d90",
+      "query": "how to disable clickjacking at ICN?\nWe need to secure IBM Content navigator 2.0.3 Fixpack (FileNet P8 5.2.1 FP5, OS AIX 7.1) on our Production environment against malicious activity in the following ways:\n\nDisable clickjacking i.e. it was observed that the server didn't return an X-Frame-Options header. The X-Frame-Options HTTP response header can be used to indicate whether or not a browser should be allowed to render ",
+      "query_sha256": "f240ce7b051d0d90351a6ec780e2d1188dddde27d19bc39894032a4d1373ca30",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-120-59949d162dc02603",
+      "query": "TEP to TEPS communication issues with different Java versions\nRecent Java updates have caused connection problems when logging into the TEPS via the TEP client (Browser or Java Web Start). Is there an updated list of known issues?\n",
+      "query_sha256": "59949d162dc026031e3a113c4920e6cdb5f3fff016a6f648485329d3db3545b9",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-121-a1d6f2af21d35c96",
+      "query": "How do you configure the IBM HTTP Server 7 to 8.5 on z/OS for Host On-Demand V11?\nThe IBM HTTP Server powered by Domino will no longer be shipped with z/OS 2.2, so how can system administrators of Host On-Demand convert to the IBM HTTP Server V7 to V8.5?\n",
+      "query_sha256": "a1d6f2af21d35c9622dcc0c613ea9fa12d79ca9d29b4cd9869c53c74eabe96bb",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-059-1ebc9cb4b88428a9",
+      "query": "Does double the number of instances equal double through put in IIB / WMB?\nIf I double the number of instances of an IBM Integration Bus (IIB) or WebSphere Message Broker (WMB) flow should I get double the through put?",
+      "query_sha256": "1ebc9cb4b88428a9313c0ca7948ee09645bc4954ba8d244496733800ed949c19",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-112-09c37c659693d1ea",
+      "query": "Security Bulletin: MQ Explorer directory created with owner '555' on Linux x86-64 vulnerability affects IBM MQ (CVE-2016-6089)\nI need to understand details regarding Security Bulletin: MQ Explorer directory created with owner '555' on Linux x86-64 vulnerability affects IBM MQ (CVE-2016-6089). Where can I find this information?",
+      "query_sha256": "09c37c659693d1eab4f46f010651b14accf1200077df49e2689b506852385380",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-011-254d3d53c88ef3e1",
+      "query": "CICS CM CCVI abends AEXZ on startup in CCVIINIT\nWhy am I receiving an message DFHAC2236 with an abend AEXZ each time that I attempt to startup a newly installed CICS Configuration Manager (CICS CM) server using the CCVI transaction? It looks like it is starting up, but after about 10 seconds it fails with the AEXZ. The last messages I see in the CICS MSGUSR indicate it successfully opened the TCPIPSERVICE:\nDFHSO0107 mm/dd/yyyy hh:mm:ss applid TCPIPSERVICE CCVBASIC has been opened on port nnnnn at IP address nnn.nn.nn.nnn.\nDFHDU0203I mm/dd/yyyy hh:mm:ss applid A transaction dump was taken for dumpcode: AEXZ, Dumpid: 1/0001.\nDFHAC2236 mm/dd/yyyy hh:mm:ss applid Transaction CCVI abend AEXZ in program CCVIINIT term ????. Updates to local recoverable resources will be backed out.\nCEEMSG shows:\nCEE3250C The system or user abend AEXZ was issued. From compile unit CCVIINIT at entry point CCVIINIT at compile unit offset +0000832E at entry offset 18E8854E.\nIf CCVI is run a few more times, it eventually seems to initialize the server successfully. ",
+      "query_sha256": "254d3d53c88ef3e16f36cd1fa26514f7c3ce5b9f46a5c347415a30a9a14f2f8f",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-016-d7ee2132a522fc79",
+      "query": "What are the recommended configuration settings (best practices) for a TSAMP controlled DB2 HA / HADR cluster?\nWhen using TSAMP to control a DB2 shared disk or HADR cluster, what are the best practices that would allow for greatest reliability & stability?",
+      "query_sha256": "d7ee2132a522fc79c9d3e7a33a527609f4d0eca616935fb4d7e931ff0e73187b",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-174-acd7c245a25f1a7d",
+      "query": "Why is my MQ Java / JMS application getting 2035 NOT_AUTHORIZED error after upgrade of MQ?\nWhy is my MQ Java / JMS application getting 2035 NOT_AUTHORIZED error after upgrade of MQ?\n",
+      "query_sha256": "acd7c245a25f1a7dc6d03acd1e574f018bb201b33d874d1f6fa389e281fbc461",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-035-47ef649bfbc32003",
+      "query": "Security Bulletin: Multiple vulnerabilities in IBM Java Runtime affect API Connect\nI need to understand details regarding Security Bulletin: Multiple vulnerabilities in IBM Java Runtime affect API Connect (CVE-2016-5546, CVE-2016-5548, CVE-2016-5549, CVE-2016-5547, CVE-2016-2183, CVE-2017-3511). Where can I find this information? ",
+      "query_sha256": "47ef649bfbc32003cbb36f7854fbe99d31b168bb09c6ce85bebf1c0ae2e5890f",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-045-f7ee2a075423a8bf",
+      "query": "Why WebSphere Application Server transactions are rolled back with these StaleConnectionExceptions?\nWhy WebSphere Application Server transactions are rolled back with these StaleConnectionExceptions?\nMy transactions are rolled back and the following errors are seen in the WebSphere Application Server logs:\n\nConnectionEve A J2CA0056I: ........ ........ Connection reset:java.net.SocketException: Connection reset [15/03/04 1:04:33:046 JST] 00000024 SystemOut O INFO Error executing internal sql (executing callable statement) com.ibm.websphere.ce.cm.StaleConnectionException: IO?G??ñ[: Connection reset at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) at \n...\nSee original exception message: ...... with SQL State : 08003 SQL Code : 17008 ..... .....\nCaused by: java.sql.SQLRecoverableException: .......DSRA0010E: SQL State : 08003 SQL Code : 17008",
+      "query_sha256": "f7ee2a075423a8bf6c26e53183eca9f39b02b8480fe46ab4a69b49026c2e26bd",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-043-c0b7b763736e85bf",
+      "query": "Help with Security Bulletin: Vulnerability in IBM Java Runtimes affect Websphere Business Modeler Advanced and Websphere Business Modeler Basic (CVE-2015-0138)\nI need to understand details regarding Security Bulletin: Vulnerability in IBM Java Runtimes affect Websphere Business Modeler Advanced and Websphere Business Modeler Basic (CVE-2015-0138). Where can I find this information?",
+      "query_sha256": "c0b7b763736e85bfda4bc4ba05c09a73e27fb331f76437f0d3d7e15764354925",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-001-232bbc8ddf2d2cf3",
+      "query": "Gettting error CRIMC1020E: zip im.properties not found during BPM Fix Pack install\nDuring the BPM 7.5.1.2 Fix Pack install from the IBM Installation Manager, error window pop up with:\nCRIMC1020E: zip im.properties 1.0.0.200911091101 not found ERROR: `zip im.properties 1.0.0.200911091101` not found in [path to sca.1.0.1.17.fp]. CRIMC1020E: zip config.registry 1.0.0.200911092301 not found\n……\nHow can I resolve this error to complete the Fix Pack installation",
+      "query_sha256": "232bbc8ddf2d2cf3519b635904e14babec52c922917a6d6e0c3e157013517145",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-083-70fcb321301b0363",
+      "query": "Help with Security Bulletin: WMB and IIB are affected by 'Information Disclosure' vulnerability\nI need to understand details regarding Security Bulletin: WebSphere Message Broker and IBM Integration Bus are affected by 'Information Disclosure' vulnerability. Where can I find this information? ",
+      "query_sha256": "70fcb321301b0363b54e28944c256ee5b7927d25972e2fe3d7d5168c3986ce15",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-167-ab3d6e027f2e1fbc",
+      "query": "TLS protocol with ITCAM for Datapower\nWe have a DataPower appliance with TLS security protocol enabled. Can we configure ITCAM for DataPower appliance v7.1 to specifically use the TLS protocol v1.2 (not v1.0)?\n",
+      "query_sha256": "ab3d6e027f2e1fbc874dc3f1c30dd025f9e44c76dc200f65b28d6ba2c74bba47",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-143-7a5c6fdb50ef8589",
+      "query": "Gettting error CRIMC1020E: zip im.properties not found during BPM Fix Pack install\nDuring the BPM 7.5.1.2 Fix Pack install from the IBM Installation Manager, error window pop up with:\n\nCRIMC1020E: zip im.properties 1.0.0.200911091101 not found ERROR: `zip im.properties 1.0.0.200911091101` not found in [path to sca.1.0.1.17.fp]. CRIMC1020E: zip config.registry 1.0.0.200911092301 not found\n……\n\nHow can I resolve this error to complete the Fix Pack installation?",
+      "query_sha256": "7a5c6fdb50ef858912265ef43ba8cd151d7f34e8a0e5d4813bf534db197eeab5",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-030-01590b6f6c4d972c",
+      "query": "Is ITCAM for J2EE 7.1.1 agent supported on RHEL7.x?\n\n\nWhen I try to install IBM Tivoli Composite Application Manager Agent for J2EE V7.1.1.0,Linux on x86, English (CN0PKEN) on RHEL 7.2 64-bits\n\nI am getting the following error message:\n\ninstall.sh failure: KCI1138E could not determine the machine's architecture.\n\nIs ITCAM for J2EE 7.1.1 supported on RHEL7?\n",
+      "query_sha256": "01590b6f6c4d972c08dd5ac963d05406e470ae6fcd38c72f20294b8a6b5c0ef0",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-118-71cca55e79ec5827",
+      "query": "IBM Integration Designer could not connect to the DataPower appliance.\nI am using WDP XI52 with Firmware 7.0.0.7 and IID 7.5.1. When I try to connect WDP from [DataPower Appliances] View in IID, I got a error message as follows : \"SSL handshake on the connection to the DataPower appliance \"x.x.x.x\" was not successful. Contact the DataPower administrator.\" This situations occurred since WDP Firmware had upgraded from 7.0.0.2 to 7.0.0.5. (Now it was upgraded to 7.0.0.7)\nCould you please let me know what I should check to solve this problem? Please note that this WDP works normally and a network is normal. Also, I can connect it by using WebGUI and SSH terminal. And I've checked that IP , XML Management Interface Port, Web Management Service Port and account/password are correct.",
+      "query_sha256": "71cca55e79ec5827581ab918307bf353ed5b03525a79e1545790b83230605363",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-155-7e4786871e7ca617",
+      "query": "Which version of the WebSphere MQ Resource Adapter is shipped with  WebSphere Application Server?\nWhich version of WebSphere MQ JCA resource adapter is shipped with WebSphere Application Server ? ",
+      "query_sha256": "7e4786871e7ca61747b1e88219bc55415eb1312bd493d3f0d37815465bdecf4d",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-105-4b003af99f42c26f",
+      "query": "Launching IBM Rational Software Architect application results in Error: Java was started but returned exit code = -1\nAt times when you launch Rational Software Architect (RSA) application, you might encounter the following error: Error: Java was started but returned exit code = -1 ",
+      "query_sha256": "4b003af99f42c26fdf0fabbab96e33580a4652f31ccb020703927f009c4d2919",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-076-25dfd715856fc3da",
+      "query": "can Datacap support to Arabic language?\ncan Datacap support to Arabic language?",
+      "query_sha256": "25dfd715856fc3da85e110b9600647582961ec82241e17df0ed92f1aab3b8b10",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-165-bfadde64bd716ef5",
+      "query": "Why am I now seeing an SqlDataException for Unsupported ccsid, encoding, or locale after moving to Java 8.0  with WebSphere Application Server 8.5?\n\n\nThe requests using the DB2 JDBC driver are failing with:\n\ncom.ibm.db2.jcc.am.SqlDataException: [jcc][t4][10275][10041][4.19.56] Unsupported ccsid, encoding, or locale: \"Cp037\". ERRORCODE=-4220, SQLSTATE=22021\n\nCaused by: java.io.UnsupportedEncodingException: Cp037 at sun.io.Converters.getConverterClass(Converters.java:319) at sun.io.Converters.newConverter(Converters.java:373) at sun.io.ByteToCharConverter.getConverter(ByteToCharConverter.java:98) at com.ibm.db2.jcc.am.s.(Unknown Source) at com.ibm.db2.jcc.am.q.a(Unknown Source) ... 42 more",
+      "query_sha256": "bfadde64bd716ef5d3a6bb2325b701c4a76921e5d2ac36856033b6d46b8fe9ce",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-071-d3ce717b13a16506",
+      "query": "ITCAM Agent for DataPower  in TEP view, no data in the \"HTTP Mean Transaction Times - Top 10\" workspace.\nWIth ITCAM Agent for DataPower  in TEP view, there is no data in the \"HTTP Mean Transaction Times - Top 10\" workspace. The problem is that while the KBN agent is displaying some data in the TEP, in the \"DataPower Appliances\" view, there is no data in the \"HTTP Mean Transaction Times - Top 10\" workspace. ",
+      "query_sha256": "d3ce717b13a165067b1417ebbccc8c2bd2f7caff415cb665186358181634283a",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-124-a14128cadc3db786",
+      "query": "Why does my JVMSERVER remain in a \"BEING DISABLED\"  state?\nWhen I try to disable a JVMSERVER it becomes hung and remains in a \"BEING DISABLED\" state. This also occurs when I shut down the CICS region. The CICS region ultimately has to be cancelled. ",
+      "query_sha256": "a14128cadc3db786827ed8115263cc2165d1addb4075807d23dc954d550c2ae5",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-129-9642fde5fe1befaf",
+      "query": "ODR OOM issue\nI got ODR OOM after upgrading the WAS to v8553. No configuration or traffic load changing. Is there any known way to solve the problem? ",
+      "query_sha256": "9642fde5fe1befafe44566edcacaf12967fdb9f47983c7309ce54803d1da3d0d",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-119-5766c2afd73d7b18",
+      "query": "When will WebSphere Application Server v7.0 and v8.0 be end of support (EOS)?\nHas an End of Support (EOS) date been announced for WebSphere Application Server v7.0 and 8.0? ",
+      "query_sha256": "5766c2afd73d7b188deba89f7751dbc8d1858ef401c20b287ec77c23e023ab02",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-028-ef385597336bfe47",
+      "query": "Why is the test suite execution failing from Decision Center?\nWhen executing a test suite from Decision Center the run may fail with an error message similar to:\n XU client error.\n GBRXU0448E: Plugin error.\n Unable to retrieve the engine manager.\n The parsing of the ruleset failed Problem occurred loading translation: Error when translating parameter \"inputParameter\": Cannot translate class \"sample.InputParameter\".\n\nWhat can be causing this error? ",
+      "query_sha256": "ef385597336bfe471a646d3e3238d8b88ecf4caa4a3dd30208fd8b599187bebb",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-061-3c2b62af7e8507ad",
+      "query": "Can't delete BPD instances in Process Designer\nI'm not sure what is wrong with some BPD instances.\nWhen an instance is Active, but seems to not be able determine the next activity, I can't delete that instance in the Process Designer.\nEvery time I try to delete or terminate the instance, this message appears \"Delete BPD Instances (0%)\", but it get stuck there and nothing happens.\n\nI checked the Event Monitor, and there are few Jobs scheduled there... All show the same message: Notify BPD xxxxx of notification. Is this a tip what could be going wrong?\n\n\nWhat is the possible solution to this issue?",
+      "query_sha256": "3c2b62af7e8507ad74ed023bcfeca77d5bdfcea7eaf343b319de0a7f0b79cbb3",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-022-cff7627ae84336fc",
+      "query": "Will the Leap Second 2015 update have any impact with FileNet Content Manager?\nWill the Leap Second 2015 update have any impact with FileNet Content Manager?",
+      "query_sha256": "cff7627ae84336fc5734146165f5dd7294359e577cbdba80ab0fcb1d6cd04979",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-115-52069036ff2e1246",
+      "query": "How to resolve SessionBeanTimeoutException in WebSphere Application Server?\nIn one of my j2EE-applications I get com.ibm.ejs.container.SessionBeanTimeoutExceptions with the following caused by section:\nCaused by: com.ibm.ejs.container.SessionBeanTimeoutException: Stateful bean CMStatefulBeanO(BeanId(server1# mySessionBean.jar# StdEJBReader, A5667152-014B-4000-E000-9AD20A8E643B), state = METHOD_READY) timed out ... 26 more\nDo you know how to resolve such SessionBeanTimeoutExceptions in general?",
+      "query_sha256": "52069036ff2e12468823617d64265100f361521ed04c94850d19df99dcb52121",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-170-762a321ab8f05523",
+      "query": "Help with Security Bulletin: Apache Commons FileUpload Vulnerabilities in IBM WebSphere MQ File Transfer Edition(CVE-2016-3092)\nI need to understand details regarding Security Bulletin: Apache Commons FileUpload Vulnerabilities in IBM WebSphere MQ File Transfer Edition(CVE-2016-3092). Where can I find this information?",
+      "query_sha256": "762a321ab8f0552377af6fd2985f804ed03b2b60226aa800323d62d93fca8d8a",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-107-78d19689196e7cfb",
+      "query": "Improve Performance of Decision Validation Services (DVS) and Decision Warehouse\nHow can I improve the performance of Decision Validation Services (DVS) and Decision Warehouse? ",
+      "query_sha256": "78d19689196e7cfb4e2bb7984a262f6952ff0f70e68d431dc98419a7ed011358",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-161-3c2108d77d0d5264",
+      "query": "\"Cannot retrieve execution traces on your server\" message in DVS test suite execution results page\nThe test suite is successful and returns the test results specified in the Excel scenario file, but the message \"Cannot retrieve execution traces on server <your server>\" shows in the results page, and the additional trace information requested in the run page is not available.\n",
+      "query_sha256": "3c2108d77d0d526402a28ba8214cfa8c7fca007018bd7bf56da50324394c049f",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-145-f0d0afa5de8b84e1",
+      "query": "After AIX TL/SP/FP update my TSAMP cluster no longer functions.\nAfter applying update to AIX to bring it up to 7100-05-01-1731 which includes RSCT 3.2.3.0 I noticed that neither IBM.GblResRM nor IBM.RecoveryRM would stay operative in \"lssrc -g rsct_rm\" output. ",
+      "query_sha256": "f0d0afa5de8b84e1c9a99e3dacc7bc110f3ddeebbc4f7e1d5ba7200a90a0aeb4",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-012-e29b69030c439e05",
+      "query": "DSNT408I SQLCODE -401 creating stored procedure CIUSNTSR after upgrading to DB2 11\nWhy would CIUSNTSR stored procedure creation fail with message DSNT408I and SQLCODE=-401? I am running CICS Interdependency Analyzer for z/OS (CICS IA) CIUDBCQ JCL when the failure occurs. This happened after I upgraded z/OS DB2 to V11. \nHere are the messages I receive:\n DSNT408I SQLCODE = -401, ERROR:  THE OPERANDS OF AN ARITHMETIC OR COMPARISON OPERATION ARE\n NOT COMPARABLE\n DSNT418I SQLSTATE  = 42818 SQLSTATE RETURN CODE\n DSNT415I SQLERRP   = DSNXOBFC SQL PROCEDURE DETECTING ERROR\n DSNT416I SQLERRD   = 930 0  1  -1  0  0 SQL DIAGNOSTIC INFORMATION\n DSNT416I SQLERRD   = X'000003A2' X'00000000' X'00000001' X'FFFFFFFF' X'00000000' X'00000000'\n SQL DIAGNOSTIC INFORMATION",
+      "query_sha256": "e29b69030c439e05a3438041b6a58f4339f6d5f1c79e8c94e55524a0ba25bc03",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-178-673f07440aa5260b",
+      "query": "z/OS Connect Enterprise Edition 3.0 and 2.0 compatibility with CICS TS 5.4\nCan z/OS Connect Enterprise Edition V3.0 and V2.0 be used with CICS Transaction Server for z/OS (CICS TS) V5.4? I want to make sure there are no compatibility problems. I would also like to know if there are any specific tasks that I need to perform for the z/OS Connect Enterprise Edition V3.0 and V2.0 when upgrading to CICS TS V5.4. ",
+      "query_sha256": "673f07440aa5260b04d2e6701a256e0f9e680bf45cc54133d6628d6dca335362",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-135-8fedece1bcd7f795",
+      "query": "Help with vulnerability have been identified in WebSphere Application Server shipped with WSRR\nI need to understand details regarding Multiple vulnerabilities have been identified in WebSphere Application Server shipped with WebSphere Service Registry and Repository (CVE-2017-1583). Where can I find this information? ",
+      "query_sha256": "8fedece1bcd7f7950a647ed935ff4d70d87915b136498462b12b671d57953dad",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-139-7a4abb96e1d615fb",
+      "query": "What can be done about \"Too many open files\" messages in the DASH systemOut?\nWhat can be done about \"Too many open files\" messages in the DASH systemOut log on an AIX box?",
+      "query_sha256": "7a4abb96e1d615fbb2b11424e3cb937cd8b25a85040e9a3e565f01b2d2d24dd1",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-140-7a4abb96e1d615fb",
+      "query": "What can be done about \"Too many open files\" messages in the DASH systemOut?\nWhat can be done about \"Too many open files\" messages in the DASH systemOut log on an AIX box?",
+      "query_sha256": "7a4abb96e1d615fbb2b11424e3cb937cd8b25a85040e9a3e565f01b2d2d24dd1",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-098-14238b3eb023ffbd",
+      "query": "How to adjust font and padding of rows in the Web GUI Event Viewer of Netcool\nYou would like to change the font and padding of event rows.\n",
+      "query_sha256": "14238b3eb023ffbd77ca5639d5081b147c852e0dc8fef2e3859055da1ed40410",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-181-32dcc55f57ac3072",
+      "query": "StaleConnectionException errors with BPM databases\nThere is much published documentation about stale connections to databases on the web, and yet stale connections continue to be a very common problem, at least with BPM databases. The condition can manifest itself in different ways. The most common experience of a stale connection is from error messages in the log or FFDCs that contain \"StaleConnectionException\".",
+      "query_sha256": "32dcc55f57ac3072bfa5f30dd3726a0c65f6702cfcc63349a0c8d19444468cdb",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-087-6446511aa21f5a43",
+      "query": "What TLS cipherspecs/ciphersuites are supported when connecting from Oracle Java (non-IBM JRE) to MQ queue manager?\nWhat TLS cipherspecs/ciphersuites are supported when connecting from Oracle Java (non-IBM JRE) to MQ queue manager?",
+      "query_sha256": "6446511aa21f5a43b344b1a398a19f4f14df3c1c4e757e0ca7e0d9774b4a259a",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-050-ee822cec5130b5df",
+      "query": "DataPower upgrade message Loading firmware failed: Preserve user modified data failed: Insufficient flash space available Could not install firmware image. The system will not reboot.\nIn the process of upgrading my IBM DataPower Gateway I saw the following message:\n\"Loading firmware failed: Preserve user modified data failed: Insufficient flash space available Could not install firmware image. The system will not reboot.\"\nWhat does this mean and what are the appropriate next actions? ",
+      "query_sha256": "ee822cec5130b5dfb718ff7344828553c0b4c775bb257b5c9a9e257106341062",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-151-30478bd6832de52f",
+      "query": "Where in the WAS admin console can I set the java nursery sizes? (-Xmns256M -Xmnx256M)\nSo, when GC=GENCON the HEAP gets split up into a nursery and tenured HEAP space. Can I ,in the Admin console, set the nursery size?? In the console, if I go here: A. WAS 8.X where to set these:\n\nServers => Application servers => server_name Now find the \"System Infrastructure\" section -> Java and Process Management -> (Lower right ) -> Process definition -> (Additional Properties section) -> Java Virtual Machine (Right hand side)\nB. Now in the Configuration window I only see the general MIN/MAX HEAP JVM settings. (These are the (-Xmos756M (Min) -Xmox1024M (Max)) tenured heap settings settings.\n\nShows near bottom I only see: Inital heap size (MIN) Maximum Heap size (MAX)\nHowever, I need to also set the nursery (-Xmns256M -Xmnx256M). How/where can this get set in the WAS admin console? (I'd rather not try and go hacking through the server.xml file...) I know in WAS 6.1 and 7.X we used to add these java parms in the \"generic JVM arguments\" section or directly into the ..\\WebSphere\\AppServer\\bin\\startServer.bat . However, it looks like some some WAS editions and versions do NOT have the \"Generic JVM arguments\" section on the JVM page. What can you do in this case?",
+      "query_sha256": "30478bd6832de52faf41be0553809b0d93a05d9cde596e0b1139e6c041457f50",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-088-77060b09147db182",
+      "query": "Need support info for ITCAM and WAS 8.5.5.x monitoring\nWhat ITCAM for AD/WAS versions and maintenance levels support monitoring of WAS 8.5.5.x?\n",
+      "query_sha256": "77060b09147db182a43f9d32e17b4135173e9909e7fbfb1b637fc6927ff4d97b",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-168-d80a814bdf3e3d69",
+      "query": "How to fix XAER_RMFAIL messages in WebSphere Portal's SystemOut.log?\nSystemOut.log contains various exceptions with caused by statements like:\nCaused by: com.ibm.db2.jcc.am.SqlTransactionRollbackException: DB2 SQL\nError: SQLCODE=-911, SQLSTATE=40001, SQLERRMC=68, DRIVER=4.14.88 \nand: \nCaused by: com.ibm.db2.jcc.am.SqlException: [jcc][t4][2041][11392] [4.14.88] Error executing XAResource.commit(). Server returned XAER_RMFAIL. ERRORCODE=-4203, SQLSTATE=null ",
+      "query_sha256": "d80a814bdf3e3d691dec0be230b282625d8e9c028cefb768d13fd83b3dfa5e3b",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-133-8204689ad5dd7ded",
+      "query": "Security Bulletin: API Connect Portal is affected by multiple Drupal vulnerabilities\nI need to understand details regarding Security Bulletin: API Connect Portal is affected by multiple Drupal vulnerabilities (CVE-2017-6924, CVE-2017-6923, CVE-2015-7875, CVE-2017-6925). Where can I find this information? ",
+      "query_sha256": "8204689ad5dd7ded1674d915a311bfe8abd2b9548448c86f0a1be68283f45dd1",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-092-da704ab707c3a419",
+      "query": "Connection pooling parameters (unusedTimeout, agedTimeout) won't work as expected on bpm 8.5.5 and oracle 11g RAC\nWe have set the connection pooling parameters to unusedTimeout=300, agedTimeout=600, minConnections=0 and reapTimeout=180 seconds for all pools. Our expectation is that maximum after 13 minutes any connection shall be renewed (8 minutes for unused ones). However we observe connections issued by CMNuser and PSuser that last for days/weeks. Did anyone face a similar issue?",
+      "query_sha256": "da704ab707c3a41965efd0622e99dab9bda15cfede1714029af397d5fa88801b",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-131-841a6d519c0c4846",
+      "query": "Help with Action required for Hypervisor Editions of IIB V9 & WMB V8 for security vulnerabilities in Red Hat Linux\nI need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux. Where can I find this information? ",
+      "query_sha256": "841a6d519c0c484615efbed6ca9c6477de4dc74ca673812e0219b0b1fdac0df2",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-108-d5aa08d0027206d2",
+      "query": "Where can I find more details about WMB Fix Pack 8.0.0.5?\nWhere can find more information about WebSphere Message Broker (WMB) Fix Pack 8.0.0.5?",
+      "query_sha256": "d5aa08d0027206d2c322edc7de4bbe028946a007269d7a266f7747d8885d750d",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-101-8a9c677a0da2ed60",
+      "query": "Help with Security Bulletin: Security vulnerabilities have been identified in IBM DB2 shipped with WebSphere Remote Server (CVE-2015-2808)\nI need to understand details regarding Security Bulletin: Security vulnerabilities have been identified in IBM DB2 shipped with WebSphere Remote Server (CVE-2015-2808). Where can I find this information?",
+      "query_sha256": "8a9c677a0da2ed60f7bbacf7d6682571cb4b2a0f6b67adb00f4bcaddc716c66f",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-079-64f5d5f3aa317535",
+      "query": "JD Edwards Adapter supported in BPM 8.5.6?\nHi experts, I have a question about the support for the JD Edwards Adapter in BPM 8.5.6:  which is the most current version of JD Edwards supported in this Adapter ?\n\nI am asking this because I have a BPM opportunity for a client that uses JD Edwards and I want to be sure that this adapter can be used.",
+      "query_sha256": "64f5d5f3aa3175355f50e545918e15fcea7334e28bb434d46293636f69c3491b",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-099-b8e8794c129ba1cd",
+      "query": "How do I resolve CSQX620E System SSL error function 'gsk_secure_socket_init' RC=440?\nWhen trying to establish an SSL/TLS connection from a queue manager running on a Unix server to a queue manager running on z/OS, I am getting the following error message:\nCSQX620E CSQXRESP System SSL error,\n \nchannel ????\n \nconnection (ipaddr)\n \nfunction 'gsk_secure_socket_init' RC=440\n\nI can successfully connect from the mainframe to the Unix server.",
+      "query_sha256": "b8e8794c129ba1cd8ab1ae32f5300cdad18a191848b56ab68933f229d258884d",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-158-d10b2b0460d919d5",
+      "query": "Error #2070\nI purchased the SPSS grad pack and put one of the licenses on one computer and another on this one. This computer crashed and I was forced to reformat the hard drive. Subsequently, I lost SPSS in the process. After reinstalling the program, when I attempted to open a data set I received this error:\n\nError # 2070 The application is unable to communicate properly with the license server. The license server may be down, or there may be other network-related communication or DNS issues interfering. This command is not executed. Specific symptom number: 3",
+      "query_sha256": "d10b2b0460d919d56afad17799b3b88532ca4adf494d114e02f958cd9cdcb0f3",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-159-d10b2b0460d919d5",
+      "query": "Error #2070\nI purchased the SPSS grad pack and put one of the licenses on one computer and another on this one. This computer crashed and I was forced to reformat the hard drive. Subsequently, I lost SPSS in the process. After reinstalling the program, when I attempted to open a data set I received this error:\n\nError # 2070 The application is unable to communicate properly with the license server. The license server may be down, or there may be other network-related communication or DNS issues interfering. This command is not executed. Specific symptom number: 3",
+      "query_sha256": "d10b2b0460d919d56afad17799b3b88532ca4adf494d114e02f958cd9cdcb0f3",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-172-9c8c8da998db6de9",
+      "query": "Support of RHEL 5.8 and Liberty 8.5.5.5 with JAVA 8.0\nWe are running RHEL 5.8 and 5.11 with Liberty 8.5.5.5 and want to run JAVA 8.0 . Is it Supported ?\n",
+      "query_sha256": "9c8c8da998db6de9491c4e1cf751ff346f2391d333c77800426dfe328b0450a1",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-157-3febd612b80a4bb8",
+      "query": "Why is my PDWDB flooded with irrelevant tracking data which is not related to process instances ?\nMy PDWDB does show a huge amount of data residing on the PDWDB table/view for TASKS. Most of the data does only have an ID and is not related to process instances ? ",
+      "query_sha256": "3febd612b80a4bb8c5be897eab9d840b11f64361a094f649e808b0fec2eae4c6",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-072-1d8eca3ea24d25c9",
+      "query": "We are experiencing issues after we cleared the  /tmp/javasharedresources location and restarted the jvm.\n\n\nWe experienced an issue when we cleared the /tmp/javasharedresources location and restarted jvm. We found a behavior where our website is serving a blank page and also cache monitor is not reflecting the statistics.\n\nPlease help us to understand why we cannot clear the /tmp/javasharedresources ?",
+      "query_sha256": "1d8eca3ea24d25c96fe43324c9823fef585dd1358bc0610c84277d6291209921",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-040-d20d1f5a272e1d6a",
+      "query": "How to access Rule Team Server or Rule Execution Server on WAS 7 over HTTPS?\nWhen trying to connect to Rule Team Server or Rule Execution Server on WebSphere Applicaiton Server (WAS) 7.0 over HTTPS, why do I still get an SSLHandshakeException after setting the property \"ilog.rules.res.allowSelfSignedCertificate\"to \"true\" ?",
+      "query_sha256": "d20d1f5a272e1d6ad563a45298efd7b80366350559e0df4f6ae65b496ad45a9b",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-117-31a9e118bda8a074",
+      "query": "What's the procedure to drop an user in Cognos Disclosure Management?\n\n\nO.S AIX 7.1\n\nCognos Disclosure Management 10.2.4 What's the procedure to drop an user in Cognos Disclosure Management",
+      "query_sha256": "31a9e118bda8a0744fb87aad7767db1950f153ffe32d149d0ebb7d2d097c6d01",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-019-f64aa09bd6ac500f",
+      "query": "I am using persistent messages, but I never got the messages\nI am using persistent messages, but I never got the messages. How can I determine what happen to the messages?\n",
+      "query_sha256": "f64aa09bd6ac500fc9cd71fc267220191272a792867861b19d7c7cffe8c5b63e",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-073-202f0c2f5f0def25",
+      "query": "Do I need to backup /opt/ibm-ucd/server/var/sa/dialogue ?\nMy UCD server has so many files in /opt/ibm-ucd/server/var/sa/dialogue that ls goes out of memory trying to list them all. Looking at another (small) server I can see that the files within are roughly 2k on average, and judging by the apparent size of the directory (100Mb) I've probably got 50000+ files in there.\n\nDo I need to backup this directory? From what I've read, I believe this directory contains records of in-flight communication between UCD and the agents - but assuming the server is down, is it safe to assume that no such activity is occurring? Can I periodically clean this directory?",
+      "query_sha256": "202f0c2f5f0def25448427fbff6de3ec8ff876672eb5372879b35f95d2d05858",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-126-699c26a061bf0844",
+      "query": "Why am I seeing a java.lang.StackOverflowError in Portal?\nMy Portal process pid / java.exe is suddenly disappearing. Reviewing the SystemOut.log files around the time it disppears, I am seeing the following:\n\n[datetime] 000007c1 ServletWrappe E\ncom.ibm.ws.webcontainer.servlet.ServletWrapper service SRVE0014E: [....]\n\nnested exception is\njava.lang.StackOverflowError\nat\norg.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherS ervlet.java:837)\nHow do I prevent this?",
+      "query_sha256": "699c26a061bf0844a9af8c5ef0a49d5696b5effe696bf35de12b6c63ebbfa907",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-060-9b7894f3dbe9b457",
+      "query": "Improve Performance of Rule Designer (ODM) and Rule Studio (JRules)\nHow can I improve the performance when working with ODM Rule Designer or WebSphere ILOG JRules Rule Studio? ",
+      "query_sha256": "9b7894f3dbe9b45751a20b2170625fafde7db00f88f333eb213e9466cce39184",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-100-1d3e743ad3a07a21",
+      "query": "Could UCD import template from ipas?\nI am trying to import a template from ipas, UCD seems to be able to retrieve the pattern name after some hints. But I am getting the following Error after clicking the Save button on the import template page:\n\n(WeaverError) handshake alert: handshake_failure (original=handshake alert: handshake_failure, original backtrace=org/jruby/ext/openssl/SSLSocket.java:170:in\nconnect' file:/media/udeploy/server/lib/weaver.jar!/gems/httpclient-2.2.7/lib/httpclient/session.rb:300:in\nssl_connect')\n\nUCD is version 6.0.1.3.484576 IPAS is 4.0.0.3-20140404055836 / 20140404-0551-458",
+      "query_sha256": "1d3e743ad3a07a2105c3e91331d9ae4f01f030cfa940d55eb9bd45f4a8590733",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-141-480670e605d4f542",
+      "query": "Help with Security Bulletin: A security vulnerability has been identified in WebSphere Application Server shipped with WebSphere Remote Server (CVE-2014-8917)\nI need to understand details regarding Security Bulletin: A security vulnerability has been identified in WebSphere Application Server shipped with WebSphere Remote Server (CVE-2014-8917). Where can I find this information?",
+      "query_sha256": "480670e605d4f542833159a8d91d11405ddcdd42e4e1985dbb6b7929adba67f1",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-110-6c0eafca4d22303f",
+      "query": "Help with Security Bulletin: Vulnerability identified in IBM WebSphere Application Server shipped with IBM WSRR (CVE-2017-1743)\nI need to understand details regarding Security Bulletin: Vulnerability identified in IBM WebSphere Application Server shipped with IBM WebSphere Service Registry and Repository (CVE-2017-1743). Where can I find this information? ",
+      "query_sha256": "6c0eafca4d22303f34b8837f80bd8a29e93e12a0716c9031777a36d8224a6099",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-058-4e6adda341b0823d",
+      "query": "iLMT - incomplete virtualisation hierarchy\n\n\nthis query is regarding support case 1109598 that has been raised.\n\nIf we set up an account is this providing access to information for other accounts/servers where we use the same ESX hosts for multiple customers. What specifically is being asked in terms of logical structure and permissions of the account?",
+      "query_sha256": "4e6adda341b0823dad4d8c37a2587acd88ea61ec94952a6fa14b1d8a8047501b",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-111-2e831846e62ffd9e",
+      "query": "Why does my install of the latest Installation Manager on a Linux Ingram Server not function?\nWhy does my install of the latest Installation Manager on a Linux Ingram Server not function?",
+      "query_sha256": "2e831846e62ffd9e09746cca571dd2560e67c3f1c13dbf343e7189a70b7e0fe7",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-154-d637fc77c1e8eb39",
+      "query": "recently installed Impact 7.1.0. fixpack 3, now when ever start the secondary impact server, the primary servers logging stops?  How can I fix this?\nwhen NCI1 is running by itself, all logging is functioning. When NCI2\nis started, logging stops on NCI1 and the \"reader\" logs indicate that\nthe readers have stopped. ",
+      "query_sha256": "d637fc77c1e8eb3954c8ab4577c9965cb35dac87615f46f1ddda9bdcaef8966f",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-024-9bd1df6f05d55740",
+      "query": "DFHAP1203I and DFHSR0601 with 0C1 in EQA10OSM after upgrading to CICS TS 5.2\nWhy is my CICS region failing during startup with message DFHAP1203I followed by DFHSR0601 after I upgraded to CICS Transaction Server for z/OS (CICS TS) V5.2? A system dump shows an abend 0C1 occurring in the Debug Tool for z/OS module EQA10OSM. \nI receive the following messages:\nDFHAP1203I Language Environment is being initialized. \nDFHSR0601 Program interrupt occurred with system task III in control. ",
+      "query_sha256": "9bd1df6f05d557401a852d294485a69995fe81d7e95443c9a2495514546be917",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-044-69d7006a6a87bfc0",
+      "query": "Why is CSV002I occurring for CSQADITB?\nAn application is getting repeated errors: \nCSV002I REQUESTS FOR MODULE CSQADITB EXCEED MAXIMUM USE COUNT\n\nRestarting the application clears the error messages for a while. Why is this occurring?\n",
+      "query_sha256": "69d7006a6a87bfc073a61ae5dc16967088aa0a13c6df5596aaa80843038f215b",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-175-f5805ab6c1540ea3",
+      "query": "BPEDB tablespace issues and how to address them\nThe size of the tables in BPEDB grows over a period of time. Thousands of process instances were created, due to an unexpected error. We went ahead and terminated the instances and deleted them from BPC Explorer. The size of the BPEDB grew from 1GIG to 11GIG. However, even after terminating the instances, the size of BPEDB did not decrease. How do we reduce the size of the BPEDB? Will the size increase if more instances are created ?",
+      "query_sha256": "f5805ab6c1540ea331a819a93df86214e20c7714afbf8e78cbdb5904a1449eae",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-136-382068c953921bd1",
+      "query": "Java plugin not loading into rhapsody\nI had installed rational rhapsody 8.2 in my machine. I tried to add the profile of the Simple plugin.sbs from the path C:\\ProgramData\\IBM\\Rational\\Rhapsody\\8.2\\Samples\\ExtensibilitySamples\\Simple Plug-in, finally it is found that the Simple plugin is failed to load in the Rhapsody process space.\nI had tried to add the JavaAPILogFile=D:\\RhapsodyLogFile\\Logs.txt for collecting the logs and while loading plugin nothing is written into the log file.\n\nWhen i launched the rhapsody the following is written into the logs\n\nEnter: RhapsodyAppServer_attachToRhapsodyApplication\nEnter: RPApplication_getTheJavaPluginsInterfaceNative\nExit: RPApplication_getTheJavaPluginsInterfaceNative\n\n \n\nPlease help me to resolve this issue ",
+      "query_sha256": "382068c953921bd181a859b8b270c91f5142f6fa57dd5b949759e9cf9671d992",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-093-cfd3e8433bdc9edb",
+      "query": "What is the difference between the software available in Passport Advantage and Fix Central?\nIs it possible to get IIB General Availability (GA) code from somewhere else or is it only available on Passport Advantage?\n",
+      "query_sha256": "cfd3e8433bdc9edb34e2e0ca0cf5c5c103296e55bdf9c3b8e113387976d0723a",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-166-7dbfa6f36dcf92d6",
+      "query": "Is IIBv9x affected by vulnerability CVE-2016-6304?\n\n\nThis Q&A is abstracted from a PMR\n\nI would like to know if IIBv9x is affected by vulnerability CVE-2016-6304. There was a report that Open SSL vulnerabilities were included in IIB but I could not find anything regarding specifically for CVE-2016-6304 vulnerability for IIB. Can you please confirm?\n",
+      "query_sha256": "7dbfa6f36dcf92d642033b334ca27addb292aff7953bb721031d16b1aa666eb0",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-017-530fdd801776b169",
+      "query": "Stale / old content on one cluster node but content up-to-date on other nodes.Why?\nStale / old content on one cluster node but content up-to-date on other nodes. ",
+      "query_sha256": "530fdd801776b169c1e73f888bb42c9bd042431dbd5322fca8806ef11dce833b",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-127-30562fb01f24f2f0",
+      "query": "When and why Apache Storm process of ITNM creating db2 files in /tmp?\n\n\nWhen and why should the following files be generated ?\n\n＞-rwxrwxrwx poll ncoadmin /opt/IBM/tivoli/netcool/var/precision/storm/workers/74089823-da35-4f8e-85e4-1454a928eee2/tmp/connlicj.bin\n\n＞-rwxrwxrwx poll ncoadmin /opt/IBM/tivoli/netcool/var/precision/storm/workers/74089823-da35-4f8e-85e4-1454a928eee2/tmp/jccdiag.log\n\n＞-rwxrwxrwx poll ncoadmin /opt/IBM/tivoli/netcool/var/precision/storm/workers/74089823-da35-4f8e-85e4-1454a928eee2/tmp/license.lock\n\n＞-rwxrwxrwx poll ncoadmin /opt/IBM/tivoli/netcool/var/precision/storm/workers/74089823-da35-4f8e-85e4-1454a928eee2/tmp/serverlist.lock",
+      "query_sha256": "30562fb01f24f2f0d57ea3c8fcf8cb4372bc53ab26eadd87bafe8efd75481df9",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-152-09ef68a24e7421d6",
+      "query": "How do I configure WebSphere Portal with OpenLDAP?\nHow do I configure WebSphere Portal with OpenLDAP?\n",
+      "query_sha256": "09ef68a24e7421d69e0a0970a526e2e85dbc64397793878bd79692c24f2cc599",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-065-58c6a5eaec2854fa",
+      "query": "ITCAM for J2EE 7.11 part numbers\nWhat are the names, part numbers, sizes and posting dates for ITCAM for J2EE v7.1.1.0 installation images on all supported platforms?",
+      "query_sha256": "58c6a5eaec2854fa4fe92b6aeedb91bd8d49387d47e3f9e270e7694a7c17dac4",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-053-88dcb13ba2f286bf",
+      "query": "Unable to run Test Suites against clustered SSP from Decison Center console\nI have a clustered Decision Server where XU and SSP are deployed on cluster members and Rule Execution Server (RES) console is deployed on a standalone server outside of the cluster. IHS and a load balancer is configured on top of the cluster. In Decision Center, the RES server URL is configured with the load balanced IP. Test Suite fails to run from Decision Center console in this configuration.\n\nAfter clicking on Run from Decision Center console, the process starts, but after a few seconds, execution stops with a message: Cannot execute the scenario suite xxx. The operation was aborted by user.\n\nNo errors shown in Decision Center and Decision Server server logs. The only error seen is from the browser and no stack trace is displayed.",
+      "query_sha256": "88dcb13ba2f286bf670cc2e9977a2084df372956bf9a098996015767933ae9d3",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-164-36b2a7e01fcfeb97",
+      "query": "Why are the icons greyed / grayed out for a library in the WCM Library Admin Portlet?\nUsually this is seen when an attempt to delete the library via the delete trash-can icon and the delete fails/hangs. ",
+      "query_sha256": "36b2a7e01fcfeb973fa4648e0e50a5fe5fcb73dd6efb3d600c29fdabf6db150c",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-075-823a3c79cc5dc565",
+      "query": "Hey, how can I transfer my spss 24 licence from my old macbook to the new one?\n\n\nI made the backup from my laptop to my new one, but SPSS doesnt allow me to start, because of the licence! Also I tried the SPSS Licence wizard on the new macbook, but it is not possible to fill in my licence\n\nI didn't find a option to deactivate the licence on the previous macbook.. how can I solve this problem?\n\nI would be grateful for some help!\n\nCheers",
+      "query_sha256": "823a3c79cc5dc565d58a1efbdeb3b21a280b10a78c4369a1ccebfa88c2d115b4",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-171-81d754d3f4fcd339",
+      "query": "Why do we see database errors \"caused by com.ibm.db2.jcc.am.SqlDataException: DB2 SQL Error: SQLCODE=-302, SQLSTATE=22001,...\" in SystemOut.log?\nWhy do we see database errors \"caused by com.ibm.db2.jcc.am.SqlDataException: DB2 SQL Error: SQLCODE=-302, SQLSTATE=22001,...\" in SystemOut.log?",
+      "query_sha256": "81d754d3f4fcd339fda0b4f0e8eed3c5dd69669b233e66e23bf4fd2a8ddc7ae2",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-173-7a660565a00046fd",
+      "query": "I do not have an authorization code to license my copy of SPSS, where can I get one?\nEither I was never given an authorization code or I have lost mine and need to get one, can you help me get one? ",
+      "query_sha256": "7a660565a00046fdaeda86a9813c08ae045a17a789b1c774051e7bf3796d72fd",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-066-3683ed30ce41588e",
+      "query": "Where to find the recommended fixes for WebSphere and Portal ?\nWhere to find the recommended fixes for WebSphere and Portal ?",
+      "query_sha256": "3683ed30ce41588ee067372cab8e407f869e3e48180cdbee7a2f5ca5a397d49c",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-029-517c29fbba68fd6b",
+      "query": "Port number error starting 9.0 Launcher\n\n\nI'm attempting to start up v9.0 for the first time with one .msl file on a Windows server and get the following error.  I also have v8.4 on this server and it starts fine.  I do not have v8.4 running when I attempt to start v9.0.\n\nCannot recognize if the system RecordChangeSystem.msl; has started. Reason: Server is unable to get the status of the system on port number 6,002.\n\nI have the port range set to 7000/8000.  Why am I seeing this?  ",
+      "query_sha256": "517c29fbba68fd6b9f8208fde65e532abd6b2c747b1433df3d9a8ff29e048c2f",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-096-e65b43a8e5b4fc22",
+      "query": "Help with Multiple vulnerabilities have been identified in WebSphere Application Server shipped with WSRR \nI need to understand details regarding Multiple vulnerabilities have been identified in WebSphere Application Server shipped with WebSphere Service Registry and Repository (CVE-2017-1583, CVE-2011-4343). What products are affected?",
+      "query_sha256": "e65b43a8e5b4fc22a49298c18129dab91bf184cd9f13603b170c4a2178c11370",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-008-8f86be099fdb6657",
+      "query": "When required, upgrade the IBM Installation Manager rather than install a new copy.\nDuring the installation of WebSphere Process Server (WPS) Fix Pack, or IBM Business Process Manager (BPM) Fix Pack, there may be requirement to use a newer version of IBM Installation Manager.\nWhat is the right method to meet this requirement?",
+      "query_sha256": "8f86be099fdb665772c7dd6050a9e60b827141ccfbd547d512a2997793c3c453",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-082-03a4bd088d9c6b2a",
+      "query": "Help with Security Bulletin: IIB is affected by an Apache Tomcat related vulnerability (CVE-2017-7674)\nI need to understand details regarding Security Bulletin: IBM Integration Bus is affected by an Apache Tomcat related vulnerability (CVE-2017-7674). Where can I find this information? ",
+      "query_sha256": "03a4bd088d9c6b2a16c43a0d5cb1b1aede6865ed661b78acb7928a9ec3319da8",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-182-7a395163a3a51a31",
+      "query": "Why is an error seen while running run-svrssl-config?\nFollowing error is seen while running run-svrssl-config ConfigEngine task:\n action-run-pdjrte-config-zos-wp.ac.impl: \n [validateHost] Validating hostname(s) in the following argument: tam001:7136:1,tam002:7136:2\n      [echo] Command to run is: java com.tivoli.pd.jcfg.SvrSslCfg -action config -admin_id sec_master -admin_pwd ****** -appsvr_id myAppSvr -port 7223 -mode remote -policysvr\n tam001:7135:1,tam002:7135:2 -authzsvr tam001:7136:1,tam002:7136:2 -cfg_file /opt/WebSphere/AppServer/tivoli/tam/PdPerm.properties -key_file /opt/WebSphere/AppServer/tivoli/tam/pdperm.ks\n      [java] Executing java with empty input string\n      [java] Exception in thread \"main\"\n      [java] [\n      [java] HPDMG0759W The user name already exists in the registry.\n      [java] ]\n      [java] at com.tivoli.pd.jutil.ob.a(ob.java:40)\n      [java] at com.tivoli.pd.jutil.ob.a(ob.java:66)",
+      "query_sha256": "7a395163a3a51a31bb0e93fa6f8a332bd3b78e7521950edb66ddea7c81229975",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-104-4741d4fb24c73f51",
+      "query": "Help with Action required for IIB H.E. V9 & WMB H.E. V8 for security vulnerabilities in Red Hat Linux\n\n\nI need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux.\n\nThis is related to CVEID:\nCVE-2017-14739\nCVE-2017-14741\nCVE-2017-14989\nCVE-2017-15015\nCVE-2017-15016\nCVE-2017-15017\nCVE-2017-15032\nCVE-2017-15033\n\nWhere can I find this information?",
+      "query_sha256": "4741d4fb24c73f51150c7009de8ac0708671954327dfa9fcfae024c592759f2d",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-183-a06a232bfbe80ef8",
+      "query": "Traffic across domains seems unexpected\n\n\nI have two Multi-Protocol Gateways (MPGWs) configured, each in their own domain:\n\n     Domain A\n     MPGW_A\n     FSH_A (1.2.3.4:443)\n     Domain B\n     MPGW_B\n     FSH_B (0.0.0.0:443)\n\nThe FSH_B is disabled, thus MPGW_B cannot take traffic. However, if I modify the config for MPGW_B (i.e. just change a Stylesheet parameter) the traffic goes to MPGW_B somehow. How is this happening? FSH_B is still disabled.",
+      "query_sha256": "a06a232bfbe80ef850ef88e1df4e72711f6e6375108ccf5f8a36397b503f944d",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-063-ffad99acdd22f09e",
+      "query": "Security Bulletin: MQ Explorer directory created with owner '555' on Linux x86-64 vulnerability affects IBM MQ (CVE-2016-6089)\nI need to understand details regarding Security Bulletin: MQ Explorer directory created with owner '555' on Linux x86-64 vulnerability affects IBM MQ (CVE-2016-6089).",
+      "query_sha256": "ffad99acdd22f09ebe23d469b47b84c9d9eb07da1a22399714356a4433d954e3",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-091-5f21a7e3b5214801",
+      "query": "Is Re-naming the WebSphere Portal installation directory and cell name for an existing clustered installation possible?\nQuestion: Is re-naming the WebSphere Portal installation directory and cell name for an existing clustered installation possible? ",
+      "query_sha256": "5f21a7e3b52148010bed39e3b130ceaad69251c14d7c3d57e6b5fe38527b7aed",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-025-ec45bbdd065eed6c",
+      "query": "Is there a way set a timeout for shell task?\nI have run into couple of shell task in Urbancode, for example start websphere server, or run a test.bat file using the shell task, The problem I have, though the task is successful executed, it keeps ruining this shell task and does not moving to the next task. Can I set a time out for the shell task",
+      "query_sha256": "ec45bbdd065eed6c226a475c6e9b39f24f65f6e096f77606968cdc0a35a29a0f",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-026-ec45bbdd065eed6c",
+      "query": "Is there a way set a timeout for shell task?\nI have run into couple of shell task in Urbancode, for example start websphere server, or run a test.bat file using the shell task, The problem I have, though the task is successful executed, it keeps ruining this shell task and does not moving to the next task. Can I set a time out for the shell task",
+      "query_sha256": "ec45bbdd065eed6c226a475c6e9b39f24f65f6e096f77606968cdc0a35a29a0f",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-085-f25e7e8a5d707e5f",
+      "query": "Can you delete temporary data that is generated by IBM Business Process Manager?\nIn the OS temporary directories, there are many files generated for BPM. These files are created on the following operations:\ncreate TWX snapshot for export\naccess a managed asset during process execution\ncreate offline install package\nThe following temporary directories are used for storing temp files:Operating system temporary directory:/tmp (Linux)c:\\windows\\temp (Windows)\n\nHow can these files be cleaned up?",
+      "query_sha256": "f25e7e8a5d707e5f09da3e88bd08dee983dade949e03d5ff3c5c27ba2e42d88c",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-033-1a24736826823019",
+      "query": "Why am I getting a DSRA7019W message when I try to use the Oracle 10g driver in WAS 8.5.5.x?\nI am getting the following message when I configure my WAS 8.5.5.x datasource to use the Oracle 10g driver:\nDSRA7019W: Oracle10gDataStoreHelper or a subclass of it must be used when configuring WebSphere DataSources to run using Oracle 10g jdbc driver.\nHow can I resolve this issue?",
+      "query_sha256": "1a2473682682301992a28e6a5a400702ae94b30c59c5b8d6ffff98e35a3cea1a",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-103-fa268973c6fbe1a9",
+      "query": "DataPower upgrade \"extracting firmware firmware parsing error\" \"Error while processing Action ... \"\nI am trying to upgrade my DataPower Gateway Appliance and am receiving the message(s) similar to:\n\"extracting firmware firmware parsing error\"\nOR\n\"Error while processing Action ... Validate boot image failed \"Validation Failed\"\nHow can I resolve this? ",
+      "query_sha256": "fa268973c6fbe1a9e9b9ea8b2e94a8f3e34fdb00cef42e9dcaaf68c32057e484",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-080-8e52641b279ee3c5",
+      "query": "How can I investigate hangs in MQ or in applications?\nAre there any tools to help get to the bottom of hangs? ",
+      "query_sha256": "8e52641b279ee3c5cc7794ba5d1f13853f402dbc8022befc8f2ad44c11a22bc5",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-027-a956f764a6668876",
+      "query": "Help with Fix Pack 6 for WMB V8\nWhere can I find more information about WebSphere Message Broker (WMB) Fix Pack 6?\n",
+      "query_sha256": "a956f764a6668876787f19fe86ef126c24e4ff32b333b5b8232fdf643ef3b100",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-042-9fb3cce3ade1b6d5",
+      "query": "Datacap 9.0.1 Application Manager not saving database configs\n\n\nHi All,\n\n \nI have installed Datacap 9.0.1 and there is a issue of not connecting to Admin and engine DB with Datacap 9.0.1.\n \nThe problem is there for saving admin and engine db configurations.\n \nWhen selected the path it saves but after tab out and tab in it clears admin and engine DB configurations.\n \nEven I tried with exporting and importing keys but no luck.\nRepair and re-install of Datacap is also done but no luck.\n \nPlease let me know if any of had faced similar kind of issue and any solution for it.\n",
+      "query_sha256": "9fb3cce3ade1b6d54bff7c0a43712314d07c651046cc78c4058f9d3a0b21f11e",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-056-f905f3a4e87b6cd6",
+      "query": "CICS Transaction Server for z/OS 4.1 and 4.2 End of Service dates\nWhen will CICS Transaction Server for z/OS (CICS TS) V4.1 and V4.2 be withdrawn from support? I need to make sure that I upgrade to a newer release before the end of support (EOS) date. I would like to know what product replacement information is in the announcement letter. ",
+      "query_sha256": "f905f3a4e87b6cd6ad7a32da9657a21ef9bc9c50abac11e34da074a2a92dac64",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-113-071ff6dc7cd3e8bf",
+      "query": "KD4SoapHeaderV2 in WebServices messages\nThe following header appears in the WebServices messages after configuring ITCAM for SOA DC:\n\n<soapenv:Header> <KD4NS:KD4SoapHeaderV2 xmlns:KD4NS=\"www.ibm.com/KD4Soap\" >AFIAAgAkYzViZmRmOTUtYmY3Mi0zNGY1LWExNDItNTNlMGI3MzUxNmRmACRjYTdmZTQwYi1 mNDFlLTMxNzUtYjExYi04MzY1MmMyMTliNjUABA==</KD4NS:KD4SoapHeaderV2> </soapenv:Header>\nIs it possible to remove the KD4SoapHeaderV2 header appearing in the WebServices messages after that ITCAM for SOA monitoring has been enabled?",
+      "query_sha256": "071ff6dc7cd3e8bf2ba1994a2ac01a716db27b6187cfc150dd77568a560a3670",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-109-45e54b1ec6ef6b01",
+      "query": "What are the mustgather for RDz integrated debugger issues or z/OS Debugger?\nWhat logs could be collected when experiencing a problem with the integrated debugger in Rational Developer for System Z ?\n",
+      "query_sha256": "45e54b1ec6ef6b018d60b9828f1ce75004b3ddb96d58de7b9db7860451a5459a",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-078-93c09bc402933b60",
+      "query": "What IBM Business Process Manager version is affected by the Apache Commons FileUpload vulnerability CVE-2016-1000031?\nWhat IBM Business Process Manager version is affected by the Apache Commons FileUpload vulnerability CVE-2016-1000031? ",
+      "query_sha256": "93c09bc402933b60a57927e3d5e84ddc18c64102f1568bc56259cc0d46160c39",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-041-9aa7e3663a7a22a9",
+      "query": "ITCAM Agent for WebSphere DataPower 7.1 agent support for TLS\nDoes the ITCAM Agent for WebSphere DataPower 7.1 agent support TLS?\n",
+      "query_sha256": "9aa7e3663a7a22a9f291d14b1b413f52f403b22ec1d4524d71013287d2c9b29a",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-005-7ef0378180d67582",
+      "query": "After increasing the number of mq clients connections to over 10k, FDCs with probe id XC035040 are logged and no further client connections can be established.\nWhy are FDCs reporting probe id XC035040 after adding 1000 mq client connections to the mq server ?\n",
+      "query_sha256": "7ef0378180d67582f86c3622c2745fdc9a08f88139b26343e85dc164374ab731",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-137-7830848b65a493c0",
+      "query": "Maintenance Manager login with LDAP\n I\"m trying to set up NENU to run on a 9.0.1 application. I've created the application and configured the ruleset but it will not connect to the application.\n\nIn the Knowledge base it says that if using LDAP to leave the UserID, Password and Station ID blank.\n\nI have tried this in multiple configuration but it simply will not connect and says the Userid and Password are invalid.\n\nAnyone have expedite on how to connect using LDAP?\n\nHere is the error message when using a userid\n\nRunning SetupOpenApplication Action...\n16:07:24.569 (47) t:1C90 p:53A7028 !!! ERROR !!!: Cannot login to application:'APPLICATIONAME', server:'tms', admin:'tmadmin', engine:'tmengine', user name:'ntprod\\svc_datacap_tst', station:'btcedcswd212v'. Error message from aTM:'Login name and/or password invalid.\nPlease try again.'\n16:07:24.569 (0) t:1C90 p:53A7028 Running SetupDisconnectAll Action...\n\nIf I remove the username, password and station, the error message is the same except the userID has xxx.com\\svc_datacap_tst as the userid which is incorrect. ",
+      "query_sha256": "7830848b65a493c026bfff1823e314a0dd42cbfdad04c68ebbc20746d8d3f424",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-046-5943072d70400520",
+      "query": "Help with Security Bulletin: WMB and IIB Toolkit cannot connect to a remote WMB broker or IIB node with a TLS-compliant cipher (CVE-2015-0118)\nI need to understand details regarding Security Bulletin: WebSphere Message Broker Toolkit and IBM Integration Toolkit cannot connect to a remote WebSphere Message Broker broker or IBM Integration Bus node with a TLS-compliant cipher (CVE-2015-0118). Where can I find this information?",
+      "query_sha256": "5943072d704005209697888d18f74e01e7c6e2057e52d67ef197bff3e43ac16a",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-125-4ecb7c85241a95a2",
+      "query": "Why are data source connections to Microsoft SQL Server failing after upgrading WebSphere Application Server?\n\n\nWebSphere Application Server v7 and Java SDK were updated to Fix Pack v7.0.0.37. Afterward, all data source connections to Microsoft SQL Server failed.  \n",
+      "query_sha256": "4ecb7c85241a95a27905e042bcbf1f4934884abde74917ac2c6908b0a49f0a2f",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-018-08e85e2d20365642",
+      "query": "How do I have to prepare WAS and BPM servers, if DST or time zones will change?\nDaylight Saving Time (DST) or time zones will change in our country (e.g. 26.10.2014 in Russia).How do I have to prepare the WAS and BPM servers in our environment?",
+      "query_sha256": "08e85e2d20365642f70d054216cdd165c33a9595872ca311c7b9bb7fecf14deb",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-054-f55cd74621d10d8e",
+      "query": "Help with installing the latest version of Portal 8.5 on AIX\nWe are planning to install the latest WebSphere Portal 8.5x on AIX 7.0 with DB2 Where can I find the step by step installation procedure?\n",
+      "query_sha256": "f55cd74621d10d8e5e30d15c8c07f89e05c70b4f0e5293eb7a8956386f6aceef",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-179-d80fda8bd835c12d",
+      "query": "Why am I getting error SqlIntegrityConstraintViolationException when deploying a process application?\nAfter reinstalling Process Center (or using separate Process Centers to deploy to one Process Server) you get a deployment failure error on the Process Server:\njava.lang.Exception: java.lang.Exception:com.lombardisoftware.client.delegate.BusinessDelegateException:PreparedStatementCallback; \n....\ncom.ibm.db2.jcc.am.SqlIntegrityConstraintViolationException: Error forbatch element # 1: DB2 SQL Error: SQLCODE=-803, SQLSTATE=23505,SQLERRMC=2;BPMBDBA.LSW_SNAPSHOT, DRIVER=4.11.69",
+      "query_sha256": "d80fda8bd835c12da33edaf2dfc3f5e5e3efbe0004be1c0c3de062aef992a5f2",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-153-80351f6939144639",
+      "query": "Help with Security Bulletin: Vulnerabilities in OpenSSL affect WebSphere MQ 5.3 for HP NonStop Server (CVE-2017-3735)\nI need to understand details regarding Security Bulletin: Vulnerabilities in OpenSSL affect WebSphere MQ 5.3 for HP NonStop Server (CVE-2017-3735). Where can I find this information?",
+      "query_sha256": "80351f693914463982929f54a502f4a4b148faeb5a017615d9aa9e82a8183603",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-146-e8fc22e1e2b9d02b",
+      "query": "Receiving an error when trying to create a profile after applying WAS V8.0.0.10 (or later fixpack) to BPM V8.0.1.3 which uses MS SQL Server database\n\n\nAfter applying IBM WebSphere Application Server (WAS) V8.0.0.10 (or later fixpack) in IBM Business Process Manager (BPM) V8.0.1.3, I receive the following error when trying to create the profile:\n\ncom.microsoft.sqlserver.jdbc.SQLServerException: The driver could not establish a secure connection to SQL Server by using Secure Sockets Layer (SSL) encryption. Error: \"Only SSLv3 was enabled while com.ibm.jsse2.disableSSLv3 is set to true\". RC = 300",
+      "query_sha256": "e8fc22e1e2b9d02b81d26afc42341ce609c94815c710bb226b6d841f99230bd2",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-049-3e37baeeb8d31cd1",
+      "query": "MQ jobs and some user jobs are in semaphore wait (SEMW) status\nAfter upgrading WMQ on IBM i, MQ jobs and some user jobs are in a semaphore wait (SEMW) status. I've tried to end and restart MQ, performed cold start, delete and rebuild MQ system with no luck. Where do I need to look?\n",
+      "query_sha256": "3e37baeeb8d31cd153f457022cf0fe7a9dc7737cdd8e474bf35ef9895f2c7b5c",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-086-66a9e3af24f07b04",
+      "query": "Why do I get \"error: The admin task reported the following: null\" if uploading a DataPower scrypt3 firmware image file WAS 8.x DataPower Appliance Manager?\nHow can I manage a set of DataPower appliances that shall run v7 firmware images by using WebSphere Application Server 8.x DataPower Appliance Manager?I get \"error: The admin task reported the following: null\" if uploading a DataPower scrypt3, while scrypt2 works fine.",
+      "query_sha256": "66a9e3af24f07b04c007b652d0ec335d6ee87b68b10f970c56fb60fb8253b63c",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-004-011edfb0eda1928b",
+      "query": "Can you upgrade directly from Firmware Version 6 to Firmware Version 7 for IBM DataPower Gateway?\nCan you upgrade directly from Firmware Version 6 to Firmware Version 7 for IBM DataPower Gateway or is there an interim step/pre-requisite? ",
+      "query_sha256": "011edfb0eda1928b96308cb27b86f6e33cccfff3631a598979e98e9f229a8e64",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-106-a44e17ef87ea0d4f",
+      "query": "How does configuring \"hung threads detection\" impact performance of a production WAS server?\nI took a pmr about hung issue on Solaris. Customer said he couldn't collect MG data because the issue always happened at night. So I let him to configure hung detection policy by adding JVM arguments (alarm threads hung). He said it was production server and worried about any impact performance.",
+      "query_sha256": "a44e17ef87ea0d4f432f8722fe83fe169cbe8ed6b2d8476873c20c7f866b8137",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-037-92d0a71bb9e86572",
+      "query": "How do I change from shared to unshared connection?\nin WAS, how do I change from shared to unshared connection. I am seeing connections max out and take a long time to release.\n",
+      "query_sha256": "92d0a71bb9e8657282f9577fec633a9ad5795d0427566c6af56807c9a77b8b24",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-148-24b6a9ef706cc8bd",
+      "query": "S878 abends during CICS startup after applying PTF for OA45950\nAfter applying the PTF for z/OS APAR OA45950, why am I suddenly receiving many S878 abends when I bring up my CICS regions? No CICS system or application software changes were made. \nThe PTF numbers for APAR OA45950 for the various MVS releases are:\nRelease C10 : UA75818 available 15/02/25 (F502 ) \nRelease D10 : UA75819 available 15/02/25 (F502 ) \nRelease 210 : UA75838 available 15/02/25 (F502 ) ",
+      "query_sha256": "24b6a9ef706cc8bd45c3d0b1522659e58b2e48e38a09fd8462f0e687a420f6b5",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-156-c268c495fbad2da0",
+      "query": "Is there Self-Describing Agent Support for ITCAM AD 7.1 Agent?\nDoes ITCAM for AD 7.1 (YN) agent for WAS support SDA (Self-Describing-Agent) feature? ",
+      "query_sha256": "c268c495fbad2da07ba738c5dbed25f47048f5601a680652974960113400057f",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-147-4033b31036328694",
+      "query": "How to use the LIKE operator, wildcard and special characters in your IBM FileNet Content Platform Engine Sweep's Filter Expression?\nHow to use the LIKE operator, wildcard and special characters in your IBM FileNet Content Platform Engine Sweep's Filter Expression? ",
+      "query_sha256": "4033b31036328694b66da1b9480799dd30469ff3516c36bccbeeedf019296c73",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-150-f587040629b8d4ed",
+      "query": "Refining search results by content type in Quickr doesn't work as expected\nQuestion: Refining of search results returned in the Search Center by clicking on content types eg: blogs and wikis does not return any reduced result set. The only refining content type which works is 'files' ",
+      "query_sha256": "f587040629b8d4ed02781d896f021c8485d9ad9fa73999d88cebef68f5ee9b5f",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-128-17ecb41fb6340204",
+      "query": "ODR OOM issue\nI got ODR OOM after upgrading the WAS to v8553. No configuration or traffic load changing. Is there any known issue?",
+      "query_sha256": "17ecb41fb634020406424eebee8f7540bf7435e24008bf10a397600151c85ea8",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-142-ea4d657d8d04e0b5",
+      "query": "Why is my .NET client not connecting and the QMgr records a DBCS error (AMQ6048)?\nI upgraded to WMQ 7.5.0.x client and now my .NET application fails to connect to the QMgr. The error received on the QMgr side was AMQ6048. What's going on?\n AMQ6048: DBCS error\n\n EXPLANATION:\n WebSphere MQ is unable to convert string data due to a DBCS error.\n Conversion is from CCSID 1208 to CCSID 1252.\n ACTION:\n Check the WebSphere MQ Application Programming Reference Appendix and\n the appropriate National Language Support publications to see if the\n CCSIDs  are supported by your system.",
+      "query_sha256": "ea4d657d8d04e0b5cf20d9f5463a11f1178013022eeeb1c267b2acbad112e96e",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-014-153bfb02e3728e8f",
+      "query": "DataPower upgrade Loading firmware failed: Insufficient flash space available.\nI am trying to upgrade my M/T 9235 DataPower Gateway Appliance and am receiving the message(s) similar to:\nError performing that action! Could not install firmware image. Loading firmware failed: Preserve user modified data failed: Insufficient flash space available System will NOT reboot. \nOR\n\"Loading firmware failed: Insufficient flash space available.\"\nHow can I resolve this? ",
+      "query_sha256": "153bfb02e3728e8f7aab45526a9c098de56a0bb7d27660def177a5c3ead7d7be",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-114-23c533707359b13f",
+      "query": "Is Java 7 supported for BPM?\nWhat versions of BPM, if any,  support Java 7?",
+      "query_sha256": "23c533707359b13ff7881436e81ed2690a82635bca1663dcaa056fd8a9f7509d",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-048-d06bae076fd69849",
+      "query": "BPM installation packages and deployment options\nWhat is the difference between \"Advanced\" and \"AdvancedOnly\" options for BPM deployment environment? What is the difference between \"BPM Advanced\" and \"BPM Advanced - Process Server\" installation images?",
+      "query_sha256": "d06bae076fd698491c47427ff5d4680c91317f61084fda1a990babcfd6fe5795",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-068-934a2c91ed63a0ae",
+      "query": "Why am I seeing a java.lang.StackOverflowError in Portal?\nMy Portal process pid / java.exe is suddenly disappearing. Reviewing the SystemOut.log files around the time it disppears, I am seeing the following:\n\n[datetime] 000007c1 ServletWrappe E\ncom.ibm.ws.webcontainer.servlet.ServletWrapper service SRVE0014E: [....]\n\nnested exception is\njava.lang.StackOverflowError\nat\norg.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherS ervlet.java:837)\n\nWhat is causing this?",
+      "query_sha256": "934a2c91ed63a0ae4867d10cf310f6c7e4a23628b83267d59a438ff927b3f146",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-047-a5d0667a18e672ea",
+      "query": "Is Java 7 supported for BPM?\nWhat versions of BPM support Java 7?",
+      "query_sha256": "a5d0667a18e672eaf89f2272d8ee0dee3fca89cce84fe4f7f6e7f51425315dbb",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-169-c76de22e41476fae",
+      "query": "SPSS 24 License\n\n\nHi, Just restored my Mac from a back up. My license code stoped working. I get this message \"Authorization in progress ... (-------------------------------------) Authorization failed.: You are not allowed to generate any more new licenses. End Of Transaction.\nNo additional authorizations are permitted on this code. For assistance go to www.ibm.com/planetwide and select your country in order to place a support case online or by phone. Please have your IBM Customer Number or purchase details available. \"\n\nCan you please help ?",
+      "query_sha256": "c76de22e41476faebd5affba98b7d8fd37d422b2b642dc451c0de6ab262fb5b9",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-038-aea603a4dcf6eacd",
+      "query": "Invalid operation: result set is closed. ERRORCODE=-4470, SQLSTATE=null\nWhen using BPM, I see runtime exceptions saying that this SQL error occurs: Invalid operation: result set is closed. ERRORCODE=-4470, SQLSTATE=null\n\nFor example:\n\nCWLLG2015E: An unexpected runtime exception occurred. See exception for more details. Error: Wrapped com.lombardisoftware.core.TeamWorksRuntimeException:",
+      "query_sha256": "aea603a4dcf6eacdb1d075ba9fc13c29c96dba804df377ae996a5dfc4a89c17d",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-097-f7f5b71752424c7c",
+      "query": "Help with Action required for IIB H.E. V9 and WMB H.E. V8 for security vulnerabilities in Red Hat Linux\n\n\nI need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux.\n\nThis is related to CVE-IDs:\nCVE-2017-5715\nCVE-2017-5753\nCVE-2017-5754\n\nWhere can I find this information?",
+      "query_sha256": "f7f5b71752424c7c0168b111f229a30b9cdbea5163951548091dc25708d5398e",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-089-f331f99d16e88152",
+      "query": "How do I correct a BIP3701E: INVALID_CHARACTER_ERR I'm getting on deploy?\nReceiving a\nBIP3701E: A Java exception was thrown whilst calling the Java JNI method ''AdminAgentThread_getDeployMessage''. The Java exception was ''org.w3c.dom.DOMException: INVALID_CHARACTER_ERR: An invalid or illegal XML character is specified. ''\non deploy. What is wrong? The knowledge center just states I need to correct the error. What is the invalid character?",
+      "query_sha256": "f331f99d16e88152d1a1b690c7e96b9d3aa393993b43b4c597395c04bbdd3540",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-123-7071fda4e84c651f",
+      "query": "My BPM 8.5.5 system has internet access. But I cannot upgrade to 8.5.6 from IM directly\nI have a BPM 8.5.5 system with internet access. But when I tried to upgrade BPM to 8.5.6 from Installation Manager with \"Update\", it failed with java.lang.NullPointerException",
+      "query_sha256": "7071fda4e84c651f61b3abf7fb5e27b26c291afc9200b37381459c4d87f000a7",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-095-e7f53b881fdc3cc7",
+      "query": "Why is Oracle agent (rz) reporting listeners and services as 'Inactive' even when those are active?\nOn Unix/Linux, the Extended Oracle agent sends false alert for listener status. All listeners and services in Net Service Connection workspace show as inactive.",
+      "query_sha256": "e7f53b881fdc3cc7b78ec8ba1b9c311e88763402155a810c86b2ab0d84285bf1",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-144-0f3083637d4644e9",
+      "query": "missing VM manager data\n\n\nwe are missing VM manager data for 13 servers. error: invalid credentials - suspended. there are no recent changes done for the ID/pwd.\n\nplease suggest the action need to be taken.\n1039699\n",
+      "query_sha256": "0f3083637d4644e9bb6a39de6a3bae9918e175069e2f099768dcf454d8debf22",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-132-6213620a30dd1068",
+      "query": "Improve Performance of Decision Center and Rule Team Server (RTS)\nHow can I improve the performance of ODM Decision Center and WebSphere ILOG Rule Team Server (RTS)? ",
+      "query_sha256": "6213620a30dd1068cf9df58d82f047d3403628ae0d1feeac015e66e03912e2c3",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-002-b79c1c56fa609a8b",
+      "query": "Help with Security Bulletin: IBM WebSphere MQ and IBM MQ Managed File Transfer is affected by an undefined behavior because of insecure file permission vulnerability (CVE-2017-1699)\nI need to understand details regarding Security Bulletin: IBM WebSphere MQ and IBM MQ Managed File Transfer is affected by an undefined behavior because of insecure file permission vulnerability (CVE-2017-1699). Where can I find this information?\n",
+      "query_sha256": "b79c1c56fa609a8b8f96440753f8924d376dafbdfd90aea00a925f111ae72ebb",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-055-e95139f1ef38ecf3",
+      "query": "Compose tab appears disabled and project is not editable in Decision Center\nI have upgraded my ODM version and a project in Decision Center appears non editable :\n\nthe compose tab is disabled\nin explore tab there are no new nor edit button",
+      "query_sha256": "e95139f1ef38ecf3cdcf8e8c28176c61ef924019a8d5ed33e41971ff888b30d6",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    },
+    {
+      "sample_id": "P2-N-081-4ba03ec85332e324",
+      "query": "Deploying RuleRunner on a separate server\n\n\nHello everyone,\n\nI am trying to have a setup as follows:\n\nServer 1: Running Full Datacap Features\nServer 2: Running only the RuleRunner service\n\nI managed to deploy Server 1 successfully and all modules are working.\n\nOn Server 2, I installed the following:\nDatacap Client, Rulerunner, and connectors\n\nI updated the Application Manager on server 2 to point to \\\\server1\\Datacap\\datacap.xml\n\nI can successfully open that path from Server 2 using internet explorer.\n\nWhen I try to open any application such as TravelDocs using Datacap Deskstop from server 2, I receive the following error:\n\nUnable to connect to Datacap application TravelDocs.\n\nAny hints as to what the issue might be ?\n\nRegards\n",
+      "query_sha256": "4ba03ec85332e324e339549bdce4576b9beed534601e30b91e97c0e5f2b5f30e",
+      "analysis_operation": "document_count",
+      "include_samples": true,
+      "sample_limit": 5
+    }
+  ],
+  "tune_sha256": "b5bd47d78d995395da2765d4396ebfd3e37b1d109ea4a434fa480070f14012c6",
+  "task_registration_sha256": "ecd190e06afc173ab485ccba8c1a16e6256ede19b575ecd1ceb00891de86d63f",
+  "baseline_config_sha256": "6938224c85488fd9b59b032d02bacbf346068277180e8fa0f8f728a7ecb422d2",
+  "protected_files": {
+    "specs/project2/v0.1/acceptance_scenarios.csv": "c6777059aaf1a0b38f2c523b170a4ad40a22b4952d3383a30d6b502aea3b3ee4",
+    "specs/project2/v0.1/approval_record.md": "4261db500b9fcc04108cb308efd7903b2134cff0c976fc4f3b1622e363eeef70",
+    "specs/project2/v0.1/check_docs.py": "1cf5dfd76fc54f32af2241db36530c2226e5529b352be84f3adb5a1990af8b79",
+    "specs/project2/v0.1/clarifications.md": "45dc6a0cf119f36595c21a78ed806bd581c83a55438e1bf21220fb0869a63db3",
+    "specs/project2/v0.1/plan.md": "5bcb62ed931773092015ed6b9fddacdda7f2e984562e95a6b6097c0a3159960b",
+    "specs/project2/v0.1/requirements_v0.1.md": "7aa3441bf33c7d3b94501d99d6a7e99e0ba486e03413abf3e530c6a847f6ea7b",
+    "specs/project2/v0.1/review_sheet.md": "580f62088c9173dfb800f4fb9d687dd4ea6929d2e503233e6e4ff4a12b7ade0e",
+    "specs/project2/v0.1/review_sheet_signed_2026-10-05.md": "81cea2ea6241f0f51da3eecd45d999a99ebb2c939c6445e57197a0673a00b048",
+    "specs/project2/v0.1/spec.md": "54f1d43b6afa50d1213f010af175daad6b474ba77c2cf2ab9a713f9acf7b8a8e",
+    "specs/project2/v0.1/tasks.md": "f457b121170c34070252f754eb324984594f13f77426f51f81b39a1d846afb35",
+    "specs/project2/v0.1/task_preregistration.json": "ecd190e06afc173ab485ccba8c1a16e6256ede19b575ecd1ceb00891de86d63f",
+    "specs/project2/v0.1/task_preregistration.json.sha256": "981c10858e4642fb14995f5c5447bfeccdb9e7242c1f5f443cd63451df62c2ea",
+    "specs/project2/v0.1/traceability.csv": "14c308d2759dd8c0b127d385770b650753bca8d405bac67da5116c0a5790bde2",
+    "specs/project2/v0.2/acceptance_scenarios.csv": "0f4d24796d9fcf8723c717999b8b4170bee9c9485d2e250d67cd6527b808b413",
+    "specs/project2/v0.2/approval_addendum.md": "e01a7bdbf5dab34789527f3c78c40dd529a60814b0df1164f36ed0c39aa0ddf2",
+    "specs/project2/v0.2/approval_record.md": "4261db500b9fcc04108cb308efd7903b2134cff0c976fc4f3b1622e363eeef70",
+    "specs/project2/v0.2/check_docs.py": "dc767c12506f142fd2518c3f0b04d8d6163fc498f8d776262128cee062d00706",
+    "specs/project2/v0.2/clarifications.md": "45dc6a0cf119f36595c21a78ed806bd581c83a55438e1bf21220fb0869a63db3",
+    "specs/project2/v0.2/delta.json": "79f4b5c419a1db7b3635eac01803e81740fbae437ac48c6739d9dfb3ef929c50",
+    "specs/project2/v0.2/delta.md": "16356db5287f9573c29138435494629e9cdb23fb9a49d6171ec23687bd59ec04",
+    "specs/project2/v0.2/plan.md": "5bcb62ed931773092015ed6b9fddacdda7f2e984562e95a6b6097c0a3159960b",
+    "specs/project2/v0.2/requirements_v0.1.md": "7aa3441bf33c7d3b94501d99d6a7e99e0ba486e03413abf3e530c6a847f6ea7b",
+    "specs/project2/v0.2/review_sheet.md": "580f62088c9173dfb800f4fb9d687dd4ea6929d2e503233e6e4ff4a12b7ade0e",
+    "specs/project2/v0.2/review_sheet_signed_2026-10-05.md": "81cea2ea6241f0f51da3eecd45d999a99ebb2c939c6445e57197a0673a00b048",
+    "specs/project2/v0.2/spec.md": "f9fbb7925bfc971e18f4b45213cabd13e6bc72253b8e18b5d7960679420209f6",
+    "specs/project2/v0.2/tasks.md": "f457b121170c34070252f754eb324984594f13f77426f51f81b39a1d846afb35",
+    "specs/project2/v0.2/task_preregistration.json": "ecd190e06afc173ab485ccba8c1a16e6256ede19b575ecd1ceb00891de86d63f",
+    "specs/project2/v0.2/task_preregistration.json.sha256": "981c10858e4642fb14995f5c5447bfeccdb9e7242c1f5f443cd63451df62c2ea",
+    "specs/project2/v0.2/traceability.csv": "14c308d2759dd8c0b127d385770b650753bca8d405bac67da5116c0a5790bde2",
+    "specs/project2/v0.2/version_manifest.json": "e5029213106c12c053ba634fcb72e9af41be78b0abafeca84e75b958f49a0e77",
+    "specs/project2/v0.2/zero_predicate_registration.json": "317217920ffea15edab5578518114dbcb31cdf78059bbe920872afc08953701d",
+    "specs/project2/v0.3/acceptance_scenarios.csv": "ee2f94fccff52976a9242dedfdeb96bd4f7e753aed59639226884aa506bf09fa",
+    "specs/project2/v0.3/approval_addendum.md": "b839c8594e29b88b7ab7885d254fe99148385fc05fa97b1187fb2fdc981d7e0f",
+    "specs/project2/v0.3/approval_record.md": "4261db500b9fcc04108cb308efd7903b2134cff0c976fc4f3b1622e363eeef70",
+    "specs/project2/v0.3/check_docs.py": "81d672286ad6f556be813c0a411c7694d6102df51f4283afcf94ce43ba46c2e4",
+    "specs/project2/v0.3/clarifications.md": "060388edd8b6719a70ce07e5a3e20cb5f001a8b056c092536a6590b2bc51678c",
+    "specs/project2/v0.3/delta.json": "9c090152e4cf2b61d2e806fe77f1484b2a1f114758554da47169c3e81d729fa5",
+    "specs/project2/v0.3/delta.md": "559706f88abe0b6a6bf7dc939d7a07dfac7a07907f58209be454be146e5b0edd",
+    "specs/project2/v0.3/plan.md": "5bcb62ed931773092015ed6b9fddacdda7f2e984562e95a6b6097c0a3159960b",
+    "specs/project2/v0.3/requirements_v0.1.md": "7aa3441bf33c7d3b94501d99d6a7e99e0ba486e03413abf3e530c6a847f6ea7b",
+    "specs/project2/v0.3/review_sheet.md": "580f62088c9173dfb800f4fb9d687dd4ea6929d2e503233e6e4ff4a12b7ade0e",
+    "specs/project2/v0.3/review_sheet_signed_2026-10-05.md": "81cea2ea6241f0f51da3eecd45d999a99ebb2c939c6445e57197a0673a00b048",
+    "specs/project2/v0.3/spec.md": "e22db1a1bc4b852cdbd9915ebf926656d0663b77c8fd61e95d261106b19f69db",
+    "specs/project2/v0.3/tasks.md": "5ce515349f6498cf49932eec70526941abb256384a59ef4571f65ced28c15dd7",
+    "specs/project2/v0.3/task_preregistration.json": "ecd190e06afc173ab485ccba8c1a16e6256ede19b575ecd1ceb00891de86d63f",
+    "specs/project2/v0.3/task_preregistration.json.sha256": "981c10858e4642fb14995f5c5447bfeccdb9e7242c1f5f443cd63451df62c2ea",
+    "specs/project2/v0.3/traceability.csv": "14c308d2759dd8c0b127d385770b650753bca8d405bac67da5116c0a5790bde2",
+    "specs/project2/v0.3/version_manifest.json": "354b94f1357167a347ed4da99e34a8bcacefd91919d75e074c22df8426265653",
+    "specs/project2/v0.3/zero_predicate_registration.json": "317217920ffea15edab5578518114dbcb31cdf78059bbe920872afc08953701d"
+  },
+  "measurement_envelope": {
+    "attempts": 256,
+    "llm_calls": 64,
+    "seconds": 300
+  },
+  "fuse_p95": {
+    "attempts": 32,
+    "llm_calls": 12
+  },
+  "production_budget_unchanged_during_measurement": true,
+  "p95": "nearest-rank ceil(0.95*n), over ALL requests on each path; choose max across paths",
+  "selection": "ceil(ceil(p95)*1.25) for call caps; seconds=1.5*p95_seconds",
+  "order": "path, original registered sample order, repeat 1..3; N set seed-hash order then repeats 1..3",
+  "cache": "existing persistent cache retained; first/second/third observed separately; no fabricated cold-cache claim",
+  "attempt_definition": "one actual SQL execute/transaction commit, HTTP send or model inference; executemany counts each issued statement; pure wrapper counted zero; retries/failures counted",
+  "n_quality": "refusal numerator includes only actual RAG no_data; failed/timeout reported separately; N gold refers to official candidate scope, not full-corpus absence",
+  "heldout_calls": 0,
+  "original_protocol_sha256": "463dddb3ab1ea100c5d50fccc4af5cbeb267ecb3bccffa724a6c123c413f0cf5",
+  "batch1_files": {
+    "evals/project2-v1/calibration_v03/frozen_manifest.json": "734e372692f881bf4b8a537450861928dd8e4cdaf103ec343c1f3309ac358394",
+    "evals/project2-v1/calibration_v03/metrics_ci.json": "73bb227758f1dc626cf54849f1117e43bf0f0a1f6f1031b09e209febe73ddcb2",
+    "evals/project2-v1/calibration_v03/protocol.json": "463dddb3ab1ea100c5d50fccc4af5cbeb267ecb3bccffa724a6c123c413f0cf5",
+    "evals/project2-v1/calibration_v03/requests.jsonl": "7156a5c3bb2f101a587bc60e82411a3e7c29d49372e4ccc19416da85785c8531",
+    "evals/project2-v1/calibration_v03/summary.json": "661163d760879e1a922713ef9c8e96a67919f2578951ada1bd51d0cfa98e1992"
+  },
+  "operational_rules": {
+    "batch_numbers": [
+      2,
+      3
+    ],
+    "heartbeat_seconds": 5,
+    "suspended_gap_seconds": 30,
+    "sleep_prevention_flags": 2147483649,
+    "reset_flags": 2147483648,
+    "selection": "first complete uncensored non-suspended batch only; no across-batch mixing",
+    "retry": "batch 3 only after host_suspended batch 2; non-sleep censor stops",
+    "cap_floor_enabled": true,
+    "signed_cap_floor": {
+      "attempts": 16,
+      "llm_calls": 6
+    },
+    "wall_clock_floor": false,
+    "psutil_unplugged_stops": true,
+    "install_dependencies": false
+  }
+}

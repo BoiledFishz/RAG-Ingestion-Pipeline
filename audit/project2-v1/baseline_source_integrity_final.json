@@ -1,0 +1,7 @@
+{
+  "baseline_sut_files": 65,
+  "changed_baseline_files": [],
+  "status": "passed",
+  "evidence_scope": "source/config hash comparison; not runtime quality",
+  "heldout_calls": 0
+}

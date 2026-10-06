@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="1.753" timestamp="2026-10-05T22:08:56.729360-07:00" hostname="szy"><testcase classname="tests.project2.test_data_contract" name="test_manifest_mismatch" time="0.050"><failure message="assert 2 == 0">def test_manifest_mismatch():
+        context=TrustedContext('contract-owner','local',frozenset({'full'}),frozenset({'document_count','rag_explain'}))
+        app=create_app(credentials={'test':context},warmup=False)
+        app.state.supervisor.database=DatabaseWorker(ROOT/'.rag_data/techqa_fixture.sqlite')
+        result=TestClient(app).post('/v1/project2/analysis',headers={'Authorization':'Bearer test'},
+                                  json={'query':original_sample('P2-ENTITY-01')['query']}).json()
+        assert result['status']=='failed'
+&gt;       assert result['usage']['attempts']==0
+E       assert 2 == 0
+
+tests\project2\test_data_contract.py:17: AssertionError</failure></testcase></testsuite></testsuites>

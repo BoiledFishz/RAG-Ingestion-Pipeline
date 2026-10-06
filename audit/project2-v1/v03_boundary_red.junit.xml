@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="2.439" timestamp="2026-10-05T20:17:48.958909-07:00" hostname="szy"><testcase classname="tests.project2.test_v03_boundary" name="test_whole_http_deadline_cancels_unfinished_dispatch" time="0.522"><failure message="KeyError: 'status'">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000019C0DDB1F30&gt;
+
+    def test_whole_http_deadline_cancels_unfinished_dispatch(monkeypatch):
+        monkeypatch.setattr(project2_main,'Budget',lambda:Budget(seconds=.05))
+        owner=TrustedContext('timeout-owner','local',frozenset({'full'}),frozenset({'document_count','rag_explain'}))
+        app=project2_main.create_app(credentials={'local-token':owner},warmup=False)
+        cancelled=[]
+        async def delayed_dispatch(*args):
+            try:
+                await asyncio.sleep(.5)
+                return {}
+            except asyncio.CancelledError:
+                cancelled.append(True)
+                raise
+        monkeypatch.setattr(app.state.supervisor,'run',delayed_dispatch)
+        response=TestClient(app).post('/v1/project2/analysis',headers={'Authorization':'Bearer local-token'},json={'query':original_query()})
+        data=response.json()
+&gt;       assert data['status']=='timeout'
+               ^^^^^^^^^^^^^^
+E       KeyError: 'status'
+
+tests\project2\test_v03_boundary.py:32: KeyError</failure></testcase></testsuite></testsuites>

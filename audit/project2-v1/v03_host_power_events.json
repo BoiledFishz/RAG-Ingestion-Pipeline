@@ -1,0 +1,26 @@
+[
+  {
+    "time_utc": "2026-10-06T04:01:48.0642687Z",
+    "ProviderName": "Microsoft-Windows-Power-Troubleshooter",
+    "Id": 1,
+    "Message": "系统已从低功耗状态中恢复。\r\n\r\n睡眠时间:  ‎2026‎-‎10‎-‎06T03:27:04.059986100Z\r\n唤醒时间: ‎2026‎-‎10‎-‎06T04:01:46.777117300Z\r\n\r\n唤醒源: Device -USB Composite Device"
+  },
+  {
+    "time_utc": "2026-10-06T04:01:42.5004134Z",
+    "ProviderName": "Microsoft-Windows-Kernel-General",
+    "Id": 1,
+    "Message": "系统时间已从 ‎2026‎-‎10‎-‎06T03:27:15.242527600Z.\r\n时间增量更改为 ‎2026‎-‎10‎-‎06T04:01:42.500000000Z： 2067257 ms\r\n\r\n更改原因： System time synchronized with the hardware clock.\r\n进程： '' (PID 4).\r\n\r\nRTC 时间： ‎2026‎-‎10‎-‎05T21:01:42.500000000Z\r\n当前时区偏差 420\r\nRTC 时间以 UTC： false\r\n系统时间基于 RTC 时间： false"
+  },
+  {
+    "time_utc": "2026-10-06T03:27:15.2428580Z",
+    "ProviderName": "Microsoft-Windows-Kernel-Power",
+    "Id": 107,
+    "Message": "系统已从睡眠状态恢复。"
+  },
+  {
+    "time_utc": "2026-10-06T03:27:05.1675360Z",
+    "ProviderName": "Microsoft-Windows-Kernel-Power",
+    "Id": 42,
+    "Message": "系统正在进入睡眠状态。\r\n\r\n睡眠原因: System Idle"
+  }
+]

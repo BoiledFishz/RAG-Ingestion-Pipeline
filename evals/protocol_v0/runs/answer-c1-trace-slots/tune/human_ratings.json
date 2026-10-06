@@ -1,0 +1,1116 @@
+{
+  "annotator": "boiledfishz",
+  "human_authorized_corrections_sha256": "b454ebe9d0cfb95cde237131d7ef5b722ad1d86942cc1e933a18703e4caf5b30",
+  "independent": true,
+  "input_workbook_sha256": "60691a361a72992ce652b798e13d4e94edd1b1f7b48f3ecc4ccb67cc57ea2207",
+  "is_human": true,
+  "items": [
+    {
+      "answer_body": "VULNERABILITY DETAILS\nCVEID: CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION: The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N)\n\nAFFECTED PRODUCTS AND VERSIONS\nIBM Image Construction and Composition Tool v2.2.1.3 \nIBM Image Construction and Composition Tool v2.3.1.0 \nIBM Image Construction and Composition Tool v2.3.2.0\n\nREMEDIATION/FIXES\nThe solution is to apply the following IBM Image Construction and Composition Tool version fixes.\n\nUpgrade the IBM Image Construction and Composition Tool to the following fix levels:\n\n· For IBM Image Construction and Composition Tool v2.2.1.3\n· IBM Image Construction and Composition Tool v2.2.1.3 Build 32\n\nhttp://www-933.ibm.com/support/fixcentral/swg/selectFixes?parent=PureSystems&product=ibm/WebSphere/PureApplication+System&release=1.1.0.5&platform=All&function=fixId&fixids=ICCT_efix_Repository_2.2.1.3-32&includeSupersedes=0 [http://www-933.ibm.com/support/fixcentral/swg/selectFixes?parent=PureSystems&product=ibm/WebSphere/PureApplication+System&release=1.1.0.5&platform=All&function=fixId&fixids=ICCT_efix_Repository_2.2.1.3-32&includeSupersedes=0]\n\n\n· For IBM Image Construction and Composition Tool v2.3.1.0\n· IBM Image Construction and Composition Tool v2.3.1.0 Build 43\n\nhttp://www-933.ibm.com/support/fixcentral/swg/selectFixes?parent=PureSystems&product=ibm/WebSphere/PureApplication+System&release=2.0.0.1&platform=All&function=fixId&fixids=ICCT_efix_Repository_2.3.1.0-43&includeSupersedes=0 [http://www-933.ibm.com/support/fixcentral/swg/selectFixes?parent=PureSystems&product=ibm/WebSphere/PureApplication+System&release=2.0.0.1&platform=All&function=fixId&fixids=ICCT_efix_Repository_2.3.1.0-43&includeSupersedes=0]\n\n\n· For IBM Image Construction and Composition Tool v2.3.2.0\n· IBM Image Construction and Composition Tool v2.3.2.0 Build 16\n\nhttp://www-933.ibm.com/support/fixcentral/swg/selectFixes?parent=PureSystems&product=ibm/WebSphere/PureApplication+System&release=2.1.0.0&platform=All&function=fixId&fixids=ICCT_efix_Repository_2.3.2.0-16&includeSupersedes=0 [http://www-933.ibm.com/support/fixcentral/swg/selectFixes?parent=PureSystems&product=ibm/WebSphere/PureApplication+System&release=2.1.0.0&platform=All&function=fixId&fixids=ICCT_efix_Repository_2.3.2.0-16&includeSupersedes=0]\n\n\nYou should verify applying this configuration change does not cause any compatibility issues. If you change the default setting after applying the fix, you will expose yourself to the attack described above. IBM recommends that you review your entire environment to identify other areas where you have enabled the Diffie-Hellman key-exchange protocol used in TLS and take appropriate mitigation and remediation actions.\n\nWORKAROUNDS AND MITIGATIONS\nNone [S1]",
+      "answer_sha256": "d6918c359deac57c1a7a2ee5ccf0316f59536d0d77dcf6d5a1a1c4a5c06e1a0e",
+      "facts": [
+        {
+          "answer_quote": "The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice.",
+          "category": "other",
+          "fact_id": "F1",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice",
+          "score": 2,
+          "text": "The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice"
+        },
+        {
+          "answer_quote": "An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher.",
+          "category": "condition",
+          "fact_id": "F2",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher",
+          "score": 2,
+          "text": "An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher"
+        },
+        {
+          "answer_quote": "This vulnerability is commonly referred to as \"Logjam\".",
+          "category": "other",
+          "fact_id": "F3",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "commonly referred to as \"Logjam\"",
+          "score": 2,
+          "text": "commonly referred to as \"Logjam\""
+        },
+        {
+          "answer_quote": "CVSS Base Score: 4.3",
+          "category": "other",
+          "fact_id": "F4",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "CVSS Base Score: 4.3",
+          "score": 2,
+          "text": "CVSS Base Score: 4.3"
+        },
+        {
+          "answer_quote": "(AV:N/AC:M/Au:N/C:P/I:N/A:N)",
+          "category": "other",
+          "fact_id": "F5",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "(AV:N/AC:M/Au:N/C:P/I:N/A:N)",
+          "score": 2,
+          "text": "(AV:N/AC:M/Au:N/C:P/I:N/A:N)"
+        }
+      ],
+      "facts_sha256": "9ebbcc0ad14c700b46caa2e9d9c9110fe2d0951af570c352ef409d61925ecf00",
+      "question_id": "TRAIN_Q362"
+    },
+    {
+      "answer_body": "Code the appropriate security definitions for FEK.CMD.SEND and FEK.CMD.SEND.CLEAR. [S1]",
+      "answer_sha256": "06ce97854e8417472de1d0b25f3838fbfae99a7338734569f5894b1a739c6d31",
+      "facts": [
+        {
+          "answer_quote": "Code the appropriate security definitions for FEK.CMD.SEND and FEK.CMD.SEND.CLEAR.",
+          "category": "other",
+          "fact_id": "F1",
+          "reason": "正文提及配置 FEK.CMD.SEND 和 FEK.CMD.SEND.CLEAR，但表述为 security definitions，缺少关键术语 facility class。",
+          "reference_quote": "coded a facility class for the FEK.CMD.SEND and FEK.CMD.SEND.CLEAR",
+          "score": 1,
+          "text": "coded a facility class for the FEK.CMD.SEND and FEK.CMD.SEND.CLEAR"
+        }
+      ],
+      "facts_sha256": "9c8b8c9af95adf622d6522a3294d4dcd252604d25c0889cacbf499f50e186484",
+      "question_id": "DEV_Q254"
+    },
+    {
+      "answer_body": "customers to unexpected conditions. For instance a client\n   continues to send an expired token repeatedly.\n   The customer is requesting the ability to disable the logging\n   of the SECJ0371W message. [S1]\n*  A security custom property will be used to disable the logging\n   of the SECJ0371W message. Setting this property to true will\n   disable future logging of the message.\n   com.ibm.websphere.security.ltpa.disableSECJ0371W=true\n   \n   The fix for this APAR is currently targeted for inclusion in\n   fix packs 8.0.0.13 and 8.5.5.10.  Please refer to the\n   Recommended Updates page for delivery information:\n   http://www.ibm.com/support/docview.wss?rs=180&uid=swg27004980 [http://www.ibm.com/support/docview.wss?rs=180&uid=swg27004980]\n   \n   \n    \n   \n   \n\nTEMPORARY FIX\n\nCOMMENTS [S2]",
+      "answer_sha256": "6981c38ab68bd92df413b6bfe9dea2ef4677c55f0cc4a36a2b261ec95dfe7908",
+      "facts": [
+        {
+          "answer_quote": "A security custom property will be used to disable the logging\n   of the SECJ0371W message.",
+          "category": "step",
+          "fact_id": "F1",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "A security custom property will be used to disable the logging\n   of the SECJ0371W message",
+          "score": 2,
+          "text": "A security custom property will be used to disable the logging of the SECJ0371W message"
+        },
+        {
+          "answer_quote": "com.ibm.websphere.security.ltpa.disableSECJ0371W=true",
+          "category": "command",
+          "fact_id": "F2",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "com.ibm.websphere.security.ltpa.disableSECJ0371W=true",
+          "score": 2,
+          "text": "com.ibm.websphere.security.ltpa.disableSECJ0371W=true"
+        }
+      ],
+      "facts_sha256": "a1079166aa16eebcfd1323a7a6486f404445f7dfead05bb0ed7b0cbf00e2dd4f",
+      "question_id": "TRAIN_Q577"
+    },
+    {
+      "answer_body": "VULNERABILITY DETAILS\nCVEID: CVE-2017-3735 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3735]\nDESCRIPTION: OpenSSL could allow a remote attacker to obtain sensitive information, caused by an error while parsing an IPAddressFamily extension in an X.509 certificate. An attacker could exploit this vulnerability to trigger an out-of-bounds read, resulting in an incorrect text display of the certificate.\nCVSS Base Score: 4.3\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/131047 [https://exchange.xforce.ibmcloud.com/vulnerabilities/131047] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nAll versions of WebSphere MQ 5.3 and MQ 8 for HPE NonStop Server\n\nREMEDIATION/FIXES\nFor MQ 5.3 \n\n * \n * \n * \n * \n * \n * \n * \n * \n * \n * https://www-945.ibm.com/support/fixcentral/swg/selectFixes?parent=ibm%7EWebSphere&product=ibm/WebSphere/WebSphere+MQ&release=5.3.1.14&platform=HP+NonStop&function=all\n * \n\nFor MQ 8 \n * \n\n * \n * here\n * \n\nWORKAROUNDS AND MITIGATIONS\nNone [S1]",
+      "answer_sha256": "b136622ddcdc343ed8b1be5a3ac4450502b29e8d6f7c19db1fba66ac3d461b29",
+      "facts": [
+        {
+          "answer_quote": "All versions of WebSphere MQ 5.3",
+          "category": "version",
+          "fact_id": "F1",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "All versions of WebSphere MQ 5.3",
+          "score": 2,
+          "text": "All versions of WebSphere MQ 5.3"
+        },
+        {
+          "answer_quote": "MQ 8 for HPE NonStop Server",
+          "category": "version",
+          "fact_id": "F2",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "MQ 8 for HPE NonStop Server",
+          "score": 2,
+          "text": "MQ 8 for HPE NonStop Server"
+        }
+      ],
+      "facts_sha256": "381436ef4930fe0caa89826c8bba5e0fdcc4016c89067bc164a3726c10e44af6",
+      "question_id": "DEV_Q307"
+    },
+    {
+      "answer_body": "IBM Specifying the profile path in the BPMConfig properties file for IBM Business Process Manager (BPM) - United States\n\nBPMConfig; profile; path; directory TECHNOTE (FAQ)\n\nQUESTION\n How do you specify the profile path in the configuration properties file for IBM Business Process Manager so you can use it with the BPMConfig command? \n\nANSWER [S1]",
+      "answer_sha256": "b74cebdf5294c00310557ec5cafba32945ee78f1853723ddf82b392b33eeda3e",
+      "facts": [
+        {
+          "answer_quote": "",
+          "category": "step",
+          "fact_id": "F1",
+          "reason": "回答正文内容为 BPMConfig 配置属性文件的 FAQ，未提及该操作步骤。",
+          "reference_quote": "Place the WASServiceCmd.exe utility in the following directory:\n    \n    install_root\\bin",
+          "score": 0,
+          "text": "Place the WASServiceCmd.exe utility in the following directory: install_root\\bin"
+        },
+        {
+          "answer_quote": "",
+          "category": "step",
+          "fact_id": "F2",
+          "reason": "回答正文内容为 BPMConfig 配置属性文件的 FAQ，未提及该操作步骤。",
+          "reference_quote": "Launch the command from the command line",
+          "score": 0,
+          "text": "Launch the command from the command line"
+        },
+        {
+          "answer_quote": "",
+          "category": "step",
+          "fact_id": "F3",
+          "reason": "回答正文内容为 BPMConfig 配置属性文件的 FAQ，未提及该操作步骤。",
+          "reference_quote": "The WASServiceCmd utility prompts you to select specific options and settings from a list and then calls the WASService.exe command passing all selected parameters",
+          "score": 0,
+          "text": "The WASServiceCmd utility prompts you to select specific options and settings from a list and then calls the WASService.exe command passing all selected parameters"
+        }
+      ],
+      "facts_sha256": "af103c7d72eb1c42e65e27c765f0070a49863d7dd9ae4f8c9045e7963cceae5a",
+      "question_id": "TRAIN_Q199"
+    },
+    {
+      "answer_body": "IBM WebSphere MQ server version 7.0 and later releases provide sharing conversations (SHARECNV) attribute on SVRCONN channel that specifies the maximum number of conversations that can share each TCP/IP channel instance. This feature can be configured in DataPower as it uses client connection with queue manager SVRCONN channel. \nThe default setting of sharing conversations (SHARECNV) value is zero in DataPower mq-qm object. The same default value for MQ SVRCONN channel is 10. The sharing conversations value is \nnegotiated between MQ server and DataPower and the lower value takes effect. However, in current versions of the DataPower firmware, the sharing conversations setting of 1 is treated as 0 when negotiating with MQ server.\n\nThere are three use cases to configure Sharing Conversations in DataPower mq-qm object: \n\nCase #1 : The negotiated sharing conversations value is 0 - The channel runs in a mode similar to WebSphere MQ V6 and does not uses features such as [S1]",
+      "answer_sha256": "42d1d80908e8a71cfe24695d29ea37f490ecd1239eddc58c0c433a673cf57b61",
+      "facts": [
+        {
+          "answer_quote": "The default setting of sharing conversations (SHARECNV) value is zero in DataPower mq-qm object.",
+          "category": "condition",
+          "fact_id": "F1",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "The default setting of sharing conversations (SHARECNV) value is zero in DataPower mq-qm object",
+          "score": 2,
+          "text": "The default setting of sharing conversations (SHARECNV) value is zero in DataPower mq-qm object"
+        },
+        {
+          "answer_quote": "The same default value for MQ SVRCONN channel is 10.",
+          "category": "condition",
+          "fact_id": "F2",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "The same default value for MQ SVRCONN channel is 10",
+          "score": 2,
+          "text": "The same default value for MQ SVRCONN channel is 10"
+        },
+        {
+          "answer_quote": "The sharing conversations value is \nnegotiated between MQ server and DataPower and the lower value takes effect.",
+          "category": "condition",
+          "fact_id": "F3",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "The sharing conversations value is \nnegotiated between MQ server and DataPower and the lower value takes effect",
+          "score": 2,
+          "text": "The sharing conversations value is negotiated between MQ server and DataPower and the lower value takes effect"
+        },
+        {
+          "answer_quote": "in current versions of the DataPower firmware, the sharing conversations setting of 1 is treated as 0 when negotiating with MQ server.",
+          "category": "condition",
+          "fact_id": "F4",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "in current versions of the DataPower firmware, the sharing conversations setting of 1 is treated as 0 when negotiating with MQ server",
+          "score": 2,
+          "text": "in current versions of the DataPower firmware, the sharing conversations setting of 1 is treated as 0 when negotiating with MQ server"
+        }
+      ],
+      "facts_sha256": "f219ce73c72752e52a74da0664b3ecf1ccc793922831263929dfec1a8c266d36",
+      "question_id": "DEV_Q215"
+    },
+    {
+      "answer_body": "Configure the WebSphere Application Server data source connection pool [http://publib.boulder.ibm.com/infocenter/wasinfo/v7r0/index.jsp?topic=/com.ibm.websphere.nd.multiplatform.doc/info/ae/ae/udat_conpoolset.html] so as to eliminate occurrences of StaleConnectionException : \n\n * Set the Minimum connections to 0 to avoid situations where a connection is kept in the pool to meet the minimum requirement, even though it may have been idle for longer than Unused timeout \n * Set the values for Unused timeout and Reap timeout so that the sum does not exceed any network level idle connection timeout [S1]",
+      "answer_sha256": "8a4697ac18838ff7cde3140ef48554a0c15c1453d4c3d6e14bf49b276362ba89",
+      "facts": [
+        {
+          "answer_quote": "Configure the WebSphere Application Server data source connection pool [http://publib.boulder.ibm.com/infocenter/wasinfo/v7r0/index.jsp?topic=/com.ibm.websphere.nd.multiplatform.doc/info/ae/ae/udat_conpoolset.html] so as to eliminate occurrences of StaleConnectionException",
+          "category": "step",
+          "fact_id": "F1",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "Configure the WebSphere Application Server data source connection pool so as to eliminate occurrences of StaleConnectionException",
+          "score": 2,
+          "text": "Configure the WebSphere Application Server data source connection pool so as to eliminate occurrences of StaleConnectionException"
+        },
+        {
+          "answer_quote": "Set the Minimum connections to 0 to avoid situations where a connection is kept in the pool to meet the minimum requirement, even though it may have been idle for longer than Unused timeout",
+          "category": "step",
+          "fact_id": "F2",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "Set the Minimum connections to 0 to avoid situations where a connection is kept in the pool to meet the minimum requirement, even though it may have been idle for longer than Unused timeout",
+          "score": 2,
+          "text": "Set the Minimum connections to 0 to avoid situations where a connection is kept in the pool to meet the minimum requirement, even though it may have been idle for longer than Unused timeout"
+        },
+        {
+          "answer_quote": "Set the values for Unused timeout and Reap timeout so that the sum does not exceed any network level idle connection timeout",
+          "category": "condition",
+          "fact_id": "F3",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "Set the values for Unused timeout and Reap timeout so that the sum does not exceed any network level idle connection timeout",
+          "score": 2,
+          "text": "Set the values for Unused timeout and Reap timeout so that the sum does not exceed any network level idle connection timeout"
+        }
+      ],
+      "facts_sha256": "a6451a3ac25a8dee12146829cf278b0d071be0a6096cd06e60e9c4aef1120ab3",
+      "question_id": "DEV_Q029"
+    },
+    {
+      "answer_body": "VULNERABILITY DETAILS\nCVEID:CVE-2015-2613 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2613]\nDESCRIPTION:An unspecified vulnerability and Java SE Embedded related to the JCE component could allow a remote attacker to obtain sensitive information.\nCVSS Base Score: 5\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/104734 [https://exchange.xforce.ibmcloud.com/vulnerabilities/104734]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:L/Au:N/C:P/I:N/A:N)\n\nCVEID:CVE-2015-2601 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2601]\nDESCRIPTION:An unspecified vulnerability related to the JCE component could allow a remote attacker to obtain sensitive information.\nCVSS Base Score: 5\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/104733 [https://exchange.xforce.ibmcloud.com/vulnerabilities/104733]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:L/Au:N/C:P/I:N/A:N)\nCVEID:CVE-2015-4749 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4749]\nDESCRIPTION:An unspecified vulnerability related to the JNDI component could allow a remote attacker to cause a denial of service.\nCVSS Base Score: 4.3\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/104740 [https://exchange.xforce.ibmcloud.com/vulnerabilities/104740]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:N/I:N/A:P)\n\nCVEID:CVE-2015-2625 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2625]\nDESCRIPTION:An unspecified vulnerability related to the JSSE component could allow a remote attacker to obtain sensitive information.\nCVSS Base Score: 2.6\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/104743 [https://exchange.xforce.ibmcloud.com/vulnerabilities/104743]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:H/Au:N/C:P/I:N/A:N)\n\nCVEID:CVE-2015-1931 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1931]\nDESCRIPTION:IBM Java Security Components store plain text data in memory dumps, which could allow a local attacker to obtain information to aid in further attacks against the system.\nCVSS Base Score: 2.1\nCVSS Temporal Score: Seehttp://xforce.iss.net/xforce/xfdb/102967 [http://xforce.iss.net/xforce/xfdb/102967]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:L/AC:L/Au:N/C:P/I:N/A:N)\n\nAFFECTED PRODUCTS AND VERSIONS\nWebSphere Enterprise Service Bus 6.2\nWebSphere Enterprise Service Bus 7.0\nWebSphere Enterprise Service Bus 7.5\n\nREMEDIATION/FIXES\nPlease consult the security bulletin Multiple vulnerabilities in IBM® Java SDK affect WebSphere Application Server July 2015 CPU [http://www-01.ibm.com/support/docview.wss?uid=swg21962931] for vulnerability details and information about fixes. [S1]\nVULNERABILITY DETAILS\nCVEID:CVE-2015-4872 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4872]\nDESCRIPTION:An unspecified vulnerability related to the Security component has no confidentiality impact, partial integrity impact, and no availability impact.\nCVSS Base Score: 5\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/107361 [https://exchange.xforce.ibmcloud.com/vulnerabilities/107361]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:L/Au:N/C:N/I:P/A:N) \n\nCVEID:CVE-2015-4734 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4734]\nDESCRIPTION:An unspecified vulnerability related to the JGSS component could allow a remote attacker to obtain sensitive information.\nCVSS Base Score: 5\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/107356 [https://exchange.xforce.ibmcloud.com/vulnerabilities/107356]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:L/Au:N/C:P/I:N/A:N) \n\nCVEID:CVE-2015-5006 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-5006]\nDESCRIPTION:IBM Java Security Components could allow an attacker with physical access to the system to obtain sensitive information from the Kerberos Credential Cache.\nCVSS Base Score: 4.6\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/106309 [https://exchange.xforce.ibmcloud.com/vulnerabilities/106309]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:P/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N)\n\nAFFECTED PRODUCTS AND VERSIONS\nWebSphere Enterprise Service Bus 6.2\nWebSphere Enterprise Service Bus 7.0\nWebSphere Enterprise Service Bus 7.5\n\nREMEDIATION/FIXES\nPlease consult the security bulletin http://www-01.ibm.com/support/docview.wss?uid=swg21969620 [http://www-01.ibm.com/support/docview.wss?uid=swg21969620] for vulnerability details and information about fixes. [S5]",
+      "answer_sha256": "82ace41f6ded0556fad721dfa7a7d60c44113b9c74f368a2bd494c4756bf2053",
+      "facts": [
+        {
+          "answer_quote": "An unspecified vulnerability and Java SE Embedded related to the JCE component could allow a remote attacker to obtain sensitive information.",
+          "category": "other",
+          "fact_id": "F1",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "An unspecified vulnerability and Java SE Embedded related to the JCE component could allow a remote attacker to obtain sensitive information",
+          "score": 2,
+          "text": "An unspecified vulnerability and Java SE Embedded related to the JCE component could allow a remote attacker to obtain sensitive information"
+        },
+        {
+          "answer_quote": "CVSS Base Score: 5",
+          "category": "other",
+          "fact_id": "F2",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "CVSS Base Score: 5",
+          "score": 2,
+          "text": "CVSS Base Score: 5"
+        },
+        {
+          "answer_quote": "(AV:N/AC:L/Au:N/C:P/I:N/A:N)",
+          "category": "other",
+          "fact_id": "F3",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "(AV:N/AC:L/Au:N/C:P/I:N/A:N)",
+          "score": 2,
+          "text": "(AV:N/AC:L/Au:N/C:P/I:N/A:N)"
+        }
+      ],
+      "facts_sha256": "c88e3545f7c168d738a3dff44a371bc5f1507d819abac8d9c127f1e6653adef1",
+      "question_id": "TRAIN_Q089"
+    },
+    {
+      "answer_body": "Question: Can the HSM device store certificates? \n\nAnswer: No. The HSM device only stores private keys.\n\nQuestion: Can I export private keys from the HSM device?\nAnswer: Yes. Private keys can be exported from the HSM device using the crypto-export command and imported into another HSM device using the crypto-import command as long as the hardware platforms are compatible. 9235 appliances with HSM are compatible with each other in terms of exported HSM keys. 7198 and 7199 appliances with HSM are compatible with each other in terms of exported HSM keys. HSM keys cannot be exported from a 9235 appliance and imported into a 7198/7199 appliance or vice-versa. [S2]",
+      "answer_sha256": "32d9e602ffd2d726369c5f8fad39c50d94adfeecc3cc6f9c5168fdfbfeb2680d",
+      "facts": [
+        {
+          "answer_quote": "Private keys can be exported from the HSM device using the crypto-export command",
+          "category": "command",
+          "fact_id": "F1",
+          "reason": "回答正文明确说明支持使用 crypto-export 命令从 HSM 设备导出私钥。",
+          "reference_quote": "HSM-enabled DataPower appliances support the export of private keys using the crypto-export command",
+          "score": 2,
+          "text": "HSM-enabled DataPower appliances support the export of private keys using the crypto-export command"
+        },
+        {
+          "answer_quote": "",
+          "category": "condition",
+          "fact_id": "F2",
+          "reason": "回答正文未提及 HSM 必须初始化并在同一个 key sharing domain 的条件。",
+          "reference_quote": "HSMs must be initialized and in the same key sharing domain on exporting and importing machines",
+          "score": 0,
+          "text": "HSMs must be initialized and in the same key sharing domain on exporting and importing machines"
+        },
+        {
+          "answer_quote": "",
+          "category": "condition",
+          "fact_id": "F3",
+          "reason": "回答正文未提及生成密钥时必须标记为 exportable。",
+          "reference_quote": "The private key in question must be marked exportable at keygen time (see keygen's exportable option)",
+          "score": 0,
+          "text": "The private key in question must be marked exportable at keygen time (see keygen's exportable option)"
+        },
+        {
+          "answer_quote": "",
+          "category": "condition",
+          "fact_id": "F4",
+          "reason": "回答正文未提及共享内部 key-wrapping keys 或 hsm-clone-kwk 命令。",
+          "reference_quote": "HSMs on exporting and importing machines must share internal key-wrapping keys (see hsm-clone-kwk command)",
+          "score": 0,
+          "text": "HSMs on exporting and importing machines must share internal key-wrapping keys (see hsm-clone-kwk command)"
+        }
+      ],
+      "facts_sha256": "fcfc13e0cb961853cec57276f5d77cdb4e3120b10d72502a03b66c7a9e7c41f5",
+      "question_id": "DEV_Q302"
+    },
+    {
+      "answer_body": "知识库无法回答该问题。",
+      "answer_sha256": "c0ae50ad69ead5514c6c0dd449f05ddd86f4339b743b4a624ff40af8dc7cecb5",
+      "facts": [
+        {
+          "answer_quote": "",
+          "category": "condition",
+          "fact_id": "F1",
+          "reason": "回答正文表示知识库无法回答该问题，未覆盖该事实。",
+          "reference_quote": "an XML Firewall when configuring in the HTTP Options tab, where the user can configure the Proxy Host and Port",
+          "score": 0,
+          "text": "an XML Firewall when configuring in the HTTP Options tab, where the user can configure the Proxy Host and Port"
+        },
+        {
+          "answer_quote": "",
+          "category": "condition",
+          "fact_id": "F2",
+          "reason": "回答正文表示知识库无法回答该问题，未覆盖该事实。",
+          "reference_quote": "a Multi-Protocol Gateway when configuring an HTTP Proxy Policy in the User Agent",
+          "score": 0,
+          "text": "a Multi-Protocol Gateway when configuring an HTTP Proxy Policy in the User Agent"
+        },
+        {
+          "answer_quote": "",
+          "category": "condition",
+          "fact_id": "F3",
+          "reason": "回答正文表示知识库无法回答该问题，未覆盖该事实。",
+          "reference_quote": "SSL Proxy requests will work using the CONNECT method for SSL Tunneling when using a Multi-Protocol Gateway when configuring in a User Agent's HTTP Proxy Policy",
+          "score": 0,
+          "text": "SSL Proxy requests will work using the CONNECT method for SSL Tunneling when using a Multi-Protocol Gateway when configuring in a User Agent's HTTP Proxy Policy"
+        },
+        {
+          "answer_quote": "",
+          "category": "condition",
+          "fact_id": "F4",
+          "reason": "回答正文表示知识库无法回答该问题，未覆盖该事实。",
+          "reference_quote": "The XML Firewall service is not designed to use the CONNECT method for SSL Tunneling",
+          "score": 0,
+          "text": "The XML Firewall service is not designed to use the CONNECT method for SSL Tunneling"
+        }
+      ],
+      "facts_sha256": "b423c355f1e5cfb8c1aff8be83f9a15699b58eaf6cd7df2bb21fa5d5a98662b0",
+      "question_id": "TRAIN_Q578"
+    },
+    {
+      "answer_body": "Please do the following: \n\n 1. Backup the \\Datacap\\DotEdit\\apps.ini file. If the file does not exist, create a new one or copy it from \\Datacap\\tmweb.net. \n 2. Open it in notepad.exe or other editor. \n 3. Find the app to be modified (for example [APT]). If it does not exist, create a new section with the application name listed between square brackets. \n 4. Add a new line containing BatchLimit=xxx, where xxx is the number of batches to be displayed. \n 5. Save the file. [S2]",
+      "answer_sha256": "7a3c09b754e17e0642558d6e9249045a3589e27613b944a17be892dfb5991d95",
+      "facts": [
+        {
+          "answer_quote": "Backup the \\Datacap\\DotEdit\\apps.ini file.",
+          "category": "step",
+          "fact_id": "F1",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "Backup the \\Datacap\\DotEdit\\apps.ini file",
+          "score": 2,
+          "text": "Backup the \\Datacap\\DotEdit\\apps.ini file"
+        },
+        {
+          "answer_quote": "If the file does not exist, create a new one or copy it from \\Datacap\\tmweb.net.",
+          "category": "condition",
+          "fact_id": "F2",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "If the file does not exist, create a new one or copy it from \\Datacap\\tmweb.net",
+          "score": 2,
+          "text": "If the file does not exist, create a new one or copy it from \\Datacap\\tmweb.net"
+        },
+        {
+          "answer_quote": "Find the app to be modified (for example [APT]). If it does not exist, create a new section with the application name listed between square brackets.",
+          "category": "step",
+          "fact_id": "F3",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "Find the app to be modified (for example [APT]). If it does not exist, create a new section with the application name listed between square brackets",
+          "score": 2,
+          "text": "Find the app to be modified (for example [APT]). If it does not exist, create a new section with the application name listed between square brackets"
+        },
+        {
+          "answer_quote": "Add a new line containing BatchLimit=xxx, where xxx is the number of batches to be displayed.",
+          "category": "command",
+          "fact_id": "F4",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "Add a new line containing BatchLimit=xxx, where xxx is the number of batches to be displayed",
+          "score": 2,
+          "text": "Add a new line containing BatchLimit=xxx, where xxx is the number of batches to be displayed"
+        },
+        {
+          "answer_quote": "Save the file.",
+          "category": "step",
+          "fact_id": "F5",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "Save the file",
+          "score": 2,
+          "text": "Save the file"
+        }
+      ],
+      "facts_sha256": "86ba1a3aa1ef9889eecbbb8cce9cabd946a42deaa84e31a2aae51b67b8477814",
+      "question_id": "DEV_Q306"
+    },
+    {
+      "answer_body": "VULNERABILITY DETAILS\nCVEID: CVE-2016-6080 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6080]\nDESCRIPTION: The WebAdmin context for WebSphere Message Broker allows directory listings, which could disclose sensitive information to the attacker.\nCVSS Base Score: 5.3\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/117560 [https://exchange.xforce.ibmcloud.com/vulnerabilities/117560] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nWebSphere Message Broker V8\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/Fix WebSphere Message Broker V8 IT16698 The APAR is available in Fix Pack 8.0.0.8\nhttps://www-304.ibm.com/support/docview.wss?uid=swg24042925 [https://www-304.ibm.com/support/docview.wss?uid=swg24042925] \n\nFor unsupported versions of the product, IBM recommends upgrading to a fixed, supported version/release/platform of the product. \nThe planned maintenance release dates for WebSphere Message Broker and IBM Integration Bus are available at : \nhttp://www.ibm.com/support/docview.wss?uid=swg27006308 [http://www.ibm.com/support/docview.wss?uid=swg27006308]\n\nWORKAROUNDS AND MITIGATIONS\nNone [S1]",
+      "answer_sha256": "526207f796e9f5695e31b52e37fe336b57184eea7d34d7ce4649970bef1ca824",
+      "facts": [
+        {
+          "answer_quote": "The WebAdmin context for WebSphere Message Broker allows directory listings, which could disclose sensitive information to the attacker.",
+          "category": "other",
+          "fact_id": "F1",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "The WebAdmin context for WebSphere Message Broker allows directory listings, which could disclose sensitive information to the attacker",
+          "score": 2,
+          "text": "The WebAdmin context for WebSphere Message Broker allows directory listings, which could disclose sensitive information to the attacker"
+        },
+        {
+          "answer_quote": "CVSS Base Score: 5.3",
+          "category": "other",
+          "fact_id": "F2",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "CVSS Base Score: 5.3",
+          "score": 2,
+          "text": "CVSS Base Score: 5.3"
+        },
+        {
+          "answer_quote": "(CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N)",
+          "category": "other",
+          "fact_id": "F3",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "(CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N)",
+          "score": 2,
+          "text": "(CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N)"
+        }
+      ],
+      "facts_sha256": "746f1646175b96733b49aaa58d2f916000e4e8031bca4d28b6104603b8ca784e",
+      "question_id": "TRAIN_Q144"
+    },
+    {
+      "answer_body": "VULNERABILITY DETAILS\nCVEID: CVE-2014-8730 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8730]\nDESCRIPTION: IBM PureApplication Server bundles IBM HTTP Server, which could allow a remote attacker to obtain sensitive information, caused by the failure to check the contents of the padding bytes when using CBC cipher suites of some TLS implementations. A remote user with the ability to conduct a man-in-the-middle attack could exploit this vulnerability via a POODLE (Padding Oracle On Downgraded Legacy Encryption) like attack to decrypt sensitive information and calculate the plain text of secure connections.\nCVSS Base Score: 4.3\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/99216 [https://exchange.xforce.ibmcloud.com/vulnerabilities/99216] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N)\n\nAFFECTED PRODUCTS AND VERSIONS\n\nThis vulnerability affects all versions and releases of IBM HTTP Server (powered by Apache) component in all editions of WebSphere Application Server and bundling products. IBM PureApplication Server bundles WebSphere Application Server in its Web Application Pattern.\n\nIBM PureApplication System V1.1\nIBM PureApplication System V2.0\nIBM PureApplication System V2.1\n\nREMEDIATION/FIXES\nThe solution is to apply an update to the Web Application pattern type included in IBM PureApplication System:\n\nIBM PureApplication System V2.1 \n\n * \n * \n * http://www-933.ibm.com/support/fixcentral/swg/downloadFixes?parent=PureSystems&product=ibm/WebSphere/PureApplication+System&release=2.1.0.1&platform=All&function=fixId&fixids=webapp-2.0.4.1-sys&includeSupersedes=0\n * \n * \n * \n * \n * http://www-933.ibm.com/support/fixcentral/swg/downloadFixes?parent=PureSystems&product=ibm/WebSphere/PureApplication+System&release=2.1.0.1&platform=All&function=fixId&fixids=webapp-1.0.4.1-sys&includeSupersedes=0\n\n\nIBM PureApplication System V2.0 \n\n * \n * \n * http://www-933.ibm.com/support/fixcentral/swg/downloadFixes?parent=PureSystems&product=ibm/WebSphere/PureApplication+System&release=2.0.0.1&platform=All&function=fixId&fixids=webapp-2.0.2.1-vaea-20150610&includeSupersedes=0\n\n\nIBM PureApplication System V1.1 and earlier: \n\n * \n * \n * \n\nYou should verify applying this fix does not cause any compatibility issues. WORKAROUNDS AND MITIGATIONS\nNone [S1]",
+      "answer_sha256": "cf7d4f915035341aeeef8e27e5fa02b81e446d438b0773330c2e9c27fb8efb25",
+      "facts": [
+        {
+          "answer_quote": "IBM PureApplication Server bundles IBM HTTP Server, which could allow a remote attacker to obtain sensitive information, caused by the failure to check the contents of the padding bytes when using CBC cipher suites of some TLS implementations.",
+          "category": "other",
+          "fact_id": "F1",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "IBM PureApplication Server bundles IBM HTTP Server, which could allow a remote attacker to obtain sensitive information, caused by the failure to check the contents of the padding bytes when using CBC cipher suites of some TLS implementations",
+          "score": 2,
+          "text": "IBM PureApplication Server bundles IBM HTTP Server, which could allow a remote attacker to obtain sensitive information, caused by the failure to check the contents of the padding bytes when using CBC cipher suites of some TLS implementations"
+        },
+        {
+          "answer_quote": "A remote user with the ability to conduct a man-in-the-middle attack could exploit this vulnerability via a POODLE (Padding Oracle On Downgraded Legacy Encryption) like attack",
+          "category": "condition",
+          "fact_id": "F2",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "A remote user with the ability to conduct a man-in-the-middle attack could exploit this vulnerability via a POODLE (Padding Oracle On Downgraded Legacy Encryption) like attack",
+          "score": 2,
+          "text": "A remote user with the ability to conduct a man-in-the-middle attack could exploit this vulnerability via a POODLE (Padding Oracle On Downgraded Legacy Encryption) like attack"
+        },
+        {
+          "answer_quote": "CVSS Base Score: 4.3",
+          "category": "other",
+          "fact_id": "F3",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "CVSS Base Score: 4.3",
+          "score": 2,
+          "text": "CVSS Base Score: 4.3"
+        },
+        {
+          "answer_quote": "(AV:N/AC:M/Au:N/C:P/I:N/A:N)",
+          "category": "other",
+          "fact_id": "F4",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "(AV:N/AC:M/Au:N/C:P/I:N/A:N)",
+          "score": 2,
+          "text": "(AV:N/AC:M/Au:N/C:P/I:N/A:N)"
+        }
+      ],
+      "facts_sha256": "3f044f5b96f1a2f44bc910f3474124d4c3a30e4701d5d9aea17d868d9036353d",
+      "question_id": "DEV_Q220"
+    },
+    {
+      "answer_body": "Here is the SQL1227N message:\n-----\nUPDATE SYSSTAT.COLUMNS SET COLCARD=4, NUMNULLS=1, SUB_COUNT=-1, SUB_DELIM_LENGTH=-1, \nAVGCOLLENCHAR=7, HIGH2KEY='', LOW2KEY=' ', AVGCOLLEN=12 WHERE COLNAME = 'COL1' \nAND TABNAME = 'TAB1' AND TABSCHEMA = 'DB2INST1'\nDB21034E The command was processed as an SQL statement because it was not a\nvalid Command Line Processor command. During SQL processing it returned:\nSQL1227N The catalog statistic \"\" for column \"HIGH2KEY\" is out of range for\nits target column, has an invalid format, or is inconsistent in relation to\nsome other statistic. Reason Code = \"3\". SQLSTATE=23521\n-----\nAs above, UPDATE SYSSTAT.COLUMNS statement gets SQL1227N at col1 varchar(10).\nIt is caused by runstats, writes an unexpected HIGH2KEY and LOW2KEY statistic values.\n\nHere is work arounds:\n\nWork around #1\n1. $ db2set DB2_STATISTICS=USCC:0\n** this variable is available for V10.1 FP4 and above.\n2. $ db2 terminate\n3. $ db2start\n4. $ repro.sh [S1]",
+      "answer_sha256": "e3bc0e086d7b9845965c32d75315770b61abcde2109255a7f305ee04433f5df9",
+      "facts": [
+        {
+          "answer_quote": "",
+          "category": "other",
+          "fact_id": "F1",
+          "reason": "回答正文仅回显了 SQL 报错信息与列统计更新语句，未提及 DB2 V9.7 及以上版本 runstats 的已知限制。",
+          "reference_quote": "It is an known limitation of current DB2 V9.7 and above versions' runstats",
+          "score": 0,
+          "text": "It is an known limitation of current DB2 V9.7 and above versions' runstats"
+        }
+      ],
+      "facts_sha256": "e280d897d0c4b2891f89275675f3c499c00a1324b46f10b9d353a3d143e086de",
+      "question_id": "DEV_Q140"
+    },
+    {
+      "answer_body": "Please make the following change in the WAS Admin Console...\nApplications > WebSphere enterprise applications >\nJavaContentRepository > Target specific application status > Check the\nbox for the WebSphere_Portal server > Click Enable Auto Start > Save\nchanges > restart Portal [S1]",
+      "answer_sha256": "99ffa6c1dd78979585e5cc8e4ab5efd6ad70fdfd364eb46e1b8b447c85e1e8e5",
+      "facts": [
+        {
+          "answer_quote": "Applications > WebSphere enterprise applications >\nJavaContentRepository",
+          "category": "step",
+          "fact_id": "F1",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "Applications > WebSphere enterprise applications >\nJavaContentRepository",
+          "score": 2,
+          "text": "Applications > WebSphere enterprise applications > JavaContentRepository"
+        },
+        {
+          "answer_quote": "Target specific application status > Check the\nbox for the WebSphere_Portal server > Click Enable Auto Start",
+          "category": "step",
+          "fact_id": "F2",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "Target specific application status > Check the\nbox for the WebSphere_Portal server > Click Enable Auto Start",
+          "score": 2,
+          "text": "Target specific application status > Check the box for the WebSphere_Portal server > Click Enable Auto Start"
+        },
+        {
+          "answer_quote": "Save\nchanges > restart Portal",
+          "category": "step",
+          "fact_id": "F3",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "Save\nchanges > restart Portal",
+          "score": 2,
+          "text": "Save changes > restart Portal"
+        },
+        {
+          "answer_quote": "",
+          "category": "step",
+          "fact_id": "F4",
+          "reason": "回答正文在 restart Portal 处结束，缺失更改后重新尝试 CF 升级的步骤说明。",
+          "reference_quote": "After making this change please attempt the CF upgrade again",
+          "score": 0,
+          "text": "After making this change please attempt the CF upgrade again"
+        }
+      ],
+      "facts_sha256": "69ddbe84d90d595603688f5fa440b95833dcf32cd0a9c3946b245e3f60357a46",
+      "question_id": "TRAIN_Q458"
+    },
+    {
+      "answer_body": "ERROR DESCRIPTION\n *  PumaProfile.reload() enablement for VMM cache invalidation\n   \n   Use case:\n   1) Customer logs into Portal with testuser\n   2) Login for testuser pulls information from LDAP\n   3) testuser information gets cached.\n   4) testuser logs out\n   5) Direct update is made to LDAP for testuser information\n   6) testuser logs in successfully. However, \"old\" information is\n   still\n   cached and pulled, instead of new information pulled from LDAP.\n   7) testuser information gets updated roughly 1 hour later once\n   cached data times out\n   \n   This is working as designed with caching mechanisms.\n   There is not a programmatic way to do this via the\n   PUMA API at present time. The closest mechanism is the reload()\n   method in the PumaProfile\n   interface. However, this only bypasses the PUMA cache and still\n   may pull from the VMM cache.\n   \n   This APAR adds additional configuration options to have\n   PumaProfile.reload() method automatically invalidate LDAP\n   Attribute cache in VMM LDAP Adapter. Please note that this\n   invalidation to bypass caches is only triggered by\n   PumaProfile.reload() method. Additionally, only the LDAP\n   Attribute cache in VMM is invalidated. Puma Search operations\n   are still answered from VMM caches.\n   \n   To enable WIM attribute cache invalidation during\n   PumaProfile.reload() call, please use WAS Admin console ->\n   Resources -> Resource environment providers -> 'WP\n   PumaStoreService' to add new custom properties:\n   \n   WP PumaStoreService\n   setting: store.puma_default.wim.cacheinvalidation.enabled\n   values: [true|false]\n   Use store.puma_default.wim.cacheinvalidation.enabled=true to\n   enable the cache invalidation\n   \n   setting: store.puma_default.wim.cacheinvalidation.repositoryids\n   values: <comma separated list of LDAP repository IDs as\n   specified in wimconfig.xml>\n   Use store.puma_default.wim.cacheinvalidation\n   .repositoryids=<repositoryID> or\n    store.puma_default.wim.cacheinvalidation\n   .repositoryids=<repositoryID_1>,<repositoryID_2>,<repositoryID_3\n   > to specify multiple WIM LDAP repository IDs.\n   \n   Please save changes and restart all server nodes afterwards.\n   \n   The IDs are specified in wimconfig.xml under\n   <config:repositories> e.g.:\n       <config:repositories xsi:type=\"config:LdapRepositoryType\"\n   adapterClassName=\"com.ibm.ws.wim.adapter.ldap.LdapAdapter\"\n           id=\"<repositoryID>\"\n   \n   \n   \n   \n   It may be possible to manually invoke the PumaProfile.reload()\n   method through the use of custom code and the PUMA API. [S2]",
+      "answer_sha256": "d0668b940e4570dcf712f4ffe449d51002558ca054fd6876dfca5d9d4c51a6ca",
+      "facts": [
+        {
+          "answer_quote": "PumaProfile.reload() enablement for VMM cache invalidation",
+          "category": "other",
+          "fact_id": "F1",
+          "reason": "正文提及 PumaProfile.reload() 用于缓存失效，但未包含即使 base entry 与 repository 中的名称不同也能正确清除缓存的细节。",
+          "reference_quote": "This APAR fixes the issue. It clears the cache properly even if\n   base entry is different than name in repository.",
+          "score": 1,
+          "text": "This APAR fixes the issue. It clears the cache properly even if base entry is different than name in repository."
+        },
+        {
+          "answer_quote": "",
+          "category": "version",
+          "fact_id": "F2",
+          "reason": "回答正文提及的是 APAR 描述，未在正文中明确说明包含在 fix packs 8.0.0.13 与 8.5.5.9 中。",
+          "reference_quote": "The fix for this APAR is currently targeted for inclusion in\n   fix packs 8.0.0.13 and 8.5.5.9.",
+          "score": 0,
+          "text": "The fix for this APAR is currently targeted for inclusion in fix packs 8.0.0.13 and 8.5.5.9."
+        }
+      ],
+      "facts_sha256": "7f78fac6ba5f733d46fcbfa7b4676eacb24d0497239d8969d09ad223d2535dee",
+      "question_id": "TRAIN_Q247"
+    },
+    {
+      "answer_body": "Import the certification file into the agent by doing the following command:\n\nNote : You can use either .cer or .pem. \nMake sure the file is in ASCII not binary. \nWhere the /usr/ITM/JRE is your Java location and <fileName> is your file name.\n\nex: \n/usr/ITM/JRE/aix526/jre/bin/keytool -import -trustcacerts -alias \nligitalsso -keystore /usr/ITM/JRE/aix526/jre/bin/lib/security/cacerts \n-storepass <fileName> -file /NEWSSL-sscert.cer [S1]",
+      "answer_sha256": "89be02770215abee174f6fbd87a2d4f74276aa37811118e7d104ff165236125c",
+      "facts": [
+        {
+          "answer_quote": "Import the certification file into the agent by doing the following command:",
+          "category": "command",
+          "fact_id": "F1",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "Import the certification file into the agent by doing the following command",
+          "score": 2,
+          "text": "Import the certification file into the agent by doing the following command"
+        },
+        {
+          "answer_quote": "You can use either .cer or .pem.",
+          "category": "condition",
+          "fact_id": "F2",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "You can use either .cer or .pem",
+          "score": 2,
+          "text": "You can use either .cer or .pem"
+        },
+        {
+          "answer_quote": "Make sure the file is in ASCII not binary.",
+          "category": "condition",
+          "fact_id": "F3",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "Make sure the file is in ASCII not binary",
+          "score": 2,
+          "text": "Make sure the file is in ASCII not binary"
+        }
+      ],
+      "facts_sha256": "24aeb9d6ac56afd2dc9bd617f4a2845baedd78af7d2aa8466b45401f1790a045",
+      "question_id": "DEV_Q025"
+    },
+    {
+      "answer_body": "To remove RC4 ciphers:\n\n\n 1. Log into the Websphere Application server and navigate to:\n    SSL certificate and key management > SSL configurations > NodeDefaultSSLSettings > Quality of protection (QoP)\n    \n    \n 2. Select the *RC4* ciphers from the \"Selected ciphers\" list, and then click the \"<<Remove\" button.\n    \n    \n 3.  Click the \"Apply\" button, and then the \"Save (to the master configuration)\" link.\n    \n    \n 4. Restart TIP. [S1]",
+      "answer_sha256": "f4d873c530c884eed4c181d7d25aee37c3529bcdff7b175680fdbe7ee5f2c838",
+      "facts": [
+        {
+          "answer_quote": "Log into the Websphere Application server and navigate to:\n    SSL certificate and key management > SSL configurations > NodeDefaultSSLSettings > Quality of protection (QoP)",
+          "category": "step",
+          "fact_id": "F1",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "Log into the Websphere Application server and navigate to:\n    SSL certificate and key management > SSL configurations > NodeDefaultSSLSettings > Quality of protection (QoP)",
+          "score": 2,
+          "text": "Log into the Websphere Application server and navigate to: SSL certificate and key management > SSL configurations > NodeDefaultSSLSettings > Quality of protection (QoP)"
+        },
+        {
+          "answer_quote": "Select the *RC4* ciphers from the \"Selected ciphers\" list, and then click the \"<<Remove\" button",
+          "category": "step",
+          "fact_id": "F2",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "Select the *RC4* ciphers from the \"Selected ciphers\" list, and then click the \"<<Remove\" button",
+          "score": 2,
+          "text": "Select the *RC4* ciphers from the \"Selected ciphers\" list, and then click the \"<<Remove\" button"
+        },
+        {
+          "answer_quote": "Click the \"Apply\" button, and then the \"Save (to the master configuration)\" link",
+          "category": "step",
+          "fact_id": "F3",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "Click the \"Apply\" button, and then the \"Save (to the master configuration)\" link",
+          "score": 2,
+          "text": "Click the \"Apply\" button, and then the \"Save (to the master configuration)\" link"
+        },
+        {
+          "answer_quote": "Restart TIP",
+          "category": "step",
+          "fact_id": "F4",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "Restart TIP",
+          "score": 2,
+          "text": "Restart TIP"
+        }
+      ],
+      "facts_sha256": "be879554ac60d8c31912d968039be23be8e874a83bc8dc2f16a9f33c8dcad04a",
+      "question_id": "TRAIN_Q226"
+    },
+    {
+      "answer_body": "ANSWER\nThe MQSeries Events workspace displays data from the Current Events attribute group. Since this data is stored in memory, stopping and restarting the MQ Monitoring agent will clear all the data in the Current Events table. [S2]",
+      "answer_sha256": "bb2b909af5a66a75897eb188ae90fac6fe539cdf48d26a77b64e7121bb20c23a",
+      "facts": [
+        {
+          "answer_quote": "The MQSeries Events workspace displays data from the Current Events attribute group.",
+          "category": "other",
+          "fact_id": "F1",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "The MQSeries Events workspace displays data from the Current Events attribute group",
+          "score": 2,
+          "text": "The MQSeries Events workspace displays data from the Current Events attribute group"
+        },
+        {
+          "answer_quote": "Since this data is stored in memory, stopping and restarting the MQ Monitoring agent will clear all the data in the Current Events table.",
+          "category": "step",
+          "fact_id": "F2",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "Since this data is stored in memory, stopping and restarting the MQ Monitoring agent will clear all the data in the Current Events table",
+          "score": 2,
+          "text": "Since this data is stored in memory, stopping and restarting the MQ Monitoring agent will clear all the data in the Current Events table"
+        }
+      ],
+      "facts_sha256": "c189ab15b561a87b471dd75dcf2a1da014d11b4dc76bb3ed20004365bcf8e612",
+      "question_id": "TRAIN_Q170"
+    },
+    {
+      "answer_body": "VULNERABILITY DETAILS\nCVEID: CVE-2017-1283 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1283]\nDESCRIPTION: IBM WebSphere MQ could allow an authenticated user to cause a shared memory leak by MQ applications using dynamic queues, which can lead to lack of resources for other MQ applications.\nCVSS Base Score: 3.1\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/125144 [https://exchange.xforce.ibmcloud.com/vulnerabilities/125144] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L) \n\nAFFECTED PRODUCTS AND VERSIONS\nIBM MQ V8\nIBM MQ 8.0.0.0 - 8.0.0.6 maintenance levels\nIBM MQ Appliance V8\nIBM MQ Appliance 8.0.0.0 - 8.0.0.6 maintenance levels\nIBM MQ V9\nIBM MQ 9.0.0.0 - 9.0.0.1 maintenance levels\nIBM MQ V9 CD\nIBM MQ 9.0.1 - 9.0.3 releases\nIBM MQ Appliance V9 CD\nIBM MQ Appliance 9.0.1 - 9.0.3\n\nREMEDIATION/FIXES\nIBM MQ V8 \n\nApply Fix Pack 8.0.0.7 [https://www-01.ibm.com/support/docview.wss?uid=swg22005832]\nIBM MQ Appliance V8\nApply Fix Pack 8.0.0.7 for MQ Appliance [https://www-01.ibm.com/support/docview.wss?uid=swg22005832]\nIBM MQ V9\nApply Fix Pack 9.0.0.2 [http://www-01.ibm.com/support/docview.wss?uid=swg24044038]\nIBM MQ V9 CD\nUpgrade to IBM MQ 9.0.4 [http://www-01.ibm.com/support/docview.wss?uid=swg24043348]\nIBM MQ Appliance V9 CD\nUpgrade to IBM MQ Appliance 9.0.4 [http://www-01.ibm.com/support/docview.wss?uid=swg24043348]\n\nWORKAROUNDS AND MITIGATIONS\nNone. [S1]",
+      "answer_sha256": "0d384d176765ee6bf5206e35dbd6b56a034015126719067a5d867c40d527dc8e",
+      "facts": [
+        {
+          "answer_quote": "DESCRIPTION: IBM WebSphere MQ could allow an authenticated user to cause a shared memory leak by MQ applications using dynamic queues, which can lead to lack of resources for other MQ applications",
+          "category": "other",
+          "fact_id": "F1",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "IBM WebSphere MQ could allow an authenticated user to cause a shared memory leak by MQ applications using dynamic queues, which can lead to lack of resources for other MQ applications",
+          "score": 2,
+          "text": "IBM WebSphere MQ could allow an authenticated user to cause a shared memory leak by MQ applications using dynamic queues, which can lead to lack of resources for other MQ applications"
+        },
+        {
+          "answer_quote": "CVSS Base Score: 3.1",
+          "category": "other",
+          "fact_id": "F2",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "CVSS Base Score: 3.1",
+          "score": 2,
+          "text": "CVSS Base Score: 3.1"
+        },
+        {
+          "answer_quote": "(CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L)",
+          "category": "other",
+          "fact_id": "F3",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "(CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L)",
+          "score": 2,
+          "text": "(CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L)"
+        }
+      ],
+      "facts_sha256": "f8c86524d69197c2a2893d1cd9dbe70cdc0edd64faa84faeda9b1fe770b89762",
+      "question_id": "TRAIN_Q462"
+    },
+    {
+      "answer_body": "About the default database path: \nWhen ClearQuest tries to connect to a database, it will first look if the CQ_DATABASES variable has been set, and if set, it will use this variable to determine where the database is registered. With the setenv command, you can set a user or system variable. (This is under the cshell. If using bash, use the env command and then export the env variable with the export command.) If the default database path has not been set, you can set it by entering the variable CQ_DATABASES. This should point to:  * \n * \n   /opt/rational/clearquest/CQDB_rgys/cqdb_registry/ [S1]\nRun cqreg initialize. The add_dbset command will run successfully afterwards. However, should the same error persist, make sure the command is run as the root user. \n\n\n\nAlso make sure that the CQ_DATABASES environment variable is set to the desired registry path. If it is not, set the variable accordingly, then run the previously mentioned commands again. [S6]",
+      "answer_sha256": "8eff431c91645d3d7b159960163b32cc08e4f81803145340a845c8cc45efe419",
+      "facts": [
+        {
+          "answer_quote": "",
+          "category": "condition",
+          "fact_id": "F1",
+          "reason": "回答正文说明了 setenv 与 CQ_DATABASES 变量，未提及 UNIX 安装末尾自动运行 cqreg initialize。",
+          "reference_quote": "Normally, at the end of a ClearQuest installation on UNIX® based platforms, the cqreg initialize command runs automatically",
+          "score": 0,
+          "text": "Normally, at the end of a ClearQuest installation on UNIX® based platforms, the cqreg initialize command runs automatically"
+        },
+        {
+          "answer_quote": "",
+          "category": "other",
+          "fact_id": "F2",
+          "reason": "回答正文未提及该命令用于为 database sets 创建注册表结构。",
+          "reference_quote": "The command creates the registry structure for database sets",
+          "score": 0,
+          "text": "The command creates the registry structure for database sets"
+        },
+        {
+          "answer_quote": "",
+          "category": "condition",
+          "fact_id": "F3",
+          "reason": "回答正文未提及安装过程中该命令未成功运行的根本原因。",
+          "reference_quote": "During the installation, the command did not run successfully",
+          "score": 0,
+          "text": "During the installation, the command did not run successfully"
+        }
+      ],
+      "facts_sha256": "8c39a061b5607bae503f85e6ad3169a6fd6172f3260116083beca9f5aeb9ca57",
+      "question_id": "DEV_Q088"
+    },
+    {
+      "answer_body": "SUBSCRIBE\nYou can track all active APARs for this component.\n\n\n\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR.\n    \n   \n   \n\nERROR DESCRIPTION\n *  ITCAM Extended Agent will occupy the oracle sessions more and\n   more if the agent oracle user do not have all authority in the\n   krzgrant.sql.\n   \n   \n   This is due to the agent do not disconnect from oracle database\n   for the error message of \"ORA-00942 Table or View does not\n   exist\" and try to reconnect to oracle database with a new\n   session in each interval.\n   \n   Detailed Recreation Procedure:\n   1. Create an Oracle user and only grant with connect/create\n   session privileges, such as 'tivoli'.\n   \n   2. Do not run the krzgrant.sql for this new Oracle user.\n   \n   3. Create a new agent instance with this Oracle user and startup\n   agent instance.\n   \n   4. Check the session number owned by this new Oracle user as\n   below after agent running for few minutes.\n   \n   \n   SQL> select count(*) from v$session where username='TIVOLI'; [S3]\nAPAR STATUS\n * CLOSED AS PROGRAM ERROR.\n    \n   \n   \n\nERROR DESCRIPTION\n *  ITCAM Extended Agent will occupy the oracle sessions more and\n   more if the agent oracle user do not have all authority in the\n   krzgrant.sql.\n   \n   \n   This is due to the agent do not disconnect from oracle database\n   for the error message of \"ORA-00942 Table or View does not\n   exist\" and try to reconnect to oracle database with a new\n   session in each interval.\n   \n   Detailed Recreation Procedure:\n   1. Create an Oracle user and only grant with connect/create\n   session privileges, such as 'tivoli'.\n   \n   2. Do not run the krzgrant.sql for this new Oracle user.\n   \n   3. Create a new agent instance with this Oracle user and startup\n   agent instance.\n   \n   4. Check the session number owned by this new Oracle user as\n   below after agent running for few minutes.\n   \n   \n   SQL> select count(*) from v$session where username='TIVOLI';\n   \n   \n    \n   \n   \n\nLOCAL FIX\n\nPROBLEM SUMMARY\n *  *************************************************************\n   * USERS AFFECTED:\n   ITCAM Extended Agent for Oracle Database 6.3.1\n   *************************************************************\n   * PROBLEM DESCRIPTION:\n   ITCAM Extended Agent will occupy the oracle sessions more and\n   more if the agent oracle user do not have all authority in the\n   krzgrant.sql.\n   \n   \n   *************************************************************\n   * RECOMMENDATION:\n   apply next ifix when available\n   *************************************************************\n   \n   \n    \n   \n   \n\nPROBLEM CONCLUSION\n *  The fix for this APAR is contained in the following packages:\n   \n   IBM Tivoli Composite Application Manager for Applications:\n      Extended Oracle Agent 6.3.1-TIV-ITM_KRZ-IF0002\n   \n   \n    \n   \n   \n\nTEMPORARY FIX\n *  The temporary fix is to run product provided 'krzgrant.sql' to\n   ensure the agent oracle user has all authorities.\n   \n   \n    \n   \n   \n\nCOMMENTS [S4]",
+      "answer_sha256": "869841727ec5d2a9772401ced93041ab939111807fb5de122ecd61ef0304fd40",
+      "facts": [
+        {
+          "answer_quote": "agent oracle user do not have all authority in the\n   krzgrant.sql",
+          "category": "command",
+          "fact_id": "F1",
+          "reason": "回答正文提到了 krzgrant.sql 脚本的权限问题，但未明确给出运行该脚本的指导步骤。",
+          "reference_quote": "Run the krzgrant.sql script",
+          "score": 1,
+          "text": "Run the krzgrant.sql script"
+        },
+        {
+          "answer_quote": "",
+          "category": "version",
+          "fact_id": "F2",
+          "reason": "回答正文未给出具体修复补丁版本 6.3.1-TIV-ITM_KRZ-FP0001。",
+          "reference_quote": "6.3.1-TIV-ITM_KRZ-FP0001",
+          "score": 0,
+          "text": "6.3.1-TIV-ITM_KRZ-FP0001"
+        }
+      ],
+      "facts_sha256": "1c7994f0c8c6b7203fee88541936220f444a42ecd4088de47fd38f0095f4da7f",
+      "question_id": "TRAIN_Q256"
+    },
+    {
+      "answer_body": "*  Work- around ...\n   \n   set impact.cluster.readlimit to 32768 at least.\n   \n   Update <SERVERNAME>_server.props files both\n   on Primary and Backup and\n   restart the server.\n   You might have to delete the corrupt property files\n   \n   for the Backup to grab the new ones from the Primary.\n   \n   \n    \n   \n   \n\nPROBLEM SUMMARY\n *  TBSM 6.1 Failover system fails to restart.\n   configuratrion files were corrupted in\n    /opt/IBM/tivol/tbsm/etc [S6]",
+      "answer_sha256": "36a85a3ce666c11fd5df7604099068552364cd543c01f80fa1dd8d52997cfb43",
+      "facts": [
+        {
+          "answer_quote": "set impact.cluster.readlimit to 32768 at least.\n   \n   Update <SERVERNAME>_server.props files",
+          "category": "step",
+          "fact_id": "F1",
+          "reason": "回答正文覆盖了修改属性文件与设置读取大小阈值。",
+          "reference_quote": "Add the property to $NCHOME/impact/etc/<SERVERNAME>_server.props file \nwhere size limit can be 8192, 16384, 32768, etc..",
+          "score": 2,
+          "text": "Add the property to $NCHOME/impact/etc/<SERVERNAME>_server.props file where size limit can be 8192, 16384, 32768, etc.."
+        },
+        {
+          "answer_quote": "Update <SERVERNAME>_server.props files both\n   on Primary and Backup and\n   restart the server.",
+          "category": "condition",
+          "fact_id": "F2",
+          "reason": "正文提及在 Primary 和 Backup 上更新并重启，但未完整表述添加到 Cluster 中所有 ImpactServer。",
+          "reference_quote": "The property would have to be added to all ImpactServers in the Cluster and would require a restart to enable",
+          "score": 1,
+          "text": "The property would have to be added to all ImpactServers in the Cluster and would require a restart to enable"
+        },
+        {
+          "answer_quote": "",
+          "category": "condition",
+          "fact_id": "F3",
+          "reason": "回答正文未提及确保属性没有末尾空格的约束。",
+          "reference_quote": "ensure that there are no trailing white-space characters on the property",
+          "score": 0,
+          "text": "ensure that there are no trailing white-space characters on the property"
+        },
+        {
+          "answer_quote": "",
+          "category": "version",
+          "fact_id": "F4",
+          "reason": "回答正文未提及 Impact 6 和 7 中该 APAR 的版本适用情况。",
+          "reference_quote": "The APAR is not an issue in Impact 6 and 7, but one would still have to include this property with an appropriate value",
+          "score": 0,
+          "text": "The APAR is not an issue in Impact 6 and 7, but one would still have to include this property with an appropriate value"
+        },
+        {
+          "answer_quote": "",
+          "category": "condition",
+          "fact_id": "F5",
+          "reason": "回答正文未提及字符长度包含 USERPARAMETERS 属性名称及定义的约束。",
+          "reference_quote": "The character length includes the whole USERPARAMETERS property name as well as the definition",
+          "score": 0,
+          "text": "The character length includes the whole USERPARAMETERS property name as well as the definition"
+        }
+      ],
+      "facts_sha256": "5dba8ff0d2ad7db4eb968021be2297fbdf89370a872da5b730003423e2b22b25",
+      "question_id": "DEV_Q154"
+    },
+    {
+      "answer_body": "- Shut-down the DMGR\n- Clear out the contents of the following directories:\n\ndmgr_profile/wstemp\ndmgr_profile/temp\n\n- Restart the DMGR.\n- Re-attempt the upgrade\n\n\n\n\nThis can also occur when the DMGR is running as a non-root user. If so, please stop and re-start the DMGR as root and attempt the upgrade again. [S1]",
+      "answer_sha256": "bcbce19e8485f015be696ab1bb0a83e93486746f3f6ba4db101f83a3df9d07eb",
+      "facts": [
+        {
+          "answer_quote": "",
+          "category": "condition",
+          "fact_id": "F1",
+          "reason": "回答正文给出了清理 wstemp/temp 目录和 root 重启的操作，未提及 WAS 升级后 deploytool 旧 OSGI 缓存 stale 的核心原因。",
+          "reference_quote": "This exception can happen during ejbdeploy after the WebSphere Application Server has been upgraded, and old OSGI cache remains for the ejbdeploy tool",
+          "score": 0,
+          "text": "This exception can happen during ejbdeploy after the WebSphere Application Server has been upgraded, and old OSGI cache remains for the ejbdeploy tool"
+        },
+        {
+          "answer_quote": "",
+          "category": "other",
+          "fact_id": "F2",
+          "reason": "回答正文给出了清理 wstemp/temp 目录和 root 重启的操作，未提及 WAS 升级后 deploytool 旧 OSGI 缓存 stale 的核心原因。",
+          "reference_quote": "The OSGI class of the ejbdeploy tool contains class information within the deploytool folder and can become stale if the content inside deploytool has changed",
+          "score": 0,
+          "text": "The OSGI class of the ejbdeploy tool contains class information within the deploytool folder and can become stale if the content inside deploytool has changed"
+        }
+      ],
+      "facts_sha256": "6dbeb4951b23867837bd46fbb8944b95899646e93a876cfa698543e876b8247c",
+      "question_id": "TRAIN_Q116"
+    },
+    {
+      "answer_body": "RESOLVING THE PROBLEM\nInstall the missing libraries \"adwaita-gtk2-theme\" (32 and 64 bit) and \"adwaita-gtk3-theme\" 64 bit. Please contact RedHat to obtain the missing libraries. [S4]",
+      "answer_sha256": "269dc11df4e019f2e371284eaf76bfa6db43acda1276d9a608d142bcc2607323",
+      "facts": [
+        {
+          "answer_quote": "\"adwaita-gtk2-theme\" (32 and 64 bit)",
+          "category": "command",
+          "fact_id": "F1",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "\"adwaita-gtk2-theme\" (32 and 64 bit)",
+          "score": 2,
+          "text": "\"adwaita-gtk2-theme\" (32 and 64 bit)"
+        },
+        {
+          "answer_quote": "\"adwaita-gtk3-theme\" 64 bit",
+          "category": "command",
+          "fact_id": "F2",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "\"adwaita-gtk3-theme\" 64 bit",
+          "score": 2,
+          "text": "\"adwaita-gtk3-theme\" 64 bit"
+        },
+        {
+          "answer_quote": "Please contact RedHat to obtain the missing libraries.",
+          "category": "step",
+          "fact_id": "F3",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "Please contact RedHat to obtain the missing libraries",
+          "score": 2,
+          "text": "Please contact RedHat to obtain the missing libraries"
+        }
+      ],
+      "facts_sha256": "470d657d18ce2c50bf61cca4df64cece2556391af6326a48de17f3e63088d6eb",
+      "question_id": "DEV_Q002"
+    },
+    {
+      "answer_body": "To resolve the problem, you must set the LD_LIBRARY_PATH environment variable to point to the library directory of the GSKit that comes with the IBM web server Plug-in. The precise directory location will depend of the version of Plug-in, and on the bit depth being used (32-bit or 64-bit). [S1]",
+      "answer_sha256": "36141617d90f46e6d006e18267c6f8b7ce75d9078599a2bf4e8bdd77ebe52bd6",
+      "facts": [
+        {
+          "answer_quote": "you must set the LD_LIBRARY_PATH environment variable",
+          "category": "command",
+          "fact_id": "F1",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "you must set the LD_LIBRARY_PATH environment variable",
+          "score": 2,
+          "text": "you must set the LD_LIBRARY_PATH environment variable"
+        },
+        {
+          "answer_quote": "to point to the library directory of the GSKit that comes with the IBM web server Plug-in.",
+          "category": "step",
+          "fact_id": "F2",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "to point to the library directory of the GSKit that comes with the IBM web server Plug-in",
+          "score": 2,
+          "text": "to point to the library directory of the GSKit that comes with the IBM web server Plug-in"
+        },
+        {
+          "answer_quote": "The precise directory location will depend of the version of Plug-in, and on the bit depth being used (32-bit or 64-bit).",
+          "category": "condition",
+          "fact_id": "F3",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "The precise directory location will depend of the version of Plug-in, and on the bit depth being used (32-bit or 64-bit)",
+          "score": 2,
+          "text": "The precise directory location will depend of the version of Plug-in, and on the bit depth being used (32-bit or 64-bit)"
+        }
+      ],
+      "facts_sha256": "3a5a665db037568645128125ae99ff63a66f899311ae11fd50c3647542bef635",
+      "question_id": "DEV_Q040"
+    },
+    {
+      "answer_body": "VULNERABILITY DETAILS\nCVEID: CVE-2015-5011 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-5011]\nDESCRIPTION: IBM Integration Bus could allow a local user to start and stop a service that they should not have access to.\nCVSS Base Score: 4\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/106403 [https://exchange.xforce.ibmcloud.com/vulnerabilities/106403] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N)\n\nAFFECTED PRODUCTS AND VERSIONS\n IBM Integration Bus V9 \n\n WebSphere Message Broker V8\n\nREMEDIATION/FIXES\n \n\nProduct VRMF APAR Remediation/Fix IBM Integration Bus V9 PI28139 The APAR is available in fix pack 9.0.0.4 \nhttps://www-304.ibm.com/support/docview.wss?rs=849&uid=swg24040542 [https://www-304.ibm.com/support/docview.wss?rs=849&uid=swg24040542] WebSphere Message Broker\nV8 PI28139 The APAR is available in fix pack 8.0.0.6\nhttp://www-01.ibm.com/support/docview.wss?rs=849&uid=swg24040259 [http://www-01.ibm.com/support/docview.wss?rs=849&uid=swg24040259] WORKAROUNDS AND MITIGATIONS\nNone [S1]",
+      "answer_sha256": "5f87042dc8e9ca66055635eccf83384b013800db70398623c5a0afae6e21d8c7",
+      "facts": [
+        {
+          "answer_quote": "IBM Integration Bus could allow a local user to start and stop a service that they should not have access to.",
+          "category": "other",
+          "fact_id": "F1",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "IBM Integration Bus could allow a local user to start and stop a service that they should not have access to",
+          "score": 2,
+          "text": "IBM Integration Bus could allow a local user to start and stop a service that they should not have access to"
+        },
+        {
+          "answer_quote": "CVSS Base Score: 4",
+          "category": "other",
+          "fact_id": "F2",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "CVSS Base Score: 4",
+          "score": 2,
+          "text": "CVSS Base Score: 4"
+        },
+        {
+          "answer_quote": "(CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N)",
+          "category": "other",
+          "fact_id": "F3",
+          "reason": "回答正文完整且正确覆盖该事实。",
+          "reference_quote": "(CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N)",
+          "score": 2,
+          "text": "(CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N)"
+        }
+      ],
+      "facts_sha256": "40e008d95c7512ca9c7d947e2d62595cf8861906ebca39f774194c444dec20ba",
+      "question_id": "TRAIN_Q232"
+    },
+    {
+      "answer_body": "If the installation of RAD version 7.x completes except for the WebSphere® Test Environment (WTE) version 6.x server, the IBM Rational Software Development Platform (SDP) will still run, however, WebSphere Application Server (WAS) v6.x Integrated Test Environment may not be available.\nHere is a list of things to CHECK first and then re-install if your install completed without installing the WTE. \nA complete set of WTE V6 MANUAL INSTALL instructions also follows, to help you isolate the problem if required. [S1]\nFile name RAD_V7.0_Part_5.zip\n    488MB\n    \n    IBM Rational Application Developer V7.0 Multiplatform Multilingual Part 9(C96GZML)\n    File name RAD_V7.0_Part_9.zip\n    531MB\n    \n    Check the md5 value provide with each zip after downloading any RAD v7.0 zip from PPA.\n    \n 4. Manually Clean up the WTE/WAS version 6 install before retrying (It might not be necessary to uninstall and reinstall RAD): \n     * Uninstall WebSphere Application Server (WAS) version 6, if it is still installed. You can uninstall it by either of these methods:\n       \n       Run the IBM Installation Manager (IM) at the command prompt or use Windows Explorer on the icon for uninstall.exe\n       <install_dir>\\eclipse\\launcher.exe\n       \n       Using: Modify Packages , proceed through the [Next] screens till you get to Features [S2]",
+      "answer_sha256": "bf8544c07973079c0fa11ea48730856bc10b5d06906278e30c83a34a52da7f05",
+      "facts": [
+        {
+          "answer_quote": "",
+          "category": "other",
+          "fact_id": "F1",
+          "reason": "正文是 WAS v6 安装说明，未覆盖 WAS v7 Test Environment 更新；人工确认改为 0。",
+          "reference_quote": "This download includes the following update to the WebSphere Application Server v7.0 Test Environment extension included with Rational Software Delivery Platform products",
+          "score": 0,
+          "text": "This download includes the following update to the WebSphere Application Server v7.0 Test Environment extension included with Rational Software Delivery Platform products"
+        },
+        {
+          "answer_quote": "",
+          "category": "version",
+          "fact_id": "F2",
+          "reason": "正文未包含 Fix Pack 41 / 7.0.0.41；人工确认改为 0。",
+          "reference_quote": "IBM WebSphere Application Server Version 7 Fix Pack 41 also known as version 7.0.0.41",
+          "score": 0,
+          "text": "IBM WebSphere Application Server Version 7 Fix Pack 41 also known as version 7.0.0.41"
+        }
+      ],
+      "facts_sha256": "8eabd83394bbb60916429f7e9b7cae8a7c6830b909248a1822b6c3d44b5ace00",
+      "question_id": "TRAIN_Q437"
+    },
+    {
+      "answer_body": "知识库无法回答该问题。",
+      "answer_sha256": "c0ae50ad69ead5514c6c0dd449f05ddd86f4339b743b4a624ff40af8dc7cecb5",
+      "facts": [
+        {
+          "answer_quote": "",
+          "category": "condition",
+          "fact_id": "F1",
+          "reason": "回答正文表示知识库无法回答该问题，未覆盖该事实。",
+          "reference_quote": "Editor for Messages supports Microsoft Internet Explorer only",
+          "score": 0,
+          "text": "Editor for Messages supports Microsoft Internet Explorer only"
+        },
+        {
+          "answer_quote": "",
+          "category": "condition",
+          "fact_id": "F2",
+          "reason": "回答正文表示知识库无法回答该问题，未覆盖该事实。",
+          "reference_quote": "Mozilla Firefox and Google Chrome are not supported",
+          "score": 0,
+          "text": "Mozilla Firefox and Google Chrome are not supported"
+        },
+        {
+          "answer_quote": "",
+          "category": "version",
+          "fact_id": "F3",
+          "reason": "回答正文表示知识库无法回答该问题，未覆盖该事实。",
+          "reference_quote": "IE 6, IE 7, IE 8, IE 9 (compatibility view), IE 10(Compatibility view), IE 11(Compatibility view)",
+          "score": 0,
+          "text": "IE 6, IE 7, IE 8, IE 9 (compatibility view), IE 10(Compatibility view), IE 11(Compatibility view)"
+        }
+      ],
+      "facts_sha256": "c5e17853551408d7eb66ef54acc4e6cc7c43513011f094c019adc3f19cfbacbf",
+      "question_id": "TRAIN_Q567"
+    },
+    {
+      "answer_body": "*  Work- around ...\n   \n   set impact.cluster.readlimit to 32768 at least.\n   \n   Update <SERVERNAME>_server.props files both\n   on Primary and Backup and\n   restart the server.\n   You might have to delete the corrupt property files\n   \n   for the Backup to grab the new ones from the Primary.\n   \n   \n    \n   \n   \n\nPROBLEM SUMMARY\n *  TBSM 6.1 Failover system fails to restart.\n   configuratrion files were corrupted in\n    /opt/IBM/tivol/tbsm/etc [S4]",
+      "answer_sha256": "f331ded9b1df1a5db2b31cc4f5348d0071a0d63e87b2bebff5c2569f02af1904",
+      "facts": [
+        {
+          "answer_quote": "set impact.cluster.readlimit to 32768 at least.\n   \n   Update <SERVERNAME>_server.props files",
+          "category": "step",
+          "fact_id": "F1",
+          "reason": "回答正文覆盖了修改属性文件与设置读取大小阈值。",
+          "reference_quote": "Add the property to $NCHOME/impact/etc/<SERVERNAME>_server.props file \nwhere size limit can be 8192, 16384, 32768, etc..",
+          "score": 2,
+          "text": "Add the property to $NCHOME/impact/etc/<SERVERNAME>_server.props file where size limit can be 8192, 16384, 32768, etc.."
+        },
+        {
+          "answer_quote": "Update <SERVERNAME>_server.props files both\n   on Primary and Backup and\n   restart the server.",
+          "category": "condition",
+          "fact_id": "F2",
+          "reason": "正文提及在 Primary 和 Backup 上更新并重启，但未完整表述添加到 Cluster 中所有 ImpactServer。",
+          "reference_quote": "The property would have to be added to all ImpactServers in the Cluster and would require a restart to enable",
+          "score": 1,
+          "text": "The property would have to be added to all ImpactServers in the Cluster and would require a restart to enable"
+        },
+        {
+          "answer_quote": "",
+          "category": "condition",
+          "fact_id": "F3",
+          "reason": "回答正文未提及确保属性没有末尾空格的约束。",
+          "reference_quote": "ensure that there are no trailing white-space characters on the property",
+          "score": 0,
+          "text": "ensure that there are no trailing white-space characters on the property"
+        },
+        {
+          "answer_quote": "",
+          "category": "version",
+          "fact_id": "F4",
+          "reason": "回答正文未提及 Impact 6 和 7 中该 APAR 的版本适用情况。",
+          "reference_quote": "The APAR is not an issue in Impact 6 and 7, but one would still have to include this property with an appropriate value",
+          "score": 0,
+          "text": "The APAR is not an issue in Impact 6 and 7, but one would still have to include this property with an appropriate value"
+        },
+        {
+          "answer_quote": "",
+          "category": "condition",
+          "fact_id": "F5",
+          "reason": "回答正文未提及字符长度包含 USERPARAMETERS 属性名称及定义的约束。",
+          "reference_quote": "The character length includes the whole USERPARAMETERS property name as well as the definition",
+          "score": 0,
+          "text": "The character length includes the whole USERPARAMETERS property name as well as the definition"
+        }
+      ],
+      "facts_sha256": "5dba8ff0d2ad7db4eb968021be2297fbdf89370a872da5b730003423e2b22b25",
+      "question_id": "DEV_Q154"
+    },
+    {
+      "answer_body": "知识库无法回答该问题。",
+      "answer_sha256": "c0ae50ad69ead5514c6c0dd449f05ddd86f4339b743b4a624ff40af8dc7cecb5",
+      "facts": [
+        {
+          "answer_quote": "",
+          "category": "other",
+          "fact_id": "F1",
+          "reason": "回答正文表示知识库无法回答该问题，未覆盖该事实。",
+          "reference_quote": "This APAR fixes the issue. It clears the cache properly even if\n   base entry is different than name in repository.",
+          "score": 0,
+          "text": "This APAR fixes the issue. It clears the cache properly even if base entry is different than name in repository."
+        },
+        {
+          "answer_quote": "",
+          "category": "version",
+          "fact_id": "F2",
+          "reason": "回答正文表示知识库无法回答该问题，未覆盖该事实。",
+          "reference_quote": "The fix for this APAR is currently targeted for inclusion in\n   fix packs 8.0.0.13 and 8.5.5.9.",
+          "score": 0,
+          "text": "The fix for this APAR is currently targeted for inclusion in fix packs 8.0.0.13 and 8.5.5.9."
+        }
+      ],
+      "facts_sha256": "7f78fac6ba5f733d46fcbfa7b4676eacb24d0497239d8969d09ad223d2535dee",
+      "question_id": "TRAIN_Q247"
+    }
+  ],
+  "new_human_or_judge_call_claimed": false,
+  "partition": "tune",
+  "rating_reuse_condition": "exact question, answer body and fact definition",
+  "rating_reuse_source_sha256": "8154d3b8bce86bee812384cd3227ac0ec4bddcce6ab492d91ee239392f39b677"
+}

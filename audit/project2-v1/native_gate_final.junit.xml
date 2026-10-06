@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.773" timestamp="2026-10-05T19:20:32.952205-07:00" hostname="szy"><testcase classname="tests.project2.test_native_gate" name="test_real_completed_and_real_no_answer_are_both_demonstrated" time="0.009"><failure message="AssertionError: ['AC12-01', 'AC12-23']&#10;assert 'failed' == 'passed'&#10;  &#10;  - passed&#10;  + failed">def test_real_completed_and_real_no_answer_are_both_demonstrated() -&gt; None:
+        spec = importlib.util.spec_from_file_location("project2_native_gate", ROOT / "scripts/run_project2_native_gate.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        recorded = sorted((ROOT / "audit/project2-v1").glob("native_gate_round*.json"))
+        # Reuse immutable actual results; ordinary pytest must not consume another
+        # native gate/repair round. The original pass condition remains unchanged.
+        report = json.loads(recorded[-1].read_text(encoding="utf-8")) if recorded else module.run_gate(ROOT, repair_round=0)
+&gt;       assert report["status"] == "passed", report["failure_items"]
+E       AssertionError: ['AC12-01', 'AC12-23']
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests\project2\test_native_gate.py:19: AssertionError</failure></testcase></testsuite></testsuites>

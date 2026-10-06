@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="1.583" timestamp="2026-10-05T22:46:03.994807-07:00" hostname="szy"><testcase classname="tests.project2.test_v031_evaluation" name="test_fact_rating_reuse_requires_exact_answer_and_fact_hashes" time="0.046"><failure message="AttributeError: module 'p2_stage_eval' has no attribute 'reuse_fact_ratings'">def test_fact_rating_reuse_requires_exact_answer_and_fact_hashes():
+        module=load()
+        file=ROOT/'evals/protocol_v0/runs/baseline-v0-quick/tune/human_ratings.json'
+        original=json.loads(file.read_text(encoding='utf-8'))['items'][0]
+        row={'question_id':original['question_id'],'label':'Y','repeat':1,'group_sha256':'original-query',
+             'primary':True,'result':{'workers':{'rag':{'payload':{'answer':original['answer_body']}}}}}
+&gt;       reused=module.reuse_fact_ratings(ROOT,'tune',[row])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'p2_stage_eval' has no attribute 'reuse_fact_ratings'
+
+tests\project2\test_v031_evaluation.py:51: AttributeError</failure></testcase></testsuite></testsuites>

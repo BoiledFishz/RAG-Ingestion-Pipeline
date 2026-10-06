@@ -1,0 +1,508 @@
+{
+  "recorded_utc": "2026-10-06T18:11:25.138019+00:00",
+  "repair_round": 1,
+  "previous_records": 57,
+  "previous_sha256": "a590d6d86d9f1628cbf0f10354be27c3a4ee76e23f19ed600a7f35fb33b9e954",
+  "failed_gate": "v031_native_gate_round0.json",
+  "round0_finalized_incomplete": true,
+  "observed_outliers": [
+    {
+      "sample_id": "P2-N-007-fa94d6406b4f19c3",
+      "repeat": 1,
+      "elapsed_seconds": 38.072555700084195,
+      "usage": {
+        "attempts": 14,
+        "llm_calls": 3,
+        "attempts_by_kind": {
+          "db": 10,
+          "llm": 3,
+          "embedding": 1
+        },
+        "absolute_deadline": 1791308561.7079918,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "check": {
+        "passed": true,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "matrix_cell": "S07[rag=timeout,db=completed]",
+        "expected_overall": "partial",
+        "observed_overall": "partial",
+        "traceable": true,
+        "run_id": "40bc6e4f0e4a4f83ad865d60e6728e58"
+      }
+    },
+    {
+      "sample_id": "P2-N-007-fa94d6406b4f19c3",
+      "repeat": 2,
+      "elapsed_seconds": 37.962463599978946,
+      "usage": {
+        "attempts": 4,
+        "llm_calls": 0,
+        "attempts_by_kind": {
+          "db": 4
+        },
+        "absolute_deadline": 1791308599.7897458,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "check": {
+        "passed": true,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "matrix_cell": "S07[rag=timeout,db=completed]",
+        "expected_overall": "partial",
+        "observed_overall": "partial",
+        "traceable": true,
+        "run_id": "40f849af4f6148beb8612f3fe14871f0"
+      }
+    },
+    {
+      "sample_id": "P2-N-007-fa94d6406b4f19c3",
+      "repeat": 3,
+      "elapsed_seconds": 37.95737989991903,
+      "usage": {
+        "attempts": 4,
+        "llm_calls": 0,
+        "attempts_by_kind": {
+          "db": 4
+        },
+        "absolute_deadline": 1791308637.7509646,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "check": {
+        "passed": true,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "matrix_cell": "S07[rag=timeout,db=completed]",
+        "expected_overall": "partial",
+        "observed_overall": "partial",
+        "traceable": true,
+        "run_id": "442bea95fea045848583c63bbbc9ab67"
+      }
+    },
+    {
+      "sample_id": "P2-N-067-458f9f7f407a99d3",
+      "repeat": 1,
+      "elapsed_seconds": 49.930071700015105,
+      "usage": {
+        "attempts": 4,
+        "llm_calls": 0,
+        "attempts_by_kind": {
+          "db": 4
+        },
+        "absolute_deadline": 1791308675.7112947,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "check": {
+        "passed": true,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "matrix_cell": "S07[rag=timeout,db=completed]",
+        "expected_overall": "partial",
+        "observed_overall": "partial",
+        "traceable": true,
+        "run_id": "61470c5db5f548bbb0d1e54160f21fc1"
+      }
+    },
+    {
+      "sample_id": "P2-N-067-458f9f7f407a99d3",
+      "repeat": 2,
+      "elapsed_seconds": 38.17420000000857,
+      "usage": {
+        "attempts": 4,
+        "llm_calls": 0,
+        "attempts_by_kind": {
+          "db": 4
+        },
+        "absolute_deadline": 1791308725.6438334,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "check": {
+        "passed": true,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "matrix_cell": "S07[rag=timeout,db=completed]",
+        "expected_overall": "partial",
+        "observed_overall": "partial",
+        "traceable": true,
+        "run_id": "c952882c15d1440f9072a0aa505286b6"
+      }
+    },
+    {
+      "sample_id": "P2-N-067-458f9f7f407a99d3",
+      "repeat": 3,
+      "elapsed_seconds": 40.653462899965234,
+      "usage": {
+        "attempts": 4,
+        "llm_calls": 0,
+        "attempts_by_kind": {
+          "db": 4
+        },
+        "absolute_deadline": 1791308763.8255627,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "check": {
+        "passed": true,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "matrix_cell": "S07[rag=timeout,db=completed]",
+        "expected_overall": "partial",
+        "observed_overall": "partial",
+        "traceable": true,
+        "run_id": "14428bc5194545329d74dfaefe87fee2"
+      }
+    },
+    {
+      "sample_id": "P2-N-020-be2e9041bbd58a11",
+      "repeat": 1,
+      "elapsed_seconds": 38.08860999997705,
+      "usage": {
+        "attempts": 4,
+        "llm_calls": 0,
+        "attempts_by_kind": {
+          "db": 4
+        },
+        "absolute_deadline": 1791308804.496744,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "check": {
+        "passed": true,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "matrix_cell": "S07[rag=timeout,db=completed]",
+        "expected_overall": "partial",
+        "observed_overall": "partial",
+        "traceable": true,
+        "run_id": "4663481d1b6d418dbf6813ceaf432be2"
+      }
+    },
+    {
+      "sample_id": "P2-N-020-be2e9041bbd58a11",
+      "repeat": 2,
+      "elapsed_seconds": 43.67768239998259,
+      "usage": {
+        "attempts": 4,
+        "llm_calls": 0,
+        "attempts_by_kind": {
+          "db": 4
+        },
+        "absolute_deadline": 1791308842.5892608,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "check": {
+        "passed": true,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "matrix_cell": "S07[rag=timeout,db=completed]",
+        "expected_overall": "partial",
+        "observed_overall": "partial",
+        "traceable": true,
+        "run_id": "55785cbcd19249f2b3c21fdbd6bec4f7"
+      }
+    },
+    {
+      "sample_id": "P2-N-020-be2e9041bbd58a11",
+      "repeat": 3,
+      "elapsed_seconds": 42.13146149995737,
+      "usage": {
+        "attempts": 4,
+        "llm_calls": 0,
+        "attempts_by_kind": {
+          "db": 4
+        },
+        "absolute_deadline": 1791308886.2765336,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "check": {
+        "passed": true,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "matrix_cell": "S07[rag=timeout,db=completed]",
+        "expected_overall": "partial",
+        "observed_overall": "partial",
+        "traceable": true,
+        "run_id": "cbd82a3ddd8e4f64abc1628e4b510ca4"
+      }
+    },
+    {
+      "sample_id": "P2-N-074-9fbad50a88241c07",
+      "repeat": 1,
+      "elapsed_seconds": 38.01835080003366,
+      "usage": {
+        "attempts": 5,
+        "llm_calls": 1,
+        "attempts_by_kind": {
+          "db": 4,
+          "llm": 1
+        },
+        "absolute_deadline": 1791308928.4056256,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "check": {
+        "passed": true,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "matrix_cell": "S07[rag=timeout,db=completed]",
+        "expected_overall": "partial",
+        "observed_overall": "partial",
+        "traceable": true,
+        "run_id": "17e4374664ba4630954e5c3ad8dde617"
+      }
+    },
+    {
+      "sample_id": "P2-N-074-9fbad50a88241c07",
+      "repeat": 2,
+      "elapsed_seconds": 38.147028899984434,
+      "usage": {
+        "attempts": 5,
+        "llm_calls": 1,
+        "attempts_by_kind": {
+          "db": 4,
+          "llm": 1
+        },
+        "absolute_deadline": 1791308966.420537,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "check": {
+        "passed": true,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "matrix_cell": "S07[rag=timeout,db=completed]",
+        "expected_overall": "partial",
+        "observed_overall": "partial",
+        "traceable": true,
+        "run_id": "edf927bf58944a4e91fa1baf3d8b9792"
+      }
+    },
+    {
+      "sample_id": "P2-N-074-9fbad50a88241c07",
+      "repeat": 3,
+      "elapsed_seconds": 38.065875700092874,
+      "usage": {
+        "attempts": 4,
+        "llm_calls": 0,
+        "attempts_by_kind": {
+          "db": 4
+        },
+        "absolute_deadline": 1791309004.593596,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "check": {
+        "passed": true,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "matrix_cell": "S07[rag=timeout,db=completed]",
+        "expected_overall": "partial",
+        "observed_overall": "partial",
+        "traceable": true,
+        "run_id": "adebc1f7722c4caa9bd5939c0a734fe7"
+      }
+    },
+    {
+      "sample_id": "P2-N-102-5bc358ac9996ad11",
+      "repeat": 1,
+      "elapsed_seconds": 38.21940870000981,
+      "usage": {
+        "attempts": 5,
+        "llm_calls": 1,
+        "attempts_by_kind": {
+          "db": 4,
+          "llm": 1
+        },
+        "absolute_deadline": 1791309042.6533678,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "check": {
+        "passed": true,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "matrix_cell": "S07[rag=timeout,db=completed]",
+        "expected_overall": "partial",
+        "observed_overall": "partial",
+        "traceable": true,
+        "run_id": "9b3d7fe4450744c8bdba38d174d51fa1"
+      }
+    },
+    {
+      "sample_id": "P2-N-102-5bc358ac9996ad11",
+      "repeat": 2,
+      "elapsed_seconds": 38.223056100076064,
+      "usage": {
+        "attempts": 5,
+        "llm_calls": 1,
+        "attempts_by_kind": {
+          "db": 4,
+          "llm": 1
+        },
+        "absolute_deadline": 1791309080.9412467,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "check": {
+        "passed": true,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "matrix_cell": "S07[rag=timeout,db=completed]",
+        "expected_overall": "partial",
+        "observed_overall": "partial",
+        "traceable": true,
+        "run_id": "2fbcac06a9c54bcfa0caf9a2b8d55066"
+      }
+    },
+    {
+      "sample_id": "P2-N-102-5bc358ac9996ad11",
+      "repeat": 3,
+      "elapsed_seconds": 38.06699179997668,
+      "usage": {
+        "attempts": 5,
+        "llm_calls": 1,
+        "attempts_by_kind": {
+          "db": 4,
+          "llm": 1
+        },
+        "absolute_deadline": 1791309119.133642,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "check": {
+        "passed": true,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "matrix_cell": "S07[rag=timeout,db=completed]",
+        "expected_overall": "partial",
+        "observed_overall": "partial",
+        "traceable": true,
+        "run_id": "794be161381c4e21ac72a39252bfc86d"
+      }
+    },
+    {
+      "sample_id": "P2-N-023-7b12a99b91642b55",
+      "repeat": 1,
+      "elapsed_seconds": 37.968137499992736,
+      "usage": {
+        "attempts": 5,
+        "llm_calls": 1,
+        "attempts_by_kind": {
+          "db": 4,
+          "llm": 1
+        },
+        "absolute_deadline": 1791309157.521607,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "check": {
+        "passed": true,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "matrix_cell": "S07[rag=timeout,db=completed]",
+        "expected_overall": "partial",
+        "observed_overall": "partial",
+        "traceable": true,
+        "run_id": "58c55eb0fa684d4b9bbb504395fcd528"
+      }
+    },
+    {
+      "sample_id": "P2-N-023-7b12a99b91642b55",
+      "repeat": 2,
+      "elapsed_seconds": 37.982016399968415,
+      "usage": {
+        "attempts": 5,
+        "llm_calls": 1,
+        "attempts_by_kind": {
+          "db": 4,
+          "llm": 1
+        },
+        "absolute_deadline": 1791309195.4927063,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "check": {
+        "passed": true,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "matrix_cell": "S07[rag=timeout,db=completed]",
+        "expected_overall": "partial",
+        "observed_overall": "partial",
+        "traceable": true,
+        "run_id": "caab8f645f884ec8b011a900a0efe061"
+      }
+    },
+    {
+      "sample_id": "P2-N-023-7b12a99b91642b55",
+      "repeat": 3,
+      "elapsed_seconds": 38.02465100004338,
+      "usage": {
+        "attempts": 4,
+        "llm_calls": 0,
+        "attempts_by_kind": {
+          "db": 4
+        },
+        "absolute_deadline": 1791309233.486656,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "check": {
+        "passed": true,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "matrix_cell": "S07[rag=timeout,db=completed]",
+        "expected_overall": "partial",
+        "observed_overall": "partial",
+        "traceable": true,
+        "run_id": "f85ac9eef46b4effaeedc5660ba3a18d"
+      }
+    }
+  ],
+  "reason": "Abort after process cancellation left a descendant and cold-start loop; no missing observation is counted as a pass.",
+  "repairs": [
+    "Cancel the owned Windows process tree before closing inherited pipes.",
+    "Share readiness initialization without cancelling it for an expired waiting request; no query is sent during initialization.",
+    "Fully verify frozen configuration before service admission and deny writes/deletes for its lifetime; request caps/formula unchanged."
+  ],
+  "repair_test_evidence": "audit/project2-v1/v031_cancellation_repair.junit.xml",
+  "online_files": {
+    "enterprise-ai-agent/agents/project2/batched_retrieval.py": "b0853740d771e5da200b6394346e489d7328455899448834c21f8340361e5187",
+    "enterprise-ai-agent/agents/project2/budget.py": "cd1ad1a36fd1726e1ac7a6e2051a999c2878ecf48642f84546a1571b2bd70bdf",
+    "enterprise-ai-agent/agents/project2/budget_cache.py": "0c5fcdf46eda4a90b61ff26eb2b5e14fce83d39ccee526be1cf7ce04c0d8c4bf",
+    "enterprise-ai-agent/agents/project2/calibration_profile.py": "6155c2f7f9b4f3e965e4cd24ed64d6b4d8826f5d5dffc652f25ab905b919f1f9",
+    "enterprise-ai-agent/agents/project2/observability.py": "1d4b591924aa3c4e2e0dd7c454e841cd5440508d7a46767d58a83ca974385fe3",
+    "enterprise-ai-agent/agents/project2/policy.py": "fadd908e8d68b66d690879ea0422e5dc14dc61a7bfde9d6300bc9a188857dcbc",
+    "enterprise-ai-agent/agents/project2/rag_process.py": "93f3033ce6c31a1bf2b764b104a9d1bc5582b8d300983fc8821ef437c49aabb5",
+    "enterprise-ai-agent/agents/project2/supervisor.py": "fd8b6e49298a16e5bb6caeabb83a9bf6ad8e2bbe4724870ae67d50aa2907f46a",
+    "enterprise-ai-agent/agents/project2/__init__.py": "399d4551fd117fa903406618e4dd12cfc263ee0cd896d1cdefdd79d219a1c10e",
+    "enterprise-ai-agent/api/project2_main.py": "ad021463d3c69dc846ee28c8b49f74e775a6b2b58071ac579eb47220bcdedbc0"
+  },
+  "heldout_stage_calls_project2": 0,
+  "budget_changed": false
+}

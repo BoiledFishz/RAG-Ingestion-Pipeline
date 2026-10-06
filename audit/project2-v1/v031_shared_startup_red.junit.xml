@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="27.805" timestamp="2026-10-06T11:01:11.782350-07:00" hostname="szy"><testcase classname="tests.project2.test_shared_startup" name="test_request_timeout_does_not_repeatedly_cancel_shared_service_initialization" time="26.856"><failure message="assert 0 == 1&#10; +  where 0 = len([])">def test_request_timeout_does_not_repeatedly_cancel_shared_service_initialization():
+        async def exercise():
+            released=asyncio.Event();starts=[]
+            class Initialization(BoundedRAGProcess):
+                async def _start(self):
+                    starts.append('service-init');await released.wait()
+                    return {'type':'ready','scope':'full'}
+            runtime=Initialization({'AGENT_MODEL':'qwen2.5:7b'})
+            with pytest.raises(TimeoutError):await asyncio.wait_for(runtime.start(),.01)
+            assert len(starts)==1
+            released.set()
+            assert await runtime.start()=={'type':'ready','scope':'full'}
+            assert len(starts)==1 and runtime.active_budget is None
+&gt;       asyncio.run(exercise())
+
+tests\project2\test_shared_startup.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\runners.py:204: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\runners.py:127: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py:719: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    async def exercise():
+        released=asyncio.Event();starts=[]
+        class Initialization(BoundedRAGProcess):
+            async def _start(self):
+                starts.append('service-init');await released.wait()
+                return {'type':'ready','scope':'full'}
+        runtime=Initialization({'AGENT_MODEL':'qwen2.5:7b'})
+        with pytest.raises(TimeoutError):await asyncio.wait_for(runtime.start(),.01)
+&gt;       assert len(starts)==1
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests\project2\test_shared_startup.py:15: AssertionError</failure></testcase></testsuite></testsuites>

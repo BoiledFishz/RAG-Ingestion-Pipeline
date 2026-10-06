@@ -1,0 +1,486 @@
+{
+  "stage": "ch12",
+  "repeats": 3,
+  "independent_tasks": 50,
+  "requests": 150,
+  "new_version": {
+    "complete": {
+      "mean": 0.86,
+      "range": [
+        0.86,
+        0.86
+      ],
+      "numerator": 129.0,
+      "denominator": 150,
+      "independent_query_groups": 50,
+      "ci95": [
+        0.7381380628941446,
+        0.9304916657298371
+      ],
+      "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 43.0,
+          "denominator": 50,
+          "value": 0.86,
+          "ci95": [
+            0.7381380628941446,
+            0.9304916657298371
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 2,
+          "numerator": 43.0,
+          "denominator": 50,
+          "value": 0.86,
+          "ci95": [
+            0.7381380628941446,
+            0.9304916657298371
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 3,
+          "numerator": 43.0,
+          "denominator": 50,
+          "value": 0.86,
+          "ci95": [
+            0.7381380628941446,
+            0.9304916657298371
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "partial": {
+      "mean": 0.1,
+      "range": [
+        0.1,
+        0.1
+      ],
+      "numerator": 15.0,
+      "denominator": 150,
+      "independent_query_groups": 50,
+      "ci95": [
+        0.04347576493189041,
+        0.21360231437479654
+      ],
+      "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 5.0,
+          "denominator": 50,
+          "value": 0.1,
+          "ci95": [
+            0.04347576493189041,
+            0.21360231437479654
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 2,
+          "numerator": 5.0,
+          "denominator": 50,
+          "value": 0.1,
+          "ci95": [
+            0.04347576493189041,
+            0.21360231437479654
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 3,
+          "numerator": 5.0,
+          "denominator": 50,
+          "value": 0.1,
+          "ci95": [
+            0.04347576493189041,
+            0.21360231437479654
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "count_exact": {
+      "mean": 1.0,
+      "range": [
+        1.0,
+        1.0
+      ],
+      "numerator": 150.0,
+      "denominator": 150,
+      "independent_query_groups": 50,
+      "ci95": [
+        0.9286524008666414,
+        1.0
+      ],
+      "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 50.0,
+          "denominator": 50,
+          "value": 1.0,
+          "ci95": [
+            0.9286524008666414,
+            1.0
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 2,
+          "numerator": 50.0,
+          "denominator": 50,
+          "value": 1.0,
+          "ci95": [
+            0.9286524008666414,
+            1.0
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 3,
+          "numerator": 50.0,
+          "denominator": 50,
+          "value": 1.0,
+          "ci95": [
+            0.9286524008666414,
+            1.0
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "trace_conformance": {
+      "mean": 1.0,
+      "range": [
+        1.0,
+        1.0
+      ],
+      "numerator": 150.0,
+      "denominator": 150,
+      "independent_query_groups": 50,
+      "ci95": [
+        0.9286524008666414,
+        1.0
+      ],
+      "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 50.0,
+          "denominator": 50,
+          "value": 1.0,
+          "ci95": [
+            0.9286524008666414,
+            1.0
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 2,
+          "numerator": 50.0,
+          "denominator": 50,
+          "value": 1.0,
+          "ci95": [
+            0.9286524008666414,
+            1.0
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 3,
+          "numerator": 50.0,
+          "denominator": 50,
+          "value": 1.0,
+          "ci95": [
+            0.9286524008666414,
+            1.0
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "attempts": {
+      "mean": 12.5,
+      "range": [
+        11.8,
+        13.78
+      ],
+      "numerator": 1875.0,
+      "denominator": 150,
+      "independent_query_groups": 50,
+      "ci95": [
+        11.62,
+        13.153333333333334
+      ],
+      "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 689.0,
+          "denominator": 50,
+          "value": 13.78
+        },
+        {
+          "repeat": 2,
+          "numerator": 590.0,
+          "denominator": 50,
+          "value": 11.8
+        },
+        {
+          "repeat": 3,
+          "numerator": 596.0,
+          "denominator": 50,
+          "value": 11.92
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "llm_calls": {
+      "mean": 2.8,
+      "range": [
+        2.8,
+        2.8
+      ],
+      "numerator": 420.0,
+      "denominator": 150,
+      "independent_query_groups": 50,
+      "ci95": [
+        2.6,
+        2.96
+      ],
+      "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 140.0,
+          "denominator": 50,
+          "value": 2.8
+        },
+        {
+          "repeat": 2,
+          "numerator": 140.0,
+          "denominator": 50,
+          "value": 2.8
+        },
+        {
+          "repeat": 3,
+          "numerator": 140.0,
+          "denominator": 50,
+          "value": 2.8
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "elapsed_seconds": {
+      "mean": 12.511679629334248,
+      "range": [
+        11.185316564007662,
+        14.919619054000359
+      ],
+      "numerator": 1876.7519444001373,
+      "denominator": 150,
+      "independent_query_groups": 50,
+      "ci95": [
+        11.16812404400281,
+        13.822153617334552
+      ],
+      "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 745.980952700018,
+          "denominator": 50,
+          "value": 14.919619054000359
+        },
+        {
+          "repeat": 2,
+          "numerator": 559.2658282003831,
+          "denominator": 50,
+          "value": 11.185316564007662
+        },
+        {
+          "repeat": 3,
+          "numerator": 571.5051634997362,
+          "denominator": 50,
+          "value": 11.430103269994724
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    }
+  },
+  "legacy": {
+    "single_agent": {
+      "status": "unsupported",
+      "missing_capability": "independent_full_corpus_count",
+      "source": "agentic-rag-homework/agents/systems.py",
+      "source_sha256": "a917307a411e70bcdd2b82a50efa3abd29fe968290ed9d331586c755006e30e2",
+      "evidence_type": "未执行",
+      "evidence_basis": "original source contract; combined task not invoked",
+      "actual_model_calls": 0,
+      "cost_comparison_eligible": false,
+      "unsupported_numerator": 150,
+      "task_denominator": 150
+    },
+    "fixed_workflow": {
+      "status": "unsupported",
+      "missing_capability": "independent_full_corpus_count",
+      "source": "enterprise-ai-agent/models/schemas.py",
+      "source_sha256": "31e5abf524508257c0fe89310e5b454cb8ba4901847093739870931b188dbf4f",
+      "evidence_type": "未执行",
+      "evidence_basis": "original source contract; combined task not invoked",
+      "actual_model_calls": 0,
+      "cost_comparison_eligible": false,
+      "unsupported_numerator": 150,
+      "task_denominator": 150
+    }
+  },
+  "regression_items": [
+    {
+      "sample_id": "P2-COMPARE-04",
+      "repeat": 1,
+      "status": "failed",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-PLATFORM-06",
+      "repeat": 1,
+      "status": "partial",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-COMPARE-08",
+      "repeat": 1,
+      "status": "failed",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-COMPARE-01",
+      "repeat": 1,
+      "status": "partial",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-ENTITY-04",
+      "repeat": 1,
+      "status": "partial",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-NOANSWER-04",
+      "repeat": 1,
+      "status": "partial",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-COMPARE-06",
+      "repeat": 1,
+      "status": "partial",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-PLATFORM-06",
+      "repeat": 2,
+      "status": "partial",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-NOANSWER-04",
+      "repeat": 2,
+      "status": "partial",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-COMPARE-04",
+      "repeat": 2,
+      "status": "failed",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-COMPARE-06",
+      "repeat": 2,
+      "status": "partial",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-COMPARE-08",
+      "repeat": 2,
+      "status": "failed",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-COMPARE-01",
+      "repeat": 2,
+      "status": "partial",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-ENTITY-04",
+      "repeat": 2,
+      "status": "partial",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-COMPARE-04",
+      "repeat": 3,
+      "status": "failed",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-NOANSWER-04",
+      "repeat": 3,
+      "status": "partial",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-COMPARE-01",
+      "repeat": 3,
+      "status": "partial",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-ENTITY-04",
+      "repeat": 3,
+      "status": "partial",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-COMPARE-08",
+      "repeat": 3,
+      "status": "failed",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-PLATFORM-06",
+      "repeat": 3,
+      "status": "partial",
+      "counts_exact": true
+    },
+    {
+      "sample_id": "P2-COMPARE-06",
+      "repeat": 3,
+      "status": "partial",
+      "counts_exact": true
+    }
+  ],
+  "quality_comparison": "not comparable: original combined-task capability unsupported",
+  "superiority_claim": false,
+  "required_facts": "separate frozen QA score; unannotated business tasks unscored",
+  "request_sha256": "fd31bacb77b9174e793ead0e908b04a0fb3bb4587a97db48ae3ad28de2bfccee",
+  "stage_plan_sha256": "2ef8053ef57a6d574771b65017e9cc17bf6c1b1ee70852c975e7a35ff50e3634"
+}

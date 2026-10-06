@@ -1,0 +1,12 @@
+{
+  "config_sha256": "6938224c85488fd9b59b032d02bacbf346068277180e8fa0f8f728a7ecb422d2",
+  "frozen_utc": "2026-10-04T19:25:12.141097+00:00",
+  "name": "baseline v0",
+  "scope": "quick",
+  "split_sha256": "688a76605901e5f770fbc74b60c89d4b07eabae8e264055e16f84d5967b69087",
+  "status": "native baseline complete; human fact coverage and agreement pending",
+  "summary_sha256": {
+    "evals\\protocol_v0\\runs\\baseline-v0-quick\\held-out\\summary.json": "e9e5cf422a83790e739aa1a99c75345436789f48ee10192a2a1e3ce80291af7d",
+    "evals\\protocol_v0\\runs\\baseline-v0-quick\\tune\\summary.json": "6c0b404f1c49aa901bcbd42d47ebc301470888b84ff28642e562c9816774141c"
+  }
+}

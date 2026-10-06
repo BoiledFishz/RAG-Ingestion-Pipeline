@@ -1,0 +1,869 @@
+{
+  "annotation_policy": "A1",
+  "annotation_policy_sha256": "1247e1511c9cbba232f1f95e937372ba52641a0c230381a91fb651137407bb12",
+  "annotator": "boiledfishz",
+  "draft_sha256": "50801067c8f62f399cd937d79ce0cd927308d421ff782191d0f477ae4ed19aa9",
+  "is_human": true,
+  "items": [
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "已核对官方参考原文，网络排查与禁用IE ESC配置两条排错事实独立且重要，予以确认。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": null,
+      "fact_count_exception": {
+        "formal_metric_policy": null,
+        "human_authorized": false,
+        "proposed": false,
+        "reason": null
+      },
+      "human_approved": true,
+      "official_answer": "Check with the firewall/proxy/IPS/network admin and ask them to check the logs for dropped packets or downloads and to adjust the rules to allow the BES Support site content through. \n 2. Try turning off Internet Explorer Enhanced Security Configuration [https://blogs.technet.microsoft.com/chenley/2011/03/10/how-to-turn-off-internet-explorer-enhanced-security-configuration/] for Administrators to see if this resolves the issue.",
+      "question": [
+        "fixlets do not appear in console bigfix",
+        "\n\nWork with ILTM 9.2.7 / 9.5.4.38. In the bigfix console the fixlets do not appear, under the tree: Sites-> IBM License Reporting (ILTM) v9 -> Fixlets and Task.\n\nAttached image. Do you have any ideas?\n\nGreetings and thank you BigFix"
+      ],
+      "question_id": "TRAIN_Q318",
+      "required_facts": [
+        {
+          "category": "step",
+          "fact_id": "F1",
+          "reference_quote": "Check with the firewall/proxy/IPS/network admin and ask them to check the logs for dropped packets or downloads and to adjust the rules to allow the BES Support site content through.",
+          "text": "Check with the firewall/proxy/IPS/network admin and ask them to check the logs for dropped packets or downloads and to adjust the rules to allow the BES Support site content through."
+        },
+        {
+          "category": "condition",
+          "fact_id": "F2",
+          "reference_quote": "Try turning off Internet Explorer Enhanced Security Configuration [https://blogs.technet.microsoft.com/chenley/2011/03/10/how-to-turn-off-internet-explorer-enhanced-security-configuration/] for Administrators to see if this resolves the issue.",
+          "text": "Try turning off Internet Explorer Enhanced Security Configuration [https://blogs.technet.microsoft.com/chenley/2011/03/10/how-to-turn-off-internet-explorer-enhanced-security-configuration/] for Administrators to see if this resolves the issue."
+        }
+      ],
+      "review_note": "已核对官方参考原文，网络排查与禁用IE ESC配置两条排错事实独立且重要，予以确认。"
+    },
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "已修复原机械切分导致的截断从句，补齐完整AdminTask配置命令、VMM生效机制及对应补丁版本。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": null,
+      "fact_count_exception": {
+        "formal_metric_policy": null,
+        "human_authorized": false,
+        "proposed": false,
+        "reason": null
+      },
+      "human_approved": true,
+      "official_answer": "You need to set a custom property using the following\n   command\n   \n   $AdminTask configureAdminWIMUserRegistry {-customProperties\n   {\"com.ibm.ws.wim.registry.allowDNPrincipalNameAsLiteral\n   =true\"} }\n   \n   When this property is set, VMM determines whether the login\n   name ends with a baseEntry. If the login name does not end\n   with a baseEntry it is not treated as a DN and the login is\n   successful.\n   \n   The fix for this APAR is currently targeted for inclusion in\n   fix packs 8.0.0.4 and 8.5.0.1.",
+      "question": [
+        "Why does my login fail when I use the ltpa-usrnm attribute?",
+        "You use a Domino server as your LDAP, and the login attribute you want to use is ltpa-usrnm. This is acceptable, as the login attribute can be set accordingly in the wimconfig.xml. When the search string is built for the login, it is in the form, cn=username, o=orgname.\n\nThis cause the following exception to the returned:\n\n[3/30/16 9:56:03:453 CDT] 000000f7 exception E com.ibm.ws.wim.adapter.ldap.LdapConnection getAttributes CWWIM4520E The 'javax.naming.InvalidNameException: \"CN=username/O=orgname\": [LDAP: error code 34 - Invalid DN Syntax]; remaining name '\"CN=username/O=orgname'\"; "
+      ],
+      "question_id": "TRAIN_Q319",
+      "required_facts": [
+        {
+          "category": "command",
+          "fact_id": "F1",
+          "reference_quote": "$AdminTask configureAdminWIMUserRegistry {-customProperties\n   {\"com.ibm.ws.wim.registry.allowDNPrincipalNameAsLiteral\n   =true\"} }",
+          "text": "$AdminTask configureAdminWIMUserRegistry {-customProperties {\"com.ibm.ws.wim.registry.allowDNPrincipalNameAsLiteral =true\"} }"
+        },
+        {
+          "category": "condition",
+          "fact_id": "F2",
+          "reference_quote": "When this property is set, VMM determines whether the login\n   name ends with a baseEntry. If the login name does not end\n   with a baseEntry it is not treated as a DN and the login is\n   successful.",
+          "text": "When this property is set, VMM determines whether the login name ends with a baseEntry; if not, it is not treated as a DN and login succeeds"
+        },
+        {
+          "category": "version",
+          "fact_id": "F3",
+          "reference_quote": "The fix for this APAR is currently targeted for inclusion in\n   fix packs 8.0.0.4 and 8.5.0.1.",
+          "text": "The fix for this APAR is targeted for inclusion in fix packs 8.0.0.4 and 8.5.0.1"
+        }
+      ],
+      "review_note": "已修复原机械切分导致的截断从句，补齐完整AdminTask配置命令、VMM生效机制及对应补丁版本。"
+    },
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "已核对JDBC Provider的隔离配置与驱动类加载逻辑，5条事实完整独立。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": null,
+      "fact_count_exception": {
+        "formal_metric_policy": null,
+        "human_authorized": false,
+        "proposed": false,
+        "reason": null
+      },
+      "human_approved": true,
+      "official_answer": "In order to support the existence of multiple versions of the driver jars, the \"Isolate this resource provider\" configuration helps to ensure there are no conflicts. This needs to be configured on each JDBC Provider. You cannot isolate only one resource provider, all the provider configurations in different scopes will have to be configured with the \"Isolate this resource provider\" setting. In this scenario, the resource provider classes from different versions of the jars are not imported or accessed to verify if the isolation has indeed worked. In order to use the server-scoped resource provider the datasource using the server-scoped jdbc provider will have to be referenced from the application after isolating the resource providers and using a resource reference in the application. \n\n\nGo to the JDBC Provider and enable \"isolate the resource provider\". When \"Isolate this resource provider\" is enabled, it ensures that only the jar that was specified in the classpath will be used for all the datasources under that particular JDBC provider.",
+      "question": [
+        "How to define shared libraries for ODM ruleApps on WAS traditional?",
+        "What is the proper way to define a shared lib for RuleApps without giving up the isolated mode of the XU resource adapter? Is it \"works as designed\" that isolating of the XU prevents the resource adapter from seeing shared lib classes from other classloaders? "
+      ],
+      "question_id": "TRAIN_Q478",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "In order to support the existence of multiple versions of the driver jars, the \"Isolate this resource provider\" configuration helps to ensure there are no conflicts.",
+          "text": "In order to support the existence of multiple versions of the driver jars, the \"Isolate this resource provider\" configuration helps to ensure there are no conflicts."
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "This needs to be configured on each JDBC Provider.",
+          "text": "This needs to be configured on each JDBC Provider."
+        },
+        {
+          "category": "condition",
+          "fact_id": "F3",
+          "reference_quote": "In this scenario, the resource provider classes from different versions of the jars are not imported or accessed to verify if the isolation has indeed worked.",
+          "text": "In this scenario, the resource provider classes from different versions of the jars are not imported or accessed to verify if the isolation has indeed worked."
+        },
+        {
+          "category": "other",
+          "fact_id": "F4",
+          "reference_quote": "Go to the JDBC Provider and enable \"isolate the resource provider\".",
+          "text": "Go to the JDBC Provider and enable \"isolate the resource provider\"."
+        },
+        {
+          "category": "condition",
+          "fact_id": "F5",
+          "reference_quote": "When \"Isolate this resource provider\" is enabled, it ensures that only the jar that was specified in the classpath will be used for all the datasources under that particular JDBC provider.",
+          "text": "When \"Isolate this resource provider\" is enabled, it ensures that only the jar that was specified in the classpath will be used for all the datasources under that particular JDBC provider."
+        }
+      ],
+      "review_note": "已核对JDBC Provider的隔离配置与驱动类加载逻辑，5条事实完整独立。"
+    },
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "关于受限策略文件2048密钥限制与超出触发报错的因果事实明确独立，予以确认。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": null,
+      "fact_count_exception": {
+        "formal_metric_policy": null,
+        "human_authorized": false,
+        "proposed": false,
+        "reason": null
+      },
+      "human_approved": true,
+      "official_answer": "The default restricted policy file has a 2048 key size limit. If the RSA key size exceeds this limit then this error is expected.",
+      "question": [
+        "Why am I getting an SSL Key Exception (RSA premaster secret error) when trying to create a syndication pair?",
+        "\n\nWhen trying to create the syndication pair for a virtual portal, I am getting the following exception:\n\n\"IWKWC0016E: The remote service can not be retrieved. Either the URL you entered is incorrect, the server you indicated does not contain IBM Web Content Manager or the web service has been incorrectly configured and could not be located. Check the log for more details https://1.23.456.789 <-- your ip address or hostname will be shown here\n\n/wps/wcm/vpname/basicauth/SyndicationServlet?reqlocale=en_US& javax.net.ssl.SSLKeyException: RSA premaster secret error\""
+      ],
+      "question_id": "TRAIN_Q496",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "The default restricted policy file has a 2048 key size limit.",
+          "text": "The default restricted policy file has a 2048 key size limit."
+        },
+        {
+          "category": "condition",
+          "fact_id": "F2",
+          "reference_quote": "If the RSA key size exceeds this limit then this error is expected.",
+          "text": "If the RSA key size exceeds this limit then this error is expected."
+        }
+      ],
+      "review_note": "关于受限策略文件2048密钥限制与超出触发报错的因果事实明确独立，予以确认。"
+    },
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "覆盖32/64位位数不匹配原因、卸载重装修复、以及后续开单支持，逻辑完整。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": null,
+      "fact_count_exception": {
+        "formal_metric_policy": null,
+        "human_authorized": false,
+        "proposed": false,
+        "reason": null
+      },
+      "human_approved": true,
+      "official_answer": "The most likely cause of this issue is installation of the 32bit IBM SPSS Statistics Subscription software on a 64bit machine. To fix the issue, please uninstall the 32bit and download and install the 64bit application from your Products & Services window on IBM.com. If you find that this does not resolve your issue, you have a new issue. Please open a Service Request using the Client Support Portal: http://ibm.biz/IBMClientSuccessPortal",
+      "question": [
+        "i cannot enter SPSS statistics trial program",
+        "\n\nI've downloaded the 14-days trial of SPSS subscription for 32bit, windows. After opening the program I'm asked to login and after entering my username and password a blank page comes up. And there is no way to proceed from here. I already saw previous answers about SPSS trial Login error, and there is a link(https://ibm.box.com/s/huaafbjzabkyblh47n7g4l0o4gxp4zdy) to download the zip file of 'jxbrowser'. But i cannot enter the link, and the webpage says \"probably the address was changed or deleted.\"\n\ni'm using Windows 7(32bit), and just want to know how can i resolve it.\n"
+      ],
+      "question_id": "TRAIN_Q019",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "The most likely cause of this issue is installation of the 32bit IBM SPSS Statistics Subscription software on a 64bit machine.",
+          "text": "The most likely cause of this issue is installation of the 32bit IBM SPSS Statistics Subscription software on a 64bit machine."
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "To fix the issue, please uninstall the 32bit and download and install the 64bit application from your Products & Services window on IBM.com.",
+          "text": "To fix the issue, please uninstall the 32bit and download and install the 64bit application from your Products & Services window on IBM.com."
+        },
+        {
+          "category": "condition",
+          "fact_id": "F3",
+          "reference_quote": "If you find that this does not resolve your issue, you have a new issue.",
+          "text": "If you find that this does not resolve your issue, you have a new issue."
+        },
+        {
+          "category": "other",
+          "fact_id": "F4",
+          "reference_quote": "Please open a Service Request using the Client Support Portal: http://ibm.biz/IBMClientSuccessPortal",
+          "text": "Please open a Service Request using the Client Support Portal: http://ibm.biz/IBMClientSuccessPortal"
+        }
+      ],
+      "review_note": "覆盖32/64位位数不匹配原因、卸载重装修复、以及后续开单支持，逻辑完整。"
+    },
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "官方答案仅给出单步命令验证与联系管理员安装缺失库建议，客观单事实，建议单题报告并在均值中排除。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": "fewer than two distinct facts: human decomposition needed",
+      "fact_count_exception": {
+        "formal_metric_policy": "separate descriptive report; exclude main coverage",
+        "human_authorized": true,
+        "proposed": true,
+        "reason": "官方答案仅给出单步命令验证与联系管理员安装缺失库建议，客观单事实，建议单题报告并在均值中排除。"
+      },
+      "human_approved": true,
+      "official_answer": "Use the commands shown below to verify you have them installed, otherwise contact your Linux system administrator and installt these required libraries.",
+      "question": [
+        "What does the end-file-message mean while doing a launchpad.sh in the MS\"",
+        "I am getting an end-file-message means while doing a launchpad.sh in the MS. How do I solve the problem?"
+      ],
+      "question_id": "TRAIN_Q549",
+      "required_facts": [
+        {
+          "category": "step",
+          "fact_id": "F1",
+          "reference_quote": "Use the commands shown below to verify you have them installed, otherwise contact your Linux system administrator and installt these required libraries.",
+          "text": "Use the commands shown below to verify you have them installed, otherwise contact your Linux system administrator and installt these required libraries."
+        }
+      ],
+      "review_note": "官方答案仅给出单步命令验证与联系管理员安装缺失库建议，客观单事实，建议单题报告并在均值中排除。"
+    },
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "漏洞CVE-ID已在题干给出，已核准其漏洞影响机制、外部密钥导入约束、版本分离安装及CVSS向量。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": null,
+      "fact_count_exception": {
+        "formal_metric_policy": null,
+        "human_authorized": false,
+        "proposed": false,
+        "reason": null
+      },
+      "human_approved": true,
+      "official_answer": "CVE-ID: CVE-2014-0076 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0076]\nDESCRIPTION: An attacker running a program on the same machine as where the victim is running a program could use CPU timing information to discover key information about certain kinds of binary type Elliptic Curves used in Digital signatures during signing operations. Although GSKit only generates Prime type Elliptic Curves, externally generated keys may be imported in GSKit.\nFrom WebSphere MQ version 7.1, GSKit version 8.0 is integrated with WebSphere MQ. For WebSphere MQ 7.0.1, GSKit version 7 or version 8 was installed separately.\n\nCVSS Base Score: 2.1\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/91990 [https://exchange.xforce.ibmcloud.com/vulnerabilities/91990]\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:L/AC:L/Au:N/C:P/I:N/A:N)",
+      "question": [
+        "Help with Security Bulletin: IBM WebSphere MQ is affected by a vulnerability in GSKit (CVE-2014-0076)",
+        "I need to understand details regarding Security Bulletin: IBM WebSphere MQ is affected by a vulnerability in GSKit (CVE-2014-0076). Where can I find this information? "
+      ],
+      "question_id": "TRAIN_Q518",
+      "required_facts": [
+        {
+          "category": "condition",
+          "fact_id": "F1",
+          "reference_quote": "An attacker running a program on the same machine as where the victim is running a program could use CPU timing information to discover key information about certain kinds of binary type Elliptic Curves used in Digital signatures during signing operations.",
+          "text": "An attacker on the same machine could use CPU timing information to discover key information about binary type Elliptic Curves used in Digital signatures"
+        },
+        {
+          "category": "condition",
+          "fact_id": "F2",
+          "reference_quote": "Although GSKit only generates Prime type Elliptic Curves, externally generated keys may be imported in GSKit.",
+          "text": "Although GSKit only generates Prime type Elliptic Curves, externally generated keys may be imported in GSKit"
+        },
+        {
+          "category": "version",
+          "fact_id": "F3",
+          "reference_quote": "From WebSphere MQ version 7.1, GSKit version 8.0 is integrated with WebSphere MQ. For WebSphere MQ 7.0.1, GSKit version 7 or version 8 was installed separately.",
+          "text": "From WebSphere MQ version 7.1, GSKit version 8.0 is integrated with WebSphere MQ; for WebSphere MQ 7.0.1, GSKit version 7 or version 8 was installed separately"
+        },
+        {
+          "category": "other",
+          "fact_id": "F4",
+          "reference_quote": "CVSS Base Score: 2.1",
+          "text": "CVSS Base Score: 2.1"
+        },
+        {
+          "category": "other",
+          "fact_id": "F5",
+          "reference_quote": "CVSS Vector: (AV:L/AC:L/Au:N/C:P/I:N/A:N)",
+          "text": "CVSS Vector: (AV:L/AC:L/Au:N/C:P/I:N/A:N)"
+        }
+      ],
+      "review_note": "漏洞CVE-ID已在题干给出，已核准其漏洞影响机制、外部密钥导入约束、版本分离安装及CVSS向量。"
+    },
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "Hypervisor Edition捆绑RHEL 6.2受影响版本与相关CVE集合明确，2条事实独立。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": null,
+      "fact_count_exception": {
+        "formal_metric_policy": null,
+        "human_authorized": false,
+        "proposed": false,
+        "reason": null
+      },
+      "human_approved": true,
+      "official_answer": "IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 ship with versions of Red Hat Enterprise Linux (RHEL) Server that are vulnerable to CVE-2016-8677, CVE-2016-8678 CVE-2016-9298, CVE-2014-9915, CVE-2016-10046, CVE-2016-10047, CVE-2016-10048, CVE-2016-10049, CVE-2016-10050, CVE-2016-10051, CVE-2016-10052, CVE-2016-10053, CVE-2016-10054, CVE-2016-10055, CVE-2016-10056, CVE-2016-10057, CVE-2016-10058, CVE-2016-10059, CVE-2016-10060, CVE-2016-10061, CVE-2016-10062, CVE-2016-10063, CVE-2016-10064, CVE-2016-10065, CVE-2016-10066, CVE-2016-10067, CVE-2016-10068, CVE-2016-10069, CVE-2016-10070, CVE-2016-10071, CVE-2016-10144, CVE-2016-10145, CVE-2016-10146, CVE-2017-5506, CVE-2017-5507, CVE-2017-5508, CVE-2017-5511, CVE-2017-6498, CVE-2017-6499, CVE-2017-6500, CVE-2017-6501, CVE-2017-6502, CVE-2016-10252 and CVE-2017-6497 \n\nIBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 ship with Red Hat Enterprise Linux (RHEL) Server 6.2.",
+      "question": [
+        "Help with Action required for IIIB V9 and WMB V8 Hypervisor Editions for security vulnerabilities in Red Hat Linux",
+        "I need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux. Where can I find this information? "
+      ],
+      "question_id": "DEV_Q066",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 ship with versions of Red Hat Enterprise Linux (RHEL) Server that are vulnerable to CVE-2016-8677, CVE-2016-8678 CVE-2016-9298, CVE-2014-9915, CVE-2016-10046, CVE-2016-10047, CVE-2016-10048, CVE-2016-10049, CVE-2016-10050, CVE-2016-10051, CVE-2016-10052, CVE-2016-10053, CVE-2016-10054, CVE-2016-10055, CVE-2016-10056, CVE-2016-10057, CVE-2016-10058, CVE-2016-10059, CVE-2016-10060, CVE-2016-10061, CVE-2016-10062, CVE-2016-10063, CVE-2016-10064, CVE-2016-10065, CVE-2016-10066, CVE-2016-10067, CVE-2016-10068, CVE-2016-10069, CVE-2016-10070, CVE-2016-10071, CVE-2016-10144, CVE-2016-10145, CVE-2016-10146, CVE-2017-5506, CVE-2017-5507, CVE-2017-5508, CVE-2017-5511, CVE-2017-6498, CVE-2017-6499, CVE-2017-6500, CVE-2017-6501, CVE-2017-6502, CVE-2016-10252 and CVE-2017-6497",
+          "text": "IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 ship with versions of Red Hat Enterprise Linux (RHEL) Server that are vulnerable to CVE-2016-8677, CVE-2016-8678 CVE-2016-9298, CVE-2014-9915, CVE-2016-10046, CVE-2016-10047, CVE-2016-10048, CVE-2016-10049, CVE-2016-10050, CVE-2016-10051, CVE-2016-10052, CVE-2016-10053, CVE-2016-10054, CVE-2016-10055, CVE-2016-10056, CVE-2016-10057, CVE-2016-10058, CVE-2016-10059, CVE-2016-10060, CVE-2016-10061, CVE-2016-10062, CVE-2016-10063, CVE-2016-10064, CVE-2016-10065, CVE-2016-10066, CVE-2016-10067, CVE-2016-10068, CVE-2016-10069, CVE-2016-10070, CVE-2016-10071, CVE-2016-10144, CVE-2016-10145, CVE-2016-10146, CVE-2017-5506, CVE-2017-5507, CVE-2017-5508, CVE-2017-5511, CVE-2017-6498, CVE-2017-6499, CVE-2017-6500, CVE-2017-6501, CVE-2017-6502, CVE-2016-10252 and CVE-2017-6497"
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 ship with Red Hat Enterprise Linux (RHEL) Server 6.2.",
+          "text": "IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 ship with Red Hat Enterprise Linux (RHEL) Server 6.2."
+        }
+      ],
+      "review_note": "Hypervisor Edition捆绑RHEL 6.2受影响版本与相关CVE集合明确，2条事实独立。"
+    },
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "CVE-ID已在题干给出，保留非默认配置下的免密认证漏洞机理、CVSS Base Score与向量定义。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": null,
+      "fact_count_exception": {
+        "formal_metric_policy": null,
+        "human_authorized": false,
+        "proposed": false,
+        "reason": null
+      },
+      "human_approved": true,
+      "official_answer": "CVEID: CVE-2016-8918 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8918]\nDESCRIPTION: In non-default configurations, IBM Integration Bus could allow a remote user to authenticate without providing valid credentials.\nCVSS Base Score: 5.9\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/118528 [https://exchange.xforce.ibmcloud.com/vulnerabilities/118528] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N)",
+      "question": [
+        "Help with Security Bulletin: Authentication vulnerability affects IIB V10.0.0.4 onwards (CVE-2016-8918 )",
+        "I need to understand details regarding Security Bulletin: Authentication vulnerability affects IBM Integration Bus V10.0.0.4 onwards (CVE-2016-8918 ). Where can I find this information? "
+      ],
+      "question_id": "DEV_Q109",
+      "required_facts": [
+        {
+          "category": "condition",
+          "fact_id": "F1",
+          "reference_quote": "DESCRIPTION: In non-default configurations, IBM Integration Bus could allow a remote user to authenticate without providing valid credentials.",
+          "text": "In non-default configurations, IBM Integration Bus could allow a remote user to authenticate without providing valid credentials"
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "CVSS Base Score: 5.9",
+          "text": "CVSS Base Score: 5.9"
+        },
+        {
+          "category": "other",
+          "fact_id": "F3",
+          "reference_quote": "CVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N)",
+          "text": "CVSS Vector: (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N)"
+        }
+      ],
+      "review_note": "CVE-ID已在题干给出，保留非默认配置下的免密认证漏洞机理、CVSS Base Score与向量定义。"
+    },
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "官方答案仅包含针对学生版/研究生版联系供应商的单一指引，客观单事实，建议单题报告并在均值中排除。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": "fewer than two distinct facts: human decomposition needed",
+      "fact_count_exception": {
+        "formal_metric_policy": "separate descriptive report; exclude main coverage",
+        "human_authorized": true,
+        "proposed": true,
+        "reason": "官方答案仅包含针对学生版/研究生版联系供应商的单一指引，客观单事实，建议单题报告并在均值中排除。"
+      },
+      "human_approved": true,
+      "official_answer": "For installation & licensing issues on Student version and Graduate pack, contact your vendor.",
+      "question": [
+        "Need help accessing my SPSS access code?",
+        "I downloaded SPSS GradPack (Standard) 25 6 Months for my Mac. The IBM SPSS Statistics 24 licensing page pops up for me to enter the code. I enter the code provided and then hit next, and it tells me the code is too short to be valid? What code do I use then? I need this resolved fast, my first assignment is due soon. I was only given a 16-digit access code, not a 20-digit?\n\n\n\nThis dW Answers question is about an IBM document with the Title:\nSPSS Student Version and Graduate Pack Resources"
+      ],
+      "question_id": "TRAIN_Q305",
+      "required_facts": [
+        {
+          "category": "version",
+          "fact_id": "F1",
+          "reference_quote": "For installation & licensing issues on Student version and Graduate pack, contact your vendor.",
+          "text": "For installation & licensing issues on Student version and Graduate pack, contact your vendor."
+        }
+      ],
+      "review_note": "官方答案仅包含针对学生版/研究生版联系供应商的单一指引，客观单事实，建议单题报告并在均值中排除。"
+    },
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "剔除题干已含的CVE-ID，保留XML4J/XML4C库拒绝服务机理、CVSS Base Score 4与向量。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": null,
+      "fact_count_exception": {
+        "formal_metric_policy": null,
+        "human_authorized": false,
+        "proposed": false,
+        "reason": null
+      },
+      "human_approved": true,
+      "official_answer": "CVEID: CVE-2014-8901 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8901]\nDESCRIPTION: IBM XML4J and XML4C libraries contain a denial of service vulnerability when loading specially crafted content. This causes the CPU to consume 100% of available resources and creates serious performance degradation to the system.\nCVSS Base Score: 4\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/99110 [https://exchange.xforce.ibmcloud.com/vulnerabilities/99110] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:L/Au:S/C:N/I:N/A:P)",
+      "question": [
+        "Help with Security Bulletin: WMB and IIB are affected by denial of service vulnerability (CVE-2014-8901)",
+        "I need to understand details regarding Security Bulletin: WebSphere Message Broker and IBM Integration Bus are affected by denial of service vulnerability (CVE-2014-8901). Where can I find this information? "
+      ],
+      "question_id": "TRAIN_Q513",
+      "required_facts": [
+        {
+          "category": "condition",
+          "fact_id": "F1",
+          "reference_quote": "DESCRIPTION: IBM XML4J and XML4C libraries contain a denial of service vulnerability when loading specially crafted content. This causes the CPU to consume 100% of available resources and creates serious performance degradation to the system.",
+          "text": "IBM XML4J and XML4C libraries contain a denial of service vulnerability when loading specially crafted content, causing CPU to consume 100% resources"
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "CVSS Base Score: 4",
+          "text": "CVSS Base Score: 4"
+        },
+        {
+          "category": "other",
+          "fact_id": "F3",
+          "reference_quote": "CVSS Vector: (AV:N/AC:L/Au:S/C:N/I:N/A:P)",
+          "text": "CVSS Vector: (AV:N/AC:L/Au:S/C:N/I:N/A:P)"
+        }
+      ],
+      "review_note": "剔除题干已含的CVE-ID，保留XML4J/XML4C库拒绝服务机理、CVSS Base Score 4与向量。"
+    },
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "wpcollector自动化日志收集工具定义及其减少支持工单的作用明确，2条事实确认。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": null,
+      "fact_count_exception": {
+        "formal_metric_policy": null,
+        "human_authorized": false,
+        "proposed": false,
+        "reason": null
+      },
+      "human_approved": true,
+      "official_answer": "Wpcollector is a command line tool that automates the collection of portal logs and configuration files. Using automated log collection early in the Case life cycle can greatly reduce the number of doc requests that are made by Support.",
+      "question": [
+        "What exactly is \"wpcollector\" in WebSphere Portal Server?",
+        "I've been told to get wpcollector output? What exactly is this?"
+      ],
+      "question_id": "TRAIN_Q056",
+      "required_facts": [
+        {
+          "category": "command",
+          "fact_id": "F1",
+          "reference_quote": "Wpcollector is a command line tool that automates the collection of portal logs and configuration files.",
+          "text": "Wpcollector is a command line tool that automates the collection of portal logs and configuration files."
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "Using automated log collection early in the Case life cycle can greatly reduce the number of doc requests that are made by Support.",
+          "text": "Using automated log collection early in the Case life cycle can greatly reduce the number of doc requests that are made by Support."
+        }
+      ],
+      "review_note": "wpcollector自动化日志收集工具定义及其减少支持工单的作用明确，2条事实确认。"
+    },
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "剔除题干已含的CVE-ID，保留Dojo跨站脚本成因、CVSS Base Score 4.3与向量。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": null,
+      "fact_count_exception": {
+        "formal_metric_policy": null,
+        "human_authorized": false,
+        "proposed": false,
+        "reason": null
+      },
+      "human_approved": true,
+      "official_answer": "CVEID: CVE-2014-8917 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8917]\n\nDESCRIPTION: IBM Dojo Toolkit is vulnerable to cross-site scripting, caused by improper validation of user-supplied input.\n\nCVSS Base Score: 4.3\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/99303 [https://exchange.xforce.ibmcloud.com/vulnerabilities/99303] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:N/I:P/A:N)",
+      "question": [
+        "Help with Security Bulletin: Vulnerabilities in IBM Dojo Toolkit affect IBM Image Construction and Composition Tool (CVE-2014-8917)",
+        "I need to understand details regarding \"Security Bulletin: Vulnerabilities in IBM Dojo Toolkit affect IBM Image Construction and Composition Tool (CVE-2014-8917)\". Where can I find this information? "
+      ],
+      "question_id": "TRAIN_Q214",
+      "required_facts": [
+        {
+          "category": "condition",
+          "fact_id": "F1",
+          "reference_quote": "DESCRIPTION: IBM Dojo Toolkit is vulnerable to cross-site scripting, caused by improper validation of user-supplied input.",
+          "text": "IBM Dojo Toolkit is vulnerable to cross-site scripting, caused by improper validation of user-supplied input"
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "CVSS Base Score: 4.3",
+          "text": "CVSS Base Score: 4.3"
+        },
+        {
+          "category": "other",
+          "fact_id": "F3",
+          "reference_quote": "CVSS Vector: (AV:N/AC:M/Au:N/C:N/I:P/A:N)",
+          "text": "CVSS Vector: (AV:N/AC:M/Au:N/C:N/I:P/A:N)"
+        }
+      ],
+      "review_note": "剔除题干已含的CVE-ID，保留Dojo跨站脚本成因、CVSS Base Score 4.3与向量。"
+    },
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "覆盖老版本配置项缺失原因、L1与2%默认采样率、配置文件路径、重启及新应用部署条件，5条事实确认。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": null,
+      "fact_count_exception": {
+        "formal_metric_policy": null,
+        "human_authorized": false,
+        "proposed": false,
+        "reason": null
+      },
+      "human_approved": true,
+      "official_answer": "In the older release of the J2EE agent (v6.2 FP6), there was an option to specify the Monitoring Level, Sampling Rate and other parameters (threshold values, time intervals, etc..) during the configuration phase of the agent itself. This is now not possible in the new J2EE agent v7.1.1.0.0 configuration panels as these options are not available anymore. \n\nThe default values for the Monitoring Level and the Sampling Rate are L1 and 2% respectively. If you want to change these default values permanently, then please make these changes.\n\nIn the $ITM_HOME/config (Unix) dir or %ITM_HOME%\\TMAITM6 (Windows), you will find the <hostname>_yj.xml file. Make a copy of this file, then stop the agent and make changes to the parameters (see screenshot below) in the file. Save file, restart the agent. The new values will now be accepted in the agent. If you are deploying a new Weblogic application, stop the agent, modify the <hostname>_yj_<wls_instance>.xml file then restart the agent again.",
+      "question": [
+        "Can I change the ITCAM J2EE Agent Monitoring Level via the TEPS in version 7.1.1?",
+        "\n\nIn the 7.1 version of the J2EE agent I could use the Agent Configuration to change the Monitoring Level for the agent- https://www.ibm.com/support/knowledgecenter/en/SS3JRN_7.2.0/com.ibm.itcamfapps_ad.doc_72/J2EE_agent_tema_install_guide/step10.html\n\nSo how can I change the Monitoring Level in the 7.1.1 agent?\n"
+      ],
+      "question_id": "TRAIN_Q525",
+      "required_facts": [
+        {
+          "category": "version",
+          "fact_id": "F1",
+          "reference_quote": "In the older release of the J2EE agent (v6.2 FP6), there was an option to specify the Monitoring Level, Sampling Rate and other parameters (threshold values, time intervals, etc..) during the configuration phase of the agent itself.",
+          "text": "In the older release of the J2EE agent (v6.2 FP6), there was an option to specify the Monitoring Level, Sampling Rate and other parameters (threshold values, time intervals, etc..) during the configuration phase of the agent itself."
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "The default values for the Monitoring Level and the Sampling Rate are L1 and 2% respectively.",
+          "text": "The default values for the Monitoring Level and the Sampling Rate are L1 and 2% respectively."
+        },
+        {
+          "category": "other",
+          "fact_id": "F3",
+          "reference_quote": "In the $ITM_HOME/config (Unix) dir or %ITM_HOME%\\TMAITM6 (Windows), you will find the <hostname>_yj.xml file.",
+          "text": "In the $ITM_HOME/config (Unix) dir or %ITM_HOME%\\TMAITM6 (Windows), you will find the <hostname>_yj.xml file."
+        },
+        {
+          "category": "other",
+          "fact_id": "F4",
+          "reference_quote": "Save file, restart the agent.",
+          "text": "Save file, restart the agent."
+        },
+        {
+          "category": "condition",
+          "fact_id": "F5",
+          "reference_quote": "If you are deploying a new Weblogic application, stop the agent, modify the <hostname>_yj_<wls_instance>.xml file then restart the agent again.",
+          "text": "If you are deploying a new Weblogic application, stop the agent, modify the <hostname>_yj_<wls_instance>.xml file then restart the agent again."
+        }
+      ],
+      "review_note": "覆盖老版本配置项缺失原因、L1与2%默认采样率、配置文件路径、重启及新应用部署条件，5条事实确认。"
+    },
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "OUTPUT_TYPE属性类型定义与首个Token类型定义原子且独立，2条事实确认。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": null,
+      "fact_count_exception": {
+        "formal_metric_policy": null,
+        "human_authorized": false,
+        "proposed": false,
+        "reason": null
+      },
+      "human_approved": true,
+      "official_answer": "OUTPUT_TYPE (STRING|INTEGER|FLOAT - Optional - default string). It defines the type of the first token returned by each row of the script;",
+      "question": [
+        "Why is the OUTPUT_TYPE specified in the properties file for the custom scripting feature ignored?",
+        "\n\nWhy is the OUTPUT_TYPE specified in the properties file for the custom scripting feature ignored in ITM V6?\n\nSpecifying \"I\" for INTEGER, or \"F\" for FLOAT for the OUTPUT_TYPE doesn't work, but specifying OUTPUT_TYPE=S results in STRING type for the first token."
+      ],
+      "question_id": "DEV_Q080",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "OUTPUT_TYPE (STRING|INTEGER|FLOAT - Optional - default string).",
+          "text": "OUTPUT_TYPE (STRING|INTEGER|FLOAT - Optional - default string)."
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "It defines the type of the first token returned by each row of the script;",
+          "text": "It defines the type of the first token returned by each row of the script;"
+        }
+      ],
+      "review_note": "OUTPUT_TYPE属性类型定义与首个Token类型定义原子且独立，2条事实确认。"
+    },
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "官方答案仅给出升级至2.1.0.2版本的单一修复建议，客观单事实，建议单题报告并在均值中排除。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": "fewer than two distinct facts: human decomposition needed",
+      "fact_count_exception": {
+        "formal_metric_policy": "separate descriptive report; exclude main coverage",
+        "human_authorized": true,
+        "proposed": true,
+        "reason": "官方答案仅给出升级至2.1.0.2版本的单一修复建议，客观单事实，建议单题报告并在均值中排除。"
+      },
+      "human_approved": true,
+      "official_answer": "Users of IBM WebSphere MQ Internet Pass-Thru 2.1.0.1, 2.0 and older releases should first upgrade to IBM WebSphere MQ Internet Pass-Thru 2.1.0.2",
+      "question": [
+        "Help with Security Bulletin: Vulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Internet Passthru (CVE-2015-4000)",
+        "I need to understand details regarding Security Bulletin: Vulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Internet Passthru (CVE-2015-4000). What is the recommended fix?"
+      ],
+      "question_id": "TRAIN_Q224",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "Users of IBM WebSphere MQ Internet Pass-Thru 2.1.0.1, 2.0 and older releases should first upgrade to IBM WebSphere MQ Internet Pass-Thru 2.1.0.2",
+          "text": "Users of IBM WebSphere MQ Internet Pass-Thru 2.1.0.1, 2.0 and older releases should first upgrade to IBM WebSphere MQ Internet Pass-Thru 2.1.0.2"
+        }
+      ],
+      "review_note": "官方答案仅给出升级至2.1.0.2版本的单一修复建议，客观单事实，建议单题报告并在均值中排除。"
+    },
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "已剔除非事实引导词，分别保留IBM MQ、MQ Appliance及WebSphere MQ等各受影响维护版本范围。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": null,
+      "fact_count_exception": {
+        "formal_metric_policy": null,
+        "human_authorized": false,
+        "proposed": false,
+        "reason": null
+      },
+      "human_approved": true,
+      "official_answer": "The following versions are affected: \n\n * IBM MQ  * Maintenance levels between 8.0.0.0 and 8.0.0.5 \n    * 9.0.0.0 only\n   \n   \n * IBM MQ Appliance  * Maintenance levels between 8.0.0.0 and 8.0.0.5\n   \n   \n * IBM WebSphere MQ  * Maintenance levels between 7.0.1.0 and 7.0.1.14 \n    * Maintenance levels between 7.1.0.0 and 7.1.0.8 \n    * Maintenance levels between 7.5.0.0 and 7.5.0.7",
+      "question": [
+        "Is MQ or MQ Appliance impacted by Sweet32 Birthday Attack if we are running triple-DES cipher.?",
+        "Is MQ or MQ Appliance impacted by Sweet32 Birthday Attack if we are running triple-DES cipher.?"
+      ],
+      "question_id": "DEV_Q064",
+      "required_facts": [
+        {
+          "category": "version",
+          "fact_id": "F1",
+          "reference_quote": "* IBM MQ  * Maintenance levels between 8.0.0.0 and 8.0.0.5 \n    * 9.0.0.0 only",
+          "text": "IBM MQ: Maintenance levels between 8.0.0.0 and 8.0.0.5, and 9.0.0.0 only"
+        },
+        {
+          "category": "version",
+          "fact_id": "F2",
+          "reference_quote": "* IBM MQ Appliance  * Maintenance levels between 8.0.0.0 and 8.0.0.5",
+          "text": "IBM MQ Appliance: Maintenance levels between 8.0.0.0 and 8.0.0.5"
+        },
+        {
+          "category": "version",
+          "fact_id": "F3",
+          "reference_quote": "* IBM WebSphere MQ  * Maintenance levels between 7.0.1.0 and 7.0.1.14",
+          "text": "IBM WebSphere MQ: Maintenance levels between 7.0.1.0 and 7.0.1.14"
+        },
+        {
+          "category": "version",
+          "fact_id": "F4",
+          "reference_quote": "* Maintenance levels between 7.1.0.0 and 7.1.0.8",
+          "text": "IBM WebSphere MQ: Maintenance levels between 7.1.0.0 and 7.1.0.8"
+        },
+        {
+          "category": "version",
+          "fact_id": "F5",
+          "reference_quote": "* Maintenance levels between 7.5.0.0 and 7.5.0.7",
+          "text": "IBM WebSphere MQ: Maintenance levels between 7.5.0.0 and 7.5.0.7"
+        }
+      ],
+      "review_note": "已剔除非事实引导词，分别保留IBM MQ、MQ Appliance及WebSphere MQ等各受影响维护版本范围。"
+    },
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "将命令提示语与实际命令行合并为完整的dump生成操作，属于带版本条件的单事实，建议单题报告并在均值中排除。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": null,
+      "fact_count_exception": {
+        "formal_metric_policy": "separate descriptive report; exclude main coverage",
+        "human_authorized": true,
+        "proposed": true,
+        "reason": "将命令提示语与实际命令行合并为完整的dump生成操作，属于带版本条件的单事实，建议单题报告并在均值中排除。"
+      },
+      "human_approved": true,
+      "official_answer": "Use this command to generate a Java dump on IIB v10.0.0.9+:\nmqsichangeproperties <Int.Node> -e <Int.Server> -o ComIbmInternalSupportManager/Java/JVM -n dump -v <dump_type>",
+      "question": [
+        "How can I obtain a Java thread dump against an execution group in IIB v10?",
+        "\n\nThis Q&A is abstracted from a PMR\n\nHow can I obtain a Java thread dump against an execution group in IIB v10?\n"
+      ],
+      "question_id": "TRAIN_Q145",
+      "required_facts": [
+        {
+          "category": "command",
+          "fact_id": "F1",
+          "reference_quote": "Use this command to generate a Java dump on IIB v10.0.0.9+:\nmqsichangeproperties <Int.Node> -e <Int.Server> -o ComIbmInternalSupportManager/Java/JVM -n dump -v <dump_type>",
+          "text": "Use command on IIB v10.0.0.9+: mqsichangeproperties <Int.Node> -e <Int.Server> -o ComIbmInternalSupportManager/Java/JVM -n dump -v <dump_type>"
+        }
+      ],
+      "review_note": "将命令提示语与实际命令行合并为完整的dump生成操作，属于带版本条件的单事实，建议单题报告并在均值中排除。"
+    },
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "官方答案为支持JDK 7但不支持JDK 8的单一事实判断，客观单事实，建议单题报告并在均值中排除。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": "fewer than two distinct facts: human decomposition needed",
+      "fact_count_exception": {
+        "formal_metric_policy": "separate descriptive report; exclude main coverage",
+        "human_authorized": true,
+        "proposed": true,
+        "reason": "官方答案为支持JDK 7但不支持JDK 8的单一事实判断，客观单事实，建议单题报告并在均值中排除。"
+      },
+      "human_approved": true,
+      "official_answer": "The IBM Mobile Foundation, IBM Worklight, IBM Worklight Foundation, and IBM MobileFirst Platform Foundation products support Oracle JDK 7, but do not support Oracle JDK 8.",
+      "question": [
+        "Should I upgrade to Oracle JDK 8 if I am using IBM Mobile Foundation, IBM Worklight, IBM Worklight Foundation, or IBM MobileFirst Platform Foundation products?",
+        "These is an upgrade available to replace Oracle JDK 7 with Oracle JDK 8. Does IBM Mobile Foundation, IBM Worklight, IBM Worklight Foundation, and the IBM MobileFirst Platform Foundation products support the use of Oracle JDK 8? "
+      ],
+      "question_id": "TRAIN_Q117",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "The IBM Mobile Foundation, IBM Worklight, IBM Worklight Foundation, and IBM MobileFirst Platform Foundation products support Oracle JDK 7, but do not support Oracle JDK 8.",
+          "text": "The IBM Mobile Foundation, IBM Worklight, IBM Worklight Foundation, and IBM MobileFirst Platform Foundation products support Oracle JDK 7, but do not support Oracle JDK 8."
+        }
+      ],
+      "review_note": "官方答案为支持JDK 7但不支持JDK 8的单一事实判断，客观单事实，建议单题报告并在均值中排除。"
+    },
+    {
+      "annotator": "boiledfishz",
+      "definition_review": {
+        "drafted_by": "AI-assisted literal reference sampling",
+        "human_note": "完整覆盖httpd.conf取消LoadModule注释、配置RewriteEngine/Cond/Rule及重启IHS全流程，5条事实确认。",
+        "human_signoff": "boiledfishz"
+      },
+      "definition_status": "human_verified_reference_only",
+      "exception": null,
+      "fact_count_exception": {
+        "formal_metric_policy": null,
+        "human_authorized": false,
+        "proposed": false,
+        "reason": null
+      },
+      "human_approved": true,
+      "official_answer": "First, make sure the LoadModule line for mod_rewrite is uncommented in the httpd.conf\n\nLoadModule rewrite_module modules/mod_rewrite.so\n\nNext, add the following to the global scope or any port 80 VirtualHost stanzas defined within the httpd.conf configuration file.\n\nRewriteEngine on\nRewriteCond %{SERVER_PORT} =80\nRewriteRule ^(.*) https://%{SERVER_NAME}%{REQUEST_URI} [R,L]\n\nFinally, restart the IBM HTTP Server after making the preceding changes",
+      "question": [
+        "How to have IBM HTTP Server re-direct an application URL from HTTPS to HTTP?",
+        "We have an application which uses SSL, but we need to make this http only. We disabled all the SSL, but many clients URLs are still pointing to https. So we need a HTTP Server redirect to change these URLs from https to http. Is this possible? "
+      ],
+      "question_id": "TRAIN_Q589",
+      "required_facts": [
+        {
+          "category": "other",
+          "fact_id": "F1",
+          "reference_quote": "First, make sure the LoadModule line for mod_rewrite is uncommented in the httpd.conf",
+          "text": "First, make sure the LoadModule line for mod_rewrite is uncommented in the httpd.conf"
+        },
+        {
+          "category": "other",
+          "fact_id": "F2",
+          "reference_quote": "LoadModule rewrite_module modules/mod_rewrite.so",
+          "text": "LoadModule rewrite_module modules/mod_rewrite.so"
+        },
+        {
+          "category": "other",
+          "fact_id": "F3",
+          "reference_quote": "RewriteEngine on",
+          "text": "RewriteEngine on"
+        },
+        {
+          "category": "other",
+          "fact_id": "F4",
+          "reference_quote": "RewriteRule ^(.*) https://%{SERVER_NAME}%{REQUEST_URI} [R,L]",
+          "text": "RewriteRule ^(.*) https://%{SERVER_NAME}%{REQUEST_URI} [R,L]"
+        },
+        {
+          "category": "other",
+          "fact_id": "F5",
+          "reference_quote": "Finally, restart the IBM HTTP Server after making the preceding changes",
+          "text": "Finally, restart the IBM HTTP Server after making the preceding changes"
+        }
+      ],
+      "review_note": "完整覆盖httpd.conf取消LoadModule注释、配置RewriteEngine/Cond/Rule及重启IHS全流程，5条事实确认。"
+    }
+  ],
+  "partition": "held-out",
+  "reviewed_without_model_answers": true,
+  "status": "human_verified",
+  "unreviewed_questions": 229
+}

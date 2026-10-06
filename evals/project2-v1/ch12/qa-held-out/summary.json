@@ -1,0 +1,1890 @@
+{
+  "stage": "ch12",
+  "partition": "held-out",
+  "repeats": 3,
+  "metrics": {
+    "recall_at_5": {
+      "mean": 0.31666666666666665,
+      "range": [
+        0.15,
+        0.4
+      ],
+      "numerator": 19.0,
+      "denominator": 60,
+      "independent_query_groups": 20,
+      "ci95": [
+        0.052368745896216595,
+        0.6134184992377469
+      ],
+      "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 8.0,
+          "denominator": 20,
+          "value": 0.4,
+          "ci95": [
+            0.21880653237281705,
+            0.6134184992377469
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 2,
+          "numerator": 3.0,
+          "denominator": 20,
+          "value": 0.15,
+          "ci95": [
+            0.052368745896216595,
+            0.36041886474075696
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 3,
+          "numerator": 8.0,
+          "denominator": 20,
+          "value": 0.4,
+          "ci95": [
+            0.21880653237281705,
+            0.6134184992377469
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "recall_at_10": {
+      "mean": 0.31666666666666665,
+      "range": [
+        0.15,
+        0.4
+      ],
+      "numerator": 19.0,
+      "denominator": 60,
+      "independent_query_groups": 20,
+      "ci95": [
+        0.052368745896216595,
+        0.6134184992377469
+      ],
+      "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 8.0,
+          "denominator": 20,
+          "value": 0.4,
+          "ci95": [
+            0.21880653237281705,
+            0.6134184992377469
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 2,
+          "numerator": 3.0,
+          "denominator": 20,
+          "value": 0.15,
+          "ci95": [
+            0.052368745896216595,
+            0.36041886474075696
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 3,
+          "numerator": 8.0,
+          "denominator": 20,
+          "value": 0.4,
+          "ci95": [
+            0.21880653237281705,
+            0.6134184992377469
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "mrr": {
+      "mean": 0.29944444444444446,
+      "range": [
+        0.15333333333333332,
+        0.3725
+      ],
+      "numerator": 17.966666666666665,
+      "denominator": 60,
+      "independent_query_groups": 20,
+      "ci95": [
+        0.1377777777777778,
+        0.4716666666666667
+      ],
+      "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 7.45,
+          "denominator": 20,
+          "value": 0.3725
+        },
+        {
+          "repeat": 2,
+          "numerator": 3.066666666666667,
+          "denominator": 20,
+          "value": 0.15333333333333332
+        },
+        {
+          "repeat": 3,
+          "numerator": 7.45,
+          "denominator": 20,
+          "value": 0.3725
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "correct_document_cited": {
+      "mean": 0.23333333333333334,
+      "range": [
+        0.1,
+        0.3
+      ],
+      "numerator": 14.0,
+      "denominator": 60,
+      "independent_query_groups": 20,
+      "ci95": [
+        0.027866481213768224,
+        0.5189728183535235
+      ],
+      "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 6.0,
+          "denominator": 20,
+          "value": 0.3,
+          "ci95": [
+            0.1454772448676043,
+            0.5189728183535235
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 2,
+          "numerator": 2.0,
+          "denominator": 20,
+          "value": 0.1,
+          "ci95": [
+            0.027866481213768224,
+            0.3010336452284873
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 3,
+          "numerator": 6.0,
+          "denominator": 20,
+          "value": 0.3,
+          "ci95": [
+            0.1454772448676043,
+            0.5189728183535235
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "n_refusal_proxy": {
+      "mean": 0.06666666666666667,
+      "range": [
+        0.0,
+        0.1
+      ],
+      "numerator": 2.0,
+      "denominator": 30,
+      "independent_query_groups": 10,
+      "ci95": [
+        0.0,
+        0.4041500267952385
+      ],
+      "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 1.0,
+          "denominator": 10,
+          "value": 0.1,
+          "ci95": [
+            0.017876213095072896,
+            0.4041500267952385
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 2,
+          "numerator": 0.0,
+          "denominator": 10,
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.2775327998628892
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 3,
+          "numerator": 1.0,
+          "denominator": 10,
+          "value": 0.1,
+          "ci95": [
+            0.017876213095072896,
+            0.4041500267952385
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "complete": {
+      "mean": 0.4111111111111111,
+      "range": [
+        0.16666666666666666,
+        0.5333333333333333
+      ],
+      "numerator": 37.0,
+      "denominator": 90,
+      "independent_query_groups": 30,
+      "ci95": [
+        0.0733654237184855,
+        0.6976761109230025
+      ],
+      "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 16.0,
+          "denominator": 30,
+          "value": 0.5333333333333333,
+          "ci95": [
+            0.36142299619873297,
+            0.6976761109230025
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 2,
+          "numerator": 5.0,
+          "denominator": 30,
+          "value": 0.16666666666666666,
+          "ci95": [
+            0.0733654237184855,
+            0.3356435050641603
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 3,
+          "numerator": 16.0,
+          "denominator": 30,
+          "value": 0.5333333333333333,
+          "ci95": [
+            0.36142299619873297,
+            0.6976761109230025
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "partial": {
+      "mean": 0.0,
+      "range": [
+        0.0,
+        0.0
+      ],
+      "numerator": 0.0,
+      "denominator": 90,
+      "independent_query_groups": 30,
+      "ci95": [
+        0.0,
+        0.11351339317396876
+      ],
+      "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 0.0,
+          "denominator": 30,
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.11351339317396876
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 2,
+          "numerator": 0.0,
+          "denominator": 30,
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.11351339317396876
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 3,
+          "numerator": 0.0,
+          "denominator": 30,
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.11351339317396876
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "body_token_f1": {
+      "mean": 0.12555022543011124,
+      "range": [
+        0.06186905730375632,
+        0.1573908094932887
+      ],
+      "numerator": 7.533013525806674,
+      "denominator": 60,
+      "independent_query_groups": 20,
+      "ci95": [
+        0.062176002466874276,
+        0.1968575030682852
+      ],
+      "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 3.147816189865774,
+          "denominator": 20,
+          "value": 0.1573908094932887
+        },
+        {
+          "repeat": 2,
+          "numerator": 1.2373811460751263,
+          "denominator": 20,
+          "value": 0.06186905730375632
+        },
+        {
+          "repeat": 3,
+          "numerator": 3.147816189865774,
+          "denominator": 20,
+          "value": 0.1573908094932887
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "elapsed_seconds": {
+      "mean": 13.660791810003058,
+      "range": [
+        10.248123286660606,
+        19.27076882002099
+      ],
+      "numerator": 1229.4712629002752,
+      "denominator": 90,
+      "independent_query_groups": 30,
+      "ci95": [
+        9.187974277776407,
+        18.112079192229753
+      ],
+      "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 343.9044996998273,
+          "denominator": 30,
+          "value": 11.463483323327576
+        },
+        {
+          "repeat": 2,
+          "numerator": 578.1230646006297,
+          "denominator": 30,
+          "value": 19.27076882002099
+        },
+        {
+          "repeat": 3,
+          "numerator": 307.44369859981816,
+          "denominator": 30,
+          "value": 10.248123286660606
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "attempts": {
+      "mean": 7.444444444444445,
+      "range": [
+        6.8,
+        7.933333333333334
+      ],
+      "numerator": 670.0,
+      "denominator": 90,
+      "independent_query_groups": 30,
+      "ci95": [
+        5.188888888888889,
+        9.722222222222221
+      ],
+      "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 238.0,
+          "denominator": 30,
+          "value": 7.933333333333334
+        },
+        {
+          "repeat": 2,
+          "numerator": 204.0,
+          "denominator": 30,
+          "value": 6.8
+        },
+        {
+          "repeat": 3,
+          "numerator": 228.0,
+          "denominator": 30,
+          "value": 7.6
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "llm_calls": {
+      "mean": 1.511111111111111,
+      "range": [
+        1.1333333333333333,
+        1.7
+      ],
+      "numerator": 136.0,
+      "denominator": 90,
+      "independent_query_groups": 30,
+      "ci95": [
+        1.0222222222222221,
+        1.9666666666666666
+      ],
+      "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 51.0,
+          "denominator": 30,
+          "value": 1.7
+        },
+        {
+          "repeat": 2,
+          "numerator": 34.0,
+          "denominator": 30,
+          "value": 1.1333333333333333
+        },
+        {
+          "repeat": 3,
+          "numerator": 51.0,
+          "denominator": 30,
+          "value": 1.7
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    }
+  },
+  "regression_items": [
+    {
+      "question_id": "TRAIN_Q549",
+      "repeat": 1,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q549",
+      "repeat": 1,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q549",
+      "repeat": 1,
+      "metric": "mrr",
+      "v0": 1.0,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q549",
+      "repeat": 1,
+      "metric": "correct_document_cited",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q549",
+      "repeat": 1,
+      "metric": "body_token_f1",
+      "v0": 0.6027397260273972,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q117",
+      "repeat": 1,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q117",
+      "repeat": 1,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q117",
+      "repeat": 1,
+      "metric": "mrr",
+      "v0": 1.0,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q478",
+      "repeat": 1,
+      "metric": "body_token_f1",
+      "v0": 0.20765027322404372,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q214",
+      "repeat": 1,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q214",
+      "repeat": 1,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q214",
+      "repeat": 1,
+      "metric": "mrr",
+      "v0": 1.0,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q214",
+      "repeat": 1,
+      "metric": "correct_document_cited",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q214",
+      "repeat": 1,
+      "metric": "body_token_f1",
+      "v0": 0.43646408839779005,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q318",
+      "repeat": 1,
+      "metric": "body_token_f1",
+      "v0": 0.147239263803681,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q319",
+      "repeat": 1,
+      "metric": "body_token_f1",
+      "v0": 0.20095693779904306,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q496",
+      "repeat": 1,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q496",
+      "repeat": 1,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q496",
+      "repeat": 1,
+      "metric": "mrr",
+      "v0": 0.3333333333333333,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q496",
+      "repeat": 1,
+      "metric": "body_token_f1",
+      "v0": 0.1724137931034483,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q145",
+      "repeat": 1,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q145",
+      "repeat": 1,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q145",
+      "repeat": 1,
+      "metric": "mrr",
+      "v0": 1.0,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q145",
+      "repeat": 1,
+      "metric": "correct_document_cited",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q145",
+      "repeat": 1,
+      "metric": "body_token_f1",
+      "v0": 0.2894736842105263,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q525",
+      "repeat": 1,
+      "metric": "body_token_f1",
+      "v0": 0.14057507987220447,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q496",
+      "repeat": 2,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q496",
+      "repeat": 2,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q496",
+      "repeat": 2,
+      "metric": "mrr",
+      "v0": 0.3333333333333333,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q496",
+      "repeat": 2,
+      "metric": "body_token_f1",
+      "v0": 0.1724137931034483,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q525",
+      "repeat": 2,
+      "metric": "body_token_f1",
+      "v0": 0.14057507987220447,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q117",
+      "repeat": 2,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q117",
+      "repeat": 2,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q117",
+      "repeat": 2,
+      "metric": "mrr",
+      "v0": 1.0,
+      "current": 0
+    },
+    {
+      "question_id": "DEV_Q066",
+      "repeat": 2,
+      "metric": "body_token_f1",
+      "v0": 0.2511415525114155,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q305",
+      "repeat": 2,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q305",
+      "repeat": 2,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q305",
+      "repeat": 2,
+      "metric": "mrr",
+      "v0": 0.3333333333333333,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q305",
+      "repeat": 2,
+      "metric": "body_token_f1",
+      "v0": 0.09302325581395349,
+      "current": 0.0
+    },
+    {
+      "question_id": "DEV_Q109",
+      "repeat": 2,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "DEV_Q109",
+      "repeat": 2,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "DEV_Q109",
+      "repeat": 2,
+      "metric": "mrr",
+      "v0": 1.0,
+      "current": 0
+    },
+    {
+      "question_id": "DEV_Q109",
+      "repeat": 2,
+      "metric": "correct_document_cited",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "DEV_Q109",
+      "repeat": 2,
+      "metric": "body_token_f1",
+      "v0": 0.6126760563380281,
+      "current": 0.0
+    },
+    {
+      "question_id": "DEV_Q064",
+      "repeat": 2,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "DEV_Q064",
+      "repeat": 2,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "DEV_Q064",
+      "repeat": 2,
+      "metric": "mrr",
+      "v0": 1.0,
+      "current": 0
+    },
+    {
+      "question_id": "DEV_Q064",
+      "repeat": 2,
+      "metric": "correct_document_cited",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "DEV_Q064",
+      "repeat": 2,
+      "metric": "body_token_f1",
+      "v0": 0.3,
+      "current": 0.0
+    },
+    {
+      "question_id": "DEV_Q080",
+      "repeat": 2,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "DEV_Q080",
+      "repeat": 2,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "DEV_Q080",
+      "repeat": 2,
+      "metric": "mrr",
+      "v0": 1.0,
+      "current": 0
+    },
+    {
+      "question_id": "DEV_Q080",
+      "repeat": 2,
+      "metric": "correct_document_cited",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "DEV_Q080",
+      "repeat": 2,
+      "metric": "body_token_f1",
+      "v0": 0.168141592920354,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q513",
+      "repeat": 2,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q513",
+      "repeat": 2,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q513",
+      "repeat": 2,
+      "metric": "mrr",
+      "v0": 1.0,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q513",
+      "repeat": 2,
+      "metric": "correct_document_cited",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q513",
+      "repeat": 2,
+      "metric": "body_token_f1",
+      "v0": 0.3448275862068966,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q318",
+      "repeat": 2,
+      "metric": "body_token_f1",
+      "v0": 0.147239263803681,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q589",
+      "repeat": 2,
+      "metric": "mrr",
+      "v0": 0.05,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q589",
+      "repeat": 2,
+      "metric": "body_token_f1",
+      "v0": 0.140625,
+      "current": 0.0
+    },
+    {
+      "question_id": "DEV_Q286",
+      "repeat": 2,
+      "metric": "n_refusal_proxy",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q478",
+      "repeat": 2,
+      "metric": "body_token_f1",
+      "v0": 0.20765027322404372,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q549",
+      "repeat": 2,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q549",
+      "repeat": 2,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q549",
+      "repeat": 2,
+      "metric": "mrr",
+      "v0": 1.0,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q549",
+      "repeat": 2,
+      "metric": "correct_document_cited",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q549",
+      "repeat": 2,
+      "metric": "body_token_f1",
+      "v0": 0.6027397260273972,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q319",
+      "repeat": 2,
+      "metric": "body_token_f1",
+      "v0": 0.20095693779904306,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q214",
+      "repeat": 2,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q214",
+      "repeat": 2,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q214",
+      "repeat": 2,
+      "metric": "mrr",
+      "v0": 1.0,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q214",
+      "repeat": 2,
+      "metric": "correct_document_cited",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q214",
+      "repeat": 2,
+      "metric": "body_token_f1",
+      "v0": 0.43646408839779005,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q145",
+      "repeat": 2,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q145",
+      "repeat": 2,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q145",
+      "repeat": 2,
+      "metric": "mrr",
+      "v0": 1.0,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q145",
+      "repeat": 2,
+      "metric": "correct_document_cited",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q145",
+      "repeat": 2,
+      "metric": "body_token_f1",
+      "v0": 0.2894736842105263,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q145",
+      "repeat": 3,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q145",
+      "repeat": 3,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q145",
+      "repeat": 3,
+      "metric": "mrr",
+      "v0": 1.0,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q145",
+      "repeat": 3,
+      "metric": "correct_document_cited",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q145",
+      "repeat": 3,
+      "metric": "body_token_f1",
+      "v0": 0.2894736842105263,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q214",
+      "repeat": 3,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q214",
+      "repeat": 3,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q214",
+      "repeat": 3,
+      "metric": "mrr",
+      "v0": 1.0,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q214",
+      "repeat": 3,
+      "metric": "correct_document_cited",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q214",
+      "repeat": 3,
+      "metric": "body_token_f1",
+      "v0": 0.43646408839779005,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q318",
+      "repeat": 3,
+      "metric": "body_token_f1",
+      "v0": 0.147239263803681,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q117",
+      "repeat": 3,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q117",
+      "repeat": 3,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q117",
+      "repeat": 3,
+      "metric": "mrr",
+      "v0": 1.0,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q319",
+      "repeat": 3,
+      "metric": "body_token_f1",
+      "v0": 0.20095693779904306,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q525",
+      "repeat": 3,
+      "metric": "body_token_f1",
+      "v0": 0.14057507987220447,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q496",
+      "repeat": 3,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q496",
+      "repeat": 3,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q496",
+      "repeat": 3,
+      "metric": "mrr",
+      "v0": 0.3333333333333333,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q496",
+      "repeat": 3,
+      "metric": "body_token_f1",
+      "v0": 0.1724137931034483,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q549",
+      "repeat": 3,
+      "metric": "recall_at_5",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q549",
+      "repeat": 3,
+      "metric": "recall_at_10",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q549",
+      "repeat": 3,
+      "metric": "mrr",
+      "v0": 1.0,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q549",
+      "repeat": 3,
+      "metric": "correct_document_cited",
+      "v0": 1,
+      "current": 0
+    },
+    {
+      "question_id": "TRAIN_Q549",
+      "repeat": 3,
+      "metric": "body_token_f1",
+      "v0": 0.6027397260273972,
+      "current": 0.0
+    },
+    {
+      "question_id": "TRAIN_Q478",
+      "repeat": 3,
+      "metric": "body_token_f1",
+      "v0": 0.20765027322404372,
+      "current": 0.0
+    }
+  ],
+  "controls": [],
+  "required_facts": {
+    "status": "partial_exact_hash_reuse",
+    "matched_answer_observations": 26,
+    "unscored_answer_observations": 34,
+    "metrics": {
+      "human": {
+        "mean": 0.48148148148148145,
+        "range": [
+          0.4722222222222222,
+          0.5
+        ],
+        "numerator": 10.0,
+        "denominator": 21,
+        "independent_query_groups": 9,
+        "ci95": [
+          0.18421052631578946,
+          0.7619047619047619
+        ],
+        "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 4.25,
+            "denominator": 9,
+            "value": 0.4722222222222222
+          },
+          {
+            "repeat": 2,
+            "numerator": 1.5,
+            "denominator": 3,
+            "value": 0.5
+          },
+          {
+            "repeat": 3,
+            "numerator": 4.25,
+            "denominator": 9,
+            "value": 0.4722222222222222
+          }
+        ],
+        "interpretation": "仅描述，不作结论",
+        "repeated_runs_are_independent_questions": false,
+        "earned_points": 72,
+        "possible_points": 146,
+        "aggregation": "macro question coverage; single-fact exceptions excluded"
+      },
+      "llm": {
+        "mean": 0.7111111111111111,
+        "range": [
+          0.6,
+          0.7666666666666667
+        ],
+        "numerator": 15.6,
+        "denominator": 21,
+        "independent_query_groups": 9,
+        "ci95": [
+          0.6090909090909091,
+          0.8999999999999999
+        ],
+        "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 6.9,
+            "denominator": 9,
+            "value": 0.7666666666666667
+          },
+          {
+            "repeat": 2,
+            "numerator": 1.8,
+            "denominator": 3,
+            "value": 0.6
+          },
+          {
+            "repeat": 3,
+            "numerator": 6.9,
+            "denominator": 9,
+            "value": 0.7666666666666667
+          }
+        ],
+        "interpretation": "仅描述，不作结论",
+        "repeated_runs_are_independent_questions": false,
+        "earned_points": 110,
+        "possible_points": 146,
+        "aggregation": "macro question coverage; single-fact exceptions excluded"
+      }
+    },
+    "agreement": {
+      "mean": 0.6598240469208212,
+      "range": [
+        0.5806451612903226,
+        0.8181818181818182
+      ],
+      "numerator": 45.0,
+      "denominator": 73,
+      "independent_query_groups": 9,
+      "ci95": [
+        0.3375,
+        0.8441558441558441
+      ],
+      "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 18.0,
+          "denominator": 31,
+          "value": 0.5806451612903226
+        },
+        {
+          "repeat": 2,
+          "numerator": 9.0,
+          "denominator": 11,
+          "value": 0.8181818181818182
+        },
+        {
+          "repeat": 3,
+          "numerator": 18.0,
+          "denominator": 31,
+          "value": 0.5806451612903226
+        }
+      ],
+      "interpretation": "仅描述，不作结论",
+      "repeated_runs_are_independent_questions": false
+    },
+    "disagreements": [
+      {
+        "question_id": "TRAIN_Q589",
+        "answer_sha256": "fab488ffba1e426b38daf3405cac1d8162cbf546bb459047f6626bba8bb2e450",
+        "fact_id": "F2",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "TRAIN_Q589",
+        "answer_sha256": "fab488ffba1e426b38daf3405cac1d8162cbf546bb459047f6626bba8bb2e450",
+        "fact_id": "F3",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "TRAIN_Q589",
+        "answer_sha256": "fab488ffba1e426b38daf3405cac1d8162cbf546bb459047f6626bba8bb2e450",
+        "fact_id": "F4",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "DEV_Q066",
+        "answer_sha256": "05031c8e1712260d7c067b33edf88f63a67af183f247cf3c8e8a716a58facc95",
+        "fact_id": "F1",
+        "human_score": 1,
+        "llm_score": 0,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "TRAIN_Q056",
+        "answer_sha256": "d13897ae51f922c7e95dd92720a053bfd01cf68d128e0f8cae2bb39b047f8272",
+        "fact_id": "F1",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "DEV_Q080",
+        "answer_sha256": "2923f4a003d6369d0589bef3353aa31b7e0932365decb630564ee5b5f95b7112",
+        "fact_id": "F1",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "DEV_Q080",
+        "answer_sha256": "2923f4a003d6369d0589bef3353aa31b7e0932365decb630564ee5b5f95b7112",
+        "fact_id": "F2",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "DEV_Q064",
+        "answer_sha256": "aa7d6e3299fa7c193da2ad855b65eb5209abe520de28b197de577ccefd14af7a",
+        "fact_id": "F1",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "DEV_Q064",
+        "answer_sha256": "aa7d6e3299fa7c193da2ad855b65eb5209abe520de28b197de577ccefd14af7a",
+        "fact_id": "F2",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "DEV_Q064",
+        "answer_sha256": "aa7d6e3299fa7c193da2ad855b65eb5209abe520de28b197de577ccefd14af7a",
+        "fact_id": "F3",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "DEV_Q064",
+        "answer_sha256": "aa7d6e3299fa7c193da2ad855b65eb5209abe520de28b197de577ccefd14af7a",
+        "fact_id": "F4",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "DEV_Q064",
+        "answer_sha256": "aa7d6e3299fa7c193da2ad855b65eb5209abe520de28b197de577ccefd14af7a",
+        "fact_id": "F5",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "TRAIN_Q518",
+        "answer_sha256": "b9d1995dd3be2815854a7d6794a23fe9f95d3d65b3537b567871e8c39d9537ba",
+        "fact_id": "F1",
+        "human_score": 2,
+        "llm_score": 0,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "TRAIN_Q056",
+        "answer_sha256": "d13897ae51f922c7e95dd92720a053bfd01cf68d128e0f8cae2bb39b047f8272",
+        "fact_id": "F1",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "TRAIN_Q518",
+        "answer_sha256": "b9d1995dd3be2815854a7d6794a23fe9f95d3d65b3537b567871e8c39d9537ba",
+        "fact_id": "F1",
+        "human_score": 2,
+        "llm_score": 0,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "TRAIN_Q056",
+        "answer_sha256": "d13897ae51f922c7e95dd92720a053bfd01cf68d128e0f8cae2bb39b047f8272",
+        "fact_id": "F1",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "DEV_Q064",
+        "answer_sha256": "aa7d6e3299fa7c193da2ad855b65eb5209abe520de28b197de577ccefd14af7a",
+        "fact_id": "F1",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "DEV_Q064",
+        "answer_sha256": "aa7d6e3299fa7c193da2ad855b65eb5209abe520de28b197de577ccefd14af7a",
+        "fact_id": "F2",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "DEV_Q064",
+        "answer_sha256": "aa7d6e3299fa7c193da2ad855b65eb5209abe520de28b197de577ccefd14af7a",
+        "fact_id": "F3",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "DEV_Q064",
+        "answer_sha256": "aa7d6e3299fa7c193da2ad855b65eb5209abe520de28b197de577ccefd14af7a",
+        "fact_id": "F4",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "DEV_Q064",
+        "answer_sha256": "aa7d6e3299fa7c193da2ad855b65eb5209abe520de28b197de577ccefd14af7a",
+        "fact_id": "F5",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "DEV_Q066",
+        "answer_sha256": "05031c8e1712260d7c067b33edf88f63a67af183f247cf3c8e8a716a58facc95",
+        "fact_id": "F1",
+        "human_score": 1,
+        "llm_score": 0,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "TRAIN_Q589",
+        "answer_sha256": "fab488ffba1e426b38daf3405cac1d8162cbf546bb459047f6626bba8bb2e450",
+        "fact_id": "F2",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "TRAIN_Q589",
+        "answer_sha256": "fab488ffba1e426b38daf3405cac1d8162cbf546bb459047f6626bba8bb2e450",
+        "fact_id": "F3",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "TRAIN_Q589",
+        "answer_sha256": "fab488ffba1e426b38daf3405cac1d8162cbf546bb459047f6626bba8bb2e450",
+        "fact_id": "F4",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "DEV_Q080",
+        "answer_sha256": "2923f4a003d6369d0589bef3353aa31b7e0932365decb630564ee5b5f95b7112",
+        "fact_id": "F1",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "DEV_Q080",
+        "answer_sha256": "2923f4a003d6369d0589bef3353aa31b7e0932365decb630564ee5b5f95b7112",
+        "fact_id": "F2",
+        "human_score": 0,
+        "llm_score": 2,
+        "status": "unresolved"
+      },
+      {
+        "question_id": "TRAIN_Q518",
+        "answer_sha256": "b9d1995dd3be2815854a7d6794a23fe9f95d3d65b3537b567871e8c39d9537ba",
+        "fact_id": "F1",
+        "human_score": 2,
+        "llm_score": 0,
+        "status": "unresolved"
+      }
+    ],
+    "single_fact_exceptions": [
+      {
+        "question_id": "TRAIN_Q305",
+        "repeat": 1,
+        "group_sha256": "8916fce67b0afcdcb2ef2e9ccd458fe658d2b513e6bf0bf4fbe777f4c6e906b9",
+        "primary": true,
+        "human_coverage": 0.0,
+        "human_points": 0,
+        "human_possible": 2,
+        "llm_coverage": 1.0,
+        "llm_points": 2,
+        "llm_possible": 2
+      },
+      {
+        "question_id": "TRAIN_Q224",
+        "repeat": 1,
+        "group_sha256": "e941ba2ef98cc63d8991f11310b5bf1606e015c29a313067af7c1914a610257e",
+        "primary": true,
+        "human_coverage": 1.0,
+        "human_points": 2,
+        "human_possible": 2,
+        "llm_coverage": 0.0,
+        "llm_points": 0,
+        "llm_possible": 2
+      },
+      {
+        "question_id": "TRAIN_Q224",
+        "repeat": 2,
+        "group_sha256": "e941ba2ef98cc63d8991f11310b5bf1606e015c29a313067af7c1914a610257e",
+        "primary": true,
+        "human_coverage": 1.0,
+        "human_points": 2,
+        "human_possible": 2,
+        "llm_coverage": 0.0,
+        "llm_points": 0,
+        "llm_possible": 2
+      },
+      {
+        "question_id": "TRAIN_Q224",
+        "repeat": 3,
+        "group_sha256": "e941ba2ef98cc63d8991f11310b5bf1606e015c29a313067af7c1914a610257e",
+        "primary": true,
+        "human_coverage": 1.0,
+        "human_points": 2,
+        "human_possible": 2,
+        "llm_coverage": 0.0,
+        "llm_points": 0,
+        "llm_possible": 2
+      },
+      {
+        "question_id": "TRAIN_Q305",
+        "repeat": 3,
+        "group_sha256": "8916fce67b0afcdcb2ef2e9ccd458fe658d2b513e6bf0bf4fbe777f4c6e906b9",
+        "primary": true,
+        "human_coverage": 0.0,
+        "human_points": 0,
+        "human_possible": 2,
+        "llm_coverage": 1.0,
+        "llm_points": 2,
+        "llm_possible": 2
+      }
+    ],
+    "unscored": [
+      {
+        "question_id": "TRAIN_Q549",
+        "repeat": 1,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q117",
+        "repeat": 1,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q478",
+        "repeat": 1,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q214",
+        "repeat": 1,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q318",
+        "repeat": 1,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q319",
+        "repeat": 1,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q496",
+        "repeat": 1,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q145",
+        "repeat": 1,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q525",
+        "repeat": 1,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q496",
+        "repeat": 2,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q525",
+        "repeat": 2,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q117",
+        "repeat": 2,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "DEV_Q066",
+        "repeat": 2,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q305",
+        "repeat": 2,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "DEV_Q109",
+        "repeat": 2,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "DEV_Q064",
+        "repeat": 2,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "DEV_Q080",
+        "repeat": 2,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q513",
+        "repeat": 2,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q318",
+        "repeat": 2,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q589",
+        "repeat": 2,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q478",
+        "repeat": 2,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q549",
+        "repeat": 2,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q319",
+        "repeat": 2,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q214",
+        "repeat": 2,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q145",
+        "repeat": 2,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q145",
+        "repeat": 3,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q214",
+        "repeat": 3,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q318",
+        "repeat": 3,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q117",
+        "repeat": 3,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q319",
+        "repeat": 3,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q525",
+        "repeat": 3,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q496",
+        "repeat": 3,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q549",
+        "repeat": 3,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      },
+      {
+        "question_id": "TRAIN_Q478",
+        "repeat": 3,
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "pending_independent_ratings"
+      }
+    ],
+    "controls": [],
+    "annotation_sources": [
+      {
+        "role": "human",
+        "path": "evals/protocol_v0/runs/baseline-v0-quick/held-out/human_ratings.json",
+        "sha256": "618ae18155a47617cfe1c9cfb62ea56c9f369004f9082400f131111c019a91ba"
+      },
+      {
+        "role": "llm",
+        "path": "evals/protocol_v0/runs/baseline-v0-quick/held-out/llm_ratings.json",
+        "sha256": "d8f0c35529b1638b30fa5d9fea90e84f1c0d212328300d54e8829e09c96dbe10"
+      }
+    ],
+    "scoring_scope": "answer body only; immutable exact answer + human-frozen fact hashes; no consensus merging"
+  },
+  "source_sha256": "adc6587a485564345e60aa6bf7053d939f7d19328bb205755231b3204adccabf",
+  "stage_plan_sha256": "2ef8053ef57a6d574771b65017e9cc17bf6c1b1ee70852c975e7a35ff50e3634",
+  "official_N_limitation": "N concerns original candidate corpus; refusal proxy is not full-corpus absence proof",
+  "historical_exposure": {
+    "development": "all 310 previously used in retrieval and Enterprise evaluations",
+    "status": "retrospective holdout, NOT prospectively unseen",
+    "training": "all 600 previously used for calibration",
+    "validation": "20 previously evaluated; exact text overlaps grouped with other splits"
+  }
+}

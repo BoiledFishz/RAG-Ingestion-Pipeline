@@ -1,0 +1,49 @@
+# Project 2 自动执行汇总
+
+**stopped_calibration_censored**：完整标定有1条预算右删失；系统睡眠/恢复事件已记录，按冻结S08.1不选择新上限，不启动后续门禁或held-out。
+分支：`codex/project2-ch12`；由 `scripts/summarize_project2.py` 从证据生成。
+
+| 阶段 | 门禁 | 执行范围 |
+| --- | --- | --- |
+| Chap12 | 未执行 | 未执行 |
+| Chap13 | 未执行 | 未执行 |
+| Chap14 | 未执行 | 未执行 |
+| Chap15 | 未执行 | 未执行 |
+
+追踪：通过 **0** / 部分 **16** / 未完成 **45**（共61）；held-out累计 **0次阶段调用 / 0次重复**。
+
+| 对照 | 关键结果/CI/退化项 |
+| --- | --- |
+| 原RAG / Agentic | 未执行；无实测指标或退化项 |
+| 单Agent / 固定Workflow / 新版本 | 未执行；无实测指标或退化项 |
+| 可靠性改动前 / 后 | 未执行；无实测指标或退化项 |
+
+### 规格修订
+
+v0.3 **10条**限定修订：A实测预算协议；B将AC12-23分为状态一致性门禁、拒答质量指标。S07、42场景、AC12-03和v0.1/v0.2保持不变。旧AC12-01原因：`dependency_attempt_limit`，依赖16 / LLM 2 / 19.185秒。
+文档检查：**passed**（11行PASS；不等于系统通过）。[原始输出](<C:/Users/zacha/Documents/Ingestion Pipeline/audit/project2-v1/docs_check_v03_final.log>)。
+manifest SHA256：`354b94f1357167a347ed4da99e34a8bcacefd91919d75e074c22df8426265653`。
+完整标定：300/300，判定 **incomplete_censored**。
+含全部观测；因删失仅描述，不作为生产预算选值。方括号为按问题聚类bootstrap 95% CI。
+
+| 路径（各150次） | 依赖P95 | LLM P95 | 耗时P95（秒） | 耗时均值 [CI]；三次均值范围 |
+| --- | --- | --- | --- | --- |
+| rag_only | 13 [13.00, 13.00] | 3 [3.00, 5.00] | 22.75 [19.12, 25.20] | 11.88 [10.80, 13.03]；[9.69, 16.03] |
+| combination | 15 [14.00, 15.00] | 3 [3.00, 3.00] | 26.55 [21.42, 36.90] | 27.16 [11.96, 56.10]；[11.92, 52.13] |
+
+生产上限：未选定；原90秒 / 16依赖 / 6LLM保持。
+删失：P2-PLATFORM-01 / combination / 第3次，2098.058秒；原记录保留，不补跑。
+独立复算比对：**150/150**，程序判定passed（144条计数结果、6条澄清分支；不替代系统门禁）。
+[完整指标：分子/分母、三重复、均值/范围、CI](<C:/Users/zacha/Documents/Ingestion Pipeline/evals/project2-v1/calibration_v03/metrics_ci.json>)；失败和睡眠耗时全部保留。
+
+### 两表一致性
+
+程序比对：**passed**；批准表61行、运行表61行，ID无缺失/新增/重复；批准待实施与实际执行状态分开，没有无证据的通过条目。
+
+证据：[规格差异](<C:/Users/zacha/Documents/Ingestion Pipeline/specs/project2/v0.3/delta.md>) · [标定记录](<C:/Users/zacha/Documents/Ingestion Pipeline/evals/project2-v1/calibration_v03/requests.jsonl>) · [两表比对](<C:/Users/zacha/Documents/Ingestion Pipeline/audit/project2-v1/v03_traceability_comparison.json>)。冻结v0的65份源码/配置哈希未变。本地新增提交0；完整门禁未过不提交。
+
+需要本人处理：
+
+- 授权一个新的无主机睡眠标定批次，并保留本批全部记录；不删除删失样本或改判定条件。
+- git push / PR / 最终审阅由用户本人处理；本范围不执行。
+- 第16章云账号与预算另行授权；向老师确认CL-03。

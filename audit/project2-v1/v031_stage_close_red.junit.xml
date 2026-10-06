@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="1.444" timestamp="2026-10-06T12:50:10.286076-07:00" hostname="szy"><testcase classname="tests.project2.test_v031_stage_close" name="test_claimed_pass_without_execution_records_cannot_close" time="0.016"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_close_stage.py'">tmp_path = WindowsPath('C:/Users/zacha/AppData/Local/Temp/aws-support-rag-110864-88c7db128c6a4167893ff9e490e2a551/test_claimed_pass_without_exec0')
+
+    def test_claimed_pass_without_execution_records_cannot_close(tmp_path):
+        path=tmp_path/'audit/project2-v1';path.mkdir(parents=True)
+        (path/'v031_chap12_gate.json').write_text(json.dumps({'status':'passed','system_gate_executed':True,'gate_scope':'system_gate','checks':[]}),encoding='utf-8')
+&gt;       assert module().inspect_stage(tmp_path,'ch12')['execution_complete'] is False
+               ^^^^^^^^
+
+tests\project2\test_v031_stage_close.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\project2\test_v031_stage_close.py:12: in module
+    result=importlib.util.module_from_spec(spec);spec.loader.exec_module(result)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap_external&gt;:755: in exec_module
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:892: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;_frozen_importlib_external.SourceFileLoader object at 0x00000295A63A4F50&gt;
+path = 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_close_stage.py'
+
+&gt;   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_close_stage.py'
+
+&lt;frozen importlib._bootstrap_external&gt;:950: FileNotFoundError</failure></testcase><testcase classname="tests.project2.test_v031_stage_close" name="test_repetition_validation_rejects_missing_or_duplicate_registered_slots" time="0.005"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_close_stage.py'">def test_repetition_validation_rejects_missing_or_duplicate_registered_slots():
+        samples=json.loads((ROOT/'evals/project2-v1/calibration_v031/protocol.json').read_text(encoding='utf-8'))['samples']
+        expected={(s['sample_id'],r) for s in samples for r in (1,2,3)}
+        rows=[{'sample_id':s,'repeat':r} for s,r in sorted(expected)]
+&gt;       m=module()
+          ^^^^^^^^
+
+tests\project2\test_v031_stage_close.py:24: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\project2\test_v031_stage_close.py:12: in module
+    result=importlib.util.module_from_spec(spec);spec.loader.exec_module(result)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap_external&gt;:755: in exec_module
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:892: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;_frozen_importlib_external.SourceFileLoader object at 0x00000295A63A5A30&gt;
+path = 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_close_stage.py'
+
+&gt;   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_close_stage.py'
+
+&lt;frozen importlib._bootstrap_external&gt;:950: FileNotFoundError</failure></testcase></testsuite></testsuites>

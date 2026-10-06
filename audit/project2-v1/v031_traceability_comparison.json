@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "approved_rows": 61,
+  "runtime_rows": 61,
+  "id_counts_match": true,
+  "issues": [],
+  "semantic_rule": "approved pending is design state; runtime execution state is separate; passed requires real complete gate evidence"
+}

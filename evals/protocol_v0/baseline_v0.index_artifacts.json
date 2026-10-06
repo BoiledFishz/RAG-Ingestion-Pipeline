@@ -1,0 +1,17 @@
+{
+  ".rag_data/techqa_full.sqlite": {
+    "mtime_ns": 1790783769562204600,
+    "sha256": "2917e9f5cbe63afb3e73c5f240df59aa0f2a4fe926604dfc58b236bfc0fad8ec",
+    "size": 4587671552
+  },
+  ".rag_data/techqa_semantic/chunks.sqlite": {
+    "mtime_ns": 1790987458970677600,
+    "sha256": "7ce9e0217beaf2810b3e2d6a57e9b185e5acf830cc95798288f2e25d12000341",
+    "size": 18959486976
+  },
+  ".rag_data/techqa_semantic/index.faiss": {
+    "mtime_ns": 1790987560546740400,
+    "sha256": "8ad9eb7b6cc26124da7aef7c4d96ae2e899e69443b87648443dc6165a5b19b72",
+    "size": 4744790061
+  }
+}

@@ -1,0 +1,11 @@
+PASS 需求覆盖：49/49；追踪项：61；双向引用无悬空
+PASS 场景：42；S07矩阵：36单元；六状态覆盖；具体原问题输入无占位
+PASS 查询侧登记：50条（8/8/8/8/8/10）；确定性抽样/原问题/哈希一致
+PASS 全部status=待实施；actual=未执行；evidence_file为空；任务=32
+PASS 计划测试/证据类型/路径集合一致；AC12-11/13必过；确认单签署栏为空
+PASS requirements_v0.1.md SHA256=7aa3441bf33c7d3b94501d99d6a7e99e0ba486e03413abf3e530c6a847f6ea7b
+PASS task_preregistration.json SHA256=ecd190e06afc173ab485ccba8c1a16e6256ede19b575ecd1ceb00891de86d63f
+PASS 文档检查通过；模型/检索/数据库/评测调用=0
+PASS A/B限定修订=10条；v0.1/v0.2文件不变；S07/42场景/授权/范围/CL01–07/冻结协议保持
+PASS 完整50任务×3×2标定及全部183条tune N×3预登记；无输出后筛选；AC12-03原样
+PASS v0.3 manifest SHA256=354b94f1357167a347ed4da99e34a8bcacefd91919d75e074c22df8426265653

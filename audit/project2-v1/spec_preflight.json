@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "stage": "Chap12",
+  "gate_scope": "approved_specification_preflight",
+  "generated_at": "2026-10-06T00:34:40.127557+00:00",
+  "status": "failed",
+  "checks": [
+    {
+      "check": "frozen_real_zero_count",
+      "scenario_id": "AC12-02",
+      "sample_id": "P2-VERSION-01",
+      "query_sha256": "d5e1045cbcf55f56a88a8dd4b5145b818e35d2979e53eda12a208406beeb5d8f",
+      "input_fields": [
+        "original_question_title",
+        "original_question_text"
+      ],
+      "predicate": [
+        "Netcool/Impact",
+        "6.1.0"
+      ],
+      "fts_expression": "\"Netcool/Impact\" AND \"6.1.0\"",
+      "expected_count": 0,
+      "actual_count": 192,
+      "measurement_complete": true,
+      "elapsed_ms": 167.120199999772,
+      "database": ".rag_data/techqa_full.sqlite",
+      "manifest": {
+        "scope": "full",
+        "document_count": "801996",
+        "complete": "true",
+        "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+        "format_version": "1"
+      },
+      "evidence_type": "真实运行",
+      "evidence_scope": "independent_read_only_database_recount_only",
+      "status": "failed",
+      "failure_kind": "approved_specification_data_contradiction",
+      "not_worker_execution": true,
+      "llm_calls": 0,
+      "heldout_stage_calls_project2": 0
+    }
+  ],
+  "repair_rounds": 0,
+  "system_gate_executed": false,
+  "heldout_stage_calls_project2": 0,
+  "heldout_repetitions_project2": 0
+}

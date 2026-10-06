@@ -1,0 +1,380 @@
+C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+2026-10-06 14:54:44,538 INFO Database request=f83216c7898543eaa282592ea8f81c50 status=completed counts=[18296]
+2026-10-06 14:55:07,505 INFO Project2 run=f83216c7898543eaa282592ea8f81c50 status=completed attempts=14
+2026-10-06 14:55:07,511 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:55:07,515 INFO ch12 repeat1 1/39 elapsed=26.252
+2026-10-06 14:55:07,613 INFO Database request=06100b7b53ba441aa1a5cce924fcb9c0 status=completed counts=[40]
+2026-10-06 14:55:27,830 INFO Project2 run=06100b7b53ba441aa1a5cce924fcb9c0 status=completed attempts=14
+2026-10-06 14:55:27,831 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:55:27,833 INFO ch12 repeat1 2/39 elapsed=20.317
+2026-10-06 14:55:27,839 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:55:27,840 INFO ch12 repeat1 3/39 elapsed=0.006
+2026-10-06 14:55:27,845 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:55:27,846 INFO ch12 repeat1 4/39 elapsed=0.006
+2026-10-06 14:55:34,844 INFO Database request=5c61e297c4d54aa9871beae9fd9a953b status=completed counts=[40526]
+2026-10-06 14:55:52,258 INFO Project2 run=5c61e297c4d54aa9871beae9fd9a953b status=completed attempts=14
+2026-10-06 14:55:52,262 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:55:52,268 INFO ch12 repeat1 5/39 elapsed=24.420
+2026-10-06 14:55:53,002 INFO Database request=711425819af247b5afee07eb25578b95 status=completed counts=[3736]
+2026-10-06 14:56:04,854 INFO Project2 run=711425819af247b5afee07eb25578b95 status=completed attempts=14
+2026-10-06 14:56:04,855 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:56:04,857 INFO ch12 repeat1 6/39 elapsed=12.588
+2026-10-06 14:56:04,989 INFO Database request=0d8d85ec222f4c3c9dc673fe85f743b7 status=completed counts=[3736]
+2026-10-06 14:56:13,081 INFO Project2 run=0d8d85ec222f4c3c9dc673fe85f743b7 status=partial attempts=13
+2026-10-06 14:56:13,082 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:56:13,084 INFO ch12 repeat1 7/39 elapsed=8.226
+2026-10-06 14:56:13,088 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:56:13,088 INFO ch12 repeat1 8/39 elapsed=0.004
+2026-10-06 14:56:13,501 INFO Database request=d30d62f813cd439f8092fdc12b62b6d2 status=completed counts=[2288]
+2026-10-06 14:56:29,761 INFO Project2 run=d30d62f813cd439f8092fdc12b62b6d2 status=completed attempts=14
+2026-10-06 14:56:29,762 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:56:29,764 INFO ch12 repeat1 9/39 elapsed=16.675
+2026-10-06 14:56:33,073 INFO Database request=86be5d2788f04f5abe9b9728bc3e725c status=completed counts=[18296]
+2026-10-06 14:56:47,122 INFO Project2 run=86be5d2788f04f5abe9b9728bc3e725c status=completed attempts=14
+2026-10-06 14:56:47,123 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:56:47,126 INFO ch12 repeat1 10/39 elapsed=17.361
+2026-10-06 14:56:47,328 INFO Database request=77fc6847b82f448ab577547b8366c6fd status=completed counts=[323]
+2026-10-06 14:57:03,915 INFO Project2 run=77fc6847b82f448ab577547b8366c6fd status=completed attempts=14
+2026-10-06 14:57:03,916 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:57:03,918 INFO ch12 repeat1 11/39 elapsed=16.791
+2026-10-06 14:57:04,181 INFO Database request=7dc61ceac93740098d938b2976a5682c status=completed counts=[449]
+2026-10-06 14:57:21,434 INFO Project2 run=7dc61ceac93740098d938b2976a5682c status=completed attempts=17
+2026-10-06 14:57:21,435 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:57:21,439 INFO ch12 repeat1 12/39 elapsed=17.520
+2026-10-06 14:57:22,668 INFO Database request=29921e37a9be465a98439c8edb666cb6 status=completed counts=[4609]
+2026-10-06 14:57:42,042 INFO Project2 run=29921e37a9be465a98439c8edb666cb6 status=completed attempts=14
+2026-10-06 14:57:42,044 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:57:42,047 INFO ch12 repeat1 13/39 elapsed=20.606
+2026-10-06 14:57:42,054 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:57:42,055 INFO ch12 repeat1 14/39 elapsed=0.007
+2026-10-06 14:57:42,059 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:57:42,060 INFO ch12 repeat1 15/39 elapsed=0.004
+2026-10-06 14:57:42,935 INFO Database request=f559e82cffaa407c8f3b792dfef4068c status=completed counts=[3736]
+2026-10-06 14:57:56,592 INFO Project2 run=f559e82cffaa407c8f3b792dfef4068c status=completed attempts=14
+2026-10-06 14:57:56,593 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:57:56,596 INFO ch12 repeat1 16/39 elapsed=14.535
+2026-10-06 14:57:57,942 INFO Database request=fbfdff98ff4d448f88f64413536dff1e status=completed counts=[8643]
+2026-10-06 14:58:15,549 INFO Project2 run=fbfdff98ff4d448f88f64413536dff1e status=completed attempts=14
+2026-10-06 14:58:15,551 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:58:15,558 INFO ch12 repeat1 17/39 elapsed=18.956
+2026-10-06 14:58:16,265 INFO Database request=ef5007e483734884aaa359caa43b52a2 status=completed counts=[178]
+2026-10-06 14:58:32,327 INFO Project2 run=ef5007e483734884aaa359caa43b52a2 status=completed attempts=14
+2026-10-06 14:58:32,328 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:58:32,332 INFO ch12 repeat1 18/39 elapsed=16.772
+2026-10-06 14:58:32,339 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:58:32,340 INFO ch12 repeat1 19/39 elapsed=0.007
+2026-10-06 14:58:32,346 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:58:32,346 INFO ch12 repeat1 20/39 elapsed=0.006
+2026-10-06 14:58:32,351 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:58:32,352 INFO ch12 repeat1 21/39 elapsed=0.005
+2026-10-06 14:58:40,672 INFO Database request=5af037216f224e2aa9a2b6a1b0b2ea60 status=completed counts=[46777]
+2026-10-06 14:58:52,633 INFO Project2 run=5af037216f224e2aa9a2b6a1b0b2ea60 status=completed attempts=14
+2026-10-06 14:58:52,634 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:58:52,637 INFO ch12 repeat1 22/39 elapsed=20.283
+2026-10-06 14:58:53,343 INFO Database request=5ee75de86b3740dab3b47a36ca7dc2c9 status=completed counts=[3323]
+2026-10-06 14:59:15,737 INFO Project2 run=5ee75de86b3740dab3b47a36ca7dc2c9 status=completed attempts=14
+2026-10-06 14:59:15,738 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:59:15,741 INFO ch12 repeat1 23/39 elapsed=23.103
+2026-10-06 14:59:18,841 INFO Database request=5d5502374e6d4c7da2f45980dd6d47b4 status=completed counts=[13635]
+2026-10-06 14:59:33,152 INFO Project2 run=5d5502374e6d4c7da2f45980dd6d47b4 status=completed attempts=14
+2026-10-06 14:59:33,153 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:59:33,157 INFO ch12 repeat1 24/39 elapsed=17.414
+2026-10-06 14:59:33,168 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 14:59:33,169 INFO ch12 repeat1 25/39 elapsed=0.011
+2026-10-06 14:59:53,195 INFO Database request=6474192c4c3244c593b2036c23155a8f status=completed counts=[86438]
+2026-10-06 15:00:11,807 WARNING Project2 HTTP deadline cancelled attempts=14
+2026-10-06 15:00:11,821 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:00:11,822 INFO ch12 repeat1 26/39 elapsed=38.653
+2026-10-06 15:00:11,828 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:00:11,829 INFO ch12 repeat1 27/39 elapsed=0.007
+2026-10-06 15:00:11,833 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:00:11,834 INFO ch12 repeat1 28/39 elapsed=0.005
+2026-10-06 15:00:11,840 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:00:11,840 INFO ch12 repeat1 29/39 elapsed=0.006
+2026-10-06 15:00:11,844 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:00:11,845 INFO ch12 repeat1 30/39 elapsed=0.004
+2026-10-06 15:00:12,559 INFO Database request=a0ae4de8e019436aa0df28c2f7ef6bc0 status=completed counts=[15]
+2026-10-06 15:00:50,138 WARNING Project2 HTTP deadline cancelled attempts=13
+2026-10-06 15:00:50,140 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:00:50,141 INFO ch12 repeat1 31/39 elapsed=38.296
+2026-10-06 15:00:51,014 INFO Database request=6978a7523c144224b22cbcf0de653f16 status=completed counts=[3736]
+2026-10-06 15:01:28,488 WARNING Project2 HTTP deadline cancelled attempts=13
+2026-10-06 15:01:28,506 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:01:28,510 INFO ch12 repeat1 32/39 elapsed=38.367
+2026-10-06 15:01:29,628 INFO Database request=d6858e7dce7440518d8c08b846fdc3f8 status=completed counts=[4867]
+2026-10-06 15:02:06,828 WARNING Project2 HTTP deadline cancelled attempts=12
+2026-10-06 15:02:06,831 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:02:06,833 INFO ch12 repeat1 33/39 elapsed=38.323
+2026-10-06 15:02:08,157 INFO Database request=ceb3b08482da4aad99e517184066160f status=completed counts=[6451]
+2026-10-06 15:02:45,150 WARNING Project2 HTTP deadline cancelled attempts=9
+2026-10-06 15:02:45,156 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:02:45,158 INFO ch12 repeat1 34/39 elapsed=38.324
+2026-10-06 15:02:46,673 INFO Database request=45015175f4a34995accdc6ba343d0f47 status=completed counts=[7234]
+2026-10-06 15:03:23,505 WARNING Project2 HTTP deadline cancelled attempts=12
+2026-10-06 15:03:23,519 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:03:23,522 INFO ch12 repeat1 35/39 elapsed=38.362
+2026-10-06 15:03:23,535 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:03:23,536 INFO ch12 repeat1 36/39 elapsed=0.013
+2026-10-06 15:03:26,862 INFO Database request=455e76f712a046f99c892fce9d618877 status=completed counts=[18296]
+2026-10-06 15:04:01,844 WARNING Project2 HTTP deadline cancelled attempts=9
+2026-10-06 15:04:01,859 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:04:01,862 INFO ch12 repeat1 37/39 elapsed=38.324
+2026-10-06 15:04:01,873 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:04:01,874 INFO ch12 repeat1 38/39 elapsed=0.011
+2026-10-06 15:04:02,595 INFO Database request=f034cf1e3237415b82fe0801906f19cf status=completed counts=[2697]
+2026-10-06 15:04:40,166 WARNING Project2 HTTP deadline cancelled attempts=13
+2026-10-06 15:04:40,167 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:04:40,169 INFO ch12 repeat1 39/39 elapsed=38.294
+2026-10-06 15:04:41,697 INFO Database request=39f5be245d744208b284038d941ce77c status=completed counts=[8643]
+2026-10-06 15:05:18,540 WARNING Project2 HTTP deadline cancelled attempts=13
+2026-10-06 15:05:18,543 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:05:18,545 INFO ch12 repeat2 1/39 elapsed=38.372
+2026-10-06 15:05:25,905 INFO Database request=f89ac886623846d0a392d057b5adf488 status=completed counts=[46777]
+2026-10-06 15:05:56,870 WARNING Project2 HTTP deadline cancelled attempts=8
+2026-10-06 15:05:56,876 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:05:56,879 INFO ch12 repeat2 2/39 elapsed=38.333
+2026-10-06 15:05:57,794 INFO Database request=d52777c023614cb982e3f1c74526fa9d status=completed counts=[3736]
+2026-10-06 15:06:35,296 WARNING Project2 HTTP deadline cancelled attempts=14
+2026-10-06 15:06:35,303 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:06:35,306 INFO ch12 repeat2 3/39 elapsed=38.426
+2026-10-06 15:06:36,225 INFO Database request=84e4d160268644af83a5960635a33e08 status=completed counts=[3323]
+2026-10-06 15:07:13,693 WARNING Project2 HTTP deadline cancelled attempts=5
+2026-10-06 15:07:13,694 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:07:13,696 INFO ch12 repeat2 4/39 elapsed=38.389
+2026-10-06 15:07:13,705 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:07:13,705 INFO ch12 repeat2 5/39 elapsed=0.009
+2026-10-06 15:07:14,607 INFO Database request=c052245a2abc4ffcb7c5826928a7ec01 status=completed counts=[3736]
+2026-10-06 15:07:46,813 INFO Project2 run=c052245a2abc4ffcb7c5826928a7ec01 status=partial attempts=13
+2026-10-06 15:07:46,814 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:07:46,818 INFO ch12 repeat2 6/39 elapsed=33.110
+2026-10-06 15:07:46,873 INFO Database request=07750fcd1faf4c1e9a2ae645272ecf3d status=completed counts=[40]
+2026-10-06 15:08:04,406 INFO Project2 run=07750fcd1faf4c1e9a2ae645272ecf3d status=completed attempts=14
+2026-10-06 15:08:04,406 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:08:04,409 INFO ch12 repeat2 7/39 elapsed=17.590
+2026-10-06 15:08:05,710 INFO Database request=325e7dbc54cf4a48a35bb9616beacbe6 status=completed counts=[6451]
+2026-10-06 15:08:20,033 INFO Project2 run=325e7dbc54cf4a48a35bb9616beacbe6 status=completed attempts=14
+2026-10-06 15:08:20,034 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:08:20,036 INFO ch12 repeat2 8/39 elapsed=15.626
+2026-10-06 15:08:21,250 INFO Database request=23ee47a0d59c475896069a84ce94441d status=completed counts=[7234]
+2026-10-06 15:08:31,953 INFO Project2 run=23ee47a0d59c475896069a84ce94441d status=completed attempts=14
+2026-10-06 15:08:31,954 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:08:31,957 INFO ch12 repeat2 9/39 elapsed=11.920
+2026-10-06 15:08:31,961 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:08:31,961 INFO ch12 repeat2 10/39 elapsed=0.004
+2026-10-06 15:08:31,966 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:08:31,966 INFO ch12 repeat2 11/39 elapsed=0.005
+2026-10-06 15:08:32,699 INFO Database request=8587641b937f4dd6b8ced72177dd95b8 status=completed counts=[3736]
+2026-10-06 15:08:43,116 INFO Project2 run=8587641b937f4dd6b8ced72177dd95b8 status=completed attempts=14
+2026-10-06 15:08:43,117 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:08:43,120 INFO ch12 repeat2 12/39 elapsed=11.151
+2026-10-06 15:08:43,124 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:08:43,124 INFO ch12 repeat2 13/39 elapsed=0.005
+2026-10-06 15:08:43,128 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:08:43,128 INFO ch12 repeat2 14/39 elapsed=0.004
+2026-10-06 15:08:43,133 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:08:43,133 INFO ch12 repeat2 15/39 elapsed=0.004
+2026-10-06 15:08:46,062 INFO Database request=67a97e12688743959ff39c748ace7071 status=completed counts=[18296]
+2026-10-06 15:08:59,507 INFO Project2 run=67a97e12688743959ff39c748ace7071 status=completed attempts=14
+2026-10-06 15:08:59,509 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:08:59,513 INFO ch12 repeat2 16/39 elapsed=16.378
+2026-10-06 15:08:59,517 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:08:59,518 INFO ch12 repeat2 17/39 elapsed=0.005
+2026-10-06 15:09:00,661 INFO Database request=0931c0c66d034884b5d34d81d228894c status=completed counts=[4609]
+2026-10-06 15:09:18,574 INFO Project2 run=0931c0c66d034884b5d34d81d228894c status=completed attempts=14
+2026-10-06 15:09:18,575 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:09:18,577 INFO ch12 repeat2 18/39 elapsed=19.058
+2026-10-06 15:09:18,900 INFO Database request=b77ac084810b4b998872f77861f988e6 status=completed counts=[323]
+2026-10-06 15:09:34,636 INFO Project2 run=b77ac084810b4b998872f77861f988e6 status=completed attempts=14
+2026-10-06 15:09:34,637 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:09:34,640 INFO ch12 repeat2 19/39 elapsed=16.061
+2026-10-06 15:09:34,644 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:09:34,645 INFO ch12 repeat2 20/39 elapsed=0.005
+2026-10-06 15:09:40,836 INFO Database request=f340b8cdeda74e8baa7cba8a37cb08d2 status=completed counts=[40526]
+2026-10-06 15:10:00,673 INFO Project2 run=f340b8cdeda74e8baa7cba8a37cb08d2 status=completed attempts=14
+2026-10-06 15:10:00,675 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:10:00,680 INFO ch12 repeat2 21/39 elapsed=26.032
+2026-10-06 15:10:00,684 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:10:00,685 INFO ch12 repeat2 22/39 elapsed=0.005
+2026-10-06 15:10:01,057 INFO Database request=bacf295c89854f06b03ad0025dc796f2 status=completed counts=[449]
+2026-10-06 15:10:14,225 INFO Project2 run=bacf295c89854f06b03ad0025dc796f2 status=completed attempts=14
+2026-10-06 15:10:14,227 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:10:14,229 INFO ch12 repeat2 23/39 elapsed=13.542
+2026-10-06 15:10:14,232 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:10:14,233 INFO ch12 repeat2 24/39 elapsed=0.004
+2026-10-06 15:10:24,744 INFO Database request=8b878decf62c45a29664cda0a948f52e status=completed counts=[86438]
+2026-10-06 15:10:45,981 INFO Project2 run=8b878decf62c45a29664cda0a948f52e status=completed attempts=14
+2026-10-06 15:10:45,983 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:10:45,987 INFO ch12 repeat2 25/39 elapsed=31.752
+2026-10-06 15:10:46,642 INFO Database request=f7bc5642e46f4345b5171735890e29ee status=completed counts=[2697]
+2026-10-06 15:10:59,140 INFO Project2 run=f7bc5642e46f4345b5171735890e29ee status=completed attempts=14
+2026-10-06 15:10:59,141 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:10:59,143 INFO ch12 repeat2 26/39 elapsed=13.154
+2026-10-06 15:11:02,276 INFO Database request=b9d5658e83f74bdc94048f56b27dd595 status=completed counts=[18296]
+2026-10-06 15:11:09,843 INFO Project2 run=b9d5658e83f74bdc94048f56b27dd595 status=completed attempts=14
+2026-10-06 15:11:09,845 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:11:09,847 INFO ch12 repeat2 27/39 elapsed=10.703
+2026-10-06 15:11:09,850 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:11:09,851 INFO ch12 repeat2 28/39 elapsed=0.004
+2026-10-06 15:11:10,512 INFO Database request=521dcce271ef40aa87311b0597f0d113 status=completed counts=[3736]
+2026-10-06 15:11:23,987 INFO Project2 run=521dcce271ef40aa87311b0597f0d113 status=completed attempts=14
+2026-10-06 15:11:23,988 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:11:23,991 INFO ch12 repeat2 29/39 elapsed=14.139
+2026-10-06 15:11:24,684 INFO Database request=4a302fe7777c48ebb8f7555d4a4d2910 status=completed counts=[15]
+2026-10-06 15:11:38,046 INFO Project2 run=4a302fe7777c48ebb8f7555d4a4d2910 status=completed attempts=14
+2026-10-06 15:11:38,046 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:11:38,049 INFO ch12 repeat2 30/39 elapsed=14.057
+2026-10-06 15:11:38,416 INFO Database request=778f911c48f54329a704a5faae6531ed status=completed counts=[178]
+2026-10-06 15:11:52,803 INFO Project2 run=778f911c48f54329a704a5faae6531ed status=completed attempts=14
+2026-10-06 15:11:52,804 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:11:52,806 INFO ch12 repeat2 31/39 elapsed=14.756
+2026-10-06 15:11:55,706 INFO Database request=1dbe3cff292947ccab8ca088b2b4fd56 status=completed counts=[13635]
+2026-10-06 15:12:08,951 INFO Project2 run=1dbe3cff292947ccab8ca088b2b4fd56 status=completed attempts=14
+2026-10-06 15:12:08,954 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:12:08,960 INFO ch12 repeat2 32/39 elapsed=16.152
+2026-10-06 15:12:08,974 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:12:08,978 INFO ch12 repeat2 33/39 elapsed=0.018
+2026-10-06 15:12:08,988 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:12:08,988 INFO ch12 repeat2 34/39 elapsed=0.009
+2026-10-06 15:12:08,997 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:12:08,997 INFO ch12 repeat2 35/39 elapsed=0.009
+2026-10-06 15:12:12,804 INFO Database request=da9674512893431385b5e2f9b9950613 status=completed counts=[18296]
+2026-10-06 15:12:31,880 INFO Project2 run=da9674512893431385b5e2f9b9950613 status=completed attempts=14
+2026-10-06 15:12:31,882 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:12:31,886 INFO ch12 repeat2 36/39 elapsed=22.887
+2026-10-06 15:12:31,891 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:12:31,892 INFO ch12 repeat2 37/39 elapsed=0.005
+2026-10-06 15:12:32,360 INFO Database request=bd2f68c886a84413881f4355a833013c status=completed counts=[2288]
+2026-10-06 15:12:47,726 INFO Project2 run=bd2f68c886a84413881f4355a833013c status=completed attempts=14
+2026-10-06 15:12:47,727 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:12:47,730 INFO ch12 repeat2 38/39 elapsed=15.836
+2026-10-06 15:12:48,670 INFO Database request=703a2b8fc9a944b7805d7e9b55cf16cd status=completed counts=[4867]
+2026-10-06 15:13:09,818 INFO Project2 run=703a2b8fc9a944b7805d7e9b55cf16cd status=completed attempts=14
+2026-10-06 15:13:09,824 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:13:09,839 INFO ch12 repeat2 39/39 elapsed=22.102
+2026-10-06 15:13:11,545 INFO Database request=bded98b55a1a4b98926e20da8cb883c0 status=completed counts=[3736]
+2026-10-06 15:13:19,695 INFO Project2 run=bded98b55a1a4b98926e20da8cb883c0 status=partial attempts=11
+2026-10-06 15:13:19,696 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:13:19,698 INFO ch12 repeat3 1/39 elapsed=9.849
+2026-10-06 15:13:23,090 INFO Database request=10da508b8cd549e0a257b54e4c371850 status=completed counts=[18296]
+2026-10-06 15:13:31,826 INFO Project2 run=10da508b8cd549e0a257b54e4c371850 status=completed attempts=12
+2026-10-06 15:13:31,827 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:13:31,831 INFO ch12 repeat3 2/39 elapsed=12.132
+2026-10-06 15:13:32,193 INFO Database request=974f6d181a524674ba94b170f00b2bd8 status=completed counts=[323]
+2026-10-06 15:13:45,957 INFO Project2 run=974f6d181a524674ba94b170f00b2bd8 status=completed attempts=12
+2026-10-06 15:13:45,958 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:13:45,961 INFO ch12 repeat3 3/39 elapsed=14.128
+2026-10-06 15:13:47,416 INFO Database request=61067b7d8f5a4402a6d943740b661501 status=completed counts=[8643]
+2026-10-06 15:14:02,694 INFO Project2 run=61067b7d8f5a4402a6d943740b661501 status=completed attempts=14
+2026-10-06 15:14:02,695 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:14:02,698 INFO ch12 repeat3 4/39 elapsed=16.736
+2026-10-06 15:14:05,057 INFO Database request=554648f1cdbd4281af8b0bbad05f9f65 status=completed counts=[7234]
+2026-10-06 15:14:13,719 INFO Project2 run=554648f1cdbd4281af8b0bbad05f9f65 status=completed attempts=12
+2026-10-06 15:14:13,721 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:14:13,727 INFO ch12 repeat3 5/39 elapsed=11.025
+2026-10-06 15:14:14,742 INFO Database request=e54ef0b8768e424d9b095889f54a86c3 status=completed counts=[3323]
+2026-10-06 15:14:39,694 INFO Project2 run=e54ef0b8768e424d9b095889f54a86c3 status=completed attempts=14
+2026-10-06 15:14:39,696 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:14:39,700 INFO ch12 repeat3 6/39 elapsed=25.971
+2026-10-06 15:14:39,707 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:14:39,708 INFO ch12 repeat3 7/39 elapsed=0.007
+2026-10-06 15:14:39,733 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:14:39,734 INFO ch12 repeat3 8/39 elapsed=0.025
+2026-10-06 15:14:40,219 INFO Database request=67871b394af34c36b90f2748aebc3ca5 status=completed counts=[449]
+2026-10-06 15:14:55,652 INFO Project2 run=67871b394af34c36b90f2748aebc3ca5 status=completed attempts=14
+2026-10-06 15:14:55,653 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:14:55,660 INFO ch12 repeat3 9/39 elapsed=15.923
+2026-10-06 15:14:56,450 INFO Database request=2645f37ddef84025bd6436be675bccb7 status=completed counts=[178]
+2026-10-06 15:15:09,682 INFO Project2 run=2645f37ddef84025bd6436be675bccb7 status=completed attempts=12
+2026-10-06 15:15:09,684 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:15:09,691 INFO ch12 repeat3 10/39 elapsed=14.028
+2026-10-06 15:15:09,698 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:15:09,699 INFO ch12 repeat3 11/39 elapsed=0.008
+2026-10-06 15:15:09,707 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:15:09,708 INFO ch12 repeat3 12/39 elapsed=0.008
+2026-10-06 15:15:09,791 INFO Database request=dbbb768c5fba46e5b1db4c80bb32cd5e status=completed counts=[40]
+2026-10-06 15:15:24,462 INFO Project2 run=dbbb768c5fba46e5b1db4c80bb32cd5e status=completed attempts=12
+2026-10-06 15:15:24,463 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:15:24,467 INFO ch12 repeat3 13/39 elapsed=14.758
+2026-10-06 15:15:24,471 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:15:24,473 INFO ch12 repeat3 14/39 elapsed=0.004
+2026-10-06 15:15:24,479 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:15:24,480 INFO ch12 repeat3 15/39 elapsed=0.007
+2026-10-06 15:15:24,485 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:15:24,486 INFO ch12 repeat3 16/39 elapsed=0.005
+2026-10-06 15:15:24,490 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:15:24,490 INFO ch12 repeat3 17/39 elapsed=0.004
+2026-10-06 15:15:44,075 INFO Database request=961355f3747a49b783eefacc81d8bd38 status=completed counts=[86438]
+2026-10-06 15:16:03,108 WARNING Project2 HTTP deadline cancelled attempts=12
+2026-10-06 15:16:03,124 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:16:03,128 INFO ch12 repeat3 18/39 elapsed=38.636
+2026-10-06 15:16:03,142 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:16:03,143 INFO ch12 repeat3 19/39 elapsed=0.015
+2026-10-06 15:16:03,148 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:16:03,148 INFO ch12 repeat3 20/39 elapsed=0.005
+2026-10-06 15:16:04,736 INFO Database request=d6ecfd8f5a7d46268dc12c8e35481d37 status=completed counts=[6451]
+2026-10-06 15:16:41,719 WARNING Project2 HTTP deadline cancelled attempts=5
+2026-10-06 15:16:41,741 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:16:41,745 INFO ch12 repeat3 21/39 elapsed=38.595
+2026-10-06 15:16:41,765 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:16:41,766 INFO ch12 repeat3 22/39 elapsed=0.021
+2026-10-06 15:16:42,888 INFO Database request=e89f298641144f1fb4cf1135ab5afc3b status=completed counts=[4867]
+2026-10-06 15:17:20,119 WARNING Project2 HTTP deadline cancelled attempts=9
+2026-10-06 15:17:20,124 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:17:20,126 INFO ch12 repeat3 23/39 elapsed=38.359
+2026-10-06 15:17:20,135 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:17:20,137 INFO ch12 repeat3 24/39 elapsed=0.010
+2026-10-06 15:17:20,853 INFO Database request=1ab1e9ea407c40b09153ac4d6bae0f89 status=completed counts=[15]
+2026-10-06 15:17:58,701 WARNING Project2 HTTP deadline cancelled attempts=13
+2026-10-06 15:17:58,705 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:17:58,707 INFO ch12 repeat3 25/39 elapsed=38.569
+2026-10-06 15:17:59,519 INFO Database request=a39cd0f71a1040c18a77df6c7f365df4 status=completed counts=[2697]
+2026-10-06 15:18:36,722 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 15:18:36,861 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:18:36,869 INFO ch12 repeat3 26/39 elapsed=38.159
+2026-10-06 15:18:36,909 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:18:36,910 INFO ch12 repeat3 27/39 elapsed=0.040
+2026-10-06 15:18:37,640 INFO Database request=592e1e6f1bb6425bb43afd5e925218f0 status=completed counts=[2288]
+2026-10-06 15:19:03,193 INFO Project2 run=592e1e6f1bb6425bb43afd5e925218f0 status=completed attempts=14
+2026-10-06 15:19:03,195 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:19:03,200 INFO ch12 repeat3 28/39 elapsed=26.287
+2026-10-06 15:19:09,307 INFO Database request=b43bcc4dd0b04708bdbdb1b62abfd945 status=completed counts=[40526]
+2026-10-06 15:19:30,509 INFO Project2 run=b43bcc4dd0b04708bdbdb1b62abfd945 status=completed attempts=14
+2026-10-06 15:19:30,510 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:19:30,514 INFO ch12 repeat3 29/39 elapsed=27.311
+2026-10-06 15:19:31,715 INFO Database request=363b512cc19a43eab3f70915fe2ed4fb status=completed counts=[4609]
+2026-10-06 15:19:49,287 INFO Project2 run=363b512cc19a43eab3f70915fe2ed4fb status=completed attempts=14
+2026-10-06 15:19:49,288 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:19:49,292 INFO ch12 repeat3 30/39 elapsed=18.776
+2026-10-06 15:19:52,755 INFO Database request=870205c743754cbdab76a389bad2d4bd status=completed counts=[13635]
+2026-10-06 15:20:06,207 INFO Project2 run=870205c743754cbdab76a389bad2d4bd status=completed attempts=14
+2026-10-06 15:20:06,209 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:20:06,212 INFO ch12 repeat3 31/39 elapsed=16.918
+2026-10-06 15:20:16,063 INFO Database request=6ac806da4f7e4fc789516368be4aca26 status=completed counts=[46777]
+2026-10-06 15:20:31,845 INFO Project2 run=6ac806da4f7e4fc789516368be4aca26 status=completed attempts=17
+2026-10-06 15:20:31,849 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:20:31,863 INFO ch12 repeat3 32/39 elapsed=25.648
+2026-10-06 15:20:31,876 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:20:31,878 INFO ch12 repeat3 33/39 elapsed=0.013
+2026-10-06 15:20:31,890 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:20:31,890 INFO ch12 repeat3 34/39 elapsed=0.012
+2026-10-06 15:20:32,918 INFO Database request=cfc19d7403be4ae1b8df8669fc87cbb7 status=completed counts=[3736]
+2026-10-06 15:20:45,915 INFO Project2 run=cfc19d7403be4ae1b8df8669fc87cbb7 status=completed attempts=14
+2026-10-06 15:20:45,917 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:20:45,920 INFO ch12 repeat3 35/39 elapsed=14.028
+2026-10-06 15:20:46,920 INFO Database request=c877d7ea7cd648658f45f970fa6c267a status=completed counts=[3736]
+2026-10-06 15:21:02,376 INFO Project2 run=c877d7ea7cd648658f45f970fa6c267a status=completed attempts=14
+2026-10-06 15:21:02,378 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:21:02,387 INFO ch12 repeat3 36/39 elapsed=16.465
+2026-10-06 15:21:05,978 INFO Database request=0782283dcfd94a02b4e63b82a4da74fe status=completed counts=[18296]
+2026-10-06 15:21:21,391 INFO Project2 run=0782283dcfd94a02b4e63b82a4da74fe status=completed attempts=14
+2026-10-06 15:21:21,393 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:21:21,398 INFO ch12 repeat3 37/39 elapsed=19.009
+2026-10-06 15:21:22,433 INFO Database request=e7ac40145f824f87b03877fc39f10ae8 status=completed counts=[3736]
+2026-10-06 15:21:34,459 INFO Project2 run=e7ac40145f824f87b03877fc39f10ae8 status=completed attempts=14
+2026-10-06 15:21:34,460 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:21:34,464 INFO ch12 repeat3 38/39 elapsed=13.063
+2026-10-06 15:21:38,005 INFO Database request=ef67e72000f54fea9e46e8822d1b417e status=completed counts=[18296]
+2026-10-06 15:21:56,458 INFO Project2 run=ef67e72000f54fea9e46e8822d1b417e status=completed attempts=14
+2026-10-06 15:21:56,459 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 15:21:56,464 INFO ch12 repeat3 39/39 elapsed=21.998

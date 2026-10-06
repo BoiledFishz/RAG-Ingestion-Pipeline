@@ -1,0 +1,291 @@
+{
+  "status": "measured",
+  "source_sha256": "7156a5c3bb2f101a587bc60e82411a3e7c29d49372e4ccc19416da85785c8531",
+  "bootstrap_seed": 20261005,
+  "bootstrap_replicates": 10000,
+  "evidence_type": "真实运行",
+  "paths": {
+    "rag_only": {
+      "attempts": {
+        "numerator": 1379,
+        "denominator": 150,
+        "independent_questions": 50,
+        "mean": 9.193333333333333,
+        "range": [
+          7,
+          15
+        ],
+        "p95": 13,
+        "mean_cluster_bootstrap95": [
+          8.98,
+          9.413333333333334
+        ],
+        "p95_cluster_bootstrap95": [
+          13,
+          13
+        ],
+        "repeats": [
+          {
+            "repeat": 1,
+            "numerator": 575,
+            "denominator": 50,
+            "mean": 11.5,
+            "p95": 13
+          },
+          {
+            "repeat": 2,
+            "numerator": 407,
+            "denominator": 50,
+            "mean": 8.14,
+            "p95": 10
+          },
+          {
+            "repeat": 3,
+            "numerator": 397,
+            "denominator": 50,
+            "mean": 7.94,
+            "p95": 8
+          }
+        ],
+        "repeat_mean_range": [
+          7.94,
+          11.5
+        ]
+      },
+      "llm_calls": {
+        "numerator": 441,
+        "denominator": 150,
+        "independent_questions": 50,
+        "mean": 2.94,
+        "range": [
+          2,
+          5
+        ],
+        "p95": 3,
+        "mean_cluster_bootstrap95": [
+          2.82,
+          3.06
+        ],
+        "p95_cluster_bootstrap95": [
+          3,
+          5
+        ],
+        "repeats": [
+          {
+            "repeat": 1,
+            "numerator": 147,
+            "denominator": 50,
+            "mean": 2.94,
+            "p95": 3
+          },
+          {
+            "repeat": 2,
+            "numerator": 147,
+            "denominator": 50,
+            "mean": 2.94,
+            "p95": 3
+          },
+          {
+            "repeat": 3,
+            "numerator": 147,
+            "denominator": 50,
+            "mean": 2.94,
+            "p95": 3
+          }
+        ],
+        "repeat_mean_range": [
+          2.94,
+          2.94
+        ]
+      },
+      "elapsed_seconds": {
+        "numerator": 1782.6512433002936,
+        "denominator": 150,
+        "independent_questions": 50,
+        "mean": 11.884341622001957,
+        "range": [
+          4.466403600061312,
+          27.31855840003118
+        ],
+        "p95": 22.74777910008561,
+        "mean_cluster_bootstrap95": [
+          10.80026495267637,
+          13.03149969399829
+        ],
+        "p95_cluster_bootstrap95": [
+          19.11891540000215,
+          25.204768499941565
+        ],
+        "repeats": [
+          {
+            "repeat": 1,
+            "numerator": 801.4368097004481,
+            "denominator": 50,
+            "mean": 16.02873619400896,
+            "p95": 25.605844800011255
+          },
+          {
+            "repeat": 2,
+            "numerator": 496.5278314000461,
+            "denominator": 50,
+            "mean": 9.930556628000922,
+            "p95": 17.177367400028743
+          },
+          {
+            "repeat": 3,
+            "numerator": 484.6866021997994,
+            "denominator": 50,
+            "mean": 9.693732043995988,
+            "p95": 18.0922163000796
+          }
+        ],
+        "repeat_mean_range": [
+          9.693732043995988,
+          16.02873619400896
+        ]
+      }
+    },
+    "combination": {
+      "attempts": {
+        "numerator": 1856,
+        "denominator": 150,
+        "independent_questions": 50,
+        "mean": 12.373333333333333,
+        "range": [
+          0,
+          16
+        ],
+        "p95": 15,
+        "mean_cluster_bootstrap95": [
+          11.566666666666666,
+          12.993333333333334
+        ],
+        "p95_cluster_bootstrap95": [
+          14,
+          15
+        ],
+        "repeats": [
+          {
+            "repeat": 1,
+            "numerator": 672,
+            "denominator": 50,
+            "mean": 13.44,
+            "p95": 15
+          },
+          {
+            "repeat": 2,
+            "numerator": 593,
+            "denominator": 50,
+            "mean": 11.86,
+            "p95": 15
+          },
+          {
+            "repeat": 3,
+            "numerator": 591,
+            "denominator": 50,
+            "mean": 11.82,
+            "p95": 15
+          }
+        ],
+        "repeat_mean_range": [
+          11.82,
+          13.44
+        ]
+      },
+      "llm_calls": {
+        "numerator": 422,
+        "denominator": 150,
+        "independent_questions": 50,
+        "mean": 2.8133333333333335,
+        "range": [
+          0,
+          4
+        ],
+        "p95": 3,
+        "mean_cluster_bootstrap95": [
+          2.62,
+          2.966666666666667
+        ],
+        "p95_cluster_bootstrap95": [
+          3,
+          3
+        ],
+        "repeats": [
+          {
+            "repeat": 1,
+            "numerator": 140,
+            "denominator": 50,
+            "mean": 2.8,
+            "p95": 3
+          },
+          {
+            "repeat": 2,
+            "numerator": 141,
+            "denominator": 50,
+            "mean": 2.82,
+            "p95": 3
+          },
+          {
+            "repeat": 3,
+            "numerator": 141,
+            "denominator": 50,
+            "mean": 2.82,
+            "p95": 3
+          }
+        ],
+        "repeat_mean_range": [
+          2.8,
+          2.82
+        ]
+      },
+      "elapsed_seconds": {
+        "numerator": 4074.2242365004495,
+        "denominator": 150,
+        "independent_questions": 50,
+        "mean": 27.161494910002997,
+        "range": [
+          0.000269099953584373,
+          2098.0580622999696
+        ],
+        "p95": 26.545341900084168,
+        "mean_cluster_bootstrap95": [
+          11.956771669338924,
+          56.10067944866605
+        ],
+        "p95_cluster_bootstrap95": [
+          21.42115810001269,
+          36.90093300002627
+        ],
+        "repeats": [
+          {
+            "repeat": 1,
+            "numerator": 871.7032896000892,
+            "denominator": 50,
+            "mean": 17.434065792001785,
+            "p95": 36.90093300002627
+          },
+          {
+            "repeat": 2,
+            "numerator": 595.8993896002648,
+            "denominator": 50,
+            "mean": 11.917987792005297,
+            "p95": 25.231388699961826
+          },
+          {
+            "repeat": 3,
+            "numerator": 2606.6215573000954,
+            "denominator": 50,
+            "mean": 52.132431146001906,
+            "p95": 21.147079299902543
+          }
+        ],
+        "repeat_mean_range": [
+          11.917987792005297,
+          52.132431146001906
+        ]
+      }
+    }
+  },
+  "all_failures_retained": true,
+  "heldout_calls": 0
+}

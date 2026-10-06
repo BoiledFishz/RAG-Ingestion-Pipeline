@@ -1,0 +1,84 @@
+C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+2026-10-06 12:35:17,342 INFO Database request=df054985073b4881a86450b6ce99fa05 status=no_data counts=[0]
+2026-10-06 12:35:26,974 INFO Project2 run=df054985073b4881a86450b6ce99fa05 status=partial attempts=14
+2026-10-06 12:35:26,977 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:35:26,977 INFO extra AC12-02 default repeat1 passed=True
+2026-10-06 12:35:27,112 INFO Database request=d5cc2eb0e51a45dc91b2fcecb4295b0c status=no_data counts=[0]
+2026-10-06 12:35:32,427 INFO Project2 run=d5cc2eb0e51a45dc91b2fcecb4295b0c status=partial attempts=12
+2026-10-06 12:35:32,428 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:35:32,429 INFO extra AC12-02 default repeat2 passed=True
+2026-10-06 12:35:32,561 INFO Database request=c7db84bd205f430391897630e13284be status=no_data counts=[0]
+2026-10-06 12:35:37,859 INFO Project2 run=c7db84bd205f430391897630e13284be status=partial attempts=12
+2026-10-06 12:35:37,860 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:35:37,861 INFO extra AC12-02 default repeat3 passed=True
+2026-10-06 12:35:38,595 INFO Database request=d7f73c7206ed42e09db9ad1ff6b2fab4 status=completed counts=[3736]
+2026-10-06 12:35:50,696 INFO Project2 run=d7f73c7206ed42e09db9ad1ff6b2fab4 status=completed attempts=13
+2026-10-06 12:35:50,697 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:35:50,697 INFO extra AC12-10 default repeat1 passed=True
+2026-10-06 12:35:50,806 INFO Database request=1e6709d4aa8943b6b5eb0b6df29c756d status=completed counts=[3736]
+2026-10-06 12:35:58,688 INFO Project2 run=1e6709d4aa8943b6b5eb0b6df29c756d status=completed attempts=12
+2026-10-06 12:35:58,689 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:35:58,689 INFO extra AC12-10 default repeat2 passed=True
+2026-10-06 12:35:58,800 INFO Database request=99f2f7f0df104cb79e5821aba6a41349 status=completed counts=[3736]
+2026-10-06 12:36:06,904 INFO Project2 run=99f2f7f0df104cb79e5821aba6a41349 status=completed attempts=12
+2026-10-06 12:36:06,905 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:36:06,905 INFO extra AC12-10 default repeat3 passed=True
+2026-10-06 12:36:07,439 WARNING Database request=c71f1d4a21d240b5ab3d9f4ae2594e94 status=partial timeout=injected_database_group_timeout
+2026-10-06 12:36:21,059 INFO Project2 run=c71f1d4a21d240b5ab3d9f4ae2594e94 status=partial attempts=15
+2026-10-06 12:36:21,060 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:36:21,062 INFO extra AC12-11 default repeat1 passed=True
+2026-10-06 12:36:21,229 WARNING Database request=036492eaaa5a445fa5c0126316f6dbbe status=partial timeout=injected_database_group_timeout
+2026-10-06 12:36:30,307 INFO Project2 run=036492eaaa5a445fa5c0126316f6dbbe status=partial attempts=13
+2026-10-06 12:36:30,308 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:36:30,309 INFO extra AC12-11 default repeat2 passed=True
+2026-10-06 12:36:30,453 WARNING Database request=c2b2623884b149c1a32499db74d03741 status=partial timeout=injected_database_group_timeout
+2026-10-06 12:36:39,180 INFO Project2 run=c2b2623884b149c1a32499db74d03741 status=partial attempts=13
+2026-10-06 12:36:39,181 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:36:39,182 INFO extra AC12-11 default repeat3 passed=True
+2026-10-06 12:36:41,801 INFO Database request=e740957c4cea4923972139ba907c186c status=completed counts=[18296]
+2026-10-06 12:36:51,707 INFO Project2 run=e740957c4cea4923972139ba907c186c status=completed attempts=14
+2026-10-06 12:36:51,708 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:36:51,709 INFO extra AC12-13 default repeat1 passed=True
+2026-10-06 12:36:51,973 INFO Database request=73250c91516e4dde8f53860bdb34f0bf status=completed counts=[18296]
+2026-10-06 12:36:57,613 INFO Project2 run=73250c91516e4dde8f53860bdb34f0bf status=completed attempts=12
+2026-10-06 12:36:57,614 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:36:57,614 INFO extra AC12-13 default repeat2 passed=True
+2026-10-06 12:36:57,885 INFO Database request=d2f7cff2bffd4fb58bf5ae6b17d6bbc3 status=completed counts=[18296]
+2026-10-06 12:37:03,537 INFO Project2 run=d2f7cff2bffd4fb58bf5ae6b17d6bbc3 status=completed attempts=12
+2026-10-06 12:37:03,538 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:37:03,539 INFO extra AC12-13 default repeat3 passed=True
+2026-10-06 12:37:26,843 INFO Database request=3321dd3e79584330abac25921d2d1ad3 status=completed counts=[18296]
+2026-10-06 12:37:37,171 INFO Project2 run=3321dd3e79584330abac25921d2d1ad3 status=completed attempts=17
+2026-10-06 12:37:37,172 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:37:37,173 INFO extra AC12-13 candidate45_rrf30 repeat1 passed=True
+2026-10-06 12:37:37,482 INFO Database request=44b8c359308641eea1feba9c717541d8 status=completed counts=[18296]
+2026-10-06 12:37:43,278 INFO Project2 run=44b8c359308641eea1feba9c717541d8 status=completed attempts=12
+2026-10-06 12:37:43,279 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:37:43,280 INFO extra AC12-13 candidate45_rrf30 repeat2 passed=True
+2026-10-06 12:37:43,557 INFO Database request=e7681357a9604217ba73397cd689c6a3 status=completed counts=[18296]
+2026-10-06 12:37:49,351 INFO Project2 run=e7681357a9604217ba73397cd689c6a3 status=completed attempts=12
+2026-10-06 12:37:49,351 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:37:49,352 INFO extra AC12-13 candidate45_rrf30 repeat3 passed=True
+2026-10-06 12:38:11,148 INFO Database request=93bbd7ff2f6b4f36ae24a66a58dd2439 status=completed counts=[18296]
+2026-10-06 12:38:21,361 INFO Project2 run=93bbd7ff2f6b4f36ae24a66a58dd2439 status=completed attempts=17
+2026-10-06 12:38:21,362 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:38:21,363 INFO extra AC12-13 candidate60_rrf100 repeat1 passed=True
+2026-10-06 12:38:21,664 INFO Database request=0478e3b5973940b697d759c1846efa42 status=completed counts=[18296]
+2026-10-06 12:38:27,352 INFO Project2 run=0478e3b5973940b697d759c1846efa42 status=completed attempts=12
+2026-10-06 12:38:27,353 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:38:27,353 INFO extra AC12-13 candidate60_rrf100 repeat2 passed=True
+2026-10-06 12:38:27,647 INFO Database request=34719e038ed946128e583e34762d30c9 status=completed counts=[18296]
+2026-10-06 12:38:33,345 INFO Project2 run=34719e038ed946128e583e34762d30c9 status=completed attempts=12
+2026-10-06 12:38:33,346 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:38:33,347 INFO extra AC12-13 candidate60_rrf100 repeat3 passed=True
+2026-10-06 12:38:51,613 INFO Database request=765ffbd33bb4466ba9626df87a4b8799 status=completed counts=[309]
+2026-10-06 12:39:29,721 WARNING Project2 HTTP deadline cancelled attempts=16
+2026-10-06 12:39:29,727 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:39:29,750 INFO Database request=f9e0852e4edc45cebbeff092d2b67272 status=completed counts=[309]
+2026-10-06 12:40:07,958 WARNING Project2 HTTP deadline cancelled attempts=5
+2026-10-06 12:40:07,958 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:40:08,077 INFO Database request=933aca05d21c4b519e4be606568dcbc3 status=completed counts=[309]
+2026-10-06 12:40:46,203 WARNING Project2 HTTP deadline cancelled attempts=5
+2026-10-06 12:40:46,204 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 12:40:57,309 INFO full_gate=passed failures=[]

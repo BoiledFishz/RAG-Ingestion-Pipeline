@@ -1,0 +1,28 @@
+{
+  "version": "v0.3.1",
+  "authorization_date": "2026-10-05",
+  "files": {
+    "acceptance_scenarios.csv": "ee2f94fccff52976a9242dedfdeb96bd4f7e753aed59639226884aa506bf09fa",
+    "approval_record.md": "4261db500b9fcc04108cb308efd7903b2134cff0c976fc4f3b1622e363eeef70",
+    "check_docs.py": "882d071a8056c4637fc7ae7e9e088f07c77caf0bf7af025d909123cd7df4bad7",
+    "clarifications.md": "060388edd8b6719a70ce07e5a3e20cb5f001a8b056c092536a6590b2bc51678c",
+    "delta.json": "84b99c473c6ae03c7fe3269022e75233cd167d6e65883a88518b82907a3791c0",
+    "delta.md": "39433b83d999bb08e95363abcd9fa77b57f7413ce9a1f9dbed2ec73cb9f47bc2",
+    "operation_protocol.json": "2c4036a2bc6774fd7b3be7dc2d9d514a547be5ce28113c6a11d1f46983e1171f",
+    "plan.md": "5bcb62ed931773092015ed6b9fddacdda7f2e984562e95a6b6097c0a3159960b",
+    "requirements_v0.1.md": "7aa3441bf33c7d3b94501d99d6a7e99e0ba486e03413abf3e530c6a847f6ea7b",
+    "review_sheet.md": "580f62088c9173dfb800f4fb9d687dd4ea6929d2e503233e6e4ff4a12b7ade0e",
+    "review_sheet_signed_2026-10-05.md": "81cea2ea6241f0f51da3eecd45d999a99ebb2c939c6445e57197a0673a00b048",
+    "spec.md": "9728d7c07d471189ad70647367ccce16cdeeb46bad066133ce1cefc5a921a2ae",
+    "task_preregistration.json": "ecd190e06afc173ab485ccba8c1a16e6256ede19b575ecd1ceb00891de86d63f",
+    "task_preregistration.json.sha256": "981c10858e4642fb14995f5c5447bfeccdb9e7242c1f5f443cd63451df62c2ea",
+    "tasks.md": "5ce515349f6498cf49932eec70526941abb256384a59ef4571f65ced28c15dd7",
+    "traceability.csv": "14c308d2759dd8c0b127d385770b650753bca8d405bac67da5116c0a5790bde2",
+    "zero_predicate_registration.json": "317217920ffea15edab5578518114dbcb31cdf78059bbe920872afc08953701d"
+  },
+  "excluded": [
+    "version_manifest.json",
+    "approval_addendum.md"
+  ],
+  "exclusion_reason": "avoid circular hash; addendum quotes manifest"
+}

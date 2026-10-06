@@ -1,0 +1,35 @@
+{
+  "status": "incomplete_censored",
+  "paths": {
+    "rag_only": {
+      "status": "selected",
+      "p95": {
+        "attempts": 13,
+        "llm_calls": 3,
+        "elapsed_seconds": 22.74777910008561
+      },
+      "limits": {
+        "attempts": 17,
+        "llm_calls": 4,
+        "seconds": 34.121669
+      }
+    },
+    "combination": {
+      "status": "incomplete_censored",
+      "p95": {
+        "attempts": 15,
+        "llm_calls": 3,
+        "elapsed_seconds": 26.545341900084168
+      },
+      "limits": null
+    }
+  },
+  "limits": null,
+  "requests": 300,
+  "expected": 300,
+  "protocol_sha256": "463dddb3ab1ea100c5d50fccc4af5cbeb267ecb3bccffa724a6c123c413f0cf5",
+  "raw_sha256": "7156a5c3bb2f101a587bc60e82411a3e7c29d49372e4ccc19416da85785c8531",
+  "heldout_calls": 0,
+  "complete_set_measured": true,
+  "production_limits_changed": false
+}

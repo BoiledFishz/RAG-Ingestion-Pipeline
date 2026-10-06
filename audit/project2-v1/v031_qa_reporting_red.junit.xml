@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="4" time="2.690" timestamp="2026-10-06T15:28:40.371620-07:00" hostname="szy"><testcase classname="tests.project2.test_v031_reporting" name="test_prior_batch_count_and_censor_are_read_from_immutable_records" time="0.405" /><testcase classname="tests.project2.test_v031_reporting" name="test_comparison_rendering_is_compact_and_contains_ci_and_declines" time="0.003" /><testcase classname="tests.project2.test_v031_reporting" name="test_qa_report_keeps_repeats_ci_and_unscored_answers_visible" time="0.033"><failure message="AttributeError: module 'p2_report' has no attribute 'qa_text'">def test_qa_report_keeps_repeats_ci_and_unscored_answers_visible():
+        # Only existing official-data measurements; no synthetic QA.
+        m=load()
+        summary=json.loads((ROOT/'evals/project2-v1/ch12/qa-tune/summary.json').read_text(encoding='utf-8'))
+&gt;       result=m.qa_text(summary)
+               ^^^^^^^^^
+E       AttributeError: module 'p2_report' has no attribute 'qa_text'
+
+tests\project2\test_v031_reporting.py:32: AttributeError</failure></testcase><testcase classname="tests.project2.test_v031_reporting" name="test_unsupported_business_comparison_does_not_call_incomplete_tasks_regressions" time="0.009"><failure message="AssertionError: assert ('未完整完成' in 'complete=129.0/150，均值0.86，95%CI [0.7381380628941446, 0.9304916657298371]；count_exact=150.0/150，均值1.0，95%CI [0.9286524...2153617334552]；single_agent不支持=150/150，未启动模型，不作成本优势比较；fixed_workflow不支持=150/150，未启动模型，不作成本优势比较；退化项21；完整明细见summary.json')">def test_unsupported_business_comparison_does_not_call_incomplete_tasks_regressions():
+        value=json.loads((ROOT/'evals/project2-v1/ch12/summary.json').read_text(encoding='utf-8'))
+        result=load().comparison_text(value)
+&gt;       assert '未完整完成' in result and '退化项' not in result
+E       AssertionError: assert ('未完整完成' in 'complete=129.0/150，均值0.86，95%CI [0.7381380628941446, 0.9304916657298371]；count_exact=150.0/150，均值1.0，95%CI [0.9286524...2153617334552]；single_agent不支持=150/150，未启动模型，不作成本优势比较；fixed_workflow不支持=150/150，未启动模型，不作成本优势比较；退化项21；完整明细见summary.json')
+
+tests\project2\test_v031_reporting.py:40: AssertionError</failure></testcase></testsuite></testsuites>

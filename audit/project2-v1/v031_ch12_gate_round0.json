@@ -1,0 +1,103 @@
+{
+  "stage": "Chap12",
+  "spec_version": "v0.3.1",
+  "gate_scope": "system_gate",
+  "system_gate_executed": true,
+  "status": "passed",
+  "checks": [
+    {
+      "check": "36_S07_cells",
+      "expected": true,
+      "observed": true,
+      "status": "passed"
+    },
+    {
+      "check": "AC12-01",
+      "expected": true,
+      "observed": true,
+      "status": "passed"
+    },
+    {
+      "check": "AC12-02",
+      "expected": true,
+      "observed": true,
+      "status": "passed"
+    },
+    {
+      "check": "AC12-10",
+      "expected": true,
+      "observed": true,
+      "status": "passed"
+    },
+    {
+      "check": "AC12-11",
+      "expected": true,
+      "observed": true,
+      "status": "passed"
+    },
+    {
+      "check": "AC12-13",
+      "expected": true,
+      "observed": true,
+      "status": "passed"
+    },
+    {
+      "check": "AC12-16",
+      "expected": true,
+      "observed": true,
+      "status": "passed"
+    },
+    {
+      "check": "AC12-23(a)",
+      "expected": true,
+      "observed": true,
+      "status": "passed"
+    },
+    {
+      "check": "budget_frozen",
+      "expected": true,
+      "observed": true,
+      "status": "passed"
+    },
+    {
+      "check": "component_checks",
+      "expected": true,
+      "observed": true,
+      "status": "passed"
+    },
+    {
+      "check": "frozen_v0_unchanged",
+      "expected": true,
+      "observed": true,
+      "status": "passed"
+    },
+    {
+      "check": "independent_count_recomputation",
+      "expected": true,
+      "observed": true,
+      "status": "passed"
+    },
+    {
+      "check": "old_multiagent_regression",
+      "expected": true,
+      "observed": true,
+      "status": "passed"
+    }
+  ],
+  "repair_rounds": 0,
+  "chapter_repair_rounds": 1,
+  "limits": {
+    "attempts": 19,
+    "llm_calls": 6,
+    "seconds": 37.941018
+  },
+  "failure_items": [],
+  "heldout_stage_calls_project2": 0,
+  "engineering_gate_only": true,
+  "comparison_and_heldout_pending": true,
+  "evidence_files": [
+    "audit\\project2-v1\\v031_ch12_components_round0.junit.xml",
+    "audit/project2-v1/v031_ch12_extras_round0.json",
+    "audit/project2-v1/v031_independent_counts.json"
+  ]
+}

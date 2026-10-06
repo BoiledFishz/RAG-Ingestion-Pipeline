@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="1.231" timestamp="2026-10-05T20:19:47.357577-07:00" hostname="szy"><testcase classname="tests.project2.test_v03_cancel_ownership" name="test_queued_request_timeout_does_not_terminate_another_owner" time="0.042"><failure message="assert not [True]">def test_queued_request_timeout_does_not_terminate_another_owner():
+        environment=json.loads((ROOT/'evals/protocol_v0/baseline_v0.config.json').read_text(encoding='utf-8'))['environment']
+        runtime=BoundedRAGProcess(environment)
+        stopped=[]
+        runtime.stop=lambda:stopped.append(True)
+        query=json.loads((ROOT/'specs/project2/v0.3/task_preregistration.json').read_text(encoding='utf-8'))['samples'][0]['query']
+        async def exercise():
+            await runtime.lock.acquire()
+            try:
+                with pytest.raises(TimeoutError):
+                    await runtime.run(query,Budget(seconds=.02))
+            finally:
+                runtime.lock.release()
+        asyncio.run(exercise())
+&gt;       assert not stopped
+E       assert not [True]
+
+tests\project2\test_v03_cancel_ownership.py:25: AssertionError</failure></testcase></testsuite></testsuites>

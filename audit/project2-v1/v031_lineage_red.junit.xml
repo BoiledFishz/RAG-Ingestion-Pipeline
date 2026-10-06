@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="2.018" timestamp="2026-10-05T22:03:13.648565-07:00" hostname="szy"><testcase classname="tests.project2.test_v031_lineage" name="test_real_source_positions_and_compression_are_exposed_without_changing_answer" time="0.961"><failure message="KeyError: 'source_lineage'">def test_real_source_positions_and_compression_are_exposed_without_changing_answer():
+        raw=ROOT/'evals/project2-v1/calibration_v03/requests.jsonl'
+        record=next(json.loads(line) for line in raw.read_text(encoding='utf-8').splitlines()
+                    if json.loads(line)['path']=='rag_only' and
+                    json.loads(line)['result'].get('data',{}).get('trace',{}).get('status')=='answered')
+        message=record['result']
+        class ReplayRAG:
+            async def run(self, query, budget):
+                assert query==message['data']['trace']['original_query']
+                return message
+        context=TrustedContext('contract-owner','local',frozenset({'full'}),frozenset({'document_count','rag_explain'}))
+        result=asyncio.run(Supervisor(DatabaseWorker(ROOT/'.rag_data/techqa_full.sqlite'),ReplayRAG()).run(
+            AnalysisRequest(query=message['data']['trace']['original_query']),context,Budget()))
+&gt;       lineage=result['workers']['rag']['payload']['source_lineage']
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'source_lineage'
+
+tests\project2\test_v031_lineage.py:27: KeyError</failure></testcase></testsuite></testsuites>

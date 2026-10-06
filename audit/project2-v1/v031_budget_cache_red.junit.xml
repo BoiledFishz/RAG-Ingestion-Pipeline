@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="0.673" timestamp="2026-10-06T11:09:31.793983-07:00" hostname="szy"><testcase classname="tests.project2.test_verified_budget_cache" name="test_verified_source_is_locked_against_rewrite" time="0.003"><failure message="ModuleNotFoundError: No module named 'agents.project2.budget_cache'">tmp_path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/ce6720d33a724b77b65873362a2b8426')
+
+    @pytest.mark.skipif(os.name != 'nt', reason='Windows sharing semantics')
+    def test_verified_source_is_locked_against_rewrite(tmp_path):
+&gt;       from agents.project2.budget_cache import ReadLocks
+E       ModuleNotFoundError: No module named 'agents.project2.budget_cache'
+
+enterprise-ai-agent\tests\project2\test_verified_budget_cache.py:8: ModuleNotFoundError</failure></testcase><testcase classname="tests.project2.test_verified_budget_cache" name="test_request_uses_preverified_locked_limits" time="0.001"><failure message="AttributeError: module 'agents.project2.budget' has no attribute 'prepare_budget_configuration'">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000023E1A7F5BA0&gt;
+
+    @pytest.mark.skipif(os.name != 'nt', reason='Windows immutable configuration snapshot')
+    def test_request_uses_preverified_locked_limits(monkeypatch):
+&gt;       budget.prepare_budget_configuration()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'agents.project2.budget' has no attribute 'prepare_budget_configuration'
+
+enterprise-ai-agent\tests\project2\test_verified_budget_cache.py:17: AttributeError</failure></testcase></testsuite></testsuites>

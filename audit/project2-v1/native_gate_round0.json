@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "stage": "Chap12",
+  "gate_scope": "native_combination_subgate",
+  "system_gate_executed": false,
+  "generated_at": "2026-10-06T02:12:32.947877+00:00",
+  "status": "failed",
+  "checks": [
+    {
+      "check": "native_dependencies_ready",
+      "expected": "ready",
+      "observed": "TimeoutError:",
+      "status": "failed",
+      "evidence_type": "真实运行",
+      "evidence_scope": "actual_startup_attempt_only"
+    }
+  ],
+  "failure_items": [
+    "native_dependencies_ready"
+  ],
+  "repair_rounds": 0,
+  "registration_sha256": "9c6d1798b298fbfe8a04bc04684ae312a93bea4bb93abb6a7196e6e3ca442128",
+  "heldout_stage_calls_project2": 0,
+  "heldout_repetitions_project2": 0,
+  "not_completed_stage_gate": true,
+  "not_quality_evaluation": true
+}

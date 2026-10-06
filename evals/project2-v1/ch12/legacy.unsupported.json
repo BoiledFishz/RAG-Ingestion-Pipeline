@@ -1,0 +1,3002 @@
+[
+  {
+    "sample_id": "P2-COMPARE-01",
+    "group_sha256": "f38a6ef8bb91bc101429357c4fb15940803f2f4151c582bed8fdaf254669e605",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-02",
+    "group_sha256": "29c0b8e6079d0d0e18954ee5840b83d528230f8749866c8a39298cc3d70c972e",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-03",
+    "group_sha256": "cee5b19dac28af6d557499d663a97e1c7bb421b4b95500659c69705bb9db7858",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-04",
+    "group_sha256": "aa56577c7b571e7431e687936f97ff38b8bd833d0a1a33b8ef9a5f1a4f3cf263",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-05",
+    "group_sha256": "458f9f7f407a99d3c8054bad35a5ee6bee0c48efc9fe448ddf2424dcbddade42",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-06",
+    "group_sha256": "4d8c352599136a4202687efb7c0ef91b0eb6ca606646842464c78a20d0041960",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-07",
+    "group_sha256": "be2e9041bbd58a1157e79a6f2b18e20e92ebfdcdd4266a96897b026c384063ba",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-08",
+    "group_sha256": "509159a37ee8b8b6ec3303c38c35a65a312194afc9a63185e1d1688e72838851",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-01",
+    "group_sha256": "3533558486eba01f8f292d6f34377e984e68f507669be8f0d2d747935c72e560",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-02",
+    "group_sha256": "bd9c2661a8e3c59e84dcd96fa20e6ac681b365e07ff2d7b46abf782953f082d1",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-03",
+    "group_sha256": "ee4b0049cfdeb6e784fa594bc76a70e9027b197609c795e558e686b205516e73",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-04",
+    "group_sha256": "d4cb135e538c84fa527710a34e449e74c62981c91c7b2ac2dfd5a5397efc0947",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-05",
+    "group_sha256": "bb80cba03e3e5cedb8b09724d4a5258622d6ca66f221ca3d4d4d39ea8d65de3d",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-06",
+    "group_sha256": "b410ced83608032ccdde45f342e6ab5d71e9e451ee687a9e733e64776b9ec202",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-07",
+    "group_sha256": "7072afc9d08f97a44daf59f949d1aeea3364b071daff1f1d4aeac21fc2b9f331",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-08",
+    "group_sha256": "7ee07fd36f04f847677be4f49c82f20ce95b7bc66a37a81cbda6ba3f1670df4b",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-01",
+    "group_sha256": "5c15a28787a894b4bd4359942911b57751590e8c97271c302f53374ff8524aaa",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-02",
+    "group_sha256": "50bb45f5911c496ca2ee75cf6f73ae55019c56ec98714d4086f52f53d16918a0",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-03",
+    "group_sha256": "53aeba478cc8fecc2769f74d0d2755928332fe04fd9ab9f811072d06e26b213a",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-04",
+    "group_sha256": "1712487d221041a37e0969d5facde7f571b4e6f9acff1e636eeb585629bf7128",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-05",
+    "group_sha256": "2231d8d9249b7b7ebd0d491699a1b229517f6d668c60a6c54edf51754e9535fa",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-06",
+    "group_sha256": "95592dc813de46efc60a191d67292d685ad1d93e86bed84ab0bb0ca8e9238129",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-07",
+    "group_sha256": "85eefa4b784b2d5921169a59483f659dbdaf8d08947b898c10747a97a8892d31",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-08",
+    "group_sha256": "fa94d6406b4f19c3050b79d7007043e00e88433fda181e4305a7de9b52c16e3a",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-01",
+    "group_sha256": "d5e1045cbcf55f56a88a8dd4b5145b818e35d2979e53eda12a208406beeb5d8f",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-02",
+    "group_sha256": "23a2a7190e4016e2e090651e639b5444e3c2bd492f2ae8121aa35e81bed3612d",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-03",
+    "group_sha256": "789e29e5195f63b8e29d243f0518c0d57ddf1f4322cca552868f3a36616eb717",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-04",
+    "group_sha256": "c23421bc31d0f8a7dc657923a3a9b12dab3afd0d75c526833c04d46a4ae40d63",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-05",
+    "group_sha256": "27e806cc91f576da9a16c2b7024cc966547fd14301d71dade278ae0dcabd315e",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-06",
+    "group_sha256": "a4e5df7cec9e7a2c12f84da8816736a05e6645f78be0f917591de4cf960c1552",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-07",
+    "group_sha256": "ba2137da948ef0e52d7879310ba50feb01720d3195c87f6a68291a0dfd459d09",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-08",
+    "group_sha256": "c1633bc0820f1830510b084999861389ee1c97993701d69e578d1d422398b193",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-01",
+    "group_sha256": "0312a53158deb660fa0c16cb3e68818c29a2366c4b7240cc13e968af4b9625f8",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-02",
+    "group_sha256": "070bd6335c054090120ed864fc4e2cf3b03bafe964a5123693f09688e7cc96b9",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-03",
+    "group_sha256": "b5c01c130b468de7bea4c25eff65aa053411bd23bce8f1c31da11d49ca684699",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-04",
+    "group_sha256": "11b5706becc8fff5d975f5ab75365bacf30a0bcc10a91b7ecaeaa401c5beb532",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-05",
+    "group_sha256": "cbca0b84877f0d474655d701c35cd28197e78a4bdfb9433143471081c75a9957",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-06",
+    "group_sha256": "e0843c352d431ce55afb79963ada8c8010106ab1c7bc7bd003e32201633467e8",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-07",
+    "group_sha256": "a73ce09eb3907e6043b4f5fa1650fe73c45efb27002a2b0fe860109dd76b7da5",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-08",
+    "group_sha256": "7008cbedc0a4f5982e255cf82723d106743c094734a66dd07cbfabfb66cc4cbe",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-01",
+    "group_sha256": "a5d0667a18e672eaf89f2272d8ee0dee3fca89cce84fe4f7f6e7f51425315dbb",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-02",
+    "group_sha256": "817e4256d3e9bce5469cba5d17963bbd53038e96d0082cc27f672afba8b3f6ce",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-03",
+    "group_sha256": "c0cbaaf707f84d49629eafaf2ad12d50e3007f38d7b1e418fd1f181a011b462b",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-04",
+    "group_sha256": "23c533707359b13ff7881436e81ed2690a82635bca1663dcaa056fd8a9f7509d",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-05",
+    "group_sha256": "25dfd715856fc3da85e110b9600647582961ec82241e17df0ed92f1aab3b8b10",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-06",
+    "group_sha256": "afc7c741d2aaf0484cd7eedafad430dc494a3037e29fc5049ae9933d22ce1514",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-07",
+    "group_sha256": "5d1c1a8056635c3ff7a8c76c306215f43eeb228b294a44dad49b75f363140425",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-08",
+    "group_sha256": "c41b3e351dc3dc7f97adc2c2a00636254b2efbb859fa508840a2b9aaeebd526c",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-09",
+    "group_sha256": "09ef68a24e7421d69e0a0970a526e2e85dbc64397793878bd79692c24f2cc599",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-10",
+    "group_sha256": "a7123382bc668e0c1a11adab2161ebca757d8380659ef85bb46db595a5355653",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-01",
+    "group_sha256": "f38a6ef8bb91bc101429357c4fb15940803f2f4151c582bed8fdaf254669e605",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-02",
+    "group_sha256": "29c0b8e6079d0d0e18954ee5840b83d528230f8749866c8a39298cc3d70c972e",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-03",
+    "group_sha256": "cee5b19dac28af6d557499d663a97e1c7bb421b4b95500659c69705bb9db7858",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-04",
+    "group_sha256": "aa56577c7b571e7431e687936f97ff38b8bd833d0a1a33b8ef9a5f1a4f3cf263",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-05",
+    "group_sha256": "458f9f7f407a99d3c8054bad35a5ee6bee0c48efc9fe448ddf2424dcbddade42",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-06",
+    "group_sha256": "4d8c352599136a4202687efb7c0ef91b0eb6ca606646842464c78a20d0041960",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-07",
+    "group_sha256": "be2e9041bbd58a1157e79a6f2b18e20e92ebfdcdd4266a96897b026c384063ba",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-08",
+    "group_sha256": "509159a37ee8b8b6ec3303c38c35a65a312194afc9a63185e1d1688e72838851",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-01",
+    "group_sha256": "3533558486eba01f8f292d6f34377e984e68f507669be8f0d2d747935c72e560",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-02",
+    "group_sha256": "bd9c2661a8e3c59e84dcd96fa20e6ac681b365e07ff2d7b46abf782953f082d1",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-03",
+    "group_sha256": "ee4b0049cfdeb6e784fa594bc76a70e9027b197609c795e558e686b205516e73",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-04",
+    "group_sha256": "d4cb135e538c84fa527710a34e449e74c62981c91c7b2ac2dfd5a5397efc0947",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-05",
+    "group_sha256": "bb80cba03e3e5cedb8b09724d4a5258622d6ca66f221ca3d4d4d39ea8d65de3d",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-06",
+    "group_sha256": "b410ced83608032ccdde45f342e6ab5d71e9e451ee687a9e733e64776b9ec202",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-07",
+    "group_sha256": "7072afc9d08f97a44daf59f949d1aeea3364b071daff1f1d4aeac21fc2b9f331",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-08",
+    "group_sha256": "7ee07fd36f04f847677be4f49c82f20ce95b7bc66a37a81cbda6ba3f1670df4b",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-01",
+    "group_sha256": "5c15a28787a894b4bd4359942911b57751590e8c97271c302f53374ff8524aaa",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-02",
+    "group_sha256": "50bb45f5911c496ca2ee75cf6f73ae55019c56ec98714d4086f52f53d16918a0",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-03",
+    "group_sha256": "53aeba478cc8fecc2769f74d0d2755928332fe04fd9ab9f811072d06e26b213a",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-04",
+    "group_sha256": "1712487d221041a37e0969d5facde7f571b4e6f9acff1e636eeb585629bf7128",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-05",
+    "group_sha256": "2231d8d9249b7b7ebd0d491699a1b229517f6d668c60a6c54edf51754e9535fa",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-06",
+    "group_sha256": "95592dc813de46efc60a191d67292d685ad1d93e86bed84ab0bb0ca8e9238129",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-07",
+    "group_sha256": "85eefa4b784b2d5921169a59483f659dbdaf8d08947b898c10747a97a8892d31",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-08",
+    "group_sha256": "fa94d6406b4f19c3050b79d7007043e00e88433fda181e4305a7de9b52c16e3a",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-01",
+    "group_sha256": "d5e1045cbcf55f56a88a8dd4b5145b818e35d2979e53eda12a208406beeb5d8f",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-02",
+    "group_sha256": "23a2a7190e4016e2e090651e639b5444e3c2bd492f2ae8121aa35e81bed3612d",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-03",
+    "group_sha256": "789e29e5195f63b8e29d243f0518c0d57ddf1f4322cca552868f3a36616eb717",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-04",
+    "group_sha256": "c23421bc31d0f8a7dc657923a3a9b12dab3afd0d75c526833c04d46a4ae40d63",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-05",
+    "group_sha256": "27e806cc91f576da9a16c2b7024cc966547fd14301d71dade278ae0dcabd315e",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-06",
+    "group_sha256": "a4e5df7cec9e7a2c12f84da8816736a05e6645f78be0f917591de4cf960c1552",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-07",
+    "group_sha256": "ba2137da948ef0e52d7879310ba50feb01720d3195c87f6a68291a0dfd459d09",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-08",
+    "group_sha256": "c1633bc0820f1830510b084999861389ee1c97993701d69e578d1d422398b193",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-01",
+    "group_sha256": "0312a53158deb660fa0c16cb3e68818c29a2366c4b7240cc13e968af4b9625f8",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-02",
+    "group_sha256": "070bd6335c054090120ed864fc4e2cf3b03bafe964a5123693f09688e7cc96b9",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-03",
+    "group_sha256": "b5c01c130b468de7bea4c25eff65aa053411bd23bce8f1c31da11d49ca684699",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-04",
+    "group_sha256": "11b5706becc8fff5d975f5ab75365bacf30a0bcc10a91b7ecaeaa401c5beb532",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-05",
+    "group_sha256": "cbca0b84877f0d474655d701c35cd28197e78a4bdfb9433143471081c75a9957",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-06",
+    "group_sha256": "e0843c352d431ce55afb79963ada8c8010106ab1c7bc7bd003e32201633467e8",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-07",
+    "group_sha256": "a73ce09eb3907e6043b4f5fa1650fe73c45efb27002a2b0fe860109dd76b7da5",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-08",
+    "group_sha256": "7008cbedc0a4f5982e255cf82723d106743c094734a66dd07cbfabfb66cc4cbe",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-01",
+    "group_sha256": "a5d0667a18e672eaf89f2272d8ee0dee3fca89cce84fe4f7f6e7f51425315dbb",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-02",
+    "group_sha256": "817e4256d3e9bce5469cba5d17963bbd53038e96d0082cc27f672afba8b3f6ce",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-03",
+    "group_sha256": "c0cbaaf707f84d49629eafaf2ad12d50e3007f38d7b1e418fd1f181a011b462b",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-04",
+    "group_sha256": "23c533707359b13ff7881436e81ed2690a82635bca1663dcaa056fd8a9f7509d",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-05",
+    "group_sha256": "25dfd715856fc3da85e110b9600647582961ec82241e17df0ed92f1aab3b8b10",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-06",
+    "group_sha256": "afc7c741d2aaf0484cd7eedafad430dc494a3037e29fc5049ae9933d22ce1514",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-07",
+    "group_sha256": "5d1c1a8056635c3ff7a8c76c306215f43eeb228b294a44dad49b75f363140425",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-08",
+    "group_sha256": "c41b3e351dc3dc7f97adc2c2a00636254b2efbb859fa508840a2b9aaeebd526c",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-09",
+    "group_sha256": "09ef68a24e7421d69e0a0970a526e2e85dbc64397793878bd79692c24f2cc599",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-10",
+    "group_sha256": "a7123382bc668e0c1a11adab2161ebca757d8380659ef85bb46db595a5355653",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-01",
+    "group_sha256": "f38a6ef8bb91bc101429357c4fb15940803f2f4151c582bed8fdaf254669e605",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-02",
+    "group_sha256": "29c0b8e6079d0d0e18954ee5840b83d528230f8749866c8a39298cc3d70c972e",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-03",
+    "group_sha256": "cee5b19dac28af6d557499d663a97e1c7bb421b4b95500659c69705bb9db7858",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-04",
+    "group_sha256": "aa56577c7b571e7431e687936f97ff38b8bd833d0a1a33b8ef9a5f1a4f3cf263",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-05",
+    "group_sha256": "458f9f7f407a99d3c8054bad35a5ee6bee0c48efc9fe448ddf2424dcbddade42",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-06",
+    "group_sha256": "4d8c352599136a4202687efb7c0ef91b0eb6ca606646842464c78a20d0041960",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-07",
+    "group_sha256": "be2e9041bbd58a1157e79a6f2b18e20e92ebfdcdd4266a96897b026c384063ba",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-08",
+    "group_sha256": "509159a37ee8b8b6ec3303c38c35a65a312194afc9a63185e1d1688e72838851",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-01",
+    "group_sha256": "3533558486eba01f8f292d6f34377e984e68f507669be8f0d2d747935c72e560",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-02",
+    "group_sha256": "bd9c2661a8e3c59e84dcd96fa20e6ac681b365e07ff2d7b46abf782953f082d1",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-03",
+    "group_sha256": "ee4b0049cfdeb6e784fa594bc76a70e9027b197609c795e558e686b205516e73",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-04",
+    "group_sha256": "d4cb135e538c84fa527710a34e449e74c62981c91c7b2ac2dfd5a5397efc0947",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-05",
+    "group_sha256": "bb80cba03e3e5cedb8b09724d4a5258622d6ca66f221ca3d4d4d39ea8d65de3d",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-06",
+    "group_sha256": "b410ced83608032ccdde45f342e6ab5d71e9e451ee687a9e733e64776b9ec202",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-07",
+    "group_sha256": "7072afc9d08f97a44daf59f949d1aeea3364b071daff1f1d4aeac21fc2b9f331",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-08",
+    "group_sha256": "7ee07fd36f04f847677be4f49c82f20ce95b7bc66a37a81cbda6ba3f1670df4b",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-01",
+    "group_sha256": "5c15a28787a894b4bd4359942911b57751590e8c97271c302f53374ff8524aaa",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-02",
+    "group_sha256": "50bb45f5911c496ca2ee75cf6f73ae55019c56ec98714d4086f52f53d16918a0",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-03",
+    "group_sha256": "53aeba478cc8fecc2769f74d0d2755928332fe04fd9ab9f811072d06e26b213a",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-04",
+    "group_sha256": "1712487d221041a37e0969d5facde7f571b4e6f9acff1e636eeb585629bf7128",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-05",
+    "group_sha256": "2231d8d9249b7b7ebd0d491699a1b229517f6d668c60a6c54edf51754e9535fa",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-06",
+    "group_sha256": "95592dc813de46efc60a191d67292d685ad1d93e86bed84ab0bb0ca8e9238129",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-07",
+    "group_sha256": "85eefa4b784b2d5921169a59483f659dbdaf8d08947b898c10747a97a8892d31",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-08",
+    "group_sha256": "fa94d6406b4f19c3050b79d7007043e00e88433fda181e4305a7de9b52c16e3a",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-01",
+    "group_sha256": "d5e1045cbcf55f56a88a8dd4b5145b818e35d2979e53eda12a208406beeb5d8f",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-02",
+    "group_sha256": "23a2a7190e4016e2e090651e639b5444e3c2bd492f2ae8121aa35e81bed3612d",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-03",
+    "group_sha256": "789e29e5195f63b8e29d243f0518c0d57ddf1f4322cca552868f3a36616eb717",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-04",
+    "group_sha256": "c23421bc31d0f8a7dc657923a3a9b12dab3afd0d75c526833c04d46a4ae40d63",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-05",
+    "group_sha256": "27e806cc91f576da9a16c2b7024cc966547fd14301d71dade278ae0dcabd315e",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-06",
+    "group_sha256": "a4e5df7cec9e7a2c12f84da8816736a05e6645f78be0f917591de4cf960c1552",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-07",
+    "group_sha256": "ba2137da948ef0e52d7879310ba50feb01720d3195c87f6a68291a0dfd459d09",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-08",
+    "group_sha256": "c1633bc0820f1830510b084999861389ee1c97993701d69e578d1d422398b193",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-01",
+    "group_sha256": "0312a53158deb660fa0c16cb3e68818c29a2366c4b7240cc13e968af4b9625f8",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-02",
+    "group_sha256": "070bd6335c054090120ed864fc4e2cf3b03bafe964a5123693f09688e7cc96b9",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-03",
+    "group_sha256": "b5c01c130b468de7bea4c25eff65aa053411bd23bce8f1c31da11d49ca684699",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-04",
+    "group_sha256": "11b5706becc8fff5d975f5ab75365bacf30a0bcc10a91b7ecaeaa401c5beb532",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-05",
+    "group_sha256": "cbca0b84877f0d474655d701c35cd28197e78a4bdfb9433143471081c75a9957",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-06",
+    "group_sha256": "e0843c352d431ce55afb79963ada8c8010106ab1c7bc7bd003e32201633467e8",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-07",
+    "group_sha256": "a73ce09eb3907e6043b4f5fa1650fe73c45efb27002a2b0fe860109dd76b7da5",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-08",
+    "group_sha256": "7008cbedc0a4f5982e255cf82723d106743c094734a66dd07cbfabfb66cc4cbe",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-01",
+    "group_sha256": "a5d0667a18e672eaf89f2272d8ee0dee3fca89cce84fe4f7f6e7f51425315dbb",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-02",
+    "group_sha256": "817e4256d3e9bce5469cba5d17963bbd53038e96d0082cc27f672afba8b3f6ce",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-03",
+    "group_sha256": "c0cbaaf707f84d49629eafaf2ad12d50e3007f38d7b1e418fd1f181a011b462b",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-04",
+    "group_sha256": "23c533707359b13ff7881436e81ed2690a82635bca1663dcaa056fd8a9f7509d",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-05",
+    "group_sha256": "25dfd715856fc3da85e110b9600647582961ec82241e17df0ed92f1aab3b8b10",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-06",
+    "group_sha256": "afc7c741d2aaf0484cd7eedafad430dc494a3037e29fc5049ae9933d22ce1514",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-07",
+    "group_sha256": "5d1c1a8056635c3ff7a8c76c306215f43eeb228b294a44dad49b75f363140425",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-08",
+    "group_sha256": "c41b3e351dc3dc7f97adc2c2a00636254b2efbb859fa508840a2b9aaeebd526c",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-09",
+    "group_sha256": "09ef68a24e7421d69e0a0970a526e2e85dbc64397793878bd79692c24f2cc599",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-10",
+    "group_sha256": "a7123382bc668e0c1a11adab2161ebca757d8380659ef85bb46db595a5355653",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "single_agent",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-01",
+    "group_sha256": "f38a6ef8bb91bc101429357c4fb15940803f2f4151c582bed8fdaf254669e605",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-02",
+    "group_sha256": "29c0b8e6079d0d0e18954ee5840b83d528230f8749866c8a39298cc3d70c972e",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-03",
+    "group_sha256": "cee5b19dac28af6d557499d663a97e1c7bb421b4b95500659c69705bb9db7858",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-04",
+    "group_sha256": "aa56577c7b571e7431e687936f97ff38b8bd833d0a1a33b8ef9a5f1a4f3cf263",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-05",
+    "group_sha256": "458f9f7f407a99d3c8054bad35a5ee6bee0c48efc9fe448ddf2424dcbddade42",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-06",
+    "group_sha256": "4d8c352599136a4202687efb7c0ef91b0eb6ca606646842464c78a20d0041960",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-07",
+    "group_sha256": "be2e9041bbd58a1157e79a6f2b18e20e92ebfdcdd4266a96897b026c384063ba",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-08",
+    "group_sha256": "509159a37ee8b8b6ec3303c38c35a65a312194afc9a63185e1d1688e72838851",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-01",
+    "group_sha256": "3533558486eba01f8f292d6f34377e984e68f507669be8f0d2d747935c72e560",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-02",
+    "group_sha256": "bd9c2661a8e3c59e84dcd96fa20e6ac681b365e07ff2d7b46abf782953f082d1",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-03",
+    "group_sha256": "ee4b0049cfdeb6e784fa594bc76a70e9027b197609c795e558e686b205516e73",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-04",
+    "group_sha256": "d4cb135e538c84fa527710a34e449e74c62981c91c7b2ac2dfd5a5397efc0947",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-05",
+    "group_sha256": "bb80cba03e3e5cedb8b09724d4a5258622d6ca66f221ca3d4d4d39ea8d65de3d",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-06",
+    "group_sha256": "b410ced83608032ccdde45f342e6ab5d71e9e451ee687a9e733e64776b9ec202",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-07",
+    "group_sha256": "7072afc9d08f97a44daf59f949d1aeea3364b071daff1f1d4aeac21fc2b9f331",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-08",
+    "group_sha256": "7ee07fd36f04f847677be4f49c82f20ce95b7bc66a37a81cbda6ba3f1670df4b",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-01",
+    "group_sha256": "5c15a28787a894b4bd4359942911b57751590e8c97271c302f53374ff8524aaa",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-02",
+    "group_sha256": "50bb45f5911c496ca2ee75cf6f73ae55019c56ec98714d4086f52f53d16918a0",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-03",
+    "group_sha256": "53aeba478cc8fecc2769f74d0d2755928332fe04fd9ab9f811072d06e26b213a",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-04",
+    "group_sha256": "1712487d221041a37e0969d5facde7f571b4e6f9acff1e636eeb585629bf7128",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-05",
+    "group_sha256": "2231d8d9249b7b7ebd0d491699a1b229517f6d668c60a6c54edf51754e9535fa",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-06",
+    "group_sha256": "95592dc813de46efc60a191d67292d685ad1d93e86bed84ab0bb0ca8e9238129",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-07",
+    "group_sha256": "85eefa4b784b2d5921169a59483f659dbdaf8d08947b898c10747a97a8892d31",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-08",
+    "group_sha256": "fa94d6406b4f19c3050b79d7007043e00e88433fda181e4305a7de9b52c16e3a",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-01",
+    "group_sha256": "d5e1045cbcf55f56a88a8dd4b5145b818e35d2979e53eda12a208406beeb5d8f",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-02",
+    "group_sha256": "23a2a7190e4016e2e090651e639b5444e3c2bd492f2ae8121aa35e81bed3612d",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-03",
+    "group_sha256": "789e29e5195f63b8e29d243f0518c0d57ddf1f4322cca552868f3a36616eb717",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-04",
+    "group_sha256": "c23421bc31d0f8a7dc657923a3a9b12dab3afd0d75c526833c04d46a4ae40d63",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-05",
+    "group_sha256": "27e806cc91f576da9a16c2b7024cc966547fd14301d71dade278ae0dcabd315e",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-06",
+    "group_sha256": "a4e5df7cec9e7a2c12f84da8816736a05e6645f78be0f917591de4cf960c1552",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-07",
+    "group_sha256": "ba2137da948ef0e52d7879310ba50feb01720d3195c87f6a68291a0dfd459d09",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-08",
+    "group_sha256": "c1633bc0820f1830510b084999861389ee1c97993701d69e578d1d422398b193",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-01",
+    "group_sha256": "0312a53158deb660fa0c16cb3e68818c29a2366c4b7240cc13e968af4b9625f8",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-02",
+    "group_sha256": "070bd6335c054090120ed864fc4e2cf3b03bafe964a5123693f09688e7cc96b9",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-03",
+    "group_sha256": "b5c01c130b468de7bea4c25eff65aa053411bd23bce8f1c31da11d49ca684699",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-04",
+    "group_sha256": "11b5706becc8fff5d975f5ab75365bacf30a0bcc10a91b7ecaeaa401c5beb532",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-05",
+    "group_sha256": "cbca0b84877f0d474655d701c35cd28197e78a4bdfb9433143471081c75a9957",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-06",
+    "group_sha256": "e0843c352d431ce55afb79963ada8c8010106ab1c7bc7bd003e32201633467e8",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-07",
+    "group_sha256": "a73ce09eb3907e6043b4f5fa1650fe73c45efb27002a2b0fe860109dd76b7da5",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-08",
+    "group_sha256": "7008cbedc0a4f5982e255cf82723d106743c094734a66dd07cbfabfb66cc4cbe",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-01",
+    "group_sha256": "a5d0667a18e672eaf89f2272d8ee0dee3fca89cce84fe4f7f6e7f51425315dbb",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-02",
+    "group_sha256": "817e4256d3e9bce5469cba5d17963bbd53038e96d0082cc27f672afba8b3f6ce",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-03",
+    "group_sha256": "c0cbaaf707f84d49629eafaf2ad12d50e3007f38d7b1e418fd1f181a011b462b",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-04",
+    "group_sha256": "23c533707359b13ff7881436e81ed2690a82635bca1663dcaa056fd8a9f7509d",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-05",
+    "group_sha256": "25dfd715856fc3da85e110b9600647582961ec82241e17df0ed92f1aab3b8b10",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-06",
+    "group_sha256": "afc7c741d2aaf0484cd7eedafad430dc494a3037e29fc5049ae9933d22ce1514",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-07",
+    "group_sha256": "5d1c1a8056635c3ff7a8c76c306215f43eeb228b294a44dad49b75f363140425",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-08",
+    "group_sha256": "c41b3e351dc3dc7f97adc2c2a00636254b2efbb859fa508840a2b9aaeebd526c",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-09",
+    "group_sha256": "09ef68a24e7421d69e0a0970a526e2e85dbc64397793878bd79692c24f2cc599",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-10",
+    "group_sha256": "a7123382bc668e0c1a11adab2161ebca757d8380659ef85bb46db595a5355653",
+    "repeat": 1,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-01",
+    "group_sha256": "f38a6ef8bb91bc101429357c4fb15940803f2f4151c582bed8fdaf254669e605",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-02",
+    "group_sha256": "29c0b8e6079d0d0e18954ee5840b83d528230f8749866c8a39298cc3d70c972e",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-03",
+    "group_sha256": "cee5b19dac28af6d557499d663a97e1c7bb421b4b95500659c69705bb9db7858",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-04",
+    "group_sha256": "aa56577c7b571e7431e687936f97ff38b8bd833d0a1a33b8ef9a5f1a4f3cf263",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-05",
+    "group_sha256": "458f9f7f407a99d3c8054bad35a5ee6bee0c48efc9fe448ddf2424dcbddade42",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-06",
+    "group_sha256": "4d8c352599136a4202687efb7c0ef91b0eb6ca606646842464c78a20d0041960",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-07",
+    "group_sha256": "be2e9041bbd58a1157e79a6f2b18e20e92ebfdcdd4266a96897b026c384063ba",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-08",
+    "group_sha256": "509159a37ee8b8b6ec3303c38c35a65a312194afc9a63185e1d1688e72838851",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-01",
+    "group_sha256": "3533558486eba01f8f292d6f34377e984e68f507669be8f0d2d747935c72e560",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-02",
+    "group_sha256": "bd9c2661a8e3c59e84dcd96fa20e6ac681b365e07ff2d7b46abf782953f082d1",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-03",
+    "group_sha256": "ee4b0049cfdeb6e784fa594bc76a70e9027b197609c795e558e686b205516e73",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-04",
+    "group_sha256": "d4cb135e538c84fa527710a34e449e74c62981c91c7b2ac2dfd5a5397efc0947",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-05",
+    "group_sha256": "bb80cba03e3e5cedb8b09724d4a5258622d6ca66f221ca3d4d4d39ea8d65de3d",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-06",
+    "group_sha256": "b410ced83608032ccdde45f342e6ab5d71e9e451ee687a9e733e64776b9ec202",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-07",
+    "group_sha256": "7072afc9d08f97a44daf59f949d1aeea3364b071daff1f1d4aeac21fc2b9f331",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-08",
+    "group_sha256": "7ee07fd36f04f847677be4f49c82f20ce95b7bc66a37a81cbda6ba3f1670df4b",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-01",
+    "group_sha256": "5c15a28787a894b4bd4359942911b57751590e8c97271c302f53374ff8524aaa",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-02",
+    "group_sha256": "50bb45f5911c496ca2ee75cf6f73ae55019c56ec98714d4086f52f53d16918a0",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-03",
+    "group_sha256": "53aeba478cc8fecc2769f74d0d2755928332fe04fd9ab9f811072d06e26b213a",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-04",
+    "group_sha256": "1712487d221041a37e0969d5facde7f571b4e6f9acff1e636eeb585629bf7128",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-05",
+    "group_sha256": "2231d8d9249b7b7ebd0d491699a1b229517f6d668c60a6c54edf51754e9535fa",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-06",
+    "group_sha256": "95592dc813de46efc60a191d67292d685ad1d93e86bed84ab0bb0ca8e9238129",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-07",
+    "group_sha256": "85eefa4b784b2d5921169a59483f659dbdaf8d08947b898c10747a97a8892d31",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-08",
+    "group_sha256": "fa94d6406b4f19c3050b79d7007043e00e88433fda181e4305a7de9b52c16e3a",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-01",
+    "group_sha256": "d5e1045cbcf55f56a88a8dd4b5145b818e35d2979e53eda12a208406beeb5d8f",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-02",
+    "group_sha256": "23a2a7190e4016e2e090651e639b5444e3c2bd492f2ae8121aa35e81bed3612d",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-03",
+    "group_sha256": "789e29e5195f63b8e29d243f0518c0d57ddf1f4322cca552868f3a36616eb717",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-04",
+    "group_sha256": "c23421bc31d0f8a7dc657923a3a9b12dab3afd0d75c526833c04d46a4ae40d63",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-05",
+    "group_sha256": "27e806cc91f576da9a16c2b7024cc966547fd14301d71dade278ae0dcabd315e",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-06",
+    "group_sha256": "a4e5df7cec9e7a2c12f84da8816736a05e6645f78be0f917591de4cf960c1552",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-07",
+    "group_sha256": "ba2137da948ef0e52d7879310ba50feb01720d3195c87f6a68291a0dfd459d09",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-08",
+    "group_sha256": "c1633bc0820f1830510b084999861389ee1c97993701d69e578d1d422398b193",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-01",
+    "group_sha256": "0312a53158deb660fa0c16cb3e68818c29a2366c4b7240cc13e968af4b9625f8",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-02",
+    "group_sha256": "070bd6335c054090120ed864fc4e2cf3b03bafe964a5123693f09688e7cc96b9",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-03",
+    "group_sha256": "b5c01c130b468de7bea4c25eff65aa053411bd23bce8f1c31da11d49ca684699",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-04",
+    "group_sha256": "11b5706becc8fff5d975f5ab75365bacf30a0bcc10a91b7ecaeaa401c5beb532",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-05",
+    "group_sha256": "cbca0b84877f0d474655d701c35cd28197e78a4bdfb9433143471081c75a9957",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-06",
+    "group_sha256": "e0843c352d431ce55afb79963ada8c8010106ab1c7bc7bd003e32201633467e8",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-07",
+    "group_sha256": "a73ce09eb3907e6043b4f5fa1650fe73c45efb27002a2b0fe860109dd76b7da5",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-08",
+    "group_sha256": "7008cbedc0a4f5982e255cf82723d106743c094734a66dd07cbfabfb66cc4cbe",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-01",
+    "group_sha256": "a5d0667a18e672eaf89f2272d8ee0dee3fca89cce84fe4f7f6e7f51425315dbb",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-02",
+    "group_sha256": "817e4256d3e9bce5469cba5d17963bbd53038e96d0082cc27f672afba8b3f6ce",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-03",
+    "group_sha256": "c0cbaaf707f84d49629eafaf2ad12d50e3007f38d7b1e418fd1f181a011b462b",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-04",
+    "group_sha256": "23c533707359b13ff7881436e81ed2690a82635bca1663dcaa056fd8a9f7509d",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-05",
+    "group_sha256": "25dfd715856fc3da85e110b9600647582961ec82241e17df0ed92f1aab3b8b10",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-06",
+    "group_sha256": "afc7c741d2aaf0484cd7eedafad430dc494a3037e29fc5049ae9933d22ce1514",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-07",
+    "group_sha256": "5d1c1a8056635c3ff7a8c76c306215f43eeb228b294a44dad49b75f363140425",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-08",
+    "group_sha256": "c41b3e351dc3dc7f97adc2c2a00636254b2efbb859fa508840a2b9aaeebd526c",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-09",
+    "group_sha256": "09ef68a24e7421d69e0a0970a526e2e85dbc64397793878bd79692c24f2cc599",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-10",
+    "group_sha256": "a7123382bc668e0c1a11adab2161ebca757d8380659ef85bb46db595a5355653",
+    "repeat": 2,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-01",
+    "group_sha256": "f38a6ef8bb91bc101429357c4fb15940803f2f4151c582bed8fdaf254669e605",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-02",
+    "group_sha256": "29c0b8e6079d0d0e18954ee5840b83d528230f8749866c8a39298cc3d70c972e",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-03",
+    "group_sha256": "cee5b19dac28af6d557499d663a97e1c7bb421b4b95500659c69705bb9db7858",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-04",
+    "group_sha256": "aa56577c7b571e7431e687936f97ff38b8bd833d0a1a33b8ef9a5f1a4f3cf263",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-05",
+    "group_sha256": "458f9f7f407a99d3c8054bad35a5ee6bee0c48efc9fe448ddf2424dcbddade42",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-06",
+    "group_sha256": "4d8c352599136a4202687efb7c0ef91b0eb6ca606646842464c78a20d0041960",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-07",
+    "group_sha256": "be2e9041bbd58a1157e79a6f2b18e20e92ebfdcdd4266a96897b026c384063ba",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-COMPARE-08",
+    "group_sha256": "509159a37ee8b8b6ec3303c38c35a65a312194afc9a63185e1d1688e72838851",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-01",
+    "group_sha256": "3533558486eba01f8f292d6f34377e984e68f507669be8f0d2d747935c72e560",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-02",
+    "group_sha256": "bd9c2661a8e3c59e84dcd96fa20e6ac681b365e07ff2d7b46abf782953f082d1",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-03",
+    "group_sha256": "ee4b0049cfdeb6e784fa594bc76a70e9027b197609c795e558e686b205516e73",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-04",
+    "group_sha256": "d4cb135e538c84fa527710a34e449e74c62981c91c7b2ac2dfd5a5397efc0947",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-05",
+    "group_sha256": "bb80cba03e3e5cedb8b09724d4a5258622d6ca66f221ca3d4d4d39ea8d65de3d",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-06",
+    "group_sha256": "b410ced83608032ccdde45f342e6ab5d71e9e451ee687a9e733e64776b9ec202",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-07",
+    "group_sha256": "7072afc9d08f97a44daf59f949d1aeea3364b071daff1f1d4aeac21fc2b9f331",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-PLATFORM-08",
+    "group_sha256": "7ee07fd36f04f847677be4f49c82f20ce95b7bc66a37a81cbda6ba3f1670df4b",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-01",
+    "group_sha256": "5c15a28787a894b4bd4359942911b57751590e8c97271c302f53374ff8524aaa",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-02",
+    "group_sha256": "50bb45f5911c496ca2ee75cf6f73ae55019c56ec98714d4086f52f53d16918a0",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-03",
+    "group_sha256": "53aeba478cc8fecc2769f74d0d2755928332fe04fd9ab9f811072d06e26b213a",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-04",
+    "group_sha256": "1712487d221041a37e0969d5facde7f571b4e6f9acff1e636eeb585629bf7128",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-05",
+    "group_sha256": "2231d8d9249b7b7ebd0d491699a1b229517f6d668c60a6c54edf51754e9535fa",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-06",
+    "group_sha256": "95592dc813de46efc60a191d67292d685ad1d93e86bed84ab0bb0ca8e9238129",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-07",
+    "group_sha256": "85eefa4b784b2d5921169a59483f659dbdaf8d08947b898c10747a97a8892d31",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-IDENTIFIER-08",
+    "group_sha256": "fa94d6406b4f19c3050b79d7007043e00e88433fda181e4305a7de9b52c16e3a",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-01",
+    "group_sha256": "d5e1045cbcf55f56a88a8dd4b5145b818e35d2979e53eda12a208406beeb5d8f",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-02",
+    "group_sha256": "23a2a7190e4016e2e090651e639b5444e3c2bd492f2ae8121aa35e81bed3612d",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-03",
+    "group_sha256": "789e29e5195f63b8e29d243f0518c0d57ddf1f4322cca552868f3a36616eb717",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-04",
+    "group_sha256": "c23421bc31d0f8a7dc657923a3a9b12dab3afd0d75c526833c04d46a4ae40d63",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-05",
+    "group_sha256": "27e806cc91f576da9a16c2b7024cc966547fd14301d71dade278ae0dcabd315e",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-06",
+    "group_sha256": "a4e5df7cec9e7a2c12f84da8816736a05e6645f78be0f917591de4cf960c1552",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-07",
+    "group_sha256": "ba2137da948ef0e52d7879310ba50feb01720d3195c87f6a68291a0dfd459d09",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-VERSION-08",
+    "group_sha256": "c1633bc0820f1830510b084999861389ee1c97993701d69e578d1d422398b193",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-01",
+    "group_sha256": "0312a53158deb660fa0c16cb3e68818c29a2366c4b7240cc13e968af4b9625f8",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-02",
+    "group_sha256": "070bd6335c054090120ed864fc4e2cf3b03bafe964a5123693f09688e7cc96b9",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-03",
+    "group_sha256": "b5c01c130b468de7bea4c25eff65aa053411bd23bce8f1c31da11d49ca684699",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-04",
+    "group_sha256": "11b5706becc8fff5d975f5ab75365bacf30a0bcc10a91b7ecaeaa401c5beb532",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-05",
+    "group_sha256": "cbca0b84877f0d474655d701c35cd28197e78a4bdfb9433143471081c75a9957",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-06",
+    "group_sha256": "e0843c352d431ce55afb79963ada8c8010106ab1c7bc7bd003e32201633467e8",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-07",
+    "group_sha256": "a73ce09eb3907e6043b4f5fa1650fe73c45efb27002a2b0fe860109dd76b7da5",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-ENTITY-08",
+    "group_sha256": "7008cbedc0a4f5982e255cf82723d106743c094734a66dd07cbfabfb66cc4cbe",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-01",
+    "group_sha256": "a5d0667a18e672eaf89f2272d8ee0dee3fca89cce84fe4f7f6e7f51425315dbb",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-02",
+    "group_sha256": "817e4256d3e9bce5469cba5d17963bbd53038e96d0082cc27f672afba8b3f6ce",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-03",
+    "group_sha256": "c0cbaaf707f84d49629eafaf2ad12d50e3007f38d7b1e418fd1f181a011b462b",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-04",
+    "group_sha256": "23c533707359b13ff7881436e81ed2690a82635bca1663dcaa056fd8a9f7509d",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-05",
+    "group_sha256": "25dfd715856fc3da85e110b9600647582961ec82241e17df0ed92f1aab3b8b10",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-06",
+    "group_sha256": "afc7c741d2aaf0484cd7eedafad430dc494a3037e29fc5049ae9933d22ce1514",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-07",
+    "group_sha256": "5d1c1a8056635c3ff7a8c76c306215f43eeb228b294a44dad49b75f363140425",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-08",
+    "group_sha256": "c41b3e351dc3dc7f97adc2c2a00636254b2efbb859fa508840a2b9aaeebd526c",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-09",
+    "group_sha256": "09ef68a24e7421d69e0a0970a526e2e85dbc64397793878bd79692c24f2cc599",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  },
+  {
+    "sample_id": "P2-NOANSWER-10",
+    "group_sha256": "a7123382bc668e0c1a11adab2161ebca757d8380659ef85bb46db595a5355653",
+    "repeat": 3,
+    "status": "unsupported",
+    "system": "fixed_workflow",
+    "missing_capability": "independent_full_corpus_count",
+    "actual_invocations": 0,
+    "evidence_type": "未执行"
+  }
+]

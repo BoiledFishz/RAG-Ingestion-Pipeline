@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.773" timestamp="2026-10-05T19:17:25.005462-07:00" hostname="szy"><testcase classname="tests.project2.test_rag_budget" name="test_executemany_does_not_hide_multiple_statement_attempts" time="0.019"><failure message="Failed: DID NOT RAISE BudgetExceeded">tmp_path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/a6b728f4fdbf4a55b50761fbe44f5bab')
+
+    def test_executemany_does_not_hide_multiple_statement_attempts(tmp_path: Path) -&gt; None:
+        import sqlite3
+    
+        db = sqlite3.connect(tmp_path / "attempt_metadata.sqlite", factory=BudgetConnection)
+        db.execute("CREATE TABLE attempt_metadata(value INTEGER)")
+        budget = Budget(attempts=1)
+        db.request_budget = budget
+&gt;       with pytest.raises(BudgetExceeded):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE BudgetExceeded
+
+tests\project2\test_rag_budget.py:44: Failed</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="6" time="1.216" timestamp="2026-10-06T15:36:52.732495-07:00" hostname="szy"><testcase classname="tests.project2.test_v031_reporting" name="test_prior_batch_count_and_censor_are_read_from_immutable_records" time="0.136" /><testcase classname="tests.project2.test_v031_reporting" name="test_comparison_rendering_is_compact_and_contains_ci_and_declines" time="0.002" /><testcase classname="tests.project2.test_v031_reporting" name="test_qa_report_keeps_repeats_ci_and_unscored_answers_visible" time="0.013" /><testcase classname="tests.project2.test_v031_reporting" name="test_unsupported_business_comparison_does_not_call_incomplete_tasks_regressions" time="0.003" /><testcase classname="tests.project2.test_v031_reporting" name="test_completed_measurements_do_not_override_frozen_quality_requirements" time="0.028" /><testcase classname="tests.project2.test_v031_reporting" name="test_gate_evidence_binding_updates_partial_coverage_without_inventing_passes" time="0.019"><failure message="AttributeError: module 'p2_report' has no attribute 'bind_gate_partial_evidence'">def test_gate_evidence_binding_updates_partial_coverage_without_inventing_passes():
+        import csv
+        import copy
+        m=load();docs=ROOT/'specs/project2/v0.3.1'
+        approved=list(csv.DictReader((docs/'traceability.csv').open(encoding='utf-8-sig',newline='')))
+        items=json.loads((ROOT/'audit/project2-v1/traceability_runtime.json').read_text(encoding='utf-8'))['items']
+        gate=json.loads((ROOT/'audit/project2-v1/v031_chap12_gate.json').read_text(encoding='utf-8'))
+&gt;       bound=m.bind_gate_partial_evidence(ROOT,approved,copy.deepcopy(items),gate)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'p2_report' has no attribute 'bind_gate_partial_evidence'
+
+tests\project2\test_v031_reporting.py:62: AttributeError</failure></testcase></testsuite></testsuites>

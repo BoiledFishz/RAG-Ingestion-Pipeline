@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="15.130" timestamp="2026-10-05T18:49:32.699363-07:00" hostname="szy"><testcase classname="tests.project2.test_exhaustive_preflight" name="test_zero_predicates_are_repeatable_and_really_zero" time="14.268"><failure message="AssertionError: assert {'official_fu...s_vocabulary'} &lt;= {'approved_li...orpus_titles'}&#10;  &#10;  Extra items in the left set:&#10;  'official_full_corpus_vocabulary'">def test_zero_predicates_are_repeatable_and_really_zero() -&gt; None:
+        first = choose_zero_predicates(DATABASE, seed=20261005, quantity=2)
+        second = choose_zero_predicates(DATABASE, seed=20261005, quantity=2)
+        assert first == second
+&gt;       assert set(first["input_dependencies"]) &lt;= {"official_full_corpus_titles", "official_full_corpus_fts", "approved_literal_patterns"}
+E       AssertionError: assert {'official_fu...s_vocabulary'} &lt;= {'approved_li...orpus_titles'}
+E         
+E         Extra items in the left set:
+E         'official_full_corpus_vocabulary'
+
+tests\project2\test_exhaustive_preflight.py:37: AssertionError</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,167 @@
+C:\Users\zacha\Documents\Ingestion Pipeline\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+2026-10-06 10:37:12,974 INFO Database request=775cbb95a1094a5ab7d77fb52edd4d9e status=completed counts=[6451]
+2026-10-06 10:37:44,632 INFO Project2 run=775cbb95a1094a5ab7d77fb52edd4d9e status=completed attempts=14
+2026-10-06 10:37:44,636 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:37:44,639 INFO v03 gate N P2-N-176-5c15a28787a894b4 repeat=2 check={'passed': True, 'rag_status': 'completed', 'db_status': 'completed', 'matrix_cell': 'S07[rag=completed,db=completed]', 'expected_overall': 'completed', 'observed_overall': 'completed', 'traceable': True, 'run_id': '775cbb95a1094a5ab7d77fb52edd4d9e'} progress=11/555
+2026-10-06 10:37:45,869 INFO Database request=45a6d72168104ff0b1512d91e9e9919b status=completed counts=[6451]
+2026-10-06 10:37:58,979 INFO Project2 run=45a6d72168104ff0b1512d91e9e9919b status=completed attempts=12
+2026-10-06 10:37:58,980 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:37:58,984 INFO v03 gate N P2-N-176-5c15a28787a894b4 repeat=3 check={'passed': True, 'rag_status': 'completed', 'db_status': 'completed', 'matrix_cell': 'S07[rag=completed,db=completed]', 'expected_overall': 'completed', 'observed_overall': 'completed', 'traceable': True, 'run_id': '45a6d72168104ff0b1512d91e9e9919b'} progress=12/555
+2026-10-06 10:38:01,576 INFO Database request=da6c2c63362949fd931915683edb9421 status=completed counts=[13881]
+2026-10-06 10:38:18,103 INFO Project2 run=da6c2c63362949fd931915683edb9421 status=completed attempts=14
+2026-10-06 10:38:18,104 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:38:18,107 INFO v03 gate N P2-N-051-53aeba478cc8fecc repeat=1 check={'passed': True, 'rag_status': 'completed', 'db_status': 'completed', 'matrix_cell': 'S07[rag=completed,db=completed]', 'expected_overall': 'completed', 'observed_overall': 'completed', 'traceable': True, 'run_id': 'da6c2c63362949fd931915683edb9421'} progress=13/555
+2026-10-06 10:38:18,505 INFO Database request=9abaf9565b894783a7ff152301752c28 status=completed counts=[13881]
+2026-10-06 10:38:27,245 INFO Project2 run=9abaf9565b894783a7ff152301752c28 status=completed attempts=12
+2026-10-06 10:38:27,246 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:38:27,248 INFO v03 gate N P2-N-051-53aeba478cc8fecc repeat=2 check={'passed': True, 'rag_status': 'completed', 'db_status': 'completed', 'matrix_cell': 'S07[rag=completed,db=completed]', 'expected_overall': 'completed', 'observed_overall': 'completed', 'traceable': True, 'run_id': '9abaf9565b894783a7ff152301752c28'} progress=14/555
+2026-10-06 10:38:27,650 INFO Database request=9f901d0c06f44ad096610ec44bfbbba9 status=completed counts=[13881]
+2026-10-06 10:38:36,246 INFO Project2 run=9f901d0c06f44ad096610ec44bfbbba9 status=completed attempts=12
+2026-10-06 10:38:36,247 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:38:36,251 INFO v03 gate N P2-N-051-53aeba478cc8fecc repeat=3 check={'passed': True, 'rag_status': 'completed', 'db_status': 'completed', 'matrix_cell': 'S07[rag=completed,db=completed]', 'expected_overall': 'completed', 'observed_overall': 'completed', 'traceable': True, 'run_id': '9f901d0c06f44ad096610ec44bfbbba9'} progress=15/555
+2026-10-06 10:38:36,321 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:38:36,322 INFO v03 gate N P2-N-138-370c11ac2db4a616 repeat=1 check={'passed': True, 'rag_status': 'failed', 'db_status': 'failed', 'matrix_cell': 'S07[rag=failed,db=failed]', 'expected_overall': 'failed', 'observed_overall': 'failed', 'traceable': True, 'run_id': '840060c6ff2e49dabc4a9f81f0189098'} progress=16/555
+2026-10-06 10:38:36,388 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:38:36,389 INFO v03 gate N P2-N-138-370c11ac2db4a616 repeat=2 check={'passed': True, 'rag_status': 'failed', 'db_status': 'failed', 'matrix_cell': 'S07[rag=failed,db=failed]', 'expected_overall': 'failed', 'observed_overall': 'failed', 'traceable': True, 'run_id': '7d0516b5ed2949deb4ea7bc16afb8a98'} progress=17/555
+2026-10-06 10:38:36,453 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:38:36,455 INFO v03 gate N P2-N-138-370c11ac2db4a616 repeat=3 check={'passed': True, 'rag_status': 'failed', 'db_status': 'failed', 'matrix_cell': 'S07[rag=failed,db=failed]', 'expected_overall': 'failed', 'observed_overall': 'failed', 'traceable': True, 'run_id': 'a82670b113bf49319ef68d4149c33899'} progress=18/555
+2026-10-06 10:38:42,185 INFO Database request=4ec7a3f55f60488ebf4de380c3bc609c status=completed counts=[40526]
+2026-10-06 10:39:01,779 INFO Project2 run=4ec7a3f55f60488ebf4de380c3bc609c status=completed attempts=14
+2026-10-06 10:39:01,780 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:39:01,782 INFO v03 gate N P2-N-149-2231d8d9249b7b7e repeat=1 check={'passed': True, 'rag_status': 'completed', 'db_status': 'completed', 'matrix_cell': 'S07[rag=completed,db=completed]', 'expected_overall': 'completed', 'observed_overall': 'completed', 'traceable': True, 'run_id': '4ec7a3f55f60488ebf4de380c3bc609c'} progress=19/555
+2026-10-06 10:39:02,755 INFO Database request=99d14d0439494c28819e4dc97b3ee390 status=completed counts=[40526]
+2026-10-06 10:39:15,614 INFO Project2 run=99d14d0439494c28819e4dc97b3ee390 status=completed attempts=12
+2026-10-06 10:39:15,614 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:39:15,618 INFO v03 gate N P2-N-149-2231d8d9249b7b7e repeat=2 check={'passed': True, 'rag_status': 'completed', 'db_status': 'completed', 'matrix_cell': 'S07[rag=completed,db=completed]', 'expected_overall': 'completed', 'observed_overall': 'completed', 'traceable': True, 'run_id': '99d14d0439494c28819e4dc97b3ee390'} progress=20/555
+2026-10-06 10:39:16,657 INFO Database request=13f52d046ccc40a5b77c099b446360fc status=completed counts=[40526]
+2026-10-06 10:39:29,687 INFO Project2 run=13f52d046ccc40a5b77c099b446360fc status=completed attempts=12
+2026-10-06 10:39:29,688 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:39:29,693 INFO v03 gate N P2-N-149-2231d8d9249b7b7e repeat=3 check={'passed': True, 'rag_status': 'completed', 'db_status': 'completed', 'matrix_cell': 'S07[rag=completed,db=completed]', 'expected_overall': 'completed', 'observed_overall': 'completed', 'traceable': True, 'run_id': '13f52d046ccc40a5b77c099b446360fc'} progress=21/555
+2026-10-06 10:39:30,507 INFO Database request=c96eacd7b6864625b1da418cba1b51a7 status=completed counts=[724]
+2026-10-06 10:39:51,939 INFO Project2 run=c96eacd7b6864625b1da418cba1b51a7 status=completed attempts=14
+2026-10-06 10:39:51,940 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:39:51,942 INFO v03 gate N P2-N-094-29c0b8e6079d0d0e repeat=1 check={'passed': True, 'rag_status': 'completed', 'db_status': 'completed', 'matrix_cell': 'S07[rag=completed,db=completed]', 'expected_overall': 'completed', 'observed_overall': 'completed', 'traceable': True, 'run_id': 'c96eacd7b6864625b1da418cba1b51a7'} progress=22/555
+2026-10-06 10:39:52,208 INFO Database request=a5a33d73b78e45c7a8330e9e01870685 status=completed counts=[724]
+2026-10-06 10:40:06,729 INFO Project2 run=a5a33d73b78e45c7a8330e9e01870685 status=completed attempts=12
+2026-10-06 10:40:06,730 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:40:06,733 INFO v03 gate N P2-N-094-29c0b8e6079d0d0e repeat=2 check={'passed': True, 'rag_status': 'completed', 'db_status': 'completed', 'matrix_cell': 'S07[rag=completed,db=completed]', 'expected_overall': 'completed', 'observed_overall': 'completed', 'traceable': True, 'run_id': 'a5a33d73b78e45c7a8330e9e01870685'} progress=23/555
+2026-10-06 10:40:07,006 INFO Database request=4fc0e4ff297848b4b038a74242111480 status=completed counts=[724]
+2026-10-06 10:40:22,151 INFO Project2 run=4fc0e4ff297848b4b038a74242111480 status=completed attempts=12
+2026-10-06 10:40:22,153 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:40:22,156 INFO v03 gate N P2-N-094-29c0b8e6079d0d0e repeat=3 check={'passed': True, 'rag_status': 'completed', 'db_status': 'completed', 'matrix_cell': 'S07[rag=completed,db=completed]', 'expected_overall': 'completed', 'observed_overall': 'completed', 'traceable': True, 'run_id': '4fc0e4ff297848b4b038a74242111480'} progress=24/555
+2026-10-06 10:40:22,239 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:40:22,240 INFO v03 gate N P2-N-180-74eeb147b4def056 repeat=1 check={'passed': True, 'rag_status': 'failed', 'db_status': 'failed', 'matrix_cell': 'S07[rag=failed,db=failed]', 'expected_overall': 'failed', 'observed_overall': 'failed', 'traceable': True, 'run_id': '54e6eb56176846cb9f316b2b0697b3b7'} progress=25/555
+2026-10-06 10:40:22,338 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:40:22,339 INFO v03 gate N P2-N-180-74eeb147b4def056 repeat=2 check={'passed': True, 'rag_status': 'failed', 'db_status': 'failed', 'matrix_cell': 'S07[rag=failed,db=failed]', 'expected_overall': 'failed', 'observed_overall': 'failed', 'traceable': True, 'run_id': '9f5f35b1e6e44c89a158a9dbb856e90d'} progress=26/555
+2026-10-06 10:40:22,413 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:40:22,414 INFO v03 gate N P2-N-180-74eeb147b4def056 repeat=3 check={'passed': True, 'rag_status': 'failed', 'db_status': 'failed', 'matrix_cell': 'S07[rag=failed,db=failed]', 'expected_overall': 'failed', 'observed_overall': 'failed', 'traceable': True, 'run_id': 'e7d5ea48cefe417eaa370b5249e8f75c'} progress=27/555
+2026-10-06 10:40:22,480 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:40:22,481 INFO v03 gate N P2-N-010-9c8f93778f375705 repeat=1 check={'passed': True, 'rag_status': 'failed', 'db_status': 'failed', 'matrix_cell': 'S07[rag=failed,db=failed]', 'expected_overall': 'failed', 'observed_overall': 'failed', 'traceable': True, 'run_id': '71a3722f09a54dfe980f0920ec852f3b'} progress=28/555
+2026-10-06 10:40:22,547 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:40:22,548 INFO v03 gate N P2-N-010-9c8f93778f375705 repeat=2 check={'passed': True, 'rag_status': 'failed', 'db_status': 'failed', 'matrix_cell': 'S07[rag=failed,db=failed]', 'expected_overall': 'failed', 'observed_overall': 'failed', 'traceable': True, 'run_id': 'f978407eb21c4231bde890a46bca925d'} progress=29/555
+2026-10-06 10:40:22,616 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:40:22,617 INFO v03 gate N P2-N-010-9c8f93778f375705 repeat=3 check={'passed': True, 'rag_status': 'failed', 'db_status': 'failed', 'matrix_cell': 'S07[rag=failed,db=failed]', 'expected_overall': 'failed', 'observed_overall': 'failed', 'traceable': True, 'run_id': '29005e23aec74b5181275ac2b17b03d8'} progress=30/555
+2026-10-06 10:40:23,788 INFO Database request=9175ac04af334414a85054f9e11d936d status=completed counts=[4867]
+2026-10-06 10:40:49,771 INFO Project2 run=9175ac04af334414a85054f9e11d936d status=completed attempts=14
+2026-10-06 10:40:49,781 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:40:49,788 INFO v03 gate N P2-N-032-85eefa4b784b2d59 repeat=1 check={'passed': True, 'rag_status': 'completed', 'db_status': 'completed', 'matrix_cell': 'S07[rag=completed,db=completed]', 'expected_overall': 'completed', 'observed_overall': 'completed', 'traceable': True, 'run_id': '9175ac04af334414a85054f9e11d936d'} progress=31/555
+2026-10-06 10:40:51,240 INFO Database request=b58000cd58f0412c947bca13d6bc732b status=completed counts=[4867]
+2026-10-06 10:41:07,331 INFO Project2 run=b58000cd58f0412c947bca13d6bc732b status=completed attempts=12
+2026-10-06 10:41:07,332 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:41:07,335 INFO v03 gate N P2-N-032-85eefa4b784b2d59 repeat=2 check={'passed': True, 'rag_status': 'completed', 'db_status': 'completed', 'matrix_cell': 'S07[rag=completed,db=completed]', 'expected_overall': 'completed', 'observed_overall': 'completed', 'traceable': True, 'run_id': 'b58000cd58f0412c947bca13d6bc732b'} progress=32/555
+2026-10-06 10:41:07,647 INFO Database request=f2cb0d3e10f0480aaa2e8f22c2d70c40 status=completed counts=[4867]
+2026-10-06 10:41:22,859 INFO Project2 run=f2cb0d3e10f0480aaa2e8f22c2d70c40 status=completed attempts=12
+2026-10-06 10:41:22,861 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:41:22,870 INFO v03 gate N P2-N-032-85eefa4b784b2d59 repeat=3 check={'passed': True, 'rag_status': 'completed', 'db_status': 'completed', 'matrix_cell': 'S07[rag=completed,db=completed]', 'expected_overall': 'completed', 'observed_overall': 'completed', 'traceable': True, 'run_id': 'f2cb0d3e10f0480aaa2e8f22c2d70c40'} progress=33/555
+2026-10-06 10:41:31,751 INFO Database request=dd1a575320ad4cb99c8f9191031e6fef status=completed counts=[42569]
+2026-10-06 10:41:46,800 INFO Project2 run=dd1a575320ad4cb99c8f9191031e6fef status=completed attempts=14
+2026-10-06 10:41:46,801 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:41:46,804 INFO v03 gate N P2-N-013-b5c01c130b468de7 repeat=1 check={'passed': True, 'rag_status': 'completed', 'db_status': 'completed', 'matrix_cell': 'S07[rag=completed,db=completed]', 'expected_overall': 'completed', 'observed_overall': 'completed', 'traceable': True, 'run_id': 'dd1a575320ad4cb99c8f9191031e6fef'} progress=34/555
+2026-10-06 10:41:47,823 INFO Database request=264b1f314768487688b80ef46999da0d status=completed counts=[42569]
+2026-10-06 10:41:55,580 INFO Project2 run=264b1f314768487688b80ef46999da0d status=completed attempts=12
+2026-10-06 10:41:55,581 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:41:55,584 INFO v03 gate N P2-N-013-b5c01c130b468de7 repeat=2 check={'passed': True, 'rag_status': 'completed', 'db_status': 'completed', 'matrix_cell': 'S07[rag=completed,db=completed]', 'expected_overall': 'completed', 'observed_overall': 'completed', 'traceable': True, 'run_id': '264b1f314768487688b80ef46999da0d'} progress=35/555
+2026-10-06 10:41:56,460 INFO Database request=4d77677c8e9145cd9d8ae762d11ee882 status=completed counts=[42569]
+2026-10-06 10:42:03,758 INFO Project2 run=4d77677c8e9145cd9d8ae762d11ee882 status=completed attempts=12
+2026-10-06 10:42:03,759 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:42:03,762 INFO v03 gate N P2-N-013-b5c01c130b468de7 repeat=3 check={'passed': True, 'rag_status': 'completed', 'db_status': 'completed', 'matrix_cell': 'S07[rag=completed,db=completed]', 'expected_overall': 'completed', 'observed_overall': 'completed', 'traceable': True, 'run_id': '4d77677c8e9145cd9d8ae762d11ee882'} progress=36/555
+2026-10-06 10:42:20,696 INFO Database request=40bc6e4f0e4a4f83ad865d60e6728e58 status=completed counts=[58237]
+2026-10-06 10:42:41,818 WARNING Project2 HTTP deadline cancelled attempts=14
+2026-10-06 10:42:41,835 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:42:41,839 INFO v03 gate N P2-N-007-fa94d6406b4f19c3 repeat=1 check={'passed': True, 'rag_status': 'timeout', 'db_status': 'completed', 'matrix_cell': 'S07[rag=timeout,db=completed]', 'expected_overall': 'partial', 'observed_overall': 'partial', 'traceable': True, 'run_id': '40bc6e4f0e4a4f83ad865d60e6728e58'} progress=37/555
+2026-10-06 10:42:48,358 INFO Database request=40f849af4f6148beb8612f3fe14871f0 status=completed counts=[58237]
+2026-10-06 10:43:19,805 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 10:43:19,806 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:43:19,807 INFO v03 gate N P2-N-007-fa94d6406b4f19c3 repeat=2 check={'passed': True, 'rag_status': 'timeout', 'db_status': 'completed', 'matrix_cell': 'S07[rag=timeout,db=completed]', 'expected_overall': 'partial', 'observed_overall': 'partial', 'traceable': True, 'run_id': '40f849af4f6148beb8612f3fe14871f0'} progress=38/555
+2026-10-06 10:43:21,786 INFO Database request=442bea95fea045848583c63bbbc9ab67 status=completed counts=[58237]
+2026-10-06 10:43:57,764 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 10:43:57,765 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:43:57,766 INFO v03 gate N P2-N-007-fa94d6406b4f19c3 repeat=3 check={'passed': True, 'rag_status': 'timeout', 'db_status': 'completed', 'matrix_cell': 'S07[rag=timeout,db=completed]', 'expected_overall': 'partial', 'observed_overall': 'partial', 'traceable': True, 'run_id': '442bea95fea045848583c63bbbc9ab67'} progress=39/555
+2026-10-06 10:43:59,139 INFO Database request=61470c5db5f548bbb0d1e54160f21fc1 status=completed counts=[218]
+2026-10-06 10:44:47,697 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 10:44:47,698 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:44:47,700 INFO v03 gate N P2-N-067-458f9f7f407a99d3 repeat=1 check={'passed': True, 'rag_status': 'timeout', 'db_status': 'completed', 'matrix_cell': 'S07[rag=timeout,db=completed]', 'expected_overall': 'partial', 'observed_overall': 'partial', 'traceable': True, 'run_id': '61470c5db5f548bbb0d1e54160f21fc1'} progress=40/555
+2026-10-06 10:44:48,443 INFO Database request=c952882c15d1440f9072a0aa505286b6 status=completed counts=[218]
+2026-10-06 10:45:25,851 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 10:45:25,873 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:45:25,878 INFO v03 gate N P2-N-067-458f9f7f407a99d3 repeat=2 check={'passed': True, 'rag_status': 'timeout', 'db_status': 'completed', 'matrix_cell': 'S07[rag=timeout,db=completed]', 'expected_overall': 'partial', 'observed_overall': 'partial', 'traceable': True, 'run_id': 'c952882c15d1440f9072a0aa505286b6'} progress=41/555
+2026-10-06 10:45:26,642 INFO Database request=14428bc5194545329d74dfaefe87fee2 status=completed counts=[218]
+2026-10-06 10:46:06,467 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 10:46:06,525 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:46:06,536 INFO v03 gate N P2-N-067-458f9f7f407a99d3 repeat=3 check={'passed': True, 'rag_status': 'timeout', 'db_status': 'completed', 'matrix_cell': 'S07[rag=timeout,db=completed]', 'expected_overall': 'partial', 'observed_overall': 'partial', 'traceable': True, 'run_id': '14428bc5194545329d74dfaefe87fee2'} progress=42/555
+2026-10-06 10:46:07,326 INFO Database request=4663481d1b6d418dbf6813ceaf432be2 status=completed counts=[218]
+2026-10-06 10:46:44,588 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 10:46:44,623 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:46:44,630 INFO v03 gate N P2-N-020-be2e9041bbd58a11 repeat=1 check={'passed': True, 'rag_status': 'timeout', 'db_status': 'completed', 'matrix_cell': 'S07[rag=timeout,db=completed]', 'expected_overall': 'partial', 'observed_overall': 'partial', 'traceable': True, 'run_id': '4663481d1b6d418dbf6813ceaf432be2'} progress=43/555
+2026-10-06 10:46:45,874 INFO Database request=55785cbcd19249f2b3c21fdbd6bec4f7 status=completed counts=[218]
+2026-10-06 10:47:28,242 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 10:47:28,302 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:47:28,315 INFO v03 gate N P2-N-020-be2e9041bbd58a11 repeat=2 check={'passed': True, 'rag_status': 'timeout', 'db_status': 'completed', 'matrix_cell': 'S07[rag=timeout,db=completed]', 'expected_overall': 'partial', 'observed_overall': 'partial', 'traceable': True, 'run_id': '55785cbcd19249f2b3c21fdbd6bec4f7'} progress=44/555
+2026-10-06 10:47:29,331 INFO Database request=cbd82a3ddd8e4f64abc1628e4b510ca4 status=completed counts=[218]
+2026-10-06 10:48:10,415 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 10:48:10,445 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:48:10,452 INFO v03 gate N P2-N-020-be2e9041bbd58a11 repeat=3 check={'passed': True, 'rag_status': 'timeout', 'db_status': 'completed', 'matrix_cell': 'S07[rag=timeout,db=completed]', 'expected_overall': 'partial', 'observed_overall': 'partial', 'traceable': True, 'run_id': 'cbd82a3ddd8e4f64abc1628e4b510ca4'} progress=45/555
+2026-10-06 10:48:11,459 INFO Database request=17e4374664ba4630954e5c3ad8dde617 status=completed counts=[2274]
+2026-10-06 10:48:48,462 WARNING Project2 HTTP deadline cancelled attempts=5
+2026-10-06 10:48:48,470 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:48:48,474 INFO v03 gate N P2-N-074-9fbad50a88241c07 repeat=1 check={'passed': True, 'rag_status': 'timeout', 'db_status': 'completed', 'matrix_cell': 'S07[rag=timeout,db=completed]', 'expected_overall': 'partial', 'observed_overall': 'partial', 'traceable': True, 'run_id': '17e4374664ba4630954e5c3ad8dde617'} progress=46/555
+2026-10-06 10:48:49,537 INFO Database request=edf927bf58944a4e91fa1baf3d8b9792 status=completed counts=[2274]
+2026-10-06 10:49:26,536 WARNING Project2 HTTP deadline cancelled attempts=5
+2026-10-06 10:49:26,611 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:49:26,625 INFO v03 gate N P2-N-074-9fbad50a88241c07 repeat=2 check={'passed': True, 'rag_status': 'timeout', 'db_status': 'completed', 'matrix_cell': 'S07[rag=timeout,db=completed]', 'expected_overall': 'partial', 'observed_overall': 'partial', 'traceable': True, 'run_id': 'edf927bf58944a4e91fa1baf3d8b9792'} progress=47/555
+2026-10-06 10:49:28,033 INFO Database request=adebc1f7722c4caa9bd5939c0a734fe7 status=completed counts=[2274]
+2026-10-06 10:50:04,661 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 10:50:04,690 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:50:04,697 INFO v03 gate N P2-N-074-9fbad50a88241c07 repeat=3 check={'passed': True, 'rag_status': 'timeout', 'db_status': 'completed', 'matrix_cell': 'S07[rag=timeout,db=completed]', 'expected_overall': 'partial', 'observed_overall': 'partial', 'traceable': True, 'run_id': 'adebc1f7722c4caa9bd5939c0a734fe7'} progress=48/555
+2026-10-06 10:50:04,901 INFO Database request=9b3d7fe4450744c8bdba38d174d51fa1 status=completed counts=[11]
+2026-10-06 10:50:42,793 WARNING Project2 HTTP deadline cancelled attempts=5
+2026-10-06 10:50:42,895 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:50:42,929 INFO v03 gate N P2-N-102-5bc358ac9996ad11 repeat=1 check={'passed': True, 'rag_status': 'timeout', 'db_status': 'completed', 'matrix_cell': 'S07[rag=timeout,db=completed]', 'expected_overall': 'partial', 'observed_overall': 'partial', 'traceable': True, 'run_id': '9b3d7fe4450744c8bdba38d174d51fa1'} progress=49/555
+2026-10-06 10:50:43,215 INFO Database request=2fbcac06a9c54bcfa0caf9a2b8d55066 status=completed counts=[11]
+2026-10-06 10:51:21,085 WARNING Project2 HTTP deadline cancelled attempts=5
+2026-10-06 10:51:21,142 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:51:21,162 INFO v03 gate N P2-N-102-5bc358ac9996ad11 repeat=2 check={'passed': True, 'rag_status': 'timeout', 'db_status': 'completed', 'matrix_cell': 'S07[rag=timeout,db=completed]', 'expected_overall': 'partial', 'observed_overall': 'partial', 'traceable': True, 'run_id': '2fbcac06a9c54bcfa0caf9a2b8d55066'} progress=50/555
+2026-10-06 10:51:21,461 INFO Database request=794be161381c4e21ac72a39252bfc86d status=completed counts=[11]
+2026-10-06 10:51:59,184 WARNING Project2 HTTP deadline cancelled attempts=5
+2026-10-06 10:51:59,229 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:51:59,239 INFO v03 gate N P2-N-102-5bc358ac9996ad11 repeat=3 check={'passed': True, 'rag_status': 'timeout', 'db_status': 'completed', 'matrix_cell': 'S07[rag=timeout,db=completed]', 'expected_overall': 'partial', 'observed_overall': 'partial', 'traceable': True, 'run_id': '794be161381c4e21ac72a39252bfc86d'} progress=51/555
+2026-10-06 10:51:59,409 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:51:59,410 INFO v03 gate N P2-N-163-b631f07768ac6b43 repeat=1 check={'passed': True, 'rag_status': 'failed', 'db_status': 'failed', 'matrix_cell': 'S07[rag=failed,db=failed]', 'expected_overall': 'failed', 'observed_overall': 'failed', 'traceable': True, 'run_id': 'fcd18136fc7043e6bba7be7aeb32d95f'} progress=52/555
+2026-10-06 10:51:59,490 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:51:59,492 INFO v03 gate N P2-N-163-b631f07768ac6b43 repeat=2 check={'passed': True, 'rag_status': 'failed', 'db_status': 'failed', 'matrix_cell': 'S07[rag=failed,db=failed]', 'expected_overall': 'failed', 'observed_overall': 'failed', 'traceable': True, 'run_id': '86648fec779443629e1190b914d8d952'} progress=53/555
+2026-10-06 10:51:59,576 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:51:59,577 INFO v03 gate N P2-N-163-b631f07768ac6b43 repeat=3 check={'passed': True, 'rag_status': 'failed', 'db_status': 'failed', 'matrix_cell': 'S07[rag=failed,db=failed]', 'expected_overall': 'failed', 'observed_overall': 'failed', 'traceable': True, 'run_id': '447a4a1736b34eb0a0bd04f528870630'} progress=54/555
+2026-10-06 10:52:10,789 INFO Database request=58c55eb0fa684d4b9bbb504395fcd528 status=completed counts=[86438]
+2026-10-06 10:52:37,544 WARNING Project2 HTTP deadline cancelled attempts=5
+2026-10-06 10:52:37,547 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:52:37,548 INFO v03 gate N P2-N-023-7b12a99b91642b55 repeat=1 check={'passed': True, 'rag_status': 'timeout', 'db_status': 'completed', 'matrix_cell': 'S07[rag=timeout,db=completed]', 'expected_overall': 'partial', 'observed_overall': 'partial', 'traceable': True, 'run_id': '58c55eb0fa684d4b9bbb504395fcd528'} progress=55/555
+2026-10-06 10:52:48,884 INFO Database request=caab8f645f884ec8b011a900a0efe061 status=completed counts=[86438]
+2026-10-06 10:53:15,512 WARNING Project2 HTTP deadline cancelled attempts=5
+2026-10-06 10:53:15,527 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:53:15,534 INFO v03 gate N P2-N-023-7b12a99b91642b55 repeat=2 check={'passed': True, 'rag_status': 'timeout', 'db_status': 'completed', 'matrix_cell': 'S07[rag=timeout,db=completed]', 'expected_overall': 'partial', 'observed_overall': 'partial', 'traceable': True, 'run_id': 'caab8f645f884ec8b011a900a0efe061'} progress=56/555
+2026-10-06 10:53:26,367 INFO Database request=f85ac9eef46b4effaeedc5660ba3a18d status=completed counts=[86438]
+2026-10-06 10:53:53,538 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 10:53:53,555 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 10:53:53,563 INFO v03 gate N P2-N-023-7b12a99b91642b55 repeat=3 check={'passed': True, 'rag_status': 'timeout', 'db_status': 'completed', 'matrix_cell': 'S07[rag=timeout,db=completed]', 'expected_overall': 'partial', 'observed_overall': 'partial', 'traceable': True, 'run_id': 'f85ac9eef46b4effaeedc5660ba3a18d'} progress=57/555
+2026-10-06 10:53:54,285 INFO Database request=806f34f497034985b88f540a5fe90a86 status=completed counts=[978]

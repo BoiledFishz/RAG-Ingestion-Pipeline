@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.697" timestamp="2026-10-06T10:35:41.938544-07:00" hostname="szy"><testcase classname="tests.project2.test_v031_resume_runner" name="test_resume_does_not_replace_prior_heartbeat_session" time="0.025"><failure message="AttributeError: module 'native_runner' has no attribute 'power_session'">tmp_path = WindowsPath('C:/Users/zacha/AppData/Local/Temp/aws-support-rag-92244-51689414a74c4924bf09d9516607dc7f/test_resume_does_not_replace_p0')
+
+    def test_resume_does_not_replace_prior_heartbeat_session(tmp_path):
+        spec=importlib.util.spec_from_file_location('native_runner',ROOT/'scripts/run_project2_v031_gate.py')
+        m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+        base=tmp_path/'power';base.mkdir();prior=base/'host_guard_active.json';prior.write_text('original session')
+&gt;       selected=m.power_session(base,True)
+                 ^^^^^^^^^^^^^^^
+E       AttributeError: module 'native_runner' has no attribute 'power_session'
+
+tests\project2\test_v031_resume_runner.py:12: AttributeError</failure></testcase></testsuite></testsuites>

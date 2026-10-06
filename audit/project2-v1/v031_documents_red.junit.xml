@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="3" time="0.987" timestamp="2026-10-05T21:48:30.735566-07:00" hostname="szy"><testcase classname="tests.project2.test_v031_documents" name="test_operational_revision_keeps_all_nonoperational_fields" time="0.001"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\specs\\project2\\v0.3.1\\check_docs.py'">def test_operational_revision_keeps_all_nonoperational_fields():
+&gt;       assert checker().validate_scope(ROOT/'specs/project2/v0.3.1',ROOT)
+               ^^^^^^^^^
+
+tests\project2\test_v031_documents.py:16: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\project2\test_v031_documents.py:12: in checker
+    value=importlib.util.module_from_spec(spec);spec.loader.exec_module(value);return value
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap_external&gt;:755: in exec_module
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:892: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;_frozen_importlib_external.SourceFileLoader object at 0x000002821154E090&gt;
+path = 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\specs\\project2\\v0.3.1\\check_docs.py'
+
+&gt;   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\specs\\project2\\v0.3.1\\check_docs.py'
+
+&lt;frozen importlib._bootstrap_external&gt;:950: FileNotFoundError</failure></testcase><testcase classname="tests.project2.test_v031_documents" name="test_sleep_censor_rule_cannot_be_removed" time="0.011"><failure message="FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\specs\\project2\\v0.3.1'">tmp_path = WindowsPath('C:/Users/zacha/AppData/Local/Temp/aws-support-rag-83264-a573a14e359d4155a849d6618ea8febc/test_sleep_censor_rule_cannot_0')
+
+    def test_sleep_censor_rule_cannot_be_removed(tmp_path):
+&gt;       docs=tmp_path/'docs';shutil.copytree(ROOT/'specs/project2/v0.3.1',docs)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\project2\test_v031_documents.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+src = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/specs/project2/v0.3.1')
+dst = WindowsPath('C:/Users/zacha/AppData/Local/Temp/aws-support-rag-83264-a573a14e359d4155a849d6618ea8febc/test_sleep_censor_rule_cannot_0/docs')
+symlinks = False, ignore = None
+copy_function = &lt;function copy2 at 0x000002820C59D170&gt;
+ignore_dangling_symlinks = False, dirs_exist_ok = False
+
+    def copytree(src, dst, symlinks=False, ignore=None, copy_function=copy2,
+                 ignore_dangling_symlinks=False, dirs_exist_ok=False):
+        """Recursively copy a directory tree and return the destination directory.
+    
+        If exception(s) occur, an Error is raised with a list of reasons.
+    
+        If the optional symlinks flag is true, symbolic links in the
+        source tree result in symbolic links in the destination tree; if
+        it is false, the contents of the files pointed to by symbolic
+        links are copied. If the file pointed to by the symlink doesn't
+        exist, an exception will be added in the list of errors raised in
+        an Error exception at the end of the copy process.
+    
+        You can set the optional ignore_dangling_symlinks flag to true if you
+        want to silence this exception. Notice that this has no effect on
+        platforms that don't support os.symlink.
+    
+        The optional ignore argument is a callable. If given, it
+        is called with the `src` parameter, which is the directory
+        being visited by copytree(), and `names` which is the list of
+        `src` contents, as returned by os.listdir():
+    
+            callable(src, names) -&gt; ignored_names
+    
+        Since copytree() is called recursively, the callable will be
+        called once for each directory that is copied. It returns a
+        list of names relative to the `src` directory that should
+        not be copied.
+    
+        The optional copy_function argument is a callable that will be used
+        to copy each file. It will be called with the source path and the
+        destination path as arguments. By default, copy2() is used, but any
+        function that supports the same signature (like copy()) can be used.
+    
+        If dirs_exist_ok is false (the default) and `dst` already exists, a
+        `FileExistsError` is raised. If `dirs_exist_ok` is true, the copying
+        operation will continue if it encounters existing directories, and files
+        within the `dst` tree will be overwritten by corresponding files from the
+        `src` tree.
+        """
+        sys.audit("shutil.copytree", src, dst)
+&gt;       with os.scandir(src) as itr:
+             ^^^^^^^^^^^^^^^
+E       FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\specs\\project2\\v0.3.1'
+
+..\..\AppData\Local\Python\pythoncore-3.14-64\Lib\shutil.py:652: FileNotFoundError</failure></testcase><testcase classname="tests.project2.test_v031_documents" name="test_scene_or_matrix_change_cannot_pass" time="0.005"><failure message="FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\specs\\project2\\v0.3.1'">tmp_path = WindowsPath('C:/Users/zacha/AppData/Local/Temp/aws-support-rag-83264-a573a14e359d4155a849d6618ea8febc/test_scene_or_matrix_change_ca0')
+
+    def test_scene_or_matrix_change_cannot_pass(tmp_path):
+&gt;       docs=tmp_path/'docs';shutil.copytree(ROOT/'specs/project2/v0.3.1',docs)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\project2\test_v031_documents.py:27: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+src = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/specs/project2/v0.3.1')
+dst = WindowsPath('C:/Users/zacha/AppData/Local/Temp/aws-support-rag-83264-a573a14e359d4155a849d6618ea8febc/test_scene_or_matrix_change_ca0/docs')
+symlinks = False, ignore = None
+copy_function = &lt;function copy2 at 0x000002820C59D170&gt;
+ignore_dangling_symlinks = False, dirs_exist_ok = False
+
+    def copytree(src, dst, symlinks=False, ignore=None, copy_function=copy2,
+                 ignore_dangling_symlinks=False, dirs_exist_ok=False):
+        """Recursively copy a directory tree and return the destination directory.
+    
+        If exception(s) occur, an Error is raised with a list of reasons.
+    
+        If the optional symlinks flag is true, symbolic links in the
+        source tree result in symbolic links in the destination tree; if
+        it is false, the contents of the files pointed to by symbolic
+        links are copied. If the file pointed to by the symlink doesn't
+        exist, an exception will be added in the list of errors raised in
+        an Error exception at the end of the copy process.
+    
+        You can set the optional ignore_dangling_symlinks flag to true if you
+        want to silence this exception. Notice that this has no effect on
+        platforms that don't support os.symlink.
+    
+        The optional ignore argument is a callable. If given, it
+        is called with the `src` parameter, which is the directory
+        being visited by copytree(), and `names` which is the list of
+        `src` contents, as returned by os.listdir():
+    
+            callable(src, names) -&gt; ignored_names
+    
+        Since copytree() is called recursively, the callable will be
+        called once for each directory that is copied. It returns a
+        list of names relative to the `src` directory that should
+        not be copied.
+    
+        The optional copy_function argument is a callable that will be used
+        to copy each file. It will be called with the source path and the
+        destination path as arguments. By default, copy2() is used, but any
+        function that supports the same signature (like copy()) can be used.
+    
+        If dirs_exist_ok is false (the default) and `dst` already exists, a
+        `FileExistsError` is raised. If `dirs_exist_ok` is true, the copying
+        operation will continue if it encounters existing directories, and files
+        within the `dst` tree will be overwritten by corresponding files from the
+        `src` tree.
+        """
+        sys.audit("shutil.copytree", src, dst)
+&gt;       with os.scandir(src) as itr:
+             ^^^^^^^^^^^^^^^
+E       FileNotFoundError: [WinError 3] 系统找不到指定的路径。: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\specs\\project2\\v0.3.1'
+
+..\..\AppData\Local\Python\pythoncore-3.14-64\Lib\shutil.py:652: FileNotFoundError</failure></testcase></testsuite></testsuites>

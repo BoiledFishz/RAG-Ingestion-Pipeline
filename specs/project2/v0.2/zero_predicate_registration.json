@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "selection_version": "corpus-product-version-zero-v1",
+  "seed": 20261005,
+  "input_dependencies": [
+    "official_full_corpus_titles",
+    "official_full_corpus_fts",
+    "approved_literal_patterns"
+  ],
+  "literal_patterns": {
+    "entity_pattern": "WebSphere\\s+Application\\s+Server|WebSphere\\s+Message\\s+Broker|IBM\\s+Integration\\s+Bus|WebSphere\\s+MQ|IBM\\s+HTTP\\s+Server|WebSphere\\s+Portal|Netcool\\/Impact|Netcool|DataPower|ClearQuest|Datacap|Cognos|SPSS|DB2|BPM|MQ|Impact|Rational|CICS|Tivoli|FileNet|PureApplication|Passport\\s+Advantage|Fix\\s+Central|UCD|RDz|ITNM|ITM|Nokia\\s+NSP",
+    "version_pattern": "\\b(?:V(?:ersion)?\\s*\\d+(?:\\.\\d+)*|Release\\s*\\d+|\\d+\\.\\d+(?:\\.\\d+)*)\\b"
+  },
+  "eligibility": "products and adjacent versions observed in official document titles; both full-corpus marginals positive; joint count zero",
+  "ordering": "SHA256(decimal_seed + ':' + product + ':' + version), ascending; distinct selected products",
+  "eligible_terms": 3434,
+  "eligible_sha256": "a2d50dac17d29b547a5c30bc152062ba249267c80dae78a13b9070b318aae05d",
+  "attempts": [
+    {
+      "phrases": [
+        "websphere application    server",
+        "v7.0.2"
+      ],
+      "count": 98,
+      "individual_phrase_counts": [
+        40526,
+        212
+      ]
+    },
+    {
+      "phrases": [
+        "mq",
+        "version 9.3.0.2"
+      ],
+      "count": 0,
+      "individual_phrase_counts": [
+        18296,
+        2
+      ]
+    },
+    {
+      "phrases": [
+        "websphere     message broker",
+        "version 2.8.2"
+      ],
+      "count": 1,
+      "individual_phrase_counts": [
+        4867,
+        6
+      ]
+    },
+    {
+      "phrases": [
+        "websphere  mq",
+        "9.5.2.6"
+      ],
+      "count": 0,
+      "individual_phrase_counts": [
+        13881,
+        6
+      ]
+    }
+  ],
+  "predicates": [
+    {
+      "predicate_id": "CORPUS-ZERO-01",
+      "phrases": [
+        "mq",
+        "version 9.3.0.2"
+      ],
+      "count": 0,
+      "phrase_roles": [
+        "product_or_component",
+        "version"
+      ],
+      "individual_phrase_counts": [
+        18296,
+        2
+      ],
+      "measurement_complete": true
+    },
+    {
+      "predicate_id": "CORPUS-ZERO-02",
+      "phrases": [
+        "websphere  mq",
+        "9.5.2.6"
+      ],
+      "count": 0,
+      "phrase_roles": [
+        "product_or_component",
+        "version"
+      ],
+      "individual_phrase_counts": [
+        13881,
+        6
+      ],
+      "measurement_complete": true
+    }
+  ],
+  "manifest": {
+    "scope": "full",
+    "document_count": "801996",
+    "complete": "true",
+    "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+    "format_version": "1"
+  },
+  "qa_read": false,
+  "worker_output_read": false,
+  "model_calls": 0
+}

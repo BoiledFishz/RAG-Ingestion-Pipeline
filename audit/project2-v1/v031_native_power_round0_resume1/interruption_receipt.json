@@ -1,0 +1,11 @@
+{
+  "evidence_type": "真实运行",
+  "resumed_utc": "2026-10-06T17:36:07.095545+00:00",
+  "previous_record_count": 10,
+  "previous_records_sha256": "ca1b4906c98eac0ad0b34e297330709f2e1c2012cc561cdec4bb7629c3559239",
+  "previous_records_bytes": 230841,
+  "unrecorded_inflight_result": "unknown; execution session no longer exists",
+  "inflight_attempts": null,
+  "inflight_cost": null,
+  "not_chap13_process_recovery_evidence": true
+}

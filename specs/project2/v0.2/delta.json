@@ -1,0 +1,79 @@
+{
+  "from_version": "v0.1",
+  "to_version": "v0.2",
+  "authorization_date": "2026-10-05",
+  "changes": [
+    {
+      "delta_id": "D01",
+      "scenario_id": "AC12-02",
+      "old_predicate": [
+        [
+          "Netcool/Impact",
+          "6.1.0"
+        ]
+      ],
+      "old_actual_count": [
+        192
+      ],
+      "new_predicate": [
+        [
+          "mq",
+          "version 9.3.0.2"
+        ]
+      ],
+      "new_expected_count": 0,
+      "new_independent_count": 0,
+      "reason": "原零值假设与官方全文库复算冲突；按用户限定授权替换数据谓词，状态和门禁不变",
+      "evidence_files": [
+        "audit/project2-v1/preflight_v0.1.json",
+        "specs/project2/v0.2/zero_predicate_registration.json"
+      ],
+      "csv_changes": {
+        "input_source_and_selection": {
+          "old": "{\"sample_id\":\"P2-VERSION-01\",\"query\":\"Netcool/Impact 6.1.0: How to change the HSQLDB password?\\nNetcool/Impact 6.1.0: How to change the HSQLDB password?\",\"analysis_operation\":\"document_count\",\"include_samples\":true,\"sample_limit\":5}",
+          "new": "{\"sample_id\":\"P2-VERSION-01\",\"query\":\"Netcool/Impact 6.1.0: How to change the HSQLDB password?\\nNetcool/Impact 6.1.0: How to change the HSQLDB password?\",\"analysis_operation\":\"document_count\",\"include_samples\":true,\"sample_limit\":5,\"analysis_predicates\":[[\"mq\",\"version 9.3.0.2\"]]}"
+        },
+        "setup": {
+          "old": "固定 P2-VERSION-01 原问题；完整授权快照，两条真实依赖正常。预登记假设 RAG 有适用证据而 DB 完整词项计数为0；不为满足假设改题、改谓词、改权限或重选样本。若假设不成立，记场景失败。",
+          "new": "保留P2-VERSION-01原query及RAG正常依赖；独立统计改为登记CORPUS-ZERO-01的literal产品/版本组。完整授权全集独立复算0，边际18296/2；技术解释仍基于原问题，不把统计条件解释为版本支持。"
+        }
+      }
+    },
+    {
+      "delta_id": "D02",
+      "scenario_id": "AC12-03",
+      "old_predicate": [
+        [
+          "MQ",
+          "V7.0.1"
+        ]
+      ],
+      "old_actual_count": [
+        1873
+      ],
+      "new_predicate": [
+        [
+          "websphere  mq",
+          "9.5.2.6"
+        ]
+      ],
+      "new_expected_count": 0,
+      "new_independent_count": 0,
+      "reason": "原零值假设与官方全文库复算冲突；按用户限定授权替换数据谓词，状态和门禁不变",
+      "evidence_files": [
+        "audit/project2-v1/preflight_v0.1.json",
+        "specs/project2/v0.2/zero_predicate_registration.json"
+      ],
+      "csv_changes": {
+        "input_source_and_selection": {
+          "old": "{\"sample_id\":\"P2-NOANSWER-02\",\"query\":\"Is MQ V7.0.1 is going out of support?\\nWhen is the last date of support?\",\"analysis_operation\":\"document_count\",\"include_samples\":true,\"sample_limit\":5}",
+          "new": "{\"sample_id\":\"P2-NOANSWER-02\",\"query\":\"Is MQ V7.0.1 is going out of support?\\nWhen is the last date of support?\",\"analysis_operation\":\"document_count\",\"include_samples\":true,\"sample_limit\":5,\"analysis_predicates\":[[\"websphere  mq\",\"9.5.2.6\"]]}"
+        },
+        "setup": {
+          "old": "仅 Mock 两个 Worker 的无数据状态/零计数元数据；原 query 为 P2-NOANSWER-02，未编造文档或参考答案；不把 Mock 声称为真实无答案证据。",
+          "new": "保留P2-NOANSWER-02原query及RAG无数据状态契约(Mock)；统计改为登记CORPUS-ZERO-02的真实literal产品/版本组，全集独立复算0，边际13881/6。Mock仅验证RAG状态，不生成文档/答案，不用固定数代替数据库零值前提。"
+        }
+      }
+    }
+  ]
+}

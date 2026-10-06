@@ -1,0 +1,33 @@
+{
+  "version": "project2-ch12-extras-v1",
+  "partition": "tune",
+  "repeats": 3,
+  "spec_manifest_sha256": "80455fc850af285c0c4af7998f2ead9061b9b13e649037bd64bebe931971df28",
+  "variants": [
+    {
+      "name": "default",
+      "environment": {
+        "RETRIEVAL_CANDIDATE_K": "30",
+        "RRF_RANK_CONSTANT": "60"
+      }
+    },
+    {
+      "name": "candidate45_rrf30",
+      "environment": {
+        "RETRIEVAL_CANDIDATE_K": "45",
+        "RRF_RANK_CONSTANT": "30"
+      }
+    },
+    {
+      "name": "candidate60_rrf100",
+      "environment": {
+        "RETRIEVAL_CANDIDATE_K": "60",
+        "RRF_RANK_CONSTANT": "100"
+      }
+    }
+  ],
+  "selection": "AC12-02/10/11/13/16 original registered queries, never substitute from outputs",
+  "fault": "local HTTP blackhole generation dependency; real original query, counted send attempt; no artificial corpus",
+  "gold_fields_online": false,
+  "heldout_calls": 0
+}

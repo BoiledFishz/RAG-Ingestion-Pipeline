@@ -1,0 +1,21 @@
+{
+  "version": "A1",
+  "authorization_source": "Human reply in this conversation on 2026-10-04",
+  "human_authorization": "允许补充协议，单独报告",
+  "scope": "Reference fact annotation only, no tested retrieval/generation/critic changes",
+  "normal_fact_count": [2, 5],
+  "exception_fact_count": 1,
+  "exception_requirements": [
+    "Named human reviews the official question and answer without looking at model outputs",
+    "Human approves the fact definition and provides a reason that supports only one distinct fact",
+    "Exact reference quotation in unchanged official answer",
+    "Zero-fact and empty-answer cases remain unaccepted; no fact fabrication"
+  ],
+  "main_metric_policy": "Exclude approved single-fact exceptions from main fact coverage and completeness means; report eligible Y denominator",
+  "exception_metric_policy": "Separate per-question 0/1/2, completeness and annotator agreement; numerator/denominator and 95% CI; independent n below 10 is descriptive only",
+  "control_policy": "Keep every original control; single-fact controls are still individually compared, never removed",
+  "independence": "Named human plus different-model LLM, both score the same frozen answer bodies; same-AI self-review is not independent annotation",
+  "native_baseline_policy": "Never replace frozen baseline v0 summary or native outputs; rescore stored outputs only; do not increment held-out inference budget",
+  "preregistration_scope": "Applies uniformly to tune and held-out using reference definitions; no target IDs in implementation",
+  "definition_status": "Proposal validation is not human approval; human definitions and independent scoring remain pending"
+}

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="5" skipped="0" tests="5" time="0.847" timestamp="2026-10-05T21:46:09.917568-07:00" hostname="szy"><testcase classname="tests.project2.test_v031_batches" name="test_heartbeat_gap_is_a_batch_failure_not_a_filtered_row" time="0.002"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v031_calibration.py'">def test_heartbeat_gap_is_a_batch_failure_not_a_filtered_row():
+&gt;       m=runner()
+          ^^^^^^^^
+
+tests\project2\test_v031_batches.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\project2\test_v031_batches.py:16: in runner
+    spec.loader.exec_module(value)
+&lt;frozen importlib._bootstrap_external&gt;:755: in exec_module
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:892: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;_frozen_importlib_external.SourceFileLoader object at 0x00000205FF89E150&gt;
+path = 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v031_calibration.py'
+
+&gt;   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v031_calibration.py'
+
+&lt;frozen importlib._bootstrap_external&gt;:950: FileNotFoundError</failure></testcase><testcase classname="tests.project2.test_v031_batches" name="test_only_sleep_allows_the_third_batch_and_the_first_valid_batch_wins" time="0.001"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v031_calibration.py'">def test_only_sleep_allows_the_third_batch_and_the_first_valid_batch_wins():
+&gt;       m=runner()
+          ^^^^^^^^
+
+tests\project2\test_v031_batches.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\project2\test_v031_batches.py:16: in runner
+    spec.loader.exec_module(value)
+&lt;frozen importlib._bootstrap_external&gt;:755: in exec_module
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:892: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;_frozen_importlib_external.SourceFileLoader object at 0x00000205FF8F4D70&gt;
+path = 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v031_calibration.py'
+
+&gt;   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v031_calibration.py'
+
+&lt;frozen importlib._bootstrap_external&gt;:950: FileNotFoundError</failure></testcase><testcase classname="tests.project2.test_v031_batches" name="test_full_slot_set_and_floor_are_preserved" time="0.001"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v031_calibration.py'">def test_full_slot_set_and_floor_are_preserved():
+&gt;       m=runner()
+          ^^^^^^^^
+
+tests\project2\test_v031_batches.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\project2\test_v031_batches.py:16: in runner
+    spec.loader.exec_module(value)
+&lt;frozen importlib._bootstrap_external&gt;:755: in exec_module
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:892: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;_frozen_importlib_external.SourceFileLoader object at 0x00000205FF8F5550&gt;
+path = 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v031_calibration.py'
+
+&gt;   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v031_calibration.py'
+
+&lt;frozen importlib._bootstrap_external&gt;:950: FileNotFoundError</failure></testcase><testcase classname="tests.project2.test_v031_batches" name="test_runner_releases_execution_state_after_failure" time="0.007"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v031_calibration.py'">tmp_path = WindowsPath('C:/Users/zacha/AppData/Local/Temp/aws-support-rag-103716-3ecd4f5203be4c29a35a10e4ab477451/test_runner_releases_execution0')
+
+    def test_runner_releases_execution_state_after_failure(tmp_path):
+&gt;       m=runner(); calls=[]
+          ^^^^^^^^
+
+tests\project2\test_v031_batches.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\project2\test_v031_batches.py:16: in runner
+    spec.loader.exec_module(value)
+&lt;frozen importlib._bootstrap_external&gt;:755: in exec_module
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:892: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;_frozen_importlib_external.SourceFileLoader object at 0x00000205FF8F5490&gt;
+path = 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v031_calibration.py'
+
+&gt;   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v031_calibration.py'
+
+&lt;frozen importlib._bootstrap_external&gt;:950: FileNotFoundError</failure></testcase><testcase classname="tests.project2.test_v031_batches" name="test_unplugged_stops_before_any_slot" time="0.005"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v031_calibration.py'">tmp_path = WindowsPath('C:/Users/zacha/AppData/Local/Temp/aws-support-rag-103716-3ecd4f5203be4c29a35a10e4ab477451/test_unplugged_stops_before_an0')
+
+    def test_unplugged_stops_before_any_slot(tmp_path):
+&gt;       m=runner(); calls=[]
+          ^^^^^^^^
+
+tests\project2\test_v031_batches.py:67: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\project2\test_v031_batches.py:16: in runner
+    spec.loader.exec_module(value)
+&lt;frozen importlib._bootstrap_external&gt;:755: in exec_module
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:892: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;_frozen_importlib_external.SourceFileLoader object at 0x00000205FF8F5B50&gt;
+path = 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v031_calibration.py'
+
+&gt;   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\scripts\\project2_v031_calibration.py'
+
+&lt;frozen importlib._bootstrap_external&gt;:950: FileNotFoundError</failure></testcase></testsuite></testsuites>

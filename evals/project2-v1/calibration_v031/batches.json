@@ -1,0 +1,22 @@
+{
+  "batches": [
+    {
+      "batch": 1,
+      "status": "incomplete_censored",
+      "censor_reason": "host sleep; P2-PLATFORM-01/combination/repeat3",
+      "used_for_decision": false,
+      "label": "批次 1：因主机睡眠删失，未用于决策",
+      "path": "evals/project2-v1/calibration_v03",
+      "requests": 300
+    },
+    {
+      "batch": 2,
+      "status": "selected",
+      "censor_reason": null,
+      "used_for_decision": true,
+      "path": "evals/project2-v1/calibration_v031/batch2",
+      "requests": 300
+    }
+  ],
+  "heldout_calls": 0
+}

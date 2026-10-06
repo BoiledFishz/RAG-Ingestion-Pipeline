@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="5" time="1.422" timestamp="2026-10-06T15:34:45.532186-07:00" hostname="szy"><testcase classname="tests.project2.test_v031_reporting" name="test_prior_batch_count_and_censor_are_read_from_immutable_records" time="0.242" /><testcase classname="tests.project2.test_v031_reporting" name="test_comparison_rendering_is_compact_and_contains_ci_and_declines" time="0.002" /><testcase classname="tests.project2.test_v031_reporting" name="test_qa_report_keeps_repeats_ci_and_unscored_answers_visible" time="0.018" /><testcase classname="tests.project2.test_v031_reporting" name="test_unsupported_business_comparison_does_not_call_incomplete_tasks_regressions" time="0.004" /><testcase classname="tests.project2.test_v031_reporting" name="test_completed_measurements_do_not_override_frozen_quality_requirements" time="0.024"><failure message="AttributeError: module 'p2_report' has no attribute 'stage_progression'">def test_completed_measurements_do_not_override_frozen_quality_requirements():
+        m=load()
+        import sys
+        sys.path.insert(0,str(ROOT/'scripts'))
+        from project2_close_stage import quality_acceptance
+        tune=json.loads((ROOT/'evals/project2-v1/ch12/qa-tune/summary.json').read_text(encoding='utf-8'))
+        controls=json.loads((ROOT/'evals/protocol_v0/controls.json').read_text(encoding='utf-8'))
+        receipt={'execution_complete':True,'quality':quality_acceptance({'tune':tune},{x['question_id'] for x in controls['records']})}
+&gt;       result=m.stage_progression(receipt)
+               ^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'p2_report' has no attribute 'stage_progression'
+
+tests\project2\test_v031_reporting.py:50: AttributeError</failure></testcase></testsuite></testsuites>

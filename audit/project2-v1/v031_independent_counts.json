@@ -1,0 +1,5352 @@
+{
+  "status": "passed",
+  "expected_requests": 150,
+  "observed_requests": 150,
+  "complete": true,
+  "checks": [
+    {
+      "sample_id": "P2-COMPARE-01",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "MQ",
+            "9.0"
+          ],
+          [
+            "MQ",
+            "8.5"
+          ]
+        ],
+        "counts": [
+          1413,
+          547
+        ],
+        "intersection": 125,
+        "delta_a_minus_b": 866,
+        "union": 1835,
+        "measurement_complete": true,
+        "elapsed_ms": 463.1174999522045,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1413,
+          547
+        ],
+        "predicates": [
+          [
+            "MQ",
+            "9.0"
+          ],
+          [
+            "MQ",
+            "8.5"
+          ]
+        ],
+        "intersection": 125,
+        "delta_a_minus_b": 866,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-01",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "MQ",
+            "9.0"
+          ],
+          [
+            "MQ",
+            "8.5"
+          ]
+        ],
+        "counts": [
+          1413,
+          547
+        ],
+        "intersection": 125,
+        "delta_a_minus_b": 866,
+        "union": 1835,
+        "measurement_complete": true,
+        "elapsed_ms": 463.1174999522045,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1413,
+          547
+        ],
+        "predicates": [
+          [
+            "MQ",
+            "9.0"
+          ],
+          [
+            "MQ",
+            "8.5"
+          ]
+        ],
+        "intersection": 125,
+        "delta_a_minus_b": 866,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-01",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "MQ",
+            "9.0"
+          ],
+          [
+            "MQ",
+            "8.5"
+          ]
+        ],
+        "counts": [
+          1413,
+          547
+        ],
+        "intersection": 125,
+        "delta_a_minus_b": 866,
+        "union": 1835,
+        "measurement_complete": true,
+        "elapsed_ms": 463.1174999522045,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1413,
+          547
+        ],
+        "predicates": [
+          [
+            "MQ",
+            "9.0"
+          ],
+          [
+            "MQ",
+            "8.5"
+          ]
+        ],
+        "intersection": 125,
+        "delta_a_minus_b": 866,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-02",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "BPM",
+            "8.0.1"
+          ],
+          [
+            "DB2",
+            "10.1.0"
+          ]
+        ],
+        "counts": [
+          1771,
+          724
+        ],
+        "intersection": 2,
+        "delta_a_minus_b": 1047,
+        "union": 2493,
+        "measurement_complete": true,
+        "elapsed_ms": 596.2032000534236,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1771,
+          724
+        ],
+        "predicates": [
+          [
+            "BPM",
+            "8.0.1"
+          ],
+          [
+            "DB2",
+            "10.1.0"
+          ]
+        ],
+        "intersection": 2,
+        "delta_a_minus_b": 1047,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-02",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "BPM",
+            "8.0.1"
+          ],
+          [
+            "DB2",
+            "10.1.0"
+          ]
+        ],
+        "counts": [
+          1771,
+          724
+        ],
+        "intersection": 2,
+        "delta_a_minus_b": 1047,
+        "union": 2493,
+        "measurement_complete": true,
+        "elapsed_ms": 596.2032000534236,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1771,
+          724
+        ],
+        "predicates": [
+          [
+            "BPM",
+            "8.0.1"
+          ],
+          [
+            "DB2",
+            "10.1.0"
+          ]
+        ],
+        "intersection": 2,
+        "delta_a_minus_b": 1047,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-02",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "BPM",
+            "8.0.1"
+          ],
+          [
+            "DB2",
+            "10.1.0"
+          ]
+        ],
+        "counts": [
+          1771,
+          724
+        ],
+        "intersection": 2,
+        "delta_a_minus_b": 1047,
+        "union": 2493,
+        "measurement_complete": true,
+        "elapsed_ms": 596.2032000534236,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1771,
+          724
+        ],
+        "predicates": [
+          [
+            "BPM",
+            "8.0.1"
+          ],
+          [
+            "DB2",
+            "10.1.0"
+          ]
+        ],
+        "intersection": 2,
+        "delta_a_minus_b": 1047,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-03",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V9.0"
+          ],
+          [
+            "WebSphere Message Broker",
+            "V8.0"
+          ]
+        ],
+        "counts": [
+          1322,
+          1585
+        ],
+        "intersection": 807,
+        "delta_a_minus_b": -263,
+        "union": 2100,
+        "measurement_complete": true,
+        "elapsed_ms": 597.2310999641195,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1322,
+          1585
+        ],
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V9.0"
+          ],
+          [
+            "WebSphere Message Broker",
+            "V8.0"
+          ]
+        ],
+        "intersection": 807,
+        "delta_a_minus_b": -263,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-03",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V9.0"
+          ],
+          [
+            "WebSphere Message Broker",
+            "V8.0"
+          ]
+        ],
+        "counts": [
+          1322,
+          1585
+        ],
+        "intersection": 807,
+        "delta_a_minus_b": -263,
+        "union": 2100,
+        "measurement_complete": true,
+        "elapsed_ms": 597.2310999641195,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1322,
+          1585
+        ],
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V9.0"
+          ],
+          [
+            "WebSphere Message Broker",
+            "V8.0"
+          ]
+        ],
+        "intersection": 807,
+        "delta_a_minus_b": -263,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-03",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V9.0"
+          ],
+          [
+            "WebSphere Message Broker",
+            "V8.0"
+          ]
+        ],
+        "counts": [
+          1322,
+          1585
+        ],
+        "intersection": 807,
+        "delta_a_minus_b": -263,
+        "union": 2100,
+        "measurement_complete": true,
+        "elapsed_ms": 597.2310999641195,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1322,
+          1585
+        ],
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V9.0"
+          ],
+          [
+            "WebSphere Message Broker",
+            "V8.0"
+          ]
+        ],
+        "intersection": 807,
+        "delta_a_minus_b": -263,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-04",
+      "repeat": 1,
+      "expected": {
+        "error": "clarification_required:two_entity_version_pairs_missing",
+        "predicates": [],
+        "counts": [],
+        "intersection": null,
+        "measurement_complete": false
+      },
+      "observed": {
+        "counts": [],
+        "predicates": [],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": null
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-04",
+      "repeat": 2,
+      "expected": {
+        "error": "clarification_required:two_entity_version_pairs_missing",
+        "predicates": [],
+        "counts": [],
+        "intersection": null,
+        "measurement_complete": false
+      },
+      "observed": {
+        "counts": [],
+        "predicates": [],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": null
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-04",
+      "repeat": 3,
+      "expected": {
+        "error": "clarification_required:two_entity_version_pairs_missing",
+        "predicates": [],
+        "counts": [],
+        "intersection": null,
+        "measurement_complete": false
+      },
+      "observed": {
+        "counts": [],
+        "predicates": [],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": null
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-05",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V9.0"
+          ],
+          [
+            "WebSphere Message Broker",
+            "V8.0"
+          ]
+        ],
+        "counts": [
+          1322,
+          1585
+        ],
+        "intersection": 807,
+        "delta_a_minus_b": -263,
+        "union": 2100,
+        "measurement_complete": true,
+        "elapsed_ms": 234.19699992518872,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1322,
+          1585
+        ],
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V9.0"
+          ],
+          [
+            "WebSphere Message Broker",
+            "V8.0"
+          ]
+        ],
+        "intersection": 807,
+        "delta_a_minus_b": -263,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-05",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V9.0"
+          ],
+          [
+            "WebSphere Message Broker",
+            "V8.0"
+          ]
+        ],
+        "counts": [
+          1322,
+          1585
+        ],
+        "intersection": 807,
+        "delta_a_minus_b": -263,
+        "union": 2100,
+        "measurement_complete": true,
+        "elapsed_ms": 234.19699992518872,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1322,
+          1585
+        ],
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V9.0"
+          ],
+          [
+            "WebSphere Message Broker",
+            "V8.0"
+          ]
+        ],
+        "intersection": 807,
+        "delta_a_minus_b": -263,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-05",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V9.0"
+          ],
+          [
+            "WebSphere Message Broker",
+            "V8.0"
+          ]
+        ],
+        "counts": [
+          1322,
+          1585
+        ],
+        "intersection": 807,
+        "delta_a_minus_b": -263,
+        "union": 2100,
+        "measurement_complete": true,
+        "elapsed_ms": 234.19699992518872,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1322,
+          1585
+        ],
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V9.0"
+          ],
+          [
+            "WebSphere Message Broker",
+            "V8.0"
+          ]
+        ],
+        "intersection": 807,
+        "delta_a_minus_b": -263,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-06",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "Nokia NSP",
+            "v17.9"
+          ],
+          [
+            "Nokia NSP",
+            "v17.3"
+          ]
+        ],
+        "counts": [
+          0,
+          0
+        ],
+        "intersection": 0,
+        "delta_a_minus_b": 0,
+        "union": 0,
+        "measurement_complete": true,
+        "elapsed_ms": 16.742900013923645,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          0,
+          0
+        ],
+        "predicates": [
+          [
+            "Nokia NSP",
+            "v17.9"
+          ],
+          [
+            "Nokia NSP",
+            "v17.3"
+          ]
+        ],
+        "intersection": 0,
+        "delta_a_minus_b": 0,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-06",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "Nokia NSP",
+            "v17.9"
+          ],
+          [
+            "Nokia NSP",
+            "v17.3"
+          ]
+        ],
+        "counts": [
+          0,
+          0
+        ],
+        "intersection": 0,
+        "delta_a_minus_b": 0,
+        "union": 0,
+        "measurement_complete": true,
+        "elapsed_ms": 16.742900013923645,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          0,
+          0
+        ],
+        "predicates": [
+          [
+            "Nokia NSP",
+            "v17.9"
+          ],
+          [
+            "Nokia NSP",
+            "v17.3"
+          ]
+        ],
+        "intersection": 0,
+        "delta_a_minus_b": 0,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-06",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "Nokia NSP",
+            "v17.9"
+          ],
+          [
+            "Nokia NSP",
+            "v17.3"
+          ]
+        ],
+        "counts": [
+          0,
+          0
+        ],
+        "intersection": 0,
+        "delta_a_minus_b": 0,
+        "union": 0,
+        "measurement_complete": true,
+        "elapsed_ms": 16.742900013923645,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          0,
+          0
+        ],
+        "predicates": [
+          [
+            "Nokia NSP",
+            "v17.9"
+          ],
+          [
+            "Nokia NSP",
+            "v17.3"
+          ]
+        ],
+        "intersection": 0,
+        "delta_a_minus_b": 0,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-07",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V9.0"
+          ],
+          [
+            "WebSphere Message Broker",
+            "V8.0"
+          ]
+        ],
+        "counts": [
+          1322,
+          1585
+        ],
+        "intersection": 807,
+        "delta_a_minus_b": -263,
+        "union": 2100,
+        "measurement_complete": true,
+        "elapsed_ms": 238.52340003941208,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1322,
+          1585
+        ],
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V9.0"
+          ],
+          [
+            "WebSphere Message Broker",
+            "V8.0"
+          ]
+        ],
+        "intersection": 807,
+        "delta_a_minus_b": -263,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-07",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V9.0"
+          ],
+          [
+            "WebSphere Message Broker",
+            "V8.0"
+          ]
+        ],
+        "counts": [
+          1322,
+          1585
+        ],
+        "intersection": 807,
+        "delta_a_minus_b": -263,
+        "union": 2100,
+        "measurement_complete": true,
+        "elapsed_ms": 238.52340003941208,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1322,
+          1585
+        ],
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V9.0"
+          ],
+          [
+            "WebSphere Message Broker",
+            "V8.0"
+          ]
+        ],
+        "intersection": 807,
+        "delta_a_minus_b": -263,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-07",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V9.0"
+          ],
+          [
+            "WebSphere Message Broker",
+            "V8.0"
+          ]
+        ],
+        "counts": [
+          1322,
+          1585
+        ],
+        "intersection": 807,
+        "delta_a_minus_b": -263,
+        "union": 2100,
+        "measurement_complete": true,
+        "elapsed_ms": 238.52340003941208,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1322,
+          1585
+        ],
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V9.0"
+          ],
+          [
+            "WebSphere Message Broker",
+            "V8.0"
+          ]
+        ],
+        "intersection": 807,
+        "delta_a_minus_b": -263,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-08",
+      "repeat": 1,
+      "expected": {
+        "error": "clarification_required:two_entity_version_pairs_missing",
+        "predicates": [],
+        "counts": [],
+        "intersection": null,
+        "measurement_complete": false
+      },
+      "observed": {
+        "counts": [],
+        "predicates": [],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": null
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-08",
+      "repeat": 2,
+      "expected": {
+        "error": "clarification_required:two_entity_version_pairs_missing",
+        "predicates": [],
+        "counts": [],
+        "intersection": null,
+        "measurement_complete": false
+      },
+      "observed": {
+        "counts": [],
+        "predicates": [],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": null
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-COMPARE-08",
+      "repeat": 3,
+      "expected": {
+        "error": "clarification_required:two_entity_version_pairs_missing",
+        "predicates": [],
+        "counts": [],
+        "intersection": null,
+        "measurement_complete": false
+      },
+      "observed": {
+        "counts": [],
+        "predicates": [],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": null
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-01",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere Application Server",
+            "Linux"
+          ]
+        ],
+        "counts": [
+          11126
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 532.2791000362486,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          11126
+        ],
+        "predicates": [
+          [
+            "WebSphere Application Server",
+            "Linux"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-01",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere Application Server",
+            "Linux"
+          ]
+        ],
+        "counts": [
+          11126
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 532.2791000362486,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          11126
+        ],
+        "predicates": [
+          [
+            "WebSphere Application Server",
+            "Linux"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-01",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere Application Server",
+            "Linux"
+          ]
+        ],
+        "counts": [
+          11126
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 532.2791000362486,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          11126
+        ],
+        "predicates": [
+          [
+            "WebSphere Application Server",
+            "Linux"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-02",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "tivoli",
+            "Linux"
+          ]
+        ],
+        "counts": [
+          12259
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 196.1874000262469,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          12259
+        ],
+        "predicates": [
+          [
+            "tivoli",
+            "Linux"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-02",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "tivoli",
+            "Linux"
+          ]
+        ],
+        "counts": [
+          12259
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 196.1874000262469,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          12259
+        ],
+        "predicates": [
+          [
+            "tivoli",
+            "Linux"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-02",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "tivoli",
+            "Linux"
+          ]
+        ],
+        "counts": [
+          12259
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 196.1874000262469,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          12259
+        ],
+        "predicates": [
+          [
+            "tivoli",
+            "Linux"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-03",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "BPM",
+            "8.5.0.1",
+            "Windows"
+          ]
+        ],
+        "counts": [
+          178
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 99.57680001389235,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          178
+        ],
+        "predicates": [
+          [
+            "BPM",
+            "8.5.0.1",
+            "Windows"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-03",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "BPM",
+            "8.5.0.1",
+            "Windows"
+          ]
+        ],
+        "counts": [
+          178
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 99.57680001389235,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          178
+        ],
+        "predicates": [
+          [
+            "BPM",
+            "8.5.0.1",
+            "Windows"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-03",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "BPM",
+            "8.5.0.1",
+            "Windows"
+          ]
+        ],
+        "counts": [
+          178
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 99.57680001389235,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          178
+        ],
+        "predicates": [
+          [
+            "BPM",
+            "8.5.0.1",
+            "Windows"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-04",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "SPSS",
+            "Windows"
+          ]
+        ],
+        "counts": [
+          2004
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 39.04669999610633,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          2004
+        ],
+        "predicates": [
+          [
+            "SPSS",
+            "Windows"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-04",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "SPSS",
+            "Windows"
+          ]
+        ],
+        "counts": [
+          2004
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 39.04669999610633,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          2004
+        ],
+        "predicates": [
+          [
+            "SPSS",
+            "Windows"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-04",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "SPSS",
+            "Windows"
+          ]
+        ],
+        "counts": [
+          2004
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 39.04669999610633,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          2004
+        ],
+        "predicates": [
+          [
+            "SPSS",
+            "Windows"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-05",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "DB2",
+            "V11",
+            "z/OS"
+          ]
+        ],
+        "counts": [
+          1492
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 142.15390000026673,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1492
+        ],
+        "predicates": [
+          [
+            "DB2",
+            "V11",
+            "z/OS"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-05",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "DB2",
+            "V11",
+            "z/OS"
+          ]
+        ],
+        "counts": [
+          1492
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 142.15390000026673,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1492
+        ],
+        "predicates": [
+          [
+            "DB2",
+            "V11",
+            "z/OS"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-05",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "DB2",
+            "V11",
+            "z/OS"
+          ]
+        ],
+        "counts": [
+          1492
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 142.15390000026673,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1492
+        ],
+        "predicates": [
+          [
+            "DB2",
+            "V11",
+            "z/OS"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-06",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "UNIX"
+          ]
+        ],
+        "counts": [
+          214
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 54.77330007124692,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          214
+        ],
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "UNIX"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-06",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "UNIX"
+          ]
+        ],
+        "counts": [
+          214
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 54.77330007124692,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          214
+        ],
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "UNIX"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-06",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "UNIX"
+          ]
+        ],
+        "counts": [
+          214
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 54.77330007124692,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          214
+        ],
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "UNIX"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-07",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "CICS",
+            "z/OS"
+          ]
+        ],
+        "counts": [
+          13960
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 213.09009997639805,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          13960
+        ],
+        "predicates": [
+          [
+            "CICS",
+            "z/OS"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-07",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "CICS",
+            "z/OS"
+          ]
+        ],
+        "counts": [
+          13960
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 213.09009997639805,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          13960
+        ],
+        "predicates": [
+          [
+            "CICS",
+            "z/OS"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-07",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "CICS",
+            "z/OS"
+          ]
+        ],
+        "counts": [
+          13960
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 213.09009997639805,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          13960
+        ],
+        "predicates": [
+          [
+            "CICS",
+            "z/OS"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-08",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "SPSS",
+            "Mac"
+          ]
+        ],
+        "counts": [
+          309
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 11.259199935011566,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          309
+        ],
+        "predicates": [
+          [
+            "SPSS",
+            "Mac"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-08",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "SPSS",
+            "Mac"
+          ]
+        ],
+        "counts": [
+          309
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 11.259199935011566,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          309
+        ],
+        "predicates": [
+          [
+            "SPSS",
+            "Mac"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-PLATFORM-08",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "SPSS",
+            "Mac"
+          ]
+        ],
+        "counts": [
+          309
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 11.259199935011566,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          309
+        ],
+        "predicates": [
+          [
+            "SPSS",
+            "Mac"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-01",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "bpm"
+          ]
+        ],
+        "counts": [
+          6451
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 100.60280002653599,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          6451
+        ],
+        "predicates": [
+          [
+            "bpm"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-01",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "bpm"
+          ]
+        ],
+        "counts": [
+          6451
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 100.60280002653599,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          6451
+        ],
+        "predicates": [
+          [
+            "bpm"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-01",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "bpm"
+          ]
+        ],
+        "counts": [
+          6451
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 100.60280002653599,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          6451
+        ],
+        "predicates": [
+          [
+            "bpm"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-02",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "MQ"
+          ]
+        ],
+        "counts": [
+          18296
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 259.8298001103103,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          18296
+        ],
+        "predicates": [
+          [
+            "MQ"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-02",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "MQ"
+          ]
+        ],
+        "counts": [
+          18296
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 259.8298001103103,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          18296
+        ],
+        "predicates": [
+          [
+            "MQ"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-02",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "MQ"
+          ]
+        ],
+        "counts": [
+          18296
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 259.8298001103103,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          18296
+        ],
+        "predicates": [
+          [
+            "MQ"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-03",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere MQ"
+          ]
+        ],
+        "counts": [
+          13881
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 218.13560009468347,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          13881
+        ],
+        "predicates": [
+          [
+            "WebSphere MQ"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-03",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere MQ"
+          ]
+        ],
+        "counts": [
+          13881
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 218.13560009468347,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          13881
+        ],
+        "predicates": [
+          [
+            "WebSphere MQ"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-03",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere MQ"
+          ]
+        ],
+        "counts": [
+          13881
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 218.13560009468347,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          13881
+        ],
+        "predicates": [
+          [
+            "WebSphere MQ"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-04",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere MQ"
+          ]
+        ],
+        "counts": [
+          13881
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 214.78769998066127,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          13881
+        ],
+        "predicates": [
+          [
+            "WebSphere MQ"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-04",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere MQ"
+          ]
+        ],
+        "counts": [
+          13881
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 214.78769998066127,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          13881
+        ],
+        "predicates": [
+          [
+            "WebSphere MQ"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-04",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere MQ"
+          ]
+        ],
+        "counts": [
+          13881
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 214.78769998066127,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          13881
+        ],
+        "predicates": [
+          [
+            "WebSphere MQ"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-05",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere Application Server"
+          ]
+        ],
+        "counts": [
+          40526
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 544.0127999754623,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          40526
+        ],
+        "predicates": [
+          [
+            "WebSphere Application Server"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-05",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere Application Server"
+          ]
+        ],
+        "counts": [
+          40526
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 544.0127999754623,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          40526
+        ],
+        "predicates": [
+          [
+            "WebSphere Application Server"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-05",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere Application Server"
+          ]
+        ],
+        "counts": [
+          40526
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 544.0127999754623,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          40526
+        ],
+        "predicates": [
+          [
+            "WebSphere Application Server"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-06",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 69.85899992287159,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-06",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 69.85899992287159,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-06",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 69.85899992287159,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-07",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere Message Broker"
+          ]
+        ],
+        "counts": [
+          4867
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 77.42290000896901,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          4867
+        ],
+        "predicates": [
+          [
+            "WebSphere Message Broker"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-07",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere Message Broker"
+          ]
+        ],
+        "counts": [
+          4867
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 77.42290000896901,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          4867
+        ],
+        "predicates": [
+          [
+            "WebSphere Message Broker"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-07",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere Message Broker"
+          ]
+        ],
+        "counts": [
+          4867
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 77.42290000896901,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          4867
+        ],
+        "predicates": [
+          [
+            "WebSphere Message Broker"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-08",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "rational"
+          ]
+        ],
+        "counts": [
+          58237
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 640.9394999500364,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          58237
+        ],
+        "predicates": [
+          [
+            "rational"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-08",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "rational"
+          ]
+        ],
+        "counts": [
+          58237
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 640.9394999500364,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          58237
+        ],
+        "predicates": [
+          [
+            "rational"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-08",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "rational"
+          ]
+        ],
+        "counts": [
+          58237
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 640.9394999500364,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          58237
+        ],
+        "predicates": [
+          [
+            "rational"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-01",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "Netcool/Impact",
+            "6.1.0"
+          ]
+        ],
+        "counts": [
+          192
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 86.41500002704561,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          192
+        ],
+        "predicates": [
+          [
+            "Netcool/Impact",
+            "6.1.0"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-01",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "Netcool/Impact",
+            "6.1.0"
+          ]
+        ],
+        "counts": [
+          192
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 86.41500002704561,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          192
+        ],
+        "predicates": [
+          [
+            "Netcool/Impact",
+            "6.1.0"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-01",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "Netcool/Impact",
+            "6.1.0"
+          ]
+        ],
+        "counts": [
+          192
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 86.41500002704561,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          192
+        ],
+        "predicates": [
+          [
+            "Netcool/Impact",
+            "6.1.0"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-02",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V10"
+          ]
+        ],
+        "counts": [
+          978
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 48.19950007367879,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          978
+        ],
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V10"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-02",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V10"
+          ]
+        ],
+        "counts": [
+          978
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 48.19950007367879,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          978
+        ],
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V10"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-02",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V10"
+          ]
+        ],
+        "counts": [
+          978
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 48.19950007367879,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          978
+        ],
+        "predicates": [
+          [
+            "IBM Integration Bus",
+            "V10"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-03",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "Cognos",
+            "10.2.2"
+          ]
+        ],
+        "counts": [
+          3533
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 195.11520001105964,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3533
+        ],
+        "predicates": [
+          [
+            "Cognos",
+            "10.2.2"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-03",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "Cognos",
+            "10.2.2"
+          ]
+        ],
+        "counts": [
+          3533
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 195.11520001105964,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3533
+        ],
+        "predicates": [
+          [
+            "Cognos",
+            "10.2.2"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-03",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "Cognos",
+            "10.2.2"
+          ]
+        ],
+        "counts": [
+          3533
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 195.11520001105964,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3533
+        ],
+        "predicates": [
+          [
+            "Cognos",
+            "10.2.2"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-04",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "ITNM",
+            "4.2"
+          ]
+        ],
+        "counts": [
+          142
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 44.08050002530217,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          142
+        ],
+        "predicates": [
+          [
+            "ITNM",
+            "4.2"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-04",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "ITNM",
+            "4.2"
+          ]
+        ],
+        "counts": [
+          142
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 44.08050002530217,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          142
+        ],
+        "predicates": [
+          [
+            "ITNM",
+            "4.2"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-04",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "ITNM",
+            "4.2"
+          ]
+        ],
+        "counts": [
+          142
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 44.08050002530217,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          142
+        ],
+        "predicates": [
+          [
+            "ITNM",
+            "4.2"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-05",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower",
+            "7.1.0"
+          ]
+        ],
+        "counts": [
+          673
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 110.47630000393838,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          673
+        ],
+        "predicates": [
+          [
+            "DataPower",
+            "7.1.0"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-05",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower",
+            "7.1.0"
+          ]
+        ],
+        "counts": [
+          673
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 110.47630000393838,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          673
+        ],
+        "predicates": [
+          [
+            "DataPower",
+            "7.1.0"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-05",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower",
+            "7.1.0"
+          ]
+        ],
+        "counts": [
+          673
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 110.47630000393838,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          673
+        ],
+        "predicates": [
+          [
+            "DataPower",
+            "7.1.0"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-06",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "datacap",
+            "9.0"
+          ]
+        ],
+        "counts": [
+          316
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 16.353300074115396,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          316
+        ],
+        "predicates": [
+          [
+            "datacap",
+            "9.0"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-06",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "datacap",
+            "9.0"
+          ]
+        ],
+        "counts": [
+          316
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 16.353300074115396,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          316
+        ],
+        "predicates": [
+          [
+            "datacap",
+            "9.0"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-06",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "datacap",
+            "9.0"
+          ]
+        ],
+        "counts": [
+          316
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 16.353300074115396,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          316
+        ],
+        "predicates": [
+          [
+            "datacap",
+            "9.0"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-07",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "SPSS",
+            "18.1"
+          ]
+        ],
+        "counts": [
+          235
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 30.698400107212365,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          235
+        ],
+        "predicates": [
+          [
+            "SPSS",
+            "18.1"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-07",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "SPSS",
+            "18.1"
+          ]
+        ],
+        "counts": [
+          235
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 30.698400107212365,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          235
+        ],
+        "predicates": [
+          [
+            "SPSS",
+            "18.1"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-07",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "SPSS",
+            "18.1"
+          ]
+        ],
+        "counts": [
+          235
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 30.698400107212365,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          235
+        ],
+        "predicates": [
+          [
+            "SPSS",
+            "18.1"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-08",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 65.8015999943018,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-08",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 65.8015999943018,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-VERSION-08",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 65.8015999943018,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-01",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "MQ"
+          ]
+        ],
+        "counts": [
+          18296
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 250.111399916932,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          18296
+        ],
+        "predicates": [
+          [
+            "MQ"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-01",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "MQ"
+          ]
+        ],
+        "counts": [
+          18296
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 250.111399916932,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          18296
+        ],
+        "predicates": [
+          [
+            "MQ"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-01",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "MQ"
+          ]
+        ],
+        "counts": [
+          18296
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 250.111399916932,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          18296
+        ],
+        "predicates": [
+          [
+            "MQ"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-02",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 73.3092000009492,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-02",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 73.3092000009492,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-02",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 73.3092000009492,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-03",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "Impact"
+          ]
+        ],
+        "counts": [
+          42569
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 532.758199959062,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          42569
+        ],
+        "predicates": [
+          [
+            "Impact"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-03",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "Impact"
+          ]
+        ],
+        "counts": [
+          42569
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 532.758199959062,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          42569
+        ],
+        "predicates": [
+          [
+            "Impact"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-03",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "Impact"
+          ]
+        ],
+        "counts": [
+          42569
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 532.758199959062,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          42569
+        ],
+        "predicates": [
+          [
+            "Impact"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-04",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere Portal"
+          ]
+        ],
+        "counts": [
+          9823
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 145.42299997992814,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          9823
+        ],
+        "predicates": [
+          [
+            "WebSphere Portal"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-04",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere Portal"
+          ]
+        ],
+        "counts": [
+          9823
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 145.42299997992814,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          9823
+        ],
+        "predicates": [
+          [
+            "WebSphere Portal"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-04",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere Portal"
+          ]
+        ],
+        "counts": [
+          9823
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 145.42299997992814,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          9823
+        ],
+        "predicates": [
+          [
+            "WebSphere Portal"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-05",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 64.20789996627718,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-05",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 64.20789996627718,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-05",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 64.20789996627718,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-06",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "MQ"
+          ]
+        ],
+        "counts": [
+          18296
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 252.44800001382828,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          18296
+        ],
+        "predicates": [
+          [
+            "MQ"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-06",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "MQ"
+          ]
+        ],
+        "counts": [
+          18296
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 252.44800001382828,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          18296
+        ],
+        "predicates": [
+          [
+            "MQ"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-06",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "MQ"
+          ]
+        ],
+        "counts": [
+          18296
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 252.44800001382828,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          18296
+        ],
+        "predicates": [
+          [
+            "MQ"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-07",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere Application Server"
+          ]
+        ],
+        "counts": [
+          40526
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 543.0483999662101,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          40526
+        ],
+        "predicates": [
+          [
+            "WebSphere Application Server"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-07",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere Application Server"
+          ]
+        ],
+        "counts": [
+          40526
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 543.0483999662101,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          40526
+        ],
+        "predicates": [
+          [
+            "WebSphere Application Server"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-07",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere Application Server"
+          ]
+        ],
+        "counts": [
+          40526
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 543.0483999662101,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          40526
+        ],
+        "predicates": [
+          [
+            "WebSphere Application Server"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-08",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 68.66440002340823,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-08",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 68.66440002340823,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-ENTITY-08",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 68.66440002340823,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-01",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "BPM"
+          ]
+        ],
+        "counts": [
+          6451
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 101.88870003912598,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          6451
+        ],
+        "predicates": [
+          [
+            "BPM"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-01",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "BPM"
+          ]
+        ],
+        "counts": [
+          6451
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 101.88870003912598,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          6451
+        ],
+        "predicates": [
+          [
+            "BPM"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-01",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "BPM"
+          ]
+        ],
+        "counts": [
+          6451
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 101.88870003912598,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          6451
+        ],
+        "predicates": [
+          [
+            "BPM"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-02",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "MQ",
+            "V7.0.1"
+          ]
+        ],
+        "counts": [
+          1873
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 99.77620001882315,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1873
+        ],
+        "predicates": [
+          [
+            "MQ",
+            "V7.0.1"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-02",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "MQ",
+            "V7.0.1"
+          ]
+        ],
+        "counts": [
+          1873
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 99.77620001882315,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1873
+        ],
+        "predicates": [
+          [
+            "MQ",
+            "V7.0.1"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-02",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "MQ",
+            "V7.0.1"
+          ]
+        ],
+        "counts": [
+          1873
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 99.77620001882315,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1873
+        ],
+        "predicates": [
+          [
+            "MQ",
+            "V7.0.1"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-03",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "ITM"
+          ]
+        ],
+        "counts": [
+          8643
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 125.99410000257194,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          8643
+        ],
+        "predicates": [
+          [
+            "ITM"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-03",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "ITM"
+          ]
+        ],
+        "counts": [
+          8643
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 125.99410000257194,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          8643
+        ],
+        "predicates": [
+          [
+            "ITM"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-03",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "ITM"
+          ]
+        ],
+        "counts": [
+          8643
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 125.99410000257194,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          8643
+        ],
+        "predicates": [
+          [
+            "ITM"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-04",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "BPM"
+          ]
+        ],
+        "counts": [
+          6451
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 103.97520009428263,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          6451
+        ],
+        "predicates": [
+          [
+            "BPM"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-04",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "BPM"
+          ]
+        ],
+        "counts": [
+          6451
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 103.97520009428263,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          6451
+        ],
+        "predicates": [
+          [
+            "BPM"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-04",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "BPM"
+          ]
+        ],
+        "counts": [
+          6451
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 103.97520009428263,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          6451
+        ],
+        "predicates": [
+          [
+            "BPM"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-05",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "Datacap"
+          ]
+        ],
+        "counts": [
+          2288
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 33.42019999399781,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          2288
+        ],
+        "predicates": [
+          [
+            "Datacap"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-05",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "Datacap"
+          ]
+        ],
+        "counts": [
+          2288
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 33.42019999399781,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          2288
+        ],
+        "predicates": [
+          [
+            "Datacap"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-05",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "Datacap"
+          ]
+        ],
+        "counts": [
+          2288
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 33.42019999399781,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          2288
+        ],
+        "predicates": [
+          [
+            "Datacap"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-06",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 68.85330006480217,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-06",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 68.85330006480217,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-06",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 68.85330006480217,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-07",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 64.21730003785342,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-07",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 64.21730003785342,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-07",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "counts": [
+          3736
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 64.21730003785342,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          3736
+        ],
+        "predicates": [
+          [
+            "DataPower"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-08",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "Tivoli"
+          ]
+        ],
+        "counts": [
+          46777
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 585.8433999819681,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          46777
+        ],
+        "predicates": [
+          [
+            "Tivoli"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-08",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "Tivoli"
+          ]
+        ],
+        "counts": [
+          46777
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 585.8433999819681,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          46777
+        ],
+        "predicates": [
+          [
+            "Tivoli"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-08",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "Tivoli"
+          ]
+        ],
+        "counts": [
+          46777
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 585.8433999819681,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          46777
+        ],
+        "predicates": [
+          [
+            "Tivoli"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-09",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere Portal"
+          ]
+        ],
+        "counts": [
+          9823
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 142.68980000633746,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          9823
+        ],
+        "predicates": [
+          [
+            "WebSphere Portal"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-09",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere Portal"
+          ]
+        ],
+        "counts": [
+          9823
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 142.68980000633746,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          9823
+        ],
+        "predicates": [
+          [
+            "WebSphere Portal"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-09",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "WebSphere Portal"
+          ]
+        ],
+        "counts": [
+          9823
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 142.68980000633746,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          9823
+        ],
+        "predicates": [
+          [
+            "WebSphere Portal"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-10",
+      "repeat": 1,
+      "expected": {
+        "predicates": [
+          [
+            "MQ",
+            "V8.0"
+          ]
+        ],
+        "counts": [
+          1938
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 67.05509999301285,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1938
+        ],
+        "predicates": [
+          [
+            "MQ",
+            "V8.0"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-10",
+      "repeat": 2,
+      "expected": {
+        "predicates": [
+          [
+            "MQ",
+            "V8.0"
+          ]
+        ],
+        "counts": [
+          1938
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 67.05509999301285,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1938
+        ],
+        "predicates": [
+          [
+            "MQ",
+            "V8.0"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    },
+    {
+      "sample_id": "P2-NOANSWER-10",
+      "repeat": 3,
+      "expected": {
+        "predicates": [
+          [
+            "MQ",
+            "V8.0"
+          ]
+        ],
+        "counts": [
+          1938
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "union": null,
+        "measurement_complete": true,
+        "elapsed_ms": 67.05509999301285,
+        "not_worker_execution": true
+      },
+      "observed": {
+        "counts": [
+          1938
+        ],
+        "predicates": [
+          [
+            "MQ",
+            "V8.0"
+          ]
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true
+      },
+      "status": "passed"
+    }
+  ],
+  "evidence_type": "真实运行",
+  "preflight_sha256": "e9c3ef5bd7fc35f1f273e06fcc4f13b62c857c56867521167e8c539c7e394e10",
+  "raw_sha256": "1d6ebf673476b494ff191b227ee9b765dd2a8e9f50019709e4c66f538ce40ba5",
+  "expected_source": "independent read-only official full corpus; no Worker/builder/model output"
+}

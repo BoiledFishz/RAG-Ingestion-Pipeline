@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="1.051" timestamp="2026-10-05T22:52:21.498115-07:00" hostname="szy"><testcase classname="tests.project2.test_v031_evaluation" name="test_heldout_repeat_counter_counts_starts_not_plans" time="0.035"><failure message="AttributeError: module 'p2_stage_eval' has no attribute 'record_repeat'">tmp_path = WindowsPath('C:/Users/zacha/AppData/Local/Temp/aws-support-rag-96076-eb8f05654c1f4e4ea150a04949127ebf/test_heldout_repeat_counter_co0')
+
+    def test_heldout_repeat_counter_counts_starts_not_plans(tmp_path):
+        module=load();path=tmp_path/'receipt.json'
+        path.write_text(json.dumps({'planned_repeats':3,'heldout_repetitions_project2':0}))
+&gt;       module.record_repeat(path,1)
+        ^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'p2_stage_eval' has no attribute 'record_repeat'
+
+tests\project2\test_v031_evaluation.py:60: AttributeError</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,125 @@
+{
+  "from_version": "v0.2",
+  "to_version": "v0.3",
+  "authorization_date": "2026-10-05",
+  "changes": [
+    {
+      "file": "spec.md",
+      "category": "A_budget_protocol",
+      "old": "<a id=\"s08\"></a>\n## S08 默认 API 强制总预算\n\n**CL-08：待标定**。90/16/6 及各依赖超时仅为标定前临时值，不是已选定生产参数或已测性能承诺：\n\n| 预算 | 默认建议 | 强制位置 |\n| --- | ---: | --- |\n| 整条请求绝对截止时间 | 临时 90 秒 | 新 Project 2 API 在验权/分派前建立；贯穿输入处理、两 Worker、渲染、取消和状态保存 |\n| 所有依赖实际尝试总数 | 临时 16 | 每个 LLM/HTTP/工具下游/DB 语句边界调用前原子预留；失败、取消和重试均消费 |\n| LLM 请求上限 | 临时 6 | 总预算子集；调用前检查并计数 |\n| DB 单语句/Worker | 12 秒 / 25 秒 | 取本地上限与请求剩余预算的最小值；SQL progress/cancel 与连接清理 |\n| 模型单尝试上限 | 30 秒 | 同样受剩余请求时间限制；不能先耗满依赖自身超时再检查总预算 |\n\nWorker 调度包装本身不和其内部实际调用重复计数；本地纯解析/格式化不计依赖调用，但耗时仍计截止时间。向量/重排缓存命中若不实际调用模型则计实际 DB/缓存查询，而非伪造 LLM 请求。现有共享检索服务内部外部调用如不可观测/不可取消，必须补充跨服务预算 Contract；缺该能力不能签收端到端总预算，不能仅计外层一个 HTTP 后宣称内部受控。\n\n默认顺序执行 DB 计数→RAG，优先得到可复算结果；不强制并行。预算超限停止新调用、取消/终止在途工作，保留已计尝试与未知成本，按 S07 降级。不能通过普通返回、异常路径、重试或另一个路由跳过预算器。Resume 不重置截止时间、调用数或子预算。当前 MultiAgentVersion 的预算/行为不在本阶段修改。\n\n### S08.1 tune-only 标定协议（待用户同意，未执行）\n\n- 样本：S01 登记的 compare/platform/identifier/version/entity **各 8 条，共 40 条**，每条 3 次，共 **120 次请求**。无答案挑战 10 条不用于预算选值；固定实例/硬件、语料及索引 SHA、模型/提示词 A/检索/策略版本。冷缓存、热缓存条件分别记录，三重复采用“第一次冷，第二/三次相同可解释热状态”；按 40 个独立问题聚类，不把 120 当独立样本。不读取 held-out，也不以答案/标签过滤慢题。\n- 先登记标定 profile、样本登记哈希、配置哈希、执行顺序（按 sample_id 及重复序号升序）、取消与重试规则，之后才运行。保留全部超时/失败/拒权/partial，不删除慢题或择优补跑。临时 90/16/6 仍在默认 API 路径强制；标定不是绕过预算的备用入口。\n- 测量：端到端墙钟延迟、DB语句/Worker耗时、RAG/检索/重排/模型耗时、实际依赖尝试及分类、LLM次数、Token观测/估算与未知数、取消完成耗时、超限原因、六状态比例。记录计数是否完整和来源适用性；质量规则/拒答阈值不随标定改动。每项报告分子/分母，均值/范围以及按题聚类 bootstrap 95% CI（10,000次，种子20261005），比例另报 Wilson CI；n<10仅描述。\n- 可识别性门槛：若任何样本因临时时间/调用上限截断，或内部实际调用/取消不可观测，标定仍为**未完成**；不得用截断后的成功子集估计无条件P95。记录右删失和失败，请用户审阅更大的临时 envelope 后，另登记 tune 标定阶段；不擅自抬限、不触及 held-out、不把故障改为无数据。\n- 选值方法：仅在无预算右删失、调用可观测且所有故障可解释时形成建议。冷/热条件分别计算端到端P95的bootstrap95%上界，取较大者U；请求截止候选=`向上取整至5秒(1.25×U)`，不得用混合缓存均值低估冷请求。DB语句、DB Worker、模型单尝试同法（向上取整至1秒），并受总截止约束。总调用候选=`登记合法路径的理论最大实际尝试数+2`，LLM候选=`登记合法路径的理论最大LLM尝试数+1`；分别列出观测最大值并校验不超候选。冗余只防实现边界，不允许新增调用/无界重试。若理论边界无法给出，则不冻结。小样本分位数仅用于候选预算，不构成SLA承诺。\n- 候选超出本次临时值不自动生效。用户审阅成本/质量/状态分布后，把最终参数、规则、版本、全部原始测量及选择理由写入 `evals/project2-v1/calibration/budget_frozen.json`，记录该文件 SHA256及标定报告/配置/样本哈希；默认 API 读取这一冻结版本。当前文件不存在，**最终值及冻结哈希未产生**。State 24小时、Trace 7天是临时保留策略，另外审阅数据保留理由，不由延迟P95推导。\n- 冻结后该阶段末 held-out 仅一次阶段调用（三重复），按 S14 入账；如失败，保留结果，不再次选值。更改预算需新版本/单改动对照。此文档阶段标定/held-out新增次数均为 **0**。\n\n",
+      "new": "<a id=\"s08\"></a>\n## S08 默认 API 强制总预算（v0.3，授权 A）\n\nCL-08 延迟与实际调用标定由用户2026-10-05授权；其余数据保留策略不变。生产默认仍为90秒/16依赖/6LLM，只有无删失、未触发熔断且冻结实测文件后才切换。DB单语句12秒、Worker25秒、模型单尝试30秒保持不变。\n\n一次依赖尝试保持原口径：一个实际 SQL execute、事务 commit、HTTP send 或模型推理，在执行前原子预留；失败、取消、重试消耗尝试。executemany 若实际发出多条SQL则逐条计；真正的一个批量SQL只计一次。纯调度、解析、格式化不重复计数但耗时计入截止。没有为了降低数字而改计数规则。缓存命中仍计实际缓存SQL；不伪造模型调用。\n\n默认 API 在验权/分派前建立同一绝对截止与总预算；两Worker、直接调用、异常、重试、取消、渲染和保存均受约束。预算耗尽时第N+1依赖、第L+1LLM不得启动，取消/终止在途任务，保留消费量和未知成本，按未改S07汇合。Resume不重置预算。旧MultiAgentVersion不变。\n\n### S08.1 tune-only 完整集合标定\n\n- 同一既有登记集合全部50条：compare/platform/identifier/version/entity各8条，no_answer_challenge10条；RAG单独和组合路径各3重复，共300次。顺序为路径、原登记样本顺序、重复1–3。不排除拒答、失败、慢题或挑战题，不根据答案/标签选择预算样本。held-out不读取。\n- 保持冻结v0模型/提示词/阈值/索引/语料和计数口径；测量依赖分类、LLM次数、墙钟耗时、原响应/trace、异常及删失。已有持久缓存保留，逐次登记可解释的继承缓存状态，不声称首次必为冷缓存。按题聚类报告均值/范围/CI，三次重复不冒充150个独立问题。\n- 离线测量包络：300秒/256依赖/64LLM，仅脚本构造，不能由API正文或用户Prompt授予，也不成为生产默认。这是本次A项为测量未截断尝试所需的观察范围，仍受30秒模型/12秒SQL等原本地超时约束。任何包络右删失不冻结上限；原始失败保留，不按成功子集取P95。\n- P95采用nearest-rank：排序后第ceil(.95*n)个，每条路径单独计算，取两路径较大者。调用上限=ceil(1.25*ceil(P95))；墙钟=1.5*P95秒。依赖P95>32或LLM P95>12立即停止，不选新上限，不进入后续门禁/held-out；须先结构性精简RAG路径。\n- 选择后冻结全部协议、原始记录、结果及SHA256；默认API只读取校验冻结预算，不能由普通配置或请求放大。AC12-01/15/16适用冻结N/L/T，保留故障注入与N+1/L+1不启动断言。\n- 标定源：`evals/project2-v1/calibration_v03/protocol.json`，SHA256：`463dddb3ab1ea100c5d50fccc4af5cbeb267ecb3bccffa724a6c123c413f0cf5`。结果与包绑定见`evals/project2-v1/calibration_v03/summary.json`和`frozen_manifest.json`；未产生时不得称已标定。State24小时/Trace7天决定不变。\n- 阶段门禁通过前held-out累计保持0；锁定后仅阶段末一次（三重复），如实保留不佳结果，不用它调设计或再跑。\n\n"
+    },
+    {
+      "file": "spec.md",
+      "category": "version_header",
+      "old": "规格 v0.2",
+      "new": "规格 v0.3"
+    },
+    {
+      "file": "spec.md",
+      "category": "B_state_vs_quality",
+      "old": "**AC12-23** 是新增的真实依赖“知识库无适用答案”组合挑战，预期 `S07[rag=no_data,db=completed]=partial`。它不注入空检索，不用官方N标签证明全库无答案；固定P2-NOANSWER-01原问题，正常依赖及获准范围，实际运行后由独立审核核对证据缺口。如果真实证据充分或计数为零，必须如实报该预登记预期未达成，不能改题/改阈值/换样本后宣称通过。当前仅登记 planned_evidence_type=真实运行，actual=未执行，**没有新增真实运行证据**。",
+      "new": "**AC12-23（授权B）** 保留原场景ID与原问题P2-NOANSWER-01，拆成两个证据结论而不增加/删减场景：(a)门禁对预登记tune全部183条N原记录各3次（含180个不同原查询，保留重复记录、不删题）在组合路径执行，Supervisor必须与观察到的Worker状态对应的S07矩阵单元一致、无崩溃且run_id/trace/预算/错误可追溯；不要求RAG必为no_data。(b)拒答质量仅报告N题RAG no_data数/总数、Wilson及按问题聚类bootstrap95%CI、均值/范围和接受明细，failed/timeout单列、不冒充正确拒答。N标签仅用于离线队列登记和评分，不传给在线Worker。N针对官方候选范围，不证明全库无答案。原P2-NOANSWER-01实际有引用回答的历史样本保留；若不属于官方N队列则另作不可删补充样本，不冒充N分母。冻结v0结论不变，Project2不声称改善拒答质量。AC12-03双no_data Mock保持不变。登记及哈希同S08.1协议；必须先冻结队列再运行，不看输出改题。"
+    },
+    {
+      "file": "tasks.md",
+      "category": "A_budget_task",
+      "old": "| T12-06 | API总Budget及tune标定 | 默认路由/异常/重试受临时90秒/16尝试/6LLM强制；按S08.1固定40题×3测量，不排除删失；审阅选值后冻结参数/报告/样本/配置SHA；内部可取消/计量 | 契约测试(Mock)；故障注入；真实运行 | audit/project2-v1/budget.json；evals/project2-v1/calibration/budget_frozen.json | 待实施 |",
+      "new": "| T12-06 | API总Budget及tune标定 | 默认API全预算强制；S08.1完整50题×3×两路径实测；P95公式、32/12熔断、删失识别、协议/结果/哈希冻结；第N+1/L+1不启动；内部可取消/计量 | 契约测试(Mock)；故障注入；真实运行 | audit/project2-v1/budget.json；evals/project2-v1/calibration/budget_frozen.json | 待实施 |"
+    },
+    {
+      "file": "tasks.md",
+      "category": "B_state_task",
+      "old": "| T12-09 | 真实组合任务及无答案挑战 | 使用已登记原query/操作；成功有独立数据与技术证据；AC12-23正常依赖下无适用技术证据而DB完成则partial；预期不成立保留失败不换题 | 真实运行 | audit/project2-v1/combined_run.json；audit/project2-v1/combined_no_answer_real.json | 待实施 |",
+      "new": "| T12-09 | 真实组合任务及无答案挑战 | 使用已登记原query/操作；成功有独立数据与技术证据；AC12-23(a)全部tune N×3观察态S07一致/可追溯门禁；(b)拒答质量报告/接受明细非门禁，保留原挑战，v0质量结论不变 | 真实运行 | audit/project2-v1/combined_run.json；audit/project2-v1/combined_no_answer_real.json | 待实施 |"
+    },
+    {
+      "file": "clarifications.md",
+      "category": "A_CL08_measurement",
+      "old": "| CL-08 | 请求/依赖预算与保留策略？ | **待标定**，使用spec S08.1 tune-only协议；40条分层原问题×3=120请求，记录耗时/实际调用/取消/状态/成本，识别右删失后选值并审阅冻结/hash | 90秒/16尝试/6LLM只是临时值；DB12/25秒、模型30秒和State24小时/Trace7天也非生产承诺；协议同意不等于本阶段获准运行 | **待用户同意协议，未标定** |",
+      "new": "| CL-08 | 请求/依赖预算与保留策略？ | 按用户2026-10-05授权A，S08.1全50题×3×两路径标定，P95公式与32/12熔断；数据保留决定不变 | 原90/16/6在标定冻结前强制；DB12/25、模型30、State24小时/Trace7天不变；无删失后冻结参数及哈希 | 已获本次标定授权；实测状态由冻结结果给出 |"
+    },
+    {
+      "file": "acceptance_scenarios.csv",
+      "scenario_id": "AC12-01",
+      "category": "A_budget_binding",
+      "cells": {
+        "setup": {
+          "old": "官方 technote 原文/现有字段与授权快照；无 QA 答案或目标输入",
+          "new": "官方 technote 原文/现有字段与授权快照；无 QA 答案或目标输入；请求总预算采用S08.1无删失冻结的N/L/T；未冻结不得重跑门禁"
+        }
+      }
+    },
+    {
+      "file": "acceptance_scenarios.csv",
+      "scenario_id": "AC12-15",
+      "category": "A_budget_binding",
+      "cells": {
+        "setup": {
+          "old": "计时器/依赖计量Mock触及16总尝试和6LLM；不调用真实模型",
+          "new": "计时器/依赖计量Mock触及冻结N总尝试和L LLM；不调用真实模型；未冻结仍16/6"
+        },
+        "assertions": {
+          "old": "S07[rag=timeout,db=completed]=partial；第17依赖或第7LLM不启动；直接Worker路由不得绕过；无重复计数",
+          "new": "S07[rag=timeout,db=completed]=partial；第N+1依赖或第L+1LLM不启动（N/L来自S08.1冻结值）；直接Worker路由不得绕过；无重复计数"
+        }
+      }
+    },
+    {
+      "file": "acceptance_scenarios.csv",
+      "scenario_id": "AC12-16",
+      "category": "A_budget_binding",
+      "cells": {
+        "setup": {
+          "old": "真实TechQA检索/模型边界注入超时、取消或网络故障",
+          "new": "真实TechQA检索/模型边界注入超时、取消或网络故障；总预算使用S08.1冻结N/L/T，故障注入保持"
+        }
+      }
+    },
+    {
+      "file": "acceptance_scenarios.csv",
+      "scenario_id": "AC12-23",
+      "category": "B_state_vs_quality",
+      "cells": {
+        "scenario": {
+          "old": "真实依赖的知识库无适用答案组合挑战（预登记假设）",
+          "new": "真实N队列状态一致性门禁与拒答质量指标（分别报告）"
+        },
+        "setup": {
+          "old": "固定P2-NOANSWER-01官方原问题与完整获准快照/正常模型和检索依赖；不读N标签，不注入空检索，不改权限/阈值。预登记假设无可发布技术证据且独立文档计数有匹配。若找到适用答案或计数为0，保留原问题并判该场景失败，不换题凑无答案。",
+          "new": "S08.1协议预登记全部tune N原记录×3；原P2-NOANSWER-01保留历史及补充样本；不读输出增删换题；在线Worker只有原问题和可信授权/预算，无标签/答案/目标"
+        },
+        "action": {
+          "old": "另获评测授权后真实运行默认新入口，记录原问题/实际检索/候选/适用性缺口和全母体计数；由独立审核核对无答案结论的检索/授权范围。",
+          "new": "正常组合入口执行全部N队列；由程序查S07观察态矩阵；分别输出(a)一致性门禁与(b)拒答质量/接受明细/CI；原挑战不删"
+        },
+        "expected_worker_states": {
+          "old": "RAG=no_data;DB=completed",
+          "new": "RAG=observed;DB=observed"
+        },
+        "expected_overall_status": {
+          "old": "partial",
+          "new": "S07[rag=observed,db=observed]"
+        },
+        "assertions": {
+          "old": "S07[rag=no_data,db=completed]=partial；技术解释拒答并给具体证据缺口，仍发布独立count及limitations；不把词项计数当技术答案；只称本次范围内无适用证据，不宣称全库绝对无答案；完整回答数不增加。",
+          "new": "S07[rag=observed,db=observed]；(a)每次实际六态组合唯一查36格S07，整体一致、无崩溃、可追溯；(b)no_data/总数及95%CI和接受明细，非门禁；原问题/历史结果保留；冻结v0结论不变，不声称改善拒答"
+        },
+        "matrix_cell": {
+          "old": "S07[rag=no_data,db=completed]",
+          "new": "S07[rag=observed,db=observed]"
+        }
+      }
+    }
+  ],
+  "old_failure": {
+    "category": "dependency_attempt_limit",
+    "attempts": 16,
+    "llm_calls": 2,
+    "elapsed_seconds": 19.18484110001009,
+    "evidence": "audit/project2-v1/native_gate_round2.json"
+  },
+  "attempt_definition_changed": false,
+  "calibration_protocol_sha256": "463dddb3ab1ea100c5d50fccc4af5cbeb267ecb3bccffa724a6c123c413f0cf5",
+  "calibration_result": "evals/project2-v1/calibration_v03/summary.json"
+}

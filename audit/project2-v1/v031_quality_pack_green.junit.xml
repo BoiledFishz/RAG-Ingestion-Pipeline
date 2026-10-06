@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="0.190" timestamp="2026-10-06T15:34:06.624382-07:00" hostname="szy"><testcase classname="tests.project2.test_project2_quality_review" name="test_pending_tune_answers_are_not_signed_or_changed" time="0.119" /></testsuite></testsuites>

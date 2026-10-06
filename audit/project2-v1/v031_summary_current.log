@@ -1,0 +1,44 @@
+# Project 2 自动执行汇总
+
+程序状态：**calibrating**。完整阶段门禁尚未全部通过。
+分支 `codex/project2-ch12`；held-out累计 **0次阶段调用 / 0次重复**。
+
+| 阶段 | 完整门禁 |
+| --- | --- |
+| Chap12 | 未执行 |
+| Chap13 | 未执行 |
+| Chap14 | 未执行 |
+| Chap15 | 未执行 |
+
+追踪：通过 **0** / 部分 **16** / 未完成 **45**；没有完整门禁证据的项不记通过。
+
+| 三类对照 | 关键结果 / CI / 退化项 |
+| --- | --- |
+| 原RAG / Agentic | 未执行；没有实测结论 |
+| 单Agent / 固定Workflow / 新版本 | 未执行；没有实测结论 |
+| 可靠性改动前 / 后 | 未执行；没有实测结论 |
+
+### 标定批次
+
+| 批次 | 槽位记录 | 状态 | 删失原因 | 用于决策 |
+| --- | --- | --- | --- | --- |
+| 1 | 300/300 | incomplete_censored | 主机睡眠；P2-PLATFORM-01组合第3次2098.058秒 | 否 |
+| 2 | 186/300 | running | 无已记录删失 | 否 |
+批次1：因主机睡眠删失，未用于决策；原文件/哈希不变。不同批次不混合、不平均、不剔除单条。
+预算尚未选定；生产临时值90秒/16依赖/6LLM保持。
+
+### 规格修订
+
+v0.3.1仅新增S08.2操作性段落（1处精确插入、4项授权操作）；采用16/6调用下限。S08.1、32/12熔断、S07、场景/门禁/held-out及其余CL决定不变；旧三版和批次1保持。
+文档检查11行PASS；manifest SHA256：`80455fc850af285c0c4af7998f2ead9061b9b13e649037bd64bebe931971df28`。
+
+### 两表一致性
+
+程序比对 **passed**：批准表61行、运行表61行；ID无缺失/新增/重复，批准状态与执行状态分开。冻结v0的65份源码/配置哈希不变。
+证据：[文档输出](<C:/Users/zacha/Documents/Ingestion Pipeline/audit/project2-v1/docs_check_v031.log>) · [批次协议](<C:/Users/zacha/Documents/Ingestion Pipeline/evals/project2-v1/calibration_v031/protocol.json>) · [两表比对](<C:/Users/zacha/Documents/Ingestion Pipeline/audit/project2-v1/v031_traceability_comparison.json>)。新增本地提交0。
+
+需要本人处理：
+
+- 若程序报告授权范围外问题或两轮仍失败，决定后续授权；不放宽门禁。
+- git push / PR / 最终审阅由本人处理；第16章云账号与预算另行授权。
+- 向老师确认CL-03；Fake Publish未实施。

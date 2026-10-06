@@ -1,0 +1,15 @@
+{
+  "status": "selected",
+  "selected_batch": 2,
+  "limits": {
+    "attempts": 19,
+    "llm_calls": 6,
+    "seconds": 37.941018
+  },
+  "batch_manifest_sha256": "b17597e3b6e95ca67c1f787635397dc4e0de3fb9495db493a2ce54a105387b6a",
+  "protocol_sha256": "2c4036a2bc6774fd7b3be7dc2d9d514a547be5ce28113c6a11d1f46983e1171f",
+  "spec_manifest_sha256": "80455fc850af285c0c4af7998f2ead9061b9b13e649037bd64bebe931971df28",
+  "heldout_calls": 0,
+  "mixing_batches": false,
+  "excluded_individual_records": 0
+}

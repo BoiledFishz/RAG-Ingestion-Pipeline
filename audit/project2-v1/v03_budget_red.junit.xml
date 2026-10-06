@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="2.237" timestamp="2026-10-05T19:59:57.710742-07:00" hostname="szy"><testcase classname="tests.project2.test_v03_budget_profile" name="test_profile_loader_does_not_accept_missing_or_tampered_evidence" time="0.019"><failure message="AttributeError: module 'agents.project2.budget' has no attribute 'read_frozen_limits'">tmp_path = WindowsPath('C:/Users/zacha/AppData/Local/Temp/aws-support-rag-87876-ccaed883c533449f99033134cd3cfef0/test_profile_loader_does_not_a0')
+
+    def test_profile_loader_does_not_accept_missing_or_tampered_evidence(tmp_path):
+&gt;       assert module.read_frozen_limits(tmp_path) == {'attempts': 16, 'llm_calls': 6, 'seconds': 90}
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'agents.project2.budget' has no attribute 'read_frozen_limits'
+
+tests\project2\test_v03_budget_profile.py:12: AttributeError</failure></testcase><testcase classname="tests.project2.test_v03_budget_profile" name="test_budget_blocks_n_plus_one_without_starting" time="0.005" /></testsuite></testsuites>

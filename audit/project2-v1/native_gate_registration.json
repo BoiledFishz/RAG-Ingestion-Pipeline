@@ -1,0 +1,35 @@
+{
+  "version": "project2-native-combination-v1",
+  "partition": "tune",
+  "scenarios": [
+    {
+      "scenario_id": "AC12-01",
+      "input": {
+        "sample_id": "P2-ENTITY-01",
+        "query": "How do I tell when there are mismatched MQ jars in my application server?\nMismatched jar files can cause strange and unpredictable errors when using the MQ JMS classes. ",
+        "analysis_operation": "document_count",
+        "include_samples": true,
+        "sample_limit": 5
+      },
+      "expected_worker_states": "RAG=completed;DB=completed",
+      "expected_overall_status": "completed"
+    },
+    {
+      "scenario_id": "AC12-23",
+      "input": {
+        "sample_id": "P2-NOANSWER-01",
+        "query": "Is Java 7 supported for BPM?\nWhat versions of BPM support Java 7?",
+        "analysis_operation": "document_count",
+        "include_samples": true,
+        "sample_limit": 5
+      },
+      "expected_worker_states": "RAG=no_data;DB=completed",
+      "expected_overall_status": "partial"
+    }
+  ],
+  "max_repair_rounds": 2,
+  "prompt": "frozen baseline v0",
+  "dependency_limit": 16,
+  "llm_limit": 6,
+  "timeout_seconds": 90
+}

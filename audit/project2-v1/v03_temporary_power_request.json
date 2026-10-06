@@ -1,0 +1,5 @@
+{
+  "scope": "temporary execution request; no policy change; releases when measurement exits",
+  "measurement_pid": 94228,
+  "helper_pid": 97044
+}

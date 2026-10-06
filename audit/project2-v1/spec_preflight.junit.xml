@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.982" timestamp="2026-10-05T17:34:38.230860-07:00" hostname="szy"><testcase classname="tests.project2.test_spec_preflight" name="test_registered_real_zero_count_is_zero" time="0.295"><failure message="AssertionError: Approved AC12-02 requires a complete zero-match count. Independent official full-corpus count=192; predicate=['Netcool/Impact', '6.1.0']. Do not alter the frozen query, predicate, corpus or expected state.&#10;assert 'failed' == 'passed'&#10;  &#10;  - passed&#10;  + failed">def test_registered_real_zero_count_is_zero() -&gt; None:
+        result = verify_registered_zero_case(ROOT)
+&gt;       assert result["status"] == "passed", (
+            "Approved AC12-02 requires a complete zero-match count. "
+            f"Independent official full-corpus count={result['actual_count']}; "
+            f"predicate={result['predicate']!r}. "
+            "Do not alter the frozen query, predicate, corpus or expected state."
+        )
+E       AssertionError: Approved AC12-02 requires a complete zero-match count. Independent official full-corpus count=192; predicate=['Netcool/Impact', '6.1.0']. Do not alter the frozen query, predicate, corpus or expected state.
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests\project2\test_spec_preflight.py:17: AssertionError</failure></testcase></testsuite></testsuites>

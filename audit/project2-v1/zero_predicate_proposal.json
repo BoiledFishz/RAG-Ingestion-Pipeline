@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "selection_version": "corpus-zero-phrase-v1",
+  "seed": 20261005,
+  "input_dependencies": [
+    "official_full_corpus_vocabulary",
+    "official_full_corpus_fts"
+  ],
+  "eligibility": "ASCII lowercase 4..24 chars; full-corpus df 50..1000",
+  "ordering": "SHA256(decimal_seed + ':' + term), ascending; adjacent nonreused pairs",
+  "eligible_terms": 15373,
+  "eligible_sha256": "6e1500109249f959a0a9dbcbd49a8bcfc94bae6f3fc3ec1eb7fe80db40d061ba",
+  "attempts": [
+    {
+      "phrases": [
+        "linecost",
+        "admininstr"
+      ],
+      "count": 0,
+      "individual_phrase_counts": [
+        161,
+        66
+      ]
+    },
+    {
+      "phrases": [
+        "lklock",
+        "practis"
+      ],
+      "count": 0,
+      "individual_phrase_counts": [
+        61,
+        3
+      ]
+    }
+  ],
+  "predicates": [
+    {
+      "predicate_id": "CORPUS-ZERO-01",
+      "phrases": [
+        "linecost",
+        "admininstr"
+      ],
+      "count": 0,
+      "individual_phrase_counts": [
+        161,
+        66
+      ],
+      "measurement_complete": true
+    },
+    {
+      "predicate_id": "CORPUS-ZERO-02",
+      "phrases": [
+        "lklock",
+        "practis"
+      ],
+      "count": 0,
+      "individual_phrase_counts": [
+        61,
+        3
+      ],
+      "measurement_complete": true
+    }
+  ],
+  "manifest": {
+    "scope": "full",
+    "document_count": "801996",
+    "complete": "true",
+    "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+    "format_version": "1"
+  },
+  "qa_read": false,
+  "worker_output_read": false,
+  "model_calls": 0
+}

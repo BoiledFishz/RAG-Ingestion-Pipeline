@@ -1,0 +1,12 @@
+{
+  "stage": "ch12",
+  "status": "completed",
+  "heldout_stage_calls_project2": 1,
+  "heldout_repetitions_project2": 3,
+  "planned_repeats": 3,
+  "global_ledger_entry_sha256": "5dddf83dac5adfd64559946c1371d7a462a99863afc3615997a72c1c8d65c7a2",
+  "started_utc": "2026-10-06T22:22:29Z",
+  "stage_plan_sha256": "2ef8053ef57a6d574771b65017e9cc17bf6c1b1ee70852c975e7a35ff50e3634",
+  "summary_sha256": "bc54d1dce126fddabf224dd17ef156cdf793c958a6cf5efb6d2b50b2abe6862c",
+  "requests": 90
+}

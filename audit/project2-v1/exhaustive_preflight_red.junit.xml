@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="0.902" timestamp="2026-10-05T18:45:13.634471-07:00" hostname="szy"><testcase classname="" name="tests.project2.test_exhaustive_preflight" time="0.000"><error message="collection failure">ImportError while importing test module 'C:\Users\zacha\Documents\Ingestion Pipeline\tests\project2\test_exhaustive_preflight.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\AppData\Local\Python\pythoncore-3.14-64\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\project2\test_exhaustive_preflight.py:5: in &lt;module&gt;
+    from scripts.spec_preflight import audit_specs, choose_zero_predicates, read_manifest
+E   ModuleNotFoundError: No module named 'scripts.spec_preflight'</error></testcase></testsuite></testsuites>

@@ -1,0 +1,18 @@
+{
+  "captured_at": "2026-10-06T00:38:38.717120+00:00",
+  "files": {
+    "specs/project2/v0.1/acceptance_scenarios.csv": "c6777059aaf1a0b38f2c523b170a4ad40a22b4952d3383a30d6b502aea3b3ee4",
+    "specs/project2/v0.1/approval_record.md": "4261db500b9fcc04108cb308efd7903b2134cff0c976fc4f3b1622e363eeef70",
+    "specs/project2/v0.1/check_docs.py": "1cf5dfd76fc54f32af2241db36530c2226e5529b352be84f3adb5a1990af8b79",
+    "specs/project2/v0.1/clarifications.md": "45dc6a0cf119f36595c21a78ed806bd581c83a55438e1bf21220fb0869a63db3",
+    "specs/project2/v0.1/plan.md": "5bcb62ed931773092015ed6b9fddacdda7f2e984562e95a6b6097c0a3159960b",
+    "specs/project2/v0.1/requirements_v0.1.md": "7aa3441bf33c7d3b94501d99d6a7e99e0ba486e03413abf3e530c6a847f6ea7b",
+    "specs/project2/v0.1/review_sheet.md": "580f62088c9173dfb800f4fb9d687dd4ea6929d2e503233e6e4ff4a12b7ade0e",
+    "specs/project2/v0.1/review_sheet_signed_2026-10-05.md": "81cea2ea6241f0f51da3eecd45d999a99ebb2c939c6445e57197a0673a00b048",
+    "specs/project2/v0.1/spec.md": "54f1d43b6afa50d1213f010af175daad6b474ba77c2cf2ab9a713f9acf7b8a8e",
+    "specs/project2/v0.1/task_preregistration.json": "ecd190e06afc173ab485ccba8c1a16e6256ede19b575ecd1ceb00891de86d63f",
+    "specs/project2/v0.1/task_preregistration.json.sha256": "981c10858e4642fb14995f5c5447bfeccdb9e7242c1f5f443cd63451df62c2ea",
+    "specs/project2/v0.1/tasks.md": "f457b121170c34070252f754eb324984594f13f77426f51f81b39a1d846afb35",
+    "specs/project2/v0.1/traceability.csv": "14c308d2759dd8c0b127d385770b650753bca8d405bac67da5116c0a5790bde2"
+  }
+}

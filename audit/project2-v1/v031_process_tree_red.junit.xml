@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="1.332" timestamp="2026-10-06T10:53:34.593410-07:00" hostname="szy"><testcase classname="tests.project2.test_process_tree" name="test_real_cancellation_stops_owned_descendants_before_closing_pipes" time="0.368"><failure message="AssertionError: Cancellation killed the launcher but left an owned descendant running&#10;assert not True&#10; +  where True = alive(119192)">def test_real_cancellation_stops_owned_descendants_before_closing_pipes():
+        leaf='import time; time.sleep(60)'
+        parent='import subprocess,sys,time; p=subprocess.Popen([sys.executable,"-c",'+repr(leaf)+'],stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL); print(p.pid,flush=True); time.sleep(60)'
+        process=subprocess.Popen([sys.executable,'-c',parent],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,text=True,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
+        leaf_pid=int(process.stdout.readline());runtime=BoundedRAGProcess({'AGENT_MODEL':'qwen2.5:7b'});runtime.process=process
+        try:
+            assert alive(leaf_pid)
+            runtime.stop()
+&gt;           assert not alive(leaf_pid), 'Cancellation killed the launcher but left an owned descendant running'
+E           AssertionError: Cancellation killed the launcher but left an owned descendant running
+E           assert not True
+E            +  where True = alive(119192)
+
+tests\project2\test_process_tree.py:24: AssertionError</failure></testcase></testsuite></testsuites>
