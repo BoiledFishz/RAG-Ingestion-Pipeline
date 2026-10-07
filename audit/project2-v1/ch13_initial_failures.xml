@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="4" time="1.011" timestamp="2026-10-06T16:26:06.919184-07:00" hostname="szy"><testcase classname="tests.project2.test_runtime" name="test_owner_isolation_and_invalid_states" time="0.004"><failure message="ModuleNotFoundError: No module named 'agents.project2.service_runtime'">tmp_path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/37ddc80f1a364ddfb38a188612d5575d')
+
+    def test_owner_isolation_and_invalid_states(tmp_path):
+&gt;       from agents.project2.service_runtime import StateStore, RuntimeRejected
+E       ModuleNotFoundError: No module named 'agents.project2.service_runtime'
+
+enterprise-ai-agent\tests\project2\test_runtime.py:23: ModuleNotFoundError</failure></testcase><testcase classname="tests.project2.test_runtime" name="test_duplicate_resume_and_unknown_attempt" time="0.003"><failure message="ModuleNotFoundError: No module named 'agents.project2.service_runtime'">tmp_path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/d5a4bd285a02403f8c535c01e0efe5e4')
+
+    def test_duplicate_resume_and_unknown_attempt(tmp_path):
+&gt;       from agents.project2.service_runtime import StateStore, RuntimeRejected, bind_budget
+E       ModuleNotFoundError: No module named 'agents.project2.service_runtime'
+
+enterprise-ai-agent\tests\project2\test_runtime.py:37: ModuleNotFoundError</failure></testcase><testcase classname="tests.project2.test_runtime" name="test_invalid_expired_resume" time="0.014"><failure message="ModuleNotFoundError: No module named 'agents.project2.service_runtime'">tmp_path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/2f14019136f14535aee77756253aa766')
+
+    def test_invalid_expired_resume(tmp_path):
+&gt;       from agents.project2.service_runtime import StateStore, RuntimeRejected
+E       ModuleNotFoundError: No module named 'agents.project2.service_runtime'
+
+enterprise-ai-agent\tests\project2\test_runtime.py:52: ModuleNotFoundError</failure></testcase><testcase classname="tests.project2.test_runtime" name="test_runtime_state_never_contains_credentials_or_prompts" time="0.003"><failure message="ModuleNotFoundError: No module named 'agents.project2.service_runtime'">tmp_path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/92d875fdc4cb4572bf26b3a7b382de87')
+
+    def test_runtime_state_never_contains_credentials_or_prompts(tmp_path):
+&gt;       from agents.project2.service_runtime import StateStore, bind_budget
+E       ModuleNotFoundError: No module named 'agents.project2.service_runtime'
+
+enterprise-ai-agent\tests\project2\test_runtime.py:61: ModuleNotFoundError</failure></testcase></testsuite></testsuites>

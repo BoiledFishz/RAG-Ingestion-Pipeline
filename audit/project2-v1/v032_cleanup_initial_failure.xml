@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.543" timestamp="2026-10-06T18:06:26.659209-07:00" hostname="szy"><testcase classname="tests.project2.test_owned_cleanup" name="test_idle_cleanup_closes_stdin_before_force_and_does_not_use_taskkill" time="0.002"><failure message="AssertionError: taskkill must not be the normal idle cleanup path">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000145E4A2ECF0&gt;
+
+    def test_idle_cleanup_closes_stdin_before_force_and_does_not_use_taskkill(monkeypatch):
+        events=[]
+        class Pipe:
+            def close(self):events.append('close')
+        class Owned:
+            stdin=Pipe();stdout=Pipe();pid=123
+            def poll(self):return None if 'wait' not in events else 0
+            def wait(self,timeout):events.append('wait');return 0
+        environment=json.loads((ROOT/'evals/protocol_v0/baseline_v0.config.json').read_text(encoding='utf-8'))['environment']
+        runtime=BoundedRAGProcess(environment);runtime.process=Owned();runtime.ready=True
+        def forbidden(*args,**kwargs):raise AssertionError('taskkill must not be the normal idle cleanup path')
+        monkeypatch.setattr('subprocess.run',forbidden)
+&gt;       runtime.stop()
+
+enterprise-ai-agent\tests\project2\test_owned_cleanup.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+enterprise-ai-agent\agents\project2\rag_process.py:247: in stop
+    stopped = subprocess.run([os.path.join(os.environ['WINDIR'], 'System32', 'taskkill.exe'),
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+args = (['C:\\WINDOWS\\System32\\taskkill.exe', '/PID', '123', '/T', '/F'],)
+kwargs = {'capture_output': True, 'timeout': 5, 'creationflags': 134217728}
+
+&gt;   def forbidden(*args,**kwargs):raise AssertionError('taskkill must not be the normal idle cleanup path')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: taskkill must not be the normal idle cleanup path
+
+enterprise-ai-agent\tests\project2\test_owned_cleanup.py:19: AssertionError</failure></testcase></testsuite></testsuites>

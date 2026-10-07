@@ -1,0 +1,592 @@
+C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+2026-10-06 20:21:53,688 INFO P2_STARTUP {"type": "ready", "scope": "full", "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b", "worker_pid": 98096, "warmup": {"completed": true, "selection": "official full docs ORDER BY doc_id LIMIT 1, text only", "text_sha256": "27566416452b285c86c1df3f65970d4eb327c96d9c97ebf6b77b64c095776b2d", "qa_fields_used": [], "corpus_read_seconds": 0.020452900091186166, "embedding_inference_seconds": 1.008559999987483, "index_warmup_seconds": 1.7375425000209361, "total_seconds": 2.7665554000996053, "llm_calls": 0, "request_budget_created": false}, "startup_timings": {"imports_seconds": 1.2168086000019684, "agent_build_seconds": 0.030317299999296665, "index_and_encoder_seconds": 35.144288600073196, "faiss_index_load_seconds": 14.605851299944334, "child_initialization_seconds": 39.807228999910876}, "launch_to_ready_seconds": 40.86178159993142}
+2026-10-06 20:21:53,727 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:21:57,328 INFO Database request=adfa0dae8cbd4e50aa2ffccac0beacd6 status=completed counts=[18296]
+2026-10-06 20:22:09,043 INFO Project2 run=adfa0dae8cbd4e50aa2ffccac0beacd6 status=completed attempts=14
+2026-10-06 20:22:09,080 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:22:09,084 INFO v033 qa-tune repeat1 1/39 completed elapsed=15.360
+2026-10-06 20:22:09,090 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:22:09,232 INFO Database request=c704e7ee19dc46e5b516e4dba5f2f64d status=completed counts=[40]
+2026-10-06 20:22:31,855 INFO Project2 run=c704e7ee19dc46e5b516e4dba5f2f64d status=completed attempts=14
+2026-10-06 20:22:31,901 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:22:31,908 INFO v033 qa-tune repeat1 2/39 completed elapsed=22.812
+2026-10-06 20:22:31,920 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:22:32,205 INFO Database request=ec42736b6d224ac29105bd7cbada9c65 status=completed counts=[218]
+2026-10-06 20:22:49,783 INFO Project2 run=ec42736b6d224ac29105bd7cbada9c65 status=completed attempts=14
+2026-10-06 20:22:49,814 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:22:49,817 INFO v033 qa-tune repeat1 3/39 completed elapsed=17.906
+2026-10-06 20:22:49,824 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:22:51,369 INFO Database request=760f1a5e70c2476896f9cedb1053df2c status=completed counts=[5958]
+2026-10-06 20:23:04,787 INFO Project2 run=760f1a5e70c2476896f9cedb1053df2c status=completed attempts=14
+2026-10-06 20:23:04,888 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:23:04,891 INFO v033 qa-tune repeat1 4/39 completed elapsed=15.078
+2026-10-06 20:23:04,901 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:23:17,396 INFO Database request=c31814f913c64ba8bb95c1a6e730e67e status=completed counts=[40526]
+2026-10-06 20:23:37,314 INFO Project2 run=c31814f913c64ba8bb95c1a6e730e67e status=completed attempts=14
+2026-10-06 20:23:37,342 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:23:37,347 INFO v033 qa-tune repeat1 5/39 completed elapsed=32.453
+2026-10-06 20:23:37,355 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:23:38,375 INFO Database request=73ac3232f39f4d23b90be56177ff1fc6 status=completed counts=[3736]
+2026-10-06 20:23:53,648 INFO Project2 run=73ac3232f39f4d23b90be56177ff1fc6 status=completed attempts=14
+2026-10-06 20:23:53,678 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:23:53,682 INFO v033 qa-tune repeat1 6/39 completed elapsed=16.328
+2026-10-06 20:23:53,687 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:23:54,957 INFO Database request=dfce6fcf603e43689c8aa807e635bc96 status=completed counts=[3736]
+2026-10-06 20:24:07,185 INFO Project2 run=dfce6fcf603e43689c8aa807e635bc96 status=partial attempts=13
+2026-10-06 20:24:07,215 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:24:07,219 INFO v033 qa-tune repeat1 7/39 partial elapsed=13.516
+2026-10-06 20:24:07,226 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:24:08,291 INFO Database request=24d20043667047c3affc3949a3041f1c status=completed counts=[3402]
+2026-10-06 20:24:31,201 INFO Project2 run=24d20043667047c3affc3949a3041f1c status=completed attempts=14
+2026-10-06 20:24:31,235 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:24:31,239 INFO v033 qa-tune repeat1 8/39 completed elapsed=24.016
+2026-10-06 20:24:31,249 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:24:31,926 INFO Database request=c5ce7bf5ae624b919c7f0f9728fd9839 status=completed counts=[2288]
+2026-10-06 20:24:52,873 INFO Project2 run=c5ce7bf5ae624b919c7f0f9728fd9839 status=completed attempts=14
+2026-10-06 20:24:52,912 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:24:52,919 INFO v033 qa-tune repeat1 9/39 completed elapsed=21.672
+2026-10-06 20:24:52,929 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:25:00,543 INFO Database request=eb793d4b06f646768e64bc6872adfaa9 status=completed counts=[18296]
+2026-10-06 20:25:31,732 INFO Project2 run=eb793d4b06f646768e64bc6872adfaa9 status=completed attempts=14
+2026-10-06 20:25:31,782 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:25:31,790 INFO v033 qa-tune repeat1 10/39 completed elapsed=38.860
+2026-10-06 20:25:31,810 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:25:32,336 INFO Database request=e5e840cdb3da4abaac7200388a539f4f status=completed counts=[323]
+2026-10-06 20:25:56,274 INFO Project2 run=e5e840cdb3da4abaac7200388a539f4f status=completed attempts=14
+2026-10-06 20:25:56,302 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:25:56,305 INFO v033 qa-tune repeat1 11/39 completed elapsed=24.500
+2026-10-06 20:25:56,311 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:25:56,852 INFO Database request=ac7628625d8847e3a3706fd98581b0a2 status=completed counts=[449]
+2026-10-06 20:26:15,166 INFO Project2 run=ac7628625d8847e3a3706fd98581b0a2 status=completed attempts=14
+2026-10-06 20:26:15,192 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:26:15,195 INFO v033 qa-tune repeat1 12/39 completed elapsed=18.891
+2026-10-06 20:26:15,201 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:26:16,438 INFO Database request=5fbec6009e04443082e316285fe3c7e4 status=completed counts=[4609]
+2026-10-06 20:26:37,865 INFO Project2 run=5fbec6009e04443082e316285fe3c7e4 status=completed attempts=14
+2026-10-06 20:26:37,890 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:26:37,895 INFO v033 qa-tune repeat1 13/39 completed elapsed=22.703
+2026-10-06 20:26:37,899 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:26:39,431 INFO Database request=ce6e65aa4ddf4fcf8185c618092a283d status=completed counts=[5809]
+2026-10-06 20:26:53,242 INFO Project2 run=ce6e65aa4ddf4fcf8185c618092a283d status=completed attempts=14
+2026-10-06 20:26:53,273 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:26:53,277 INFO v033 qa-tune repeat1 14/39 completed elapsed=15.375
+2026-10-06 20:26:53,284 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:26:54,705 INFO Database request=724d8a05198f41e99b6be015677ba25d status=completed counts=[4984]
+2026-10-06 20:27:10,969 INFO Project2 run=724d8a05198f41e99b6be015677ba25d status=partial attempts=13
+2026-10-06 20:27:10,993 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:27:10,997 INFO v033 qa-tune repeat1 15/39 partial elapsed=17.703
+2026-10-06 20:27:11,002 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:27:11,843 INFO Database request=acf7c19faa33451f9e78e9cd92dbebfc status=completed counts=[3736]
+2026-10-06 20:27:30,464 INFO Project2 run=acf7c19faa33451f9e78e9cd92dbebfc status=completed attempts=14
+2026-10-06 20:27:30,496 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:27:30,500 INFO v033 qa-tune repeat1 16/39 completed elapsed=19.484
+2026-10-06 20:27:30,510 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:27:32,460 INFO Database request=c2884ca18be14e3ebeaacb44bfe772f6 status=completed counts=[8643]
+2026-10-06 20:27:54,298 INFO Project2 run=c2884ca18be14e3ebeaacb44bfe772f6 status=completed attempts=14
+2026-10-06 20:27:54,325 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:27:54,330 INFO v033 qa-tune repeat1 17/39 completed elapsed=23.828
+2026-10-06 20:27:54,335 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:27:55,121 INFO Database request=21d584b1438648d4bbf4c76fcd2f1373 status=completed counts=[178]
+2026-10-06 20:28:13,708 INFO Project2 run=21d584b1438648d4bbf4c76fcd2f1373 status=completed attempts=14
+2026-10-06 20:28:13,735 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:28:13,739 INFO v033 qa-tune repeat1 18/39 completed elapsed=19.406
+2026-10-06 20:28:13,744 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:28:13,907 INFO Database request=749fef92df25407b99b595eb732cf0ce status=completed counts=[118]
+2026-10-06 20:28:33,819 INFO Project2 run=749fef92df25407b99b595eb732cf0ce status=completed attempts=14
+2026-10-06 20:28:33,849 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:28:33,854 INFO v033 qa-tune repeat1 19/39 completed elapsed=20.109
+2026-10-06 20:28:33,861 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:28:37,724 INFO Database request=636aa079997946e9a7e47ed30f76b644 status=completed counts=[19234]
+2026-10-06 20:29:00,255 INFO Project2 run=636aa079997946e9a7e47ed30f76b644 status=completed attempts=14
+2026-10-06 20:29:00,284 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:29:00,287 INFO v033 qa-tune repeat1 20/39 completed elapsed=26.422
+2026-10-06 20:29:00,293 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:29:12,448 WARNING Database request=c898662dc7e446ef899980cdabbf7301 status=timeout timeout=database_statement_timeout
+2026-10-06 20:29:30,061 INFO Project2 run=c898662dc7e446ef899980cdabbf7301 status=partial attempts=13
+2026-10-06 20:29:30,092 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:29:30,098 INFO v033 qa-tune repeat1 21/39 partial elapsed=29.812
+2026-10-06 20:29:30,106 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:29:38,873 INFO Database request=9cb9a788a5de41d1a162660e657ba2ac status=completed counts=[46777]
+2026-10-06 20:29:52,277 INFO Project2 run=9cb9a788a5de41d1a162660e657ba2ac status=completed attempts=14
+2026-10-06 20:29:52,302 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:29:52,305 INFO v033 qa-tune repeat1 22/39 completed elapsed=22.203
+2026-10-06 20:29:52,312 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:29:53,407 INFO Database request=7158471f143e415da88049a7047c3006 status=completed counts=[3323]
+2026-10-06 20:30:20,854 INFO Project2 run=7158471f143e415da88049a7047c3006 status=completed attempts=14
+2026-10-06 20:30:20,879 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:30:20,885 INFO v033 qa-tune repeat1 23/39 completed elapsed=28.579
+2026-10-06 20:30:20,892 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:30:24,561 INFO Database request=e4563e952b2c4db0b83a19850c280fb2 status=completed counts=[13635]
+2026-10-06 20:30:40,142 INFO Project2 run=e4563e952b2c4db0b83a19850c280fb2 status=completed attempts=14
+2026-10-06 20:30:40,171 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:30:40,177 INFO v033 qa-tune repeat1 24/39 completed elapsed=19.281
+2026-10-06 20:30:40,182 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:30:52,290 WARNING Database request=2b229f24c34c46db902ec202efa9ecdc status=timeout timeout=database_statement_timeout
+2026-10-06 20:31:13,516 INFO Project2 run=2b229f24c34c46db902ec202efa9ecdc status=partial attempts=13
+2026-10-06 20:31:13,539 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:31:13,543 INFO v033 qa-tune repeat1 25/39 partial elapsed=33.360
+2026-10-06 20:31:13,549 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:31:35,276 INFO Database request=5114efd2906f40918b9da8f04cb7c6b3 status=completed counts=[86438]
+2026-10-06 20:32:08,513 INFO Project2 run=5114efd2906f40918b9da8f04cb7c6b3 status=completed attempts=16
+2026-10-06 20:32:08,543 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:32:08,550 INFO v033 qa-tune repeat1 26/39 completed elapsed=55.000
+2026-10-06 20:32:08,556 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:32:08,690 INFO Database request=da3684f4f0b64d74807fe49216c035ee status=completed counts=[11]
+2026-10-06 20:32:29,883 INFO Project2 run=da3684f4f0b64d74807fe49216c035ee status=completed attempts=14
+2026-10-06 20:32:29,910 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:32:29,922 INFO v033 qa-tune repeat1 27/39 completed elapsed=21.360
+2026-10-06 20:32:29,933 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:32:36,828 INFO Database request=077504da62ba460ca1a4a0ee24598e0f status=completed counts=[36585]
+2026-10-06 20:32:50,025 INFO Project2 run=077504da62ba460ca1a4a0ee24598e0f status=completed attempts=14
+2026-10-06 20:32:50,049 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:32:50,054 INFO v033 qa-tune repeat1 28/39 completed elapsed=20.125
+2026-10-06 20:32:50,062 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:32:52,616 INFO Database request=0e4d0763d7304f3dac055f4702348be7 status=completed counts=[12213]
+2026-10-06 20:33:16,261 INFO Project2 run=0e4d0763d7304f3dac055f4702348be7 status=completed attempts=14
+2026-10-06 20:33:16,291 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:33:16,294 INFO v033 qa-tune repeat1 29/39 completed elapsed=26.235
+2026-10-06 20:33:16,300 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:33:17,577 INFO Database request=4d9aa173bb7c423fa9569918d7fd716c status=completed counts=[2033]
+2026-10-06 20:33:28,842 INFO Project2 run=4d9aa173bb7c423fa9569918d7fd716c status=completed attempts=14
+2026-10-06 20:33:28,869 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:33:28,872 INFO v033 qa-tune repeat1 30/39 completed elapsed=12.563
+2026-10-06 20:33:28,879 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:33:29,289 INFO Database request=d95b44d1bed04d2e876d14582e717151 status=completed counts=[15]
+2026-10-06 20:33:44,975 INFO Project2 run=d95b44d1bed04d2e876d14582e717151 status=completed attempts=14
+2026-10-06 20:33:44,999 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:33:45,003 INFO v033 qa-tune repeat1 31/39 completed elapsed=16.125
+2026-10-06 20:33:45,008 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:33:46,040 INFO Database request=b167423d4c1b4a938fe413645acfae49 status=completed counts=[3736]
+2026-10-06 20:33:59,126 INFO Project2 run=b167423d4c1b4a938fe413645acfae49 status=completed attempts=14
+2026-10-06 20:33:59,148 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:33:59,152 INFO v033 qa-tune repeat1 32/39 completed elapsed=14.140
+2026-10-06 20:33:59,156 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:34:00,213 INFO Database request=4b8acf9ecdf4492c9c435997207692c3 status=completed counts=[4867]
+2026-10-06 20:34:24,934 INFO Project2 run=4b8acf9ecdf4492c9c435997207692c3 status=completed attempts=14
+2026-10-06 20:34:24,964 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:34:24,970 INFO v033 qa-tune repeat1 33/39 completed elapsed=25.797
+2026-10-06 20:34:24,976 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:34:26,460 INFO Database request=7eb044f5710b49e3af504e7242781f06 status=completed counts=[6451]
+2026-10-06 20:34:43,508 INFO Project2 run=7eb044f5710b49e3af504e7242781f06 status=completed attempts=14
+2026-10-06 20:34:43,537 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:34:43,543 INFO v033 qa-tune repeat1 34/39 completed elapsed=18.563
+2026-10-06 20:34:43,548 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:34:45,247 INFO Database request=d9f857b42c88478fbb583a632a06b364 status=completed counts=[7234]
+2026-10-06 20:34:57,893 INFO Project2 run=d9f857b42c88478fbb583a632a06b364 status=completed attempts=14
+2026-10-06 20:34:57,953 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:34:57,957 INFO v033 qa-tune repeat1 35/39 completed elapsed=14.407
+2026-10-06 20:34:57,963 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:34:59,434 INFO Database request=324ad6a35f11483bba184c0c79ac82ba status=completed counts=[3625]
+2026-10-06 20:35:09,956 INFO Project2 run=324ad6a35f11483bba184c0c79ac82ba status=completed attempts=14
+2026-10-06 20:35:09,989 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:35:09,991 INFO v033 qa-tune repeat1 36/39 completed elapsed=12.031
+2026-10-06 20:35:09,997 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:35:17,597 INFO Database request=4e486bedcf564cfab9003c9c5baacd50 status=completed counts=[18296]
+2026-10-06 20:35:38,465 INFO Project2 run=4e486bedcf564cfab9003c9c5baacd50 status=completed attempts=14
+2026-10-06 20:35:38,531 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:35:38,540 INFO v033 qa-tune repeat1 37/39 completed elapsed=28.547
+2026-10-06 20:35:38,564 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:35:44,948 INFO Database request=7536c0f1a18846c89eb2cb63dffee5e8 status=completed counts=[37837]
+2026-10-06 20:35:58,775 INFO Project2 run=7536c0f1a18846c89eb2cb63dffee5e8 status=completed attempts=14
+2026-10-06 20:35:58,800 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:35:58,804 INFO v033 qa-tune repeat1 38/39 completed elapsed=20.234
+2026-10-06 20:35:58,810 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:35:59,611 INFO Database request=64a5511dd998496d805ee8bc7bcd7e75 status=completed counts=[2697]
+2026-10-06 20:36:15,548 INFO Project2 run=64a5511dd998496d805ee8bc7bcd7e75 status=completed attempts=14
+2026-10-06 20:36:15,605 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:36:15,610 INFO v033 qa-tune repeat1 39/39 completed elapsed=16.797
+2026-10-06 20:36:15,635 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:36:17,549 INFO Database request=273983b3391d4f5c82d962d7628412fd status=completed counts=[8643]
+2026-10-06 20:36:33,608 INFO Project2 run=273983b3391d4f5c82d962d7628412fd status=completed attempts=12
+2026-10-06 20:36:33,632 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:36:33,635 INFO v033 qa-tune repeat2 1/39 completed elapsed=18.000
+2026-10-06 20:36:33,641 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:36:42,520 INFO Database request=b1ca8541cbe141c8b98c6433e0fd3342 status=completed counts=[46777]
+2026-10-06 20:36:51,453 INFO Project2 run=b1ca8541cbe141c8b98c6433e0fd3342 status=completed attempts=12
+2026-10-06 20:36:51,473 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:36:51,479 INFO v033 qa-tune repeat2 2/39 completed elapsed=17.828
+2026-10-06 20:36:51,483 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:36:52,485 INFO Database request=080f5c6d8b214e48b8afcfab10b22f99 status=completed counts=[3736]
+2026-10-06 20:37:05,238 INFO Project2 run=080f5c6d8b214e48b8afcfab10b22f99 status=completed attempts=12
+2026-10-06 20:37:05,261 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:37:05,264 INFO v033 qa-tune repeat2 3/39 completed elapsed=13.782
+2026-10-06 20:37:05,267 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:37:06,296 INFO Database request=882f8e24c88f403aa86ef9c20abacfe0 status=completed counts=[3323]
+2026-10-06 20:37:28,330 INFO Project2 run=882f8e24c88f403aa86ef9c20abacfe0 status=completed attempts=12
+2026-10-06 20:37:28,373 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:37:28,377 INFO v033 qa-tune repeat2 4/39 completed elapsed=23.110
+2026-10-06 20:37:28,398 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:37:30,902 INFO Database request=87e45fab97494aa69b19f8bee1bab504 status=completed counts=[12213]
+2026-10-06 20:37:57,125 INFO Project2 run=87e45fab97494aa69b19f8bee1bab504 status=completed attempts=14
+2026-10-06 20:37:57,149 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:37:57,154 INFO v033 qa-tune repeat2 5/39 completed elapsed=28.750
+2026-10-06 20:37:57,160 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:37:58,193 INFO Database request=c1f1b415105d45e0b0c8e4649f30a61a status=completed counts=[3736]
+2026-10-06 20:38:04,495 INFO Project2 run=c1f1b415105d45e0b0c8e4649f30a61a status=partial attempts=11
+2026-10-06 20:38:04,521 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:38:04,527 INFO v033 qa-tune repeat2 6/39 partial elapsed=7.359
+2026-10-06 20:38:04,533 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:38:04,685 INFO Database request=d9e6d93a195443ff83375cb3bd7c2fb0 status=completed counts=[40]
+2026-10-06 20:38:19,540 INFO Project2 run=d9e6d93a195443ff83375cb3bd7c2fb0 status=completed attempts=12
+2026-10-06 20:38:19,564 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:38:19,567 INFO v033 qa-tune repeat2 7/39 completed elapsed=15.031
+2026-10-06 20:38:19,571 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:38:21,170 INFO Database request=ff3c801e8391493dbadfaff37414bfc4 status=completed counts=[6451]
+2026-10-06 20:38:32,780 INFO Project2 run=ff3c801e8391493dbadfaff37414bfc4 status=completed attempts=12
+2026-10-06 20:38:32,815 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:38:32,817 INFO v033 qa-tune repeat2 8/39 completed elapsed=13.250
+2026-10-06 20:38:32,826 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:38:35,533 INFO Database request=ace80ab69840419e9e96c5c67ce0cea4 status=completed counts=[7234]
+2026-10-06 20:38:45,050 INFO Project2 run=ace80ab69840419e9e96c5c67ce0cea4 status=completed attempts=12
+2026-10-06 20:38:45,081 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:38:45,086 INFO v033 qa-tune repeat2 9/39 completed elapsed=12.266
+2026-10-06 20:38:45,094 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:38:46,164 INFO Database request=edc701b4b6644fc3b025604cc62ab2c4 status=completed counts=[3625]
+2026-10-06 20:38:53,908 INFO Project2 run=edc701b4b6644fc3b025604cc62ab2c4 status=completed attempts=12
+2026-10-06 20:38:53,929 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:38:53,931 INFO v033 qa-tune repeat2 10/39 completed elapsed=8.828
+2026-10-06 20:38:53,936 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:39:00,087 INFO Database request=a486165410a94268964d6e59e7862eca status=completed counts=[36585]
+2026-10-06 20:39:09,116 INFO Project2 run=a486165410a94268964d6e59e7862eca status=completed attempts=12
+2026-10-06 20:39:09,137 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:39:09,143 INFO v033 qa-tune repeat2 11/39 completed elapsed=15.219
+2026-10-06 20:39:09,147 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:39:10,125 INFO Database request=f46af5e81d3043c0a607eb0bf07f5b8d status=completed counts=[3736]
+2026-10-06 20:39:19,775 INFO Project2 run=f46af5e81d3043c0a607eb0bf07f5b8d status=completed attempts=12
+2026-10-06 20:39:19,799 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:39:19,803 INFO v033 qa-tune repeat2 12/39 completed elapsed=10.656
+2026-10-06 20:39:19,807 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:39:21,224 INFO Database request=2b7387e58c0a4baf8bcf838059a7282a status=completed counts=[5809]
+2026-10-06 20:39:31,700 INFO Project2 run=2b7387e58c0a4baf8bcf838059a7282a status=completed attempts=12
+2026-10-06 20:39:31,724 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:39:31,730 INFO v033 qa-tune repeat2 13/39 completed elapsed=11.922
+2026-10-06 20:39:31,739 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:39:33,365 INFO Database request=b949a67d7a67483c89012b6c4e04c446 status=completed counts=[5958]
+2026-10-06 20:39:44,605 INFO Project2 run=b949a67d7a67483c89012b6c4e04c446 status=completed attempts=12
+2026-10-06 20:39:44,687 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:39:44,691 INFO v033 qa-tune repeat2 14/39 completed elapsed=12.953
+2026-10-06 20:39:44,702 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:39:45,019 INFO Database request=99a3ea6d0cc8433782d61b21fa1405a2 status=completed counts=[11]
+2026-10-06 20:40:02,058 INFO Project2 run=99a3ea6d0cc8433782d61b21fa1405a2 status=completed attempts=12
+2026-10-06 20:40:02,087 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:40:02,091 INFO v033 qa-tune repeat2 15/39 completed elapsed=17.391
+2026-10-06 20:40:02,097 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:40:08,667 INFO Database request=32f1926ec72d460f9b10363e221e2bed status=completed counts=[18296]
+2026-10-06 20:40:19,416 INFO Project2 run=32f1926ec72d460f9b10363e221e2bed status=completed attempts=12
+2026-10-06 20:40:19,443 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:40:19,448 INFO v033 qa-tune repeat2 16/39 completed elapsed=17.344
+2026-10-06 20:40:19,454 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:40:31,562 WARNING Database request=963095d504e44447b092267658b6f336 status=timeout timeout=database_statement_timeout
+2026-10-06 20:40:41,913 INFO Project2 run=963095d504e44447b092267658b6f336 status=partial attempts=11
+2026-10-06 20:40:41,945 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:40:41,952 INFO v033 qa-tune repeat2 17/39 partial elapsed=22.484
+2026-10-06 20:40:41,959 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:40:43,364 INFO Database request=559b82bd0beb422da1fe115204d7c7c8 status=completed counts=[4609]
+2026-10-06 20:40:58,217 INFO Project2 run=559b82bd0beb422da1fe115204d7c7c8 status=completed attempts=12
+2026-10-06 20:40:58,239 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:40:58,243 INFO v033 qa-tune repeat2 18/39 completed elapsed=16.281
+2026-10-06 20:40:58,248 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:40:58,631 INFO Database request=00cfbf4392b84198b5b2f71553262b2d status=completed counts=[323]
+2026-10-06 20:41:13,115 INFO Project2 run=00cfbf4392b84198b5b2f71553262b2d status=completed attempts=12
+2026-10-06 20:41:13,139 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:41:13,146 INFO v033 qa-tune repeat2 19/39 completed elapsed=14.906
+2026-10-06 20:41:13,151 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:41:14,122 INFO Database request=11824fae38fd41428c934d0b7e956199 status=completed counts=[3402]
+2026-10-06 20:41:26,775 INFO Project2 run=11824fae38fd41428c934d0b7e956199 status=completed attempts=12
+2026-10-06 20:41:26,806 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:41:26,811 INFO v033 qa-tune repeat2 20/39 completed elapsed=13.656
+2026-10-06 20:41:26,818 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:41:36,839 INFO Database request=b15b8d053a0848a399f55f8d93bd8440 status=completed counts=[40526]
+2026-10-06 20:41:55,309 INFO Project2 run=b15b8d053a0848a399f55f8d93bd8440 status=completed attempts=12
+2026-10-06 20:41:55,334 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:41:55,341 INFO v033 qa-tune repeat2 21/39 completed elapsed=28.516
+2026-10-06 20:41:55,345 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:42:01,379 INFO Database request=ac14ac65cacd4cdca9328803a1323be7 status=completed counts=[37837]
+2026-10-06 20:42:15,520 INFO Project2 run=ac14ac65cacd4cdca9328803a1323be7 status=completed attempts=12
+2026-10-06 20:42:15,542 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:42:15,545 INFO v033 qa-tune repeat2 22/39 completed elapsed=20.188
+2026-10-06 20:42:15,550 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:42:16,107 INFO Database request=6b6e8c7bd7f9496289c19a2af335b83f status=completed counts=[449]
+2026-10-06 20:42:28,190 INFO Project2 run=6b6e8c7bd7f9496289c19a2af335b83f status=completed attempts=12
+2026-10-06 20:42:28,215 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:42:28,218 INFO v033 qa-tune repeat2 23/39 completed elapsed=12.657
+2026-10-06 20:42:28,223 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:42:28,378 INFO Database request=e84d324daff948b4a6991feff56affb8 status=completed counts=[118]
+2026-10-06 20:42:40,281 INFO Project2 run=e84d324daff948b4a6991feff56affb8 status=completed attempts=12
+2026-10-06 20:42:40,311 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:42:40,316 INFO v033 qa-tune repeat2 24/39 completed elapsed=12.094
+2026-10-06 20:42:40,325 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:43:01,098 INFO Database request=04320c41165244809c87780d6b599b45 status=completed counts=[86438]
+2026-10-06 20:43:20,233 INFO Project2 run=04320c41165244809c87780d6b599b45 status=completed attempts=12
+2026-10-06 20:43:20,315 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:43:20,329 INFO v033 qa-tune repeat2 25/39 completed elapsed=40.000
+2026-10-06 20:43:20,375 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:43:21,204 INFO Database request=21890cb8c3a94259bcca696dac64f405 status=completed counts=[2697]
+2026-10-06 20:43:35,753 INFO Project2 run=21890cb8c3a94259bcca696dac64f405 status=completed attempts=14
+2026-10-06 20:43:35,783 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:43:35,790 INFO v033 qa-tune repeat2 26/39 completed elapsed=15.406
+2026-10-06 20:43:35,796 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:43:39,240 INFO Database request=8233e290c08849dabd2e198fc2ffd62c status=completed counts=[18296]
+2026-10-06 20:43:47,816 INFO Project2 run=8233e290c08849dabd2e198fc2ffd62c status=completed attempts=12
+2026-10-06 20:43:47,839 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:43:47,842 INFO v033 qa-tune repeat2 27/39 completed elapsed=12.047
+2026-10-06 20:43:47,847 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:43:48,922 INFO Database request=e7ae4f32ef0a45198ad580ebe9e816f6 status=completed counts=[2033]
+2026-10-06 20:43:48,930 WARNING Checkpoint sharing violation run=78a660a6513b4a6f9f0b1a32fbdb74f9 retry=1
+2026-10-06 20:43:57,793 INFO Project2 run=e7ae4f32ef0a45198ad580ebe9e816f6 status=completed attempts=12
+2026-10-06 20:43:57,822 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:43:57,825 INFO v033 qa-tune repeat2 28/39 completed elapsed=9.969
+2026-10-06 20:43:57,833 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:43:58,723 INFO Database request=c65b7431c3ca422da2d16d5a37ff9d3f status=completed counts=[3736]
+2026-10-06 20:44:11,465 INFO Project2 run=c65b7431c3ca422da2d16d5a37ff9d3f status=completed attempts=12
+2026-10-06 20:44:11,491 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:44:11,497 INFO v033 qa-tune repeat2 29/39 completed elapsed=13.656
+2026-10-06 20:44:11,502 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:44:12,423 INFO Database request=c816e95767aa492782c754ada2711da3 status=completed counts=[15]
+2026-10-06 20:44:29,017 INFO Project2 run=c816e95767aa492782c754ada2711da3 status=completed attempts=14
+2026-10-06 20:44:29,066 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:44:29,074 INFO v033 qa-tune repeat2 30/39 completed elapsed=17.562
+2026-10-06 20:44:29,102 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:44:29,920 INFO Database request=4134d1bd87bc4abf977427b8755a47c9 status=completed counts=[178]
+2026-10-06 20:44:41,977 INFO Project2 run=4134d1bd87bc4abf977427b8755a47c9 status=completed attempts=12
+2026-10-06 20:44:42,000 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:44:42,004 INFO v033 qa-tune repeat2 31/39 completed elapsed=12.907
+2026-10-06 20:44:42,009 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:44:45,451 INFO Database request=bfbd1fe916b342b09ecaf683d372c590 status=completed counts=[13635]
+2026-10-06 20:44:55,450 INFO Project2 run=bfbd1fe916b342b09ecaf683d372c590 status=completed attempts=12
+2026-10-06 20:44:55,479 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:44:55,483 INFO v033 qa-tune repeat2 32/39 completed elapsed=13.468
+2026-10-06 20:44:55,494 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:45:07,616 WARNING Database request=1c3307a16ebf4a08b083903bf3a06ebd status=timeout timeout=database_statement_timeout
+2026-10-06 20:45:25,294 INFO Project2 run=1c3307a16ebf4a08b083903bf3a06ebd status=partial attempts=11
+2026-10-06 20:45:25,333 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:45:25,340 INFO v033 qa-tune repeat2 33/39 partial elapsed=29.844
+2026-10-06 20:45:25,351 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:45:26,942 INFO Database request=d64470ec4c8842e298c86c89d162ecac status=completed counts=[4984]
+2026-10-06 20:45:35,916 INFO Project2 run=d64470ec4c8842e298c86c89d162ecac status=partial attempts=11
+2026-10-06 20:45:35,944 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:45:35,948 INFO v033 qa-tune repeat2 34/39 partial elapsed=10.594
+2026-10-06 20:45:35,953 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:45:39,872 INFO Database request=9fe9d74159e14ed9867f15d26250b1a6 status=completed counts=[19234]
+2026-10-06 20:45:55,878 INFO Project2 run=9fe9d74159e14ed9867f15d26250b1a6 status=completed attempts=12
+2026-10-06 20:45:55,912 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:45:55,920 INFO v033 qa-tune repeat2 35/39 completed elapsed=19.969
+2026-10-06 20:45:55,926 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:45:59,495 INFO Database request=720cf44eff2141e8b161a7d1c570ef53 status=completed counts=[18296]
+2026-10-06 20:46:17,491 INFO Project2 run=720cf44eff2141e8b161a7d1c570ef53 status=completed attempts=12
+2026-10-06 20:46:17,600 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:46:17,610 INFO v033 qa-tune repeat2 36/39 completed elapsed=21.672
+2026-10-06 20:46:17,644 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:46:17,926 INFO Database request=e4d16ffa21864ea4a7e349b35a839d5c status=completed counts=[218]
+2026-10-06 20:46:35,428 INFO Project2 run=e4d16ffa21864ea4a7e349b35a839d5c status=completed attempts=12
+2026-10-06 20:46:35,454 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:46:35,459 INFO v033 qa-tune repeat2 37/39 completed elapsed=17.813
+2026-10-06 20:46:35,464 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:46:36,149 INFO Database request=80729473cc4f499fb855458529a1cb38 status=completed counts=[2288]
+2026-10-06 20:46:54,178 INFO Project2 run=80729473cc4f499fb855458529a1cb38 status=completed attempts=12
+2026-10-06 20:46:54,211 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:46:54,218 INFO v033 qa-tune repeat2 38/39 completed elapsed=18.750
+2026-10-06 20:46:54,225 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:46:55,632 INFO Database request=3f80f24c2608408caeed1c87bb5d9b1f status=completed counts=[4867]
+2026-10-06 20:47:13,750 INFO Project2 run=3f80f24c2608408caeed1c87bb5d9b1f status=completed attempts=12
+2026-10-06 20:47:13,764 WARNING Checkpoint sharing violation run=ae92b709bf454a8db7149bbfae8ab95d retry=1
+2026-10-06 20:47:13,860 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:47:13,866 INFO v033 qa-tune repeat2 39/39 completed elapsed=19.641
+2026-10-06 20:47:13,881 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:47:14,927 INFO Database request=88aa802931504bb3b1bac38cd96d0d62 status=completed counts=[3736]
+2026-10-06 20:47:22,219 INFO Project2 run=88aa802931504bb3b1bac38cd96d0d62 status=partial attempts=11
+2026-10-06 20:47:22,249 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:47:22,255 INFO v033 qa-tune repeat3 1/39 partial elapsed=8.375
+2026-10-06 20:47:22,260 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:47:26,126 INFO Database request=834c8a79778c44b1894dda545dbd85aa status=completed counts=[18296]
+2026-10-06 20:47:35,512 INFO Project2 run=834c8a79778c44b1894dda545dbd85aa status=completed attempts=12
+2026-10-06 20:47:35,583 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:47:35,589 INFO v033 qa-tune repeat3 2/39 completed elapsed=13.328
+2026-10-06 20:47:35,597 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:47:36,133 INFO Database request=bf5d7c7bfd0c416bbca6d42229714ad1 status=completed counts=[323]
+2026-10-06 20:47:51,097 INFO Project2 run=bf5d7c7bfd0c416bbca6d42229714ad1 status=completed attempts=12
+2026-10-06 20:47:51,122 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:47:51,127 INFO v033 qa-tune repeat3 3/39 completed elapsed=15.532
+2026-10-06 20:47:51,131 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:47:52,795 INFO Database request=781329fe274046aa833ea78953ed8474 status=completed counts=[8643]
+2026-10-06 20:48:09,531 INFO Project2 run=781329fe274046aa833ea78953ed8474 status=completed attempts=12
+2026-10-06 20:48:09,581 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:48:09,592 INFO v033 qa-tune repeat3 4/39 completed elapsed=18.453
+2026-10-06 20:48:09,615 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:48:12,981 INFO Database request=770212c65abe473294d5883365835972 status=completed counts=[7234]
+2026-10-06 20:48:28,723 INFO Project2 run=770212c65abe473294d5883365835972 status=completed attempts=12
+2026-10-06 20:48:28,747 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:48:28,754 INFO v033 qa-tune repeat3 5/39 completed elapsed=19.141
+2026-10-06 20:48:28,762 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:48:29,879 INFO Database request=c1e6b9a2f8de4406b5660ccef3faf9de status=completed counts=[3323]
+2026-10-06 20:48:55,059 INFO Project2 run=c1e6b9a2f8de4406b5660ccef3faf9de status=completed attempts=14
+2026-10-06 20:48:55,079 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:48:55,084 INFO v033 qa-tune repeat3 6/39 completed elapsed=26.328
+2026-10-06 20:48:55,089 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:48:55,238 INFO Database request=1e1d75b2cf904df687310c4ece0ca774 status=completed counts=[118]
+2026-10-06 20:49:07,005 INFO Project2 run=1e1d75b2cf904df687310c4ece0ca774 status=completed attempts=12
+2026-10-06 20:49:07,032 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:49:07,036 INFO v033 qa-tune repeat3 7/39 completed elapsed=11.953
+2026-10-06 20:49:07,041 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:49:08,536 INFO Database request=1143cc08efc14811b7b04443a420131e status=completed counts=[5958]
+2026-10-06 20:49:20,801 INFO Project2 run=1143cc08efc14811b7b04443a420131e status=completed attempts=12
+2026-10-06 20:49:20,825 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:49:20,828 INFO v033 qa-tune repeat3 8/39 completed elapsed=13.781
+2026-10-06 20:49:20,833 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:49:21,518 INFO Database request=f6b00a21d46945a699644681c36c6ea8 status=completed counts=[449]
+2026-10-06 20:49:34,567 INFO Project2 run=f6b00a21d46945a699644681c36c6ea8 status=completed attempts=12
+2026-10-06 20:49:34,597 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:49:34,601 INFO v033 qa-tune repeat3 9/39 completed elapsed=13.765
+2026-10-06 20:49:34,608 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:49:35,496 INFO Database request=3c2acbc7396c4f309b0ea5993706e37b status=completed counts=[178]
+2026-10-06 20:49:49,915 INFO Project2 run=3c2acbc7396c4f309b0ea5993706e37b status=completed attempts=12
+2026-10-06 20:49:49,975 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:49:49,984 INFO v033 qa-tune repeat3 10/39 completed elapsed=15.375
+2026-10-06 20:49:49,999 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:49:50,326 INFO Database request=d40511c893764c1fa8b0404641e8188c status=completed counts=[218]
+2026-10-06 20:50:03,184 INFO Project2 run=d40511c893764c1fa8b0404641e8188c status=completed attempts=12
+2026-10-06 20:50:03,209 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:50:03,213 INFO v033 qa-tune repeat3 11/39 completed elapsed=13.219
+2026-10-06 20:50:03,217 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:50:15,305 WARNING Database request=cf46da24c6de408c85e63ee923d47911 status=timeout timeout=database_statement_timeout
+2026-10-06 20:50:34,785 INFO Project2 run=cf46da24c6de408c85e63ee923d47911 status=partial attempts=13
+2026-10-06 20:50:34,813 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:50:34,821 INFO v033 qa-tune repeat3 12/39 partial elapsed=31.609
+2026-10-06 20:50:34,827 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:50:34,977 INFO Database request=43be2a91adc9468099a2c45a4e1ac90d status=completed counts=[40]
+2026-10-06 20:50:49,272 INFO Project2 run=43be2a91adc9468099a2c45a4e1ac90d status=completed attempts=12
+2026-10-06 20:50:49,299 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:50:49,306 INFO v033 qa-tune repeat3 13/39 completed elapsed=14.484
+2026-10-06 20:50:49,311 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:50:50,315 INFO Database request=ff508233ff2f447ea7afbc5218c37dfc status=completed counts=[3402]
+2026-10-06 20:51:01,653 INFO Project2 run=ff508233ff2f447ea7afbc5218c37dfc status=completed attempts=12
+2026-10-06 20:51:01,677 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:51:01,682 INFO v033 qa-tune repeat3 14/39 completed elapsed=12.375
+2026-10-06 20:51:01,686 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:51:02,656 INFO Database request=838ac9e481a94e35b3af831f6fd3dc01 status=completed counts=[3625]
+2026-10-06 20:51:10,750 INFO Project2 run=838ac9e481a94e35b3af831f6fd3dc01 status=completed attempts=12
+2026-10-06 20:51:10,790 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:51:10,793 INFO v033 qa-tune repeat3 15/39 completed elapsed=9.110
+2026-10-06 20:51:10,800 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:51:12,246 INFO Database request=740a2eacd83c48ee938fff67c8d31038 status=completed counts=[5809]
+2026-10-06 20:51:21,784 INFO Project2 run=740a2eacd83c48ee938fff67c8d31038 status=completed attempts=12
+2026-10-06 20:51:21,808 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:51:21,811 INFO v033 qa-tune repeat3 16/39 completed elapsed=11.000
+2026-10-06 20:51:21,816 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:51:28,086 INFO Database request=8fb45aca0d65426f9ada6539d5a268ee status=completed counts=[36585]
+2026-10-06 20:51:38,038 INFO Project2 run=8fb45aca0d65426f9ada6539d5a268ee status=completed attempts=12
+2026-10-06 20:51:38,074 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:51:38,082 INFO v033 qa-tune repeat3 17/39 completed elapsed=16.266
+2026-10-06 20:51:38,089 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:51:49,435 INFO Database request=363ffc86b514478390e2f6cfe3faea4e status=completed counts=[86438]
+2026-10-06 20:52:10,267 INFO Project2 run=363ffc86b514478390e2f6cfe3faea4e status=completed attempts=12
+2026-10-06 20:52:10,318 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:52:10,325 INFO v033 qa-tune repeat3 18/39 completed elapsed=32.234
+2026-10-06 20:52:10,330 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:52:13,279 INFO Database request=1a6b772dff49496596b512371f759254 status=completed counts=[12213]
+2026-10-06 20:52:35,405 INFO Project2 run=1a6b772dff49496596b512371f759254 status=completed attempts=12
+2026-10-06 20:52:35,430 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:52:35,437 INFO v033 qa-tune repeat3 19/39 completed elapsed=25.093
+2026-10-06 20:52:35,442 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:52:47,550 WARNING Database request=0f49b3c615ea41d1b336152d9aaf3607 status=timeout timeout=database_statement_timeout
+2026-10-06 20:52:58,026 INFO Project2 run=0f49b3c615ea41d1b336152d9aaf3607 status=partial attempts=11
+2026-10-06 20:52:58,049 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:52:58,054 INFO v033 qa-tune repeat3 20/39 partial elapsed=22.609
+2026-10-06 20:52:58,060 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:52:59,495 INFO Database request=8781f680c79e47f2b22a5645fc3caa0a status=completed counts=[6451]
+2026-10-06 20:53:12,166 INFO Project2 run=8781f680c79e47f2b22a5645fc3caa0a status=completed attempts=12
+2026-10-06 20:53:12,196 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:53:12,201 INFO v033 qa-tune repeat3 21/39 completed elapsed=14.141
+2026-10-06 20:53:12,207 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:53:13,581 INFO Database request=b30161f697234ca38e94f36510e90974 status=completed counts=[2033]
+2026-10-06 20:53:23,223 INFO Project2 run=b30161f697234ca38e94f36510e90974 status=completed attempts=12
+2026-10-06 20:53:23,247 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:53:23,251 INFO v033 qa-tune repeat3 22/39 completed elapsed=11.031
+2026-10-06 20:53:23,257 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:53:24,590 INFO Database request=a32d8418380644bcb28124feda3c3723 status=completed counts=[4867]
+2026-10-06 20:53:42,791 INFO Project2 run=a32d8418380644bcb28124feda3c3723 status=completed attempts=12
+2026-10-06 20:53:42,825 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:53:42,832 INFO v033 qa-tune repeat3 23/39 completed elapsed=19.578
+2026-10-06 20:53:42,838 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:53:42,989 INFO Database request=5f377191e87b41a79004a61a7682bf41 status=completed counts=[11]
+2026-10-06 20:53:59,477 INFO Project2 run=5f377191e87b41a79004a61a7682bf41 status=completed attempts=12
+2026-10-06 20:53:59,526 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:53:59,531 INFO v033 qa-tune repeat3 24/39 completed elapsed=16.687
+2026-10-06 20:53:59,538 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:54:00,468 INFO Database request=169c3707d50441778440c97ae190e700 status=completed counts=[15]
+2026-10-06 20:54:12,991 INFO Project2 run=169c3707d50441778440c97ae190e700 status=completed attempts=12
+2026-10-06 20:54:13,025 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:54:13,032 INFO v033 qa-tune repeat3 25/39 completed elapsed=13.484
+2026-10-06 20:54:13,040 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:54:14,021 INFO Database request=a2c9779fbdea43b5bcf75af5caa56b8b status=completed counts=[2697]
+2026-10-06 20:54:26,536 INFO Project2 run=a2c9779fbdea43b5bcf75af5caa56b8b status=completed attempts=12
+2026-10-06 20:54:26,569 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:54:26,580 INFO v033 qa-tune repeat3 26/39 completed elapsed=13.531
+2026-10-06 20:54:26,586 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:54:30,453 INFO Database request=6682dc42c5034cd39e901e89663fcd0f status=completed counts=[19234]
+2026-10-06 20:54:45,508 INFO Project2 run=6682dc42c5034cd39e901e89663fcd0f status=completed attempts=12
+2026-10-06 20:54:45,534 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:54:45,541 INFO v033 qa-tune repeat3 27/39 completed elapsed=18.953
+2026-10-06 20:54:45,548 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:54:46,160 INFO Database request=f3f2a3ea8b0847908d8be7be6db28246 status=completed counts=[2288]
+2026-10-06 20:55:01,827 INFO Project2 run=f3f2a3ea8b0847908d8be7be6db28246 status=completed attempts=12
+2026-10-06 20:55:01,869 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:55:01,874 INFO v033 qa-tune repeat3 28/39 completed elapsed=16.313
+2026-10-06 20:55:01,881 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:55:10,468 INFO Database request=4f11dd11b53942cb8751cbbea37292c6 status=completed counts=[40526]
+2026-10-06 20:55:30,295 INFO Project2 run=4f11dd11b53942cb8751cbbea37292c6 status=completed attempts=12
+2026-10-06 20:55:30,325 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:55:30,333 INFO v033 qa-tune repeat3 29/39 completed elapsed=28.453
+2026-10-06 20:55:30,340 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:55:31,606 INFO Database request=198e214078014706a58205446d7df226 status=completed counts=[4609]
+2026-10-06 20:55:46,617 INFO Project2 run=198e214078014706a58205446d7df226 status=completed attempts=12
+2026-10-06 20:55:46,698 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:55:46,703 INFO v033 qa-tune repeat3 30/39 completed elapsed=16.359
+2026-10-06 20:55:46,715 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:55:50,904 INFO Database request=f912318974d24ab4909681bf1cd55b0d status=completed counts=[13635]
+2026-10-06 20:56:04,647 INFO Project2 run=f912318974d24ab4909681bf1cd55b0d status=completed attempts=12
+2026-10-06 20:56:04,689 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:56:04,696 INFO v033 qa-tune repeat3 31/39 completed elapsed=17.984
+2026-10-06 20:56:04,703 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:56:13,259 INFO Database request=0c1096cf47154fbf98bf5992780a8a59 status=completed counts=[46777]
+2026-10-06 20:56:22,774 INFO Project2 run=0c1096cf47154fbf98bf5992780a8a59 status=completed attempts=12
+2026-10-06 20:56:22,795 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:56:22,798 INFO v033 qa-tune repeat3 32/39 completed elapsed=18.093
+2026-10-06 20:56:22,804 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:56:30,945 INFO Database request=f64a3d496e9d451c9bc8f9848aea752b status=completed counts=[37837]
+2026-10-06 20:56:40,879 INFO Project2 run=f64a3d496e9d451c9bc8f9848aea752b status=completed attempts=12
+2026-10-06 20:56:40,905 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:56:40,911 INFO v033 qa-tune repeat3 33/39 completed elapsed=18.110
+2026-10-06 20:56:40,916 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:56:41,877 INFO Database request=e4e83a31ea76400bb47d1a6f86f30944 status=completed counts=[4984]
+2026-10-06 20:56:51,181 INFO Project2 run=e4e83a31ea76400bb47d1a6f86f30944 status=partial attempts=11
+2026-10-06 20:56:51,204 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:56:51,210 INFO v033 qa-tune repeat3 34/39 partial elapsed=10.297
+2026-10-06 20:56:51,214 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:56:52,087 INFO Database request=ef1f91f47ef44de2ab3dd63d5bdfa89c status=completed counts=[3736]
+2026-10-06 20:57:01,478 INFO Project2 run=ef1f91f47ef44de2ab3dd63d5bdfa89c status=completed attempts=12
+2026-10-06 20:57:01,516 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:57:01,525 INFO v033 qa-tune repeat3 35/39 completed elapsed=10.312
+2026-10-06 20:57:01,533 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:57:01,783 INFO Database request=ff73001c28f04281bf736205ff206caf status=completed counts=[3736]
+2026-10-06 20:57:16,185 INFO Project2 run=ff73001c28f04281bf736205ff206caf status=completed attempts=12
+2026-10-06 20:57:16,274 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:57:16,289 INFO v033 qa-tune repeat3 36/39 completed elapsed=14.750
+2026-10-06 20:57:16,319 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:57:20,660 INFO Database request=e17876528f1d4fba8979e910a0148a6e status=completed counts=[18296]
+2026-10-06 20:57:34,396 INFO Project2 run=e17876528f1d4fba8979e910a0148a6e status=completed attempts=12
+2026-10-06 20:57:34,434 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:57:34,453 INFO v033 qa-tune repeat3 37/39 completed elapsed=18.125
+2026-10-06 20:57:34,466 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:57:36,917 INFO Database request=1f04b941b06b4631b4229d2fa8e5169b status=completed counts=[3736]
+2026-10-06 20:57:56,282 INFO Project2 run=1f04b941b06b4631b4229d2fa8e5169b status=completed attempts=12
+2026-10-06 20:57:56,309 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:57:56,316 INFO v033 qa-tune repeat3 38/39 completed elapsed=21.859
+2026-10-06 20:57:56,323 INFO HTTP Request: GET http://testserver/healthz "HTTP/1.1 200 OK"
+2026-10-06 20:58:00,440 INFO Database request=1970f33da2e14ba6af8a3fa7200e7d1e status=completed counts=[18296]
+2026-10-06 20:58:24,308 INFO Project2 run=1970f33da2e14ba6af8a3fa7200e7d1e status=completed attempts=12
+2026-10-06 20:58:24,359 INFO HTTP Request: POST http://testserver/v2/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 20:58:24,368 INFO v033 qa-tune repeat3 39/39 completed elapsed=28.047
+2026-10-06 20:58:26,980 INFO P2_CLEANUP {"mode": "owned_force_cancel", "elapsed_seconds": 2.5850392000284046, "process_retained": false}
+2026-10-06 20:58:28,936 INFO tune final states={'completed': 105, 'partial': 12, 'no_data': 0, 'permission_denied': 0, 'timeout': 0, 'failed': 0}; tune smoke=True

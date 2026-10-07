@@ -25,6 +25,18 @@ LOGGER = logging.getLogger(__name__)
 _REQUEST_BUDGET: Any = None
 _CONNECT = sqlite3.connect
 
+def dependency_timeout(error: BaseException) -> bool:
+    """Retain a wrapped transport timeout across this isolated process boundary."""
+    import httpx
+    seen=set();pending=[error]
+    while pending:
+        current=pending.pop()
+        if id(current) in seen:continue
+        seen.add(id(current))
+        if isinstance(current,(TimeoutError,httpx.TimeoutException)):return True
+        pending.extend(x for x in (current.__cause__,current.__context__) if x is not None)
+    return False
+
 
 class BudgetConnection(sqlite3.Connection):
     request_budget: Any = None
@@ -123,6 +135,7 @@ class LocalDense:
 
 def child_main() -> int:
     global _REQUEST_BUDGET
+    entered=time.perf_counter()
     logging.basicConfig(level=logging.INFO, stream=sys.stderr)
     # Isolated process only; no global changes in any existing application.
     sqlite3.connect = guarded_connect
@@ -139,6 +152,7 @@ def child_main() -> int:
 
     httpx.AsyncClient.send = measured_send
     try:
+        imports_started=time.perf_counter()
         from agents.rag_agent.factory import build_agent
         from models.schemas import QueryRequest
         from models.settings import Settings
@@ -146,8 +160,22 @@ def child_main() -> int:
         from rag.techqa.semantic import SEMANTIC_ROOT
         from agents.project2.batched_retrieval import BatchedIndex, BatchedParents, BatchedReranker, BatchedSemanticSearch
 
+        imported=time.perf_counter()
         agent = build_agent(Settings.from_env())
-        engine = BatchedSemanticSearch(SEMANTIC_ROOT)
+        built=time.perf_counter()
+        # Observability only: no file, candidate, score or returned value changes.
+        import faiss
+        original_read=faiss.read_index;index_seconds=[]
+        def measured_index_read(*args,**kwargs):
+            started=time.perf_counter()
+            try:return original_read(*args,**kwargs)
+            finally:index_seconds.append(time.perf_counter()-started)
+        faiss.read_index=measured_index_read
+        try:engine = BatchedSemanticSearch(SEMANTIC_ROOT)
+        finally:faiss.read_index=original_read
+        loaded=time.perf_counter()
+        from agents.project2.startup_warmup import warm_engine
+        warmup=warm_engine(engine,Path(__file__).resolve().parents[3]/'.rag_data/techqa_full.sqlite')
         engine.encoder.model = EncoderModelProxy(engine.encoder.model)
         agent.retriever.pipeline.dense = LocalDense(engine, FilterPolicy())
         index = BatchedIndex(agent.retriever.pipeline.sparse.index.path)
@@ -158,7 +186,10 @@ def child_main() -> int:
         from agents.project2.observability import observe_pipeline
         pipeline_measurement: dict[str, Any] = {}
         observe_pipeline(agent.retriever.pipeline, pipeline_measurement)
-        sys.stdout.write(json.dumps({"type": "ready", "scope": engine.manifest["scope"], "embedding_id": engine.manifest["embedding_id"]}) + "\n")
+        sys.stdout.write(json.dumps({"type": "ready", "scope": engine.manifest["scope"], "embedding_id": engine.manifest["embedding_id"],
+             "worker_pid":os.getpid(),"warmup":warmup,"startup_timings":{"imports_seconds":imported-imports_started,
+                "agent_build_seconds":built-imported,"index_and_encoder_seconds":loaded-built,
+                "faiss_index_load_seconds":sum(index_seconds),"child_initialization_seconds":time.perf_counter()-entered}}) + "\n")
         sys.stdout.flush()
         while line := sys.stdin.readline():
             command = json.loads(line)
@@ -173,7 +204,7 @@ def child_main() -> int:
                 message = {"type": "result", "data": result.model_dump(mode="json"), "pipeline": dict(pipeline_measurement), "budget_exceeded": _REQUEST_BUDGET.exceeded, "budget_exceeded_reason": _REQUEST_BUDGET.denial_reason}
             except Exception as exc:
                 LOGGER.exception("Project 2 isolated RAG failed")
-                message = {"type": "error", "category": type(exc).__name__, "detail": str(exc)[:500], "budget_exceeded": _REQUEST_BUDGET.exceeded, "budget_exceeded_reason": _REQUEST_BUDGET.denial_reason}
+                message = {"type": "error", "category": type(exc).__name__, "detail": str(exc)[:500], "dependency_timeout":dependency_timeout(exc), "budget_exceeded": _REQUEST_BUDGET.exceeded, "budget_exceeded_reason": _REQUEST_BUDGET.denial_reason}
             _REQUEST_BUDGET = None
             sys.stdout.write(json.dumps(message, ensure_ascii=False) + "\n")
             sys.stdout.flush()
@@ -196,6 +227,9 @@ class BoundedRAGProcess:
         self.active_budget: Budget | None = None
         self.startup_task: asyncio.Task[dict[str, Any]] | None = None
         self.ready = False
+        self.startup_required = False
+        self.startup_observation: dict[str,Any]={}
+        self.cleanup_observation: dict[str,Any]={}
 
     @property
     def active(self) -> bool:
@@ -218,6 +252,7 @@ class BoundedRAGProcess:
         env = {**os.environ, **self.environment, "PYTHONIOENCODING": "utf-8", "PYTHONPATH": str(root / "src")+os.pathsep+str(root / "enterprise-ai-agent"), "TECHQA_QUERY_DEVICE": "cpu"}
         log = root / "audit/project2-v1/rag_child.stderr.log"
         with log.open("a", encoding="utf-8") as stderr:
+            launched=time.perf_counter()
             self.process = subprocess.Popen([str(python), "-m", "agents.project2.rag_process", "--worker"], cwd=root / "enterprise-ai-agent", env=env,
                                             stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=stderr, text=True, encoding="utf-8", creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
         try:
@@ -227,12 +262,15 @@ class BoundedRAGProcess:
             if response.get("type") != "ready" or response.get("scope") != "full":
                 raise RuntimeError(f"Native RAG startup failed: {response}")
             self.ready = True
+            self.startup_observation={**response,"launch_to_ready_seconds":time.perf_counter()-launched}
+            LOGGER.info('P2_STARTUP %s',json.dumps(self.startup_observation))
             return response
         except Exception:
             self.stop()
             raise
 
     def stop(self) -> None:
+        started=time.perf_counter();mode='already_stopped'
         self.ready = False
         startup, self.startup_task = self.startup_task, None
         try: current = asyncio.current_task()
@@ -240,7 +278,15 @@ class BoundedRAGProcess:
         if startup is not None and not startup.done() and startup is not current:
             startup.cancel()
         if self.process is not None:
+            # An idle worker exits on EOF. Do not ask a separate utility to open
+            # another process when our existing owned pipe suffices.
+            if self.active and self.active_budget is None and self.process.stdin:
+                self.process.stdin.close()
+                try:
+                    self.process.wait(timeout=2);mode='idle_eof'
+                except subprocess.TimeoutExpired:pass
             if self.active:
+                mode='owned_force_cancel'
                 if os.name == 'nt':
                     # venv redirectors can own a separate interpreter. Terminating only
                     # the redirector leaves the actual worker and its pipes alive.
@@ -258,6 +304,8 @@ class BoundedRAGProcess:
                 if stream:
                     stream.close()
             self.process = None
+        self.cleanup_observation={'mode':mode,'elapsed_seconds':time.perf_counter()-started,'process_retained':self.process is not None}
+        LOGGER.info('P2_CLEANUP %s',json.dumps(self.cleanup_observation))
 
     def cancel_request(self, budget: Budget) -> None:
         if self.active_budget is budget:
@@ -271,8 +319,11 @@ class BoundedRAGProcess:
             await asyncio.wait_for(self.lock.acquire(), remaining)
             acquired = True
             try:
+                if self.startup_required and not (self.active and self.ready):
+                    raise RuntimeError('worker_not_ready')
                 remaining = budget.remaining()
-                await asyncio.wait_for(self.start(), remaining)
+                if not self.startup_required:
+                    await asyncio.wait_for(self.start(), remaining)
                 budget.remaining()
                 self.active_budget = budget
                 query_sent = True
@@ -292,6 +343,8 @@ class BoundedRAGProcess:
                         self.process.stdin.write(json.dumps(reply) + "\n")
                         self.process.stdin.flush()
                     else:
+                        if message.get('type')=='error' and message.get('dependency_timeout') is True:
+                            raise TimeoutError(message.get('category','dependency_timeout'))
                         return message
             except (TimeoutError, RuntimeError, asyncio.CancelledError):
                 if query_sent:

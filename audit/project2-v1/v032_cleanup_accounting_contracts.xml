@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="5" time="1.724" timestamp="2026-10-06T18:07:00.366604-07:00" hostname="szy"><testcase classname="tests.project2.test_owned_cleanup" name="test_idle_cleanup_closes_stdin_before_force_and_does_not_use_taskkill" time="0.001" /><testcase classname="tests.project2.test_runtime_v032" name="test_stopped_time_excluded_but_active_time_and_attempts_accumulate" time="0.540"><failure message="assert 37.62801799993031 &lt;= (37.941018 - 0.3130000000819564)&#10; +  where 37.62801799993031 = remaining()&#10; +    where remaining = &lt;agents.project2.budget.Budget object at 0x000001E42207D1F0&gt;.remaining">tmp_path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/90ff7f32b7024f4e94379cabe6a80376')
+
+    def test_stopped_time_excluded_but_active_time_and_attempts_accumulate(tmp_path):
+        from agents.project2.service_runtime import bind_budget
+        store=store_at(tmp_path);budget=Budget();state=store.create(request(),owner(),budget)
+        bind_budget(budget,store,state);budget.reserve('llm');time.sleep(.04)
+        budget.execution_ledger.finish()
+        saved=store.load(state['run_id'],owner());consumed=saved['budget']['execution']['consumed_seconds']
+        assert consumed&gt;=.04 and saved['budget']['execution']['segments'][0]['closed']
+        time.sleep(.2)  # Downtime has real duration and must not consume the limit.
+        restored=Budget();bind_budget(restored,store,saved,restore=True)
+        assert restored.attempts==1 and restored.llm_calls==1
+        assert restored.absolute_deadline&gt;budget.absolute_deadline+.1
+&gt;       assert 37.941018-consumed-.08 &lt; restored.remaining() &lt;=37.941018-consumed
+E       assert 37.62801799993031 &lt;= (37.941018 - 0.3130000000819564)
+E        +  where 37.62801799993031 = remaining()
+E        +    where remaining = &lt;agents.project2.budget.Budget object at 0x000001E42207D1F0&gt;.remaining
+
+enterprise-ai-agent\tests\project2\test_runtime_v032.py:30: AssertionError</failure></testcase><testcase classname="tests.project2.test_runtime_v032" name="test_lifetime_and_cumulative_expiry_never_reset_or_start_dependency" time="0.076" /><testcase classname="tests.project2.test_runtime_v032" name="test_hard_stop_tail_is_charged_and_nonfinite_ledger_is_rejected" time="0.075" /><testcase classname="tests.project2.test_runtime_v032" name="test_heartbeat_persists_pending_model_time_without_new_attempt" time="0.369" /></testsuite></testsuites>

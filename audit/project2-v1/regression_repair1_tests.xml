@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="16" time="10.131" timestamp="2026-10-06T16:25:00.888074-07:00" hostname="szy"><testcase classname="tests.project2.test_continuation_diagnosis" name="test_explicit_query_components_are_not_rejected_before_retrieval" time="0.102" /><testcase classname="tests.project2.test_continuation_diagnosis" name="test_second_judge_math_and_body_quote_validation" time="0.026" /><testcase classname="enterprise-ai-agent.tests.project2.test_db_worker" name="test_distinct_count_and_sample_limit" time="4.215" /><testcase classname="enterprise-ai-agent.tests.project2.test_db_worker" name="test_overlap_and_partial_comparison" time="1.256" /><testcase classname="enterprise-ai-agent.tests.project2.test_db_worker" name="test_query_allowlist_and_scope" time="0.014" /><testcase classname="enterprise-ai-agent.tests.project2.test_db_worker" name="test_zero_and_unknown" time="0.538" /><testcase classname="enterprise-ai-agent.tests.project2.test_core" name="test_real_db_is_independent_and_exact" time="0.397" /><testcase classname="enterprise-ai-agent.tests.project2.test_core" name="test_real_zero_not_null" time="0.144" /><testcase classname="enterprise-ai-agent.tests.project2.test_core" name="test_real_overlap_and_partial_use_independent_counts" time="0.481" /><testcase classname="enterprise-ai-agent.tests.project2.test_core" name="test_real_wrong_scope_fails_with_null" time="0.019" /><testcase classname="enterprise-ai-agent.tests.project2.test_core" name="test_attempt_17_and_llm_7_never_start" time="0.003"><failure message="Failed: DID NOT RAISE BudgetExceeded">def test_attempt_17_and_llm_7_never_start() -&gt; None:
+        budget = Budget()
+        started = []
+        for number in range(16):
+            budget.reserve("db")
+            started.append(number)
+&gt;       with pytest.raises(BudgetExceeded):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE BudgetExceeded
+
+enterprise-ai-agent\tests\project2\test_core.py:82: Failed</failure></testcase><testcase classname="enterprise-ai-agent.tests.project2.test_core" name="test_direct_worker_cannot_bypass_budget_or_policy" time="0.235"><failure message="AssertionError: assert 'partial' == 'timeout'&#10;  &#10;  - timeout&#10;  + partial">def test_direct_worker_cannot_bypass_budget_or_policy() -&gt; None:
+        sample = original_sample("P2-ENTITY-01")
+        request = AnalysisRequest(query=sample["query"])
+        budget = Budget()
+        for _ in range(16):
+            budget.reserve("db")
+        result = asyncio.run(DatabaseWorker(FULL).run(request, owner(), budget, "test-budget"))
+&gt;       assert result.status == "timeout"
+E       AssertionError: assert 'partial' == 'timeout'
+E         
+E         - timeout
+E         + partial
+
+enterprise-ai-agent\tests\project2\test_core.py:101: AssertionError</failure></testcase><testcase classname="enterprise-ai-agent.tests.project2.test_core" name="test_request_preserves_query_and_rejects_oracle_or_sql" time="0.003" /><testcase classname="enterprise-ai-agent.tests.project2.test_core" name="test_all_36_pairs_match_frozen_matrix" time="0.002" /><testcase classname="enterprise-ai-agent.tests.project2.test_api" name="test_default_route_has_server_auth_and_no_budget_bypass" time="0.029" /><testcase classname="enterprise-ai-agent.tests.project2.test_api" name="test_independent_legal_db_can_run_if_rag_denied" time="0.381" /></testsuite></testsuites>

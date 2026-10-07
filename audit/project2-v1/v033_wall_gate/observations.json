@@ -1,0 +1,1181 @@
+[
+  {
+    "scenario_id": "AC12-05",
+    "repeat": 1,
+    "result": {
+      "contract_version": "project2-v1",
+      "run_id": "acdf1bc17c204762bb73b3e2bbd78b63",
+      "trace_id": "acdf1bc17c204762bb73b3e2bbd78b63",
+      "status": "timeout",
+      "answer": "",
+      "evidence": [],
+      "data_results": {},
+      "worker_results": {
+        "rag": {
+          "contract_version": "project2-v1",
+          "run_id": "acdf1bc17c204762bb73b3e2bbd78b63",
+          "task_id": "rag_explain",
+          "worker": "rag",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "request_deadline_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        },
+        "database": {
+          "contract_version": "project2-v1",
+          "run_id": "acdf1bc17c204762bb73b3e2bbd78b63",
+          "task_id": "techqa_document_query",
+          "worker": "database",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "request_deadline_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        }
+      },
+      "workers": {
+        "rag": {
+          "contract_version": "project2-v1",
+          "run_id": "acdf1bc17c204762bb73b3e2bbd78b63",
+          "task_id": "rag_explain",
+          "worker": "rag",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "request_deadline_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        },
+        "database": {
+          "contract_version": "project2-v1",
+          "run_id": "acdf1bc17c204762bb73b3e2bbd78b63",
+          "task_id": "techqa_document_query",
+          "worker": "database",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "request_deadline_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        }
+      },
+      "usage": {
+        "attempts": 0,
+        "llm_calls": 0,
+        "attempts_by_kind": {},
+        "absolute_deadline": 1791341894.8022115,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "limitations": []
+    },
+    "elapsed_seconds": 90.03100000007544,
+    "passed": true,
+    "dispatch_cancelled": true,
+    "evidence_type": "故障注入",
+    "budget_seconds": 90
+  },
+  {
+    "scenario_id": "AC12-05",
+    "repeat": 2,
+    "result": {
+      "contract_version": "project2-v1",
+      "run_id": "8568aca8df4e41f7ba18bdc4bec91ef4",
+      "trace_id": "8568aca8df4e41f7ba18bdc4bec91ef4",
+      "status": "timeout",
+      "answer": "",
+      "evidence": [],
+      "data_results": {},
+      "worker_results": {
+        "rag": {
+          "contract_version": "project2-v1",
+          "run_id": "8568aca8df4e41f7ba18bdc4bec91ef4",
+          "task_id": "rag_explain",
+          "worker": "rag",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "request_deadline_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        },
+        "database": {
+          "contract_version": "project2-v1",
+          "run_id": "8568aca8df4e41f7ba18bdc4bec91ef4",
+          "task_id": "techqa_document_query",
+          "worker": "database",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "request_deadline_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        }
+      },
+      "workers": {
+        "rag": {
+          "contract_version": "project2-v1",
+          "run_id": "8568aca8df4e41f7ba18bdc4bec91ef4",
+          "task_id": "rag_explain",
+          "worker": "rag",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "request_deadline_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        },
+        "database": {
+          "contract_version": "project2-v1",
+          "run_id": "8568aca8df4e41f7ba18bdc4bec91ef4",
+          "task_id": "techqa_document_query",
+          "worker": "database",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "request_deadline_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        }
+      },
+      "usage": {
+        "attempts": 0,
+        "llm_calls": 0,
+        "attempts_by_kind": {},
+        "absolute_deadline": 1791341984.8274806,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "limitations": []
+    },
+    "elapsed_seconds": 90.01599999994505,
+    "passed": true,
+    "dispatch_cancelled": true,
+    "evidence_type": "故障注入",
+    "budget_seconds": 90
+  },
+  {
+    "scenario_id": "AC12-05",
+    "repeat": 3,
+    "result": {
+      "contract_version": "project2-v1",
+      "run_id": "cfd380ef59ff474fa78bfa7368cc4394",
+      "trace_id": "cfd380ef59ff474fa78bfa7368cc4394",
+      "status": "timeout",
+      "answer": "",
+      "evidence": [],
+      "data_results": {},
+      "worker_results": {
+        "rag": {
+          "contract_version": "project2-v1",
+          "run_id": "cfd380ef59ff474fa78bfa7368cc4394",
+          "task_id": "rag_explain",
+          "worker": "rag",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "request_deadline_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        },
+        "database": {
+          "contract_version": "project2-v1",
+          "run_id": "cfd380ef59ff474fa78bfa7368cc4394",
+          "task_id": "techqa_document_query",
+          "worker": "database",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "request_deadline_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        }
+      },
+      "workers": {
+        "rag": {
+          "contract_version": "project2-v1",
+          "run_id": "cfd380ef59ff474fa78bfa7368cc4394",
+          "task_id": "rag_explain",
+          "worker": "rag",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "request_deadline_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        },
+        "database": {
+          "contract_version": "project2-v1",
+          "run_id": "cfd380ef59ff474fa78bfa7368cc4394",
+          "task_id": "techqa_document_query",
+          "worker": "database",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "request_deadline_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        }
+      },
+      "usage": {
+        "attempts": 0,
+        "llm_calls": 0,
+        "attempts_by_kind": {},
+        "absolute_deadline": 1791342074.8452606,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "limitations": []
+    },
+    "elapsed_seconds": 90.03100000007544,
+    "passed": true,
+    "dispatch_cancelled": true,
+    "evidence_type": "故障注入",
+    "budget_seconds": 90
+  },
+  {
+    "scenario_id": "AC12-16",
+    "repeat": 1,
+    "result": {
+      "contract_version": "project2-v1",
+      "run_id": "02a6f9fb4bcf46fc847d526f0a586393",
+      "trace_id": "02a6f9fb4bcf46fc847d526f0a586393",
+      "status": "partial",
+      "answer": "",
+      "evidence": [
+        {
+          "source_id": "Q1",
+          "predicate": [
+            "SPSS",
+            "Mac"
+          ],
+          "count": 309,
+          "scope": "full",
+          "measurement_complete": true
+        }
+      ],
+      "data_results": {
+        "groups": [
+          {
+            "predicate": [
+              "SPSS",
+              "Mac"
+            ],
+            "count": 309,
+            "samples": [
+              {
+                "doc_id": "swg1PI05162",
+                "title": "IBM PI05162: PIVOT TABLES: CRASHES ON MAC, EXCEPTIONS ON WINDOWS WITH BOOTSTRAPPING. - United States"
+              },
+              {
+                "doc_id": "swg1PI09888",
+                "title": "IBM PI09888: MAC OS - 10.9 (MAVERICKS) - RUN SIMULATION WITH PDF & CDF CHARTS-- LOOK AT CHARTS > STATISTICS SOMETIMES DISAPPEARS - United States"
+              },
+              {
+                "doc_id": "swg1PI11027",
+                "title": "IBM PI11027: UNABLE TO SELECT MULTIPLE VARIABLES IN CTABLES DIALOG - United States"
+              },
+              {
+                "doc_id": "swg1PI12184",
+                "title": "IBM PI12184: SPSSINC HETCOR DOES NOT CALCULATE CORRELATION AND STANDARD ERROR ON MACINTOSH WHEN COMMA BASED LOCALE IS USED - United States"
+              },
+              {
+                "doc_id": "swg1PI16304",
+                "title": "IBM PI16304: UNABLE TO IMPORT FROM MYSQL COMMUNITY EDITION INTO IBM SPSS STATISTICS 22 ON MAC OSX. WORKED FINE IN VERSION 19 & 20. - United States"
+              }
+            ]
+          }
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true,
+        "unit": "original_document",
+        "data_version": {
+          "scope": "full",
+          "document_count": "801996",
+          "complete": "true",
+          "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+          "format_version": "1"
+        },
+        "rules_version": "techqa-fts-predicate-v1",
+        "request_slots_version": "request-slots-v1.2-literal-version-adjacency",
+        "operation": "document_count",
+        "samples_truncated": true
+      },
+      "worker_results": {
+        "rag": {
+          "contract_version": "project2-v1",
+          "run_id": "02a6f9fb4bcf46fc847d526f0a586393",
+          "task_id": "rag_explain",
+          "worker": "rag",
+          "status": "failed",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "DependencyUnavailable",
+            "retryable": false
+          },
+          "usage": {}
+        },
+        "database": {
+          "contract_version": "project2-v1",
+          "run_id": "02a6f9fb4bcf46fc847d526f0a586393",
+          "task_id": "techqa_document_query",
+          "worker": "database",
+          "status": "completed",
+          "payload": {
+            "groups": [
+              {
+                "predicate": [
+                  "SPSS",
+                  "Mac"
+                ],
+                "count": 309,
+                "samples": [
+                  {
+                    "doc_id": "swg1PI05162",
+                    "title": "IBM PI05162: PIVOT TABLES: CRASHES ON MAC, EXCEPTIONS ON WINDOWS WITH BOOTSTRAPPING. - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI09888",
+                    "title": "IBM PI09888: MAC OS - 10.9 (MAVERICKS) - RUN SIMULATION WITH PDF & CDF CHARTS-- LOOK AT CHARTS > STATISTICS SOMETIMES DISAPPEARS - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI11027",
+                    "title": "IBM PI11027: UNABLE TO SELECT MULTIPLE VARIABLES IN CTABLES DIALOG - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI12184",
+                    "title": "IBM PI12184: SPSSINC HETCOR DOES NOT CALCULATE CORRELATION AND STANDARD ERROR ON MACINTOSH WHEN COMMA BASED LOCALE IS USED - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI16304",
+                    "title": "IBM PI16304: UNABLE TO IMPORT FROM MYSQL COMMUNITY EDITION INTO IBM SPSS STATISTICS 22 ON MAC OSX. WORKED FINE IN VERSION 19 & 20. - United States"
+                  }
+                ]
+              }
+            ],
+            "intersection": null,
+            "delta_a_minus_b": null,
+            "measurement_complete": true,
+            "unit": "original_document",
+            "data_version": {
+              "scope": "full",
+              "document_count": "801996",
+              "complete": "true",
+              "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+              "format_version": "1"
+            },
+            "rules_version": "techqa-fts-predicate-v1",
+            "request_slots_version": "request-slots-v1.2-literal-version-adjacency",
+            "operation": "document_count",
+            "samples_truncated": true
+          },
+          "evidence": [
+            {
+              "source_id": "Q1",
+              "predicate": [
+                "SPSS",
+                "Mac"
+              ],
+              "count": 309,
+              "scope": "full",
+              "measurement_complete": true
+            }
+          ],
+          "limitations": [
+            "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
+            "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
+            "同一文档可命中两个比较组；tokenizer的词干和标点处理可能扩大字面匹配。",
+            "统计只覆盖明确授权的数据快照；示例文档为有限行，不代表完整清单。"
+          ],
+          "error": null,
+          "usage": {
+            "attempts": 4,
+            "llm_calls": 0,
+            "attempts_by_kind": {
+              "db": 4
+            },
+            "absolute_deadline": 1791342203.4751532,
+            "observed_tokens": null,
+            "estimated_tokens": null,
+            "cost": null
+          }
+        }
+      },
+      "workers": {
+        "rag": {
+          "contract_version": "project2-v1",
+          "run_id": "02a6f9fb4bcf46fc847d526f0a586393",
+          "task_id": "rag_explain",
+          "worker": "rag",
+          "status": "failed",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "DependencyUnavailable",
+            "retryable": false
+          },
+          "usage": {}
+        },
+        "database": {
+          "contract_version": "project2-v1",
+          "run_id": "02a6f9fb4bcf46fc847d526f0a586393",
+          "task_id": "techqa_document_query",
+          "worker": "database",
+          "status": "completed",
+          "payload": {
+            "groups": [
+              {
+                "predicate": [
+                  "SPSS",
+                  "Mac"
+                ],
+                "count": 309,
+                "samples": [
+                  {
+                    "doc_id": "swg1PI05162",
+                    "title": "IBM PI05162: PIVOT TABLES: CRASHES ON MAC, EXCEPTIONS ON WINDOWS WITH BOOTSTRAPPING. - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI09888",
+                    "title": "IBM PI09888: MAC OS - 10.9 (MAVERICKS) - RUN SIMULATION WITH PDF & CDF CHARTS-- LOOK AT CHARTS > STATISTICS SOMETIMES DISAPPEARS - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI11027",
+                    "title": "IBM PI11027: UNABLE TO SELECT MULTIPLE VARIABLES IN CTABLES DIALOG - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI12184",
+                    "title": "IBM PI12184: SPSSINC HETCOR DOES NOT CALCULATE CORRELATION AND STANDARD ERROR ON MACINTOSH WHEN COMMA BASED LOCALE IS USED - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI16304",
+                    "title": "IBM PI16304: UNABLE TO IMPORT FROM MYSQL COMMUNITY EDITION INTO IBM SPSS STATISTICS 22 ON MAC OSX. WORKED FINE IN VERSION 19 & 20. - United States"
+                  }
+                ]
+              }
+            ],
+            "intersection": null,
+            "delta_a_minus_b": null,
+            "measurement_complete": true,
+            "unit": "original_document",
+            "data_version": {
+              "scope": "full",
+              "document_count": "801996",
+              "complete": "true",
+              "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+              "format_version": "1"
+            },
+            "rules_version": "techqa-fts-predicate-v1",
+            "request_slots_version": "request-slots-v1.2-literal-version-adjacency",
+            "operation": "document_count",
+            "samples_truncated": true
+          },
+          "evidence": [
+            {
+              "source_id": "Q1",
+              "predicate": [
+                "SPSS",
+                "Mac"
+              ],
+              "count": 309,
+              "scope": "full",
+              "measurement_complete": true
+            }
+          ],
+          "limitations": [
+            "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
+            "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
+            "同一文档可命中两个比较组；tokenizer的词干和标点处理可能扩大字面匹配。",
+            "统计只覆盖明确授权的数据快照；示例文档为有限行，不代表完整清单。"
+          ],
+          "error": null,
+          "usage": {
+            "attempts": 4,
+            "llm_calls": 0,
+            "attempts_by_kind": {
+              "db": 4
+            },
+            "absolute_deadline": 1791342203.4751532,
+            "observed_tokens": null,
+            "estimated_tokens": null,
+            "cost": null
+          }
+        }
+      },
+      "usage": {
+        "attempts": 13,
+        "llm_calls": 2,
+        "attempts_by_kind": {
+          "db": 10,
+          "llm": 2,
+          "embedding": 1
+        },
+        "absolute_deadline": 1791342203.4751532,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "limitations": [
+        "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
+        "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
+        "同一文档可命中两个比较组；tokenizer的词干和标点处理可能扩大字面匹配。",
+        "统计只覆盖明确授权的数据快照；示例文档为有限行，不代表完整清单。",
+        "已覆盖：文档统计；缺口：技术证据=failed"
+      ]
+    },
+    "elapsed_seconds": 69.29700000002049,
+    "passed": false,
+    "received_http_attempts": 2,
+    "cancel_evidence": {},
+    "evidence_type": "故障注入",
+    "budget_seconds": 90
+  },
+  {
+    "scenario_id": "AC12-16",
+    "repeat": 2,
+    "result": {
+      "contract_version": "project2-v1",
+      "run_id": "b9f713453ce647e8875c23c300ba4bc4",
+      "trace_id": "b9f713453ce647e8875c23c300ba4bc4",
+      "status": "partial",
+      "answer": "",
+      "evidence": [
+        {
+          "source_id": "Q1",
+          "predicate": [
+            "SPSS",
+            "Mac"
+          ],
+          "count": 309,
+          "scope": "full",
+          "measurement_complete": true
+        }
+      ],
+      "data_results": {
+        "groups": [
+          {
+            "predicate": [
+              "SPSS",
+              "Mac"
+            ],
+            "count": 309,
+            "samples": [
+              {
+                "doc_id": "swg1PI05162",
+                "title": "IBM PI05162: PIVOT TABLES: CRASHES ON MAC, EXCEPTIONS ON WINDOWS WITH BOOTSTRAPPING. - United States"
+              },
+              {
+                "doc_id": "swg1PI09888",
+                "title": "IBM PI09888: MAC OS - 10.9 (MAVERICKS) - RUN SIMULATION WITH PDF & CDF CHARTS-- LOOK AT CHARTS > STATISTICS SOMETIMES DISAPPEARS - United States"
+              },
+              {
+                "doc_id": "swg1PI11027",
+                "title": "IBM PI11027: UNABLE TO SELECT MULTIPLE VARIABLES IN CTABLES DIALOG - United States"
+              },
+              {
+                "doc_id": "swg1PI12184",
+                "title": "IBM PI12184: SPSSINC HETCOR DOES NOT CALCULATE CORRELATION AND STANDARD ERROR ON MACINTOSH WHEN COMMA BASED LOCALE IS USED - United States"
+              },
+              {
+                "doc_id": "swg1PI16304",
+                "title": "IBM PI16304: UNABLE TO IMPORT FROM MYSQL COMMUNITY EDITION INTO IBM SPSS STATISTICS 22 ON MAC OSX. WORKED FINE IN VERSION 19 & 20. - United States"
+              }
+            ]
+          }
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true,
+        "unit": "original_document",
+        "data_version": {
+          "scope": "full",
+          "document_count": "801996",
+          "complete": "true",
+          "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+          "format_version": "1"
+        },
+        "rules_version": "techqa-fts-predicate-v1",
+        "request_slots_version": "request-slots-v1.2-literal-version-adjacency",
+        "operation": "document_count",
+        "samples_truncated": true
+      },
+      "worker_results": {
+        "rag": {
+          "contract_version": "project2-v1",
+          "run_id": "b9f713453ce647e8875c23c300ba4bc4",
+          "task_id": "rag_explain",
+          "worker": "rag",
+          "status": "failed",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "DependencyUnavailable",
+            "retryable": false
+          },
+          "usage": {}
+        },
+        "database": {
+          "contract_version": "project2-v1",
+          "run_id": "b9f713453ce647e8875c23c300ba4bc4",
+          "task_id": "techqa_document_query",
+          "worker": "database",
+          "status": "completed",
+          "payload": {
+            "groups": [
+              {
+                "predicate": [
+                  "SPSS",
+                  "Mac"
+                ],
+                "count": 309,
+                "samples": [
+                  {
+                    "doc_id": "swg1PI05162",
+                    "title": "IBM PI05162: PIVOT TABLES: CRASHES ON MAC, EXCEPTIONS ON WINDOWS WITH BOOTSTRAPPING. - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI09888",
+                    "title": "IBM PI09888: MAC OS - 10.9 (MAVERICKS) - RUN SIMULATION WITH PDF & CDF CHARTS-- LOOK AT CHARTS > STATISTICS SOMETIMES DISAPPEARS - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI11027",
+                    "title": "IBM PI11027: UNABLE TO SELECT MULTIPLE VARIABLES IN CTABLES DIALOG - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI12184",
+                    "title": "IBM PI12184: SPSSINC HETCOR DOES NOT CALCULATE CORRELATION AND STANDARD ERROR ON MACINTOSH WHEN COMMA BASED LOCALE IS USED - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI16304",
+                    "title": "IBM PI16304: UNABLE TO IMPORT FROM MYSQL COMMUNITY EDITION INTO IBM SPSS STATISTICS 22 ON MAC OSX. WORKED FINE IN VERSION 19 & 20. - United States"
+                  }
+                ]
+              }
+            ],
+            "intersection": null,
+            "delta_a_minus_b": null,
+            "measurement_complete": true,
+            "unit": "original_document",
+            "data_version": {
+              "scope": "full",
+              "document_count": "801996",
+              "complete": "true",
+              "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+              "format_version": "1"
+            },
+            "rules_version": "techqa-fts-predicate-v1",
+            "request_slots_version": "request-slots-v1.2-literal-version-adjacency",
+            "operation": "document_count",
+            "samples_truncated": true
+          },
+          "evidence": [
+            {
+              "source_id": "Q1",
+              "predicate": [
+                "SPSS",
+                "Mac"
+              ],
+              "count": 309,
+              "scope": "full",
+              "measurement_complete": true
+            }
+          ],
+          "limitations": [
+            "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
+            "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
+            "同一文档可命中两个比较组；tokenizer的词干和标点处理可能扩大字面匹配。",
+            "统计只覆盖明确授权的数据快照；示例文档为有限行，不代表完整清单。"
+          ],
+          "error": null,
+          "usage": {
+            "attempts": 4,
+            "llm_calls": 0,
+            "attempts_by_kind": {
+              "db": 4
+            },
+            "absolute_deadline": 1791342272.7815347,
+            "observed_tokens": null,
+            "estimated_tokens": null,
+            "cost": null
+          }
+        }
+      },
+      "workers": {
+        "rag": {
+          "contract_version": "project2-v1",
+          "run_id": "b9f713453ce647e8875c23c300ba4bc4",
+          "task_id": "rag_explain",
+          "worker": "rag",
+          "status": "failed",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "DependencyUnavailable",
+            "retryable": false
+          },
+          "usage": {}
+        },
+        "database": {
+          "contract_version": "project2-v1",
+          "run_id": "b9f713453ce647e8875c23c300ba4bc4",
+          "task_id": "techqa_document_query",
+          "worker": "database",
+          "status": "completed",
+          "payload": {
+            "groups": [
+              {
+                "predicate": [
+                  "SPSS",
+                  "Mac"
+                ],
+                "count": 309,
+                "samples": [
+                  {
+                    "doc_id": "swg1PI05162",
+                    "title": "IBM PI05162: PIVOT TABLES: CRASHES ON MAC, EXCEPTIONS ON WINDOWS WITH BOOTSTRAPPING. - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI09888",
+                    "title": "IBM PI09888: MAC OS - 10.9 (MAVERICKS) - RUN SIMULATION WITH PDF & CDF CHARTS-- LOOK AT CHARTS > STATISTICS SOMETIMES DISAPPEARS - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI11027",
+                    "title": "IBM PI11027: UNABLE TO SELECT MULTIPLE VARIABLES IN CTABLES DIALOG - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI12184",
+                    "title": "IBM PI12184: SPSSINC HETCOR DOES NOT CALCULATE CORRELATION AND STANDARD ERROR ON MACINTOSH WHEN COMMA BASED LOCALE IS USED - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI16304",
+                    "title": "IBM PI16304: UNABLE TO IMPORT FROM MYSQL COMMUNITY EDITION INTO IBM SPSS STATISTICS 22 ON MAC OSX. WORKED FINE IN VERSION 19 & 20. - United States"
+                  }
+                ]
+              }
+            ],
+            "intersection": null,
+            "delta_a_minus_b": null,
+            "measurement_complete": true,
+            "unit": "original_document",
+            "data_version": {
+              "scope": "full",
+              "document_count": "801996",
+              "complete": "true",
+              "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+              "format_version": "1"
+            },
+            "rules_version": "techqa-fts-predicate-v1",
+            "request_slots_version": "request-slots-v1.2-literal-version-adjacency",
+            "operation": "document_count",
+            "samples_truncated": true
+          },
+          "evidence": [
+            {
+              "source_id": "Q1",
+              "predicate": [
+                "SPSS",
+                "Mac"
+              ],
+              "count": 309,
+              "scope": "full",
+              "measurement_complete": true
+            }
+          ],
+          "limitations": [
+            "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
+            "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
+            "同一文档可命中两个比较组；tokenizer的词干和标点处理可能扩大字面匹配。",
+            "统计只覆盖明确授权的数据快照；示例文档为有限行，不代表完整清单。"
+          ],
+          "error": null,
+          "usage": {
+            "attempts": 4,
+            "llm_calls": 0,
+            "attempts_by_kind": {
+              "db": 4
+            },
+            "absolute_deadline": 1791342272.7815347,
+            "observed_tokens": null,
+            "estimated_tokens": null,
+            "cost": null
+          }
+        }
+      },
+      "usage": {
+        "attempts": 11,
+        "llm_calls": 2,
+        "attempts_by_kind": {
+          "db": 8,
+          "llm": 2,
+          "embedding": 1
+        },
+        "absolute_deadline": 1791342272.7815347,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "limitations": [
+        "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
+        "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
+        "同一文档可命中两个比较组；tokenizer的词干和标点处理可能扩大字面匹配。",
+        "统计只覆盖明确授权的数据快照；示例文档为有限行，不代表完整清单。",
+        "已覆盖：文档统计；缺口：技术证据=failed"
+      ]
+    },
+    "elapsed_seconds": 64.92200000002049,
+    "passed": false,
+    "received_http_attempts": 4,
+    "cancel_evidence": {},
+    "evidence_type": "故障注入",
+    "budget_seconds": 90
+  },
+  {
+    "scenario_id": "AC12-16",
+    "repeat": 3,
+    "result": {
+      "contract_version": "project2-v1",
+      "run_id": "ed0102ac5db7402eaf8f23783214e5db",
+      "trace_id": "ed0102ac5db7402eaf8f23783214e5db",
+      "status": "partial",
+      "answer": "",
+      "evidence": [
+        {
+          "source_id": "Q1",
+          "predicate": [
+            "SPSS",
+            "Mac"
+          ],
+          "count": 309,
+          "scope": "full",
+          "measurement_complete": true
+        }
+      ],
+      "data_results": {
+        "groups": [
+          {
+            "predicate": [
+              "SPSS",
+              "Mac"
+            ],
+            "count": 309,
+            "samples": [
+              {
+                "doc_id": "swg1PI05162",
+                "title": "IBM PI05162: PIVOT TABLES: CRASHES ON MAC, EXCEPTIONS ON WINDOWS WITH BOOTSTRAPPING. - United States"
+              },
+              {
+                "doc_id": "swg1PI09888",
+                "title": "IBM PI09888: MAC OS - 10.9 (MAVERICKS) - RUN SIMULATION WITH PDF & CDF CHARTS-- LOOK AT CHARTS > STATISTICS SOMETIMES DISAPPEARS - United States"
+              },
+              {
+                "doc_id": "swg1PI11027",
+                "title": "IBM PI11027: UNABLE TO SELECT MULTIPLE VARIABLES IN CTABLES DIALOG - United States"
+              },
+              {
+                "doc_id": "swg1PI12184",
+                "title": "IBM PI12184: SPSSINC HETCOR DOES NOT CALCULATE CORRELATION AND STANDARD ERROR ON MACINTOSH WHEN COMMA BASED LOCALE IS USED - United States"
+              },
+              {
+                "doc_id": "swg1PI16304",
+                "title": "IBM PI16304: UNABLE TO IMPORT FROM MYSQL COMMUNITY EDITION INTO IBM SPSS STATISTICS 22 ON MAC OSX. WORKED FINE IN VERSION 19 & 20. - United States"
+              }
+            ]
+          }
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true,
+        "unit": "original_document",
+        "data_version": {
+          "scope": "full",
+          "document_count": "801996",
+          "complete": "true",
+          "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+          "format_version": "1"
+        },
+        "rules_version": "techqa-fts-predicate-v1",
+        "request_slots_version": "request-slots-v1.2-literal-version-adjacency",
+        "operation": "document_count",
+        "samples_truncated": true
+      },
+      "worker_results": {
+        "rag": {
+          "contract_version": "project2-v1",
+          "run_id": "ed0102ac5db7402eaf8f23783214e5db",
+          "task_id": "rag_explain",
+          "worker": "rag",
+          "status": "failed",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "DependencyUnavailable",
+            "retryable": false
+          },
+          "usage": {}
+        },
+        "database": {
+          "contract_version": "project2-v1",
+          "run_id": "ed0102ac5db7402eaf8f23783214e5db",
+          "task_id": "techqa_document_query",
+          "worker": "database",
+          "status": "completed",
+          "payload": {
+            "groups": [
+              {
+                "predicate": [
+                  "SPSS",
+                  "Mac"
+                ],
+                "count": 309,
+                "samples": [
+                  {
+                    "doc_id": "swg1PI05162",
+                    "title": "IBM PI05162: PIVOT TABLES: CRASHES ON MAC, EXCEPTIONS ON WINDOWS WITH BOOTSTRAPPING. - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI09888",
+                    "title": "IBM PI09888: MAC OS - 10.9 (MAVERICKS) - RUN SIMULATION WITH PDF & CDF CHARTS-- LOOK AT CHARTS > STATISTICS SOMETIMES DISAPPEARS - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI11027",
+                    "title": "IBM PI11027: UNABLE TO SELECT MULTIPLE VARIABLES IN CTABLES DIALOG - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI12184",
+                    "title": "IBM PI12184: SPSSINC HETCOR DOES NOT CALCULATE CORRELATION AND STANDARD ERROR ON MACINTOSH WHEN COMMA BASED LOCALE IS USED - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI16304",
+                    "title": "IBM PI16304: UNABLE TO IMPORT FROM MYSQL COMMUNITY EDITION INTO IBM SPSS STATISTICS 22 ON MAC OSX. WORKED FINE IN VERSION 19 & 20. - United States"
+                  }
+                ]
+              }
+            ],
+            "intersection": null,
+            "delta_a_minus_b": null,
+            "measurement_complete": true,
+            "unit": "original_document",
+            "data_version": {
+              "scope": "full",
+              "document_count": "801996",
+              "complete": "true",
+              "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+              "format_version": "1"
+            },
+            "rules_version": "techqa-fts-predicate-v1",
+            "request_slots_version": "request-slots-v1.2-literal-version-adjacency",
+            "operation": "document_count",
+            "samples_truncated": true
+          },
+          "evidence": [
+            {
+              "source_id": "Q1",
+              "predicate": [
+                "SPSS",
+                "Mac"
+              ],
+              "count": 309,
+              "scope": "full",
+              "measurement_complete": true
+            }
+          ],
+          "limitations": [
+            "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
+            "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
+            "同一文档可命中两个比较组；tokenizer的词干和标点处理可能扩大字面匹配。",
+            "统计只覆盖明确授权的数据快照；示例文档为有限行，不代表完整清单。"
+          ],
+          "error": null,
+          "usage": {
+            "attempts": 4,
+            "llm_calls": 0,
+            "attempts_by_kind": {
+              "db": 4
+            },
+            "absolute_deadline": 1791342337.7027829,
+            "observed_tokens": null,
+            "estimated_tokens": null,
+            "cost": null
+          }
+        }
+      },
+      "workers": {
+        "rag": {
+          "contract_version": "project2-v1",
+          "run_id": "ed0102ac5db7402eaf8f23783214e5db",
+          "task_id": "rag_explain",
+          "worker": "rag",
+          "status": "failed",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "DependencyUnavailable",
+            "retryable": false
+          },
+          "usage": {}
+        },
+        "database": {
+          "contract_version": "project2-v1",
+          "run_id": "ed0102ac5db7402eaf8f23783214e5db",
+          "task_id": "techqa_document_query",
+          "worker": "database",
+          "status": "completed",
+          "payload": {
+            "groups": [
+              {
+                "predicate": [
+                  "SPSS",
+                  "Mac"
+                ],
+                "count": 309,
+                "samples": [
+                  {
+                    "doc_id": "swg1PI05162",
+                    "title": "IBM PI05162: PIVOT TABLES: CRASHES ON MAC, EXCEPTIONS ON WINDOWS WITH BOOTSTRAPPING. - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI09888",
+                    "title": "IBM PI09888: MAC OS - 10.9 (MAVERICKS) - RUN SIMULATION WITH PDF & CDF CHARTS-- LOOK AT CHARTS > STATISTICS SOMETIMES DISAPPEARS - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI11027",
+                    "title": "IBM PI11027: UNABLE TO SELECT MULTIPLE VARIABLES IN CTABLES DIALOG - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI12184",
+                    "title": "IBM PI12184: SPSSINC HETCOR DOES NOT CALCULATE CORRELATION AND STANDARD ERROR ON MACINTOSH WHEN COMMA BASED LOCALE IS USED - United States"
+                  },
+                  {
+                    "doc_id": "swg1PI16304",
+                    "title": "IBM PI16304: UNABLE TO IMPORT FROM MYSQL COMMUNITY EDITION INTO IBM SPSS STATISTICS 22 ON MAC OSX. WORKED FINE IN VERSION 19 & 20. - United States"
+                  }
+                ]
+              }
+            ],
+            "intersection": null,
+            "delta_a_minus_b": null,
+            "measurement_complete": true,
+            "unit": "original_document",
+            "data_version": {
+              "scope": "full",
+              "document_count": "801996",
+              "complete": "true",
+              "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+              "format_version": "1"
+            },
+            "rules_version": "techqa-fts-predicate-v1",
+            "request_slots_version": "request-slots-v1.2-literal-version-adjacency",
+            "operation": "document_count",
+            "samples_truncated": true
+          },
+          "evidence": [
+            {
+              "source_id": "Q1",
+              "predicate": [
+                "SPSS",
+                "Mac"
+              ],
+              "count": 309,
+              "scope": "full",
+              "measurement_complete": true
+            }
+          ],
+          "limitations": [
+            "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
+            "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
+            "同一文档可命中两个比较组；tokenizer的词干和标点处理可能扩大字面匹配。",
+            "统计只覆盖明确授权的数据快照；示例文档为有限行，不代表完整清单。"
+          ],
+          "error": null,
+          "usage": {
+            "attempts": 4,
+            "llm_calls": 0,
+            "attempts_by_kind": {
+              "db": 4
+            },
+            "absolute_deadline": 1791342337.7027829,
+            "observed_tokens": null,
+            "estimated_tokens": null,
+            "cost": null
+          }
+        }
+      },
+      "usage": {
+        "attempts": 11,
+        "llm_calls": 2,
+        "attempts_by_kind": {
+          "db": 8,
+          "llm": 2,
+          "embedding": 1
+        },
+        "absolute_deadline": 1791342337.7027829,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      },
+      "limitations": [
+        "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
+        "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
+        "同一文档可命中两个比较组；tokenizer的词干和标点处理可能扩大字面匹配。",
+        "统计只覆盖明确授权的数据快照；示例文档为有限行，不代表完整清单。",
+        "已覆盖：文档统计；缺口：技术证据=failed"
+      ]
+    },
+    "elapsed_seconds": 62.04700000002049,
+    "passed": false,
+    "received_http_attempts": 6,
+    "cancel_evidence": {},
+    "evidence_type": "故障注入",
+    "budget_seconds": 90
+  }
+]

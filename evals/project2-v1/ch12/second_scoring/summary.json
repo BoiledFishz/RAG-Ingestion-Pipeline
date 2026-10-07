@@ -1,0 +1,464 @@
+{
+  "status": "completed",
+  "description": "LLM 第二评分完成；人工抽检待办；不称独立人工评分",
+  "answer_observations": {
+    "tune": 46,
+    "held-out": 34
+  },
+  "paired_observations": 80,
+  "unique_bodies": 35,
+  "first_model": "llama3.2:3b",
+  "second_model": "qwen2.5:3b",
+  "first_score_provenance": "new LLM ratings of previously unscored bodies; no human ratings invented",
+  "human_review_status": "待办",
+  "human_independent_ratings_completed": false,
+  "agreement": {
+    "agreement_numerator": 103,
+    "agreement_denominator": 103,
+    "agreement": 1.0,
+    "agreement_wilson95": [
+      0.964045241771352,
+      1.0
+    ],
+    "kappa": null,
+    "undefined_reason": "constant unanimous scores",
+    "kappa_cluster_bootstrap95": null,
+    "ci_limitation": "Wilson fact interval is descriptive; bootstrap clusters by answer for dependence"
+  },
+  "disagreements": [],
+  "spot_check_random": 16,
+  "spot_check_extra": 0,
+  "coverage": {
+    "tune/first": [
+      {
+        "index": 1,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 4
+      },
+      {
+        "index": 2,
+        "single_fact_exception": true,
+        "numerator": 0,
+        "denominator": 2
+      },
+      {
+        "index": 3,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 4,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 10
+      },
+      {
+        "index": 5,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 6,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 10
+      },
+      {
+        "index": 7,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 8,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 9,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 4
+      },
+      {
+        "index": 10,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 8
+      },
+      {
+        "index": 11,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 10
+      },
+      {
+        "index": 12,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 8
+      },
+      {
+        "index": 13,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 14,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 15,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 4
+      },
+      {
+        "index": 16,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 8
+      },
+      {
+        "index": 17,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 4
+      },
+      {
+        "index": 18,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 8
+      },
+      {
+        "index": 19,
+        "single_fact_exception": true,
+        "numerator": 0,
+        "denominator": 2
+      }
+    ],
+    "tune/second": [
+      {
+        "index": 1,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 4
+      },
+      {
+        "index": 2,
+        "single_fact_exception": true,
+        "numerator": 0,
+        "denominator": 2
+      },
+      {
+        "index": 3,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 4,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 10
+      },
+      {
+        "index": 5,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 6,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 10
+      },
+      {
+        "index": 7,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 8,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 9,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 4
+      },
+      {
+        "index": 10,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 8
+      },
+      {
+        "index": 11,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 10
+      },
+      {
+        "index": 12,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 8
+      },
+      {
+        "index": 13,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 14,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 15,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 4
+      },
+      {
+        "index": 16,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 8
+      },
+      {
+        "index": 17,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 4
+      },
+      {
+        "index": 18,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 8
+      },
+      {
+        "index": 19,
+        "single_fact_exception": true,
+        "numerator": 0,
+        "denominator": 2
+      }
+    ],
+    "held-out/first": [
+      {
+        "index": 20,
+        "single_fact_exception": true,
+        "numerator": 0,
+        "denominator": 2
+      },
+      {
+        "index": 21,
+        "single_fact_exception": true,
+        "numerator": 0,
+        "denominator": 2
+      },
+      {
+        "index": 22,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 10
+      },
+      {
+        "index": 23,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 24,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 4
+      },
+      {
+        "index": 25,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 26,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 4
+      },
+      {
+        "index": 27,
+        "single_fact_exception": true,
+        "numerator": 0,
+        "denominator": 2
+      },
+      {
+        "index": 28,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 10
+      },
+      {
+        "index": 29,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 4
+      },
+      {
+        "index": 30,
+        "single_fact_exception": true,
+        "numerator": 0,
+        "denominator": 2
+      },
+      {
+        "index": 31,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 32,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 10
+      },
+      {
+        "index": 33,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 4
+      },
+      {
+        "index": 34,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 35,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 10
+      }
+    ],
+    "held-out/second": [
+      {
+        "index": 20,
+        "single_fact_exception": true,
+        "numerator": 0,
+        "denominator": 2
+      },
+      {
+        "index": 21,
+        "single_fact_exception": true,
+        "numerator": 0,
+        "denominator": 2
+      },
+      {
+        "index": 22,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 10
+      },
+      {
+        "index": 23,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 24,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 4
+      },
+      {
+        "index": 25,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 26,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 4
+      },
+      {
+        "index": 27,
+        "single_fact_exception": true,
+        "numerator": 0,
+        "denominator": 2
+      },
+      {
+        "index": 28,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 10
+      },
+      {
+        "index": 29,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 4
+      },
+      {
+        "index": 30,
+        "single_fact_exception": true,
+        "numerator": 0,
+        "denominator": 2
+      },
+      {
+        "index": 31,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 32,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 10
+      },
+      {
+        "index": 33,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 4
+      },
+      {
+        "index": 34,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 6
+      },
+      {
+        "index": 35,
+        "single_fact_exception": false,
+        "numerator": 0,
+        "denominator": 10
+      }
+    ]
+  },
+  "plan_sha256": "a0859f1e8cf8291e88b622827849f5da92cefd53ba4cec60a67bd42d0231d7f3",
+  "limitation": "judges never see each other scores; qwen3b shares generator family, disclose correlated-bias limitation",
+  "heldout_inference_calls": 0
+}

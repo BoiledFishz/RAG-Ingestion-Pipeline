@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="6.707" timestamp="2026-10-06T21:05:59.908106-07:00" hostname="szy"><testcase classname="tests.project2.test_v033_offline_reporting" name="test_incomplete_confirmation_cannot_create_a_blind_package" time="0.046" /><testcase classname="tests.project2.test_v033_offline_reporting" name="test_summary_records_the_three_comparisons_without_inventing_missing_results" time="4.699"><failure message="KeyError: 'comparisons'">def test_summary_records_the_three_comparisons_without_inventing_missing_results():
+        import json
+        from project2_v033_report import generate
+    
+        generate(ROOT)
+        report = json.loads((ROOT / 'audit/project2-v1/summary.json').read_text(encoding='utf-8'))
+&gt;       assert len(report['comparisons']) == 3
+                   ^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'comparisons'
+
+tests\project2\test_v033_offline_reporting.py:26: KeyError</failure></testcase></testsuite></testsuites>

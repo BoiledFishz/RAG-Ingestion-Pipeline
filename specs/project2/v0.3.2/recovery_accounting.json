@@ -1,0 +1,18 @@
+{
+  "version": "project2-cumulative-execution-v032",
+  "authorization_date": "2026-10-06",
+  "dependency_limit": 19,
+  "llm_limit": 6,
+  "execution_limit_seconds": 37.941018,
+  "run_lifetime_seconds": 900,
+  "run_lifetime_status": "暂定，已在运行前登记",
+  "heartbeat_seconds": 0.25,
+  "uncertain_tail": "conservatively charge one heartbeat interval, never reset consumption",
+  "state_retention_seconds": 86400,
+  "trace_retention_seconds": 604800,
+  "heldout_confirmatory_stage_calls": 1,
+  "smoke_failure_fraction_max": 0.1,
+  "llm_judging": "paused",
+  "old_budget_file": "evals/project2-v1/calibration_v031/budget_frozen.json",
+  "old_budget_sha256": "d952e3fc5cadbc1c22fe2a978b5c44822eb1d2015da380b2fde574ce2e4752ba"
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="4" time="0.788" timestamp="2026-10-06T18:04:38.390283-07:00" hostname="szy"><testcase classname="tests.project2.test_runtime_v032" name="test_stopped_time_excluded_but_active_time_and_attempts_accumulate" time="0.009"><failure message="ModuleNotFoundError: No module named 'agents.project2.execution_clock'">tmp_path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/4ffce8a722e646aa8a53de701a8cd5db')
+
+    def test_stopped_time_excluded_but_active_time_and_attempts_accumulate(tmp_path):
+        from agents.project2.service_runtime import bind_budget
+&gt;       store=store_at(tmp_path);budget=Budget();state=store.create(request(),owner(),budget)
+              ^^^^^^^^^^^^^^^^^^
+
+enterprise-ai-agent\tests\project2\test_runtime_v032.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/4ffce8a722e646aa8a53de701a8cd5db')
+
+    def store_at(path):
+        from agents.project2.service_runtime import StateStore
+&gt;       from agents.project2.execution_clock import load_policy
+E       ModuleNotFoundError: No module named 'agents.project2.execution_clock'
+
+enterprise-ai-agent\tests\project2\test_runtime_v032.py:16: ModuleNotFoundError</failure></testcase><testcase classname="tests.project2.test_runtime_v032" name="test_lifetime_and_cumulative_expiry_never_reset_or_start_dependency" time="0.002"><failure message="ModuleNotFoundError: No module named 'agents.project2.execution_clock'">tmp_path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/0ffa3db416424f8a91c667a51cc3397b')
+
+    def test_lifetime_and_cumulative_expiry_never_reset_or_start_dependency(tmp_path):
+        from agents.project2.service_runtime import bind_budget
+&gt;       store=store_at(tmp_path);budget=Budget();state=store.create(request(),owner(),budget)
+              ^^^^^^^^^^^^^^^^^^
+
+enterprise-ai-agent\tests\project2\test_runtime_v032.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/0ffa3db416424f8a91c667a51cc3397b')
+
+    def store_at(path):
+        from agents.project2.service_runtime import StateStore
+&gt;       from agents.project2.execution_clock import load_policy
+E       ModuleNotFoundError: No module named 'agents.project2.execution_clock'
+
+enterprise-ai-agent\tests\project2\test_runtime_v032.py:16: ModuleNotFoundError</failure></testcase><testcase classname="tests.project2.test_runtime_v032" name="test_hard_stop_tail_is_charged_and_nonfinite_ledger_is_rejected" time="0.002"><failure message="ModuleNotFoundError: No module named 'agents.project2.execution_clock'">tmp_path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/f51f9dbfdc054c4e89836901bb715dd5')
+
+    def test_hard_stop_tail_is_charged_and_nonfinite_ledger_is_rejected(tmp_path):
+        from agents.project2.service_runtime import bind_budget,RuntimeRejected
+&gt;       store=store_at(tmp_path);budget=Budget();state=store.create(request(),owner(),budget)
+              ^^^^^^^^^^^^^^^^^^
+
+enterprise-ai-agent\tests\project2\test_runtime_v032.py:54: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/f51f9dbfdc054c4e89836901bb715dd5')
+
+    def store_at(path):
+        from agents.project2.service_runtime import StateStore
+&gt;       from agents.project2.execution_clock import load_policy
+E       ModuleNotFoundError: No module named 'agents.project2.execution_clock'
+
+enterprise-ai-agent\tests\project2\test_runtime_v032.py:16: ModuleNotFoundError</failure></testcase><testcase classname="tests.project2.test_runtime_v032" name="test_heartbeat_persists_pending_model_time_without_new_attempt" time="0.002"><failure message="ModuleNotFoundError: No module named 'agents.project2.execution_clock'">tmp_path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/9ba06f4102954c33a79b8b84f74a3140')
+
+    def test_heartbeat_persists_pending_model_time_without_new_attempt(tmp_path):
+        from agents.project2.service_runtime import bind_budget
+&gt;       store=store_at(tmp_path);budget=Budget();state=store.create(request(),owner(),budget)
+              ^^^^^^^^^^^^^^^^^^
+
+enterprise-ai-agent\tests\project2\test_runtime_v032.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/9ba06f4102954c33a79b8b84f74a3140')
+
+    def store_at(path):
+        from agents.project2.service_runtime import StateStore
+&gt;       from agents.project2.execution_clock import load_policy
+E       ModuleNotFoundError: No module named 'agents.project2.execution_clock'
+
+enterprise-ai-agent\tests\project2\test_runtime_v032.py:16: ModuleNotFoundError</failure></testcase></testsuite></testsuites>

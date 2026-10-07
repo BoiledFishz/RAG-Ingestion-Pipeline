@@ -1,0 +1,229 @@
+{
+  "scope": "仅 tune/对照集，非 held-out 验证",
+  "evidence_type": "真实运行（只读已有记录）",
+  "requests": 150,
+  "count_exact_numerator": 144,
+  "discrepant_observations": 6,
+  "discrepant_tasks": 2,
+  "differences": [
+    {
+      "sample_id": "P2-COMPARE-04",
+      "repeat": 1,
+      "query_sha256": "aa56577c7b571e7431e687936f97ff38b8bd833d0a1a33b8ef9a5f1a4f3cf263",
+      "frozen_expectation": {
+        "error": "clarification_required:two_entity_version_pairs_missing",
+        "predicates": [],
+        "counts": [],
+        "intersection": null,
+        "measurement_complete": false
+      },
+      "observed_worker_status": "completed",
+      "observed_groups": [
+        {
+          "predicate": [
+            "ICC",
+            "4.0.1"
+          ],
+          "count": 245
+        },
+        {
+          "predicate": [
+            "CPE",
+            "5.2.1.2"
+          ],
+          "count": 79
+        }
+      ],
+      "observed_rules_version": "request-slots-v1.2-literal-version-adjacency",
+      "terms_occurring_only_inside_url": [],
+      "attribution": "v032 component fallback differs from the frozen preflight predicate derivation",
+      "classification": "predicate/clarification discrepancy; not evidence of a numerically wrong SQL count"
+    },
+    {
+      "sample_id": "P2-COMPARE-08",
+      "repeat": 1,
+      "query_sha256": "509159a37ee8b8b6ec3303c38c35a65a312194afc9a63185e1d1688e72838851",
+      "frozen_expectation": {
+        "error": "clarification_required:two_entity_version_pairs_missing",
+        "predicates": [],
+        "counts": [],
+        "intersection": null,
+        "measurement_complete": false
+      },
+      "observed_worker_status": "completed",
+      "observed_groups": [
+        {
+          "predicate": [
+            "netcool",
+            "1.0"
+          ],
+          "count": 1469
+        },
+        {
+          "predicate": [
+            "GUI",
+            "8.1"
+          ],
+          "count": 855
+        }
+      ],
+      "observed_rules_version": "request-slots-v1.2-literal-version-adjacency",
+      "terms_occurring_only_inside_url": [
+        "netcool",
+        "1.0"
+      ],
+      "attribution": "v032 component fallback differs from the frozen preflight predicate derivation",
+      "classification": "predicate/clarification discrepancy; not evidence of a numerically wrong SQL count"
+    },
+    {
+      "sample_id": "P2-COMPARE-04",
+      "repeat": 2,
+      "query_sha256": "aa56577c7b571e7431e687936f97ff38b8bd833d0a1a33b8ef9a5f1a4f3cf263",
+      "frozen_expectation": {
+        "error": "clarification_required:two_entity_version_pairs_missing",
+        "predicates": [],
+        "counts": [],
+        "intersection": null,
+        "measurement_complete": false
+      },
+      "observed_worker_status": "completed",
+      "observed_groups": [
+        {
+          "predicate": [
+            "ICC",
+            "4.0.1"
+          ],
+          "count": 245
+        },
+        {
+          "predicate": [
+            "CPE",
+            "5.2.1.2"
+          ],
+          "count": 79
+        }
+      ],
+      "observed_rules_version": "request-slots-v1.2-literal-version-adjacency",
+      "terms_occurring_only_inside_url": [],
+      "attribution": "v032 component fallback differs from the frozen preflight predicate derivation",
+      "classification": "predicate/clarification discrepancy; not evidence of a numerically wrong SQL count"
+    },
+    {
+      "sample_id": "P2-COMPARE-08",
+      "repeat": 2,
+      "query_sha256": "509159a37ee8b8b6ec3303c38c35a65a312194afc9a63185e1d1688e72838851",
+      "frozen_expectation": {
+        "error": "clarification_required:two_entity_version_pairs_missing",
+        "predicates": [],
+        "counts": [],
+        "intersection": null,
+        "measurement_complete": false
+      },
+      "observed_worker_status": "completed",
+      "observed_groups": [
+        {
+          "predicate": [
+            "netcool",
+            "1.0"
+          ],
+          "count": 1469
+        },
+        {
+          "predicate": [
+            "GUI",
+            "8.1"
+          ],
+          "count": 855
+        }
+      ],
+      "observed_rules_version": "request-slots-v1.2-literal-version-adjacency",
+      "terms_occurring_only_inside_url": [
+        "netcool",
+        "1.0"
+      ],
+      "attribution": "v032 component fallback differs from the frozen preflight predicate derivation",
+      "classification": "predicate/clarification discrepancy; not evidence of a numerically wrong SQL count"
+    },
+    {
+      "sample_id": "P2-COMPARE-04",
+      "repeat": 3,
+      "query_sha256": "aa56577c7b571e7431e687936f97ff38b8bd833d0a1a33b8ef9a5f1a4f3cf263",
+      "frozen_expectation": {
+        "error": "clarification_required:two_entity_version_pairs_missing",
+        "predicates": [],
+        "counts": [],
+        "intersection": null,
+        "measurement_complete": false
+      },
+      "observed_worker_status": "completed",
+      "observed_groups": [
+        {
+          "predicate": [
+            "ICC",
+            "4.0.1"
+          ],
+          "count": 245
+        },
+        {
+          "predicate": [
+            "CPE",
+            "5.2.1.2"
+          ],
+          "count": 79
+        }
+      ],
+      "observed_rules_version": "request-slots-v1.2-literal-version-adjacency",
+      "terms_occurring_only_inside_url": [],
+      "attribution": "v032 component fallback differs from the frozen preflight predicate derivation",
+      "classification": "predicate/clarification discrepancy; not evidence of a numerically wrong SQL count"
+    },
+    {
+      "sample_id": "P2-COMPARE-08",
+      "repeat": 3,
+      "query_sha256": "509159a37ee8b8b6ec3303c38c35a65a312194afc9a63185e1d1688e72838851",
+      "frozen_expectation": {
+        "error": "clarification_required:two_entity_version_pairs_missing",
+        "predicates": [],
+        "counts": [],
+        "intersection": null,
+        "measurement_complete": false
+      },
+      "observed_worker_status": "completed",
+      "observed_groups": [
+        {
+          "predicate": [
+            "netcool",
+            "1.0"
+          ],
+          "count": 1469
+        },
+        {
+          "predicate": [
+            "GUI",
+            "8.1"
+          ],
+          "count": 855
+        }
+      ],
+      "observed_rules_version": "request-slots-v1.2-literal-version-adjacency",
+      "terms_occurring_only_inside_url": [
+        "netcool",
+        "1.0"
+      ],
+      "attribution": "v032 component fallback differs from the frozen preflight predicate derivation",
+      "classification": "predicate/clarification discrepancy; not evidence of a numerically wrong SQL count"
+    }
+  ],
+  "source_files": {
+    "evals/project2-v1/ch13_v033/business/scored.json": "02d35058b302e6ef86108681ac754808712dca286cbf71a85988a327d6503b6b",
+    "audit/project2-v1/preflight_report.json": "e9c3ef5bd7fc35f1f273e06fcc4f13b62c857c56867521167e8c539c7e394e10",
+    "evals/project2-v1/calibration_v031/protocol.json": "2c4036a2bc6774fd7b3be7dc2d9d514a547be5ce28113c6a11d1f46983e1171f"
+  },
+  "official_or_frozen_expectations_changed": false,
+  "new_inference_calls": 0,
+  "heldout_content_read": false,
+  "design_changed": false,
+  "quality_acceptance": "未通过；不以工程状态或真实计数替代谓词正确性",
+  "current_chap13_gate": "unchanged 15 checks; no new or relaxed gate added",
+  "action": "disclose discrepancy, preserve 144/150, continue only under existing S14-failure continuation authorization"
+}

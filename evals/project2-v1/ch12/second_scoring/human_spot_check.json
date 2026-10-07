@@ -1,0 +1,1831 @@
+{
+  "status": "人工抽检待办",
+  "seed": 20261005,
+  "items": [
+    {
+      "selection": "fixed_seed_stratified",
+      "repeat": 3,
+      "index": 25,
+      "item": {
+        "partition": "held-out",
+        "question_id": "TRAIN_Q319",
+        "question": [
+          "Why does my login fail when I use the ltpa-usrnm attribute?",
+          "You use a Domino server as your LDAP, and the login attribute you want to use is ltpa-usrnm. This is acceptable, as the login attribute can be set accordingly in the wimconfig.xml. When the search string is built for the login, it is in the form, cn=username, o=orgname.\n\nThis cause the following exception to the returned:\n\n[3/30/16 9:56:03:453 CDT] 000000f7 exception E com.ibm.ws.wim.adapter.ldap.LdapConnection getAttributes CWWIM4520E The 'javax.naming.InvalidNameException: \"CN=username/O=orgname\": [LDAP: error code 34 - Invalid DN Syntax]; remaining name '\"CN=username/O=orgname'\"; "
+        ],
+        "answer_body": "",
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "required_facts": [
+          {
+            "category": "command",
+            "fact_id": "F1",
+            "reference_quote": "$AdminTask configureAdminWIMUserRegistry {-customProperties\n   {\"com.ibm.ws.wim.registry.allowDNPrincipalNameAsLiteral\n   =true\"} }",
+            "text": "$AdminTask configureAdminWIMUserRegistry {-customProperties {\"com.ibm.ws.wim.registry.allowDNPrincipalNameAsLiteral =true\"} }"
+          },
+          {
+            "category": "condition",
+            "fact_id": "F2",
+            "reference_quote": "When this property is set, VMM determines whether the login\n   name ends with a baseEntry. If the login name does not end\n   with a baseEntry it is not treated as a DN and the login is\n   successful.",
+            "text": "When this property is set, VMM determines whether the login name ends with a baseEntry; if not, it is not treated as a DN and login succeeds"
+          },
+          {
+            "category": "version",
+            "fact_id": "F3",
+            "reference_quote": "The fix for this APAR is currently targeted for inclusion in\n   fix packs 8.0.0.4 and 8.5.0.1.",
+            "text": "The fix for this APAR is targeted for inclusion in fix packs 8.0.0.4 and 8.5.0.1"
+          }
+        ],
+        "definition_content_sha256": "3e7ca67acac577193a34a0e0f60f994ffaed135fc15a47e464ecdc224d60b778",
+        "single_fact_exception": false,
+        "observations": [
+          {
+            "repeat": 1,
+            "group_sha256": "2646563313630310e2cf7b8b5f0eb034f33082e787cc625f9c5f5bce1e45d5c4"
+          },
+          {
+            "repeat": 2,
+            "group_sha256": "2646563313630310e2cf7b8b5f0eb034f33082e787cc625f9c5f5bce1e45d5c4"
+          },
+          {
+            "repeat": 3,
+            "group_sha256": "2646563313630310e2cf7b8b5f0eb034f33082e787cc625f9c5f5bce1e45d5c4"
+          }
+        ],
+        "human_annotator": "",
+        "human_approved": false,
+        "human_scores": [
+          {
+            "fact_id": "F1",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F2",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F3",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          }
+        ],
+        "independent_llm_status": "未执行",
+        "independent_llm_scores": []
+      },
+      "first_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote or evidence in ANSWER_BODY to support the claim that the property allows DNPrincipalNameAsLiteral."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote or evidence in ANSWER_BODY to support the claim that VMM determines whether the login name ends with a baseEntry."
+        },
+        {
+          "fact_id": "F3",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote or evidence in ANSWER_BODY to support the claim that the fix for this APAR is targeted for inclusion in fix packs 8.0.0.4 and 8.5.0.1."
+        }
+      ],
+      "second_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F1 refers to a configuration task for IBM WebSphere Application Server, but the ANSWER_BODY is empty and does not contain any relevant information to verify or refute this fact."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F2 discusses a property setting for VMM (Virtual Machine Manager) and its behavior, but the ANSWER_BODY is empty and does not contain any relevant information to verify or refute this fact."
+        },
+        {
+          "fact_id": "F3",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F3 mentions fix packs for IBM WebSphere Application Server, but the ANSWER_BODY is empty and does not contain any relevant information to verify or refute this fact."
+        }
+      ],
+      "human_scores": null,
+      "human_reviewed": false
+    },
+    {
+      "selection": "fixed_seed_stratified",
+      "repeat": 2,
+      "index": 7,
+      "item": {
+        "partition": "tune",
+        "question_id": "DEV_Q088",
+        "question": [
+          "CQWEB  can\\'t retrieve repository dropdown list options in RedHat Linux, how to deal with it ?",
+          "I setup a cq demo env in redhat linux with oracle database, CQ 7.1.2, LRKS 8.1.3,  Linux CQ client can login CQ as the following picture 1, but CQWEB login page can't retrieve the repository dropdown list options as the following picture 2.  I used cqreg to register CQ database:\n\ncqreg add_dbset -v ORACLE -s 192.168.0.84 -d ESBDB -u cqadmin -p cqadmin -dbset CQ_DEMO_ORACLE -co LOB_TYPE=CLOB -force\n\nWhat's matter for this happen? "
+        ],
+        "answer_body": "",
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "required_facts": [
+          {
+            "category": "condition",
+            "fact_id": "F1",
+            "reference_quote": "Normally, at the end of a ClearQuest installation on UNIX® based platforms, the cqreg initialize command runs automatically",
+            "text": "Normally, at the end of a ClearQuest installation on UNIX® based platforms, the cqreg initialize command runs automatically"
+          },
+          {
+            "category": "other",
+            "fact_id": "F2",
+            "reference_quote": "The command creates the registry structure for database sets",
+            "text": "The command creates the registry structure for database sets"
+          },
+          {
+            "category": "condition",
+            "fact_id": "F3",
+            "reference_quote": "During the installation, the command did not run successfully",
+            "text": "During the installation, the command did not run successfully"
+          }
+        ],
+        "definition_content_sha256": "f5c37ece1660f436b01e9b12626ad6dba3b4cbc2c48ca2571e01af9e0c35034d",
+        "single_fact_exception": false,
+        "observations": [
+          {
+            "repeat": 1,
+            "group_sha256": "ff93ec3c094fee8c67ad1e1d38e73afc26936af1a0f256723eed1e77614a70a2"
+          },
+          {
+            "repeat": 2,
+            "group_sha256": "ff93ec3c094fee8c67ad1e1d38e73afc26936af1a0f256723eed1e77614a70a2"
+          },
+          {
+            "repeat": 3,
+            "group_sha256": "ff93ec3c094fee8c67ad1e1d38e73afc26936af1a0f256723eed1e77614a70a2"
+          }
+        ],
+        "human_annotator": "",
+        "human_approved": false,
+        "human_scores": [
+          {
+            "fact_id": "F1",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F2",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F3",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          }
+        ],
+        "independent_llm_status": "未执行",
+        "independent_llm_scores": []
+      },
+      "first_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote in ANSWER_BODY, only empty string."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote in ANSWER_BODY, only empty string."
+        },
+        {
+          "fact_id": "F3",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote in ANSWER_BODY, only empty string."
+        }
+      ],
+      "second_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F1 mentions that the cqreg initialize command runs automatically at the end of a ClearQuest installation on UNIX® based platforms, but the ANSWER_BODY is empty and does not provide any information to confirm or deny"
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F2 states that the command creates the registry structure for database sets, but the ANSWER_BODY is empty and does not provide any information to confirm or deny"
+        },
+        {
+          "fact_id": "F3",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F3 claims that the command did not run successfully during the installation, but the ANSWER_BODY is empty and does not provide any information to confirm or deny"
+        }
+      ],
+      "human_scores": null,
+      "human_reviewed": false
+    },
+    {
+      "selection": "fixed_seed_stratified",
+      "repeat": 1,
+      "index": 26,
+      "item": {
+        "partition": "held-out",
+        "question_id": "TRAIN_Q496",
+        "question": [
+          "Why am I getting an SSL Key Exception (RSA premaster secret error) when trying to create a syndication pair?",
+          "\n\nWhen trying to create the syndication pair for a virtual portal, I am getting the following exception:\n\n\"IWKWC0016E: The remote service can not be retrieved. Either the URL you entered is incorrect, the server you indicated does not contain IBM Web Content Manager or the web service has been incorrectly configured and could not be located. Check the log for more details https://1.23.456.789 <-- your ip address or hostname will be shown here\n\n/wps/wcm/vpname/basicauth/SyndicationServlet?reqlocale=en_US& javax.net.ssl.SSLKeyException: RSA premaster secret error\""
+        ],
+        "answer_body": "",
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "required_facts": [
+          {
+            "category": "other",
+            "fact_id": "F1",
+            "reference_quote": "The default restricted policy file has a 2048 key size limit.",
+            "text": "The default restricted policy file has a 2048 key size limit."
+          },
+          {
+            "category": "condition",
+            "fact_id": "F2",
+            "reference_quote": "If the RSA key size exceeds this limit then this error is expected.",
+            "text": "If the RSA key size exceeds this limit then this error is expected."
+          }
+        ],
+        "definition_content_sha256": "2badbd27f802676bdca757ee80158f983b4936bb41839fea2531d50acbe93744",
+        "single_fact_exception": false,
+        "observations": [
+          {
+            "repeat": 1,
+            "group_sha256": "46d90e99d0b794ab9e98c65a74661f3aa8996ea9367fdebd257e6023bc8b2c73"
+          },
+          {
+            "repeat": 2,
+            "group_sha256": "46d90e99d0b794ab9e98c65a74661f3aa8996ea9367fdebd257e6023bc8b2c73"
+          },
+          {
+            "repeat": 3,
+            "group_sha256": "46d90e99d0b794ab9e98c65a74661f3aa8996ea9367fdebd257e6023bc8b2c73"
+          }
+        ],
+        "human_annotator": "",
+        "human_approved": false,
+        "human_scores": [
+          {
+            "fact_id": "F1",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F2",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          }
+        ],
+        "independent_llm_status": "未执行",
+        "independent_llm_scores": []
+      },
+      "first_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote in ANSWER_BODY, only a fact key."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote in ANSWER_BODY, only a fact key."
+        }
+      ],
+      "second_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F1 is about a default restricted policy file having a 2048 key size limit, but the ANSWER_BODY is empty and does not contain any relevant information to verify or refute this fact."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F2 mentions an error expected when RSA key size exceeds the limit, but the ANSWER_BODY is empty and does not contain any relevant information to verify or refute this fact."
+        }
+      ],
+      "human_scores": null,
+      "human_reviewed": false
+    },
+    {
+      "selection": "fixed_seed_stratified",
+      "repeat": 2,
+      "index": 15,
+      "item": {
+        "partition": "tune",
+        "question_id": "TRAIN_Q116",
+        "question": [
+          "Why does my upgrade to Portal 8001 CF14 fail with the following errors, ADMA5008E, ADMA0063E, ADMA5069E, WASX7017E?",
+          "Why does my upgrade to Portal 8001 CF14 fail with the following errors, ADMA5008E, ADMA0063E, ADMA5069E, WASX7017E?"
+        ],
+        "answer_body": "",
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "required_facts": [
+          {
+            "category": "condition",
+            "fact_id": "F1",
+            "reference_quote": "This exception can happen during ejbdeploy after the WebSphere Application Server has been upgraded, and old OSGI cache remains for the ejbdeploy tool",
+            "text": "This exception can happen during ejbdeploy after the WebSphere Application Server has been upgraded, and old OSGI cache remains for the ejbdeploy tool"
+          },
+          {
+            "category": "other",
+            "fact_id": "F2",
+            "reference_quote": "The OSGI class of the ejbdeploy tool contains class information within the deploytool folder and can become stale if the content inside deploytool has changed",
+            "text": "The OSGI class of the ejbdeploy tool contains class information within the deploytool folder and can become stale if the content inside deploytool has changed"
+          }
+        ],
+        "definition_content_sha256": "cac7818a29f92a2b405c258663aca6181304148917445c73cf51142561a80c40",
+        "single_fact_exception": false,
+        "observations": [
+          {
+            "repeat": 1,
+            "group_sha256": "2d39de48fd2b0ce51ee9026bf8a936a93fe315e8960ae33862afb045be29cdce"
+          },
+          {
+            "repeat": 2,
+            "group_sha256": "2d39de48fd2b0ce51ee9026bf8a936a93fe315e8960ae33862afb045be29cdce"
+          },
+          {
+            "repeat": 3,
+            "group_sha256": "2d39de48fd2b0ce51ee9026bf8a936a93fe315e8960ae33862afb045be29cdce"
+          }
+        ],
+        "human_annotator": "",
+        "human_approved": false,
+        "human_scores": [
+          {
+            "fact_id": "F1",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F2",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          }
+        ],
+        "independent_llm_status": "未执行",
+        "independent_llm_scores": []
+      },
+      "first_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No direct quote from ANSWER_BODY, only mentions a potential scenario."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No direct quote from ANSWER_BODY, only mentions a potential scenario."
+        }
+      ],
+      "second_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F1 mentions 'ejbdeploy' and 'WebSphere Application Server', but the ANSWER_BODY is empty and does not contain any information related to these terms. Therefore, there is no evidence to support or contradict thisfact"
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F2 mentions 'OSGI class', 'ejbdeploy tool', and 'deploytool', but the ANSWER_BODY is empty and does not contain any information related to these terms. Therefore, there is no evidence to support or contradict thisf"
+        }
+      ],
+      "human_scores": null,
+      "human_reviewed": false
+    },
+    {
+      "selection": "fixed_seed_stratified",
+      "repeat": 2,
+      "index": 28,
+      "item": {
+        "partition": "held-out",
+        "question_id": "TRAIN_Q525",
+        "question": [
+          "Can I change the ITCAM J2EE Agent Monitoring Level via the TEPS in version 7.1.1?",
+          "\n\nIn the 7.1 version of the J2EE agent I could use the Agent Configuration to change the Monitoring Level for the agent- https://www.ibm.com/support/knowledgecenter/en/SS3JRN_7.2.0/com.ibm.itcamfapps_ad.doc_72/J2EE_agent_tema_install_guide/step10.html\n\nSo how can I change the Monitoring Level in the 7.1.1 agent?\n"
+        ],
+        "answer_body": "",
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "required_facts": [
+          {
+            "category": "version",
+            "fact_id": "F1",
+            "reference_quote": "In the older release of the J2EE agent (v6.2 FP6), there was an option to specify the Monitoring Level, Sampling Rate and other parameters (threshold values, time intervals, etc..) during the configuration phase of the agent itself.",
+            "text": "In the older release of the J2EE agent (v6.2 FP6), there was an option to specify the Monitoring Level, Sampling Rate and other parameters (threshold values, time intervals, etc..) during the configuration phase of the agent itself."
+          },
+          {
+            "category": "other",
+            "fact_id": "F2",
+            "reference_quote": "The default values for the Monitoring Level and the Sampling Rate are L1 and 2% respectively.",
+            "text": "The default values for the Monitoring Level and the Sampling Rate are L1 and 2% respectively."
+          },
+          {
+            "category": "other",
+            "fact_id": "F3",
+            "reference_quote": "In the $ITM_HOME/config (Unix) dir or %ITM_HOME%\\TMAITM6 (Windows), you will find the <hostname>_yj.xml file.",
+            "text": "In the $ITM_HOME/config (Unix) dir or %ITM_HOME%\\TMAITM6 (Windows), you will find the <hostname>_yj.xml file."
+          },
+          {
+            "category": "other",
+            "fact_id": "F4",
+            "reference_quote": "Save file, restart the agent.",
+            "text": "Save file, restart the agent."
+          },
+          {
+            "category": "condition",
+            "fact_id": "F5",
+            "reference_quote": "If you are deploying a new Weblogic application, stop the agent, modify the <hostname>_yj_<wls_instance>.xml file then restart the agent again.",
+            "text": "If you are deploying a new Weblogic application, stop the agent, modify the <hostname>_yj_<wls_instance>.xml file then restart the agent again."
+          }
+        ],
+        "definition_content_sha256": "53fd20f2ccbc90c7ee9719db0d2dac9fd53fc21007b3aee4cfeade2c3a3efb0e",
+        "single_fact_exception": false,
+        "observations": [
+          {
+            "repeat": 1,
+            "group_sha256": "e644f4c1cad3b537506d5c5c8fa7faf5cc692b15888915b653571ad6722d8fd3"
+          },
+          {
+            "repeat": 2,
+            "group_sha256": "e644f4c1cad3b537506d5c5c8fa7faf5cc692b15888915b653571ad6722d8fd3"
+          },
+          {
+            "repeat": 3,
+            "group_sha256": "e644f4c1cad3b537506d5c5c8fa7faf5cc692b15888915b653571ad6722d8fd3"
+          }
+        ],
+        "human_annotator": "",
+        "human_approved": false,
+        "human_scores": [
+          {
+            "fact_id": "F1",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F2",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F3",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F4",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F5",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          }
+        ],
+        "independent_llm_status": "未执行",
+        "independent_llm_scores": []
+      },
+      "first_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No configuration phase mentioned in ANSWER_BODY."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No default values mentioned in ANSWER_BODY."
+        },
+        {
+          "fact_id": "F3",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No file path mentioned in ANSWER_BODY."
+        },
+        {
+          "fact_id": "F4",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No restart instructions mentioned in ANSWER_BODY."
+        },
+        {
+          "fact_id": "F5",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No deployment instructions mentioned in ANSWER_BODY."
+        }
+      ],
+      "second_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F1 mentions options for Monitoring Level, Sampling Rate, and other parameters, but does not provide details about the configuration phase or the specific file locations mentioned in other facts."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F2 provides default values for Monitoring Level and Sampling Rate, but does not mention the configuration phase or file locations."
+        },
+        {
+          "fact_id": "F3",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F3 specifies the location of the <hostname>_yj.xml file, but does not mention the configuration phase or the options for Monitoring Level and Sampling Rate."
+        },
+        {
+          "fact_id": "F4",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F4 mentions saving a file and restarting the agent, but does not provide details about the configuration phase or the specific file locations mentioned in other facts."
+        },
+        {
+          "fact_id": "F5",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F5 mentions modifying a specific XML file and restarting the agent, but does not provide details about the configuration phase or the specific file locations mentioned in other facts."
+        }
+      ],
+      "human_scores": null,
+      "human_reviewed": false
+    },
+    {
+      "selection": "fixed_seed_stratified",
+      "repeat": 2,
+      "index": 12,
+      "item": {
+        "partition": "tune",
+        "question_id": "DEV_Q302",
+        "question": [
+          "How can I export a private key from DataPower Gateway Appliance?",
+          "\n\nIs it possible to export a private key from DataPower Gateway Appliance?"
+        ],
+        "answer_body": "",
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "required_facts": [
+          {
+            "category": "command",
+            "fact_id": "F1",
+            "reference_quote": "HSM-enabled DataPower appliances support the export of private keys using the crypto-export command",
+            "text": "HSM-enabled DataPower appliances support the export of private keys using the crypto-export command"
+          },
+          {
+            "category": "condition",
+            "fact_id": "F2",
+            "reference_quote": "HSMs must be initialized and in the same key sharing domain on exporting and importing machines",
+            "text": "HSMs must be initialized and in the same key sharing domain on exporting and importing machines"
+          },
+          {
+            "category": "condition",
+            "fact_id": "F3",
+            "reference_quote": "The private key in question must be marked exportable at keygen time (see keygen's exportable option)",
+            "text": "The private key in question must be marked exportable at keygen time (see keygen's exportable option)"
+          },
+          {
+            "category": "condition",
+            "fact_id": "F4",
+            "reference_quote": "HSMs on exporting and importing machines must share internal key-wrapping keys (see hsm-clone-kwk command)",
+            "text": "HSMs on exporting and importing machines must share internal key-wrapping keys (see hsm-clone-kwk command)"
+          }
+        ],
+        "definition_content_sha256": "5343739fa97ecbe695b47c6bb23a2db3526559ae32adcd91dbaafd2a13e235ac",
+        "single_fact_exception": false,
+        "observations": [
+          {
+            "repeat": 1,
+            "group_sha256": "1bf01034db1f985dee900d567323c86fbb08685cf216fd3e96c6ea24136ea00b"
+          },
+          {
+            "repeat": 2,
+            "group_sha256": "1bf01034db1f985dee900d567323c86fbb08685cf216fd3e96c6ea24136ea00b"
+          }
+        ],
+        "human_annotator": "",
+        "human_approved": false,
+        "human_scores": [
+          {
+            "fact_id": "F1",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F2",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F3",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F4",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          }
+        ],
+        "independent_llm_status": "未执行",
+        "independent_llm_scores": []
+      },
+      "first_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote or evidence in ANSWER_BODY to support the claim that HSM-enabled DataPower appliances support the export of private keys using the crypto-export command."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote or evidence in ANSWER_BODY to support the claim that HSMs must be initialized and in the same key sharing domain on exporting and importing machines."
+        },
+        {
+          "fact_id": "F3",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote or evidence in ANSWER_BODY to support the claim that the private key in question must be marked exportable at keygen time (see keygen's exportable option)."
+        },
+        {
+          "fact_id": "F4",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote or evidence in ANSWER_BODY to support the claim that HSMs on exporting and importing machines must share internal key-wrapping keys (see hsm-clone-kwk command)."
+        }
+      ],
+      "second_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F1 mentions the crypto-export command, which is not present in the ANSWER_BODY and does not provide any relevant information to support this fact."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F2 discusses key sharing domains, but the ANSWER_BODY does not contain any relevant information to support this fact."
+        },
+        {
+          "fact_id": "F3",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F3 refers to marking a private key as exportable, but the ANSWER_BODY does not contain any relevant information to support this fact."
+        },
+        {
+          "fact_id": "F4",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F4 mentions the hsm-clone-kwk command, which is not present in the ANSWER_BODY and does not provide any relevant information to support this fact."
+        }
+      ],
+      "human_scores": null,
+      "human_reviewed": false
+    },
+    {
+      "selection": "fixed_seed_stratified",
+      "repeat": 2,
+      "index": 21,
+      "item": {
+        "partition": "held-out",
+        "question_id": "TRAIN_Q117",
+        "question": [
+          "Should I upgrade to Oracle JDK 8 if I am using IBM Mobile Foundation, IBM Worklight, IBM Worklight Foundation, or IBM MobileFirst Platform Foundation products?",
+          "These is an upgrade available to replace Oracle JDK 7 with Oracle JDK 8. Does IBM Mobile Foundation, IBM Worklight, IBM Worklight Foundation, and the IBM MobileFirst Platform Foundation products support the use of Oracle JDK 8? "
+        ],
+        "answer_body": "",
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "required_facts": [
+          {
+            "category": "other",
+            "fact_id": "F1",
+            "reference_quote": "The IBM Mobile Foundation, IBM Worklight, IBM Worklight Foundation, and IBM MobileFirst Platform Foundation products support Oracle JDK 7, but do not support Oracle JDK 8.",
+            "text": "The IBM Mobile Foundation, IBM Worklight, IBM Worklight Foundation, and IBM MobileFirst Platform Foundation products support Oracle JDK 7, but do not support Oracle JDK 8."
+          }
+        ],
+        "definition_content_sha256": "7c916e23ea511d9b5ef1193e78cdd4541f26b7a28998add38bb57904c0ab9138",
+        "single_fact_exception": true,
+        "observations": [
+          {
+            "repeat": 1,
+            "group_sha256": "f4f26c36eb3df72137682513aa9987e77afbf8b4983aed5aa412fdde3272390d"
+          },
+          {
+            "repeat": 2,
+            "group_sha256": "f4f26c36eb3df72137682513aa9987e77afbf8b4983aed5aa412fdde3272390d"
+          },
+          {
+            "repeat": 3,
+            "group_sha256": "f4f26c36eb3df72137682513aa9987e77afbf8b4983aed5aa412fdde3272390d"
+          }
+        ],
+        "human_annotator": "",
+        "human_approved": false,
+        "human_scores": [
+          {
+            "fact_id": "F1",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          }
+        ],
+        "independent_llm_status": "未执行",
+        "independent_llm_scores": []
+      },
+      "first_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote or evidence in ANSWER_BODY to support the claim about Oracle JDK 7 and 8 support."
+        }
+      ],
+      "second_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "The provided fact key 'F1' does not contain any relevant information within the ANSWER_BODY. The text provided is about IBM products and their JDK support, but there is no content in the ANSWER_BODY to verify or refute."
+        }
+      ],
+      "human_scores": null,
+      "human_reviewed": false
+    },
+    {
+      "selection": "fixed_seed_stratified",
+      "repeat": 3,
+      "index": 11,
+      "item": {
+        "partition": "tune",
+        "question_id": "DEV_Q154",
+        "question": [
+          "Why are some Datatypes corrupt after Impact cluster failover/failback ?",
+          "\n\nRunning Impact 7.1.0.11. The symptom is whenever Impact does a failover, a couple DataTypes\nturn out empty.\n\nI've checked the type files before and after Impact failover and the difference happens in the property\n\n*.SQL.USERPARAMETERS\n\nThis property no longer exists for the corrupted datatypes\".\n"
+        ],
+        "answer_body": "",
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "required_facts": [
+          {
+            "category": "step",
+            "fact_id": "F1",
+            "reference_quote": "Add the property to $NCHOME/impact/etc/<SERVERNAME>_server.props file \nwhere size limit can be 8192, 16384, 32768, etc..",
+            "text": "Add the property to $NCHOME/impact/etc/<SERVERNAME>_server.props file where size limit can be 8192, 16384, 32768, etc.."
+          },
+          {
+            "category": "condition",
+            "fact_id": "F2",
+            "reference_quote": "The property would have to be added to all ImpactServers in the Cluster and would require a restart to enable",
+            "text": "The property would have to be added to all ImpactServers in the Cluster and would require a restart to enable"
+          },
+          {
+            "category": "condition",
+            "fact_id": "F3",
+            "reference_quote": "ensure that there are no trailing white-space characters on the property",
+            "text": "ensure that there are no trailing white-space characters on the property"
+          },
+          {
+            "category": "version",
+            "fact_id": "F4",
+            "reference_quote": "The APAR is not an issue in Impact 6 and 7, but one would still have to include this property with an appropriate value",
+            "text": "The APAR is not an issue in Impact 6 and 7, but one would still have to include this property with an appropriate value"
+          },
+          {
+            "category": "condition",
+            "fact_id": "F5",
+            "reference_quote": "The character length includes the whole USERPARAMETERS property name as well as the definition",
+            "text": "The character length includes the whole USERPARAMETERS property name as well as the definition"
+          }
+        ],
+        "definition_content_sha256": "c76ec0b39a40f8a591fa98de2cf29df45c51869f57d7eea893c3dbf36e1cfbe8",
+        "single_fact_exception": false,
+        "observations": [
+          {
+            "repeat": 1,
+            "group_sha256": "2474a4dce81dc743d4dc64896cc86049ce18b02cddb552cd8f67fa6c4f1dece3"
+          },
+          {
+            "repeat": 3,
+            "group_sha256": "2474a4dce81dc743d4dc64896cc86049ce18b02cddb552cd8f67fa6c4f1dece3"
+          }
+        ],
+        "human_annotator": "",
+        "human_approved": false,
+        "human_scores": [
+          {
+            "fact_id": "F1",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F2",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F3",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F4",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F5",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          }
+        ],
+        "independent_llm_status": "未执行",
+        "independent_llm_scores": []
+      },
+      "first_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No information about the property location in the ANSWER_BODY."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No information about the restart requirement in the ANSWER_BODY."
+        },
+        {
+          "fact_id": "F3",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No information about the trailing white-space characters in the ANSWER_BODY."
+        },
+        {
+          "fact_id": "F4",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No information about the APAR issue in the ANSWER_BODY."
+        },
+        {
+          "fact_id": "F5",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No information about the character length in the ANSWER_BODY."
+        }
+      ],
+      "second_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F1 mentions adding a property to a specific file, but does not provide any details about the property or its value, nor does it mention the ANSWER_BODY content."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F2 discusses the need for a restart after adding the property, but does not provide any details about the property or its value, nor does it mention the ANSWER_BODY content."
+        },
+        {
+          "fact_id": "F3",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F3 mentions ensuring no trailing white-space characters, but does not provide any details about the property or its value, nor does it mention the ANSWER_BODY content."
+        },
+        {
+          "fact_id": "F4",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F4 mentions the APAR being an issue in Impact 6 and 7, but does not provide any details about the property or its value, nor does it mention the ANSWER_BODY content."
+        },
+        {
+          "fact_id": "F5",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F5 mentions the character length of the USERPARAMETERS property, but does not provide any details about the property or its value, nor does it mention the ANSWER_BODY content."
+        }
+      ],
+      "human_scores": null,
+      "human_reviewed": false
+    },
+    {
+      "selection": "fixed_seed_stratified",
+      "repeat": 1,
+      "index": 21,
+      "item": {
+        "partition": "held-out",
+        "question_id": "TRAIN_Q117",
+        "question": [
+          "Should I upgrade to Oracle JDK 8 if I am using IBM Mobile Foundation, IBM Worklight, IBM Worklight Foundation, or IBM MobileFirst Platform Foundation products?",
+          "These is an upgrade available to replace Oracle JDK 7 with Oracle JDK 8. Does IBM Mobile Foundation, IBM Worklight, IBM Worklight Foundation, and the IBM MobileFirst Platform Foundation products support the use of Oracle JDK 8? "
+        ],
+        "answer_body": "",
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "required_facts": [
+          {
+            "category": "other",
+            "fact_id": "F1",
+            "reference_quote": "The IBM Mobile Foundation, IBM Worklight, IBM Worklight Foundation, and IBM MobileFirst Platform Foundation products support Oracle JDK 7, but do not support Oracle JDK 8.",
+            "text": "The IBM Mobile Foundation, IBM Worklight, IBM Worklight Foundation, and IBM MobileFirst Platform Foundation products support Oracle JDK 7, but do not support Oracle JDK 8."
+          }
+        ],
+        "definition_content_sha256": "7c916e23ea511d9b5ef1193e78cdd4541f26b7a28998add38bb57904c0ab9138",
+        "single_fact_exception": true,
+        "observations": [
+          {
+            "repeat": 1,
+            "group_sha256": "f4f26c36eb3df72137682513aa9987e77afbf8b4983aed5aa412fdde3272390d"
+          },
+          {
+            "repeat": 2,
+            "group_sha256": "f4f26c36eb3df72137682513aa9987e77afbf8b4983aed5aa412fdde3272390d"
+          },
+          {
+            "repeat": 3,
+            "group_sha256": "f4f26c36eb3df72137682513aa9987e77afbf8b4983aed5aa412fdde3272390d"
+          }
+        ],
+        "human_annotator": "",
+        "human_approved": false,
+        "human_scores": [
+          {
+            "fact_id": "F1",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          }
+        ],
+        "independent_llm_status": "未执行",
+        "independent_llm_scores": []
+      },
+      "first_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote or evidence in ANSWER_BODY to support the claim about Oracle JDK 7 and 8 support."
+        }
+      ],
+      "second_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "The provided fact key 'F1' does not contain any relevant information within the ANSWER_BODY. The text provided is about IBM products and their JDK support, but there is no content in the ANSWER_BODY to verify or refute."
+        }
+      ],
+      "human_scores": null,
+      "human_reviewed": false
+    },
+    {
+      "selection": "fixed_seed_stratified",
+      "repeat": 3,
+      "index": 5,
+      "item": {
+        "partition": "tune",
+        "question_id": "DEV_Q040",
+        "question": [
+          "Why Plug-in log file reports an error message after install & configure the WebSphere Plugin 8.5 version on a Apache 2.4 webserver.",
+          "\n\nDuring web server start-up, errors like the following will be logged into the Plug-in log file (http_plugin.log):\n\nERROR: lib_security: loadSecurityLibrary: Failed to load gsk library from /opt/IBM/WebSphere/Plugins/gsk8/gsk8_64 ERROR: ws_transport: transportInitializeSecurity: Unable to load security library ERROR: ws_server: serverAddTransport: Failed to initialize security ERROR: ws_server: serverAddTransport: HTTPS Transport is skipped\n\nNote: This is after install & configure the WebSphere Plugin 8.5 version on a Apache 2.4 webserver  on a Linux platform"
+        ],
+        "answer_body": "",
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "required_facts": [
+          {
+            "category": "command",
+            "fact_id": "F1",
+            "reference_quote": "you must set the LD_LIBRARY_PATH environment variable",
+            "text": "you must set the LD_LIBRARY_PATH environment variable"
+          },
+          {
+            "category": "step",
+            "fact_id": "F2",
+            "reference_quote": "to point to the library directory of the GSKit that comes with the IBM web server Plug-in",
+            "text": "to point to the library directory of the GSKit that comes with the IBM web server Plug-in"
+          },
+          {
+            "category": "condition",
+            "fact_id": "F3",
+            "reference_quote": "The precise directory location will depend of the version of Plug-in, and on the bit depth being used (32-bit or 64-bit)",
+            "text": "The precise directory location will depend of the version of Plug-in, and on the bit depth being used (32-bit or 64-bit)"
+          }
+        ],
+        "definition_content_sha256": "6a5f25f5018450f663b853fc06db6eb441f7588d08b2b94f0f007021eddc59c6",
+        "single_fact_exception": false,
+        "observations": [
+          {
+            "repeat": 1,
+            "group_sha256": "306d7ed56d09ea51f320d56e2ab3e55fa2bbbaafc25d611c458cc05edf60f03e"
+          },
+          {
+            "repeat": 2,
+            "group_sha256": "306d7ed56d09ea51f320d56e2ab3e55fa2bbbaafc25d611c458cc05edf60f03e"
+          },
+          {
+            "repeat": 3,
+            "group_sha256": "306d7ed56d09ea51f320d56e2ab3e55fa2bbbaafc25d611c458cc05edf60f03e"
+          }
+        ],
+        "human_annotator": "",
+        "human_approved": false,
+        "human_scores": [
+          {
+            "fact_id": "F1",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F2",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F3",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          }
+        ],
+        "independent_llm_status": "未执行",
+        "independent_llm_scores": []
+      },
+      "first_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Answer Body is empty, no information provided about LD_LIBRARY_PATH environment variable."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Answer Body is empty, no information provided about the library directory of the GSKit."
+        },
+        {
+          "fact_id": "F3",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Answer Body is empty, no information provided about the precise directory location or bit depth."
+        }
+      ],
+      "second_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F1 is about setting the LD_LIBRARY_PATH environment variable, but the ANSWER_BODY is empty and does not contain any relevant information to verify or refute this fact."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F2 is about pointing the LD_LIBRARY_PATH to the GSKit library directory, but the ANSWER_BODY is empty and does not contain any relevant information to verify or refute this fact."
+        },
+        {
+          "fact_id": "F3",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F3 is about the precise directory location depending on the version of the Plug-in and bit depth, but the ANSWER_BODY is empty and does not contain any relevant information to verify or refute this fact."
+        }
+      ],
+      "human_scores": null,
+      "human_reviewed": false
+    },
+    {
+      "selection": "fixed_seed_stratified",
+      "repeat": 2,
+      "index": 35,
+      "item": {
+        "partition": "held-out",
+        "question_id": "TRAIN_Q589",
+        "question": [
+          "How to have IBM HTTP Server re-direct an application URL from HTTPS to HTTP?",
+          "We have an application which uses SSL, but we need to make this http only. We disabled all the SSL, but many clients URLs are still pointing to https. So we need a HTTP Server redirect to change these URLs from https to http. Is this possible? "
+        ],
+        "answer_body": "",
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "required_facts": [
+          {
+            "category": "other",
+            "fact_id": "F1",
+            "reference_quote": "First, make sure the LoadModule line for mod_rewrite is uncommented in the httpd.conf",
+            "text": "First, make sure the LoadModule line for mod_rewrite is uncommented in the httpd.conf"
+          },
+          {
+            "category": "other",
+            "fact_id": "F2",
+            "reference_quote": "LoadModule rewrite_module modules/mod_rewrite.so",
+            "text": "LoadModule rewrite_module modules/mod_rewrite.so"
+          },
+          {
+            "category": "other",
+            "fact_id": "F3",
+            "reference_quote": "RewriteEngine on",
+            "text": "RewriteEngine on"
+          },
+          {
+            "category": "other",
+            "fact_id": "F4",
+            "reference_quote": "RewriteRule ^(.*) https://%{SERVER_NAME}%{REQUEST_URI} [R,L]",
+            "text": "RewriteRule ^(.*) https://%{SERVER_NAME}%{REQUEST_URI} [R,L]"
+          },
+          {
+            "category": "other",
+            "fact_id": "F5",
+            "reference_quote": "Finally, restart the IBM HTTP Server after making the preceding changes",
+            "text": "Finally, restart the IBM HTTP Server after making the preceding changes"
+          }
+        ],
+        "definition_content_sha256": "33da1819c8f798d39c972da08e5650fecc57d4baebdeb883aee7b9c7844eb10a",
+        "single_fact_exception": false,
+        "observations": [
+          {
+            "repeat": 2,
+            "group_sha256": "fb2b9b5b0a690ebf2210ad12ac44ab7cb8d66111eaaa4444a351e26945a20ccf"
+          }
+        ],
+        "human_annotator": "",
+        "human_approved": false,
+        "human_scores": [
+          {
+            "fact_id": "F1",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F2",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F3",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F4",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F5",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          }
+        ],
+        "independent_llm_status": "未执行",
+        "independent_llm_scores": []
+      },
+      "first_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote from ANSWER_BODY to support the fact."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote from ANSWER_BODY to support the fact."
+        },
+        {
+          "fact_id": "F3",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote from ANSWER_BODY to support the fact."
+        },
+        {
+          "fact_id": "F4",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote from ANSWER_BODY to support the fact."
+        },
+        {
+          "fact_id": "F5",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote from ANSWER_BODY to support the fact."
+        }
+      ],
+      "second_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F1 mentions uncommenting a line in httpd.conf, but the ANSWER_BODY is empty and does not contain any relevant information to verify or contradict this fact."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F2 states a LoadModule line for mod_rewrite, but the ANSWER_BODY is empty and does not contain any relevant information to verify or contradict this fact."
+        },
+        {
+          "fact_id": "F3",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F3 mentions enabling RewriteEngine, but the ANSWER_BODY is empty and does not contain any relevant information to verify or contradict this fact."
+        },
+        {
+          "fact_id": "F4",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F4 describes a RewriteRule, but the ANSWER_BODY is empty and does not contain any relevant information to verify or contradict this fact."
+        },
+        {
+          "fact_id": "F5",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F5 mentions restarting the IBM HTTP Server, but the ANSWER_BODY is empty and does not contain any relevant information to verify or contradict this fact."
+        }
+      ],
+      "human_scores": null,
+      "human_reviewed": false
+    },
+    {
+      "selection": "fixed_seed_stratified",
+      "repeat": 1,
+      "index": 1,
+      "item": {
+        "partition": "tune",
+        "question_id": "TRAIN_Q577",
+        "question": [
+          "My SystemOut.log is overfilled by messages SECJ0371W (LTPA token expired). I am sick and tired of them. Can I disable them?",
+          "My SystemOut.log is overfilled by messages SECJ0371W (LTPA token expired). I am sick and tired of them. Can I disable them? "
+        ],
+        "answer_body": "",
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "required_facts": [
+          {
+            "category": "step",
+            "fact_id": "F1",
+            "reference_quote": "A security custom property will be used to disable the logging\n   of the SECJ0371W message",
+            "text": "A security custom property will be used to disable the logging of the SECJ0371W message"
+          },
+          {
+            "category": "command",
+            "fact_id": "F2",
+            "reference_quote": "com.ibm.websphere.security.ltpa.disableSECJ0371W=true",
+            "text": "com.ibm.websphere.security.ltpa.disableSECJ0371W=true"
+          }
+        ],
+        "definition_content_sha256": "78b6cd37d682a07ebf08966749846b6454339c4be735fc2a288969d0e9cddfa9",
+        "single_fact_exception": false,
+        "observations": [
+          {
+            "repeat": 1,
+            "group_sha256": "6ce139c0c65b2bbf491090a24d46603c793a16c401e677d4daeb2556d424334c"
+          },
+          {
+            "repeat": 2,
+            "group_sha256": "6ce139c0c65b2bbf491090a24d46603c793a16c401e677d4daeb2556d424334c"
+          },
+          {
+            "repeat": 3,
+            "group_sha256": "6ce139c0c65b2bbf491090a24d46603c793a16c401e677d4daeb2556d424334c"
+          }
+        ],
+        "human_annotator": "",
+        "human_approved": false,
+        "human_scores": [
+          {
+            "fact_id": "F1",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F2",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          }
+        ],
+        "independent_llm_status": "未执行",
+        "independent_llm_scores": []
+      },
+      "first_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No direct quote from ANSWER_BODY, only a reference to a catalog entry that is not present."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No direct quote from ANSWER_BODY, only a reference to a catalog entry that is not present."
+        }
+      ],
+      "second_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "The provided fact does not mention the 'SECJ0371W' message, which is referenced in the fact text. The ANSWER_BODY is empty, so there is no information to verify or contradict the fact."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "The provided fact does not mention the 'disableSECJ0371W' property, which is referenced in the fact text. The ANSWER_BODY is empty, so there is no information to verify or contradict the fact."
+        }
+      ],
+      "human_scores": null,
+      "human_reviewed": false
+    },
+    {
+      "selection": "fixed_seed_stratified",
+      "repeat": 2,
+      "index": 25,
+      "item": {
+        "partition": "held-out",
+        "question_id": "TRAIN_Q319",
+        "question": [
+          "Why does my login fail when I use the ltpa-usrnm attribute?",
+          "You use a Domino server as your LDAP, and the login attribute you want to use is ltpa-usrnm. This is acceptable, as the login attribute can be set accordingly in the wimconfig.xml. When the search string is built for the login, it is in the form, cn=username, o=orgname.\n\nThis cause the following exception to the returned:\n\n[3/30/16 9:56:03:453 CDT] 000000f7 exception E com.ibm.ws.wim.adapter.ldap.LdapConnection getAttributes CWWIM4520E The 'javax.naming.InvalidNameException: \"CN=username/O=orgname\": [LDAP: error code 34 - Invalid DN Syntax]; remaining name '\"CN=username/O=orgname'\"; "
+        ],
+        "answer_body": "",
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "required_facts": [
+          {
+            "category": "command",
+            "fact_id": "F1",
+            "reference_quote": "$AdminTask configureAdminWIMUserRegistry {-customProperties\n   {\"com.ibm.ws.wim.registry.allowDNPrincipalNameAsLiteral\n   =true\"} }",
+            "text": "$AdminTask configureAdminWIMUserRegistry {-customProperties {\"com.ibm.ws.wim.registry.allowDNPrincipalNameAsLiteral =true\"} }"
+          },
+          {
+            "category": "condition",
+            "fact_id": "F2",
+            "reference_quote": "When this property is set, VMM determines whether the login\n   name ends with a baseEntry. If the login name does not end\n   with a baseEntry it is not treated as a DN and the login is\n   successful.",
+            "text": "When this property is set, VMM determines whether the login name ends with a baseEntry; if not, it is not treated as a DN and login succeeds"
+          },
+          {
+            "category": "version",
+            "fact_id": "F3",
+            "reference_quote": "The fix for this APAR is currently targeted for inclusion in\n   fix packs 8.0.0.4 and 8.5.0.1.",
+            "text": "The fix for this APAR is targeted for inclusion in fix packs 8.0.0.4 and 8.5.0.1"
+          }
+        ],
+        "definition_content_sha256": "3e7ca67acac577193a34a0e0f60f994ffaed135fc15a47e464ecdc224d60b778",
+        "single_fact_exception": false,
+        "observations": [
+          {
+            "repeat": 1,
+            "group_sha256": "2646563313630310e2cf7b8b5f0eb034f33082e787cc625f9c5f5bce1e45d5c4"
+          },
+          {
+            "repeat": 2,
+            "group_sha256": "2646563313630310e2cf7b8b5f0eb034f33082e787cc625f9c5f5bce1e45d5c4"
+          },
+          {
+            "repeat": 3,
+            "group_sha256": "2646563313630310e2cf7b8b5f0eb034f33082e787cc625f9c5f5bce1e45d5c4"
+          }
+        ],
+        "human_annotator": "",
+        "human_approved": false,
+        "human_scores": [
+          {
+            "fact_id": "F1",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F2",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F3",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          }
+        ],
+        "independent_llm_status": "未执行",
+        "independent_llm_scores": []
+      },
+      "first_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote or evidence in ANSWER_BODY to support the claim that the property allows DNPrincipalNameAsLiteral."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote or evidence in ANSWER_BODY to support the claim that VMM determines whether the login name ends with a baseEntry."
+        },
+        {
+          "fact_id": "F3",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote or evidence in ANSWER_BODY to support the claim that the fix for this APAR is targeted for inclusion in fix packs 8.0.0.4 and 8.5.0.1."
+        }
+      ],
+      "second_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F1 refers to a configuration task for IBM WebSphere Application Server, but the ANSWER_BODY is empty and does not contain any relevant information to verify or refute this fact."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F2 discusses a property setting for VMM (Virtual Machine Manager) and its behavior, but the ANSWER_BODY is empty and does not contain any relevant information to verify or refute this fact."
+        },
+        {
+          "fact_id": "F3",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F3 mentions fix packs for IBM WebSphere Application Server, but the ANSWER_BODY is empty and does not contain any relevant information to verify or refute this fact."
+        }
+      ],
+      "human_scores": null,
+      "human_reviewed": false
+    },
+    {
+      "selection": "fixed_seed_stratified",
+      "repeat": 3,
+      "index": 4,
+      "item": {
+        "partition": "tune",
+        "question_id": "DEV_Q306",
+        "question": [
+          "Unable to view batches in DotEdit",
+          "\n\nHi all,\n\nIs there any limitation to view batches in Dot Edit client application, because I am unable to see batches with QID more than 1119.\n\nAlso unable to see batches with status as \"Pending\". \n"
+        ],
+        "answer_body": "",
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "required_facts": [
+          {
+            "category": "step",
+            "fact_id": "F1",
+            "reference_quote": "Backup the \\Datacap\\DotEdit\\apps.ini file",
+            "text": "Backup the \\Datacap\\DotEdit\\apps.ini file"
+          },
+          {
+            "category": "condition",
+            "fact_id": "F2",
+            "reference_quote": "If the file does not exist, create a new one or copy it from \\Datacap\\tmweb.net",
+            "text": "If the file does not exist, create a new one or copy it from \\Datacap\\tmweb.net"
+          },
+          {
+            "category": "step",
+            "fact_id": "F3",
+            "reference_quote": "Find the app to be modified (for example [APT]). If it does not exist, create a new section with the application name listed between square brackets",
+            "text": "Find the app to be modified (for example [APT]). If it does not exist, create a new section with the application name listed between square brackets"
+          },
+          {
+            "category": "command",
+            "fact_id": "F4",
+            "reference_quote": "Add a new line containing BatchLimit=xxx, where xxx is the number of batches to be displayed",
+            "text": "Add a new line containing BatchLimit=xxx, where xxx is the number of batches to be displayed"
+          },
+          {
+            "category": "step",
+            "fact_id": "F5",
+            "reference_quote": "Save the file",
+            "text": "Save the file"
+          }
+        ],
+        "definition_content_sha256": "d86d0065b199f0abccb7c23e865a9bc9e9a954c4db25e71ee897261261b082dd",
+        "single_fact_exception": false,
+        "observations": [
+          {
+            "repeat": 1,
+            "group_sha256": "b9ccd00b3712b8e70f08755d3810620f34a191d677d8b2fce056ae66c08150b7"
+          },
+          {
+            "repeat": 2,
+            "group_sha256": "b9ccd00b3712b8e70f08755d3810620f34a191d677d8b2fce056ae66c08150b7"
+          },
+          {
+            "repeat": 3,
+            "group_sha256": "b9ccd00b3712b8e70f08755d3810620f34a191d677d8b2fce056ae66c08150b7"
+          }
+        ],
+        "human_annotator": "",
+        "human_approved": false,
+        "human_scores": [
+          {
+            "fact_id": "F1",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F2",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F3",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F4",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F5",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          }
+        ],
+        "independent_llm_status": "未执行",
+        "independent_llm_scores": []
+      },
+      "first_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No relevant information provided in ANSWER_BODY."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No relevant information provided in ANSWER_BODY."
+        },
+        {
+          "fact_id": "F3",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No relevant information provided in ANSWER_BODY."
+        },
+        {
+          "fact_id": "F4",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No relevant information provided in ANSWER_BODY."
+        },
+        {
+          "fact_id": "F5",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No relevant information provided in ANSWER_BODY."
+        }
+      ],
+      "second_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F1 instructs to backup the \\Datacap\\DotEdit\\apps.ini file, but the ANSWER_BODY is empty and does not contain any relevant information to verify or refute this fact."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F2 mentions creating a new file or copying it from \\Datacap\\tmweb.net if the file does not exist, but the ANSWER_BODY is empty and does not contain any relevant information to verify or refute this fact."
+        },
+        {
+          "fact_id": "F3",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F3 describes finding and modifying an app section in the \\Datacap\\DotEdit\\apps.ini file, but the ANSWER_BODY is empty and does not contain any relevant information to verify or refute this fact."
+        },
+        {
+          "fact_id": "F4",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F4 mentions adding a line to the \\Datacap\\DotEdit\\apps.ini file with BatchLimit=xxx, but the ANSWER_BODY is empty and does not contain any relevant information to verify or refute this fact."
+        },
+        {
+          "fact_id": "F5",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "Fact F5 mentions saving the \\Datacap\\DotEdit\\apps.ini file, but the ANSWER_BODY is empty and does not contain any relevant information to verify or refute this fact."
+        }
+      ],
+      "human_scores": null,
+      "human_reviewed": false
+    },
+    {
+      "selection": "fixed_seed_stratified",
+      "repeat": 1,
+      "index": 20,
+      "item": {
+        "partition": "held-out",
+        "question_id": "TRAIN_Q549",
+        "question": [
+          "What does the end-file-message mean while doing a launchpad.sh in the MS\"",
+          "I am getting an end-file-message means while doing a launchpad.sh in the MS. How do I solve the problem?"
+        ],
+        "answer_body": "",
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "required_facts": [
+          {
+            "category": "step",
+            "fact_id": "F1",
+            "reference_quote": "Use the commands shown below to verify you have them installed, otherwise contact your Linux system administrator and installt these required libraries.",
+            "text": "Use the commands shown below to verify you have them installed, otherwise contact your Linux system administrator and installt these required libraries."
+          }
+        ],
+        "definition_content_sha256": "259c840ff6361cf9f7adbdfbb38194126166aaab7b6c438a8e5fc5b4aba45ddc",
+        "single_fact_exception": true,
+        "observations": [
+          {
+            "repeat": 1,
+            "group_sha256": "5832234e74817a19ba7f235d38c7e0ce1eff623928a3d489438d33bc6776d5de"
+          },
+          {
+            "repeat": 2,
+            "group_sha256": "5832234e74817a19ba7f235d38c7e0ce1eff623928a3d489438d33bc6776d5de"
+          },
+          {
+            "repeat": 3,
+            "group_sha256": "5832234e74817a19ba7f235d38c7e0ce1eff623928a3d489438d33bc6776d5de"
+          }
+        ],
+        "human_annotator": "",
+        "human_approved": false,
+        "human_scores": [
+          {
+            "fact_id": "F1",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          }
+        ],
+        "independent_llm_status": "未执行",
+        "independent_llm_scores": []
+      },
+      "first_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No answer body provided to verify the fact."
+        }
+      ],
+      "second_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "The provided fact text does not contain any relevant information or commands that could be verified within the ANSWER_BODY. The text is a generic instruction for verifying library installations, which is not present or a"
+        }
+      ],
+      "human_scores": null,
+      "human_reviewed": false
+    },
+    {
+      "selection": "fixed_seed_stratified",
+      "repeat": 2,
+      "index": 17,
+      "item": {
+        "partition": "tune",
+        "question_id": "TRAIN_Q256",
+        "question": [
+          "Error running krzgrant.sql script provided with 6.3.1.2-TIV-ITM_KRZ-IF0003.tar",
+          "When running the krzgrant.sql script provided in the package - 6.3.1.2-TIV-ITM_KRZ-IF0003.tar get the following errors:\n\nERROR at line 1:\nORA-00942: table or view does not exist ORA-06512: at line 50 \n\nHow to correct this?"
+        ],
+        "answer_body": "",
+        "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "required_facts": [
+          {
+            "category": "command",
+            "fact_id": "F1",
+            "reference_quote": "Run the krzgrant.sql script",
+            "text": "Run the krzgrant.sql script"
+          },
+          {
+            "category": "version",
+            "fact_id": "F2",
+            "reference_quote": "6.3.1-TIV-ITM_KRZ-FP0001",
+            "text": "6.3.1-TIV-ITM_KRZ-FP0001"
+          }
+        ],
+        "definition_content_sha256": "d4535186d2d747704bd5615198ca4f5f679958c0fc8784c4a030a7c9c48456b0",
+        "single_fact_exception": false,
+        "observations": [
+          {
+            "repeat": 2,
+            "group_sha256": "f0a9efae22246fff10c29da1fe84bd224a581708b6563f3afe639b33254474a8"
+          }
+        ],
+        "human_annotator": "",
+        "human_approved": false,
+        "human_scores": [
+          {
+            "fact_id": "F1",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          },
+          {
+            "fact_id": "F2",
+            "score": null,
+            "answer_quote": "",
+            "notes": ""
+          }
+        ],
+        "independent_llm_status": "未执行",
+        "independent_llm_scores": []
+      },
+      "first_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote or relevant information in ANSWER_BODY"
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "No quote or relevant information in ANSWER_BODY"
+        }
+      ],
+      "second_scores": [
+        {
+          "fact_id": "F1",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "The fact 'Run the krzgrant.sql script' is not supported by the provided ANSWER_BODY, which is empty. There is no information in the ANSWER_BODY to confirm or deny the need to run the krzgrant.sql script."
+        },
+        {
+          "fact_id": "F2",
+          "score": 0,
+          "answer_quote": "",
+          "reason": "The fact '6.3.1-TIV-ITM_KRZ-FP0001' is not supported by the provided ANSWER_BODY, which is empty. There is no information in the ANSWER_BODY to confirm or deny the existence or relevance of the version number 6.3.1-TIV-1"
+        }
+      ],
+      "human_scores": null,
+      "human_reviewed": false
+    }
+  ],
+  "must_not_be_used_for_design": true
+}

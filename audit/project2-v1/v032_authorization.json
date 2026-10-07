@@ -1,0 +1,9 @@
+{
+  "origin": "direct_user_message",
+  "authorization_file": "specs/project2/approval_appendix_2026-10-06_v032.md",
+  "sha256": "ff1e06a3c1e768da16e806bb9f3c5707e5a28d8ec00ef1618ee28acf3070a051",
+  "spec_version": "v0.3.2",
+  "limits_changed": false,
+  "s14_waived": false,
+  "llm_judging": "paused"
+}

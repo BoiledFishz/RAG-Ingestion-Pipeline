@@ -1,0 +1,1210 @@
+{
+  "evidence_type": "真实运行（已有记录只读分析；没有新增运行）",
+  "budget_seconds": 37.941018,
+  "chap13": {
+    "node_timings": {
+      "before_restart_database_seconds": 1.0992727279663086,
+      "before_restart_total_saved_active_seconds": 1.8900000000139698,
+      "before_restart_rag": "interrupted; duration right-censored; no completed observation",
+      "resume_database_skipped": true,
+      "resume_rag_observed_until_timeout_seconds": 36.297688484191895,
+      "resume_total_active_seconds": 36.32799999997951,
+      "total_active_including_uncertain_tail_and_cleanup": 38.46799999999348
+    },
+    "cold_start": {
+      "process_launch_to_entry_seconds": 0.4159390926361084,
+      "launch_to_ready_seconds": 24.92893648147583,
+      "rag_startup": {
+        "type": "ready",
+        "scope": "full",
+        "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b",
+        "worker_pid": 107504,
+        "startup_timings": {
+          "imports_seconds": 0.60516179993283,
+          "agent_build_seconds": 0.025954300072044134,
+          "index_and_encoder_seconds": 21.108087499975227,
+          "faiss_index_load_seconds": 4.86467579996679,
+          "child_initialization_seconds": 22.125085000065155
+        },
+        "launch_to_ready_seconds": 22.618974499986507
+      },
+      "counted_in_v032_execution": false,
+      "embedding_inference_warmup_recorded": false
+    },
+    "failure_checks": {
+      "same_run_id": {
+        "predicate": "HTTP 200 AND original run_id AND overall completed",
+        "http200": true,
+        "id_same": true,
+        "overall": "partial",
+        "failure_reason": "overall partial: DB completed, RAG timeout; ID itself was retained"
+      },
+      "unchanged_native_answer_body": {
+        "predicate": "nonempty resumed answer AND its SHA256 appears as NATIVE_BODY in API log",
+        "answer_nonempty": false,
+        "failure_reason": "timeout produced empty answer; no completed native body hash to compare"
+      }
+    },
+    "trigger": "cumulative execution deadline; 15/19 dependency, 4/6 LLM; not an attempt cap",
+    "counterfactual_90_seconds": {
+      "evidence_type": "未执行（推算）",
+      "additional_active_seconds": 52.058982,
+      "remaining_after_preserved_segment": 87.85999999998603,
+      "last_model_call_observed_wait_seconds": 9.424440622329712,
+      "model_per_call_timeout_seconds": 30,
+      "conclusion": "The observed stop would not occur at 37.941s with 90s. Completion is not guaranteed: last call is censored, later retry/generation path unobserved; native gate must decide."
+    }
+  },
+  "qa": {
+    "requests": 117,
+    "rag_timeout_requests": [
+      {
+        "question_id": "TRAIN_Q246",
+        "repeat": 1,
+        "order_in_file": 26,
+        "query_sha256": "8a9c677a0da2ed60f7bbacf7d6682571cb4b2a0f6b67adb00f4bcaddc716c66f",
+        "query_characters": 342,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "Help with Security Bulletin: Security vulnerabilities have been identified in IBM DB2 shipped with WebSphere Remote Server (CVE-2015-2808)",
+        "request_seconds": 38.28099999995902,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 16,
+          "llm_calls": 5,
+          "attempts_by_kind": {
+            "db": 10,
+            "llm": 5,
+            "embedding": 1
+          },
+          "absolute_deadline": 1791329817.4505956,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "same process not independently recorded"
+      },
+      {
+        "question_id": "DEV_Q088",
+        "repeat": 1,
+        "order_in_file": 27,
+        "query_sha256": "5657f7f26f98e4604bf4177a0f0cb462591fe110067fae782ffb866451ff4b15",
+        "query_characters": 528,
+        "version_mentions": [
+          "7.1.2",
+          "8.1.3",
+          "192.168.0.84"
+        ],
+        "platform_mentions": [
+          "Linux",
+          "linux"
+        ],
+        "question_title": "CQWEB  can\\'t retrieve repository dropdown list options in RedHat Linux, how to deal with it ?",
+        "request_seconds": 38.063000000081956,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 4,
+          "llm_calls": 0,
+          "attempts_by_kind": {
+            "db": 4
+          },
+          "absolute_deadline": 1791329855.7413268,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "TRAIN_Q246",
+        "repeat": 2,
+        "order_in_file": 64,
+        "query_sha256": "8a9c677a0da2ed60f7bbacf7d6682571cb4b2a0f6b67adb00f4bcaddc716c66f",
+        "query_characters": 342,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "Help with Security Bulletin: Security vulnerabilities have been identified in IBM DB2 shipped with WebSphere Remote Server (CVE-2015-2808)",
+        "request_seconds": 38.453000000095926,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 14,
+          "llm_calls": 3,
+          "attempts_by_kind": {
+            "db": 10,
+            "llm": 3,
+            "embedding": 1
+          },
+          "absolute_deadline": 1791330451.606677,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "same process not independently recorded"
+      },
+      {
+        "question_id": "DEV_Q220",
+        "repeat": 2,
+        "order_in_file": 65,
+        "query_sha256": "15ab33ebe8e05224162a6c6ce7ab609b7e8142920df97d0e04c2ce6d683bbc5a",
+        "query_characters": 279,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "Help with Security Bulletin: TLS padding vulnerability affects IBM PureApplication System (CVE-2014-8730)",
+        "request_seconds": 38.25,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 5,
+          "llm_calls": 1,
+          "attempts_by_kind": {
+            "db": 4,
+            "llm": 1
+          },
+          "absolute_deadline": 1791330490.0829415,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "TRAIN_Q170",
+        "repeat": 2,
+        "order_in_file": 66,
+        "query_sha256": "e0843c352d431ce55afb79963ada8c8010106ab1c7bc7bd003e32201633467e8",
+        "query_characters": 61,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "MQSeries Events correlation",
+        "request_seconds": 38.20299999997951,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 8,
+          "llm_calls": 1,
+          "attempts_by_kind": {
+            "db": 6,
+            "llm": 1,
+            "embedding": 1
+          },
+          "absolute_deadline": 1791330528.3411407,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "DEV_Q215",
+        "repeat": 2,
+        "order_in_file": 68,
+        "query_sha256": "c1633bc0820f1830510b084999861389ee1c97993701d69e578d1d422398b193",
+        "query_characters": 214,
+        "version_mentions": [
+          "7.0"
+        ],
+        "platform_mentions": [],
+        "question_title": "When should I use conversation sharing in DataPower MQ queue managers?",
+        "request_seconds": 38.18700000003446,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 4,
+          "llm_calls": 0,
+          "attempts_by_kind": {
+            "db": 4
+          },
+          "absolute_deadline": 1791330566.6006868,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "same process not independently recorded"
+      },
+      {
+        "question_id": "DEV_Q154",
+        "repeat": 2,
+        "order_in_file": 69,
+        "query_sha256": "5f573d7b41f9e47b71050b97d859c86fe8b7e2fbcb29d9cb33cbdab32edc9a64",
+        "query_characters": 371,
+        "version_mentions": [
+          "7.1.0.11"
+        ],
+        "platform_mentions": [],
+        "question_title": "Why are some Datatypes corrupt after Impact cluster failover/failback ?",
+        "request_seconds": 38.15599999995902,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 9,
+          "llm_calls": 1,
+          "attempts_by_kind": {
+            "db": 7,
+            "llm": 1,
+            "embedding": 1
+          },
+          "absolute_deadline": 1791330604.8388152,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "TRAIN_Q199",
+        "repeat": 2,
+        "order_in_file": 70,
+        "query_sha256": "ee4b0049cfdeb6e784fa594bc76a70e9027b197609c795e558e686b205516e73",
+        "query_characters": 717,
+        "version_mentions": [
+          "8.5.0.1"
+        ],
+        "platform_mentions": [
+          "Windows"
+        ],
+        "question_title": "How to start PC DMgr as a Windows service?",
+        "request_seconds": 38.14099999994505,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 4,
+          "llm_calls": 0,
+          "attempts_by_kind": {
+            "db": 4
+          },
+          "absolute_deadline": 1791330642.9704337,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "TRAIN_Q437",
+        "repeat": 2,
+        "order_in_file": 71,
+        "query_sha256": "44908fa1af624c15f22f67930df5b44454e6f8cf0c09344c8de3be68ccb425e5",
+        "query_characters": 195,
+        "version_mentions": [
+          "0.0.41",
+          "7.0",
+          "7.0.0.41"
+        ],
+        "platform_mentions": [],
+        "question_title": "Is WAS TE v7.0.0.41 available for RAD?",
+        "request_seconds": 38.21900000004098,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 5,
+          "llm_calls": 1,
+          "attempts_by_kind": {
+            "db": 4,
+            "llm": 1
+          },
+          "absolute_deadline": 1791330681.14282,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "TRAIN_Q567",
+        "repeat": 2,
+        "order_in_file": 73,
+        "query_sha256": "647d51abd9fb20ec1309a6e0730d08bff569e9a55726d99c8336184f81efe33f",
+        "query_characters": 434,
+        "version_mentions": [],
+        "platform_mentions": [
+          "Windows"
+        ],
+        "question_title": "Why the Editor for Messages logon page does not work?",
+        "request_seconds": 38.60999999998603,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 5,
+          "llm_calls": 1,
+          "attempts_by_kind": {
+            "db": 4,
+            "llm": 1
+          },
+          "absolute_deadline": 1791330757.2911372,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "DEV_Q040",
+        "repeat": 2,
+        "order_in_file": 74,
+        "query_sha256": "0719435b52edb0897b91d9452f518726158d2ce431b9c16de85410d453bf2cce",
+        "query_characters": 698,
+        "version_mentions": [
+          "8.5",
+          "2.4",
+          "8.5",
+          "2.4"
+        ],
+        "platform_mentions": [
+          "Linux"
+        ],
+        "question_title": "Why Plug-in log file reports an error message after install & configure the WebSphere Plugin 8.5 version on a Apache 2.4 webserver.",
+        "request_seconds": 38.01500000001397,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 4,
+          "llm_calls": 0,
+          "attempts_by_kind": {
+            "db": 4
+          },
+          "absolute_deadline": 1791330795.953088,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "TRAIN_Q232",
+        "repeat": 2,
+        "order_in_file": 75,
+        "query_sha256": "7c03d79926536866ab412f57e3db4a588b2b2899b1943111537fdd8fddb2af7f",
+        "query_characters": 360,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "Help with Security Bulletin: MQSISTOP/STARTMSGFLOW commands with unauthorized user succeed affects WMB and IIB (CVE-2015-5011)",
+        "request_seconds": 38.14100000006147,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 5,
+          "llm_calls": 1,
+          "attempts_by_kind": {
+            "db": 4,
+            "llm": 1
+          },
+          "absolute_deadline": 1791330833.9240098,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "TRAIN_Q077",
+        "repeat": 2,
+        "order_in_file": 76,
+        "query_sha256": "ef385597336bfe471a646d3e3238d8b88ecf4caa4a3dd30208fd8b599187bebb",
+        "query_characters": 452,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "Why is the test suite execution failing from Decision Center?",
+        "request_seconds": 38.421999999904074,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 4,
+          "llm_calls": 0,
+          "attempts_by_kind": {
+            "db": 4
+          },
+          "absolute_deadline": 1791330872.0576234,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "DEV_Q091",
+        "repeat": 2,
+        "order_in_file": 77,
+        "query_sha256": "4ba03ec85332e324e339549bdce4576b9beed534601e30b91e97c0e5f2b5f30e",
+        "query_characters": 737,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "Deploying RuleRunner on a separate server",
+        "request_seconds": 38.31200000003446,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 5,
+          "llm_calls": 1,
+          "attempts_by_kind": {
+            "db": 4,
+            "llm": 1
+          },
+          "absolute_deadline": 1791330910.523395,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "DEV_Q101",
+        "repeat": 2,
+        "order_in_file": 78,
+        "query_sha256": "5943072d704005209697888d18f74e01e7c6e2057e52d67ef197bff3e43ac16a",
+        "query_characters": 428,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "Help with Security Bulletin: WMB and IIB Toolkit cannot connect to a remote WMB broker or IIB node with a TLS-compliant cipher (CVE-2015-0118)",
+        "request_seconds": 38.125,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 4,
+          "llm_calls": 0,
+          "attempts_by_kind": {
+            "db": 4
+          },
+          "absolute_deadline": 1791330948.8235633,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "TRAIN_Q578",
+        "repeat": 3,
+        "order_in_file": 79,
+        "query_sha256": "b1e42d3e0e0903e758e02b93633669ab00c5029685d2fc004c97b360bac52ee7",
+        "query_characters": 140,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "Does IBM DataPower Gateway Appliance support the HTTP CONNECT method?",
+        "request_seconds": 38.23399999993853,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 13,
+          "llm_calls": 2,
+          "attempts_by_kind": {
+            "db": 10,
+            "llm": 2,
+            "embedding": 1
+          },
+          "absolute_deadline": 1791330986.9710097,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "TRAIN_Q170",
+        "repeat": 3,
+        "order_in_file": 80,
+        "query_sha256": "e0843c352d431ce55afb79963ada8c8010106ab1c7bc7bd003e32201633467e8",
+        "query_characters": 61,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "MQSeries Events correlation",
+        "request_seconds": 38.06299999996554,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 4,
+          "llm_calls": 0,
+          "attempts_by_kind": {
+            "db": 4
+          },
+          "absolute_deadline": 1791331025.1855218,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "DEV_Q307",
+        "repeat": 3,
+        "order_in_file": 81,
+        "query_sha256": "11a6f38a878d3cb2aa03bc42a94841c695c02da565eea750ac3d7d4e7dbf2250",
+        "query_characters": 309,
+        "version_mentions": [
+          "5.3",
+          "5.3"
+        ],
+        "platform_mentions": [],
+        "question_title": "Help with Security Bulletin: Vulnerabilities in OpenSSL affect WebSphere MQ 5.3 for HP NonStop Server (CVE-2017-3735)",
+        "request_seconds": 38.453000000095926,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 5,
+          "llm_calls": 1,
+          "attempts_by_kind": {
+            "db": 4,
+            "llm": 1
+          },
+          "absolute_deadline": 1791331063.2641244,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "TRAIN_Q256",
+        "repeat": 3,
+        "order_in_file": 82,
+        "query_sha256": "23a0f471cf174ab224f58c0225d65f72aa146449cb67c6918d5c76b48d000702",
+        "query_characters": 301,
+        "version_mentions": [
+          "6.3.1.2",
+          "6.3.1.2"
+        ],
+        "platform_mentions": [],
+        "question_title": "Error running krzgrant.sql script provided with 6.3.1.2-TIV-ITM_KRZ-IF0003.tar",
+        "request_seconds": 38.14099999994505,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 4,
+          "llm_calls": 0,
+          "attempts_by_kind": {
+            "db": 4
+          },
+          "absolute_deadline": 1791331101.7171156,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "TRAIN_Q173",
+        "repeat": 3,
+        "order_in_file": 83,
+        "query_sha256": "4033b31036328694b66da1b9480799dd30469ff3516c36bccbeeedf019296c73",
+        "query_characters": 266,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "How to use the LIKE operator, wildcard and special characters in your IBM FileNet Content Platform Engine Sweep's Filter Expression?",
+        "request_seconds": 38.45299999997951,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 13,
+          "llm_calls": 2,
+          "attempts_by_kind": {
+            "db": 10,
+            "llm": 2,
+            "embedding": 1
+          },
+          "absolute_deadline": 1791331139.853471,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "DEV_Q140",
+        "repeat": 3,
+        "order_in_file": 84,
+        "query_sha256": "4462758f8ace96c4bd407ea3b886d535fb5452f197c5654a4928012bfbbef019",
+        "query_characters": 774,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "Why get SQL1227N when replay db2look output on DB2 V9.7 FP11?",
+        "request_seconds": 38.20299999997951,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 4,
+          "llm_calls": 0,
+          "attempts_by_kind": {
+            "db": 4
+          },
+          "absolute_deadline": 1791331178.2954102,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "DEV_Q306",
+        "repeat": 3,
+        "order_in_file": 85,
+        "query_sha256": "89e9dcde7ac67a245ae94aa2f206896cccfe7050d0380578f15c7a87b5aa5508",
+        "query_characters": 232,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "Unable to view batches in DotEdit",
+        "request_seconds": 38.35900000005495,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 13,
+          "llm_calls": 2,
+          "attempts_by_kind": {
+            "db": 10,
+            "llm": 2,
+            "embedding": 1
+          },
+          "absolute_deadline": 1791331216.5254874,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "TRAIN_Q577",
+        "repeat": 3,
+        "order_in_file": 86,
+        "query_sha256": "e355be283a88571c590b1c81844e52390932719b1207c45caa4b317128e3dd42",
+        "query_characters": 248,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "My SystemOut.log is overfilled by messages SECJ0371W (LTPA token expired). I am sick and tired of them. Can I disable them?",
+        "request_seconds": 38.07799999997951,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 4,
+          "llm_calls": 0,
+          "attempts_by_kind": {
+            "db": 4
+          },
+          "absolute_deadline": 1791331254.8626206,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "TRAIN_Q144",
+        "repeat": 3,
+        "order_in_file": 87,
+        "query_sha256": "c051e936a7f89bc60baa411d01635199a44dfd28cdd459768af1d353117444e5",
+        "query_characters": 304,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "Help with Security Bulletin: The WebAdmin context for WMB V8 allows directory listings (CVE-2016-6080)",
+        "request_seconds": 38.29700000002049,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 5,
+          "llm_calls": 1,
+          "attempts_by_kind": {
+            "db": 4,
+            "llm": 1
+          },
+          "absolute_deadline": 1791331292.9630451,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "TRAIN_Q199",
+        "repeat": 3,
+        "order_in_file": 88,
+        "query_sha256": "ee4b0049cfdeb6e784fa594bc76a70e9027b197609c795e558e686b205516e73",
+        "query_characters": 717,
+        "version_mentions": [
+          "8.5.0.1"
+        ],
+        "platform_mentions": [
+          "Windows"
+        ],
+        "question_title": "How to start PC DMgr as a Windows service?",
+        "request_seconds": 38.09400000004098,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 4,
+          "llm_calls": 0,
+          "attempts_by_kind": {
+            "db": 4
+          },
+          "absolute_deadline": 1791331331.2211678,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "TRAIN_Q077",
+        "repeat": 3,
+        "order_in_file": 89,
+        "query_sha256": "ef385597336bfe471a646d3e3238d8b88ecf4caa4a3dd30208fd8b599187bebb",
+        "query_characters": 452,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "Why is the test suite execution failing from Decision Center?",
+        "request_seconds": 38.48399999993853,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 8,
+          "llm_calls": 1,
+          "attempts_by_kind": {
+            "db": 6,
+            "llm": 1,
+            "embedding": 1
+          },
+          "absolute_deadline": 1791331369.3590083,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "DEV_Q002",
+        "repeat": 3,
+        "order_in_file": 91,
+        "query_sha256": "42fc885d1586fa3e2f4da23003265fd2293b4f4da3a9d25bf8d2bc504b01d116",
+        "query_characters": 1701,
+        "version_mentions": [
+          "7.2",
+          "20160505.045330.25035.0002",
+          "3.10.0",
+          "327.13.1",
+          "7.2",
+          "5.2.1.4"
+        ],
+        "platform_mentions": [
+          "Linux"
+        ],
+        "question_title": "Unable to open profile from P8 Content Engine Configuration manager (CMUI) on Redhat Linux 7.2, getting GPF and javacore dump.",
+        "request_seconds": 38.54700000002049,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 5,
+          "llm_calls": 1,
+          "attempts_by_kind": {
+            "db": 4,
+            "llm": 1
+          },
+          "absolute_deadline": 1791331446.0855408,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "DEV_Q254",
+        "repeat": 3,
+        "order_in_file": 92,
+        "query_sha256": "0e634c8781e34a4f579506396695b245395b70e3846d7a729c92b1b9d90b8592",
+        "query_characters": 287,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "Why do I receive the message, \"IKJ79154I INSTALLATION EXIT IKJEESX0 REQUESTED TERMINATION. \" for a TSO SEND command?",
+        "request_seconds": 38.10899999993853,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 4,
+          "llm_calls": 0,
+          "attempts_by_kind": {
+            "db": 4
+          },
+          "absolute_deadline": 1791331484.4117482,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "DEV_Q025",
+        "repeat": 3,
+        "order_in_file": 93,
+        "query_sha256": "0f889a25df3861760d57190f88ff72ce3be1c1a0def736b63df4f23b7ff6ede5",
+        "query_characters": 109,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "How to import a certificate in ITCAM for Data Power ?",
+        "request_seconds": 38.17200000002049,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 14,
+          "llm_calls": 3,
+          "attempts_by_kind": {
+            "db": 10,
+            "llm": 3,
+            "embedding": 1
+          },
+          "absolute_deadline": 1791331522.5354896,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "DEV_Q130",
+        "repeat": 3,
+        "order_in_file": 94,
+        "query_sha256": "6213620a30dd1068cf9df58d82f047d3403628ae0d1feeac015e66e03912e2c3",
+        "query_characters": 166,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "Improve Performance of Decision Center and Rule Team Server (RTS)",
+        "request_seconds": 38.046999999904074,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 4,
+          "llm_calls": 0,
+          "attempts_by_kind": {
+            "db": 4
+          },
+          "absolute_deadline": 1791331560.6784878,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "DEV_Q029",
+        "repeat": 3,
+        "order_in_file": 95,
+        "query_sha256": "e7a71529defd1ca391db33ccdf4f951c246f94344d97588d23a4d0e54022c024",
+        "query_characters": 157,
+        "version_mentions": [
+          "8.8"
+        ],
+        "platform_mentions": [],
+        "question_title": "Recurrent RES StaleConnectionException",
+        "request_seconds": 38.51500000001397,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 13,
+          "llm_calls": 2,
+          "attempts_by_kind": {
+            "db": 10,
+            "llm": 2,
+            "embedding": 1
+          },
+          "absolute_deadline": 1791331598.8066332,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "TRAIN_Q246",
+        "repeat": 3,
+        "order_in_file": 96,
+        "query_sha256": "8a9c677a0da2ed60f7bbacf7d6682571cb4b2a0f6b67adb00f4bcaddc716c66f",
+        "query_characters": 342,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "Help with Security Bulletin: Security vulnerabilities have been identified in IBM DB2 shipped with WebSphere Remote Server (CVE-2015-2808)",
+        "request_seconds": 37.95299999997951,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 4,
+          "llm_calls": 0,
+          "attempts_by_kind": {
+            "db": 4
+          },
+          "absolute_deadline": 1791331637.259256,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      },
+      {
+        "question_id": "TRAIN_Q247",
+        "repeat": 3,
+        "order_in_file": 97,
+        "query_sha256": "95c3d19eedb77125cdc27628a9a2e66abc2f0a13f1a466a36dff8bdfd76cbed8",
+        "query_characters": 641,
+        "version_mentions": [],
+        "platform_mentions": [],
+        "question_title": "Why is the reload() not clearing the attribute cache so I can see my newly updated LDAP data in real time?",
+        "request_seconds": 38.14099999994505,
+        "rag_status": "timeout",
+        "db_status": "completed",
+        "rag_error": {
+          "category": "request_deadline_exhausted",
+          "retryable": false
+        },
+        "usage": {
+          "attempts": 14,
+          "llm_calls": 3,
+          "attempts_by_kind": {
+            "db": 10,
+            "llm": 3,
+            "embedding": 1
+          },
+          "absolute_deadline": 1791331675.224038,
+          "observed_tokens": null,
+          "estimated_tokens": null,
+          "cost": null
+        },
+        "startup_classification": "after previous RAG timeout: restart inferred from runner/control flow"
+      }
+    ],
+    "rag_timeout_total": 36,
+    "cohort_definition": "33 RAG timeout with DB completed; additionally 3 both-Worker timeouts retained separately",
+    "completed_rag_seconds": {
+      "n": 70,
+      "min": 7.087561100022867,
+      "median": 14.608959699980915,
+      "p95": 21.95868529996369,
+      "max": 26.13155699998606,
+      "mean": 14.877852818569435
+    },
+    "by_repeat": {
+      "1": {
+        "qa_completed_rag_seconds": {
+          "n": 32,
+          "min": 9.837276400066912,
+          "median": 15.11345559998881,
+          "p95": 21.706655999994837,
+          "max": 22.635808999999426,
+          "mean": 15.481164253120369
+        },
+        "qa_rag_timeouts": 2,
+        "batch2_rag_only_seconds": {
+          "n": 50,
+          "min": 10.037531499983743,
+          "median": 18.351062699919567,
+          "p95": 30.38677770004142,
+          "max": 30.543538200086914,
+          "mean": 18.21902352001285
+        }
+      },
+      "2": {
+        "qa_completed_rag_seconds": {
+          "n": 22,
+          "min": 7.087561100022867,
+          "median": 13.424704999895766,
+          "p95": 21.999197599943727,
+          "max": 26.13155699998606,
+          "mean": 14.270722190912982
+        },
+        "qa_rag_timeouts": 13,
+        "batch2_rag_only_seconds": {
+          "n": 50,
+          "min": 6.2449106000131,
+          "median": 10.98004400008358,
+          "p95": 21.398655500030145,
+          "max": 23.418329100008123,
+          "mean": 11.68540067600552
+        }
+      },
+      "3": {
+        "qa_completed_rag_seconds": {
+          "n": 16,
+          "min": 9.203787800041027,
+          "median": 14.514235400012694,
+          "p95": 19.76400540000759,
+          "max": 19.76400540000759,
+          "mean": 14.506034562495188
+        },
+        "qa_rag_timeouts": 18,
+        "batch2_rag_only_seconds": {
+          "n": 50,
+          "min": 5.110226700082421,
+          "median": 10.782665399950929,
+          "p95": 20.0663408000255,
+          "max": 28.750446900026873,
+          "mean": 11.596213976005092
+        }
+      }
+    },
+    "first_service_request": {
+      "qa": {
+        "rag_seconds": 18.72513049992267,
+        "request_seconds": 19.108999999938533
+      },
+      "batch2_rag_only_seconds": 30.543538200086914
+    },
+    "after_inferred_restart_completed_rag_seconds": {
+      "n": 2,
+      "min": 14.450971700018272,
+      "median": 14.59339589998126,
+      "p95": 14.59339589998126,
+      "max": 14.59339589998126,
+      "mean": 14.522183799999766
+    },
+    "clock_caveat": "RAG trace.latency_ms starts inside agent.run, after index startup. Request elapsed includes DB and on-demand restart; these are not interchangeable. Worker PID and per-request startup timing were not recorded in repair1.",
+    "comparison": "Calibration preloads once, executes repeat1/2/3 consecutively per task, uses hot persistent cache and 50 constructed tasks. QA shuffles 39 original questions per repeat; cancellation can force a cold child on subsequent requests. Neither load nor temperature is matched; successful-only QA timings are survivor-biased.",
+    "calibration_envelope": {
+      "attempts": 256,
+      "llm_calls": 64,
+      "seconds": 300
+    },
+    "production_after_calibration_seconds": 37.941018
+  },
+  "concurrency": {
+    "own_driver": "sequential: one synchronous TestClient request at a time; calibration awaits each run; no overlapping own evaluation requests",
+    "same_ollama_other_clients": "unknown: historical service-wide client/process/GPU telemetry absent; cannot infer from current process inventory",
+    "interrupted_native_call": "a killed client can leave a pending Ollama request; historical server-side cancellation completion not observed"
+  },
+  "heldout_answer_contents_read": false,
+  "source_sha256": {
+    "audit/project2-v1/ch13_v032_round0/resume_trace.json": "a7d50b6d5d31c781eed0e140610b7bcac1416741aa7f28b9a0f2d33a7a2650fb",
+    "audit/project2-v1/ch13_v032_round0/before_restart_checkpoint.json": "8fadaed43827c72d3c1a75ee902bb07f317f925f0231f39aaefe143f165f6229",
+    "audit/project2-v1/ch13_v032_round0/recovery_accounting_evidence.json": "5271746c8050085f805f5b4169b6e483960f769a32acf1b95ac4f392ff76bbab",
+    "audit/project2-v1/ch13_v032_round0/resumed_response.json": "85ec8a21cf2331f6abdfde861ee26a4f054c9e1cebbab569449339bcd6733347",
+    "audit/project2-v1/ch13_v032_round0/after_restart_startup.json": "2c48c182120310b30fc787693cac8616da753c1eb69346fe65fa7519a74f4ba6",
+    "evals/project2-v1/ch12/regression_repair1/requests.jsonl": "29e3116e20808cd0418624b720148f5bb04542a4c307c08485efe993a9505f7b",
+    "evals/project2-v1/calibration_v031/batch2/requests.jsonl": "1d6ebf673476b494ff191b227ee9b765dd2a8e9f50019709e4c66f538ce40ba5",
+    "scripts/project2_stage_eval.py": "35815ce2a9a87a357adbd830e4b2b9357c6854be8728a4047aa8937fb8f86dbd",
+    "scripts/project2_v03_calibration.py": "b9816261beff3a733f5c39679b93c8f9a726152f6264f72662ba50ad1ddc38d8",
+    "scripts/run_project2_ch13_gate.py": "288e5f9c1482ee61043b740c8ae532497b540e1002f0010691940d6602f16463",
+    "audit/project2-v1/regression_repair1.log": "24b12b8b289a7d7fbe14faeca959d340ee560179875823206d772890814c2b74"
+  }
+}

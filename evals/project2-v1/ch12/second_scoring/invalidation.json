@@ -1,0 +1,17 @@
+{
+  "status": "作废：空正文、全同分、基于修复前答案",
+  "authorization_date": "2026-10-06",
+  "llm_scoring": "paused",
+  "agreement_eligible": false,
+  "independent_human_scoring": false,
+  "files": {
+    "evals/project2-v1/ch12/second_scoring/human_spot_check.json": "eed995defd81c26863ed748cfed8bce2ec488c00ed26c6149bf00b46c6854a0d",
+    "evals/project2-v1/ch12/second_scoring/llama3.2_3b.jsonl": "b5dddc3d222bce2ada8f41ea1190e3cdc8eda97f9a37e972b5492aafc6fa6271",
+    "evals/project2-v1/ch12/second_scoring/plan.json": "a0859f1e8cf8291e88b622827849f5da92cefd53ba4cec60a67bd42d0231d7f3",
+    "evals/project2-v1/ch12/second_scoring/plan.json.sha256": "78e719b3e82e8b4a703b507d4fa917a0ef0885bafdc7be75c1321b53aae34fe4",
+    "evals/project2-v1/ch12/second_scoring/qwen2.5_3b.jsonl": "7fad035df65732f3e452a3abee5840868d0fcef895af6057046e0e2139f60b26",
+    "evals/project2-v1/ch12/second_scoring/summary.json": "5269ccf8e71d5a6e6165ef0bd66cd84bb115c2d59abf9d3cd74a36025ffeed29"
+  },
+  "original_records_preserved": true,
+  "replacement": "待盲评；禁止3B模型评分"
+}

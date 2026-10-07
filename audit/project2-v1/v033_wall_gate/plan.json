@@ -1,0 +1,22 @@
+{
+  "spec_version": "v0.3.3",
+  "budget": {
+    "attempts": 19,
+    "llm_calls": 6,
+    "seconds": 90
+  },
+  "scenario_ids": [
+    "AC12-05",
+    "AC12-16"
+  ],
+  "repeats": 3,
+  "queries_sha256": {
+    "AC12-05": "79cd4429f831d1e70bd79ac66142aab078bbf7ea4cae5313f7838bae45b24e53",
+    "AC12-16": "79cd4429f831d1e70bd79ac66142aab078bbf7ea4cae5313f7838bae45b24e53"
+  },
+  "AC12-05_fault": "original planned HTTP dispatch cancellation: suspend before effective dependency result, no fabricated corpus/count",
+  "AC12-16_fault": "real localhost model HTTP blackhole; actual counted HTTP sends",
+  "matrix_unchanged": true,
+  "heldout_calls": 0,
+  "script_sha256": "28fc810d8bbabce5c48b2387bfb34203b9e00d0a666be9dbd9d7a44abafb8fc8"
+}

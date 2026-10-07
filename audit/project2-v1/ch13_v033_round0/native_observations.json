@@ -1,0 +1,216 @@
+{
+  "observations": {
+    "evidence_type": "真实运行",
+    "processes": [
+      110632,
+      112280
+    ],
+    "checkpoint": {
+      "run_id": "476d9a0c18d948dcacc2d9a78bfa1014",
+      "request_id": "4f45d094c62a4cd48d9fe90c28e338f2",
+      "owner": "gate-owner",
+      "tenant": "local",
+      "policy_version": "trusted-full-readonly-v1",
+      "version": "dc67a3a7025a8a15d79cb4e35d7fc8aaf842663be05ef3776943d78f6031e95c",
+      "request": {
+        "query": "Help with Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects WMB & IIB (CVE-2015-4000)\nI need to understand details regarding Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000). This vulnerability is commonly referred to as \"Logjam\". Where can I find this information?",
+        "analysis_operation": "document_count",
+        "include_samples": true,
+        "sample_limit": 5,
+        "analysis_predicates": null
+      },
+      "request_sha256": "7c07cec775339e842ac5bc5db3147eb5b9634383b59dfe44b5d22827ba04ce62",
+      "created_at": 1791342933.3708858,
+      "expires_at": 1791429333.3708858,
+      "lifecycle": "running",
+      "budget": {
+        "attempts": 5,
+        "llm_calls": 1,
+        "attempts_by_kind": {
+          "db": 4,
+          "llm": 1
+        },
+        "absolute_deadline": 1791343023.3638275,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null,
+        "execution": {
+          "policy_sha256": "e7998a3ea215618605ad13facdf36b9abdc7e88328cd515dab8126c0a2675fb8",
+          "limit_seconds": 90,
+          "lifetime_seconds": 900,
+          "heartbeat_seconds": 0.25,
+          "consumed_seconds": 2.9839999999385327,
+          "segments": [
+            {
+              "segment_id": "cf1fa8e37e774333a65c728d470c27fe",
+              "consumed_seconds": 2.9839999999385327,
+              "closed": false
+            }
+          ]
+        }
+      },
+      "nodes": {
+        "database": {
+          "contract_version": "project2-v1",
+          "run_id": "476d9a0c18d948dcacc2d9a78bfa1014",
+          "task_id": "techqa_document_query",
+          "worker": "database",
+          "status": "completed",
+          "payload": {
+            "groups": [
+              {
+                "predicate": [
+                  "WebSphere Message Broker"
+                ],
+                "count": 4867,
+                "samples": [
+                  {
+                    "doc_id": "isg3T1027567",
+                    "title": "IBM z/OS Consolidated Service Test: FMIDs Installed in the CST Environment - United States"
+                  },
+                  {
+                    "doc_id": "swg1IC47850",
+                    "title": "IBM IC47850: FIX PACK 6.0.0.1 FOR WEBSPHERE MESSAGE BROKER V6.0 FOR WINDOWS - United States"
+                  },
+                  {
+                    "doc_id": "swg1IC47851",
+                    "title": "IBM IC47851: FIX PACK 6.0.0.1 FOR WEBSPHERE MESSAGE BROKER WITH RFE V6.0 FOR WINDOWS - United States"
+                  },
+                  {
+                    "doc_id": "swg1IC47922",
+                    "title": "IBM IC47922: UNABLE TO CONNECT TO CMGR WITH DOMAIN USERID - United States"
+                  },
+                  {
+                    "doc_id": "swg1IC49001",
+                    "title": "IBM IC49001: CLASSCASTEXCEPTION IN RUNTIME JAVA DEBUGGER CODE - United States"
+                  }
+                ]
+              }
+            ],
+            "intersection": null,
+            "delta_a_minus_b": null,
+            "measurement_complete": true,
+            "unit": "original_document",
+            "data_version": {
+              "scope": "full",
+              "document_count": "801996",
+              "complete": "true",
+              "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+              "format_version": "1"
+            },
+            "rules_version": "techqa-fts-predicate-v1",
+            "request_slots_version": "request-slots-v1.2-literal-version-adjacency",
+            "operation": "document_count",
+            "samples_truncated": true
+          },
+          "evidence": [
+            {
+              "source_id": "Q1",
+              "predicate": [
+                "WebSphere Message Broker"
+              ],
+              "count": 4867,
+              "scope": "full",
+              "measurement_complete": true
+            }
+          ],
+          "limitations": [
+            "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
+            "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
+            "同一文档可命中两个比较组；tokenizer的词干和标点处理可能扩大字面匹配。",
+            "统计只覆盖明确授权的数据快照；示例文档为有限行，不代表完整清单。"
+          ],
+          "error": null,
+          "usage": {
+            "attempts": 4,
+            "llm_calls": 0,
+            "attempts_by_kind": {
+              "db": 4
+            },
+            "absolute_deadline": 1791343023.3638275,
+            "observed_tokens": null,
+            "estimated_tokens": null,
+            "cost": null,
+            "execution": {
+              "policy_sha256": "e7998a3ea215618605ad13facdf36b9abdc7e88328cd515dab8126c0a2675fb8",
+              "limit_seconds": 90,
+              "lifetime_seconds": 900,
+              "heartbeat_seconds": 0.25,
+              "consumed_seconds": 1.4689999999245629,
+              "segments": [
+                {
+                  "segment_id": "cf1fa8e37e774333a65c728d470c27fe",
+                  "consumed_seconds": 1.4689999999245629,
+                  "closed": false
+                }
+              ]
+            }
+          }
+        }
+      },
+      "result": null,
+      "authorized_operations": [
+        "document_count",
+        "rag_explain"
+      ]
+    },
+    "after_budget": {
+      "attempts": 15,
+      "llm_calls": 4,
+      "attempts_by_kind": {
+        "db": 10,
+        "llm": 4,
+        "embedding": 1
+      },
+      "absolute_deadline": 1791343059.37951,
+      "observed_tokens": null,
+      "estimated_tokens": null,
+      "cost": null,
+      "execution": {
+        "policy_sha256": "e7998a3ea215618605ad13facdf36b9abdc7e88328cd515dab8126c0a2675fb8",
+        "limit_seconds": 90,
+        "lifetime_seconds": 900,
+        "heartbeat_seconds": 0.25,
+        "consumed_seconds": 55.702999999863096,
+        "segments": [
+          {
+            "segment_id": "cf1fa8e37e774333a65c728d470c27fe",
+            "consumed_seconds": 3.2339999999385327,
+            "closed": true,
+            "termination": "uncertain_tail_conservatively_charged"
+          },
+          {
+            "segment_id": "26fc89a6bfa349ea889deec7932a448d",
+            "consumed_seconds": 52.46899999992456,
+            "closed": true,
+            "termination": "normal_api_exit"
+          }
+        ]
+      }
+    },
+    "response_status": 200,
+    "real_subprocess_restart": true,
+    "same_run_id": true,
+    "completed_database_skipped": true,
+    "budget_not_reset": true,
+    "unknown_run_rejected": true,
+    "illegal_state_rejected": true,
+    "owner_read_resume_isolation": true,
+    "revocation_rechecked": true,
+    "parent_child_trace": true,
+    "unchanged_native_answer_body": true,
+    "client_interruption": [
+      {
+        "interrupted_client": "ConnectionResetError"
+      }
+    ],
+    "real_sqlite_fault_located_by_trace": true,
+    "fault_status": "partial",
+    "fault_expected_s07": true,
+    "read_only_policy_unregistered_publish": true,
+    "runtime_contract_tests": true,
+    "frozen_budget_and_baseline": true,
+    "heldout_reuse_only": true
+  },
+  "error": null
+}

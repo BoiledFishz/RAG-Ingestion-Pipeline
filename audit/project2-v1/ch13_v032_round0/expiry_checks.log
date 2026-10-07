@@ -1,0 +1,8 @@
+INFO:     Started server process [90024]
+INFO:     Waiting for application startup.
+2026-10-06 18:13:08,704 INFO P2_STARTUP {"type": "ready", "scope": "full", "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b", "worker_pid": 115688, "startup_timings": {"imports_seconds": 0.5748684999998659, "agent_build_seconds": 0.022618600050918758, "index_and_encoder_seconds": 23.112511300016195, "faiss_index_load_seconds": 9.764993100077845, "child_initialization_seconds": 24.05437799997162}, "launch_to_ready_seconds": 24.50634690001607}
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:57055 (Press CTRL+C to quit)
+INFO:     127.0.0.1:57096 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57097 - "POST /v2/project2/runs/6fcafa268d974ef698232e6da1d5bee5/resume HTTP/1.1" 409 Conflict
+INFO:     127.0.0.1:57098 - "POST /v2/project2/runs/6fcafa268d974ef698232e6da1d5bee5/resume HTTP/1.1" 409 Conflict

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="1.456" timestamp="2026-10-06T20:47:50.547298-07:00" hostname="szy"><testcase classname="tests.project2.test_v033_offline_reporting" name="test_incomplete_confirmation_cannot_create_a_blind_package" time="0.098"><failure message="AssertionError: assert not True&#10; +  where True = exists()&#10; +    where exists = (WindowsPath('C:/Users/zacha/AppData/Local/Temp/aws-support-rag-97236-5a587dc43a8a4ae0ac8f871018361350/test_incomplete_confirmation_c0') / 'evals/project2-v1/blind_review_v033_final').exists">tmp_path = WindowsPath('C:/Users/zacha/AppData/Local/Temp/aws-support-rag-97236-5a587dc43a8a4ae0ac8f871018361350/test_incomplete_confirmation_c0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001E5F5B7D160&gt;
+
+    def test_incomplete_confirmation_cannot_create_a_blind_package(tmp_path, monkeypatch):
+        import export_project2_v033_blind as exporter
+    
+        monkeypatch.setattr(exporter, 'ROOT', tmp_path)
+        with pytest.raises(ValueError, match='Final confirmatory run incomplete'):
+            exporter.build()
+&gt;       assert not (tmp_path / 'evals/project2-v1/blind_review_v033_final').exists()
+E       AssertionError: assert not True
+E        +  where True = exists()
+E        +    where exists = (WindowsPath('C:/Users/zacha/AppData/Local/Temp/aws-support-rag-97236-5a587dc43a8a4ae0ac8f871018361350/test_incomplete_confirmation_c0') / 'evals/project2-v1/blind_review_v033_final').exists
+
+tests\project2\test_v033_offline_reporting.py:17: AssertionError</failure></testcase></testsuite></testsuites>

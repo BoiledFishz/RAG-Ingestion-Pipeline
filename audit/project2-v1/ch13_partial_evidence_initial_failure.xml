@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="6" time="0.735" timestamp="2026-10-06T17:21:30.145354-07:00" hostname="szy"><testcase classname="tests.project2.test_continuation_reporting" name="test_continuation_authority_is_hash_checked_and_does_not_waive_s14" time="0.003" /><testcase classname="tests.project2.test_continuation_reporting" name="test_all_six_states_account_for_all_real_combined_observations" time="0.083" /><testcase classname="tests.project2.test_continuation_reporting" name="test_gate_requires_each_registered_boolean_not_a_claimed_pass" time="0.006" /><testcase classname="tests.project2.test_continuation_reporting" name="test_runtime_binding_requires_immutable_passing_gate_and_never_claims_whole_requirement" time="0.012" /><testcase classname="tests.project2.test_continuation_reporting" name="test_deadline_stop_requires_failed_gate_real_timeout_and_unchanged_deadline" time="0.001" /><testcase classname="tests.project2.test_continuation_reporting" name="test_failed_runtime_gate_can_bind_only_passed_components_as_partial" time="0.006"><failure message="AssertionError: assert '待实施' == '部分'&#10;  &#10;  - 部分&#10;  + 待实施">tmp_path = WindowsPath('C:/Users/zacha/AppData/Local/Temp/aws-support-rag-109300-e036cf9460274f35ac7961581fa2d9f9/test_failed_runtime_gate_can_b0')
+
+    def test_failed_runtime_gate_can_bind_only_passed_components_as_partial(tmp_path):
+        from project2_continuation_report import bind_runtime_stage_evidence
+        approved=[{'requirement_id':'runtime-contract','scenario_ids':'AC13-01;AC13-03'}]
+        items=[{'requirement_id':'runtime-contract','execution_status':'待实施','evidence_files':[]}]
+        gate={'stage':'Chap13','status':'failed','repair_rounds':1,'system_gate_executed':True,'gate_scope':'system_gate',
+              'checks':[{'check':'same_run_id','expected':True,'observed':False,'status':'failed'},
+                        {'check':'owner_read_resume_isolation','expected':True,'observed':True,'status':'passed'}]}
+        folder=tmp_path/'audit/project2-v1/ch13_round1';folder.mkdir(parents=True)
+        (folder/'gate.json').write_text(json.dumps(gate),encoding='utf-8')
+        result=bind_runtime_stage_evidence(tmp_path,approved,items,gate)
+&gt;       assert result[0]['execution_status']=='部分'
+E       AssertionError: assert '待实施' == '部分'
+E         
+E         - 部分
+E         + 待实施
+
+tests\project2\test_continuation_reporting.py:70: AssertionError</failure></testcase></testsuite></testsuites>

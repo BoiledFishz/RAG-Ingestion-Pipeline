@@ -1,0 +1,12 @@
+{
+  "stage": "Chap13",
+  "status": "completed",
+  "new_stage_calls": 1,
+  "new_repetitions": 3,
+  "global_stage_calls": 2,
+  "global_repetitions": 6,
+  "ledger_entry_sha256": "1249f7d8f311470002c3a95b7d106c2e112b296fda2a75b4d314e20face1520f",
+  "previous_receipt_sha256": "d287e6813592974e4554e41a56544650b7f2a2d4829d79b8226b3a655c539a7f",
+  "requests": 90,
+  "summary_sha256": "705eeca60df86d5d0f4779ce66faf2f9fb945ab7f8e7d6a69a78f07e09af43ba"
+}

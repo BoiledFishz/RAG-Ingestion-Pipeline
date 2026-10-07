@@ -1,0 +1,12 @@
+INFO:     Started server process [97120]
+INFO:     Waiting for application startup.
+2026-10-06 20:18:09,993 INFO P2_STARTUP {"type": "ready", "scope": "full", "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b", "worker_pid": 116568, "warmup": {"completed": true, "selection": "official full docs ORDER BY doc_id LIMIT 1, text only", "text_sha256": "27566416452b285c86c1df3f65970d4eb327c96d9c97ebf6b77b64c095776b2d", "qa_fields_used": [], "corpus_read_seconds": 0.026266900007613003, "embedding_inference_seconds": 0.8492569999070838, "index_warmup_seconds": 2.6103410000214353, "total_seconds": 3.485864899936132, "llm_calls": 0, "request_budget_created": false}, "startup_timings": {"imports_seconds": 1.1002295999787748, "agent_build_seconds": 0.03187379997689277, "index_and_encoder_seconds": 54.857522100093774, "faiss_index_load_seconds": 34.380539800040424, "child_initialization_seconds": 60.334005600074306}, "launch_to_ready_seconds": 61.1695435999427}
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:61248 (Press CTRL+C to quit)
+INFO:     127.0.0.1:58606 - "GET /healthz HTTP/1.1" 200 OK
+2026-10-06 20:18:10,497 WARNING Database request=eae4dfe6bce3481487bbe01d27e34721 error=database_error
+2026-10-06 20:18:29,169 INFO NATIVE_BODY run=eae4dfe6bce3481487bbe01d27e34721 sha256=f6afef252046778509f3d5647651435ef2557cc3aaa1fab1e6f1e8b219081b45
+2026-10-06 20:18:29,173 INFO Project2 run=eae4dfe6bce3481487bbe01d27e34721 status=partial attempts=11
+INFO:     127.0.0.1:58607 - "POST /v2/project2/analysis HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63241 - "GET /v2/project2/runs/faae8a1ba22342e3a0a34d62ad051813/trace HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63242 - "POST /v2/project2/analysis HTTP/1.1" 422 Unprocessable Entity

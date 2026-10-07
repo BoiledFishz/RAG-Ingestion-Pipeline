@@ -19,6 +19,12 @@ ARCHIVE = "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118"
 ENTITY = re.compile(r"WebSphere\s+Application\s+Server|WebSphere\s+Message\s+Broker|IBM\s+Integration\s+Bus|WebSphere\s+MQ|IBM\s+HTTP\s+Server|WebSphere\s+Portal|Netcool\/Impact|Netcool|DataPower|ClearQuest|Datacap|Cognos|SPSS|DB2|BPM|MQ|Impact|Rational|CICS|Tivoli|FileNet|PureApplication|Passport\s+Advantage|Fix\s+Central|UCD|RDz|ITNM|ITM|Nokia\s+NSP", re.I | re.ASCII)
 VERSION = re.compile(r"\b(?:V(?:ersion)?\s*\d+(?:\.\d+)*|Release\s*\d+|\d+\.\d+(?:\.\d+)*)\b", re.I | re.ASCII)
 PLATFORM = re.compile(r"\bz\/OS\b|\b(?:Windows|Linux|AIX|UNIX|Solaris|macOS|Mac|NonStop|RedHat|RHEL)\b", re.I | re.ASCII)
+# Query-side literal component names: acronyms and internal-capital names.
+# No alias expansion or official-answer/document lookup. This fallback is
+# deliberately limited to a missing known entity, keeping existing predicates.
+COMPONENT = re.compile(r"\b(?:[A-Z]{2,12}|[A-Z][a-z]+(?:[A-Z][A-Za-z]*)+|[A-Z][a-z]+(?=\s+(?:(?:[Vv](?:ersion)?|Release)\s*)?\d))\b", re.ASCII)
+NON_COMPONENT = frozenset({"ERROR", "WARNING", "INFO", "ANSWER", "QUESTION", "HTTP", "HTTPS", "URL", "SQL", "XML", "IP", "ID", "QID", "SSL", "INSTALLATION", "EXIT", "REQUESTED", "TERMINATION", "REASON", "CODE", "API", "NET"})
+REQUEST_SLOTS_VERSION = "request-slots-v1.2-literal-version-adjacency"
 LIMITATIONS = [
     "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
     "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
@@ -35,6 +41,9 @@ def query_groups(request: AnalysisRequest) -> list[list[str]]:
         return groups
     entities = list(ENTITY.finditer(request.query))
     if not entities:
+        entities = [match for match in COMPONENT.finditer(request.query)
+                    if match.group() not in NON_COMPONENT]
+    if not entities:
         raise ValueError("clarification_required:entity")
     pairs: list[list[str]] = []
     for index, entity in enumerate(entities):
@@ -46,7 +55,18 @@ def query_groups(request: AnalysisRequest) -> list[list[str]]:
                 pairs.append(group)
     if request.analysis_operation == "compare_document_counts":
         if len(pairs) < 2:
-            raise ValueError("clarification_required:two_entity_version_pairs")
+            # A known product must not hide another literal component in the
+            # same request. Preserve already valid pairs; no aliases or gold.
+            extras=[m for m in COMPONENT.finditer(request.query) if m.group() not in NON_COMPONENT
+                    and not any(m.start()<e.end() and e.start()<m.end() for e in entities)]
+            expanded=sorted([*entities,*extras],key=lambda m:m.start())
+            for index,entity in enumerate(expanded):
+                end=min(entity.end()+32,expanded[index+1].start() if index+1<len(expanded) else len(request.query))
+                version=VERSION.search(request.query,entity.end(),end)
+                if version and not re.search(r"\b(?:IP|XML)\b",request.query[max(0,version.start()-15):version.start()],re.I):
+                    group=[entity.group(),version.group()]
+                    if tuple(x.casefold() for x in group) not in {tuple(x.casefold() for x in p) for p in pairs}:pairs.append(group)
+            if len(pairs)<2:raise ValueError("clarification_required:two_entity_version_pairs")
         return pairs[:2]
     first = entities[0].group()
     group = next((p for p in pairs if p[0].casefold() == first.casefold()), [first])
@@ -115,6 +135,7 @@ class DatabaseWorker:
                 raise ValueError("data_version_mismatch")
             result.payload["data_version"] = manifest
             result.payload["rules_version"] = "techqa-fts-predicate-v1"
+            result.payload["request_slots_version"] = REQUEST_SLOTS_VERSION
             result.payload["operation"] = request.analysis_operation
             for index, group in enumerate(groups):
                 if index == self.inject_timeout_group:

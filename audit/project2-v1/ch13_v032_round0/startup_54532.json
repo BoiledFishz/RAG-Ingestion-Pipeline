@@ -1,0 +1,20 @@
+{
+  "process_entry_wall_time": 1791335522.3755312,
+  "ready_wall_time": 1791335546.4367402,
+  "api_process_initialization_seconds": 24.061208963394165,
+  "rag_startup": {
+    "type": "ready",
+    "scope": "full",
+    "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b",
+    "worker_pid": 105656,
+    "startup_timings": {
+      "imports_seconds": 0.5737969999900088,
+      "agent_build_seconds": 0.023801599978469312,
+      "index_and_encoder_seconds": 21.044207300059497,
+      "faiss_index_load_seconds": 5.018136099912226,
+      "child_initialization_seconds": 22.00377439998556
+    },
+    "launch_to_ready_seconds": 22.454431399935856
+  },
+  "server_pid": 111592
+}

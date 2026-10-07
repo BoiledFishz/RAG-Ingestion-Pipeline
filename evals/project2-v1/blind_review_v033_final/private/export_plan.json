@@ -1,0 +1,27 @@
+{
+  "seed": 20261006,
+  "scope": "final v033 tune and once-only confirmatory held-out; no old pack or historical answer reuse",
+  "sources": {
+    "evals/project2-v1/ch13_v033/qa-tune/scored.json": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+    "evals/project2-v1/ch13_v033/qa-held-out/scored.json": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+    "evals/protocol_v0/facts_tune.human_frozen.json": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+    "evals/protocol_v0/facts_held-out.human_frozen.json": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916"
+  },
+  "order": "fixed-seed shuffle after grouping identical bodies",
+  "empty_or_failed": "zero, excluded from agreement",
+  "LLM_calls": 0,
+  "heldout_processing": "fixed offline export only, never design/diagnosis; user authorized",
+  "current_v033_status": "final source hashes verified; confirmatory receipt completed",
+  "public_fields": [
+    "blind_id",
+    "question",
+    "answer_body",
+    "required_facts",
+    "ratings",
+    "reviewer",
+    "review_date",
+    "question_judgment"
+  ],
+  "private_mapping": "private/key.json separately; do not open before review",
+  "baseline_and_repair_answers_never_modified": true
+}

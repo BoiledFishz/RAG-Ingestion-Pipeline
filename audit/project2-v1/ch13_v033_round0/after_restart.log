@@ -1,0 +1,15 @@
+INFO:     Started server process [80292]
+INFO:     Waiting for application startup.
+2026-10-06 20:16:12,504 INFO P2_STARTUP {"type": "ready", "scope": "full", "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b", "worker_pid": 112352, "warmup": {"completed": true, "selection": "official full docs ORDER BY doc_id LIMIT 1, text only", "text_sha256": "27566416452b285c86c1df3f65970d4eb327c96d9c97ebf6b77b64c095776b2d", "qa_fields_used": [], "corpus_read_seconds": 0.017683999962173402, "embedding_inference_seconds": 0.8585453999694437, "index_warmup_seconds": 0.6158686999697238, "total_seconds": 1.492098099901341, "llm_calls": 0, "request_budget_created": false}, "startup_timings": {"imports_seconds": 0.849175599985756, "agent_build_seconds": 0.02857710001990199, "index_and_encoder_seconds": 29.431704899994656, "faiss_index_load_seconds": 9.84729890001472, "child_initialization_seconds": 32.311142200022005}, "launch_to_ready_seconds": 32.8852421999909}
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:51020 (Press CTRL+C to quit)
+INFO:     127.0.0.1:58160 - "GET /healthz HTTP/1.1" 200 OK
+2026-10-06 20:17:05,050 INFO NATIVE_BODY run=d5a2788e144341daabbd8d16457d3410 sha256=a6ad086e81498594c135ef3dbfaf1598aa8de86c19ba9c3117eb4d72ca2756f3
+2026-10-06 20:17:05,060 INFO Project2 run=d5a2788e144341daabbd8d16457d3410 status=completed attempts=15
+INFO:     127.0.0.1:58106 - "POST /v2/project2/runs/476d9a0c18d948dcacc2d9a78bfa1014/resume HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61242 - "GET /v2/project2/runs/476d9a0c18d948dcacc2d9a78bfa1014/trace HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61243 - "POST /v2/project2/runs/00000000000000000000000000000000/resume HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61244 - "GET /v2/project2/runs/476d9a0c18d948dcacc2d9a78bfa1014 HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:61245 - "POST /v2/project2/runs/476d9a0c18d948dcacc2d9a78bfa1014/resume HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:61246 - "GET /v2/project2/runs/476d9a0c18d948dcacc2d9a78bfa1014 HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:61247 - "POST /v2/project2/runs/476d9a0c18d948dcacc2d9a78bfa1014/resume HTTP/1.1" 409 Conflict

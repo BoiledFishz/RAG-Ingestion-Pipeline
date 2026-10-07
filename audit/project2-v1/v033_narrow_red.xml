@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="1.610" timestamp="2026-10-06T20:03:23.672691-07:00" hostname="szy"><testcase classname="tests.project2.test_v033_narrow_deadline" name="test_ledger_does_not_enlarge_shorter_segment_budget" time="0.552"><failure message="agents.project2.budget.BudgetExceeded: request_deadline_exhausted">tmp_path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/07b1eca70f8449d9bb1435bf9c525056')
+
+    def test_ledger_does_not_enlarge_shorter_segment_budget(tmp_path):
+        owner=TrustedContext('narrow-owner','local',frozenset({'full'}),frozenset({'document_count','rag_explain'}))
+        query=json.loads((ROOT/'specs/project2/v0.3.3/task_preregistration.json').read_text(encoding='utf-8'))['samples'][0]['query']
+        store=StateStore(tmp_path,'v033',execution_policy=load_policy(ROOT,'v0.3.3'))
+&gt;       budget=Budget(seconds=.5);state=store.create(AnalysisRequest(query=query),owner,budget)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+enterprise-ai-agent\tests\project2\test_v033_narrow_deadline.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+enterprise-ai-agent\agents\project2\service_runtime.py:69: in create
+    budget.remaining();now = time.time();body = request.model_dump(mode='json')
+    ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;agents.project2.budget.Budget object at 0x0000028FA4DCE7E0&gt;
+local_limit = None
+
+    def remaining(self, local_limit: float | None = None) -&gt; float:
+        with self.lock:
+            value = self.deadline - time.monotonic()
+            if self.cancelled or value &lt;= 0:
+&gt;               raise BudgetExceeded("request_deadline_exhausted")
+E               agents.project2.budget.BudgetExceeded: request_deadline_exhausted
+
+enterprise-ai-agent\agents\project2\budget.py:93: BudgetExceeded</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="1.552" timestamp="2026-10-06T20:06:30.511394-07:00" hostname="szy"><testcase classname="tests.project2.test_v033_dependency_timeout" name="test_wrapped_real_http_timeout_is_recognized_without_classifying_other_errors" time="0.001"><failure message="ImportError: cannot import name 'dependency_timeout' from 'agents.project2.rag_process' (C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py)">def test_wrapped_real_http_timeout_is_recognized_without_classifying_other_errors():
+&gt;       from agents.project2.rag_process import dependency_timeout
+E       ImportError: cannot import name 'dependency_timeout' from 'agents.project2.rag_process' (C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py)
+
+enterprise-ai-agent\tests\project2\test_v033_dependency_timeout.py:11: ImportError</failure></testcase><testcase classname="tests.project2.test_v033_dependency_timeout" name="test_timeout_message_cancels_owned_child_and_propagates_timeout" time="0.511"><failure message="Failed: DID NOT RAISE TimeoutError">def test_timeout_message_cancels_owned_child_and_propagates_timeout():
+        prepare_budget_configuration()
+        env=json.loads((ROOT/'evals/protocol_v0/baseline_v0.config.json').read_text(encoding='utf-8'))['environment']
+        runtime=BoundedRAGProcess(env);runtime.startup_required=True;runtime.ready=True
+        class Pipe:
+            def write(self,text):pass
+            def flush(self):pass
+            def readline(self):return json.dumps({'type':'error','category':'DependencyUnavailable','dependency_timeout':True})+'\n'
+        class Process:
+            stdin=Pipe();stdout=Pipe()
+            def poll(self):return None
+        runtime.process=Process();cancelled=[]
+        runtime.stop=lambda:cancelled.append(True)
+        query=json.loads((ROOT/'specs/project2/v0.3.3/task_preregistration.json').read_text(encoding='utf-8'))['samples'][0]['query']
+        async def run():
+            with pytest.raises(TimeoutError):await runtime.run(query,Budget())
+&gt;       asyncio.run(run())
+
+enterprise-ai-agent\tests\project2\test_v033_dependency_timeout.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\runners.py:195: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\base_events.py:691: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    async def run():
+&gt;       with pytest.raises(TimeoutError):await runtime.run(query,Budget())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE TimeoutError
+
+enterprise-ai-agent\tests\project2\test_v033_dependency_timeout.py:31: Failed</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,32 @@
+{
+  "process_entry_wall_time": 1791343110.3088164,
+  "ready_wall_time": 1791343200.7414596,
+  "api_process_initialization_seconds": 90.43264317512512,
+  "rag_startup": {
+    "type": "ready",
+    "scope": "full",
+    "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b",
+    "worker_pid": 117176,
+    "warmup": {
+      "completed": true,
+      "selection": "official full docs ORDER BY doc_id LIMIT 1, text only",
+      "text_sha256": "27566416452b285c86c1df3f65970d4eb327c96d9c97ebf6b77b64c095776b2d",
+      "qa_fields_used": [],
+      "corpus_read_seconds": 0.025137400021776557,
+      "embedding_inference_seconds": 0.952372599975206,
+      "index_warmup_seconds": 6.7287342000054196,
+      "total_seconds": 7.706244200002402,
+      "llm_calls": 0,
+      "request_budget_created": false
+    },
+    "startup_timings": {
+      "imports_seconds": 0.7861083999741822,
+      "agent_build_seconds": 0.01797339995391667,
+      "index_and_encoder_seconds": 78.63992790004704,
+      "faiss_index_load_seconds": 59.01055100001395,
+      "child_initialization_seconds": 87.65821529994719
+    },
+    "launch_to_ready_seconds": 88.293207300012
+  },
+  "server_pid": 96584
+}

@@ -1,0 +1,76 @@
+INFO:     Started server process [100160]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:54082 (Press CTRL+C to quit)
+INFO:     127.0.0.1:54128 - "GET /healthz HTTP/1.1" 200 OK
+Database request=8fc0d9dc27834709be5a4372af22985e error=database_error
+INFO:     127.0.0.1:54129 - "POST /v2/project2/analysis HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\fastapi\applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\fastapi\telemetry\_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\api\project2_main.py", line 51, in __call__
+    await self.app(scope, receive, bounded_send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\fastapi\routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\fastapi\routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\fastapi\routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\fastapi\routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\fastapi\routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\fastapi\routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\api\project2_runtime_main.py", line 56, in analysis
+    try:return await runtime.analyze(body, context(request), request.state.budget)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 221, in analyze
+    return await self.execute(state, context, budget, resume=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 249, in execute
+    result = await supervisor.run(AnalysisRequest.model_validate(state['request']), context, budget)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 92, in run
+    database = await self.database.run(request, context, budget, run_id) if allowed_db else empty_result("database", "permission_denied", run_id, "permission_denied")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 202, in run
+    self.state['budget'] = budget.snapshot();self.store.write(self.state)
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 86, in write
+    os.replace(temporary, path)
+PermissionError: [WinError 5] 拒绝访问。: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\audit\\project2-v1\\ch13_round0\\state\\16f203fd999e46f9b693748ca355ae59.json.8253afdee2104f08b3dc5d8898a5b209.tmp' -> 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\audit\\project2-v1\\ch13_round0\\state\\16f203fd999e46f9b693748ca355ae59.json'

@@ -150,6 +150,12 @@ def component_evidence(audit: Path) -> list[dict[str, Any]]:
 
 
 def generate(root: Path) -> str:
+    if (root/'specs/project2/v0.3.3/version_manifest.json').is_file():
+        from project2_v033_report import generate as generate_v033
+        return generate_v033(root)
+    if (root / "specs/project2/v0.3.2/version_manifest.json").is_file():
+        from project2_v032_report import generate as generate_v032
+        return generate_v032(root)
     if (root / "specs/project2/v0.3.1/version_manifest.json").is_file():
         from project2_v031_report import generate as generate_v031
         return generate_v031(root)

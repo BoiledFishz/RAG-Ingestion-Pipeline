@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="5" skipped="0" tests="5" time="1.606" timestamp="2026-10-06T19:53:09.390975-07:00" hostname="szy"><testcase classname="tests.project2.test_v033_budget_startup" name="test_default_budget_is_90_seconds_with_unchanged_attempt_caps" time="0.286"><failure message="assert 89 &lt; 37.66001799993683&#10; +  where 37.66001799993683 = remaining()&#10; +    where remaining = &lt;agents.project2.budget.Budget object at 0x0000021EA8BB7E60&gt;.remaining">def test_default_budget_is_90_seconds_with_unchanged_attempt_caps():
+        b=Budget()
+&gt;       assert 89 &lt; b.remaining() &lt;=90
+E       assert 89 &lt; 37.66001799993683
+E        +  where 37.66001799993683 = remaining()
+E        +    where remaining = &lt;agents.project2.budget.Budget object at 0x0000021EA8BB7E60&gt;.remaining
+
+enterprise-ai-agent\tests\project2\test_v033_budget_startup.py:11: AssertionError</failure></testcase><testcase classname="tests.project2.test_v033_budget_startup" name="test_runtime_policy_has_signed_floor_without_rewriting_old_policy" time="0.003"><failure message="TypeError: load_policy() takes 1 positional argument but 2 were given">def test_runtime_policy_has_signed_floor_without_rewriting_old_policy():
+        from agents.project2.execution_clock import load_policy
+&gt;       assert load_policy(ROOT,'v0.3.3')['execution_limit_seconds']==90
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: load_policy() takes 1 positional argument but 2 were given
+
+enterprise-ai-agent\tests\project2\test_v033_budget_startup.py:22: TypeError</failure></testcase><testcase classname="tests.project2.test_v033_budget_startup" name="test_cold_runtime_never_initializes_inside_a_run_budget" time="0.011"><failure message="AttributeError: 'NoneType' object has no attribute 'stdin'">def test_cold_runtime_never_initializes_inside_a_run_budget():
+        from agents.project2.rag_process import BoundedRAGProcess
+        env=json.loads((ROOT/'evals/protocol_v0/baseline_v0.config.json').read_text(encoding='utf-8'))['environment']
+        runtime=BoundedRAGProcess(env);runtime.startup_required=True
+        called=[]
+        async def start():called.append(True);return {'type':'ready'}
+        runtime.start=start
+        query=json.loads((ROOT/'specs/project2/v0.3.3/task_preregistration.json').read_text(encoding='utf-8'))['samples'][0]['query']
+        async def scenario():
+            b=Budget()
+            with pytest.raises(RuntimeError,match='worker_not_ready'):await runtime.run(query,b)
+            assert not called and b.attempts==0
+&gt;       asyncio.run(scenario())
+
+enterprise-ai-agent\tests\project2\test_v033_budget_startup.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\runners.py:195: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\base_events.py:691: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+enterprise-ai-agent\tests\project2\test_v033_budget_startup.py:35: in scenario
+    with pytest.raises(RuntimeError,match='worker_not_ready'):await runtime.run(query,b)
+                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;agents.project2.rag_process.BoundedRAGProcess object at 0x0000021EA8BD5BB0&gt;
+query = 'Does ODM 8.5.1 support MQ 9.0?\n\n\nDoes ODM 8.5.1 support MQ 9.0 where ODM Rule Execution Server is running on WAS 8.5.0.2 (embedded with ODM)?\n\nNo MQ version is specified in ODM 8.5.1 System Requirements.'
+budget = &lt;agents.project2.budget.Budget object at 0x0000021EA8BD68A0&gt;
+
+    async def run(self, query: str, budget: Budget) -&gt; dict[str, Any]:
+        acquired = False
+        query_sent = False
+        try:
+            remaining = budget.remaining()
+            await asyncio.wait_for(self.lock.acquire(), remaining)
+            acquired = True
+            try:
+                remaining = budget.remaining()
+                await asyncio.wait_for(self.start(), remaining)
+                budget.remaining()
+                self.active_budget = budget
+                query_sent = True
+&gt;               self.process.stdin.write(json.dumps({"query": query, "absolute_deadline": budget.absolute_deadline}) + "\n")
+                ^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'NoneType' object has no attribute 'stdin'
+
+enterprise-ai-agent\agents\project2\rag_process.py:312: AttributeError</failure></testcase><testcase classname="tests.project2.test_v033_budget_startup" name="test_real_warmup_reads_only_official_corpus_and_leaves_requests_unstarted" time="0.001"><failure message="ModuleNotFoundError: No module named 'agents.project2.startup_warmup'">def test_real_warmup_reads_only_official_corpus_and_leaves_requests_unstarted():
+&gt;       from agents.project2.startup_warmup import warm_engine
+E       ModuleNotFoundError: No module named 'agents.project2.startup_warmup'
+
+enterprise-ai-agent\tests\project2\test_v033_budget_startup.py:40: ModuleNotFoundError</failure></testcase><testcase classname="tests.project2.test_v033_budget_startup" name="test_partial_worker_timeout_is_counted_in_smoke" time="0.004"><failure message="ModuleNotFoundError: No module named 'project2_v033_metrics'">def test_partial_worker_timeout_is_counted_in_smoke():
+&gt;       from project2_v033_metrics import worker_flags
+E       ModuleNotFoundError: No module named 'project2_v033_metrics'
+
+enterprise-ai-agent\tests\project2\test_v033_budget_startup.py:52: ModuleNotFoundError</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,26 @@
+{
+  "seed": 20261006,
+  "scope": "historical tune baseline and repair1 only; NOT post-v032 acceptance",
+  "sources": {
+    "evals/protocol_v0/runs/baseline-v0-quick/tune/runs.json": "21ee90faf9e2e095d6cf4b03e749bf7219889c0c185ef468ac567afd119d0145",
+    "evals/project2-v1/ch12/regression_repair1/scored.json": "c360738d79e4c525189e2f0b8bc0f30827cf1f6f503b873f87c49de9258c405c",
+    "evals/protocol_v0/facts_tune.human_frozen.json": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3"
+  },
+  "order": "fixed-seed shuffle after grouping identical bodies",
+  "empty_or_failed": "zero, excluded from agreement",
+  "LLM_calls": 0,
+  "heldout_bodies_read": false,
+  "current_v032_status": "Native gate failed; no post-repair tune/held-out answers exist",
+  "public_fields": [
+    "blind_id",
+    "question",
+    "answer_body",
+    "required_facts",
+    "ratings",
+    "reviewer",
+    "review_date",
+    "question_judgment"
+  ],
+  "private_mapping": "private/key.json separately; do not open before review",
+  "baseline_and_repair_answers_never_modified": true
+}

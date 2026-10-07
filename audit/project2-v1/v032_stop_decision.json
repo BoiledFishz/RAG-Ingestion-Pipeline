@@ -1,0 +1,138 @@
+{
+  "status": "stopped_frozen_active_execution",
+  "machine_predicate": true,
+  "permission_to_increase_budget": false,
+  "stochastic_rerun_permitted": false,
+  "gate_passed": false,
+  "repairs_used": 0,
+  "stage": "Chap13",
+  "failed_checks": [
+    "same_run_id",
+    "unchanged_native_answer_body"
+  ],
+  "gate_passes": 13,
+  "gate_total": 15,
+  "limits": {
+    "attempts": 19,
+    "llm_calls": 6,
+    "seconds": 37.941018
+  },
+  "usage": {
+    "attempts": 15,
+    "llm_calls": 4,
+    "attempts_by_kind": {
+      "db": 10,
+      "llm": 4,
+      "embedding": 1
+    },
+    "absolute_deadline": 1791335521.003568,
+    "observed_tokens": null,
+    "estimated_tokens": null,
+    "cost": null,
+    "execution": {
+      "policy_sha256": "c76c2c52bdfb08cdccd12fb9b6aa32947d0e7e2493123d6b0321eb52d0b2582f",
+      "limit_seconds": 37.941018,
+      "lifetime_seconds": 900,
+      "heartbeat_seconds": 0.25,
+      "consumed_seconds": 38.46799999999348,
+      "segments": [
+        {
+          "segment_id": "28f59612ef5b4035a16bcf2a79fc1086",
+          "consumed_seconds": 2.14000000001397,
+          "closed": true,
+          "termination": "uncertain_tail_conservatively_charged"
+        },
+        {
+          "segment_id": "ab9530be471343d1bff63a34307fa51e",
+          "consumed_seconds": 36.32799999997951,
+          "closed": false
+        }
+      ]
+    }
+  },
+  "recovery_accounting": {
+    "before": {
+      "policy_sha256": "c76c2c52bdfb08cdccd12fb9b6aa32947d0e7e2493123d6b0321eb52d0b2582f",
+      "limit_seconds": 37.941018,
+      "lifetime_seconds": 900,
+      "heartbeat_seconds": 0.25,
+      "consumed_seconds": 1.8900000000139698,
+      "segments": [
+        {
+          "segment_id": "28f59612ef5b4035a16bcf2a79fc1086",
+          "consumed_seconds": 1.8900000000139698,
+          "closed": false
+        }
+      ]
+    },
+    "after": {
+      "policy_sha256": "c76c2c52bdfb08cdccd12fb9b6aa32947d0e7e2493123d6b0321eb52d0b2582f",
+      "limit_seconds": 37.941018,
+      "lifetime_seconds": 900,
+      "heartbeat_seconds": 0.25,
+      "consumed_seconds": 38.46799999999348,
+      "segments": [
+        {
+          "segment_id": "28f59612ef5b4035a16bcf2a79fc1086",
+          "consumed_seconds": 2.14000000001397,
+          "closed": true,
+          "termination": "uncertain_tail_conservatively_charged"
+        },
+        {
+          "segment_id": "ab9530be471343d1bff63a34307fa51e",
+          "consumed_seconds": 36.32799999997951,
+          "closed": true,
+          "termination": "normal_api_exit"
+        }
+      ]
+    },
+    "numeric_limits_unchanged": true,
+    "attempts_preserved": true,
+    "cumulative_not_reset": true,
+    "expiry_rejections": true,
+    "startup_evidence": [
+      "after_restart_startup.json",
+      "before_stop_startup.json",
+      "expiry_checks_startup.json",
+      "sqlite_fault_startup.json"
+    ],
+    "downtime_excluded": true,
+    "evidence_type": "真实运行 / 故障注入"
+  },
+  "process_launch_seconds": 0.4159390926361084,
+  "process_launch_to_ready_seconds": 24.92893648147583,
+  "index_load_seconds": 4.86467579996679,
+  "last_pending_dependency": {
+    "kind": "llm",
+    "attempts": 15,
+    "llm_calls": 4
+  },
+  "host_guard": {
+    "status": "released",
+    "host_suspended": false,
+    "gaps": [],
+    "failure": null,
+    "power_plugged": null,
+    "psutil_installed": false,
+    "calls": [
+      {
+        "flags": 2147483649,
+        "previous": 2147483648
+      },
+      {
+        "flags": 2147483648,
+        "previous": 2147483649
+      }
+    ],
+    "process_id": 112616,
+    "system_power_settings_changed": false
+  },
+  "reason": "累计执行期限37.941018秒耗尽，恢复仍为RAG timeout/DB completed→partial；停机已排除。根因属于冻结期限/v0执行行为，不能改阈值或为随机性重跑门禁。",
+  "proof_files": {
+    "audit/project2-v1/ch13_v032_round0/gate.json": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+    "audit/project2-v1/ch13_v032_round0/resumed_response.json": "85ec8a21cf2331f6abdfde861ee26a4f054c9e1cebbab569449339bcd6733347",
+    "audit/project2-v1/ch13_v032_round0/recovery_accounting_evidence.json": "5271746c8050085f805f5b4169b6e483960f769a32acf1b95ac4f392ff76bbab",
+    "audit/project2-v1/ch13_v032_round0/resume_trace.json": "a7d50b6d5d31c781eed0e140610b7bcac1416741aa7f28b9a0f2d33a7a2650fb",
+    "audit/project2-v1/ch13_v032_round0/after_restart_startup.json": "2c48c182120310b30fc787693cac8616da753c1eb69346fe65fa7519a74f4ba6"
+  }
+}

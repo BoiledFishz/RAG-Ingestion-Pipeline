@@ -1,0 +1,7 @@
+{
+  "observations": {},
+  "error": {
+    "category": "RuntimeError",
+    "detail": "Request ended before interrupted checkpoint was captured"
+  }
+}

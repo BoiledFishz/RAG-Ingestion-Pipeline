@@ -1,0 +1,7 @@
+{
+  "status": "withdrawn_for_current_acceptance",
+  "reason": "Direct user v033 instruction: do not use pre-repair historical blind pack",
+  "old_receipt_sha256": "e298ffbf7fdb77c91ebed6f65861ac8113d570f0ad40cd71bc589d5245033806",
+  "old_files_modified": false,
+  "replacement": "only after final v033 code and confirmatory run complete"
+}

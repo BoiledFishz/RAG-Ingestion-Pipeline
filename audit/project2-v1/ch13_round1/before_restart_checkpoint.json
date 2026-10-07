@@ -1,0 +1,121 @@
+{
+  "run_id": "b48df562e0e54bcfb9369d035903e893",
+  "request_id": "b8785811635d4e789163c45bd51fca97",
+  "owner": "gate-owner",
+  "tenant": "local",
+  "policy_version": "trusted-full-readonly-v1",
+  "version": "de6c25349b22fd3b1dbb32cf8f546bd38af7f519d170fbd9ceeb8fe48ff61bb0",
+  "request": {
+    "query": "Help with Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects WMB & IIB (CVE-2015-4000)\nI need to understand details regarding Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000). This vulnerability is commonly referred to as \"Logjam\". Where can I find this information?",
+    "analysis_operation": "document_count",
+    "include_samples": true,
+    "sample_limit": 5,
+    "analysis_predicates": null
+  },
+  "request_sha256": "7c07cec775339e842ac5bc5db3147eb5b9634383b59dfe44b5d22827ba04ce62",
+  "created_at": 1791332190.0470796,
+  "expires_at": 1791418590.0470796,
+  "lifecycle": "running",
+  "budget": {
+    "attempts": 5,
+    "llm_calls": 1,
+    "attempts_by_kind": {
+      "db": 4,
+      "llm": 1
+    },
+    "absolute_deadline": 1791332227.9828193,
+    "observed_tokens": null,
+    "estimated_tokens": null,
+    "cost": null
+  },
+  "nodes": {
+    "database": {
+      "contract_version": "project2-v1",
+      "run_id": "b48df562e0e54bcfb9369d035903e893",
+      "task_id": "techqa_document_query",
+      "worker": "database",
+      "status": "completed",
+      "payload": {
+        "groups": [
+          {
+            "predicate": [
+              "WebSphere Message Broker"
+            ],
+            "count": 4867,
+            "samples": [
+              {
+                "doc_id": "isg3T1027567",
+                "title": "IBM z/OS Consolidated Service Test: FMIDs Installed in the CST Environment - United States"
+              },
+              {
+                "doc_id": "swg1IC47850",
+                "title": "IBM IC47850: FIX PACK 6.0.0.1 FOR WEBSPHERE MESSAGE BROKER V6.0 FOR WINDOWS - United States"
+              },
+              {
+                "doc_id": "swg1IC47851",
+                "title": "IBM IC47851: FIX PACK 6.0.0.1 FOR WEBSPHERE MESSAGE BROKER WITH RFE V6.0 FOR WINDOWS - United States"
+              },
+              {
+                "doc_id": "swg1IC47922",
+                "title": "IBM IC47922: UNABLE TO CONNECT TO CMGR WITH DOMAIN USERID - United States"
+              },
+              {
+                "doc_id": "swg1IC49001",
+                "title": "IBM IC49001: CLASSCASTEXCEPTION IN RUNTIME JAVA DEBUGGER CODE - United States"
+              }
+            ]
+          }
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true,
+        "unit": "original_document",
+        "data_version": {
+          "scope": "full",
+          "document_count": "801996",
+          "complete": "true",
+          "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+          "format_version": "1"
+        },
+        "rules_version": "techqa-fts-predicate-v1",
+        "request_slots_version": "request-slots-v1.1-literal-components",
+        "operation": "document_count",
+        "samples_truncated": true
+      },
+      "evidence": [
+        {
+          "source_id": "Q1",
+          "predicate": [
+            "WebSphere Message Broker"
+          ],
+          "count": 4867,
+          "scope": "full",
+          "measurement_complete": true
+        }
+      ],
+      "limitations": [
+        "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
+        "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
+        "同一文档可命中两个比较组；tokenizer的词干和标点处理可能扩大字面匹配。",
+        "统计只覆盖明确授权的数据快照；示例文档为有限行，不代表完整清单。"
+      ],
+      "error": null,
+      "usage": {
+        "attempts": 4,
+        "llm_calls": 0,
+        "attempts_by_kind": {
+          "db": 4
+        },
+        "absolute_deadline": 1791332227.9828193,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      }
+    }
+  },
+  "result": null,
+  "authorized_operations": [
+    "document_count",
+    "rag_explain"
+  ]
+}

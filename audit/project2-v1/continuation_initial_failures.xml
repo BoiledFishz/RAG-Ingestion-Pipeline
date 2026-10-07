@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="0.913" timestamp="2026-10-06T16:20:42.679572-07:00" hostname="szy"><testcase classname="tests.project2.test_continuation_diagnosis" name="test_explicit_query_components_are_not_rejected_before_retrieval" time="0.113"><failure message="ValueError: clarification_required:entity">def test_explicit_query_components_are_not_rejected_before_retrieval():
+        from models.project2 import AnalysisRequest
+        from tools.techqa_document_query import query_groups
+        rows = json.loads((ROOT / 'evals/project2-v1/ch12/qa-tune/scored.json').read_text(encoding='utf-8'))
+        baseline = json.loads((ROOT / 'evals/protocol_v0/runs/baseline-v0-quick/tune/runs.json').read_text(encoding='utf-8'))
+        questions = {x['question_id']: x['native']['run']['trace']['original_query'] for x in baseline}
+        controls = {x['question_id'] for x in json.loads((ROOT / 'evals/protocol_v0/controls.json').read_text(encoding='utf-8'))['records']}
+        selected = {x['question_id'] for x in rows if x['question_id'] in controls and
+                    (x['result']['workers']['rag'].get('error') or {}).get('category') == 'clarification_required'}
+        assert selected
+        for identifier in sorted(selected):
+            query = questions[identifier]
+&gt;           groups = query_groups(AnalysisRequest(query=query))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\project2\test_continuation_diagnosis.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+request = AnalysisRequest(query='How to import a certificate in ITCAM for Data Power ?\nHow can I import a certificate in ITCAM for Data Power?', analysis_operation='document_count', include_samples=True, sample_limit=5, analysis_predicates=None)
+
+    def query_groups(request: AnalysisRequest) -&gt; list[list[str]]:
+        if request.analysis_predicates is not None:
+            groups = request.analysis_predicates
+            if len(groups) != (2 if request.analysis_operation == "compare_document_counts" else 1):
+                raise ValueError("clarification_required:predicate_group_count")
+            return groups
+        entities = list(ENTITY.finditer(request.query))
+        if not entities:
+&gt;           raise ValueError("clarification_required:entity")
+E           ValueError: clarification_required:entity
+
+enterprise-ai-agent\tools\techqa_document_query.py:38: ValueError</failure></testcase><testcase classname="tests.project2.test_continuation_diagnosis" name="test_second_judge_math_and_body_quote_validation" time="0.004"><failure message="ModuleNotFoundError: No module named 'project2_second_scoring'">def test_second_judge_math_and_body_quote_validation():
+&gt;       from project2_second_scoring import cohen_kappa, validate_scores
+E       ModuleNotFoundError: No module named 'project2_second_scoring'
+
+tests\project2\test_continuation_diagnosis.py:27: ModuleNotFoundError</failure></testcase></testsuite></testsuites>

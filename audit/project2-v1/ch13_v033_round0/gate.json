@@ -1,0 +1,138 @@
+{
+  "stage": "Chap13",
+  "status": "passed",
+  "system_gate_executed": true,
+  "gate_scope": "system_gate",
+  "checks": [
+    {
+      "check": "budget_not_reset",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "故障注入",
+      "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json"
+    },
+    {
+      "check": "completed_database_skipped",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json"
+    },
+    {
+      "check": "frozen_budget_and_baseline",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json"
+    },
+    {
+      "check": "heldout_reuse_only",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json"
+    },
+    {
+      "check": "illegal_state_rejected",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "故障注入",
+      "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json"
+    },
+    {
+      "check": "owner_read_resume_isolation",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json"
+    },
+    {
+      "check": "parent_child_trace",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json"
+    },
+    {
+      "check": "read_only_policy_unregistered_publish",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json"
+    },
+    {
+      "check": "real_sqlite_fault_located_by_trace",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "故障注入",
+      "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json"
+    },
+    {
+      "check": "real_subprocess_restart",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "故障注入",
+      "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json"
+    },
+    {
+      "check": "revocation_rechecked",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json"
+    },
+    {
+      "check": "runtime_contract_tests",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "契约测试(Mock)",
+      "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json"
+    },
+    {
+      "check": "same_run_id",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json"
+    },
+    {
+      "check": "unchanged_native_answer_body",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json"
+    },
+    {
+      "check": "unknown_run_rejected",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json"
+    }
+  ],
+  "failure_items": [],
+  "repair_rounds": 0,
+  "plan_sha256": "ea997bbfa8d55489259b54f84b26d483d9e1aca9475951558f9c4c89d249d5a1",
+  "native_error": null,
+  "s14_status": "未通过",
+  "heldout_new_calls": 0,
+  "budget_limits_changed": true,
+  "budget_seconds": 90,
+  "attempts_cap": 19,
+  "llm_cap": 6
+}

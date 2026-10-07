@@ -1,0 +1,28 @@
+{
+  "version": "v0.3.2",
+  "authorization_date": "2026-10-06",
+  "files": {
+    "acceptance_scenarios.csv": "79cd4429f831d1e70bd79ac66142aab078bbf7ea4cae5313f7838bae45b24e53",
+    "approval_record.md": "4261db500b9fcc04108cb308efd7903b2134cff0c976fc4f3b1622e363eeef70",
+    "check_docs.py": "b8face27e7685e204271072da0a7f430244fb448c743481dd75578d78e9c6fc1",
+    "clarifications.md": "060388edd8b6719a70ce07e5a3e20cb5f001a8b056c092536a6590b2bc51678c",
+    "delta.json": "a333b39646b2b342009f6af110c14b02551c044ae8bd968480375dfc158d7ae7",
+    "delta.md": "9c0cb86230bced9d8dd9471a1cb94cd41bef9953957f86cfa726bc41e79f0f1c",
+    "operation_protocol.json": "2c4036a2bc6774fd7b3be7dc2d9d514a547be5ce28113c6a11d1f46983e1171f",
+    "plan.md": "5bcb62ed931773092015ed6b9fddacdda7f2e984562e95a6b6097c0a3159960b",
+    "recovery_accounting.json": "c76c2c52bdfb08cdccd12fb9b6aa32947d0e7e2493123d6b0321eb52d0b2582f",
+    "requirements_v0.1.md": "7aa3441bf33c7d3b94501d99d6a7e99e0ba486e03413abf3e530c6a847f6ea7b",
+    "review_sheet.md": "580f62088c9173dfb800f4fb9d687dd4ea6929d2e503233e6e4ff4a12b7ade0e",
+    "review_sheet_signed_2026-10-05.md": "81cea2ea6241f0f51da3eecd45d999a99ebb2c939c6445e57197a0673a00b048",
+    "spec.md": "8bba3747e09d6dd07301dc16200572162aa72b21f2d81105ef247cd4db98ce98",
+    "task_preregistration.json": "ecd190e06afc173ab485ccba8c1a16e6256ede19b575ecd1ceb00891de86d63f",
+    "task_preregistration.json.sha256": "981c10858e4642fb14995f5c5447bfeccdb9e7242c1f5f443cd63451df62c2ea",
+    "tasks.md": "5ce515349f6498cf49932eec70526941abb256384a59ef4571f65ced28c15dd7",
+    "traceability.csv": "14c308d2759dd8c0b127d385770b650753bca8d405bac67da5116c0a5790bde2",
+    "zero_predicate_registration.json": "317217920ffea15edab5578518114dbcb31cdf78059bbe920872afc08953701d"
+  },
+  "excluded": [
+    "approval_addendum.md",
+    "version_manifest.json"
+  ]
+}

@@ -20,6 +20,14 @@ def read_frozen_limits(root: Path | None = None) -> dict[str, Any]:
     from agents.project2.calibration_profile import read_v031
     selected = read_v031(root)
     if selected is not None:
+        docs=root/'specs/project2/v0.3.3'
+        if docs.exists():
+            from agents.project2.execution_clock import load_policy
+            policy=load_policy(root,'v0.3.3')
+            if (selected['attempts'],selected['llm_calls'])!=(policy['dependency_limit'],policy['llm_limit']):
+                raise ValueError('Signed floor cannot change attempt caps')
+            if policy['execution_limit_seconds']!=max(90,selected['seconds']):raise ValueError('Signed wall floor differs')
+            return {**selected,'seconds':policy['execution_limit_seconds']}
         return selected
     folder = root / "evals/project2-v1/calibration_v03"
     profile = folder / "budget_frozen.json"
@@ -67,6 +75,8 @@ class Budget:
         if not 0 < seconds <= approved["seconds"] or not 1 <= attempts <= approved["attempts"] or not 1 <= llm_calls <= approved["llm_calls"]:
             raise ValueError("Cannot enlarge approved hard call limits")
         self.deadline = started_monotonic + seconds
+        self.started_monotonic = started_monotonic
+        self.limit_seconds = seconds
         self.absolute_deadline = started_absolute + seconds
         self.max_attempts, self.max_llm_calls = attempts, llm_calls
         self.attempts, self.llm_calls = 0, 0

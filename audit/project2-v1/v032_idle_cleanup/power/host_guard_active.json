@@ -1,0 +1,8 @@
+{
+  "status": "active",
+  "process_id": 107868,
+  "flags": 2147483649,
+  "scope": "calling runner thread only; no system power policy changes",
+  "psutil_installed": false,
+  "power_plugged": null
+}

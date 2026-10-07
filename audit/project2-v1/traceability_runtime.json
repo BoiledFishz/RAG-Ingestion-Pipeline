@@ -1,5 +1,5 @@
 {
-  "source": "specs/project2/v0.3.1/traceability.csv",
+  "source": "specs/project2/v0.3.3/traceability.csv",
   "source_sha256": "14c308d2759dd8c0b127d385770b650753bca8d405bac67da5116c0a5790bde2",
   "items": [
     {
@@ -76,7 +76,9 @@
           "scenario_id": "AC12-12",
           "evidence_type": "真实运行",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "scenario_id": "AC12-01",
@@ -207,7 +209,9 @@
           "scenario_id": "AC12-02",
           "evidence_type": "真实运行",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "scenario_id": "AC12-02",
@@ -252,7 +256,9 @@
           "scenario_id": "AC12-12",
           "evidence_type": "真实运行",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "scenario_id": "AC12-01",
@@ -287,21 +293,27 @@
           "scenario_id": "AC12-08",
           "evidence_type": "契约测试(Mock)",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "test": "test_default_route_has_server_auth_and_no_budget_bypass",
           "scenario_id": "AC12-04",
           "evidence_type": "契约测试(Mock)",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "test": "test_independent_legal_db_can_run_if_rag_denied",
           "scenario_id": "AC12-07",
           "evidence_type": "契约测试(Mock)",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         }
       ]
     },
@@ -321,7 +333,9 @@
           "scenario_id": "AC12-11",
           "evidence_type": "故障注入",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "scenario_id": "AC12-01",
@@ -365,7 +379,9 @@
           "scenario_id": "AC12-14",
           "evidence_type": "契约测试(Mock)",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "scenario_id": "AC12-01",
@@ -393,7 +409,9 @@
           "scenario_id": "AC12-14",
           "evidence_type": "契约测试(Mock)",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "scenario_id": "AC12-13",
@@ -421,35 +439,45 @@
           "scenario_id": "AC12-02",
           "evidence_type": "真实运行",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "test": "test_real_wrong_scope_fails_with_null",
           "scenario_id": "AC12-06",
           "evidence_type": "故障注入",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "test": "test_all_36_pairs_match_frozen_matrix",
           "scenario_id": "AC12-14",
           "evidence_type": "契约测试(Mock)",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "test": "test_default_route_has_server_auth_and_no_budget_bypass",
           "scenario_id": "AC12-04",
           "evidence_type": "契约测试(Mock)",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "test": "test_independent_legal_db_can_run_if_rag_denied",
           "scenario_id": "AC12-07",
           "evidence_type": "契约测试(Mock)",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "scenario_id": "AC12-02",
@@ -466,6 +494,13 @@
           "evidence_sha256": "2a1808de94dd3af12f328ad5ffcf3fec59e494fc8f58a4a6a9a023e209c652a2",
           "evidence_type": "真实运行",
           "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC12-05",
+          "evidence_file": "audit/project2-v1/v033_wall_gate_round1/gate.json",
+          "evidence_sha256": "e3db89a2dac114253742842b3f7892b42cca7f34458dac59b39092aa9ab1f3a2",
+          "evidence_type": "故障注入",
+          "coverage": "wall_only;budget90"
         }
       ]
     },
@@ -473,10 +508,12 @@
       "requirement_id": "MA-07",
       "source_status": "待实施",
       "execution_status": "部分",
-      "actual": "已绑定程序通过的工程子场景；其余子场景及质量条件未据此判通过",
+      "actual": "Chap13已执行子场景已绑定；未覆盖的云/缓存/质量条件保持待实施",
       "evidence_files": [
         "audit/project2-v1/ch12_component_checks.junit.xml",
-        "audit/project2-v1/v031_ch12_gate_round0.json"
+        "audit/project2-v1/v031_ch12_gate_round0.json",
+        "audit/project2-v1/ch13_round1/gate.json",
+        "audit/project2-v1/ch13_v032_round0/gate.json"
       ],
       "gate_stages": [],
       "partial_evidence": [
@@ -485,14 +522,18 @@
           "scenario_id": "AC12-15",
           "evidence_type": "契约测试(Mock)",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "test": "test_direct_worker_cannot_bypass_budget_or_policy",
           "scenario_id": "AC12-15",
           "evidence_type": "契约测试(Mock)",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "scenario_id": "AC12-16",
@@ -501,26 +542,201 @@
           "evidence_sha256": "2a1808de94dd3af12f328ad5ffcf3fec59e494fc8f58a4a6a9a023e209c652a2",
           "evidence_type": "故障注入",
           "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-02",
+          "gate_check": [
+            "illegal_state_rejected",
+            "runtime_contract_tests",
+            "unknown_run_rejected"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "契约测试(Mock)",
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-02",
+          "gate_check": [
+            "budget_not_reset",
+            "illegal_state_rejected",
+            "runtime_contract_tests",
+            "unknown_run_rejected"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "契约测试(Mock)",
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC12-16",
+          "evidence_file": "audit/project2-v1/v033_wall_gate_round1/gate.json",
+          "evidence_sha256": "e3db89a2dac114253742842b3f7892b42cca7f34458dac59b39092aa9ab1f3a2",
+          "evidence_type": "故障注入",
+          "coverage": "wall_only;budget90"
+        },
+        {
+          "scenario_id": "AC12-05",
+          "evidence_file": "audit/project2-v1/v033_wall_gate_round1/gate.json",
+          "evidence_sha256": "e3db89a2dac114253742842b3f7892b42cca7f34458dac59b39092aa9ab1f3a2",
+          "evidence_type": "故障注入",
+          "coverage": "wall_only;budget90"
+        },
+        {
+          "scenario_id": "AC13-02",
+          "gate_check": [
+            "budget_not_reset",
+            "illegal_state_rejected",
+            "runtime_contract_tests",
+            "unknown_run_rejected"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "budget_not_reset",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "illegal_state_rejected",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "runtime_contract_tests",
+              "evidence_type": "契约测试(Mock)",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "unknown_run_rejected",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
         }
       ]
     },
     {
       "requirement_id": "MA-08",
       "source_status": "待实施",
-      "execution_status": "待实施",
-      "actual": "未执行",
-      "evidence_files": [],
+      "execution_status": "部分",
+      "actual": "Chap13已执行子场景已绑定；未覆盖的云/缓存/质量条件保持待实施",
+      "evidence_files": [
+        "audit/project2-v1/ch13_round1/gate.json",
+        "audit/project2-v1/ch13_v032_round0/gate.json"
+      ],
       "gate_stages": [],
-      "partial_evidence": []
+      "partial_evidence": [
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "read_only_policy_unregistered_publish",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        }
+      ]
     },
     {
       "requirement_id": "MA-09",
       "source_status": "待实施",
-      "execution_status": "待实施",
-      "actual": "未执行",
-      "evidence_files": [],
+      "execution_status": "部分",
+      "actual": "Chap13已执行子场景已绑定；未覆盖的云/缓存/质量条件保持待实施",
+      "evidence_files": [
+        "audit/project2-v1/ch13_round1/gate.json",
+        "audit/project2-v1/ch13_v032_round0/gate.json"
+      ],
       "gate_stages": [],
-      "partial_evidence": []
+      "partial_evidence": [
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "read_only_policy_unregistered_publish",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        }
+      ]
     },
     {
       "requirement_id": "MA-10",
@@ -538,7 +754,9 @@
           "scenario_id": "AC12-11",
           "evidence_type": "故障注入",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "scenario_id": "AC12-01",
@@ -569,46 +787,711 @@
     {
       "requirement_id": "RT-01",
       "source_status": "待实施",
-      "execution_status": "待实施",
-      "actual": "未执行",
-      "evidence_files": [],
+      "execution_status": "部分",
+      "actual": "Chap13已执行子场景已绑定；未覆盖的云/缓存/质量条件保持待实施",
+      "evidence_files": [
+        "audit/project2-v1/ch13_round1/gate.json",
+        "audit/project2-v1/ch13_v032_round0/gate.json"
+      ],
       "gate_stages": [],
-      "partial_evidence": []
+      "partial_evidence": [
+        {
+          "scenario_id": "AC13-01",
+          "gate_check": [
+            "budget_not_reset",
+            "completed_database_skipped",
+            "real_subprocess_restart"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-03",
+          "gate_check": [
+            "owner_read_resume_isolation",
+            "revocation_rechecked"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-01",
+          "gate_check": [
+            "budget_not_reset",
+            "completed_database_skipped",
+            "real_subprocess_restart"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-03",
+          "gate_check": [
+            "owner_read_resume_isolation",
+            "revocation_rechecked"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-01",
+          "gate_check": [
+            "budget_not_reset",
+            "completed_database_skipped",
+            "real_subprocess_restart",
+            "same_run_id"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "budget_not_reset",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "completed_database_skipped",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "real_subprocess_restart",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "same_run_id",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        },
+        {
+          "scenario_id": "AC13-03",
+          "gate_check": [
+            "owner_read_resume_isolation",
+            "revocation_rechecked"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "owner_read_resume_isolation",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "revocation_rechecked",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        }
+      ]
     },
     {
       "requirement_id": "RT-02",
       "source_status": "待实施",
-      "execution_status": "待实施",
-      "actual": "未执行",
-      "evidence_files": [],
+      "execution_status": "部分",
+      "actual": "Chap13已执行子场景已绑定；未覆盖的云/缓存/质量条件保持待实施",
+      "evidence_files": [
+        "audit/project2-v1/ch13_round1/gate.json",
+        "audit/project2-v1/ch13_v032_round0/gate.json"
+      ],
       "gate_stages": [],
-      "partial_evidence": []
+      "partial_evidence": [
+        {
+          "scenario_id": "AC13-01",
+          "gate_check": [
+            "budget_not_reset",
+            "completed_database_skipped",
+            "real_subprocess_restart"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-02",
+          "gate_check": [
+            "illegal_state_rejected",
+            "runtime_contract_tests",
+            "unknown_run_rejected"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "契约测试(Mock)",
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-01",
+          "gate_check": [
+            "budget_not_reset",
+            "completed_database_skipped",
+            "real_subprocess_restart"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-02",
+          "gate_check": [
+            "budget_not_reset",
+            "illegal_state_rejected",
+            "runtime_contract_tests",
+            "unknown_run_rejected"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "契约测试(Mock)",
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-01",
+          "gate_check": [
+            "budget_not_reset",
+            "completed_database_skipped",
+            "real_subprocess_restart",
+            "same_run_id"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "budget_not_reset",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "completed_database_skipped",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "real_subprocess_restart",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "same_run_id",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        },
+        {
+          "scenario_id": "AC13-02",
+          "gate_check": [
+            "budget_not_reset",
+            "illegal_state_rejected",
+            "runtime_contract_tests",
+            "unknown_run_rejected"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "budget_not_reset",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "illegal_state_rejected",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "runtime_contract_tests",
+              "evidence_type": "契约测试(Mock)",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "unknown_run_rejected",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        }
+      ]
     },
     {
       "requirement_id": "RT-03",
       "source_status": "待实施",
-      "execution_status": "待实施",
-      "actual": "未执行",
-      "evidence_files": [],
+      "execution_status": "部分",
+      "actual": "Chap13已执行子场景已绑定；未覆盖的云/缓存/质量条件保持待实施",
+      "evidence_files": [
+        "audit/project2-v1/ch13_round1/gate.json",
+        "audit/project2-v1/ch13_v032_round0/gate.json"
+      ],
       "gate_stages": [],
-      "partial_evidence": []
+      "partial_evidence": [
+        {
+          "scenario_id": "AC13-01",
+          "gate_check": [
+            "budget_not_reset",
+            "completed_database_skipped",
+            "real_subprocess_restart"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-02",
+          "gate_check": [
+            "illegal_state_rejected",
+            "runtime_contract_tests",
+            "unknown_run_rejected"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "契约测试(Mock)",
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-03",
+          "gate_check": [
+            "owner_read_resume_isolation",
+            "revocation_rechecked"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-01",
+          "gate_check": [
+            "budget_not_reset",
+            "completed_database_skipped",
+            "real_subprocess_restart"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-02",
+          "gate_check": [
+            "budget_not_reset",
+            "illegal_state_rejected",
+            "runtime_contract_tests",
+            "unknown_run_rejected"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "契约测试(Mock)",
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-03",
+          "gate_check": [
+            "owner_read_resume_isolation",
+            "revocation_rechecked"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-01",
+          "gate_check": [
+            "budget_not_reset",
+            "completed_database_skipped",
+            "real_subprocess_restart",
+            "same_run_id"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "budget_not_reset",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "completed_database_skipped",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "real_subprocess_restart",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "same_run_id",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        },
+        {
+          "scenario_id": "AC13-02",
+          "gate_check": [
+            "budget_not_reset",
+            "illegal_state_rejected",
+            "runtime_contract_tests",
+            "unknown_run_rejected"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "budget_not_reset",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "illegal_state_rejected",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "runtime_contract_tests",
+              "evidence_type": "契约测试(Mock)",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "unknown_run_rejected",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        },
+        {
+          "scenario_id": "AC13-03",
+          "gate_check": [
+            "owner_read_resume_isolation",
+            "revocation_rechecked"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "owner_read_resume_isolation",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "revocation_rechecked",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        }
+      ]
     },
     {
       "requirement_id": "RT-04",
       "source_status": "待实施",
-      "execution_status": "待实施",
-      "actual": "未执行",
-      "evidence_files": [],
+      "execution_status": "部分",
+      "actual": "Chap13已执行子场景已绑定；未覆盖的云/缓存/质量条件保持待实施",
+      "evidence_files": [
+        "audit/project2-v1/ch13_round1/gate.json",
+        "audit/project2-v1/ch13_v032_round0/gate.json"
+      ],
       "gate_stages": [],
-      "partial_evidence": []
+      "partial_evidence": [
+        {
+          "scenario_id": "AC13-01",
+          "gate_check": [
+            "budget_not_reset",
+            "completed_database_skipped",
+            "real_subprocess_restart"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-02",
+          "gate_check": [
+            "illegal_state_rejected",
+            "runtime_contract_tests",
+            "unknown_run_rejected"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "契约测试(Mock)",
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-04",
+          "gate_check": [
+            "budget_not_reset",
+            "completed_database_skipped",
+            "runtime_contract_tests"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "契约测试(Mock)",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-01",
+          "gate_check": [
+            "budget_not_reset",
+            "completed_database_skipped",
+            "real_subprocess_restart"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-02",
+          "gate_check": [
+            "budget_not_reset",
+            "illegal_state_rejected",
+            "runtime_contract_tests",
+            "unknown_run_rejected"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "契约测试(Mock)",
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-04",
+          "gate_check": [
+            "budget_not_reset",
+            "completed_database_skipped",
+            "runtime_contract_tests"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "契约测试(Mock)",
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-01",
+          "gate_check": [
+            "budget_not_reset",
+            "completed_database_skipped",
+            "real_subprocess_restart",
+            "same_run_id"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "budget_not_reset",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "completed_database_skipped",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "real_subprocess_restart",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "same_run_id",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        },
+        {
+          "scenario_id": "AC13-04",
+          "gate_check": [
+            "budget_not_reset",
+            "completed_database_skipped",
+            "runtime_contract_tests"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "budget_not_reset",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "completed_database_skipped",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "runtime_contract_tests",
+              "evidence_type": "契约测试(Mock)",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        },
+        {
+          "scenario_id": "AC13-02",
+          "gate_check": [
+            "budget_not_reset",
+            "illegal_state_rejected",
+            "runtime_contract_tests",
+            "unknown_run_rejected"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "budget_not_reset",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "illegal_state_rejected",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "runtime_contract_tests",
+              "evidence_type": "契约测试(Mock)",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "unknown_run_rejected",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        }
+      ]
     },
     {
       "requirement_id": "RT-05",
       "source_status": "待实施",
       "execution_status": "部分",
-      "actual": "部分组件检查已执行，完整场景/阶段未通过",
+      "actual": "Chap13已执行子场景已绑定；未覆盖的云/缓存/质量条件保持待实施",
       "evidence_files": [
-        "audit/project2-v1/ch12_component_checks.junit.xml"
+        "audit/project2-v1/ch12_component_checks.junit.xml",
+        "audit/project2-v1/ch13_round1/gate.json",
+        "audit/project2-v1/ch13_v032_round0/gate.json"
       ],
       "gate_stages": [],
       "partial_evidence": [
@@ -617,61 +1500,453 @@
           "scenario_id": "AC12-04",
           "evidence_type": "契约测试(Mock)",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "test": "test_independent_legal_db_can_run_if_rag_denied",
           "scenario_id": "AC12-07",
           "evidence_type": "契约测试(Mock)",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
+        },
+        {
+          "scenario_id": "AC13-03",
+          "gate_check": [
+            "owner_read_resume_isolation",
+            "revocation_rechecked"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-03",
+          "gate_check": [
+            "owner_read_resume_isolation",
+            "revocation_rechecked"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "read_only_policy_unregistered_publish",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        },
+        {
+          "scenario_id": "AC13-03",
+          "gate_check": [
+            "owner_read_resume_isolation",
+            "revocation_rechecked"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "owner_read_resume_isolation",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "revocation_rechecked",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
         }
       ]
     },
     {
       "requirement_id": "RT-06",
       "source_status": "待实施",
-      "execution_status": "待实施",
-      "actual": "未执行",
-      "evidence_files": [],
+      "execution_status": "部分",
+      "actual": "Chap13已执行子场景已绑定；未覆盖的云/缓存/质量条件保持待实施",
+      "evidence_files": [
+        "audit/project2-v1/ch13_round1/gate.json",
+        "audit/project2-v1/ch13_v032_round0/gate.json"
+      ],
       "gate_stages": [],
-      "partial_evidence": []
+      "partial_evidence": [
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "read_only_policy_unregistered_publish",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        }
+      ]
     },
     {
       "requirement_id": "RT-07",
       "source_status": "待实施",
-      "execution_status": "待实施",
-      "actual": "未执行",
-      "evidence_files": [],
+      "execution_status": "部分",
+      "actual": "Chap13已执行子场景已绑定；未覆盖的云/缓存/质量条件保持待实施",
+      "evidence_files": [
+        "audit/project2-v1/ch13_round1/gate.json",
+        "audit/project2-v1/ch13_v032_round0/gate.json"
+      ],
       "gate_stages": [],
-      "partial_evidence": []
+      "partial_evidence": [
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "read_only_policy_unregistered_publish",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        }
+      ]
     },
     {
       "requirement_id": "RT-08",
       "source_status": "待实施",
-      "execution_status": "待实施",
-      "actual": "未执行",
-      "evidence_files": [],
+      "execution_status": "部分",
+      "actual": "Chap13已执行子场景已绑定；未覆盖的云/缓存/质量条件保持待实施",
+      "evidence_files": [
+        "audit/project2-v1/ch13_round1/gate.json",
+        "audit/project2-v1/ch13_v032_round0/gate.json"
+      ],
       "gate_stages": [],
-      "partial_evidence": []
+      "partial_evidence": [
+        {
+          "scenario_id": "AC13-05",
+          "gate_check": [
+            "parent_child_trace",
+            "real_sqlite_fault_located_by_trace"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-05",
+          "gate_check": [
+            "parent_child_trace",
+            "real_sqlite_fault_located_by_trace"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-05",
+          "gate_check": [
+            "parent_child_trace",
+            "real_sqlite_fault_located_by_trace"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "parent_child_trace",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "real_sqlite_fault_located_by_trace",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        }
+      ]
     },
     {
       "requirement_id": "RT-09",
       "source_status": "待实施",
-      "execution_status": "待实施",
-      "actual": "未执行",
-      "evidence_files": [],
+      "execution_status": "部分",
+      "actual": "Chap13已执行子场景已绑定；未覆盖的云/缓存/质量条件保持待实施",
+      "evidence_files": [
+        "audit/project2-v1/ch13_round1/gate.json",
+        "audit/project2-v1/ch13_v032_round0/gate.json"
+      ],
       "gate_stages": [],
-      "partial_evidence": []
+      "partial_evidence": [
+        {
+          "scenario_id": "AC13-03",
+          "gate_check": [
+            "owner_read_resume_isolation",
+            "revocation_rechecked"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-05",
+          "gate_check": [
+            "parent_child_trace",
+            "real_sqlite_fault_located_by_trace"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-03",
+          "gate_check": [
+            "owner_read_resume_isolation",
+            "revocation_rechecked"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-05",
+          "gate_check": [
+            "parent_child_trace",
+            "real_sqlite_fault_located_by_trace"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-05",
+          "gate_check": [
+            "parent_child_trace",
+            "real_sqlite_fault_located_by_trace"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "parent_child_trace",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "real_sqlite_fault_located_by_trace",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        },
+        {
+          "scenario_id": "AC13-03",
+          "gate_check": [
+            "owner_read_resume_isolation",
+            "revocation_rechecked"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "owner_read_resume_isolation",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "revocation_rechecked",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        }
+      ]
     },
     {
       "requirement_id": "RT-10",
       "source_status": "待实施",
-      "execution_status": "待实施",
-      "actual": "未执行",
-      "evidence_files": [],
+      "execution_status": "部分",
+      "actual": "Chap13已执行子场景已绑定；未覆盖的云/缓存/质量条件保持待实施",
+      "evidence_files": [
+        "audit/project2-v1/ch13_round1/gate.json",
+        "audit/project2-v1/ch13_v032_round0/gate.json"
+      ],
       "gate_stages": [],
-      "partial_evidence": []
+      "partial_evidence": [
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "read_only_policy_unregistered_publish",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        }
+      ]
     },
     {
       "requirement_id": "ENV-01",
@@ -743,7 +2018,9 @@
           "scenario_id": "AC12-06",
           "evidence_type": "故障注入",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "scenario_id": "AC12-16",
@@ -752,6 +2029,13 @@
           "evidence_sha256": "2a1808de94dd3af12f328ad5ffcf3fec59e494fc8f58a4a6a9a023e209c652a2",
           "evidence_type": "故障注入",
           "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC12-16",
+          "evidence_file": "audit/project2-v1/v033_wall_gate_round1/gate.json",
+          "evidence_sha256": "e3db89a2dac114253742842b3f7892b42cca7f34458dac59b39092aa9ab1f3a2",
+          "evidence_type": "故障注入",
+          "coverage": "wall_only;budget90"
         }
       ]
     },
@@ -771,14 +2055,18 @@
           "scenario_id": "AC12-15",
           "evidence_type": "契约测试(Mock)",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "test": "test_direct_worker_cannot_bypass_budget_or_policy",
           "scenario_id": "AC12-15",
           "evidence_type": "契约测试(Mock)",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "scenario_id": "AC12-16",
@@ -787,6 +2075,20 @@
           "evidence_sha256": "2a1808de94dd3af12f328ad5ffcf3fec59e494fc8f58a4a6a9a023e209c652a2",
           "evidence_type": "故障注入",
           "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC12-16",
+          "evidence_file": "audit/project2-v1/v033_wall_gate_round1/gate.json",
+          "evidence_sha256": "e3db89a2dac114253742842b3f7892b42cca7f34458dac59b39092aa9ab1f3a2",
+          "evidence_type": "故障注入",
+          "coverage": "wall_only;budget90"
+        },
+        {
+          "scenario_id": "AC12-05",
+          "evidence_file": "audit/project2-v1/v033_wall_gate_round1/gate.json",
+          "evidence_sha256": "e3db89a2dac114253742842b3f7892b42cca7f34458dac59b39092aa9ab1f3a2",
+          "evidence_type": "故障注入",
+          "coverage": "wall_only;budget90"
         }
       ]
     },
@@ -805,18 +2107,86 @@
           "scenario_id": "AC12-06",
           "evidence_type": "故障注入",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         }
       ]
     },
     {
       "requirement_id": "REL-04",
       "source_status": "待实施",
-      "execution_status": "待实施",
-      "actual": "未执行",
-      "evidence_files": [],
+      "execution_status": "部分",
+      "actual": "Chap13已执行子场景已绑定；未覆盖的云/缓存/质量条件保持待实施",
+      "evidence_files": [
+        "audit/project2-v1/ch13_round1/gate.json",
+        "audit/project2-v1/ch13_v032_round0/gate.json"
+      ],
       "gate_stages": [],
-      "partial_evidence": []
+      "partial_evidence": [
+        {
+          "scenario_id": "AC13-04",
+          "gate_check": [
+            "budget_not_reset",
+            "completed_database_skipped",
+            "runtime_contract_tests"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "契约测试(Mock)",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-04",
+          "gate_check": [
+            "budget_not_reset",
+            "completed_database_skipped",
+            "runtime_contract_tests"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "契约测试(Mock)",
+            "故障注入",
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-04",
+          "gate_check": [
+            "budget_not_reset",
+            "completed_database_skipped",
+            "runtime_contract_tests"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "budget_not_reset",
+              "evidence_type": "故障注入",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "completed_database_skipped",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            },
+            {
+              "check": "runtime_contract_tests",
+              "evidence_type": "契约测试(Mock)",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        }
+      ]
     },
     {
       "requirement_id": "REL-05",
@@ -884,11 +2254,56 @@
     {
       "requirement_id": "SDD-02",
       "source_status": "待实施",
-      "execution_status": "待实施",
-      "actual": "未执行",
-      "evidence_files": [],
+      "execution_status": "部分",
+      "actual": "Chap13已执行子场景已绑定；未覆盖的云/缓存/质量条件保持待实施",
+      "evidence_files": [
+        "audit/project2-v1/ch13_round1/gate.json",
+        "audit/project2-v1/ch13_v032_round0/gate.json"
+      ],
       "gate_stages": [],
-      "partial_evidence": []
+      "partial_evidence": [
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_round1/gate.json",
+          "evidence_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v032_round0/gate.json",
+          "evidence_sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+          "evidence_type": [
+            "真实运行"
+          ],
+          "coverage": "machine_checked_subscenario_only;not_whole_requirement_acceptance"
+        },
+        {
+          "scenario_id": "AC13-06",
+          "gate_check": [
+            "read_only_policy_unregistered_publish"
+          ],
+          "evidence_file": "audit/project2-v1/ch13_v033_round0/gate.json",
+          "evidence_sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+          "check_evidence": [
+            {
+              "check": "read_only_policy_unregistered_publish",
+              "evidence_type": "真实运行",
+              "evidence_file": "audit/project2-v1/ch13_v033_round0/native_observations.json",
+              "evidence_sha256": "ff7f4a819a867b62b8e50b1ee3516cdb345c0e652c106a7f3d650137818fe9a6"
+            }
+          ],
+          "coverage": "subscenario_only"
+        }
+      ]
     },
     {
       "requirement_id": "EVAL-01",
@@ -961,7 +2376,9 @@
           "scenario_id": "AC12-08",
           "evidence_type": "契约测试(Mock)",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         }
       ]
     },
@@ -1019,7 +2436,9 @@
           "scenario_id": "AC12-02",
           "evidence_type": "真实运行",
           "evidence_file": "audit/project2-v1/ch12_component_checks.junit.xml",
-          "coverage": "partial_only;not_full_scenario_or_stage"
+          "coverage": "partial_only;not_full_scenario_or_stage",
+          "evidence_sha256": "20daa7de6fb85fb9bc72effabf982c09a0380f7917f1299073d8fdc0a4712780",
+          "hash_provenance": "v033 current file-integrity observation; older receipt was unsigned"
         },
         {
           "scenario_id": "AC12-02",

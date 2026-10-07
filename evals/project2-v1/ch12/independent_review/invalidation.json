@@ -1,0 +1,8 @@
+{
+  "status": "作废：空正文、全同分、基于修复前答案",
+  "agreement_eligible": false,
+  "superseded_by": "evals/project2-v1/blind_review_20261006/public/blind_review.json",
+  "original_file": "evals/project2-v1/ch12/independent_review/human_template.json",
+  "original_sha256": "7322be330a3d8f8a8df9cc37013367a8e5e40d9c251767db023cd43f19ec579a",
+  "original_records_preserved": true
+}

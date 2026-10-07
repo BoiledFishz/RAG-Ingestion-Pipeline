@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="0.669" timestamp="2026-10-06T18:08:19.782953-07:00" hostname="szy"><testcase classname="tests.project2.test_literal_components_v032" name="test_official_portal_queries_keep_literal_product" time="0.014"><failure message="ValueError: clarification_required:entity">def test_official_portal_queries_keep_literal_product():
+        partitions=json.loads((ROOT/'splits.json').read_text(encoding='utf-8'))['partitions']
+        rows=json.loads((ROOT/partitions['tune']['file']).read_text(encoding='utf-8'))
+        from evaluation_protocol.storage import query
+        queries=[query(x['record']) for x in rows]
+        cases=[q for q in queries if 'Portal' in q and 'CF14' in q and 'WebSphere' not in q]
+        assert len(cases)&gt;=2
+        for q in cases:
+&gt;           groups=query_groups(AnalysisRequest(query=q))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+enterprise-ai-agent\tests\project2\test_literal_components_v032.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+request = AnalysisRequest(query='Error TASK001X while upgrading Portal 8.0.0.1 to 8.0.0.1 CF14 during import-nodes sub-task', analysis_operation='document_count', include_samples=True, sample_limit=5, analysis_predicates=None)
+
+    def query_groups(request: AnalysisRequest) -&gt; list[list[str]]:
+        if request.analysis_predicates is not None:
+            groups = request.analysis_predicates
+            if len(groups) != (2 if request.analysis_operation == "compare_document_counts" else 1):
+                raise ValueError("clarification_required:predicate_group_count")
+            return groups
+        entities = list(ENTITY.finditer(request.query))
+        if not entities:
+            entities = [match for match in COMPONENT.finditer(request.query)
+                        if match.group() not in NON_COMPONENT]
+        if not entities:
+&gt;           raise ValueError("clarification_required:entity")
+E           ValueError: clarification_required:entity
+
+enterprise-ai-agent\tools\techqa_document_query.py:47: ValueError</failure></testcase><testcase classname="tests.project2.test_literal_components_v032" name="test_known_product_does_not_hide_other_literal_components" time="0.002"><failure message="ValueError: clarification_required:two_entity_version_pairs">def test_known_product_does_not_hide_other_literal_components():
+        samples=json.loads((ROOT/'specs/project2/v0.3.2/task_preregistration.json').read_text(encoding='utf-8'))['samples']
+        sample=next(x for x in samples if x['analysis_operation']=='compare_document_counts' and 'ICC 4.0.1' in x['query'])
+&gt;       groups=query_groups(AnalysisRequest(query=sample['query'],analysis_operation=sample['analysis_operation']))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+enterprise-ai-agent\tests\project2\test_literal_components_v032.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+request = AnalysisRequest(query='A .NET API error is thrown when attempting to install ICC 4.0.1\nA .NET API error is thrown whe...x this?', analysis_operation='compare_document_counts', include_samples=True, sample_limit=5, analysis_predicates=None)
+
+    def query_groups(request: AnalysisRequest) -&gt; list[list[str]]:
+        if request.analysis_predicates is not None:
+            groups = request.analysis_predicates
+            if len(groups) != (2 if request.analysis_operation == "compare_document_counts" else 1):
+                raise ValueError("clarification_required:predicate_group_count")
+            return groups
+        entities = list(ENTITY.finditer(request.query))
+        if not entities:
+            entities = [match for match in COMPONENT.finditer(request.query)
+                        if match.group() not in NON_COMPONENT]
+        if not entities:
+            raise ValueError("clarification_required:entity")
+        pairs: list[list[str]] = []
+        for index, entity in enumerate(entities):
+            end = min(entity.end()+32, entities[index+1].start() if index+1 &lt; len(entities) else len(request.query))
+            version = VERSION.search(request.query, entity.end(), end)
+            if version and not re.search(r"\b(?:IP|XML)\b", request.query[max(0, version.start()-15):version.start()], re.I):
+                group = [entity.group(), version.group()]
+                if tuple(x.casefold() for x in group) not in {tuple(x.casefold() for x in p) for p in pairs}:
+                    pairs.append(group)
+        if request.analysis_operation == "compare_document_counts":
+            if len(pairs) &lt; 2:
+&gt;               raise ValueError("clarification_required:two_entity_version_pairs")
+E               ValueError: clarification_required:two_entity_version_pairs
+
+enterprise-ai-agent\tools\techqa_document_query.py:58: ValueError</failure></testcase></testsuite></testsuites>

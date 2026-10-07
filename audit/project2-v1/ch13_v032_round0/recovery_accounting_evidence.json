@@ -1,0 +1,49 @@
+{
+  "before": {
+    "policy_sha256": "c76c2c52bdfb08cdccd12fb9b6aa32947d0e7e2493123d6b0321eb52d0b2582f",
+    "limit_seconds": 37.941018,
+    "lifetime_seconds": 900,
+    "heartbeat_seconds": 0.25,
+    "consumed_seconds": 1.8900000000139698,
+    "segments": [
+      {
+        "segment_id": "28f59612ef5b4035a16bcf2a79fc1086",
+        "consumed_seconds": 1.8900000000139698,
+        "closed": false
+      }
+    ]
+  },
+  "after": {
+    "policy_sha256": "c76c2c52bdfb08cdccd12fb9b6aa32947d0e7e2493123d6b0321eb52d0b2582f",
+    "limit_seconds": 37.941018,
+    "lifetime_seconds": 900,
+    "heartbeat_seconds": 0.25,
+    "consumed_seconds": 38.46799999999348,
+    "segments": [
+      {
+        "segment_id": "28f59612ef5b4035a16bcf2a79fc1086",
+        "consumed_seconds": 2.14000000001397,
+        "closed": true,
+        "termination": "uncertain_tail_conservatively_charged"
+      },
+      {
+        "segment_id": "ab9530be471343d1bff63a34307fa51e",
+        "consumed_seconds": 36.32799999997951,
+        "closed": true,
+        "termination": "normal_api_exit"
+      }
+    ]
+  },
+  "numeric_limits_unchanged": true,
+  "attempts_preserved": true,
+  "cumulative_not_reset": true,
+  "expiry_rejections": true,
+  "startup_evidence": [
+    "after_restart_startup.json",
+    "before_stop_startup.json",
+    "expiry_checks_startup.json",
+    "sqlite_fault_startup.json"
+  ],
+  "downtime_excluded": true,
+  "evidence_type": "真实运行 / 故障注入"
+}

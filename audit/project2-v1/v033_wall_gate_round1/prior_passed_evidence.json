@@ -1,0 +1,8 @@
+{
+  "file": "audit/project2-v1/v033_wall_gate/observations.json",
+  "sha256": "c3088eb96d907ffb9a209cf6d18bae6e9ebd9eb2d17eac2f78d4f87c8447d890",
+  "cases": [
+    "AC12-05"
+  ],
+  "unchanged_cancel_boundary": true
+}

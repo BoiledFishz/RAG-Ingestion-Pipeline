@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "process_returncode": 0,
+  "pid": 110148,
+  "ready_worker_pid": 90496,
+  "cleanup": {
+    "mode": "idle_eof",
+    "elapsed_seconds": 1.7564402999123558,
+    "process_retained": false
+  },
+  "evidence_type": "真实运行",
+  "QA_requests": 0,
+  "LLM_requests": 0,
+  "old_records_rerun": false
+}

@@ -1,0 +1,1072 @@
+2026-10-06 16:28:36,883 INFO Diagnosed 7 questions / 19 repetitions; attribution={'检索结果变化': 5, '预算/超时导致的partial或timeout': 2}
+C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+2026-10-06 16:29:09,981 INFO Database request=735e4dca16a64670afa46bdf3e1758b3 status=completed counts=[18296]
+2026-10-06 16:29:28,721 INFO Project2 run=735e4dca16a64670afa46bdf3e1758b3 status=completed attempts=14
+2026-10-06 16:29:28,724 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:29:28,726 INFO ch12-repair1 repeat1 1/39 elapsed=19.109
+2026-10-06 16:29:28,778 INFO Database request=2213474c2a9f4f0ea75ceca389e38bd5 status=completed counts=[40]
+2026-10-06 16:29:47,635 INFO Project2 run=2213474c2a9f4f0ea75ceca389e38bd5 status=completed attempts=14
+2026-10-06 16:29:47,637 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:29:47,639 INFO ch12-repair1 repeat1 2/39 elapsed=18.907
+2026-10-06 16:29:47,735 INFO Database request=c8168a3c0219415e8cfc91298805b8c6 status=completed counts=[218]
+2026-10-06 16:30:02,252 INFO Project2 run=c8168a3c0219415e8cfc91298805b8c6 status=completed attempts=14
+2026-10-06 16:30:02,254 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:30:02,255 INFO ch12-repair1 repeat1 3/39 elapsed=14.625
+2026-10-06 16:30:03,544 INFO Database request=4136b314f9b3405383976c702b3c0217 status=completed counts=[5958]
+2026-10-06 16:30:15,092 INFO Project2 run=4136b314f9b3405383976c702b3c0217 status=completed attempts=14
+2026-10-06 16:30:15,093 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:30:15,095 INFO ch12-repair1 repeat1 4/39 elapsed=12.843
+2026-10-06 16:30:20,762 INFO Database request=d32d93b1b100436eb8da31305f484fb8 status=completed counts=[40526]
+2026-10-06 16:30:38,540 INFO Project2 run=d32d93b1b100436eb8da31305f484fb8 status=completed attempts=14
+2026-10-06 16:30:38,541 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:30:38,544 INFO ch12-repair1 repeat1 5/39 elapsed=23.438
+2026-10-06 16:30:39,394 INFO Database request=be4ea008b0384a698b3dea6ac2f3c3f7 status=completed counts=[3736]
+2026-10-06 16:30:51,077 INFO Project2 run=be4ea008b0384a698b3dea6ac2f3c3f7 status=completed attempts=14
+2026-10-06 16:30:51,078 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:30:51,081 INFO ch12-repair1 repeat1 6/39 elapsed=12.547
+2026-10-06 16:30:51,203 INFO Database request=fe3fcbac41854d6196179f30e181db1b status=completed counts=[3736]
+2026-10-06 16:30:59,432 INFO Project2 run=fe3fcbac41854d6196179f30e181db1b status=partial attempts=13
+2026-10-06 16:30:59,433 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:30:59,435 INFO ch12-repair1 repeat1 7/39 elapsed=8.343
+2026-10-06 16:31:00,127 INFO Database request=8e2df2d6865842d697c2961749198f1a status=completed counts=[3402]
+2026-10-06 16:31:17,017 INFO Project2 run=8e2df2d6865842d697c2961749198f1a status=completed attempts=17
+2026-10-06 16:31:17,018 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:31:17,023 INFO ch12-repair1 repeat1 8/39 elapsed=17.594
+2026-10-06 16:31:17,523 INFO Database request=08d3c65bb2954de6b37a06bf9df6f134 status=completed counts=[2288]
+2026-10-06 16:31:34,911 INFO Project2 run=08d3c65bb2954de6b37a06bf9df6f134 status=completed attempts=14
+2026-10-06 16:31:34,912 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:31:34,916 INFO ch12-repair1 repeat1 9/39 elapsed=17.891
+2026-10-06 16:31:38,236 INFO Database request=b0ed0364420c45c5ae4106e29ae81c31 status=completed counts=[18296]
+2026-10-06 16:31:52,855 INFO Project2 run=b0ed0364420c45c5ae4106e29ae81c31 status=completed attempts=14
+2026-10-06 16:31:52,856 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:31:52,859 INFO ch12-repair1 repeat1 10/39 elapsed=17.937
+2026-10-06 16:31:53,069 INFO Database request=2f15e551063146fe8d57fa23d9b7b6f7 status=completed counts=[323]
+2026-10-06 16:32:10,310 INFO Project2 run=2f15e551063146fe8d57fa23d9b7b6f7 status=completed attempts=14
+2026-10-06 16:32:10,311 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:32:10,314 INFO ch12-repair1 repeat1 11/39 elapsed=17.453
+2026-10-06 16:32:10,573 INFO Database request=5ddcd466fe7f4b37a4149e71ebf28c71 status=completed counts=[449]
+2026-10-06 16:32:25,279 INFO Project2 run=5ddcd466fe7f4b37a4149e71ebf28c71 status=completed attempts=14
+2026-10-06 16:32:25,280 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:32:25,282 INFO ch12-repair1 repeat1 12/39 elapsed=14.969
+2026-10-06 16:32:26,343 INFO Database request=5ca5345a3a1f4524923acd5823d16144 status=completed counts=[4609]
+2026-10-06 16:32:44,987 INFO Project2 run=5ca5345a3a1f4524923acd5823d16144 status=completed attempts=14
+2026-10-06 16:32:44,988 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:32:44,991 INFO ch12-repair1 repeat1 13/39 elapsed=19.703
+2026-10-06 16:32:46,384 INFO Database request=feea93c8bcaa4a818281e386431632f2 status=completed counts=[5809]
+2026-10-06 16:32:58,248 INFO Project2 run=feea93c8bcaa4a818281e386431632f2 status=completed attempts=14
+2026-10-06 16:32:58,249 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:32:58,252 INFO ch12-repair1 repeat1 14/39 elapsed=13.266
+2026-10-06 16:32:59,242 INFO Database request=2e86a7388bfa44b5b6447c8f9ba16773 status=completed counts=[4984]
+2026-10-06 16:33:12,407 INFO Project2 run=2e86a7388bfa44b5b6447c8f9ba16773 status=partial attempts=13
+2026-10-06 16:33:12,407 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:33:12,411 INFO ch12-repair1 repeat1 15/39 elapsed=14.156
+2026-10-06 16:33:13,119 INFO Database request=8fd1c49204e745ff998f28277d36ae82 status=completed counts=[3736]
+2026-10-06 16:33:26,857 INFO Project2 run=8fd1c49204e745ff998f28277d36ae82 status=completed attempts=14
+2026-10-06 16:33:26,859 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:33:26,862 INFO ch12-repair1 repeat1 16/39 elapsed=14.453
+2026-10-06 16:33:28,168 INFO Database request=f2a48ea982da4cf2ab05109a1c5ad69e status=completed counts=[8643]
+2026-10-06 16:33:44,528 INFO Project2 run=f2a48ea982da4cf2ab05109a1c5ad69e status=completed attempts=14
+2026-10-06 16:33:44,529 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:33:44,533 INFO ch12-repair1 repeat1 17/39 elapsed=17.672
+2026-10-06 16:33:45,115 INFO Database request=5f767855db20467a9d5e74dc1e15cabe status=completed counts=[178]
+2026-10-06 16:34:00,503 INFO Project2 run=5f767855db20467a9d5e74dc1e15cabe status=completed attempts=14
+2026-10-06 16:34:00,503 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:34:00,507 INFO ch12-repair1 repeat1 18/39 elapsed=15.969
+2026-10-06 16:34:00,551 INFO Database request=a5fd92bfcd854e66acf694e3ace5f0ce status=completed counts=[118]
+2026-10-06 16:34:15,156 INFO Project2 run=a5fd92bfcd854e66acf694e3ace5f0ce status=completed attempts=14
+2026-10-06 16:34:15,157 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:34:15,161 INFO ch12-repair1 repeat1 19/39 elapsed=14.656
+2026-10-06 16:34:16,085 INFO Database request=b5a86ccd3b9347f791fe255e487b72d6 status=completed counts=[2598]
+2026-10-06 16:34:34,688 INFO Project2 run=b5a86ccd3b9347f791fe255e487b72d6 status=completed attempts=14
+2026-10-06 16:34:34,689 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:34:34,691 INFO ch12-repair1 repeat1 20/39 elapsed=19.531
+2026-10-06 16:34:46,712 WARNING Database request=ef5db9c3c2784c0196b654df3879c018 status=timeout timeout=database_statement_timeout
+2026-10-06 16:34:58,104 INFO Project2 run=ef5db9c3c2784c0196b654df3879c018 status=partial attempts=13
+2026-10-06 16:34:58,105 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:34:58,107 INFO ch12-repair1 repeat1 21/39 elapsed=23.406
+2026-10-06 16:35:02,665 INFO Database request=f12dbe0abb50478ba63acf360fe7abb1 status=completed counts=[46777]
+2026-10-06 16:35:13,460 INFO Project2 run=f12dbe0abb50478ba63acf360fe7abb1 status=completed attempts=14
+2026-10-06 16:35:13,461 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:35:13,463 INFO ch12-repair1 repeat1 22/39 elapsed=15.360
+2026-10-06 16:35:14,018 INFO Database request=bf2c3920fcd241e082f80aff338460e8 status=completed counts=[3323]
+2026-10-06 16:35:35,730 INFO Project2 run=bf2c3920fcd241e082f80aff338460e8 status=completed attempts=14
+2026-10-06 16:35:35,731 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:35:35,733 INFO ch12-repair1 repeat1 23/39 elapsed=22.265
+2026-10-06 16:35:37,785 INFO Database request=ce9a36cb37b94a8187c289f25ea58ba5 status=completed counts=[13635]
+2026-10-06 16:35:50,019 INFO Project2 run=ce9a36cb37b94a8187c289f25ea58ba5 status=completed attempts=14
+2026-10-06 16:35:50,020 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:35:50,024 INFO ch12-repair1 repeat1 24/39 elapsed=14.297
+2026-10-06 16:36:02,035 WARNING Database request=b1779ce86dc3478091d62e745973d53b status=timeout timeout=database_statement_timeout
+2026-10-06 16:36:19,503 INFO Project2 run=b1779ce86dc3478091d62e745973d53b status=partial attempts=13
+2026-10-06 16:36:19,504 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:36:19,508 INFO ch12-repair1 repeat1 25/39 elapsed=29.485
+2026-10-06 16:36:28,515 INFO Database request=dc4c5a3312314299a0557fce393ecdec status=completed counts=[86438]
+2026-10-06 16:36:57,701 ERROR RAG run=dc4c5a3312314299a0557fce393ecdec failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 282, in run
+    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 99, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 298, in run
+    self.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+
+2026-10-06 16:36:57,791 INFO Project2 run=dc4c5a3312314299a0557fce393ecdec status=partial attempts=16
+2026-10-06 16:36:57,793 WARNING Project2 HTTP deadline cancelled attempts=16
+2026-10-06 16:36:57,796 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:36:57,798 INFO ch12-repair1 repeat1 26/39 elapsed=38.281
+2026-10-06 16:36:57,832 INFO Database request=8ae227b3fcc74eaa9dd8b9d0da73eb6f status=completed counts=[11]
+2026-10-06 16:37:35,791 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 16:37:35,855 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:37:35,866 INFO ch12-repair1 repeat1 27/39 elapsed=38.063
+2026-10-06 16:37:42,227 INFO Database request=9cf11f497a964728a040b16d2939768b status=completed counts=[36585]
+2026-10-06 16:37:56,887 INFO Project2 run=9cf11f497a964728a040b16d2939768b status=completed attempts=14
+2026-10-06 16:37:56,891 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:37:56,897 INFO ch12-repair1 repeat1 28/39 elapsed=21.031
+2026-10-06 16:37:59,625 INFO Database request=2e921fc5356d41dd84f8b59e40e8cfdc status=completed counts=[12213]
+2026-10-06 16:38:24,771 INFO Project2 run=2e921fc5356d41dd84f8b59e40e8cfdc status=partial attempts=14
+2026-10-06 16:38:24,773 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:38:24,776 INFO ch12-repair1 repeat1 29/39 elapsed=27.875
+2026-10-06 16:38:24,782 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:38:24,783 INFO ch12-repair1 repeat1 30/39 elapsed=0.016
+2026-10-06 16:38:25,465 INFO Database request=682da6db190d4b309a2794c9cffb2bb5 status=completed counts=[15]
+2026-10-06 16:38:40,590 INFO Project2 run=682da6db190d4b309a2794c9cffb2bb5 status=completed attempts=14
+2026-10-06 16:38:40,592 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:38:40,595 INFO ch12-repair1 repeat1 31/39 elapsed=15.797
+2026-10-06 16:38:41,539 INFO Database request=6f5252f3fbac40999718616b42a0d411 status=completed counts=[3736]
+2026-10-06 16:38:54,062 INFO Project2 run=6f5252f3fbac40999718616b42a0d411 status=completed attempts=14
+2026-10-06 16:38:54,063 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:38:54,066 INFO ch12-repair1 repeat1 32/39 elapsed=13.469
+2026-10-06 16:38:55,026 INFO Database request=672ab438154b4d4e98e033d59eb9f403 status=completed counts=[4867]
+2026-10-06 16:39:17,671 INFO Project2 run=672ab438154b4d4e98e033d59eb9f403 status=completed attempts=14
+2026-10-06 16:39:17,672 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:39:17,677 INFO ch12-repair1 repeat1 33/39 elapsed=23.609
+2026-10-06 16:39:19,077 INFO Database request=10292eba9d404e27a829c92144338fb5 status=completed counts=[6451]
+2026-10-06 16:39:36,316 INFO Project2 run=10292eba9d404e27a829c92144338fb5 status=completed attempts=14
+2026-10-06 16:39:36,318 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:39:36,321 INFO ch12-repair1 repeat1 34/39 elapsed=18.641
+2026-10-06 16:39:37,860 INFO Database request=e07d3bfb57ad46f7a267b9a1bf2e31af status=completed counts=[7234]
+2026-10-06 16:39:50,111 INFO Project2 run=e07d3bfb57ad46f7a267b9a1bf2e31af status=completed attempts=14
+2026-10-06 16:39:50,112 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:39:50,116 INFO ch12-repair1 repeat1 35/39 elapsed=13.797
+2026-10-06 16:39:51,016 INFO Database request=1692487a6baa42658cd2c03228d2e10c status=completed counts=[3625]
+2026-10-06 16:40:00,862 INFO Project2 run=1692487a6baa42658cd2c03228d2e10c status=completed attempts=14
+2026-10-06 16:40:00,862 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:40:00,865 INFO ch12-repair1 repeat1 36/39 elapsed=10.750
+2026-10-06 16:40:04,319 INFO Database request=6f6411ce35b34edeab0c2c06b1f69826 status=completed counts=[18296]
+2026-10-06 16:40:24,335 INFO Project2 run=6f6411ce35b34edeab0c2c06b1f69826 status=completed attempts=14
+2026-10-06 16:40:24,336 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:40:24,339 INFO ch12-repair1 repeat1 37/39 elapsed=23.469
+2026-10-06 16:40:24,345 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:40:24,347 INFO ch12-repair1 repeat1 38/39 elapsed=0.015
+2026-10-06 16:40:25,043 INFO Database request=484763ba5add425b8b0d7cbd0168a8cc status=completed counts=[2697]
+2026-10-06 16:40:39,678 INFO Project2 run=484763ba5add425b8b0d7cbd0168a8cc status=completed attempts=14
+2026-10-06 16:40:39,680 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:40:39,682 INFO ch12-repair1 repeat1 39/39 elapsed=15.328
+2026-10-06 16:40:41,208 INFO Database request=03f700b2fa7a4ab39b9dcd6975f11fe2 status=completed counts=[8643]
+2026-10-06 16:40:58,203 INFO Project2 run=03f700b2fa7a4ab39b9dcd6975f11fe2 status=completed attempts=14
+2026-10-06 16:40:58,204 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:40:58,207 INFO ch12-repair1 repeat2 1/39 elapsed=18.532
+2026-10-06 16:41:06,754 INFO Database request=ac536a47a5454232841367b03830e1b9 status=completed counts=[46777]
+2026-10-06 16:41:19,931 INFO Project2 run=ac536a47a5454232841367b03830e1b9 status=completed attempts=14
+2026-10-06 16:41:19,934 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:41:19,937 INFO ch12-repair1 repeat2 2/39 elapsed=21.718
+2026-10-06 16:41:20,807 INFO Database request=f0b07adbf23a4b35ab1cd8d3a0247503 status=completed counts=[3736]
+2026-10-06 16:41:30,785 INFO Project2 run=f0b07adbf23a4b35ab1cd8d3a0247503 status=completed attempts=12
+2026-10-06 16:41:30,786 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:41:30,789 INFO ch12-repair1 repeat2 3/39 elapsed=10.860
+2026-10-06 16:41:31,601 INFO Database request=fc3171b800644431b99b2cca5b90b797 status=completed counts=[3323]
+2026-10-06 16:41:53,571 INFO Project2 run=fc3171b800644431b99b2cca5b90b797 status=completed attempts=14
+2026-10-06 16:41:53,573 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:41:53,578 INFO ch12-repair1 repeat2 4/39 elapsed=22.781
+2026-10-06 16:41:55,825 INFO Database request=4bec56dc14cb457582884f95e869bda7 status=completed counts=[12213]
+2026-10-06 16:42:21,970 INFO Project2 run=4bec56dc14cb457582884f95e869bda7 status=completed attempts=14
+2026-10-06 16:42:21,981 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:42:21,985 INFO ch12-repair1 repeat2 5/39 elapsed=28.406
+2026-10-06 16:42:22,855 INFO Database request=a3744ca573cc4d43a0fa2bf6957d2eb2 status=completed counts=[3736]
+2026-10-06 16:42:30,678 INFO Project2 run=a3744ca573cc4d43a0fa2bf6957d2eb2 status=partial attempts=13
+2026-10-06 16:42:30,678 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:42:30,681 INFO ch12-repair1 repeat2 6/39 elapsed=8.687
+2026-10-06 16:42:30,732 INFO Database request=dffb287356be416082050217277b3a49 status=completed counts=[40]
+2026-10-06 16:42:47,830 INFO Project2 run=dffb287356be416082050217277b3a49 status=completed attempts=14
+2026-10-06 16:42:47,831 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:42:47,836 INFO ch12-repair1 repeat2 7/39 elapsed=17.157
+2026-10-06 16:42:49,098 INFO Database request=3061962fe397423ebff1c7e2bf85d09e status=completed counts=[6451]
+2026-10-06 16:42:59,258 INFO Project2 run=3061962fe397423ebff1c7e2bf85d09e status=completed attempts=12
+2026-10-06 16:42:59,259 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:42:59,261 INFO ch12-repair1 repeat2 8/39 elapsed=11.422
+2026-10-06 16:43:00,458 INFO Database request=7713cd16fdae49b59787424b60b6258f status=completed counts=[7234]
+2026-10-06 16:43:08,617 INFO Project2 run=7713cd16fdae49b59787424b60b6258f status=completed attempts=12
+2026-10-06 16:43:08,618 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:43:08,621 INFO ch12-repair1 repeat2 9/39 elapsed=9.359
+2026-10-06 16:43:09,318 INFO Database request=c9ce1ba403a7469db20d249d9908f868 status=completed counts=[3625]
+2026-10-06 16:43:16,413 INFO Project2 run=c9ce1ba403a7469db20d249d9908f868 status=completed attempts=12
+2026-10-06 16:43:16,414 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:43:16,417 INFO ch12-repair1 repeat2 10/39 elapsed=7.797
+2026-10-06 16:43:22,505 INFO Database request=c39eaa817334430ab91f4142df2f62d3 status=completed counts=[36585]
+2026-10-06 16:43:31,336 INFO Project2 run=c39eaa817334430ab91f4142df2f62d3 status=completed attempts=12
+2026-10-06 16:43:31,337 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:43:31,341 INFO ch12-repair1 repeat2 11/39 elapsed=14.922
+2026-10-06 16:43:32,281 INFO Database request=a6ef7821e4314e97a4e532b5b39e03aa status=completed counts=[3736]
+2026-10-06 16:43:43,678 INFO Project2 run=a6ef7821e4314e97a4e532b5b39e03aa status=completed attempts=14
+2026-10-06 16:43:43,680 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:43:43,684 INFO ch12-repair1 repeat2 12/39 elapsed=12.343
+2026-10-06 16:43:44,896 INFO Database request=3e989f4019604f8490bf7622f3e07dbd status=completed counts=[5809]
+2026-10-06 16:43:55,860 INFO Project2 run=3e989f4019604f8490bf7622f3e07dbd status=completed attempts=14
+2026-10-06 16:43:55,861 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:43:55,865 INFO ch12-repair1 repeat2 13/39 elapsed=12.188
+2026-10-06 16:43:56,988 INFO Database request=932555db5d2045bd9d521da7d4c116b5 status=completed counts=[5958]
+2026-10-06 16:44:07,159 INFO Project2 run=932555db5d2045bd9d521da7d4c116b5 status=completed attempts=14
+2026-10-06 16:44:07,160 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:44:07,163 INFO ch12-repair1 repeat2 14/39 elapsed=11.297
+2026-10-06 16:44:07,198 INFO Database request=e11abef8e5d3429b980d0cf9c9b5b5d1 status=completed counts=[11]
+2026-10-06 16:44:22,027 INFO Project2 run=e11abef8e5d3429b980d0cf9c9b5b5d1 status=completed attempts=14
+2026-10-06 16:44:22,027 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:44:22,031 INFO ch12-repair1 repeat2 15/39 elapsed=14.859
+2026-10-06 16:44:24,966 INFO Database request=09e1daec54ce49fb93aef6e85a8eb2b1 status=completed counts=[18296]
+2026-10-06 16:44:38,398 INFO Project2 run=09e1daec54ce49fb93aef6e85a8eb2b1 status=completed attempts=14
+2026-10-06 16:44:38,399 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:44:38,402 INFO ch12-repair1 repeat2 16/39 elapsed=16.375
+2026-10-06 16:44:50,419 WARNING Database request=b708b3ac94764f24b11df7b6a6e0c3d8 status=timeout timeout=database_statement_timeout
+2026-10-06 16:45:02,636 INFO Project2 run=b708b3ac94764f24b11df7b6a6e0c3d8 status=partial attempts=13
+2026-10-06 16:45:02,637 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:45:02,642 INFO ch12-repair1 repeat2 17/39 elapsed=24.235
+2026-10-06 16:45:03,858 INFO Database request=a3a80a93a69641ca8033dfe2e999f20e status=completed counts=[4609]
+2026-10-06 16:45:24,046 INFO Project2 run=a3a80a93a69641ca8033dfe2e999f20e status=completed attempts=14
+2026-10-06 16:45:24,048 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:45:24,051 INFO ch12-repair1 repeat2 18/39 elapsed=21.406
+2026-10-06 16:45:24,420 INFO Database request=3a328c9afbac43bc9b8a2888ab4dd76b status=completed counts=[323]
+2026-10-06 16:45:42,818 INFO Project2 run=3a328c9afbac43bc9b8a2888ab4dd76b status=completed attempts=14
+2026-10-06 16:45:42,820 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:45:42,824 INFO ch12-repair1 repeat2 19/39 elapsed=18.766
+2026-10-06 16:45:43,611 INFO Database request=3a5dceb578d74f40859ee2559d21df35 status=completed counts=[3402]
+2026-10-06 16:45:55,637 INFO Project2 run=3a5dceb578d74f40859ee2559d21df35 status=completed attempts=14
+2026-10-06 16:45:55,637 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:45:55,640 INFO ch12-repair1 repeat2 20/39 elapsed=12.813
+2026-10-06 16:46:02,093 INFO Database request=1954efc660f64841ae012f4eae3d94ee status=completed counts=[40526]
+2026-10-06 16:46:24,120 INFO Project2 run=1954efc660f64841ae012f4eae3d94ee status=completed attempts=14
+2026-10-06 16:46:24,138 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:46:24,148 INFO ch12-repair1 repeat2 21/39 elapsed=28.515
+2026-10-06 16:46:24,176 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:46:24,178 INFO ch12-repair1 repeat2 22/39 elapsed=0.031
+2026-10-06 16:46:24,658 INFO Database request=23c3f983e71742bf843889574716dc70 status=completed counts=[449]
+2026-10-06 16:46:39,798 INFO Project2 run=23c3f983e71742bf843889574716dc70 status=completed attempts=14
+2026-10-06 16:46:39,799 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:46:39,803 INFO ch12-repair1 repeat2 23/39 elapsed=15.625
+2026-10-06 16:46:39,864 INFO Database request=e32db6153213448f9b41366c94b41e3a status=completed counts=[118]
+2026-10-06 16:46:53,659 INFO Project2 run=e32db6153213448f9b41366c94b41e3a status=completed attempts=14
+2026-10-06 16:46:53,661 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:46:53,663 INFO ch12-repair1 repeat2 24/39 elapsed=13.860
+2026-10-06 16:47:14,092 INFO Database request=de3f0294258b4e7eb3f7ab142c22a3f8 status=completed counts=[86438]
+2026-10-06 16:47:32,052 ERROR RAG run=de3f0294258b4e7eb3f7ab142c22a3f8 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 282, in run
+    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 99, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 298, in run
+    self.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+
+2026-10-06 16:47:32,090 INFO Project2 run=de3f0294258b4e7eb3f7ab142c22a3f8 status=partial attempts=14
+2026-10-06 16:47:32,100 WARNING Project2 HTTP deadline cancelled attempts=14
+2026-10-06 16:47:32,120 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:47:32,126 INFO ch12-repair1 repeat2 25/39 elapsed=38.453
+2026-10-06 16:47:33,077 INFO Database request=1db45e32abd34c24bbc5f268aee6ce74 status=completed counts=[2697]
+2026-10-06 16:48:10,363 ERROR RAG run=1db45e32abd34c24bbc5f268aee6ce74 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 282, in run
+    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 99, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 298, in run
+    self.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+
+2026-10-06 16:48:10,377 INFO Project2 run=1db45e32abd34c24bbc5f268aee6ce74 status=partial attempts=5
+2026-10-06 16:48:10,383 WARNING Project2 HTTP deadline cancelled attempts=5
+2026-10-06 16:48:10,388 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:48:10,393 INFO ch12-repair1 repeat2 26/39 elapsed=38.250
+2026-10-06 16:48:13,730 INFO Database request=8a4b2eb74f70480db902f408d1d67619 status=completed counts=[18296]
+2026-10-06 16:48:48,508 ERROR RAG run=8a4b2eb74f70480db902f408d1d67619 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 282, in run
+    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 99, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 298, in run
+    self.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+
+2026-10-06 16:48:48,552 INFO Project2 run=8a4b2eb74f70480db902f408d1d67619 status=partial attempts=8
+2026-10-06 16:48:48,570 WARNING Project2 HTTP deadline cancelled attempts=8
+2026-10-06 16:48:48,599 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:48:48,608 INFO ch12-repair1 repeat2 27/39 elapsed=38.203
+2026-10-06 16:48:48,656 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:48:48,658 INFO ch12-repair1 repeat2 28/39 elapsed=0.031
+2026-10-06 16:48:49,613 INFO Database request=ee13751b96e7449aa59e4e49cfb5628c status=completed counts=[3736]
+2026-10-06 16:49:26,652 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 16:49:26,849 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:49:26,862 INFO ch12-repair1 repeat2 29/39 elapsed=38.187
+2026-10-06 16:49:27,674 INFO Database request=f2597e86a6924a0f864d2091c7fc46e5 status=completed counts=[15]
+2026-10-06 16:50:04,996 ERROR RAG run=f2597e86a6924a0f864d2091c7fc46e5 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 282, in run
+    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 99, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 298, in run
+    self.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+
+2026-10-06 16:50:05,018 INFO Project2 run=f2597e86a6924a0f864d2091c7fc46e5 status=partial attempts=9
+2026-10-06 16:50:05,024 WARNING Project2 HTTP deadline cancelled attempts=9
+2026-10-06 16:50:05,025 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:50:05,026 INFO ch12-repair1 repeat2 30/39 elapsed=38.156
+2026-10-06 16:50:06,548 INFO Database request=61f2d65bf2aa4da49fe6fc1890926371 status=completed counts=[178]
+2026-10-06 16:50:43,045 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 16:50:43,145 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:50:43,162 INFO ch12-repair1 repeat2 31/39 elapsed=38.141
+2026-10-06 16:50:51,964 INFO Database request=620044d66177454aa265eb3cc5d192d7 status=completed counts=[13635]
+2026-10-06 16:51:21,350 ERROR RAG run=620044d66177454aa265eb3cc5d192d7 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 282, in run
+    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 99, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 298, in run
+    self.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+
+2026-10-06 16:51:21,368 INFO Project2 run=620044d66177454aa265eb3cc5d192d7 status=partial attempts=5
+2026-10-06 16:51:21,373 WARNING Project2 HTTP deadline cancelled attempts=5
+2026-10-06 16:51:21,376 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:51:21,378 INFO ch12-repair1 repeat2 32/39 elapsed=38.219
+2026-10-06 16:51:33,417 WARNING Database request=46b63460ff0840f8baf673197ffbc6f7 status=timeout timeout=database_statement_timeout
+2026-10-06 16:51:59,337 WARNING Project2 HTTP deadline cancelled attempts=3
+2026-10-06 16:51:59,342 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:51:59,345 INFO ch12-repair1 repeat2 33/39 elapsed=37.953
+2026-10-06 16:52:04,284 INFO Database request=b5fe66abd9b34818a8fe2af58e885593 status=completed counts=[4984]
+2026-10-06 16:52:37,730 ERROR RAG run=b5fe66abd9b34818a8fe2af58e885593 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 282, in run
+    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 99, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 298, in run
+    self.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+
+2026-10-06 16:52:37,829 INFO Project2 run=b5fe66abd9b34818a8fe2af58e885593 status=partial attempts=5
+2026-10-06 16:52:37,867 WARNING Project2 HTTP deadline cancelled attempts=5
+2026-10-06 16:52:37,943 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:52:37,965 INFO ch12-repair1 repeat2 34/39 elapsed=38.610
+2026-10-06 16:52:39,531 INFO Database request=7b82b1ea85b74be3bdf2e0045ef86eb5 status=completed counts=[2598]
+2026-10-06 16:53:15,959 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 16:53:15,970 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:53:15,976 INFO ch12-repair1 repeat2 35/39 elapsed=38.015
+2026-10-06 16:53:25,295 INFO Database request=013bfbc64a6e40bf99534b3a55ef7ac2 status=completed counts=[18296]
+2026-10-06 16:53:54,079 ERROR RAG run=013bfbc64a6e40bf99534b3a55ef7ac2 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 282, in run
+    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 99, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 298, in run
+    self.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+
+2026-10-06 16:53:54,099 INFO Project2 run=013bfbc64a6e40bf99534b3a55ef7ac2 status=partial attempts=5
+2026-10-06 16:53:54,103 WARNING Project2 HTTP deadline cancelled attempts=5
+2026-10-06 16:53:54,108 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:53:54,110 INFO ch12-repair1 repeat2 36/39 elapsed=38.141
+2026-10-06 16:53:54,221 INFO Database request=5373ce1d0ffb4585986e039eb7cae15a status=completed counts=[218]
+2026-10-06 16:54:32,449 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 16:54:32,523 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:54:32,541 INFO ch12-repair1 repeat2 37/39 elapsed=38.422
+2026-10-06 16:54:33,690 INFO Database request=3a03c4b9438c441d848e9679ec690c39 status=completed counts=[2288]
+2026-10-06 16:55:10,731 ERROR RAG run=3a03c4b9438c441d848e9679ec690c39 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 282, in run
+    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 99, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 298, in run
+    self.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+
+2026-10-06 16:55:10,776 INFO Project2 run=3a03c4b9438c441d848e9679ec690c39 status=partial attempts=5
+2026-10-06 16:55:10,797 WARNING Project2 HTTP deadline cancelled attempts=5
+2026-10-06 16:55:10,835 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:55:10,849 INFO ch12-repair1 repeat2 38/39 elapsed=38.312
+2026-10-06 16:55:12,569 INFO Database request=a3a48158276f47ae9aed91c3b80c619b status=completed counts=[4867]
+2026-10-06 16:55:48,871 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 16:55:48,964 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:55:48,983 INFO ch12-repair1 repeat2 39/39 elapsed=38.125
+2026-10-06 16:55:50,096 INFO Database request=fe49df4f9c5f4e8eb26ccbf40491befc status=completed counts=[3736]
+2026-10-06 16:56:27,169 ERROR RAG run=fe49df4f9c5f4e8eb26ccbf40491befc failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 282, in run
+    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 99, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 298, in run
+    self.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+
+2026-10-06 16:56:27,200 INFO Project2 run=fe49df4f9c5f4e8eb26ccbf40491befc status=partial attempts=13
+2026-10-06 16:56:27,209 WARNING Project2 HTTP deadline cancelled attempts=13
+2026-10-06 16:56:27,224 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:56:27,228 INFO ch12-repair1 repeat3 1/39 elapsed=38.234
+2026-10-06 16:56:31,039 INFO Database request=be65ea0ab8f84ef88dba4f4c9545ac39 status=completed counts=[18296]
+2026-10-06 16:57:05,212 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 16:57:05,278 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:57:05,293 INFO ch12-repair1 repeat3 2/39 elapsed=38.063
+2026-10-06 16:57:06,071 INFO Database request=a334c34e0140482293d5d7c60e9f0dc5 status=completed counts=[323]
+2026-10-06 16:57:43,597 ERROR RAG run=a334c34e0140482293d5d7c60e9f0dc5 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 282, in run
+    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 99, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 298, in run
+    self.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+
+2026-10-06 16:57:43,669 INFO Project2 run=a334c34e0140482293d5d7c60e9f0dc5 status=partial attempts=5
+2026-10-06 16:57:43,690 WARNING Project2 HTTP deadline cancelled attempts=5
+2026-10-06 16:57:43,732 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:57:43,745 INFO ch12-repair1 repeat3 3/39 elapsed=38.453
+2026-10-06 16:57:45,564 INFO Database request=0f0398f0146f40e69588d381e37244da status=completed counts=[8643]
+2026-10-06 16:58:21,766 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 16:58:21,875 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:58:21,887 INFO ch12-repair1 repeat3 4/39 elapsed=38.141
+2026-10-06 16:58:24,840 INFO Database request=1666d0e21b8940968476211f96a6b881 status=completed counts=[7234]
+2026-10-06 16:59:00,226 ERROR RAG run=1666d0e21b8940968476211f96a6b881 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 282, in run
+    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 99, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 298, in run
+    self.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+
+2026-10-06 16:59:00,271 INFO Project2 run=1666d0e21b8940968476211f96a6b881 status=partial attempts=13
+2026-10-06 16:59:00,288 WARNING Project2 HTTP deadline cancelled attempts=13
+2026-10-06 16:59:00,321 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:59:00,331 INFO ch12-repair1 repeat3 5/39 elapsed=38.453
+2026-10-06 16:59:01,579 INFO Database request=cdd0098272c44a1ba08f29d2f963b089 status=completed counts=[3323]
+2026-10-06 16:59:38,358 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 16:59:38,524 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 16:59:38,541 INFO ch12-repair1 repeat3 6/39 elapsed=38.203
+2026-10-06 16:59:38,722 INFO Database request=783fa1a931774b40878349c42081f49a status=completed counts=[118]
+2026-10-06 17:00:16,822 ERROR RAG run=783fa1a931774b40878349c42081f49a failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 282, in run
+    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 99, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 298, in run
+    self.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+
+2026-10-06 17:00:16,869 INFO Project2 run=783fa1a931774b40878349c42081f49a status=partial attempts=13
+2026-10-06 17:00:16,880 WARNING Project2 HTTP deadline cancelled attempts=13
+2026-10-06 17:00:16,897 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:00:16,904 INFO ch12-repair1 repeat3 7/39 elapsed=38.359
+2026-10-06 17:00:18,425 INFO Database request=f6b8bf2fde74430aae72294d56386db5 status=completed counts=[5958]
+2026-10-06 17:00:54,905 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 17:00:54,963 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:00:54,977 INFO ch12-repair1 repeat3 8/39 elapsed=38.078
+2026-10-06 17:00:56,041 INFO Database request=c0ab1077097d4e8a8fac79fc5f1a04b5 status=completed counts=[449]
+2026-10-06 17:01:33,230 ERROR RAG run=c0ab1077097d4e8a8fac79fc5f1a04b5 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 282, in run
+    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 99, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 298, in run
+    self.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+
+2026-10-06 17:01:33,259 INFO Project2 run=c0ab1077097d4e8a8fac79fc5f1a04b5 status=partial attempts=5
+2026-10-06 17:01:33,265 WARNING Project2 HTTP deadline cancelled attempts=5
+2026-10-06 17:01:33,268 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:01:33,275 INFO ch12-repair1 repeat3 9/39 elapsed=38.297
+2026-10-06 17:01:34,153 INFO Database request=e2c79c2102f64340b98ad6830794b844 status=completed counts=[178]
+2026-10-06 17:02:11,249 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 17:02:11,356 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:02:11,373 INFO ch12-repair1 repeat3 10/39 elapsed=38.094
+2026-10-06 17:02:11,616 INFO Database request=7b068d29a99b472fa2286927c7285b08 status=completed counts=[218]
+2026-10-06 17:02:49,752 ERROR RAG run=7b068d29a99b472fa2286927c7285b08 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 282, in run
+    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 99, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 298, in run
+    self.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+
+2026-10-06 17:02:49,795 INFO Project2 run=7b068d29a99b472fa2286927c7285b08 status=partial attempts=8
+2026-10-06 17:02:49,813 WARNING Project2 HTTP deadline cancelled attempts=8
+2026-10-06 17:02:49,849 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:02:49,859 INFO ch12-repair1 repeat3 11/39 elapsed=38.484
+2026-10-06 17:03:01,947 WARNING Database request=52a95861b74f40ca828f1d97f275de28 status=timeout timeout=database_statement_timeout
+2026-10-06 17:03:27,841 WARNING Project2 HTTP deadline cancelled attempts=3
+2026-10-06 17:03:27,889 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:03:27,901 INFO ch12-repair1 repeat3 12/39 elapsed=38.031
+2026-10-06 17:03:28,250 INFO Database request=80f85f88bd0b47bab4a104743ef9fdd6 status=completed counts=[40]
+2026-10-06 17:04:06,368 ERROR RAG run=80f85f88bd0b47bab4a104743ef9fdd6 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 282, in run
+    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 99, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 298, in run
+    self.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+
+2026-10-06 17:04:06,406 INFO Project2 run=80f85f88bd0b47bab4a104743ef9fdd6 status=partial attempts=5
+2026-10-06 17:04:06,421 WARNING Project2 HTTP deadline cancelled attempts=5
+2026-10-06 17:04:06,444 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:04:06,449 INFO ch12-repair1 repeat3 13/39 elapsed=38.547
+2026-10-06 17:04:07,604 INFO Database request=5e3d866522074edcbd309412ada2ac0c status=completed counts=[3402]
+2026-10-06 17:04:44,477 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 17:04:44,547 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:04:44,561 INFO ch12-repair1 repeat3 14/39 elapsed=38.109
+2026-10-06 17:04:47,339 INFO Database request=7320d1600b15456491819c919f648527 status=completed counts=[3625]
+2026-10-06 17:05:22,708 ERROR RAG run=7320d1600b15456491819c919f648527 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 282, in run
+    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 99, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 298, in run
+    self.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+
+2026-10-06 17:05:22,725 INFO Project2 run=7320d1600b15456491819c919f648527 status=partial attempts=14
+2026-10-06 17:05:22,730 WARNING Project2 HTTP deadline cancelled attempts=14
+2026-10-06 17:05:22,732 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:05:22,734 INFO ch12-repair1 repeat3 15/39 elapsed=38.172
+2026-10-06 17:05:25,305 INFO Database request=35228c33dd6a4e7e8a5e59d8e81d48d9 status=completed counts=[5809]
+2026-10-06 17:06:00,715 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 17:06:00,774 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:06:00,787 INFO ch12-repair1 repeat3 16/39 elapsed=38.047
+2026-10-06 17:06:21,435 INFO Database request=cd05d441a868457bbe381470cdd1b8a9 status=completed counts=[36585]
+2026-10-06 17:06:39,281 ERROR RAG run=cd05d441a868457bbe381470cdd1b8a9 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 282, in run
+    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 99, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 298, in run
+    self.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+
+2026-10-06 17:06:39,304 INFO Project2 run=cd05d441a868457bbe381470cdd1b8a9 status=partial attempts=13
+2026-10-06 17:06:39,308 WARNING Project2 HTTP deadline cancelled attempts=13
+2026-10-06 17:06:39,311 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:06:39,314 INFO ch12-repair1 repeat3 17/39 elapsed=38.515
+2026-10-06 17:07:02,493 INFO Database request=a4ee2ccff1ab4e79b4260ee84b8b95f4 status=completed counts=[86438]
+2026-10-06 17:07:17,278 WARNING Project2 HTTP deadline cancelled attempts=4
+2026-10-06 17:07:17,279 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:07:17,280 INFO ch12-repair1 repeat3 18/39 elapsed=37.953
+2026-10-06 17:07:24,075 INFO Database request=bc0f0146ea0a4b2db193c4a75951dc35 status=completed counts=[12213]
+2026-10-06 17:07:55,379 ERROR RAG run=bc0f0146ea0a4b2db193c4a75951dc35 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 282, in run
+    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 99, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 298, in run
+    self.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+
+2026-10-06 17:07:55,397 INFO Project2 run=bc0f0146ea0a4b2db193c4a75951dc35 status=partial attempts=14
+2026-10-06 17:07:55,405 WARNING Project2 HTTP deadline cancelled attempts=14
+2026-10-06 17:07:55,419 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:07:55,423 INFO ch12-repair1 repeat3 19/39 elapsed=38.141
+2026-10-06 17:08:07,463 WARNING Database request=2f7924a35c0b4d3c87b87e7c5deaca29 status=timeout timeout=database_statement_timeout
+2026-10-06 17:08:33,391 WARNING Project2 HTTP deadline cancelled attempts=3
+2026-10-06 17:08:33,429 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:08:33,436 INFO ch12-repair1 repeat3 20/39 elapsed=38.000
+2026-10-06 17:08:34,783 INFO Database request=b3f6928f9d24490380cfd79001e0a1c9 status=completed counts=[6451]
+2026-10-06 17:08:49,254 INFO Project2 run=b3f6928f9d24490380cfd79001e0a1c9 status=completed attempts=14
+2026-10-06 17:08:49,258 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:08:49,263 INFO ch12-repair1 repeat3 21/39 elapsed=15.829
+2026-10-06 17:08:49,269 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:08:49,270 INFO ch12-repair1 repeat3 22/39 elapsed=0.015
+2026-10-06 17:08:50,177 INFO Database request=87d8e56a10c146e0bac91f6140949280 status=completed counts=[4867]
+2026-10-06 17:09:09,484 INFO Project2 run=87d8e56a10c146e0bac91f6140949280 status=completed attempts=14
+2026-10-06 17:09:09,485 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:09:09,490 INFO ch12-repair1 repeat3 23/39 elapsed=20.219
+2026-10-06 17:09:09,535 INFO Database request=207be96330394659a5ed64eebd324710 status=completed counts=[11]
+2026-10-06 17:09:24,018 INFO Project2 run=207be96330394659a5ed64eebd324710 status=completed attempts=14
+2026-10-06 17:09:24,019 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:09:24,022 INFO ch12-repair1 repeat3 24/39 elapsed=14.531
+2026-10-06 17:09:24,647 INFO Database request=472c84af2c4d411dbf130019fda87ed5 status=completed counts=[15]
+2026-10-06 17:09:39,170 INFO Project2 run=472c84af2c4d411dbf130019fda87ed5 status=completed attempts=14
+2026-10-06 17:09:39,172 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:09:39,176 INFO ch12-repair1 repeat3 25/39 elapsed=15.156
+2026-10-06 17:09:39,863 INFO Database request=b091e74172dc49eca9bae59701aaee40 status=completed counts=[2697]
+2026-10-06 17:09:52,079 INFO Project2 run=b091e74172dc49eca9bae59701aaee40 status=completed attempts=14
+2026-10-06 17:09:52,080 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:09:52,085 INFO ch12-repair1 repeat3 26/39 elapsed=12.907
+2026-10-06 17:09:52,977 INFO Database request=ce2561091aba430ab0a4dbdc34c4801a status=completed counts=[2598]
+2026-10-06 17:10:11,069 INFO Project2 run=ce2561091aba430ab0a4dbdc34c4801a status=completed attempts=14
+2026-10-06 17:10:11,070 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:10:11,074 INFO ch12-repair1 repeat3 27/39 elapsed=18.984
+2026-10-06 17:10:11,529 INFO Database request=574f8a045228475d970f055545e3a02f status=completed counts=[2288]
+2026-10-06 17:10:27,430 INFO Project2 run=574f8a045228475d970f055545e3a02f status=completed attempts=14
+2026-10-06 17:10:27,434 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:10:27,440 INFO ch12-repair1 repeat3 28/39 elapsed=16.375
+2026-10-06 17:10:33,186 INFO Database request=c673b99b1eea4abbb14836eb4754ddc9 status=completed counts=[40526]
+2026-10-06 17:10:52,960 INFO Project2 run=c673b99b1eea4abbb14836eb4754ddc9 status=completed attempts=14
+2026-10-06 17:10:52,961 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:10:52,967 INFO ch12-repair1 repeat3 29/39 elapsed=25.516
+2026-10-06 17:10:54,050 INFO Database request=824737c7d5fa427d9c91802fb7428274 status=completed counts=[4609]
+2026-10-06 17:11:12,969 INFO Project2 run=824737c7d5fa427d9c91802fb7428274 status=completed attempts=14
+2026-10-06 17:11:12,991 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:11:12,995 INFO ch12-repair1 repeat3 30/39 elapsed=20.031
+2026-10-06 17:11:15,848 INFO Database request=10df2fcdb48a47a88a0b6577c85582c2 status=completed counts=[13635]
+2026-10-06 17:11:27,007 INFO Project2 run=10df2fcdb48a47a88a0b6577c85582c2 status=completed attempts=14
+2026-10-06 17:11:27,008 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:11:27,010 INFO ch12-repair1 repeat3 31/39 elapsed=14.016
+2026-10-06 17:11:32,797 INFO Database request=ac2211ede28f47e4b3f246b240bc23be status=completed counts=[46777]
+2026-10-06 17:11:42,008 INFO Project2 run=ac2211ede28f47e4b3f246b240bc23be status=completed attempts=14
+2026-10-06 17:11:42,009 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:11:42,012 INFO ch12-repair1 repeat3 32/39 elapsed=15.000
+2026-10-06 17:11:42,017 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:11:42,019 INFO ch12-repair1 repeat3 33/39 elapsed=0.015
+2026-10-06 17:11:43,131 INFO Database request=78b0afda4510411ea2278b01d7950487 status=completed counts=[4984]
+2026-10-06 17:11:53,911 INFO Project2 run=78b0afda4510411ea2278b01d7950487 status=partial attempts=13
+2026-10-06 17:11:53,912 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:11:53,915 INFO ch12-repair1 repeat3 34/39 elapsed=11.891
+2026-10-06 17:11:54,592 INFO Database request=fc09e2c8dcfa4174b6c56bd15b54a6d9 status=completed counts=[3736]
+2026-10-06 17:12:03,913 INFO Project2 run=fc09e2c8dcfa4174b6c56bd15b54a6d9 status=completed attempts=14
+2026-10-06 17:12:03,914 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:12:03,917 INFO ch12-repair1 repeat3 35/39 elapsed=10.000
+2026-10-06 17:12:04,069 INFO Database request=ab52a1c4755448c7ab52ad9afbef36c3 status=completed counts=[3736]
+2026-10-06 17:12:19,238 INFO Project2 run=ab52a1c4755448c7ab52ad9afbef36c3 status=completed attempts=14
+2026-10-06 17:12:19,240 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:12:19,243 INFO ch12-repair1 repeat3 36/39 elapsed=15.328
+2026-10-06 17:12:22,294 INFO Database request=b550b4d7280a43e3a257bfbbe9842031 status=completed counts=[18296]
+2026-10-06 17:12:35,114 INFO Project2 run=b550b4d7280a43e3a257bfbbe9842031 status=completed attempts=14
+2026-10-06 17:12:35,116 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:12:35,119 INFO ch12-repair1 repeat3 37/39 elapsed=15.875
+2026-10-06 17:12:35,750 INFO Database request=69928ae7c1b14e769f1313e01da53e68 status=completed counts=[3736]
+2026-10-06 17:12:47,126 INFO Project2 run=69928ae7c1b14e769f1313e01da53e68 status=completed attempts=14
+2026-10-06 17:12:47,126 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:12:47,130 INFO ch12-repair1 repeat3 38/39 elapsed=12.016
+2026-10-06 17:12:50,023 INFO Database request=7126393bc0764748add276839b10cf80 status=completed counts=[18296]
+2026-10-06 17:13:05,563 INFO Project2 run=7126393bc0764748add276839b10cf80 status=completed attempts=14
+2026-10-06 17:13:05,564 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-06 17:13:05,567 INFO ch12-repair1 repeat3 39/39 elapsed=18.437
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\scripts\project2_regression_diagnosis.py", line 148, in <module>
+    if args.repair_eval:repair_eval()
+                        ^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\scripts\project2_regression_diagnosis.py", line 108, in repair_eval
+    rows = invoke(ROOT, tasks, OUT/'requests.jsonl', 'ch12-repair1')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\scripts\project2_stage_eval.py", line 119, in invoke
+    with HostGuard(output.parent/'power'), TestClient(app) as client, output.open('x',encoding='utf-8') as handle:
+                                           ^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\testclient.py", line 528, in __exit__
+    self.exit_stack.close()
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\contextlib.py", line 618, in close
+    self.__exit__(None, None, None)
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\contextlib.py", line 610, in __exit__
+    raise exc_details[1]
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\contextlib.py", line 595, in __exit__
+    if cb(*exc_details):
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\contextlib.py", line 478, in _exit_wrapper
+    callback(*args, **kwds)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\testclient.py", line 521, in wait_shutdown
+    portal.call(self.wait_shutdown)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\anyio\from_thread.py", line 338, in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\concurrent\futures\_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\anyio\from_thread.py", line 263, in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\testclient.py", line 568, in wait_shutdown
+    await receive()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\testclient.py", line 558, in receive
+    self.task.result()
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\anyio\from_thread.py", line 263, in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\testclient.py", line 533, in lifespan
+    await self.app(scope, self.stream_receive.receive, self.stream_send.send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\fastapi\applications.py", line 1202, in __call__
+    await lifespan(
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\fastapi\telemetry\_runtime.py", line 238, in lifespan
+    await app(scope, wrapped_receive, wrapped_send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\middleware\errors.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\fastapi\telemetry\_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\api\project2_main.py", line 36, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\middleware\exceptions.py", line 49, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\fastapi\routing.py", line 2773, in app
+    await self.lifespan(scope, receive, send)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\starlette\routing.py", line 654, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\contextlib.py", line 217, in __aexit__
+    await anext(self.gen)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\api\project2_main.py", line 87, in lifespan
+    runtime.stop()
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 253, in stop
+    raise RuntimeError('Owned RAG process tree could not be cancelled: '+detail[:250])
+RuntimeError: Owned RAG process tree could not be cancelled: 错误: 拒绝访问
+
+
+

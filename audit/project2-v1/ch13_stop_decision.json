@@ -1,0 +1,27 @@
+{
+  "status": "stopped_frozen_deadline",
+  "machine_predicate": true,
+  "permission_to_increase_budget": false,
+  "gate_passed": false,
+  "repairs_used": 1,
+  "stage": "Chap13",
+  "gate_passes": 13,
+  "gate_total": 15,
+  "frozen_limits": {
+    "attempts": 19,
+    "llm_calls": 6,
+    "seconds": 37.941018
+  },
+  "original_deadline": 1791332227.9828193,
+  "restart_elapsed_seconds": 28.512659072875977,
+  "remaining_at_resume_seconds": 9.423080682754517,
+  "reason": "Chap13修复1轮后门禁仍失败：重启恢复耗尽原绝对期限，RAG timeout、DB completed→partial；预算被冻结，本授权不允许调整。保留失败，不进入Chap14/15，不为随机性重复门禁。",
+  "stop_reason_basis": "machine gate and trace; maximum two repairs is an upper bound, not permission to relax a frozen budget",
+  "gate_sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+  "proof_files": {
+    "audit/project2-v1/ch13_round1/gate.json": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+    "audit/project2-v1/ch13_round1/before_restart_checkpoint.json": "7bf6219dacc03a06598936fca3b6062aef6f4246f6d50744a92529af4560a021",
+    "audit/project2-v1/ch13_round1/resumed_response.json": "f8f531dee3b4118eabfe77a92a554f1fc1de86ada538098631856262596061da",
+    "audit/project2-v1/ch13_round1/resume_trace.json": "314b616ccc146d197f252790a7741080c8fe0b7883753eb2317dbfe85fa4853a"
+  }
+}

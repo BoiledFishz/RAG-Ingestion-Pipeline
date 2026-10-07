@@ -1,0 +1,3001 @@
+{
+  "plan_sha256": "6100e73d20c47d8efad970366ef77b5a7015def91b95485b0a5fc9e52f61a67d",
+  "keys": [
+    {
+      "blind_id": "B001",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q056",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "d13897ae51f922c7e95dd92720a053bfd01cf68d128e0f8cae2bb39b047f8272",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q056",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "d13897ae51f922c7e95dd92720a053bfd01cf68d128e0f8cae2bb39b047f8272",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q056",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "d13897ae51f922c7e95dd92720a053bfd01cf68d128e0f8cae2bb39b047f8272",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B002",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q462",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "0d384d176765ee6bf5206e35dbd6b56a034015126719067a5d867c40d527dc8e",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q462",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "0d384d176765ee6bf5206e35dbd6b56a034015126719067a5d867c40d527dc8e",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q462",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "0d384d176765ee6bf5206e35dbd6b56a034015126719067a5d867c40d527dc8e",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B003",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q101",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "6dd61f96bf98e528a3e325a4b520b0336b226e869bcf5bc05745320ae8acf722",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q101",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "6dd61f96bf98e528a3e325a4b520b0336b226e869bcf5bc05745320ae8acf722",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q101",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "6dd61f96bf98e528a3e325a4b520b0336b226e869bcf5bc05745320ae8acf722",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B004",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q142",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "61594c123b82fec34732ae6e0c96e18a9739a95e834eb6aa03e7b9b17fb4e480",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q142",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "61594c123b82fec34732ae6e0c96e18a9739a95e834eb6aa03e7b9b17fb4e480",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q142",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "61594c123b82fec34732ae6e0c96e18a9739a95e834eb6aa03e7b9b17fb4e480",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B005",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q154",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "f331ded9b1df1a5db2b31cc4f5348d0071a0d63e87b2bebff5c2569f02af1904",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B006",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q549",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "f10215542f5a1ffe600aa60accbde9ecf1c0055b59b0a21d6904f63854c9d889",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q549",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "f10215542f5a1ffe600aa60accbde9ecf1c0055b59b0a21d6904f63854c9d889",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q549",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "f10215542f5a1ffe600aa60accbde9ecf1c0055b59b0a21d6904f63854c9d889",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": true
+    },
+    {
+      "blind_id": "B007",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q220",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "cf7d4f915035341aeeef8e27e5fa02b81e446d438b0773330c2e9c27fb8efb25",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q220",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "cf7d4f915035341aeeef8e27e5fa02b81e446d438b0773330c2e9c27fb8efb25",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q220",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "cf7d4f915035341aeeef8e27e5fa02b81e446d438b0773330c2e9c27fb8efb25",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B008",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q088",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "8eff431c91645d3d7b159960163b32cc08e4f81803145340a845c8cc45efe419",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q088",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "8eff431c91645d3d7b159960163b32cc08e4f81803145340a845c8cc45efe419",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q088",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "8eff431c91645d3d7b159960163b32cc08e4f81803145340a845c8cc45efe419",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B009",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q224",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "c92eb1cf8fe21984ab9fbe3ded7049910ec1c81f9cee8f3e5cc768f622d4c005",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q224",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "c92eb1cf8fe21984ab9fbe3ded7049910ec1c81f9cee8f3e5cc768f622d4c005",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q224",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "c92eb1cf8fe21984ab9fbe3ded7049910ec1c81f9cee8f3e5cc768f622d4c005",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": true
+    },
+    {
+      "blind_id": "B010",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q040",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "36141617d90f46e6d006e18267c6f8b7ce75d9078599a2bf4e8bdd77ebe52bd6",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q040",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "36141617d90f46e6d006e18267c6f8b7ce75d9078599a2bf4e8bdd77ebe52bd6",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q040",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "36141617d90f46e6d006e18267c6f8b7ce75d9078599a2bf4e8bdd77ebe52bd6",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B011",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q173",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "415caf9365d9c8eb5ae4d67f26a2961868c3e4a6184a917c045e9bb902a1e40a",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q173",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "415caf9365d9c8eb5ae4d67f26a2961868c3e4a6184a917c045e9bb902a1e40a",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q173",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "415caf9365d9c8eb5ae4d67f26a2961868c3e4a6184a917c045e9bb902a1e40a",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B012",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q077",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "19729eeaa24ee734bcbb18f06b0c6467a2990a90921b328098f29fefc741cd10",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q077",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "19729eeaa24ee734bcbb18f06b0c6467a2990a90921b328098f29fefc741cd10",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q077",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "19729eeaa24ee734bcbb18f06b0c6467a2990a90921b328098f29fefc741cd10",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B013",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q097",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "ff9766d44ff2b01616c6e15e335e770f413eb47c1b071c96d7f21e479d41f14f",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q097",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "ff9766d44ff2b01616c6e15e335e770f413eb47c1b071c96d7f21e479d41f14f",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q097",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "ff9766d44ff2b01616c6e15e335e770f413eb47c1b071c96d7f21e479d41f14f",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B014",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q065",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "9fd2da48b479c87fd6bc1eeb26b78faad927a063ffa4d08c5318c6a172799ea4",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q065",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "9fd2da48b479c87fd6bc1eeb26b78faad927a063ffa4d08c5318c6a172799ea4",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q065",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "9fd2da48b479c87fd6bc1eeb26b78faad927a063ffa4d08c5318c6a172799ea4",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B015",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q140",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "e3bc0e086d7b9845965c32d75315770b61abcde2109255a7f305ee04433f5df9",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q140",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "e3bc0e086d7b9845965c32d75315770b61abcde2109255a7f305ee04433f5df9",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q140",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "e3bc0e086d7b9845965c32d75315770b61abcde2109255a7f305ee04433f5df9",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": true
+    },
+    {
+      "blind_id": "B016",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q319",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "db1e70fb93aa0f88eacebc781a12801c18358003c0731786c52fa3b96a2b8204",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q319",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "db1e70fb93aa0f88eacebc781a12801c18358003c0731786c52fa3b96a2b8204",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q319",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "db1e70fb93aa0f88eacebc781a12801c18358003c0731786c52fa3b96a2b8204",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B017",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q247",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "e55f1c878f7e57b4ff4103feb006ee44c4c935b6705e307bd9caadcdb9877cd0",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B018",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q306",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "7a3c09b754e17e0642558d6e9249045a3589e27613b944a17be892dfb5991d95",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q306",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "7a3c09b754e17e0642558d6e9249045a3589e27613b944a17be892dfb5991d95",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q306",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "7a3c09b754e17e0642558d6e9249045a3589e27613b944a17be892dfb5991d95",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B019",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q246",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "b646d790e0aa0a44977e6b0fc370f6c587caa8963e4b40218ed343bad30b0044",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B020",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q246",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "4b27c054fdd0b90fd735dfabc532587f9404cde2502e9c16fab1343bc211d983",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B021",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q468",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "0eb2ee850c1fef99a19c4acd301d1b4950f4e10d01a3bfd61a3e91e137145a07",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q468",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "0eb2ee850c1fef99a19c4acd301d1b4950f4e10d01a3bfd61a3e91e137145a07",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q468",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "0eb2ee850c1fef99a19c4acd301d1b4950f4e10d01a3bfd61a3e91e137145a07",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B022",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q247",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "d0668b940e4570dcf712f4ffe449d51002558ca054fd6876dfca5d9d4c51a6ca",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q247",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "d0668b940e4570dcf712f4ffe449d51002558ca054fd6876dfca5d9d4c51a6ca",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B023",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q226",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "f4d873c530c884eed4c181d7d25aee37c3529bcdff7b175680fdbe7ee5f2c838",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q226",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "f4d873c530c884eed4c181d7d25aee37c3529bcdff7b175680fdbe7ee5f2c838",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q226",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "f4d873c530c884eed4c181d7d25aee37c3529bcdff7b175680fdbe7ee5f2c838",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B024",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q119",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "5a869f637b781cd5f64cdacb6e3fc69d5de50517c67eeab372c2d0de95352796",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q119",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "5a869f637b781cd5f64cdacb6e3fc69d5de50517c67eeab372c2d0de95352796",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q119",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "5a869f637b781cd5f64cdacb6e3fc69d5de50517c67eeab372c2d0de95352796",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B025",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q117",
+          "repeat": 1,
+          "status": "no_data",
+          "answer_sha256": "c0ae50ad69ead5514c6c0dd449f05ddd86f4339b743b4a624ff40af8dc7cecb5",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q117",
+          "repeat": 2,
+          "status": "no_data",
+          "answer_sha256": "c0ae50ad69ead5514c6c0dd449f05ddd86f4339b743b4a624ff40af8dc7cecb5",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q117",
+          "repeat": 3,
+          "status": "no_data",
+          "answer_sha256": "c0ae50ad69ead5514c6c0dd449f05ddd86f4339b743b4a624ff40af8dc7cecb5",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": true
+    },
+    {
+      "blind_id": "B026",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q139",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "1822771a9d2567da397694ee5c63d22c0afaa50b2b14dc5315337330b1301341",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q139",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "1822771a9d2567da397694ee5c63d22c0afaa50b2b14dc5315337330b1301341",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q139",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "1822771a9d2567da397694ee5c63d22c0afaa50b2b14dc5315337330b1301341",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B027",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q318",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "9727b061954f650c3ca8039aba6e3125a7dfe22a9226397fb210026381a4cace",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q318",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "9727b061954f650c3ca8039aba6e3125a7dfe22a9226397fb210026381a4cace",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q318",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "9727b061954f650c3ca8039aba6e3125a7dfe22a9226397fb210026381a4cace",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B028",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q532",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "fe1cf4b5876bfc7dcb38fa9a2cd264b3a1029bc537929a905abae8087c623d15",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q532",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "fe1cf4b5876bfc7dcb38fa9a2cd264b3a1029bc537929a905abae8087c623d15",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q532",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "fe1cf4b5876bfc7dcb38fa9a2cd264b3a1029bc537929a905abae8087c623d15",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B029",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q025",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "89be02770215abee174f6fbd87a2d4f74276aa37811118e7d104ff165236125c",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q025",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "89be02770215abee174f6fbd87a2d4f74276aa37811118e7d104ff165236125c",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q025",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "89be02770215abee174f6fbd87a2d4f74276aa37811118e7d104ff165236125c",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B030",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q116",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "bcbce19e8485f015be696ab1bb0a83e93486746f3f6ba4db101f83a3df9d07eb",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q116",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "bcbce19e8485f015be696ab1bb0a83e93486746f3f6ba4db101f83a3df9d07eb",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q116",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "bcbce19e8485f015be696ab1bb0a83e93486746f3f6ba4db101f83a3df9d07eb",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B031",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q247",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "6c7f48eb27b64cb9bcd3886d27d3b49a80b4f2220bfa7fe1e35a5ff5c816b758",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q247",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "6c7f48eb27b64cb9bcd3886d27d3b49a80b4f2220bfa7fe1e35a5ff5c816b758",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q247",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "6c7f48eb27b64cb9bcd3886d27d3b49a80b4f2220bfa7fe1e35a5ff5c816b758",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B032",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q305",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "29ad1c3590efd2496f15d38ff73a2f3e5e74a18f79d0727177dac5eeec19ac2a",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q305",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "29ad1c3590efd2496f15d38ff73a2f3e5e74a18f79d0727177dac5eeec19ac2a",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q305",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "29ad1c3590efd2496f15d38ff73a2f3e5e74a18f79d0727177dac5eeec19ac2a",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": true
+    },
+    {
+      "blind_id": "B033",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q567",
+          "repeat": 1,
+          "status": "no_data",
+          "answer_sha256": "c0ae50ad69ead5514c6c0dd449f05ddd86f4339b743b4a624ff40af8dc7cecb5",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q567",
+          "repeat": 2,
+          "status": "no_data",
+          "answer_sha256": "c0ae50ad69ead5514c6c0dd449f05ddd86f4339b743b4a624ff40af8dc7cecb5",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q567",
+          "repeat": 3,
+          "status": "no_data",
+          "answer_sha256": "c0ae50ad69ead5514c6c0dd449f05ddd86f4339b743b4a624ff40af8dc7cecb5",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B034",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q066",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "05031c8e1712260d7c067b33edf88f63a67af183f247cf3c8e8a716a58facc95",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q066",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "05031c8e1712260d7c067b33edf88f63a67af183f247cf3c8e8a716a58facc95",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q066",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "05031c8e1712260d7c067b33edf88f63a67af183f247cf3c8e8a716a58facc95",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B035",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q362",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "d6918c359deac57c1a7a2ee5ccf0316f59536d0d77dcf6d5a1a1c4a5c06e1a0e",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q362",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "d6918c359deac57c1a7a2ee5ccf0316f59536d0d77dcf6d5a1a1c4a5c06e1a0e",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q362",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "d6918c359deac57c1a7a2ee5ccf0316f59536d0d77dcf6d5a1a1c4a5c06e1a0e",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B036",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q080",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "2923f4a003d6369d0589bef3353aa31b7e0932365decb630564ee5b5f95b7112",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q080",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "2923f4a003d6369d0589bef3353aa31b7e0932365decb630564ee5b5f95b7112",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q080",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "2923f4a003d6369d0589bef3353aa31b7e0932365decb630564ee5b5f95b7112",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B037",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q199",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "b74cebdf5294c00310557ec5cafba32945ee78f1853723ddf82b392b33eeda3e",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q199",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "b74cebdf5294c00310557ec5cafba32945ee78f1853723ddf82b392b33eeda3e",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q199",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "b74cebdf5294c00310557ec5cafba32945ee78f1853723ddf82b392b33eeda3e",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B038",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q144",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "526207f796e9f5695e31b52e37fe336b57184eea7d34d7ce4649970bef1ca824",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q144",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "526207f796e9f5695e31b52e37fe336b57184eea7d34d7ce4649970bef1ca824",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q144",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "526207f796e9f5695e31b52e37fe336b57184eea7d34d7ce4649970bef1ca824",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B039",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q145",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "c63788332f49dc0bb355cdd3befe5b458263e669d0c9f47fb72fb525c9895410",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q145",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "c63788332f49dc0bb355cdd3befe5b458263e669d0c9f47fb72fb525c9895410",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q145",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "c63788332f49dc0bb355cdd3befe5b458263e669d0c9f47fb72fb525c9895410",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": true
+    },
+    {
+      "blind_id": "B040",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q109",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "63b681a47f707da44ab41631c447468f76d66c169e5f3af37a1d8ea79e9fb253",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q109",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "63b681a47f707da44ab41631c447468f76d66c169e5f3af37a1d8ea79e9fb253",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q109",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "63b681a47f707da44ab41631c447468f76d66c169e5f3af37a1d8ea79e9fb253",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B041",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q578",
+          "repeat": 1,
+          "status": "no_data",
+          "answer_sha256": "c0ae50ad69ead5514c6c0dd449f05ddd86f4339b743b4a624ff40af8dc7cecb5",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q578",
+          "repeat": 2,
+          "status": "no_data",
+          "answer_sha256": "c0ae50ad69ead5514c6c0dd449f05ddd86f4339b743b4a624ff40af8dc7cecb5",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q578",
+          "repeat": 3,
+          "status": "no_data",
+          "answer_sha256": "c0ae50ad69ead5514c6c0dd449f05ddd86f4339b743b4a624ff40af8dc7cecb5",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B042",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q513",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "bd62ba340e9741ec49046bcb4c3595fd81a3b888b538f3098d126d47fbad7748",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q513",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "bd62ba340e9741ec49046bcb4c3595fd81a3b888b538f3098d126d47fbad7748",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q513",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "bd62ba340e9741ec49046bcb4c3595fd81a3b888b538f3098d126d47fbad7748",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B043",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q577",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "6981c38ab68bd92df413b6bfe9dea2ef4677c55f0cc4a36a2b261ec95dfe7908",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q577",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "6981c38ab68bd92df413b6bfe9dea2ef4677c55f0cc4a36a2b261ec95dfe7908",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q577",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "6981c38ab68bd92df413b6bfe9dea2ef4677c55f0cc4a36a2b261ec95dfe7908",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B044",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q214",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "e60e18c79b9161a890244f865161492dd7ede4ba48a370ead95bf676dce4ecf3",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q214",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "e60e18c79b9161a890244f865161492dd7ede4ba48a370ead95bf676dce4ecf3",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q214",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "e60e18c79b9161a890244f865161492dd7ede4ba48a370ead95bf676dce4ecf3",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B045",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q154",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "36a85a3ce666c11fd5df7604099068552364cd543c01f80fa1dd8d52997cfb43",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q154",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "36a85a3ce666c11fd5df7604099068552364cd543c01f80fa1dd8d52997cfb43",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B046",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q138",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "33aa0ce22601e4c53689a0f6b1fda967273aedceb974cfc2bfcefe168dc207fa",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q138",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "33aa0ce22601e4c53689a0f6b1fda967273aedceb974cfc2bfcefe168dc207fa",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q138",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "33aa0ce22601e4c53689a0f6b1fda967273aedceb974cfc2bfcefe168dc207fa",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B047",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q589",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "fab488ffba1e426b38daf3405cac1d8162cbf546bb459047f6626bba8bb2e450",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q589",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "fab488ffba1e426b38daf3405cac1d8162cbf546bb459047f6626bba8bb2e450",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q589",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "fab488ffba1e426b38daf3405cac1d8162cbf546bb459047f6626bba8bb2e450",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B048",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q478",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "491d85c89bb53b460f756dbe9fee20b148701c1de8eaea099f7bd0ca8109844e",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q478",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "491d85c89bb53b460f756dbe9fee20b148701c1de8eaea099f7bd0ca8109844e",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q478",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "491d85c89bb53b460f756dbe9fee20b148701c1de8eaea099f7bd0ca8109844e",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B049",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q091",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "585131ef655f46c28b016ad23954a3cc8fef86fa5c4388645bc33665356871a3",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q091",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "585131ef655f46c28b016ad23954a3cc8fef86fa5c4388645bc33665356871a3",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q091",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "585131ef655f46c28b016ad23954a3cc8fef86fa5c4388645bc33665356871a3",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B050",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q302",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "32d9e602ffd2d726369c5f8fad39c50d94adfeecc3cc6f9c5168fdfbfeb2680d",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q302",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "32d9e602ffd2d726369c5f8fad39c50d94adfeecc3cc6f9c5168fdfbfeb2680d",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q302",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "32d9e602ffd2d726369c5f8fad39c50d94adfeecc3cc6f9c5168fdfbfeb2680d",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B051",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q551",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "8e9e538c784148458a60a6fbb3d37b319e5f105f330604ea77dda2880f687e6b",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q551",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "8e9e538c784148458a60a6fbb3d37b319e5f105f330604ea77dda2880f687e6b",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q551",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "8e9e538c784148458a60a6fbb3d37b319e5f105f330604ea77dda2880f687e6b",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B052",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q045",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "c341d77d59008f65864a307f0c63ead0cbc021c5bbbb10a129137530ef5276eb",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q045",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "c341d77d59008f65864a307f0c63ead0cbc021c5bbbb10a129137530ef5276eb",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q045",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "c341d77d59008f65864a307f0c63ead0cbc021c5bbbb10a129137530ef5276eb",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B053",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q170",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "bb2b909af5a66a75897eb188ae90fac6fe539cdf48d26a77b64e7121bb20c23a",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q170",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "bb2b909af5a66a75897eb188ae90fac6fe539cdf48d26a77b64e7121bb20c23a",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q170",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "bb2b909af5a66a75897eb188ae90fac6fe539cdf48d26a77b64e7121bb20c23a",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B054",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q019",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "d4b124faf676952c772f4bee3bbbde52ba93d837e7ea2505794e43e6a8c70869",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q019",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "d4b124faf676952c772f4bee3bbbde52ba93d837e7ea2505794e43e6a8c70869",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q019",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "d4b124faf676952c772f4bee3bbbde52ba93d837e7ea2505794e43e6a8c70869",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B055",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q437",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "bf8544c07973079c0fa11ea48730856bc10b5d06906278e30c83a34a52da7f05",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q437",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "bf8544c07973079c0fa11ea48730856bc10b5d06906278e30c83a34a52da7f05",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q437",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "bf8544c07973079c0fa11ea48730856bc10b5d06906278e30c83a34a52da7f05",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B056",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q029",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "8a4697ac18838ff7cde3140ef48554a0c15c1453d4c3d6e14bf49b276362ba89",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q029",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "8a4697ac18838ff7cde3140ef48554a0c15c1453d4c3d6e14bf49b276362ba89",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q029",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "8a4697ac18838ff7cde3140ef48554a0c15c1453d4c3d6e14bf49b276362ba89",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B057",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q518",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "b9d1995dd3be2815854a7d6794a23fe9f95d3d65b3537b567871e8c39d9537ba",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q518",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "b9d1995dd3be2815854a7d6794a23fe9f95d3d65b3537b567871e8c39d9537ba",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q518",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "b9d1995dd3be2815854a7d6794a23fe9f95d3d65b3537b567871e8c39d9537ba",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B058",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q496",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "29e02ebdbfa4a17c96eac4a162a97c55425e3fb700fe813c9d4bea697959ce2e",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q496",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "29e02ebdbfa4a17c96eac4a162a97c55425e3fb700fe813c9d4bea697959ce2e",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q496",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "29e02ebdbfa4a17c96eac4a162a97c55425e3fb700fe813c9d4bea697959ce2e",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B059",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q256",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "869841727ec5d2a9772401ced93041ab939111807fb5de122ecd61ef0304fd40",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q256",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "869841727ec5d2a9772401ced93041ab939111807fb5de122ecd61ef0304fd40",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q256",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "869841727ec5d2a9772401ced93041ab939111807fb5de122ecd61ef0304fd40",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B060",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q041",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "ffd6fb6ae39e568401e3aae84342275dc1f22674cc5a2c5eaf887d190846b6bd",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q041",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "ffd6fb6ae39e568401e3aae84342275dc1f22674cc5a2c5eaf887d190846b6bd",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q041",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "ffd6fb6ae39e568401e3aae84342275dc1f22674cc5a2c5eaf887d190846b6bd",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B061",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q317",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "b95861fca63f7cb69af827792ae86443f4d2c9e07039bd4bd35aaf5abcda79ba",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q317",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "b95861fca63f7cb69af827792ae86443f4d2c9e07039bd4bd35aaf5abcda79ba",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q317",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "b95861fca63f7cb69af827792ae86443f4d2c9e07039bd4bd35aaf5abcda79ba",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B062",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q254",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "06ce97854e8417472de1d0b25f3838fbfae99a7338734569f5894b1a739c6d31",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q254",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "06ce97854e8417472de1d0b25f3838fbfae99a7338734569f5894b1a739c6d31",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q254",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "06ce97854e8417472de1d0b25f3838fbfae99a7338734569f5894b1a739c6d31",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": true
+    },
+    {
+      "blind_id": "B063",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q215",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "42d1d80908e8a71cfe24695d29ea37f490ecd1239eddc58c0c433a673cf57b61",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q215",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "42d1d80908e8a71cfe24695d29ea37f490ecd1239eddc58c0c433a673cf57b61",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q215",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "42d1d80908e8a71cfe24695d29ea37f490ecd1239eddc58c0c433a673cf57b61",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B064",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q002",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "269dc11df4e019f2e371284eaf76bfa6db43acda1276d9a608d142bcc2607323",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q002",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "269dc11df4e019f2e371284eaf76bfa6db43acda1276d9a608d142bcc2607323",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q002",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "269dc11df4e019f2e371284eaf76bfa6db43acda1276d9a608d142bcc2607323",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B065",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q130",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "c61b4a485ebabb2715d2296de8488b13bc2d71eb2531979a2bd6570a011ec359",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q130",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "c61b4a485ebabb2715d2296de8488b13bc2d71eb2531979a2bd6570a011ec359",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q130",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "c61b4a485ebabb2715d2296de8488b13bc2d71eb2531979a2bd6570a011ec359",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B066",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q089",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "82ace41f6ded0556fad721dfa7a7d60c44113b9c74f368a2bd494c4756bf2053",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q089",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "82ace41f6ded0556fad721dfa7a7d60c44113b9c74f368a2bd494c4756bf2053",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q089",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "82ace41f6ded0556fad721dfa7a7d60c44113b9c74f368a2bd494c4756bf2053",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B067",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q458",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "99ffa6c1dd78979585e5cc8e4ab5efd6ad70fdfd364eb46e1b8b447c85e1e8e5",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q458",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "99ffa6c1dd78979585e5cc8e4ab5efd6ad70fdfd364eb46e1b8b447c85e1e8e5",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q458",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "99ffa6c1dd78979585e5cc8e4ab5efd6ad70fdfd364eb46e1b8b447c85e1e8e5",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B068",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q246",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "96bb2f4e12742e48285841d2a478573cb54314bd8c04fb2c16e9580c2e94e1ea",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B069",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q286",
+          "repeat": 1,
+          "status": "no_data",
+          "answer_sha256": "c0ae50ad69ead5514c6c0dd449f05ddd86f4339b743b4a624ff40af8dc7cecb5",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q286",
+          "repeat": 2,
+          "status": "no_data",
+          "answer_sha256": "c0ae50ad69ead5514c6c0dd449f05ddd86f4339b743b4a624ff40af8dc7cecb5",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q286",
+          "repeat": 3,
+          "status": "no_data",
+          "answer_sha256": "c0ae50ad69ead5514c6c0dd449f05ddd86f4339b743b4a624ff40af8dc7cecb5",
+          "label": "N",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": null,
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B070",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q525",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "5d81553cfdd96c3bbf9379c0f806a3560f72a8c57b971a4e3c1890972d7babfa",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q525",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "5d81553cfdd96c3bbf9379c0f806a3560f72a8c57b971a4e3c1890972d7babfa",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "TRAIN_Q525",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "5d81553cfdd96c3bbf9379c0f806a3560f72a8c57b971a4e3c1890972d7babfa",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B071",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q232",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "5f87042dc8e9ca66055635eccf83384b013800db70398623c5a0afae6e21d8c7",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q232",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "5f87042dc8e9ca66055635eccf83384b013800db70398623c5a0afae6e21d8c7",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "TRAIN_Q232",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "5f87042dc8e9ca66055635eccf83384b013800db70398623c5a0afae6e21d8c7",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B072",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q307",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "b136622ddcdc343ed8b1be5a3ac4450502b29e8d6f7c19db1fba66ac3d461b29",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q307",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "b136622ddcdc343ed8b1be5a3ac4450502b29e8d6f7c19db1fba66ac3d461b29",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "tune",
+          "question_id": "DEV_Q307",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "b136622ddcdc343ed8b1be5a3ac4450502b29e8d6f7c19db1fba66ac3d461b29",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-tune/scored.json",
+          "source_sha256": "e56a85f83ad6b38e24e3b3c74a7507a13d4b61934c45760ed96b139d069ed9fa",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "a4545a34fd7eac731cd59c0147372092d5c9973fc1a32fcd89f66a7e392c26b3",
+      "single_fact_exception": false
+    },
+    {
+      "blind_id": "B073",
+      "observations": [
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q064",
+          "repeat": 1,
+          "status": "completed",
+          "answer_sha256": "aa7d6e3299fa7c193da2ad855b65eb5209abe520de28b197de577ccefd14af7a",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q064",
+          "repeat": 2,
+          "status": "completed",
+          "answer_sha256": "aa7d6e3299fa7c193da2ad855b65eb5209abe520de28b197de577ccefd14af7a",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        },
+        {
+          "system": "project2_v033_final",
+          "partition": "held-out",
+          "question_id": "DEV_Q064",
+          "repeat": 3,
+          "status": "completed",
+          "answer_sha256": "aa7d6e3299fa7c193da2ad855b65eb5209abe520de28b197de577ccefd14af7a",
+          "label": "Y",
+          "source_file": "evals/project2-v1/ch13_v033/qa-held-out/scored.json",
+          "source_sha256": "85d45b19bedb69f7483988aeb78c370308735e66ee7475eaa681c808818c2afd",
+          "current_v033": true
+        }
+      ],
+      "facts_source_sha256": "733d9a6fac504f9ffeee1f54af2df69c8d179617f65b9435e6abb68fa0164916",
+      "single_fact_exception": false
+    }
+  ],
+  "automatic_zero": []
+}

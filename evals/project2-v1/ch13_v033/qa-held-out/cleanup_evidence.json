@@ -1,0 +1,9 @@
+{
+  "observation": {
+    "mode": "owned_force_cancel",
+    "elapsed_seconds": 2.4452234000200406,
+    "process_retained": false
+  },
+  "evidence_type": "真实运行",
+  "old_records_rerun": false
+}

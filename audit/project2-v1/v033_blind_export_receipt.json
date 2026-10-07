@@ -1,0 +1,20 @@
+{
+  "status": "exported_final_confirmatory",
+  "current_v033_acceptance": false,
+  "budget_seconds": 90,
+  "nonempty_answer_groups": 73,
+  "nonempty_answer_observations": 207,
+  "auto_zero_observations": 0,
+  "all_observations": 207,
+  "LLM_calls": 0,
+  "scoring_status": "待盲评",
+  "public_json": "evals/project2-v1/blind_review_v033_final/public/blind_review.json",
+  "public_markdown": "evals/project2-v1/blind_review_v033_final/public/blind_review.md",
+  "key_file": "evals/project2-v1/blind_review_v033_final/private/key.json",
+  "files": {
+    "evals/project2-v1/blind_review_v033_final/public/blind_review.json": "f56d168e8fa75e900d34d193ed00e1484747bffec4eb476ede0f2499ef99bb04",
+    "evals/project2-v1/blind_review_v033_final/public/blind_review.md": "8924717a07e1b71887bfddc812836f465ef652a57e0283876d9a266ce6eb0cab",
+    "evals/project2-v1/blind_review_v033_final/private/key.json": "4b8c726e093bb4452590fe72dc81be36c6932d80e903a24c83a9ada09e77fe0e",
+    "evals/project2-v1/blind_review_v033_final/private/export_plan.json": "6100e73d20c47d8efad970366ef77b5a7015def91b95485b0a5fc9e52f61a67d"
+  }
+}

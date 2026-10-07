@@ -1,0 +1,9 @@
+INFO:     Started server process [96156]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:54279 (Press CTRL+C to quit)
+INFO:     127.0.0.1:54309 - "GET /healthz HTTP/1.1" 200 OK
+Database request=6ce6e23d3a734550809411c930459c58 error=database_error
+INFO:     127.0.0.1:54310 - "POST /v2/project2/analysis HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54337 - "GET /v2/project2/runs/316707df86fa49c5986883d6e2a74e44/trace HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54338 - "POST /v2/project2/analysis HTTP/1.1" 422 Unprocessable Entity

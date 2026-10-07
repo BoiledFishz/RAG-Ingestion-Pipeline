@@ -1,0 +1,26 @@
+{
+  "type": "ready",
+  "scope": "full",
+  "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b",
+  "worker_pid": 108608,
+  "warmup": {
+    "completed": true,
+    "selection": "official full docs ORDER BY doc_id LIMIT 1, text only",
+    "text_sha256": "27566416452b285c86c1df3f65970d4eb327c96d9c97ebf6b77b64c095776b2d",
+    "qa_fields_used": [],
+    "corpus_read_seconds": 0.020741999964229763,
+    "embedding_inference_seconds": 0.7483582000713795,
+    "index_warmup_seconds": 0.5721584999701008,
+    "total_seconds": 1.3412587000057101,
+    "llm_calls": 0,
+    "request_budget_created": false
+  },
+  "startup_timings": {
+    "imports_seconds": 0.8961776000214741,
+    "agent_build_seconds": 0.023382999934256077,
+    "index_and_encoder_seconds": 32.56664900004398,
+    "faiss_index_load_seconds": 13.485755100031383,
+    "child_initialization_seconds": 35.36487950000446
+  },
+  "launch_to_ready_seconds": 36.00390619994141
+}

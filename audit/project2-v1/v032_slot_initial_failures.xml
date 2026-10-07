@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="0.654" timestamp="2026-10-06T18:08:03.832530-07:00" hostname="szy"><testcase classname="tests.project2.test_literal_components_v032" name="test_official_portal_queries_keep_literal_product" time="0.009"><failure message="KeyError: 'TITLE'">def test_official_portal_queries_keep_literal_product():
+        partitions=json.loads((ROOT/'splits.json').read_text(encoding='utf-8'))['partitions']
+        rows=json.loads((ROOT/partitions['tune']['file']).read_text(encoding='utf-8'))
+&gt;       queries=[x['record']['TITLE']+'\n'+x['record']['QUESTION'] for x in rows]
+                 ^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'TITLE'
+
+enterprise-ai-agent\tests\project2\test_literal_components_v032.py:10: KeyError</failure></testcase><testcase classname="tests.project2.test_literal_components_v032" name="test_known_product_does_not_hide_other_literal_components" time="0.002"><failure message="pydantic_core._pydantic_core.ValidationError: 9 validation errors for AnalysisRequest&#10;stratum&#10;  Extra inputs are not permitted [type=extra_forbidden, input_value='compare', input_type=str]&#10;    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden&#10;ordinal&#10;  Extra inputs are not permitted [type=extra_forbidden, input_value=4, input_type=int]&#10;    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden&#10;original_question_title&#10;  Extra inputs are not permitted [type=extra_forbidden, input_value='A .NET API error is thro...ng to install ICC 4.0.1', input_type=str]&#10;    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden&#10;original_question_text&#10;  Extra inputs are not permitted [type=extra_forbidden, input_value='A .NET API error is thro...ts.  How do I fix this?', input_type=str]&#10;    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden&#10;request_slots&#10;  Extra inputs are not permitted [type=extra_forbidden, input_value={'entities': [{'text': 'F...: [], 'identifiers': []}, input_type=dict]&#10;    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden&#10;selection_key&#10;  Extra inputs are not permitted [type=extra_forbidden, input_value='0fc0cb6d8a75562501ea200f...9dc2e7a95899dbf9bc3efc7', input_type=str]&#10;    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden&#10;status&#10;  Extra inputs are not permitted [type=extra_forbidden, input_value='待实施', input_type=str]&#10;    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden&#10;actual&#10;  Extra inputs are not permitted [type=extra_forbidden, input_value='未执行', input_type=str]&#10;    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden&#10;evidence_file&#10;  Extra inputs are not permitted [type=extra_forbidden, input_value='', input_type=str]&#10;    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden">def test_known_product_does_not_hide_other_literal_components():
+        samples=json.loads((ROOT/'specs/project2/v0.3.2/task_preregistration.json').read_text(encoding='utf-8'))['samples']
+        sample=next(x for x in samples if x['analysis_operation']=='compare_document_counts' and 'ICC 4.0.1' in x['query'])
+&gt;       groups=query_groups(AnalysisRequest.model_validate({k:v for k,v in sample.items() if k not in {'sample_id','query_sha256'}}))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       pydantic_core._pydantic_core.ValidationError: 9 validation errors for AnalysisRequest
+E       stratum
+E         Extra inputs are not permitted [type=extra_forbidden, input_value='compare', input_type=str]
+E           For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+E       ordinal
+E         Extra inputs are not permitted [type=extra_forbidden, input_value=4, input_type=int]
+E           For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+E       original_question_title
+E         Extra inputs are not permitted [type=extra_forbidden, input_value='A .NET API error is thro...ng to install ICC 4.0.1', input_type=str]
+E           For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+E       original_question_text
+E         Extra inputs are not permitted [type=extra_forbidden, input_value='A .NET API error is thro...ts.  How do I fix this?', input_type=str]
+E           For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+E       request_slots
+E         Extra inputs are not permitted [type=extra_forbidden, input_value={'entities': [{'text': 'F...: [], 'identifiers': []}, input_type=dict]
+E           For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+E       selection_key
+E         Extra inputs are not permitted [type=extra_forbidden, input_value='0fc0cb6d8a75562501ea200f...9dc2e7a95899dbf9bc3efc7', input_type=str]
+E           For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+E       status
+E         Extra inputs are not permitted [type=extra_forbidden, input_value='待实施', input_type=str]
+E           For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+E       actual
+E         Extra inputs are not permitted [type=extra_forbidden, input_value='未执行', input_type=str]
+E           For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+E       evidence_file
+E         Extra inputs are not permitted [type=extra_forbidden, input_value='', input_type=str]
+E           For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+
+enterprise-ai-agent\tests\project2\test_literal_components_v032.py:21: ValidationError</failure></testcase></testsuite></testsuites>

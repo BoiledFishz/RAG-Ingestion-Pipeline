@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="3" time="9.857" timestamp="2026-10-06T21:19:58.242945-07:00" hostname="szy"><testcase classname="tests.project2.test_v033_offline_reporting" name="test_incomplete_confirmation_cannot_create_a_blind_package" time="0.141" /><testcase classname="tests.project2.test_v033_offline_reporting" name="test_summary_records_the_three_comparisons_without_inventing_missing_results" time="4.872" /><testcase classname="tests.project2.test_v033_offline_reporting" name="test_current_chap13_trace_evidence_is_classified_check_by_check" time="3.670"><failure message="KeyError: 'check_evidence'">def test_current_chap13_trace_evidence_is_classified_check_by_check():
+        import json
+        from project2_v033_report import generate
+    
+        generate(ROOT)
+        runtime = json.loads((ROOT / 'audit/project2-v1/traceability_runtime.json').read_text(encoding='utf-8'))
+        proofs = [proof for item in runtime['items'] for proof in item.get('partial_evidence', [])
+                  if proof['evidence_file'].startswith('audit/project2-v1/ch13_v033_')]
+        assert proofs
+        for proof in proofs:
+&gt;           assert {item['check'] for item in proof['check_evidence']} == set(proof['gate_check'])
+                                              ^^^^^^^^^^^^^^^^^^^^^^^
+E           KeyError: 'check_evidence'
+
+tests\project2\test_v033_offline_reporting.py:46: KeyError</failure></testcase></testsuite></testsuites>

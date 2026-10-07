@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="2.661" timestamp="2026-10-06T16:39:15.295640-07:00" hostname="szy"><testcase classname="tests.project2.test_runtime" name="test_state_ttl_cleanup_and_trace_request_identity" time="0.806"><failure message="AssertionError: assert not True&#10; +  where True = exists()&#10; +    where exists = (WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/d292f52a8c264921b66812eb25b2d9f7') / ('ee9b536c5f4e4753a33a16e23013d38b' + '.json')).exists">tmp_path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/d292f52a8c264921b66812eb25b2d9f7')
+
+    def test_state_ttl_cleanup_and_trace_request_identity(tmp_path):
+        from agents.project2.service_runtime import StateStore
+        store=StateStore(tmp_path,'version');state=store.create(request_body(),owner(),Budget())
+        state['expires_at']=0;store.write(state)
+        StateStore(tmp_path,'version')
+&gt;       assert not (tmp_path/(state['run_id']+'.json')).exists()
+E       AssertionError: assert not True
+E        +  where True = exists()
+E        +    where exists = (WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/d292f52a8c264921b66812eb25b2d9f7') / ('ee9b536c5f4e4753a33a16e23013d38b' + '.json')).exists
+
+enterprise-ai-agent\tests\project2\test_runtime.py:76: AssertionError</failure></testcase></testsuite></testsuites>

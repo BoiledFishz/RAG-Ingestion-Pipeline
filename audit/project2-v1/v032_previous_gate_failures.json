@@ -1,0 +1,34 @@
+{
+  "checks": [
+    {
+      "name": "same_run_id",
+      "reason": "ID was preserved, but composite predicate also required completed; actual partial (DB completed, RAG timeout)",
+      "same_id_observed": true
+    },
+    {
+      "name": "unchanged_native_answer_body",
+      "reason": "Timeout yielded no nonempty native body; therefore unchanged-body hash proof was absent",
+      "nonempty_body_observed": false
+    }
+  ],
+  "trigger": "request_deadline_exhausted; old absolute deadline included stopped/index-loading time",
+  "usage": {
+    "attempts": 13,
+    "llm_calls": 2,
+    "attempts_by_kind": {
+      "db": 10,
+      "llm": 2,
+      "embedding": 1
+    },
+    "absolute_deadline": 1791332227.9828193,
+    "observed_tokens": null,
+    "estimated_tokens": null,
+    "cost": null
+  },
+  "numeric_limits_changed": false,
+  "source_files": {
+    "audit/project2-v1/ch13_round1/gate.json": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+    "audit/project2-v1/ch13_round1/before_restart_checkpoint.json": "7bf6219dacc03a06598936fca3b6062aef6f4246f6d50744a92529af4560a021",
+    "audit/project2-v1/ch13_round1/resumed_response.json": "f8f531dee3b4118eabfe77a92a554f1fc1de86ada538098631856262596061da"
+  }
+}

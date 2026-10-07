@@ -103,6 +103,11 @@ def one_page(root: Path, report: dict) -> str:
             label+='；阶段对照/held-out未完成'
         if (stage['report'] or {}).get('engineering_gate_only'):
             label+='（工程门禁）'
+        if stage['stage']=='Chap12' and (report.get('quality_receipt') or {}).get('acceptance')=='not_accepted':
+            label+='；S14未通过'
+        if stage['stage']=='Chap13' and stage['report']:
+            checks=stage['report']['checks']
+            label+=f"（{sum(x['status']=='passed' for x in checks)}/{len(checks)}项检查通过；修复{stage['report']['repair_rounds']}轮）"
         lines.append(f"| {stage['stage']} | {label} |")
     counts=report['traceability_counts']
     lines+=['',f"追踪：通过 {counts['通过']} / 部分 {counts['部分']} / 未完成 {counts['未完成']}。held-out累计 {report['heldout_stage_calls_project2']}次阶段调用 / {report['heldout_repetitions_project2']}次重复；本地提交 {report['new_local_commits']}。",
@@ -110,12 +115,30 @@ def one_page(root: Path, report: dict) -> str:
     for entry in report['comparisons']:
         value=entry['summary'];lines.append(f"| {entry['name']} | "+('未执行' if value is None else comparison_text(value))+' |')
     if report.get('qa_summaries'):
-        lines+=['','| QA质量（冻结v0对照；三重复） | 实测及限制 |','| --- | --- |']
+        lines+=['','| QA质量（三重复，同分区/口径） | v0：R@5 / R@10 / MRR | Chap12：R@5 / R@10 / MRR |','| --- | --- | --- |']
         for partition,summary in report['qa_summaries'].items():
-            lines.append(f"| {partition} | {qa_text(summary)} |")
+            def compact(metrics):
+                return ' / '.join(f"{number(metrics[k]['mean'])}（{number(metrics[k]['numerator'])}/{metrics[k]['denominator']}；范围{[round(x,3) for x in metrics[k]['range']]}；CI{[round(x,3) for x in metrics[k]['ci95']]}）" for k in ('recall_at_5','recall_at_10','mrr'))
+            baseline=report['baseline_v0_qa_metrics'][partition]['metrics']
+            lines.append(f"| {partition} | {compact(baseline)} | {compact(summary['metrics'])} |")
+    if report.get('continuation_authorization'):
+        diagnosis=report.get('regression_diagnosis') or {}
         quality=report.get('quality_receipt') or {}
-        if quality:
-            lines.append(f"S14质量：{quality['acceptance']}；原成功对照退化{quality['control_regressed_questions']}题/{quality['control_regressed_question_repeats']}题次。completed服务状态不等于事实认证；改变后的答案不继承旧评分。")
+        lines+=['',f"**已知限制**：S14未通过；原成功对照退化{quality.get('control_regressed_questions')}题/{quality.get('control_regressed_question_repeats')}题次。归因：{diagnosis.get('primary_attribution_distribution','未执行')}（其中检索变化为适配层在检索前阻断）。completed不等于事实正确。"]
+        repair=report.get('regression_repair_tune_only')
+        if repair:
+            lines.append(f"修复1：{repair['scope']}；仍退化{repair['control_regressed_questions']}题/{repair['control_regressed_question_repeats']}题次。R@5/R@10/MRR="+' / '.join(metric_text(repair['metrics'][k]) for k in ('recall_at_5','recall_at_10','mrr'))+'。117槽位完成，退出清理失败；原记录离线汇总，无重跑。')
+        scoring=report.get('scoring_status')
+        lines+=['']
+        if scoring:
+            agreement=scoring.get('agreement') or {}
+            accounting=report.get('scoring_body_accounting',{})
+            kappa='κ未定义（全部同分）' if agreement.get('kappa') is None else 'κ='+number(agreement['kappa'])
+            lines.append('**评分状态**：'+scoring['description']+f"。原首评缺失，已新做{scoring['first_model']}首评与{scoring['second_model']}二评，覆盖{scoring['paired_observations']}/{sum(scoring['answer_observations'].values())}份；{accounting.get('empty_items')}/{accounting.get('items')}个评分项正文为空。一致{agreement.get('agreement_numerator')}/{agreement.get('agreement_denominator')}，描述性95%CI {[round(x,3) for x in agreement.get('agreement_wilson95',[])]}；{kappa}；抽检{scoring['spot_check_random']}+{scoring['spot_check_extra']}份。同Qwen家族相关偏差未排除。")
+        else:lines.append('**评分状态**：LLM第二评分未执行；人工抽检待办。')
+        lines+=['','| 状态分布 | completed | partial | no_data | permission_denied | timeout | failed | 合计/样本数 |','| --- | --- | --- | --- | --- | --- | --- | --- |']
+        for name,entry in report.get('state_distributions',{}).items():
+            values=entry['counts'];lines.append('| '+name+' | '+' | '.join(str(values[k]) for k in ('completed','partial','no_data','permission_denied','timeout','failed'))+f" | {sum(values.values())}/{entry['denominator']} |")
     lines+=['','**标定批次**','', '| 批次 | 记录 | 状态 / 删失原因 | 决策 |','| --- | --- | --- | --- |']
     for batch in report['batches']:
         reason=batch.get('censor_reason') or '无已记录删失'
@@ -127,17 +150,20 @@ def one_page(root: Path, report: dict) -> str:
         q=native['n_quality'];scope='' if native['complete'] else '（该轮不完整，仅描述）'
         fmt=lambda values:'['+', '.join(number(x) for x in values)+']'
         lines.append(f"第{native['repair_rounds']}轮N拒答{scope}（非门禁）：{q['numerator']}/{q['denominator']}；聚类95%CI {fmt(q['cluster_bootstrap95'])}；三重复均值 {number(q['mean'])}、范围 {fmt(q['range'])}。失败/超时不算正确拒答，冻结v0结论不变。")
-    if progress:lines.append(f"最新真实子门禁第{progress['repair_round']}轮：{progress['requests']}/{progress['expected']}；失败观察{progress['failed_observations']}。"+('未完成不判通过。' if progress['requests']!=progress['expected'] else ''))
-    lines+=['','**规格修订**','', '；'.join(f"{entry['version']}：{entry['delta_count']}处" for entry in report['revision_history'])+'。v0.3.1仅防睡眠、心跳检测、整批选择及16/6调用下限；原公式/熔断/状态矩阵不变。',
-            '', '**两表一致性**','',f"{report['two_table_consistency']['status']}：批准表/运行表各{report['two_table_consistency']['approved_rows']}行，批准状态保持待实施；旧v0的{report['baseline_sut_files_unchanged']}份源码/配置哈希不变。文档检查{report['document_checks']}行PASS。",
+    lines+=['','**规格修订**：'+ '；'.join(f"{entry['version']}：{entry['delta_count']}处" for entry in report['revision_history'])+'。v0.3.1仅防睡眠、心跳检测、整批选择及16/6调用下限；原公式/熔断/状态矩阵不变。',
+            '**两表一致性**：'+f"{report['two_table_consistency']['status']}：批准表/运行表各{report['two_table_consistency']['approved_rows']}行，批准状态保持待实施；旧v0的{report['baseline_sut_files_unchanged']}份源码/配置哈希不变。文档检查{report['document_checks']}行PASS。"+verification_text(report),
             '', '停止原因：'+(report['stop_reason'] or '无；继续执行，尚未完成全部阶段。'),
-            '本人事项：'+('完成变化答案的独立人工评分，决定未达S14的后续处理；' if (report.get('quality_receipt') or {}).get('acceptance')=='not_accepted' else '')+'git push/PR与最终审阅；第16章云账号及预算另行授权；向老师确认CL-03（Fake Publish未实施）。',
+            '本人事项：'+('完成固定抽检单及变化答案独立人工评分；' if (report.get('quality_receipt') or {}).get('acceptance')=='not_accepted' else '')+'git push/PR与最终审阅；第16章云账号及预算另行授权；向老师确认CL-03（Fake Publish未实施）。',
             '',f"[机器证据与CI明细](<{(root/'audit/project2-v1/summary.json').as_posix()}>) · [续跑记录](<{(root/'specs/project2/progress.md').as_posix()}>) · [规格哈希与授权](<{(root/'specs/project2/v0.3.1/approval_addendum.md').as_posix()}>)。"]
-    review=root/'evals/project2-v1/ch12/independent_review/human_template.json'
-    if review.exists():lines.append(f"[待独立评分模板（另存副本填写）](<{review.as_posix()}>)。")
-    checkpoint=report.get('local_checkpoint')
-    if checkpoint:lines.append(f"Git字节校验（{checkpoint['commit'][:7]}）：{checkpoint['status']}，{checkpoint['checked_files']}份文件；工作区冻结源码未变，两份失败记录保留。")
+    review=root/'evals/project2-v1/ch12/second_scoring/human_spot_check.json'
+    if review.exists():lines.append(f"[固定人工抽检单](<{review.as_posix()}>) · [Chap13门禁](<{(root/'audit/project2-v1/ch13_round1/gate.json').as_posix()}>) · [停止判定](<{(root/'audit/project2-v1/ch13_stop_decision.json').as_posix()}>)。本轮门禁失败，未作阶段提交。")
     return '\n'.join(lines)+'\n'
+
+
+def verification_text(report: dict) -> str:
+    counts=report.get('continuation_contracts')
+    if not counts:return ''
+    return f"续跑契约测试(Mock)：{counts['tests']}项，失败{counts['failures']}、错误{counts['errors']}；不代表全仓测试或生产验收通过。"
 
 
 def generate(root: Path) -> str:
@@ -207,6 +233,8 @@ def generate(root: Path) -> str:
     runtime=read(audit/'traceability_runtime.json');items=runtime['items']
     if runtime['source_sha256']!=sha(docs/'traceability.csv'):raise ValueError('Runtime source hash mismatch')
     items=bind_gate_partial_evidence(root,approved,items,stages[0]['report'])
+    from project2_continuation_report import bind_runtime_stage_evidence
+    items=bind_runtime_stage_evidence(root,approved,items,stages[1]['report'])
     comparison=compare_tables(approved,items,passed)
     if comparison['status']!='passed':raise ValueError('Traceability mismatch: '+str(comparison['issues']))
     save(audit/'v031_traceability_comparison.json',comparison)
@@ -234,6 +262,7 @@ def generate(root: Path) -> str:
          'manifest_sha256':sha(docs/'version_manifest.json'),'spec_delta_count':len(delta['changes']),
          'operational_items':delta['operational_items'],'revision_history':revision_history,'baseline_sut_files_unchanged':len(baseline['sut']['files']),
          'new_local_commits':int(prior.git_value(root,'rev-list','--count',f"{state['base_commit']}..HEAD"))}
+    report['continuation_contracts']=prior.junit_counts(audit/'continuation_final_contracts.xml')
     report['qa_summaries']={partition:summary for partition in ('tune','held-out') if (summary:=read(root/f'evals/project2-v1/ch12/qa-{partition}/summary.json'))}
     freeze_path=root/'evals/protocol_v0/baseline_v0.quick.freeze.json'
     if sha(freeze_path)!=freeze_path.with_suffix('.json.sha256').read_text().split()[0]:raise ValueError('Baseline freeze record changed')
@@ -260,6 +289,9 @@ def generate(root: Path) -> str:
         value=read(root/path);comparisons.append({'name':name,'summary':value})
         lines.append(f"| {name} | "+('未执行；没有实测结论' if value is None else comparison_text(value))+' |')
     report['comparisons']=comparisons
+    from project2_continuation_report import augment
+    augment(root,report,state)
+    status,reason=report['execution_status'],report['stop_reason']
     lines+=['','### 标定批次','', '| 批次 | 槽位记录 | 状态 | 删失原因 | 用于决策 |','| --- | --- | --- | --- | --- |']
     for batch in batches:
         lines.append(f"| {batch['batch']} | {batch['requests']}/300 | {batch['status']} | {batch.get('censor_reason') or '无已记录删失'} | {'是' if batch['used_for_decision'] else '否'} |")
@@ -284,7 +316,7 @@ def generate(root: Path) -> str:
     lines[marker:marker]=['修订记录：'+'；'.join(f"{x['version']} {x['delta_count']}处（"+', '.join(f'{k}:{v}' for k,v in x['categories'].items())+'）' for x in revision_history),'']
     detailed='\n'.join(lines)+'\n';(root/'specs/project2/summary_detailed.md').write_text(detailed,encoding='utf-8')
     markdown=one_page(root,report);(root/'specs/project2/summary.md').write_text(markdown,encoding='utf-8')
-    state.update({'active_spec_version':'v0.3.1','execution_status':status,'current_stage':'Chap12','stop_reason':reason,
+    state.update({'active_spec_version':'v0.3.1','execution_status':status,'current_stage':report.get('current_stage','Chap12'),'stop_reason':reason,
                  'calibration_batch':last['batch'],'calibration_progress':last['requests'],
                  'native_progress':native_progress,
                  'heldout_stage_calls_project2':held_calls,'heldout_repetitions_project2':held_repeats,
@@ -294,8 +326,11 @@ def generate(root: Path) -> str:
            f"当前阶段：{state['current_stage']}；生效规格v0.3.1；状态：{status}",f"分支：{branch}；基准提交：{state['base_commit']}",
            f"标定批次{last['batch']}：{last['requests']}/300；批次1保留，未用于决策。协议/记录：evals/project2-v1/calibration_v031；日志audit/project2-v1/v031_calibration.log。",
            f"真实组合子门禁进度：{native_progress or '未启动'}。",
-           f"held-out累计阶段/重复：{held_calls}/{held_repeats}；完整门禁通过前不得使用。",f"停止原因：{reason or '无；按授权继续'}",
+           f"held-out累计阶段/重复：{held_calls}/{held_repeats}；已消费，不再运行；未改生成路径的章节只复用Chap12记录。",f"停止原因：{reason or '无；按授权继续'}",
            '已冻结批次不得改写或逐条补测；批次2仅睡眠无效才自动独立批次3，其他删失停止。防睡眠请求在运行器自身线程，5秒心跳；不改系统设置、不安装。',
            '原v0.1/v0.2/v0.3和批准v0.3.1冻结文件不可修改。两轮修复上限、门禁、场景及held-out规则不变。Chap16/远端/付费/系统安装不在范围。']
+    if report.get('continuation_authorization'):
+        progress.append('续跑授权：specs/project2/approval_appendix_2026-10-05_continue.md；SHA256：'+report['continuation_authorization']['sha256']+'。S14保持未通过，未豁免。')
+        progress.append('A诊断：audit/project2-v1/regression_diagnosis.json；修复轮1仅tune/对照集，记录evals/project2-v1/ch12/regression_repair1。B离线评分：evals/project2-v1/ch12/second_scoring/summary.json；人工抽检待办（human_spot_check.json），不称独立人工评分。')
     (root/'specs/project2/progress.md').write_text('\n\n'.join(progress)+'\n',encoding='utf-8')
     return markdown

@@ -1,0 +1,228 @@
+{
+  "lifetime": {
+    "http_status": 409,
+    "response": {
+      "contract_version": "project2-v1",
+      "run_id": "6fcafa268d974ef698232e6da1d5bee5",
+      "trace_id": "6fcafa268d974ef698232e6da1d5bee5",
+      "status": "timeout",
+      "answer": "",
+      "evidence": [],
+      "data_results": {},
+      "worker_results": {
+        "rag": {
+          "contract_version": "project2-v1",
+          "run_id": "6fcafa268d974ef698232e6da1d5bee5",
+          "task_id": "rag_explain",
+          "worker": "rag",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "run_lifetime_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        },
+        "database": {
+          "contract_version": "project2-v1",
+          "run_id": "6fcafa268d974ef698232e6da1d5bee5",
+          "task_id": "techqa_document_query",
+          "worker": "database",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "run_lifetime_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        }
+      },
+      "workers": {
+        "rag": {
+          "contract_version": "project2-v1",
+          "run_id": "6fcafa268d974ef698232e6da1d5bee5",
+          "task_id": "rag_explain",
+          "worker": "rag",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "run_lifetime_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        },
+        "database": {
+          "contract_version": "project2-v1",
+          "run_id": "6fcafa268d974ef698232e6da1d5bee5",
+          "task_id": "techqa_document_query",
+          "worker": "database",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "run_lifetime_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        }
+      },
+      "usage": {
+        "attempts": 15,
+        "llm_calls": 4,
+        "attempts_by_kind": {
+          "db": 10,
+          "llm": 4,
+          "embedding": 1
+        },
+        "absolute_deadline": 1791335626.952754,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null,
+        "execution": {
+          "policy_sha256": "c76c2c52bdfb08cdccd12fb9b6aa32947d0e7e2493123d6b0321eb52d0b2582f",
+          "limit_seconds": 37.941018,
+          "lifetime_seconds": 900,
+          "heartbeat_seconds": 0.25,
+          "consumed_seconds": 38.46799999999348,
+          "segments": [
+            {
+              "segment_id": "28f59612ef5b4035a16bcf2a79fc1086",
+              "consumed_seconds": 2.14000000001397,
+              "closed": true,
+              "termination": "uncertain_tail_conservatively_charged"
+            },
+            {
+              "segment_id": "ab9530be471343d1bff63a34307fa51e",
+              "consumed_seconds": 36.32799999997951,
+              "closed": true,
+              "termination": "normal_api_exit"
+            }
+          ]
+        }
+      },
+      "limitations": [],
+      "error": "run_lifetime_exhausted"
+    }
+  },
+  "cumulative": {
+    "http_status": 409,
+    "response": {
+      "contract_version": "project2-v1",
+      "run_id": "6fcafa268d974ef698232e6da1d5bee5",
+      "trace_id": "6fcafa268d974ef698232e6da1d5bee5",
+      "status": "timeout",
+      "answer": "",
+      "evidence": [],
+      "data_results": {},
+      "worker_results": {
+        "rag": {
+          "contract_version": "project2-v1",
+          "run_id": "6fcafa268d974ef698232e6da1d5bee5",
+          "task_id": "rag_explain",
+          "worker": "rag",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "cumulative_execution_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        },
+        "database": {
+          "contract_version": "project2-v1",
+          "run_id": "6fcafa268d974ef698232e6da1d5bee5",
+          "task_id": "techqa_document_query",
+          "worker": "database",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "cumulative_execution_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        }
+      },
+      "workers": {
+        "rag": {
+          "contract_version": "project2-v1",
+          "run_id": "6fcafa268d974ef698232e6da1d5bee5",
+          "task_id": "rag_explain",
+          "worker": "rag",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "cumulative_execution_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        },
+        "database": {
+          "contract_version": "project2-v1",
+          "run_id": "6fcafa268d974ef698232e6da1d5bee5",
+          "task_id": "techqa_document_query",
+          "worker": "database",
+          "status": "timeout",
+          "payload": {},
+          "evidence": [],
+          "limitations": [],
+          "error": {
+            "category": "cumulative_execution_exhausted",
+            "retryable": false
+          },
+          "usage": {}
+        }
+      },
+      "usage": {
+        "attempts": 15,
+        "llm_calls": 4,
+        "attempts_by_kind": {
+          "db": 10,
+          "llm": 4,
+          "embedding": 1
+        },
+        "absolute_deadline": 1791335626.9896674,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null,
+        "execution": {
+          "policy_sha256": "c76c2c52bdfb08cdccd12fb9b6aa32947d0e7e2493123d6b0321eb52d0b2582f",
+          "limit_seconds": 37.941018,
+          "lifetime_seconds": 900,
+          "heartbeat_seconds": 0.25,
+          "consumed_seconds": 76.40901799999348,
+          "segments": [
+            {
+              "segment_id": "28f59612ef5b4035a16bcf2a79fc1086",
+              "consumed_seconds": 2.14000000001397,
+              "closed": true,
+              "termination": "uncertain_tail_conservatively_charged"
+            },
+            {
+              "segment_id": "ab9530be471343d1bff63a34307fa51e",
+              "consumed_seconds": 74.26901799997951,
+              "closed": true,
+              "termination": "normal_api_exit"
+            }
+          ]
+        }
+      },
+      "limitations": [],
+      "error": "cumulative_execution_exhausted"
+    }
+  },
+  "evidence_type": "故障注入",
+  "source_run": "6fcafa268d974ef698232e6da1d5bee5"
+}

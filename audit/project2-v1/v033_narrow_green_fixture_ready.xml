@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="0.748" timestamp="2026-10-06T20:04:19.402435-07:00" hostname="szy"><testcase classname="tests.project2.test_v033_narrow_deadline" name="test_ledger_does_not_enlarge_shorter_segment_budget" time="0.637" /></testsuite></testsuites>

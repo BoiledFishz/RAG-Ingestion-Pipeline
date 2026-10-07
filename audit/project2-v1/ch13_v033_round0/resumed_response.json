@@ -1,0 +1,902 @@
+{
+  "contract_version": "project2-v1",
+  "run_id": "476d9a0c18d948dcacc2d9a78bfa1014",
+  "trace_id": "476d9a0c18d948dcacc2d9a78bfa1014",
+  "status": "completed",
+  "answer": "VULNERABILITY DETAILS\nPlease consult the security bulletins: \nVulnerability in Diffie-Hellman ciphers affects IBM Cognos Business Intelligence (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21959671] \n\nVulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980] \n\nVulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21958955] \n\nVulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Telemetry (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21958984] \n\nfor vulnerability details and information about fixes.\n\nAFFECTED PRODUCTS AND VERSIONS\n \n\nPrincipal Product and Version(s) Affected Supporting Product and Version IBM Predictive Customer Intelligence 1.0 IBM Cognos Business Intelligence Server 10.2.1.1\nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2 IBM Predictive Customer Intelligence 1.0.1 IBM Cognos Business Intelligence Server 10.2.1.1 \nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2 [S1]\nVULNERABILITY DETAILS\nCVEID:CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION:The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nWebSphere Dynamic Process Edition 6.1, 6.2, 7.0 \n\nIf you are using an unsupported version, IBM strongly recommends to upgrade.\n\nREMEDIATION/FIXES\nPlease consult the following security bulletins for vulnerability details and information about fixes. \n\n * Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21957980] \n * Security Bulletin: Multiple vulnerabilities in IBM Java SDK (CVE-2015-0478, CVE-2015-0488, and CVE-2015-1916) and with Diffie-Hellman ciphers (CVE-2015-4000) may affect IBM Integration Designer (IID) and WebSphere Integration Developer (WID) [http://www.ibm.com/support/docview.wss?uid=swg21961812]\n\nWebSphere Application Server is used by WebSphere Process Server, WebSphere Business Services Fabric, and WebSphere Business Monitor. \nThe following setting in java.secruity allows you to reenable ciphers using DH and DHE key exchange that you had to disable as a temporary workaround: \njdk.tls.disabledAlgorithms=SSLv3, RC4, DH keySize <768 WORKAROUNDS AND MITIGATIONS\nNone [S4]",
+  "evidence": [
+    {
+      "source_id": "S1",
+      "chunk_id": "techqa:swg21961072:parent",
+      "source_file": "techqa://swg21961072",
+      "page_number": 1,
+      "quote": "VULNERABILITY DETAILS\nPlease consult the security bulletins: \nVulnerability in Diffie-Hellman ciphers affects IBM Cognos Business Intelligence (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21959671] \n\nVulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980] \n\nVulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21958955] \n\nVulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Telemetry (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21958984] \n\nfor vulnerability details and information about fixes.\n\nAFFECTED PRODUCTS AND VERSIONS\n \n\nPrincipal Product and Version(s) Affected Supporting Product and Version IBM Predictive Customer Intelligence 1.0 IBM Cognos Business Intelligence Server 10.2.1.1\nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2 IBM Predictive Customer Intelligence 1.0.1 IBM Cognos Business Intelligence Server 10.2.1.1 \nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2"
+    },
+    {
+      "source_id": "S4",
+      "chunk_id": "techqa:swg21959107:parent",
+      "source_file": "techqa://swg21959107",
+      "page_number": 1,
+      "quote": "VULNERABILITY DETAILS\nCVEID:CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION:The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nWebSphere Dynamic Process Edition 6.1, 6.2, 7.0 \n\nIf you are using an unsupported version, IBM strongly recommends to upgrade.\n\nREMEDIATION/FIXES\nPlease consult the following security bulletins for vulnerability details and information about fixes. \n\n * Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21957980] \n * Security Bulletin: Multiple vulnerabilities in IBM Java SDK (CVE-2015-0478, CVE-2015-0488, and CVE-2015-1916) and with Diffie-Hellman ciphers (CVE-2015-4000) may affect IBM Integration Designer (IID) and WebSphere Integration Developer (WID) [http://www.ibm.com/support/docview.wss?uid=swg21961812]\n\nWebSphere Application Server is used by WebSphere Process Server, WebSphere Business Services Fabric, and WebSphere Business Monitor. \nThe following setting in java.secruity allows you to reenable ciphers using DH and DHE key exchange that you had to disable as a temporary workaround: \njdk.tls.disabledAlgorithms=SSLv3, RC4, DH keySize <768 WORKAROUNDS AND MITIGATIONS\nNone"
+    },
+    {
+      "source_id": "Q1",
+      "predicate": [
+        "WebSphere Message Broker"
+      ],
+      "count": 4867,
+      "scope": "full",
+      "measurement_complete": true
+    }
+  ],
+  "data_results": {
+    "groups": [
+      {
+        "predicate": [
+          "WebSphere Message Broker"
+        ],
+        "count": 4867,
+        "samples": [
+          {
+            "doc_id": "isg3T1027567",
+            "title": "IBM z/OS Consolidated Service Test: FMIDs Installed in the CST Environment - United States"
+          },
+          {
+            "doc_id": "swg1IC47850",
+            "title": "IBM IC47850: FIX PACK 6.0.0.1 FOR WEBSPHERE MESSAGE BROKER V6.0 FOR WINDOWS - United States"
+          },
+          {
+            "doc_id": "swg1IC47851",
+            "title": "IBM IC47851: FIX PACK 6.0.0.1 FOR WEBSPHERE MESSAGE BROKER WITH RFE V6.0 FOR WINDOWS - United States"
+          },
+          {
+            "doc_id": "swg1IC47922",
+            "title": "IBM IC47922: UNABLE TO CONNECT TO CMGR WITH DOMAIN USERID - United States"
+          },
+          {
+            "doc_id": "swg1IC49001",
+            "title": "IBM IC49001: CLASSCASTEXCEPTION IN RUNTIME JAVA DEBUGGER CODE - United States"
+          }
+        ]
+      }
+    ],
+    "intersection": null,
+    "delta_a_minus_b": null,
+    "measurement_complete": true,
+    "unit": "original_document",
+    "data_version": {
+      "scope": "full",
+      "document_count": "801996",
+      "complete": "true",
+      "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+      "format_version": "1"
+    },
+    "rules_version": "techqa-fts-predicate-v1",
+    "request_slots_version": "request-slots-v1.2-literal-version-adjacency",
+    "operation": "document_count",
+    "samples_truncated": true
+  },
+  "worker_results": {
+    "rag": {
+      "contract_version": "project2-v1",
+      "run_id": "476d9a0c18d948dcacc2d9a78bfa1014",
+      "task_id": "rag_explain",
+      "worker": "rag",
+      "status": "completed",
+      "payload": {
+        "answer": "VULNERABILITY DETAILS\nPlease consult the security bulletins: \nVulnerability in Diffie-Hellman ciphers affects IBM Cognos Business Intelligence (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21959671] \n\nVulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980] \n\nVulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21958955] \n\nVulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Telemetry (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21958984] \n\nfor vulnerability details and information about fixes.\n\nAFFECTED PRODUCTS AND VERSIONS\n \n\nPrincipal Product and Version(s) Affected Supporting Product and Version IBM Predictive Customer Intelligence 1.0 IBM Cognos Business Intelligence Server 10.2.1.1\nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2 IBM Predictive Customer Intelligence 1.0.1 IBM Cognos Business Intelligence Server 10.2.1.1 \nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2 [S1]\nVULNERABILITY DETAILS\nCVEID:CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION:The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nWebSphere Dynamic Process Edition 6.1, 6.2, 7.0 \n\nIf you are using an unsupported version, IBM strongly recommends to upgrade.\n\nREMEDIATION/FIXES\nPlease consult the following security bulletins for vulnerability details and information about fixes. \n\n * Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21957980] \n * Security Bulletin: Multiple vulnerabilities in IBM Java SDK (CVE-2015-0478, CVE-2015-0488, and CVE-2015-1916) and with Diffie-Hellman ciphers (CVE-2015-4000) may affect IBM Integration Designer (IID) and WebSphere Integration Developer (WID) [http://www.ibm.com/support/docview.wss?uid=swg21961812]\n\nWebSphere Application Server is used by WebSphere Process Server, WebSphere Business Services Fabric, and WebSphere Business Monitor. \nThe following setting in java.secruity allows you to reenable ciphers using DH and DHE key exchange that you had to disable as a temporary workaround: \njdk.tls.disabledAlgorithms=SSLv3, RC4, DH keySize <768 WORKAROUNDS AND MITIGATIONS\nNone [S4]",
+        "sources": [
+          {
+            "source_id": "S1",
+            "chunk_id": "techqa:swg21961072:parent",
+            "source_file": "techqa://swg21961072",
+            "page_number": 1,
+            "quote": "VULNERABILITY DETAILS\nPlease consult the security bulletins: \nVulnerability in Diffie-Hellman ciphers affects IBM Cognos Business Intelligence (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21959671] \n\nVulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980] \n\nVulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21958955] \n\nVulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Telemetry (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21958984] \n\nfor vulnerability details and information about fixes.\n\nAFFECTED PRODUCTS AND VERSIONS\n \n\nPrincipal Product and Version(s) Affected Supporting Product and Version IBM Predictive Customer Intelligence 1.0 IBM Cognos Business Intelligence Server 10.2.1.1\nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2 IBM Predictive Customer Intelligence 1.0.1 IBM Cognos Business Intelligence Server 10.2.1.1 \nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2"
+          },
+          {
+            "source_id": "S4",
+            "chunk_id": "techqa:swg21959107:parent",
+            "source_file": "techqa://swg21959107",
+            "page_number": 1,
+            "quote": "VULNERABILITY DETAILS\nCVEID:CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION:The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nWebSphere Dynamic Process Edition 6.1, 6.2, 7.0 \n\nIf you are using an unsupported version, IBM strongly recommends to upgrade.\n\nREMEDIATION/FIXES\nPlease consult the following security bulletins for vulnerability details and information about fixes. \n\n * Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21957980] \n * Security Bulletin: Multiple vulnerabilities in IBM Java SDK (CVE-2015-0478, CVE-2015-0488, and CVE-2015-1916) and with Diffie-Hellman ciphers (CVE-2015-4000) may affect IBM Integration Designer (IID) and WebSphere Integration Developer (WID) [http://www.ibm.com/support/docview.wss?uid=swg21961812]\n\nWebSphere Application Server is used by WebSphere Process Server, WebSphere Business Services Fabric, and WebSphere Business Monitor. \nThe following setting in java.secruity allows you to reenable ciphers using DH and DHE key exchange that you had to disable as a temporary workaround: \njdk.tls.disabledAlgorithms=SSLv3, RC4, DH keySize <768 WORKAROUNDS AND MITIGATIONS\nNone"
+          }
+        ],
+        "confidence": 0.749,
+        "trace": {
+          "original_query": "Help with Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects WMB & IIB (CVE-2015-4000)\nI need to understand details regarding Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000). This vulnerability is commonly referred to as \"Logjam\". Where can I find this information?",
+          "rewritten_query": "Help with Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects WMB & IIB (CVE-2015-4000) I need to understand details regarding Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000). This vulnerability is commonly referred to as \"Logjam\". Where can I find this information?",
+          "rewrite_fallback": true,
+          "tool_called": true,
+          "candidate_ids": [
+            "techqa:swg21961072:parent",
+            "techqa:swg21959901:parent",
+            "techqa:swg21961048:parent",
+            "techqa:swg21961049:parent",
+            "techqa:swg21961050:parent",
+            "techqa:swg21959107:parent",
+            "techqa:swg21959058:parent",
+            "techqa:swg21959105:parent"
+          ],
+          "evidence": [
+            {
+              "source_id": "S1",
+              "chunk_id": "techqa:swg21961072:parent",
+              "source_file": "techqa://swg21961072",
+              "page_number": 1,
+              "excerpt": "VULNERABILITY DETAILS\nPlease consult the security bulletins: \nVulnerability in Diffie-Hellman ciphers affects IBM Cognos Business Intelligence (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21959671] \n\nVulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980] \n\nVulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21958955] \n\nVulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Telemetry (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21958984] \n\nfor vulnerability details and information about fixes.\n\nAFFECTED PRODUCTS AND VERSIONS\n \n\nPrincipal Product and Version(s) Affected Supporting Product and Version IBM Predictive Customer Intelligence 1.0 IBM Cognos Business Intelligence Server 10.2.1.1\nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2 IBM Predictive Customer Intelligence 1.0.1 IBM Cognos Business Intelligence Server 10.2.1.1 \nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2",
+              "title": "IBM Security Bulletin: A security vulnerability has been identified in muiltiple products shipped with Predictive Customer Intelligence (CVE-2015-4000) - United States",
+              "applicability": "IBM Security Bulletin: A security vulnerability has been identified in muiltiple products shipped with Predictive Customer Intelligence (CVE-2015-4000) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n WebSphere Application Server, Cognos Business Intelligence, Integration Bus, and WebSphere MQ are shipped as components of Predictive Customer Intelligence. Information about a security vulnerability affecting WebSphere Application Server, Cognos Business Intelligence, Integration Bus, and WebSphere MQ",
+              "relevance": 0.8161514986075173,
+              "tokens": 233,
+              "section": "vulnerability/exposure/remediation",
+              "start_char": 546,
+              "end_char": 1787,
+              "covers": [
+                "vulnerability",
+                "affected_versions"
+              ],
+              "instruction_group": false
+            },
+            {
+              "source_id": "S2",
+              "chunk_id": "techqa:swg21959901:parent",
+              "source_file": "techqa://swg21959901",
+              "page_number": 1,
+              "excerpt": "IBM 【セキュリティ情報】WebSphere Message Broker とIBM Integration Bus のDiffie-Hellman (DH) 暗号の脆弱性 (CVE-2014-8917) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n Diffie-Hellman (DH) 暗号を使用した TLSプロトコルに脆弱性が発見されました。(通称 Logjam)\nTLS接続を行うIBM WebSphere Message Broker と IBM Integration Busに影響があります。\nTLS 接続を使用する場合、中間者攻撃により TLS 接続が暗号強度の低い輸出グレードの 512 ビット暗号に格下げされる問題があります。その結果、通信内容の盗聴や改ざんをされる可能性があります。",
+              "title": "IBM 【セキュリティ情報】WebSphere Message Broker とIBM Integration Bus のDiffie-Hellman (DH) 暗号の脆弱性 (CVE-2014-8917) - United States",
+              "applicability": "IBM 【セキュリティ情報】WebSphere Message Broker とIBM Integration Bus のDiffie-Hellman (DH) 暗号の脆弱性 (CVE-2014-8917) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n Diffie-Hellman (DH) 暗号を使用した TLSプロトコルに脆弱性が発見されました。(通称 Logjam)\nTLS接続を行うIBM WebSphere Message Broker と IBM Integration Busに影響があります。\nTLS 接続を使用する場合、中間者攻撃により TLS 接続が暗号強度の低い輸出グレードの 512 ビット暗号に格下げされる問題があります。その結果、通信内容の盗聴や改ざんをされる可能性があります。\n\n\n\nVULNERABILITY DETAILS\n脆弱性の詳細\nCVEID: CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPT",
+              "relevance": 0.7708936966355519,
+              "tokens": 183,
+              "section": "",
+              "start_char": 0,
+              "end_char": 376,
+              "covers": [
+                "vulnerability"
+              ],
+              "instruction_group": false
+            },
+            {
+              "source_id": "S3",
+              "chunk_id": "techqa:swg21961048:parent",
+              "source_file": "techqa://swg21961048",
+              "page_number": 1,
+              "excerpt": "VULNERABILITY DETAILS\nCVEID:CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION:The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nREMEDIATION/FIXES\nThese security vulnerabilities are all fixed with available interim fixes and are targeted for specific WebSphere Application Server fix pack levels. For more information on these fixes, including workarounds and mitigations please see Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980]",
+              "title": "IBM Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server that shipped with WebSphere Enterprise Service Bus (CVE-2015-4000) - United States",
+              "applicability": "IBM Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server that shipped with WebSphere Enterprise Service Bus (CVE-2015-4000) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n The LogJam Attack on Diffie-Hellman ciphers (CVE-2015-4000) may affect some configurations of IBM WebSphere Application Server that shipped with WebSphere Enterprise Service Bus. \n\nVULNERABILITY DETAILS\nCVEID:CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-",
+              "relevance": 0.7611301271492215,
+              "tokens": 195,
+              "section": "vulnerability/exposure/remediation",
+              "start_char": 402,
+              "end_char": 1686,
+              "covers": [
+                "vulnerability",
+                "remediation"
+              ],
+              "instruction_group": false
+            },
+            {
+              "source_id": "S4",
+              "chunk_id": "techqa:swg21959107:parent",
+              "source_file": "techqa://swg21959107",
+              "page_number": 1,
+              "excerpt": "VULNERABILITY DETAILS\nCVEID:CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION:The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nWebSphere Dynamic Process Edition 6.1, 6.2, 7.0 \n\nIf you are using an unsupported version, IBM strongly recommends to upgrade.\n\nREMEDIATION/FIXES\nPlease consult the following security bulletins for vulnerability details and information about fixes. \n\n * Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21957980] \n * Security Bulletin: Multiple vulnerabilities in IBM Java SDK (CVE-2015-0478, CVE-2015-0488, and CVE-2015-1916) and with Diffie-Hellman ciphers (CVE-2015-4000) may affect IBM Integration Designer (IID) and WebSphere Integration Developer (WID) [http://www.ibm.com/support/docview.wss?uid=swg21961812]\n\nWebSphere Application Server is used by WebSphere Process Server, WebSphere Business Services Fabric, and WebSphere Business Monitor. \nThe following setting in java.secruity allows you to reenable ciphers using DH and DHE key exchange that you had to disable as a temporary workaround: \njdk.tls.disabledAlgorithms=SSLv3, RC4, DH keySize <768 WORKAROUNDS AND MITIGATIONS\nNone",
+              "title": "IBM Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect server products in WebSphere Dynamic Process Edition (CVE-2015-4000) - United States",
+              "applicability": "IBM Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect server products in WebSphere Dynamic Process Edition (CVE-2015-4000) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n The LogJam Attack on Diffie-Hellman ciphers (CVE-2015-4000) may affect some configurations of IBM WebSphere Application Server Full Profile that is shipped as a component of server products in WebSphere Dynamic Process Edition. The IBM HTTP Server used by WebSphere Application Server is not affected. \n\nVULNER",
+              "relevance": 0.7181656105897087,
+              "tokens": 325,
+              "section": "vulnerability/exposure/remediation",
+              "start_char": 494,
+              "end_char": 2485,
+              "covers": [
+                "vulnerability",
+                "affected_versions",
+                "remediation"
+              ],
+              "instruction_group": true
+            },
+            {
+              "source_id": "S5",
+              "chunk_id": "techqa:swg21959058:parent",
+              "source_file": "techqa://swg21959058",
+              "page_number": 1,
+              "excerpt": "VULNERABILITY DETAILS\nCVEID: CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION: The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\n \n\nPrincipal Product and Version(s) Affected Supporting Product and Version IBM WebSphere Portal version 6.1, 7.0, 8.0, and 8.5 IBM WebSphere Application Server version 6.1, 7.0, 8.0, 8.5 \nFor earlier unsupported versions of the above products IBM recommends upgrading to a fixed, supported version of the products. REMEDIATION/FIXES\nPlease consult the security bulletin Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980] for vulnerability details and information about fixes. \n\nWORKAROUNDS AND MITIGATIONS\nNone",
+              "title": "IBM Security Bulletin: Vulnerability with Diffie-Hellman ciphers affects IBM WebSphere Portal Server (CVE-2015-4000) - United States",
+              "applicability": "IBM Security Bulletin: Vulnerability with Diffie-Hellman ciphers affects IBM WebSphere Portal Server (CVE-2015-4000) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n The LogJam Attack on Diffie-Hellman ciphers (CVE-2015-4000) affects IBM WebSphere Application Server that is shipped as a component of IBM WebSphere Portal. \n\nVULNERABILITY DETAILS\nCVEID: CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION: The TLS protocol could allow a remote attacker to obtain sens",
+              "relevance": 0.7072753343537221,
+              "tokens": 257,
+              "section": "vulnerability/exposure/remediation",
+              "start_char": 321,
+              "end_char": 1847,
+              "covers": [
+                "vulnerability",
+                "affected_versions",
+                "remediation"
+              ],
+              "instruction_group": false
+            }
+          ],
+          "original_tokens": 7004,
+          "context_tokens": 2212,
+          "status": "answered",
+          "covered_facts": [],
+          "missing_facts": [],
+          "retries": 0,
+          "validation_failures": [],
+          "latency_ms": 52264.506299979985
+        },
+        "original_query": "Help with Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects WMB & IIB (CVE-2015-4000)\nI need to understand details regarding Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000). This vulnerability is commonly referred to as \"Logjam\". Where can I find this information?",
+        "actual_query": "Help with Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects WMB & IIB (CVE-2015-4000) I need to understand details regarding Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000). This vulnerability is commonly referred to as \"Logjam\". Where can I find this information?",
+        "pipeline": {
+          "candidate_ids": [
+            "techqa:swg21961072:0:ee298568da4c",
+            "techqa:swg21959901:0:61ddf0ba00ff",
+            "techqa:swg21961048:0:0c49192ca842",
+            "techqa:swg21961049:0:2f41f8ced87a",
+            "techqa:swg21961050:0:ba33b37d4457",
+            "techqa:swg21959107:1:e1976ae03c27",
+            "techqa:swg21959058:0:5471552111df",
+            "techqa:swg21959105:0:2f724cdd7034",
+            "techqa:swg21959353:0:0786a5f9f472",
+            "techqa:swg21959411:0:1993cb39a295",
+            "techqa:swg21959425:0:1a026b797e88",
+            "techqa:swg21961872:0:d18f375de74b",
+            "techqa:swg21959500:0:646a965ec6f0",
+            "techqa:swg21961072:1:9cde9b748654",
+            "techqa:swg21959539:0:8efd7971a39c",
+            "techqa:swg21959097:0:9c9eb138c619",
+            "techqa:swg21963151:0:4c9f53aa4f58",
+            "techqa:swg21959257:0:ab357789c7de",
+            "techqa:swg21959746:0:536fcffc4318",
+            "techqa:swg21959844:0:82dbf70b42bd"
+          ],
+          "reranker_fallback": false,
+          "stage": "retrieval_pipeline_before_parent_expansion"
+        },
+        "source_lineage": [
+          {
+            "source_id": "S1",
+            "chunk_id": "techqa:swg21961072:parent",
+            "source_file": "techqa://swg21961072",
+            "page_number": 1,
+            "candidate_rank": 1,
+            "candidate_stage": "parent_candidates_before_compression",
+            "start_char": 546,
+            "end_char": 1787,
+            "excerpt": "VULNERABILITY DETAILS\nPlease consult the security bulletins: \nVulnerability in Diffie-Hellman ciphers affects IBM Cognos Business Intelligence (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21959671] \n\nVulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980] \n\nVulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21958955] \n\nVulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Telemetry (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21958984] \n\nfor vulnerability details and information about fixes.\n\nAFFECTED PRODUCTS AND VERSIONS\n \n\nPrincipal Product and Version(s) Affected Supporting Product and Version IBM Predictive Customer Intelligence 1.0 IBM Cognos Business Intelligence Server 10.2.1.1\nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2 IBM Predictive Customer Intelligence 1.0.1 IBM Cognos Business Intelligence Server 10.2.1.1 \nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2",
+            "cited": true
+          },
+          {
+            "source_id": "S2",
+            "chunk_id": "techqa:swg21959901:parent",
+            "source_file": "techqa://swg21959901",
+            "page_number": 1,
+            "candidate_rank": 2,
+            "candidate_stage": "parent_candidates_before_compression",
+            "start_char": 0,
+            "end_char": 376,
+            "excerpt": "IBM 【セキュリティ情報】WebSphere Message Broker とIBM Integration Bus のDiffie-Hellman (DH) 暗号の脆弱性 (CVE-2014-8917) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n Diffie-Hellman (DH) 暗号を使用した TLSプロトコルに脆弱性が発見されました。(通称 Logjam)\nTLS接続を行うIBM WebSphere Message Broker と IBM Integration Busに影響があります。\nTLS 接続を使用する場合、中間者攻撃により TLS 接続が暗号強度の低い輸出グレードの 512 ビット暗号に格下げされる問題があります。その結果、通信内容の盗聴や改ざんをされる可能性があります。",
+            "cited": false
+          },
+          {
+            "source_id": "S3",
+            "chunk_id": "techqa:swg21961048:parent",
+            "source_file": "techqa://swg21961048",
+            "page_number": 1,
+            "candidate_rank": 3,
+            "candidate_stage": "parent_candidates_before_compression",
+            "start_char": 402,
+            "end_char": 1686,
+            "excerpt": "VULNERABILITY DETAILS\nCVEID:CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION:The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nREMEDIATION/FIXES\nThese security vulnerabilities are all fixed with available interim fixes and are targeted for specific WebSphere Application Server fix pack levels. For more information on these fixes, including workarounds and mitigations please see Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980]",
+            "cited": false
+          },
+          {
+            "source_id": "S4",
+            "chunk_id": "techqa:swg21959107:parent",
+            "source_file": "techqa://swg21959107",
+            "page_number": 1,
+            "candidate_rank": 6,
+            "candidate_stage": "parent_candidates_before_compression",
+            "start_char": 494,
+            "end_char": 2485,
+            "excerpt": "VULNERABILITY DETAILS\nCVEID:CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION:The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nWebSphere Dynamic Process Edition 6.1, 6.2, 7.0 \n\nIf you are using an unsupported version, IBM strongly recommends to upgrade.\n\nREMEDIATION/FIXES\nPlease consult the following security bulletins for vulnerability details and information about fixes. \n\n * Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21957980] \n * Security Bulletin: Multiple vulnerabilities in IBM Java SDK (CVE-2015-0478, CVE-2015-0488, and CVE-2015-1916) and with Diffie-Hellman ciphers (CVE-2015-4000) may affect IBM Integration Designer (IID) and WebSphere Integration Developer (WID) [http://www.ibm.com/support/docview.wss?uid=swg21961812]\n\nWebSphere Application Server is used by WebSphere Process Server, WebSphere Business Services Fabric, and WebSphere Business Monitor. \nThe following setting in java.secruity allows you to reenable ciphers using DH and DHE key exchange that you had to disable as a temporary workaround: \njdk.tls.disabledAlgorithms=SSLv3, RC4, DH keySize <768 WORKAROUNDS AND MITIGATIONS\nNone",
+            "cited": true
+          },
+          {
+            "source_id": "S5",
+            "chunk_id": "techqa:swg21959058:parent",
+            "source_file": "techqa://swg21959058",
+            "page_number": 1,
+            "candidate_rank": 7,
+            "candidate_stage": "parent_candidates_before_compression",
+            "start_char": 321,
+            "end_char": 1847,
+            "excerpt": "VULNERABILITY DETAILS\nCVEID: CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION: The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\n \n\nPrincipal Product and Version(s) Affected Supporting Product and Version IBM WebSphere Portal version 6.1, 7.0, 8.0, and 8.5 IBM WebSphere Application Server version 6.1, 7.0, 8.0, 8.5 \nFor earlier unsupported versions of the above products IBM recommends upgrading to a fixed, supported version of the products. REMEDIATION/FIXES\nPlease consult the security bulletin Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980] for vulnerability details and information about fixes. \n\nWORKAROUNDS AND MITIGATIONS\nNone",
+            "cited": false
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg21961072:parent",
+          "source_file": "techqa://swg21961072",
+          "page_number": 1,
+          "quote": "VULNERABILITY DETAILS\nPlease consult the security bulletins: \nVulnerability in Diffie-Hellman ciphers affects IBM Cognos Business Intelligence (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21959671] \n\nVulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980] \n\nVulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21958955] \n\nVulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Telemetry (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21958984] \n\nfor vulnerability details and information about fixes.\n\nAFFECTED PRODUCTS AND VERSIONS\n \n\nPrincipal Product and Version(s) Affected Supporting Product and Version IBM Predictive Customer Intelligence 1.0 IBM Cognos Business Intelligence Server 10.2.1.1\nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2 IBM Predictive Customer Intelligence 1.0.1 IBM Cognos Business Intelligence Server 10.2.1.1 \nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2"
+        },
+        {
+          "source_id": "S4",
+          "chunk_id": "techqa:swg21959107:parent",
+          "source_file": "techqa://swg21959107",
+          "page_number": 1,
+          "quote": "VULNERABILITY DETAILS\nCVEID:CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION:The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nWebSphere Dynamic Process Edition 6.1, 6.2, 7.0 \n\nIf you are using an unsupported version, IBM strongly recommends to upgrade.\n\nREMEDIATION/FIXES\nPlease consult the following security bulletins for vulnerability details and information about fixes. \n\n * Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21957980] \n * Security Bulletin: Multiple vulnerabilities in IBM Java SDK (CVE-2015-0478, CVE-2015-0488, and CVE-2015-1916) and with Diffie-Hellman ciphers (CVE-2015-4000) may affect IBM Integration Designer (IID) and WebSphere Integration Developer (WID) [http://www.ibm.com/support/docview.wss?uid=swg21961812]\n\nWebSphere Application Server is used by WebSphere Process Server, WebSphere Business Services Fabric, and WebSphere Business Monitor. \nThe following setting in java.secruity allows you to reenable ciphers using DH and DHE key exchange that you had to disable as a temporary workaround: \njdk.tls.disabledAlgorithms=SSLv3, RC4, DH keySize <768 WORKAROUNDS AND MITIGATIONS\nNone"
+        }
+      ],
+      "limitations": [
+        "RAG状态由当前证据规则判断；confidence未校准，不是事实正确概率。"
+      ],
+      "error": null,
+      "usage": {
+        "attempts": 15,
+        "llm_calls": 4,
+        "attempts_by_kind": {
+          "db": 10,
+          "llm": 4,
+          "embedding": 1
+        },
+        "absolute_deadline": 1791343059.37951,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null,
+        "execution": {
+          "policy_sha256": "e7998a3ea215618605ad13facdf36b9abdc7e88328cd515dab8126c0a2675fb8",
+          "limit_seconds": 90,
+          "lifetime_seconds": 900,
+          "heartbeat_seconds": 0.25,
+          "consumed_seconds": 55.670999999856576,
+          "segments": [
+            {
+              "segment_id": "cf1fa8e37e774333a65c728d470c27fe",
+              "consumed_seconds": 3.2339999999385327,
+              "closed": true,
+              "termination": "uncertain_tail_conservatively_charged"
+            },
+            {
+              "segment_id": "26fc89a6bfa349ea889deec7932a448d",
+              "consumed_seconds": 52.436999999918044,
+              "closed": false
+            }
+          ]
+        }
+      }
+    },
+    "database": {
+      "contract_version": "project2-v1",
+      "run_id": "476d9a0c18d948dcacc2d9a78bfa1014",
+      "task_id": "techqa_document_query",
+      "worker": "database",
+      "status": "completed",
+      "payload": {
+        "groups": [
+          {
+            "predicate": [
+              "WebSphere Message Broker"
+            ],
+            "count": 4867,
+            "samples": [
+              {
+                "doc_id": "isg3T1027567",
+                "title": "IBM z/OS Consolidated Service Test: FMIDs Installed in the CST Environment - United States"
+              },
+              {
+                "doc_id": "swg1IC47850",
+                "title": "IBM IC47850: FIX PACK 6.0.0.1 FOR WEBSPHERE MESSAGE BROKER V6.0 FOR WINDOWS - United States"
+              },
+              {
+                "doc_id": "swg1IC47851",
+                "title": "IBM IC47851: FIX PACK 6.0.0.1 FOR WEBSPHERE MESSAGE BROKER WITH RFE V6.0 FOR WINDOWS - United States"
+              },
+              {
+                "doc_id": "swg1IC47922",
+                "title": "IBM IC47922: UNABLE TO CONNECT TO CMGR WITH DOMAIN USERID - United States"
+              },
+              {
+                "doc_id": "swg1IC49001",
+                "title": "IBM IC49001: CLASSCASTEXCEPTION IN RUNTIME JAVA DEBUGGER CODE - United States"
+              }
+            ]
+          }
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true,
+        "unit": "original_document",
+        "data_version": {
+          "scope": "full",
+          "document_count": "801996",
+          "complete": "true",
+          "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+          "format_version": "1"
+        },
+        "rules_version": "techqa-fts-predicate-v1",
+        "request_slots_version": "request-slots-v1.2-literal-version-adjacency",
+        "operation": "document_count",
+        "samples_truncated": true
+      },
+      "evidence": [
+        {
+          "source_id": "Q1",
+          "predicate": [
+            "WebSphere Message Broker"
+          ],
+          "count": 4867,
+          "scope": "full",
+          "measurement_complete": true
+        }
+      ],
+      "limitations": [
+        "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
+        "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
+        "同一文档可命中两个比较组；tokenizer的词干和标点处理可能扩大字面匹配。",
+        "统计只覆盖明确授权的数据快照；示例文档为有限行，不代表完整清单。"
+      ],
+      "error": null,
+      "usage": {
+        "attempts": 4,
+        "llm_calls": 0,
+        "attempts_by_kind": {
+          "db": 4
+        },
+        "absolute_deadline": 1791343023.3638275,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null,
+        "execution": {
+          "policy_sha256": "e7998a3ea215618605ad13facdf36b9abdc7e88328cd515dab8126c0a2675fb8",
+          "limit_seconds": 90,
+          "lifetime_seconds": 900,
+          "heartbeat_seconds": 0.25,
+          "consumed_seconds": 1.4689999999245629,
+          "segments": [
+            {
+              "segment_id": "cf1fa8e37e774333a65c728d470c27fe",
+              "consumed_seconds": 1.4689999999245629,
+              "closed": false
+            }
+          ]
+        }
+      }
+    }
+  },
+  "workers": {
+    "rag": {
+      "contract_version": "project2-v1",
+      "run_id": "476d9a0c18d948dcacc2d9a78bfa1014",
+      "task_id": "rag_explain",
+      "worker": "rag",
+      "status": "completed",
+      "payload": {
+        "answer": "VULNERABILITY DETAILS\nPlease consult the security bulletins: \nVulnerability in Diffie-Hellman ciphers affects IBM Cognos Business Intelligence (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21959671] \n\nVulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980] \n\nVulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21958955] \n\nVulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Telemetry (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21958984] \n\nfor vulnerability details and information about fixes.\n\nAFFECTED PRODUCTS AND VERSIONS\n \n\nPrincipal Product and Version(s) Affected Supporting Product and Version IBM Predictive Customer Intelligence 1.0 IBM Cognos Business Intelligence Server 10.2.1.1\nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2 IBM Predictive Customer Intelligence 1.0.1 IBM Cognos Business Intelligence Server 10.2.1.1 \nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2 [S1]\nVULNERABILITY DETAILS\nCVEID:CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION:The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nWebSphere Dynamic Process Edition 6.1, 6.2, 7.0 \n\nIf you are using an unsupported version, IBM strongly recommends to upgrade.\n\nREMEDIATION/FIXES\nPlease consult the following security bulletins for vulnerability details and information about fixes. \n\n * Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21957980] \n * Security Bulletin: Multiple vulnerabilities in IBM Java SDK (CVE-2015-0478, CVE-2015-0488, and CVE-2015-1916) and with Diffie-Hellman ciphers (CVE-2015-4000) may affect IBM Integration Designer (IID) and WebSphere Integration Developer (WID) [http://www.ibm.com/support/docview.wss?uid=swg21961812]\n\nWebSphere Application Server is used by WebSphere Process Server, WebSphere Business Services Fabric, and WebSphere Business Monitor. \nThe following setting in java.secruity allows you to reenable ciphers using DH and DHE key exchange that you had to disable as a temporary workaround: \njdk.tls.disabledAlgorithms=SSLv3, RC4, DH keySize <768 WORKAROUNDS AND MITIGATIONS\nNone [S4]",
+        "sources": [
+          {
+            "source_id": "S1",
+            "chunk_id": "techqa:swg21961072:parent",
+            "source_file": "techqa://swg21961072",
+            "page_number": 1,
+            "quote": "VULNERABILITY DETAILS\nPlease consult the security bulletins: \nVulnerability in Diffie-Hellman ciphers affects IBM Cognos Business Intelligence (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21959671] \n\nVulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980] \n\nVulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21958955] \n\nVulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Telemetry (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21958984] \n\nfor vulnerability details and information about fixes.\n\nAFFECTED PRODUCTS AND VERSIONS\n \n\nPrincipal Product and Version(s) Affected Supporting Product and Version IBM Predictive Customer Intelligence 1.0 IBM Cognos Business Intelligence Server 10.2.1.1\nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2 IBM Predictive Customer Intelligence 1.0.1 IBM Cognos Business Intelligence Server 10.2.1.1 \nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2"
+          },
+          {
+            "source_id": "S4",
+            "chunk_id": "techqa:swg21959107:parent",
+            "source_file": "techqa://swg21959107",
+            "page_number": 1,
+            "quote": "VULNERABILITY DETAILS\nCVEID:CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION:The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nWebSphere Dynamic Process Edition 6.1, 6.2, 7.0 \n\nIf you are using an unsupported version, IBM strongly recommends to upgrade.\n\nREMEDIATION/FIXES\nPlease consult the following security bulletins for vulnerability details and information about fixes. \n\n * Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21957980] \n * Security Bulletin: Multiple vulnerabilities in IBM Java SDK (CVE-2015-0478, CVE-2015-0488, and CVE-2015-1916) and with Diffie-Hellman ciphers (CVE-2015-4000) may affect IBM Integration Designer (IID) and WebSphere Integration Developer (WID) [http://www.ibm.com/support/docview.wss?uid=swg21961812]\n\nWebSphere Application Server is used by WebSphere Process Server, WebSphere Business Services Fabric, and WebSphere Business Monitor. \nThe following setting in java.secruity allows you to reenable ciphers using DH and DHE key exchange that you had to disable as a temporary workaround: \njdk.tls.disabledAlgorithms=SSLv3, RC4, DH keySize <768 WORKAROUNDS AND MITIGATIONS\nNone"
+          }
+        ],
+        "confidence": 0.749,
+        "trace": {
+          "original_query": "Help with Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects WMB & IIB (CVE-2015-4000)\nI need to understand details regarding Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000). This vulnerability is commonly referred to as \"Logjam\". Where can I find this information?",
+          "rewritten_query": "Help with Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects WMB & IIB (CVE-2015-4000) I need to understand details regarding Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000). This vulnerability is commonly referred to as \"Logjam\". Where can I find this information?",
+          "rewrite_fallback": true,
+          "tool_called": true,
+          "candidate_ids": [
+            "techqa:swg21961072:parent",
+            "techqa:swg21959901:parent",
+            "techqa:swg21961048:parent",
+            "techqa:swg21961049:parent",
+            "techqa:swg21961050:parent",
+            "techqa:swg21959107:parent",
+            "techqa:swg21959058:parent",
+            "techqa:swg21959105:parent"
+          ],
+          "evidence": [
+            {
+              "source_id": "S1",
+              "chunk_id": "techqa:swg21961072:parent",
+              "source_file": "techqa://swg21961072",
+              "page_number": 1,
+              "excerpt": "VULNERABILITY DETAILS\nPlease consult the security bulletins: \nVulnerability in Diffie-Hellman ciphers affects IBM Cognos Business Intelligence (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21959671] \n\nVulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980] \n\nVulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21958955] \n\nVulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Telemetry (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21958984] \n\nfor vulnerability details and information about fixes.\n\nAFFECTED PRODUCTS AND VERSIONS\n \n\nPrincipal Product and Version(s) Affected Supporting Product and Version IBM Predictive Customer Intelligence 1.0 IBM Cognos Business Intelligence Server 10.2.1.1\nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2 IBM Predictive Customer Intelligence 1.0.1 IBM Cognos Business Intelligence Server 10.2.1.1 \nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2",
+              "title": "IBM Security Bulletin: A security vulnerability has been identified in muiltiple products shipped with Predictive Customer Intelligence (CVE-2015-4000) - United States",
+              "applicability": "IBM Security Bulletin: A security vulnerability has been identified in muiltiple products shipped with Predictive Customer Intelligence (CVE-2015-4000) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n WebSphere Application Server, Cognos Business Intelligence, Integration Bus, and WebSphere MQ are shipped as components of Predictive Customer Intelligence. Information about a security vulnerability affecting WebSphere Application Server, Cognos Business Intelligence, Integration Bus, and WebSphere MQ",
+              "relevance": 0.8161514986075173,
+              "tokens": 233,
+              "section": "vulnerability/exposure/remediation",
+              "start_char": 546,
+              "end_char": 1787,
+              "covers": [
+                "vulnerability",
+                "affected_versions"
+              ],
+              "instruction_group": false
+            },
+            {
+              "source_id": "S2",
+              "chunk_id": "techqa:swg21959901:parent",
+              "source_file": "techqa://swg21959901",
+              "page_number": 1,
+              "excerpt": "IBM 【セキュリティ情報】WebSphere Message Broker とIBM Integration Bus のDiffie-Hellman (DH) 暗号の脆弱性 (CVE-2014-8917) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n Diffie-Hellman (DH) 暗号を使用した TLSプロトコルに脆弱性が発見されました。(通称 Logjam)\nTLS接続を行うIBM WebSphere Message Broker と IBM Integration Busに影響があります。\nTLS 接続を使用する場合、中間者攻撃により TLS 接続が暗号強度の低い輸出グレードの 512 ビット暗号に格下げされる問題があります。その結果、通信内容の盗聴や改ざんをされる可能性があります。",
+              "title": "IBM 【セキュリティ情報】WebSphere Message Broker とIBM Integration Bus のDiffie-Hellman (DH) 暗号の脆弱性 (CVE-2014-8917) - United States",
+              "applicability": "IBM 【セキュリティ情報】WebSphere Message Broker とIBM Integration Bus のDiffie-Hellman (DH) 暗号の脆弱性 (CVE-2014-8917) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n Diffie-Hellman (DH) 暗号を使用した TLSプロトコルに脆弱性が発見されました。(通称 Logjam)\nTLS接続を行うIBM WebSphere Message Broker と IBM Integration Busに影響があります。\nTLS 接続を使用する場合、中間者攻撃により TLS 接続が暗号強度の低い輸出グレードの 512 ビット暗号に格下げされる問題があります。その結果、通信内容の盗聴や改ざんをされる可能性があります。\n\n\n\nVULNERABILITY DETAILS\n脆弱性の詳細\nCVEID: CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPT",
+              "relevance": 0.7708936966355519,
+              "tokens": 183,
+              "section": "",
+              "start_char": 0,
+              "end_char": 376,
+              "covers": [
+                "vulnerability"
+              ],
+              "instruction_group": false
+            },
+            {
+              "source_id": "S3",
+              "chunk_id": "techqa:swg21961048:parent",
+              "source_file": "techqa://swg21961048",
+              "page_number": 1,
+              "excerpt": "VULNERABILITY DETAILS\nCVEID:CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION:The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nREMEDIATION/FIXES\nThese security vulnerabilities are all fixed with available interim fixes and are targeted for specific WebSphere Application Server fix pack levels. For more information on these fixes, including workarounds and mitigations please see Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980]",
+              "title": "IBM Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server that shipped with WebSphere Enterprise Service Bus (CVE-2015-4000) - United States",
+              "applicability": "IBM Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server that shipped with WebSphere Enterprise Service Bus (CVE-2015-4000) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n The LogJam Attack on Diffie-Hellman ciphers (CVE-2015-4000) may affect some configurations of IBM WebSphere Application Server that shipped with WebSphere Enterprise Service Bus. \n\nVULNERABILITY DETAILS\nCVEID:CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-",
+              "relevance": 0.7611301271492215,
+              "tokens": 195,
+              "section": "vulnerability/exposure/remediation",
+              "start_char": 402,
+              "end_char": 1686,
+              "covers": [
+                "vulnerability",
+                "remediation"
+              ],
+              "instruction_group": false
+            },
+            {
+              "source_id": "S4",
+              "chunk_id": "techqa:swg21959107:parent",
+              "source_file": "techqa://swg21959107",
+              "page_number": 1,
+              "excerpt": "VULNERABILITY DETAILS\nCVEID:CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION:The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nWebSphere Dynamic Process Edition 6.1, 6.2, 7.0 \n\nIf you are using an unsupported version, IBM strongly recommends to upgrade.\n\nREMEDIATION/FIXES\nPlease consult the following security bulletins for vulnerability details and information about fixes. \n\n * Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21957980] \n * Security Bulletin: Multiple vulnerabilities in IBM Java SDK (CVE-2015-0478, CVE-2015-0488, and CVE-2015-1916) and with Diffie-Hellman ciphers (CVE-2015-4000) may affect IBM Integration Designer (IID) and WebSphere Integration Developer (WID) [http://www.ibm.com/support/docview.wss?uid=swg21961812]\n\nWebSphere Application Server is used by WebSphere Process Server, WebSphere Business Services Fabric, and WebSphere Business Monitor. \nThe following setting in java.secruity allows you to reenable ciphers using DH and DHE key exchange that you had to disable as a temporary workaround: \njdk.tls.disabledAlgorithms=SSLv3, RC4, DH keySize <768 WORKAROUNDS AND MITIGATIONS\nNone",
+              "title": "IBM Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect server products in WebSphere Dynamic Process Edition (CVE-2015-4000) - United States",
+              "applicability": "IBM Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect server products in WebSphere Dynamic Process Edition (CVE-2015-4000) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n The LogJam Attack on Diffie-Hellman ciphers (CVE-2015-4000) may affect some configurations of IBM WebSphere Application Server Full Profile that is shipped as a component of server products in WebSphere Dynamic Process Edition. The IBM HTTP Server used by WebSphere Application Server is not affected. \n\nVULNER",
+              "relevance": 0.7181656105897087,
+              "tokens": 325,
+              "section": "vulnerability/exposure/remediation",
+              "start_char": 494,
+              "end_char": 2485,
+              "covers": [
+                "vulnerability",
+                "affected_versions",
+                "remediation"
+              ],
+              "instruction_group": true
+            },
+            {
+              "source_id": "S5",
+              "chunk_id": "techqa:swg21959058:parent",
+              "source_file": "techqa://swg21959058",
+              "page_number": 1,
+              "excerpt": "VULNERABILITY DETAILS\nCVEID: CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION: The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\n \n\nPrincipal Product and Version(s) Affected Supporting Product and Version IBM WebSphere Portal version 6.1, 7.0, 8.0, and 8.5 IBM WebSphere Application Server version 6.1, 7.0, 8.0, 8.5 \nFor earlier unsupported versions of the above products IBM recommends upgrading to a fixed, supported version of the products. REMEDIATION/FIXES\nPlease consult the security bulletin Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980] for vulnerability details and information about fixes. \n\nWORKAROUNDS AND MITIGATIONS\nNone",
+              "title": "IBM Security Bulletin: Vulnerability with Diffie-Hellman ciphers affects IBM WebSphere Portal Server (CVE-2015-4000) - United States",
+              "applicability": "IBM Security Bulletin: Vulnerability with Diffie-Hellman ciphers affects IBM WebSphere Portal Server (CVE-2015-4000) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n The LogJam Attack on Diffie-Hellman ciphers (CVE-2015-4000) affects IBM WebSphere Application Server that is shipped as a component of IBM WebSphere Portal. \n\nVULNERABILITY DETAILS\nCVEID: CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION: The TLS protocol could allow a remote attacker to obtain sens",
+              "relevance": 0.7072753343537221,
+              "tokens": 257,
+              "section": "vulnerability/exposure/remediation",
+              "start_char": 321,
+              "end_char": 1847,
+              "covers": [
+                "vulnerability",
+                "affected_versions",
+                "remediation"
+              ],
+              "instruction_group": false
+            }
+          ],
+          "original_tokens": 7004,
+          "context_tokens": 2212,
+          "status": "answered",
+          "covered_facts": [],
+          "missing_facts": [],
+          "retries": 0,
+          "validation_failures": [],
+          "latency_ms": 52264.506299979985
+        },
+        "original_query": "Help with Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects WMB & IIB (CVE-2015-4000)\nI need to understand details regarding Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000). This vulnerability is commonly referred to as \"Logjam\". Where can I find this information?",
+        "actual_query": "Help with Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects WMB & IIB (CVE-2015-4000) I need to understand details regarding Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000). This vulnerability is commonly referred to as \"Logjam\". Where can I find this information?",
+        "pipeline": {
+          "candidate_ids": [
+            "techqa:swg21961072:0:ee298568da4c",
+            "techqa:swg21959901:0:61ddf0ba00ff",
+            "techqa:swg21961048:0:0c49192ca842",
+            "techqa:swg21961049:0:2f41f8ced87a",
+            "techqa:swg21961050:0:ba33b37d4457",
+            "techqa:swg21959107:1:e1976ae03c27",
+            "techqa:swg21959058:0:5471552111df",
+            "techqa:swg21959105:0:2f724cdd7034",
+            "techqa:swg21959353:0:0786a5f9f472",
+            "techqa:swg21959411:0:1993cb39a295",
+            "techqa:swg21959425:0:1a026b797e88",
+            "techqa:swg21961872:0:d18f375de74b",
+            "techqa:swg21959500:0:646a965ec6f0",
+            "techqa:swg21961072:1:9cde9b748654",
+            "techqa:swg21959539:0:8efd7971a39c",
+            "techqa:swg21959097:0:9c9eb138c619",
+            "techqa:swg21963151:0:4c9f53aa4f58",
+            "techqa:swg21959257:0:ab357789c7de",
+            "techqa:swg21959746:0:536fcffc4318",
+            "techqa:swg21959844:0:82dbf70b42bd"
+          ],
+          "reranker_fallback": false,
+          "stage": "retrieval_pipeline_before_parent_expansion"
+        },
+        "source_lineage": [
+          {
+            "source_id": "S1",
+            "chunk_id": "techqa:swg21961072:parent",
+            "source_file": "techqa://swg21961072",
+            "page_number": 1,
+            "candidate_rank": 1,
+            "candidate_stage": "parent_candidates_before_compression",
+            "start_char": 546,
+            "end_char": 1787,
+            "excerpt": "VULNERABILITY DETAILS\nPlease consult the security bulletins: \nVulnerability in Diffie-Hellman ciphers affects IBM Cognos Business Intelligence (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21959671] \n\nVulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980] \n\nVulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21958955] \n\nVulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Telemetry (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21958984] \n\nfor vulnerability details and information about fixes.\n\nAFFECTED PRODUCTS AND VERSIONS\n \n\nPrincipal Product and Version(s) Affected Supporting Product and Version IBM Predictive Customer Intelligence 1.0 IBM Cognos Business Intelligence Server 10.2.1.1\nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2 IBM Predictive Customer Intelligence 1.0.1 IBM Cognos Business Intelligence Server 10.2.1.1 \nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2",
+            "cited": true
+          },
+          {
+            "source_id": "S2",
+            "chunk_id": "techqa:swg21959901:parent",
+            "source_file": "techqa://swg21959901",
+            "page_number": 1,
+            "candidate_rank": 2,
+            "candidate_stage": "parent_candidates_before_compression",
+            "start_char": 0,
+            "end_char": 376,
+            "excerpt": "IBM 【セキュリティ情報】WebSphere Message Broker とIBM Integration Bus のDiffie-Hellman (DH) 暗号の脆弱性 (CVE-2014-8917) - United States\n\nSECURITY BULLETIN\n\nSUMMARY\n Diffie-Hellman (DH) 暗号を使用した TLSプロトコルに脆弱性が発見されました。(通称 Logjam)\nTLS接続を行うIBM WebSphere Message Broker と IBM Integration Busに影響があります。\nTLS 接続を使用する場合、中間者攻撃により TLS 接続が暗号強度の低い輸出グレードの 512 ビット暗号に格下げされる問題があります。その結果、通信内容の盗聴や改ざんをされる可能性があります。",
+            "cited": false
+          },
+          {
+            "source_id": "S3",
+            "chunk_id": "techqa:swg21961048:parent",
+            "source_file": "techqa://swg21961048",
+            "page_number": 1,
+            "candidate_rank": 3,
+            "candidate_stage": "parent_candidates_before_compression",
+            "start_char": 402,
+            "end_char": 1686,
+            "excerpt": "VULNERABILITY DETAILS\nCVEID:CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION:The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nREMEDIATION/FIXES\nThese security vulnerabilities are all fixed with available interim fixes and are targeted for specific WebSphere Application Server fix pack levels. For more information on these fixes, including workarounds and mitigations please see Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980]",
+            "cited": false
+          },
+          {
+            "source_id": "S4",
+            "chunk_id": "techqa:swg21959107:parent",
+            "source_file": "techqa://swg21959107",
+            "page_number": 1,
+            "candidate_rank": 6,
+            "candidate_stage": "parent_candidates_before_compression",
+            "start_char": 494,
+            "end_char": 2485,
+            "excerpt": "VULNERABILITY DETAILS\nCVEID:CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION:The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nWebSphere Dynamic Process Edition 6.1, 6.2, 7.0 \n\nIf you are using an unsupported version, IBM strongly recommends to upgrade.\n\nREMEDIATION/FIXES\nPlease consult the following security bulletins for vulnerability details and information about fixes. \n\n * Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21957980] \n * Security Bulletin: Multiple vulnerabilities in IBM Java SDK (CVE-2015-0478, CVE-2015-0488, and CVE-2015-1916) and with Diffie-Hellman ciphers (CVE-2015-4000) may affect IBM Integration Designer (IID) and WebSphere Integration Developer (WID) [http://www.ibm.com/support/docview.wss?uid=swg21961812]\n\nWebSphere Application Server is used by WebSphere Process Server, WebSphere Business Services Fabric, and WebSphere Business Monitor. \nThe following setting in java.secruity allows you to reenable ciphers using DH and DHE key exchange that you had to disable as a temporary workaround: \njdk.tls.disabledAlgorithms=SSLv3, RC4, DH keySize <768 WORKAROUNDS AND MITIGATIONS\nNone",
+            "cited": true
+          },
+          {
+            "source_id": "S5",
+            "chunk_id": "techqa:swg21959058:parent",
+            "source_file": "techqa://swg21959058",
+            "page_number": 1,
+            "candidate_rank": 7,
+            "candidate_stage": "parent_candidates_before_compression",
+            "start_char": 321,
+            "end_char": 1847,
+            "excerpt": "VULNERABILITY DETAILS\nCVEID: CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION: The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294] for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\n \n\nPrincipal Product and Version(s) Affected Supporting Product and Version IBM WebSphere Portal version 6.1, 7.0, 8.0, and 8.5 IBM WebSphere Application Server version 6.1, 7.0, 8.0, 8.5 \nFor earlier unsupported versions of the above products IBM recommends upgrading to a fixed, supported version of the products. REMEDIATION/FIXES\nPlease consult the security bulletin Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980] for vulnerability details and information about fixes. \n\nWORKAROUNDS AND MITIGATIONS\nNone",
+            "cited": false
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "source_id": "S1",
+          "chunk_id": "techqa:swg21961072:parent",
+          "source_file": "techqa://swg21961072",
+          "page_number": 1,
+          "quote": "VULNERABILITY DETAILS\nPlease consult the security bulletins: \nVulnerability in Diffie-Hellman ciphers affects IBM Cognos Business Intelligence (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21959671] \n\nVulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21957980] \n\nVulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21958955] \n\nVulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Telemetry (CVE-2015-4000) [http://www-01.ibm.com/support/docview.wss?uid=swg21958984] \n\nfor vulnerability details and information about fixes.\n\nAFFECTED PRODUCTS AND VERSIONS\n \n\nPrincipal Product and Version(s) Affected Supporting Product and Version IBM Predictive Customer Intelligence 1.0 IBM Cognos Business Intelligence Server 10.2.1.1\nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2 IBM Predictive Customer Intelligence 1.0.1 IBM Cognos Business Intelligence Server 10.2.1.1 \nWebSphere Application Server 8.5.5 ND\nIntegration Bus 9.0.0.1\nWebSphere MQ 7.5.0.2"
+        },
+        {
+          "source_id": "S4",
+          "chunk_id": "techqa:swg21959107:parent",
+          "source_file": "techqa://swg21959107",
+          "page_number": 1,
+          "quote": "VULNERABILITY DETAILS\nCVEID:CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000]\nDESCRIPTION:The TLS protocol could allow a remote attacker to obtain sensitive information, caused by the failure to properly convey a DHE_EXPORT ciphersuite choice. An attacker could exploit this vulnerability using man-in-the-middle techniques to force a downgrade to 512-bit export-grade cipher. Successful exploitation could allow an attacker to recover the session key as well as modify the contents of the traffic. This vulnerability is commonly referred to as \"Logjam\".\nCVSS Base Score: 4.3\nCVSS Temporal Score: Seehttps://exchange.xforce.ibmcloud.com/vulnerabilities/103294 [https://exchange.xforce.ibmcloud.com/vulnerabilities/103294]for the current score\nCVSS Environmental Score*: Undefined\nCVSS Vector: (AV:N/AC:M/Au:N/C:P/I:N/A:N) \n\nAFFECTED PRODUCTS AND VERSIONS\nWebSphere Dynamic Process Edition 6.1, 6.2, 7.0 \n\nIf you are using an unsupported version, IBM strongly recommends to upgrade.\n\nREMEDIATION/FIXES\nPlease consult the following security bulletins for vulnerability details and information about fixes. \n\n * Security Bulletin: Vulnerability with Diffie-Hellman ciphers may affect IBM WebSphere Application Server (CVE-2015-4000) [http://www.ibm.com/support/docview.wss?uid=swg21957980] \n * Security Bulletin: Multiple vulnerabilities in IBM Java SDK (CVE-2015-0478, CVE-2015-0488, and CVE-2015-1916) and with Diffie-Hellman ciphers (CVE-2015-4000) may affect IBM Integration Designer (IID) and WebSphere Integration Developer (WID) [http://www.ibm.com/support/docview.wss?uid=swg21961812]\n\nWebSphere Application Server is used by WebSphere Process Server, WebSphere Business Services Fabric, and WebSphere Business Monitor. \nThe following setting in java.secruity allows you to reenable ciphers using DH and DHE key exchange that you had to disable as a temporary workaround: \njdk.tls.disabledAlgorithms=SSLv3, RC4, DH keySize <768 WORKAROUNDS AND MITIGATIONS\nNone"
+        }
+      ],
+      "limitations": [
+        "RAG状态由当前证据规则判断；confidence未校准，不是事实正确概率。"
+      ],
+      "error": null,
+      "usage": {
+        "attempts": 15,
+        "llm_calls": 4,
+        "attempts_by_kind": {
+          "db": 10,
+          "llm": 4,
+          "embedding": 1
+        },
+        "absolute_deadline": 1791343059.37951,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null,
+        "execution": {
+          "policy_sha256": "e7998a3ea215618605ad13facdf36b9abdc7e88328cd515dab8126c0a2675fb8",
+          "limit_seconds": 90,
+          "lifetime_seconds": 900,
+          "heartbeat_seconds": 0.25,
+          "consumed_seconds": 55.670999999856576,
+          "segments": [
+            {
+              "segment_id": "cf1fa8e37e774333a65c728d470c27fe",
+              "consumed_seconds": 3.2339999999385327,
+              "closed": true,
+              "termination": "uncertain_tail_conservatively_charged"
+            },
+            {
+              "segment_id": "26fc89a6bfa349ea889deec7932a448d",
+              "consumed_seconds": 52.436999999918044,
+              "closed": false
+            }
+          ]
+        }
+      }
+    },
+    "database": {
+      "contract_version": "project2-v1",
+      "run_id": "476d9a0c18d948dcacc2d9a78bfa1014",
+      "task_id": "techqa_document_query",
+      "worker": "database",
+      "status": "completed",
+      "payload": {
+        "groups": [
+          {
+            "predicate": [
+              "WebSphere Message Broker"
+            ],
+            "count": 4867,
+            "samples": [
+              {
+                "doc_id": "isg3T1027567",
+                "title": "IBM z/OS Consolidated Service Test: FMIDs Installed in the CST Environment - United States"
+              },
+              {
+                "doc_id": "swg1IC47850",
+                "title": "IBM IC47850: FIX PACK 6.0.0.1 FOR WEBSPHERE MESSAGE BROKER V6.0 FOR WINDOWS - United States"
+              },
+              {
+                "doc_id": "swg1IC47851",
+                "title": "IBM IC47851: FIX PACK 6.0.0.1 FOR WEBSPHERE MESSAGE BROKER WITH RFE V6.0 FOR WINDOWS - United States"
+              },
+              {
+                "doc_id": "swg1IC47922",
+                "title": "IBM IC47922: UNABLE TO CONNECT TO CMGR WITH DOMAIN USERID - United States"
+              },
+              {
+                "doc_id": "swg1IC49001",
+                "title": "IBM IC49001: CLASSCASTEXCEPTION IN RUNTIME JAVA DEBUGGER CODE - United States"
+              }
+            ]
+          }
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": true,
+        "unit": "original_document",
+        "data_version": {
+          "scope": "full",
+          "document_count": "801996",
+          "complete": "true",
+          "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+          "format_version": "1"
+        },
+        "rules_version": "techqa-fts-predicate-v1",
+        "request_slots_version": "request-slots-v1.2-literal-version-adjacency",
+        "operation": "document_count",
+        "samples_truncated": true
+      },
+      "evidence": [
+        {
+          "source_id": "Q1",
+          "predicate": [
+            "WebSphere Message Broker"
+          ],
+          "count": 4867,
+          "scope": "full",
+          "measurement_complete": true
+        }
+      ],
+      "limitations": [
+        "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
+        "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
+        "同一文档可命中两个比较组；tokenizer的词干和标点处理可能扩大字面匹配。",
+        "统计只覆盖明确授权的数据快照；示例文档为有限行，不代表完整清单。"
+      ],
+      "error": null,
+      "usage": {
+        "attempts": 4,
+        "llm_calls": 0,
+        "attempts_by_kind": {
+          "db": 4
+        },
+        "absolute_deadline": 1791343023.3638275,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null,
+        "execution": {
+          "policy_sha256": "e7998a3ea215618605ad13facdf36b9abdc7e88328cd515dab8126c0a2675fb8",
+          "limit_seconds": 90,
+          "lifetime_seconds": 900,
+          "heartbeat_seconds": 0.25,
+          "consumed_seconds": 1.4689999999245629,
+          "segments": [
+            {
+              "segment_id": "cf1fa8e37e774333a65c728d470c27fe",
+              "consumed_seconds": 1.4689999999245629,
+              "closed": false
+            }
+          ]
+        }
+      }
+    }
+  },
+  "usage": {
+    "attempts": 15,
+    "llm_calls": 4,
+    "attempts_by_kind": {
+      "db": 10,
+      "llm": 4,
+      "embedding": 1
+    },
+    "absolute_deadline": 1791343059.37951,
+    "observed_tokens": null,
+    "estimated_tokens": null,
+    "cost": null,
+    "execution": {
+      "policy_sha256": "e7998a3ea215618605ad13facdf36b9abdc7e88328cd515dab8126c0a2675fb8",
+      "limit_seconds": 90,
+      "lifetime_seconds": 900,
+      "heartbeat_seconds": 0.25,
+      "consumed_seconds": 55.670999999856576,
+      "segments": [
+        {
+          "segment_id": "cf1fa8e37e774333a65c728d470c27fe",
+          "consumed_seconds": 3.2339999999385327,
+          "closed": true,
+          "termination": "uncertain_tail_conservatively_charged"
+        },
+        {
+          "segment_id": "26fc89a6bfa349ea889deec7932a448d",
+          "consumed_seconds": 52.436999999918044,
+          "closed": false
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
+    "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
+    "同一文档可命中两个比较组；tokenizer的词干和标点处理可能扩大字面匹配。",
+    "统计只覆盖明确授权的数据快照；示例文档为有限行，不代表完整清单。",
+    "RAG状态由当前证据规则判断；confidence未校准，不是事实正确概率。"
+  ],
+  "request_id": "781b1959eb1643b8bf30936140c5c4b0"
+}

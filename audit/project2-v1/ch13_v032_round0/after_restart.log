@@ -1,0 +1,15 @@
+INFO:     Started server process [88428]
+INFO:     Waiting for application startup.
+2026-10-06 18:11:25,103 INFO P2_STARTUP {"type": "ready", "scope": "full", "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b", "worker_pid": 107504, "startup_timings": {"imports_seconds": 0.60516179993283, "agent_build_seconds": 0.025954300072044134, "index_and_encoder_seconds": 21.108087499975227, "faiss_index_load_seconds": 4.86467579996679, "child_initialization_seconds": 22.125085000065155}, "launch_to_ready_seconds": 22.618974499986507}
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:57780 (Press CTRL+C to quit)
+INFO:     127.0.0.1:57816 - "GET /healthz HTTP/1.1" 200 OK
+2026-10-06 18:12:01,511 INFO P2_CLEANUP {"mode": "owned_force_cancel", "elapsed_seconds": 0.5112053999910131, "process_retained": false}
+2026-10-06 18:12:01,520 WARNING Project2 HTTP deadline cancelled attempts=15
+INFO:     127.0.0.1:57817 - "POST /v2/project2/runs/6fcafa268d974ef698232e6da1d5bee5/resume HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54526 - "GET /v2/project2/runs/6fcafa268d974ef698232e6da1d5bee5/trace HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54527 - "POST /v2/project2/runs/00000000000000000000000000000000/resume HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54528 - "GET /v2/project2/runs/6fcafa268d974ef698232e6da1d5bee5 HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:54529 - "POST /v2/project2/runs/6fcafa268d974ef698232e6da1d5bee5/resume HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:54530 - "GET /v2/project2/runs/6fcafa268d974ef698232e6da1d5bee5 HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:54531 - "POST /v2/project2/runs/6fcafa268d974ef698232e6da1d5bee5/resume HTTP/1.1" 409 Conflict

@@ -75,16 +75,33 @@ def create_app(*, credentials: dict[str, TrustedContext] | None = None, warmup: 
     prepare_budget_configuration()
     environment = json.loads((ROOT / "evals/protocol_v0/baseline_v0.config.json").read_text(encoding="utf-8"))["environment"]
     runtime = BoundedRAGProcess(environment)
+    runtime.startup_required=warmup
     database = DatabaseWorker(ROOT / ".rag_data/techqa_full.sqlite")
     supervisor = Supervisor(database, runtime, registered_database_path=ROOT / ".rag_data/techqa_full.sqlite")
     tokens = server_credentials() if credentials is None else dict(credentials)
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):
+        async def maintain_readiness():
+            # One bounded initialization per lost Worker. No request or run budget
+            # is in this task; failed initialization leaves the service unready.
+            while True:
+                await asyncio.sleep(.1)
+                if not runtime.active:
+                    try:await runtime.start()
+                    except Exception:
+                        LOGGER.exception('Project2 background readiness failed; service remains unready')
+                        return
         if warmup:
             await runtime.start()
-        yield
-        runtime.stop()
+        readiness=asyncio.create_task(maintain_readiness()) if warmup else None
+        try:yield
+        finally:
+            if readiness:
+                readiness.cancel()
+                try:await readiness
+                except asyncio.CancelledError:pass
+            runtime.stop()
 
     app = FastAPI(title="TechQA Project 2 v1", lifespan=lifespan)
     app.state.supervisor, app.state.rag_runtime = supervisor, runtime

@@ -1,0 +1,3 @@
+2026-10-06 19:11:18,328 INFO P2_STARTUP {"type": "ready", "scope": "full", "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b", "worker_pid": 90496, "startup_timings": {"imports_seconds": 0.6752326999558136, "agent_build_seconds": 0.025986199965700507, "index_and_encoder_seconds": 29.893133600009605, "faiss_index_load_seconds": 15.28763939999044, "child_initialization_seconds": 30.98284470010549}, "launch_to_ready_seconds": 31.459521800046787}
+2026-10-06 19:11:20,086 INFO P2_CLEANUP {"mode": "idle_eof", "elapsed_seconds": 1.7564402999123558, "process_retained": false}
+2026-10-06 19:11:20,088 INFO P2_CLEANUP {"mode": "already_stopped", "elapsed_seconds": 5.100038833916187e-06, "process_retained": false}

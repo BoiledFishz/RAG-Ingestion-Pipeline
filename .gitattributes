@@ -12,10 +12,19 @@
 /enterprise-ai-agent/agents/project2/** -text
 /enterprise-ai-agent/tests/project2/** -text
 /enterprise-ai-agent/api/project2_main.py -text
+/enterprise-ai-agent/api/project2_runtime_main.py -text
 /enterprise-ai-agent/models/project2.py -text
 /enterprise-ai-agent/tools/techqa_document_query.py -text
 /splits.json -text
 /splits.json.sha256 -text
+
+# Preserve byte hashes of registered Project 2 runners in local commits/clones.
+/scripts/project2*.py -text
+/scripts/run_project2*.py -text
+/scripts/build_project2*.py -text
+/scripts/export_project2*.py -text
+/scripts/verify_project2*.py -text
+/scripts/spec_preflight.py -text
 
 # These baseline files are already frozen with their current CRLF bytes.
 /config/retrieval.yaml -text

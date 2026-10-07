@@ -1,19 +1,47 @@
 # Project 2 自动执行续跑记录
 
-程序更新时间：2026-10-06T22:55:04.739077+00:00
+{
+  "started_at": "2026-10-06T00:38:38.533183+00:00",
+  "base_commit": "74601e4a587ce70d6d9d82012bc5f42b42a0501d",
+  "branch": "codex/project2-ch13-v033",
+  "current_stage": "Chap13",
+  "execution_status": "in_progress",
+  "stop_reason": null,
+  "heldout_stage_calls_project2": 2,
+  "heldout_repetitions_project2": 6,
+  "resume_progress_previously_present": true,
+  "updated_at": "2026-10-07T05:15:05.886630+00:00",
+  "active_spec_version": "v0.3.3",
+  "repair_rounds": 0,
+  "previous_v02_repair_rounds": 2,
+  "v03_authorization_date": "2026-10-05",
+  "calibration_progress": 300,
+  "calibration_batch": 2,
+  "native_progress": {
+    "repair_round": 1,
+    "requests": 555,
+    "expected": 555,
+    "failed_observations": 0,
+    "records": "audit/project2-v1/v031_native_requests_round1.jsonl"
+  },
+  "continuation_authorization_sha256": "7de338451b14aa2da2951086b088116e28dd7f61675a91de5f9011b88fe44e0f",
+  "evaluation_progress": {
+    "qa-tune": {
+      "completed_slots": 117,
+      "expected_slots": 117,
+      "file": "evals/project2-v1/ch13_v033/qa-tune/requests.jsonl"
+    },
+    "business": {
+      "completed_slots": 150,
+      "expected_slots": 150,
+      "file": "evals/project2-v1/ch13_v033/business/requests.jsonl"
+    },
+    "qa-held-out": {
+      "completed_slots": 90,
+      "expected_slots": 90,
+      "file": "evals/project2-v1/ch13_v033/qa-held-out/requests.jsonl"
+    }
+  }
+}
 
-当前阶段：Chap12；生效规格v0.3.1；状态：stopped_s14_acceptance
-
-分支：codex/project2-ch12；基准提交：74601e4a587ce70d6d9d82012bc5f42b42a0501d
-
-标定批次2：300/300；批次1保留，未用于决策。协议/记录：evals/project2-v1/calibration_v031；日志audit/project2-v1/v031_calibration.log。
-
-真实组合子门禁进度：{'repair_round': 1, 'requests': 555, 'expected': 555, 'failed_observations': 0, 'records': 'audit/project2-v1/v031_native_requests_round1.jsonl'}。
-
-held-out累计阶段/重复：1/3；完整门禁通过前不得使用。
-
-停止原因：批准S14未满足：tune原成功对照7题退化；80份答案仍缺独立双评分。工程门禁通过，质量未验收；本阶段held-out已消费一次，不改配置重跑，不把阶段记为完整通过或推进Chap13。
-
-已冻结批次不得改写或逐条补测；批次2仅睡眠无效才自动独立批次3，其他删失停止。防睡眠请求在运行器自身线程，5秒心跳；不改系统设置、不安装。
-
-原v0.1/v0.2/v0.3和批准v0.3.1冻结文件不可修改。两轮修复上限、门禁、场景及held-out规则不变。Chap16/远端/付费/系统安装不在范围。
+已通过/失败门禁见audit/project2-v1/summary.json。旧37.941秒结果保留，新90秒记录独立；S14未通过，不记Chap12完整通过。续跑先读本文件。held-out按已登记阶段一次，无重新选题。评分暂停，旧盲评包弃用，新包仅最终代码与确认性运行完成后导出。Chap16/远端/付费/安装/Fake Publish均不在范围。

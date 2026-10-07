@@ -1,0 +1,10 @@
+2026-10-06 17:15:10,282 ERROR Chap13 native gate failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\scripts\run_project2_ch13_gate.py", line 189, in run_gate
+    with HostGuard(folder/'power'):observations=native(root,folder)
+                                                ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\scripts\run_project2_ch13_gate.py", line 107, in native
+    if not thread.is_alive():raise RuntimeError('Request ended before interrupted checkpoint was captured')
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Request ended before interrupted checkpoint was captured
+2026-10-06 17:15:17,940 INFO Chap13 failed failed=['budget_not_reset', 'completed_database_skipped', 'illegal_state_rejected', 'owner_read_resume_isolation', 'parent_child_trace', 'read_only_policy_unregistered_publish', 'real_sqlite_fault_located_by_trace', 'real_subprocess_restart', 'revocation_rechecked', 'same_run_id', 'unchanged_native_answer_body', 'unknown_run_rejected']

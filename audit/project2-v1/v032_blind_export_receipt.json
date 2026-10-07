@@ -1,0 +1,19 @@
+{
+  "status": "exported_historical_only",
+  "current_v032_acceptance": false,
+  "nonempty_answer_groups": 42,
+  "nonempty_answer_observations": 192,
+  "auto_zero_observations": 42,
+  "all_observations": 234,
+  "LLM_calls": 0,
+  "scoring_status": "待盲评",
+  "public_json": "evals/project2-v1/blind_review_20261006/public/blind_review.json",
+  "public_markdown": "evals/project2-v1/blind_review_20261006/public/blind_review.md",
+  "key_file": "evals/project2-v1/blind_review_20261006/private/key.json",
+  "files": {
+    "evals/project2-v1/blind_review_20261006/public/blind_review.json": "9f31be524f8a85746ced7616f3ce8108ae94825d04a1d717a4bee66833a721ea",
+    "evals/project2-v1/blind_review_20261006/public/blind_review.md": "2798990d35f1884a9c92a8608c2985c509bd7d3c926faa9c1671a66971ba5603",
+    "evals/project2-v1/blind_review_20261006/private/key.json": "fe0c7e13ee13a3723028d76e2365f0082c565247951c6b83b69b59f6be70ed96",
+    "evals/project2-v1/blind_review_20261006/private/export_plan.json": "75604a95622c8381b8c357df1693b3a280c64c147aadf2760dab551391a4d5c8"
+  }
+}

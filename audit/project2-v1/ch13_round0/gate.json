@@ -1,0 +1,153 @@
+{
+  "stage": "Chap13",
+  "status": "failed",
+  "system_gate_executed": true,
+  "gate_scope": "system_gate",
+  "checks": [
+    {
+      "check": "budget_not_reset",
+      "expected": true,
+      "observed": false,
+      "status": "failed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_round0/native_observations.json"
+    },
+    {
+      "check": "completed_database_skipped",
+      "expected": true,
+      "observed": false,
+      "status": "failed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_round0/native_observations.json"
+    },
+    {
+      "check": "frozen_budget_and_baseline",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_round0/native_observations.json"
+    },
+    {
+      "check": "heldout_reuse_only",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_round0/native_observations.json"
+    },
+    {
+      "check": "illegal_state_rejected",
+      "expected": true,
+      "observed": false,
+      "status": "failed",
+      "evidence_type": "故障注入",
+      "evidence_file": "audit/project2-v1/ch13_round0/native_observations.json"
+    },
+    {
+      "check": "owner_read_resume_isolation",
+      "expected": true,
+      "observed": false,
+      "status": "failed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_round0/native_observations.json"
+    },
+    {
+      "check": "parent_child_trace",
+      "expected": true,
+      "observed": false,
+      "status": "failed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_round0/native_observations.json"
+    },
+    {
+      "check": "read_only_policy_unregistered_publish",
+      "expected": true,
+      "observed": false,
+      "status": "failed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_round0/native_observations.json"
+    },
+    {
+      "check": "real_sqlite_fault_located_by_trace",
+      "expected": true,
+      "observed": false,
+      "status": "failed",
+      "evidence_type": "故障注入",
+      "evidence_file": "audit/project2-v1/ch13_round0/native_observations.json"
+    },
+    {
+      "check": "real_subprocess_restart",
+      "expected": true,
+      "observed": false,
+      "status": "failed",
+      "evidence_type": "故障注入",
+      "evidence_file": "audit/project2-v1/ch13_round0/native_observations.json"
+    },
+    {
+      "check": "revocation_rechecked",
+      "expected": true,
+      "observed": false,
+      "status": "failed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_round0/native_observations.json"
+    },
+    {
+      "check": "runtime_contract_tests",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "契约测试(Mock)",
+      "evidence_file": "audit/project2-v1/ch13_round0/native_observations.json"
+    },
+    {
+      "check": "same_run_id",
+      "expected": true,
+      "observed": false,
+      "status": "failed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_round0/native_observations.json"
+    },
+    {
+      "check": "unchanged_native_answer_body",
+      "expected": true,
+      "observed": false,
+      "status": "failed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_round0/native_observations.json"
+    },
+    {
+      "check": "unknown_run_rejected",
+      "expected": true,
+      "observed": false,
+      "status": "failed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit/project2-v1/ch13_round0/native_observations.json"
+    }
+  ],
+  "failure_items": [
+    "budget_not_reset",
+    "completed_database_skipped",
+    "illegal_state_rejected",
+    "owner_read_resume_isolation",
+    "parent_child_trace",
+    "read_only_policy_unregistered_publish",
+    "real_sqlite_fault_located_by_trace",
+    "real_subprocess_restart",
+    "revocation_rechecked",
+    "same_run_id",
+    "unchanged_native_answer_body",
+    "unknown_run_rejected"
+  ],
+  "repair_rounds": 0,
+  "stop_reason": null,
+  "s14_status": "未通过",
+  "heldout_new_calls": 0,
+  "heldout_reuse_receipt_sha256": "d287e6813592974e4554e41a56544650b7f2a2d4829d79b8226b3a655c539a7f",
+  "generation_path": "unchanged frozen generator; Runtime persistence/authorization only",
+  "plan_sha256": "3fb6e445a8db9e5535cb063861c6d5ee71712bee73bc3221b08e7e7f4e9bb734",
+  "native_error": {
+    "category": "RuntimeError",
+    "detail": "Request ended before interrupted checkpoint was captured"
+  }
+}

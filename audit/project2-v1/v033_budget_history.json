@@ -1,0 +1,348 @@
+{
+  "history": [
+    {
+      "seconds": 90,
+      "basis": "initial signed value",
+      "results": "v0.1/v0.2 pre-calibration; see original evidence"
+    },
+    {
+      "seconds": 37.941018,
+      "basis": "batch2 p95 ×1.5",
+      "results": "Chap12 native gate/extras/QA/business/held-out/repair1; Chap13 v031/v032 gate"
+    },
+    {
+      "seconds": 90,
+      "basis": "v0.3.3 max(signed90,formula)",
+      "results": "v033 records only"
+    }
+  ],
+  "results": [
+    {
+      "file": "audit/project2-v1/ch13_round1/before_restart_checkpoint.json",
+      "sha256": "7bf6219dacc03a06598936fca3b6062aef6f4246f6d50744a92529af4560a021",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_round1/fault_response.json",
+      "sha256": "d430926e2b23afbf6e855cd4f7b3d5bfe6c9bf447bc3cd72996118acdd4711c2",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_round1/fault_trace.json",
+      "sha256": "8905e946afa4e4d35ac44de3f19fcacea246de210155c6672ea70f2c20268695",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_round1/gate.json",
+      "sha256": "82ad814657649524bac620a88bf6f536c28a53a4fe220be274400c983b83e899",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_round1/native_observations.json",
+      "sha256": "18c47d49d8cde219cfee5ed2c0f3d1d16403180785f7a0b9ba97ecc91ca67713",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_round1/readonly_contract.json",
+      "sha256": "bb5d1855e0e6491c17c10361c6af03489a8bb450e9585a3103168568e6df2a8a",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_round1/resume_trace.json",
+      "sha256": "314b616ccc146d197f252790a7741080c8fe0b7883753eb2317dbfe85fa4853a",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_round1/resumed_response.json",
+      "sha256": "f8f531dee3b4118eabfe77a92a554f1fc1de86ada538098631856262596061da",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_round1/state/316707df86fa49c5986883d6e2a74e44.json",
+      "sha256": "11a198efd3eef626686761b34d7ea5b30cacb54a45cf46bf0f7ee032dfc80ca3",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_round1/state/b48df562e0e54bcfb9369d035903e893.json",
+      "sha256": "6e4329c86f4652f621816739b71ba9c122fbf9b95c31da18d839c051b1521283",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_round1/state/traces/316707df86fa49c5986883d6e2a74e44.jsonl",
+      "sha256": "92077eb0af66dc3f55dbace17234c2cfb020b00f9ba5e10298710acef19551da",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_round1/state/traces/b48df562e0e54bcfb9369d035903e893.jsonl",
+      "sha256": "73b6bb71958fe7b7f65a3f1a84351e70a142f765ab90277425493c27ef32c78a",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_round1/trace_only_diagnosis.json",
+      "sha256": "464d489bac6eff95be44115d1694a151c5e1587275e29e87107d33261611206e",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/after_restart_startup.json",
+      "sha256": "2c48c182120310b30fc787693cac8616da753c1eb69346fe65fa7519a74f4ba6",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/before_restart_checkpoint.json",
+      "sha256": "8fadaed43827c72d3c1a75ee902bb07f317f925f0231f39aaefe143f165f6229",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/before_stop_startup.json",
+      "sha256": "eb27c930f359b7cd5ffb5d60dbf5424ddad06c139ec95e6317e53b09244844f3",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/expiry_checks_startup.json",
+      "sha256": "51442c6ee94dc50142f2f02a7265ce144d5d6b3068686f0fbf2f462119637ef7",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/expiry_rejections.json",
+      "sha256": "070857d06ef19b195e3407a7eb1aae30de4c24a53c63ae3317ddbada0a55d731",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/fault_response.json",
+      "sha256": "d21adf9e708692074f81893cafd63545335c7dff27220a4d00ea6ce137b76f2b",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/fault_trace.json",
+      "sha256": "e7f07154887545e603ab47745303278ba302a5902f952d1861b6fc5ef7635553",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/gate.json",
+      "sha256": "2bae9d228dc54b8973f0d734a7145ff09219de7c12d0c5abd86ed1243f45c8d5",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/native_observations.json",
+      "sha256": "1e46e6ea68c6f6261fa477dd094c9b1872ec5b518388fb4518a82055099d4e49",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/readonly_contract.json",
+      "sha256": "bb5d1855e0e6491c17c10361c6af03489a8bb450e9585a3103168568e6df2a8a",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/recovery_accounting_evidence.json",
+      "sha256": "5271746c8050085f805f5b4169b6e483960f769a32acf1b95ac4f392ff76bbab",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/resume_trace.json",
+      "sha256": "a7d50b6d5d31c781eed0e140610b7bcac1416741aa7f28b9a0f2d33a7a2650fb",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/resumed_response.json",
+      "sha256": "85ec8a21cf2331f6abdfde861ee26a4f054c9e1cebbab569449339bcd6733347",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/sqlite_fault_startup.json",
+      "sha256": "f45201b682113bfc76f3cea6cdc7e5fc14074ce7636d7ba9f7699bb3d9cd2120",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/startup_54503.json",
+      "sha256": "52a893d91d169967403f4ded032280ae8de35096d46a1dee241a475966a168c3",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/startup_54532.json",
+      "sha256": "28f2592782228ace984f83cbfbb76dd70790b955eb4b3cef62e4ee6c0a4847de",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/startup_57055.json",
+      "sha256": "e6fdd11ca794001ef2978f9820474ec7d11e8446006a703f566a7c6d5152354b",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/startup_57780.json",
+      "sha256": "8bdba4100027bdff0b2a2c93be91758e0ccd52057800ede17719fa823a3cc1dd",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/state/6fcafa268d974ef698232e6da1d5bee5.json",
+      "sha256": "c73adcc7bbe2424dc747fb2b5332f14f421030d0c6efb74522a209e368d96241",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/state/b486bcdbd0ed4f06adbd59a7a37347cf.json",
+      "sha256": "8bb7fc9c2e1fdae5c677c51583445cad8d8a4135b5da34757557e383b889ab52",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/state/traces/6fcafa268d974ef698232e6da1d5bee5.jsonl",
+      "sha256": "dc7836c91ed94a5ad85d9dd4aa8350ec54f5d17ca4f2c65b429cd96e34d60ef0",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/state/traces/b486bcdbd0ed4f06adbd59a7a37347cf.jsonl",
+      "sha256": "c3583e8ad74a59a4a4c35bc927f135f9cb41d923ddfbe7ace420f73936d4019c",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/ch13_v032_round0/trace_only_diagnosis.json",
+      "sha256": "464d489bac6eff95be44115d1694a151c5e1587275e29e87107d33261611206e",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/v031_ch12_extras_round0.json",
+      "sha256": "6c7fc3b32bd9708f13e5a923608053729abca5f4f6ffd341b3be5b54786bd8ca",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/v031_native_gate_round0.json",
+      "sha256": "49e24574b65177e6f71ad208c70b5b00fad3c49ad2faeabf5f8893082dc7e0b1",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/v031_native_gate_round1.json",
+      "sha256": "4e6fc78b2548a3d01be2ffadb2aab15e439d5ebe43cd6c033e978b39ffb13a3f",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/v031_native_requests_round0.jsonl",
+      "sha256": "a590d6d86d9f1628cbf0f10354be27c3a4ee76e23f19ed600a7f35fb33b9e954",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "audit/project2-v1/v031_native_requests_round1.jsonl",
+      "sha256": "e182333011404963a097b7a4058f2975b07bc4fa26f96b04a914c0385e4e51c6",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "evals/project2-v1/ch12/business.requests.jsonl",
+      "sha256": "fd31bacb77b9174e793ead0e908b04a0fb3bb4587a97db48ae3ad28de2bfccee",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "evals/project2-v1/ch12/legacy.unsupported.json",
+      "sha256": "7e8436dd94c2b85683cc5dd85ab9b43a0c960c7ea33269e2deab7a20977c2fe3",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "evals/project2-v1/ch12/qa-held-out/requests.jsonl",
+      "sha256": "adc6587a485564345e60aa6bf7053d939f7d19328bb205755231b3204adccabf",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "evals/project2-v1/ch12/qa-held-out/scored.json",
+      "sha256": "fe8350e3384de32b6f9b8162e9d9802b654e0543d7f8faf4d53fb3183476aac0",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "evals/project2-v1/ch12/qa-held-out/summary.json",
+      "sha256": "bc54d1dce126fddabf224dd17ef156cdf793c958a6cf5efb6d2b50b2abe6862c",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "evals/project2-v1/ch12/qa-tune/requests.jsonl",
+      "sha256": "4e54c7d20290c71450c5ee26a90d40198fb1d13f03352522f6aa48d15fbe9902",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "evals/project2-v1/ch12/qa-tune/scored.json",
+      "sha256": "11a0051067bace795bf7857b8a3129dfdaef3d5b5ca9737d4afe70b765b8386e",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "evals/project2-v1/ch12/qa-tune/summary.json",
+      "sha256": "9bda2535c05616bfa01191af22c8bb58419f712f1907a89b0f058b3600f43370",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "evals/project2-v1/ch12/regression_repair1/requests.jsonl",
+      "sha256": "29e3116e20808cd0418624b720148f5bb04542a4c307c08485efe993a9505f7b",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "evals/project2-v1/ch12/regression_repair1/scored.json",
+      "sha256": "c360738d79e4c525189e2f0b8bc0f30827cf1f6f503b873f87c49de9258c405c",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "evals/project2-v1/ch12/regression_repair1/summary.json",
+      "sha256": "e7247c4a17441239dcf93817782dbd7081fabc76774b18ff406046c8d1ae5a84",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    },
+    {
+      "file": "evals/project2-v1/ch12/summary.json",
+      "sha256": "afe4a69d2ca332859f9d007bc389bfb2c1e13dc4f70e8090c2adbb9688c8571f",
+      "request_budget_seconds": 37.941018,
+      "label": "预算37.941秒；历史结果，未与v033合并"
+    }
+  ],
+  "batch2_measurement_envelope": {
+    "seconds": 300,
+    "attempts": 256,
+    "llm_calls": 64
+  },
+  "baseline_v0_budget": "no Project2 request-level budget; original model settings unchanged",
+  "old_frozen_budget_sha256": "d952e3fc5cadbc1c22fe2a978b5c44822eb1d2015da380b2fde574ce2e4752ba",
+  "calibration_unchanged": true,
+  "mixing_or_averaging": false
+}

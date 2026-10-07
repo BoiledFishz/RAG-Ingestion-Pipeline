@@ -1,0 +1,18 @@
+PASS 需求覆盖：49/49；追踪项：61；双向引用无悬空
+PASS 场景：42；S07矩阵：36单元；六状态覆盖；具体原问题输入无占位
+PASS 查询侧登记：50条（8/8/8/8/8/10）；确定性抽样/原问题/哈希一致
+PASS 全部status=待实施；actual=未执行；evidence_file为空；任务=32
+PASS 计划测试/证据类型/路径集合一致；AC12-11/13必过；确认单签署栏为空
+PASS requirements_v0.1.md SHA256=7aa3441bf33c7d3b94501d99d6a7e99e0ba486e03413abf3e530c6a847f6ea7b
+PASS task_preregistration.json SHA256=ecd190e06afc173ab485ccba8c1a16e6256ede19b575ecd1ceb00891de86d63f
+PASS 文档检查通过；模型/检索/数据库/评测调用=0
+PASS v0.3.1仅S08.2操作性插入；旧三版/批次1逐文件不变；S08.1/S07/42场景/门禁/CL决定保持
+PASS 同一300槽位；进程内防睡眠/5秒心跳/>30秒整批无效；首个完整批次单独决策；16/6下限已登记
+PASS v0.3.1 manifest SHA256=80455fc850af285c0c4af7998f2ead9061b9b13e649037bd64bebe931971df28
+PASS v0.3.2 scope: recovery accounting only; 19/6/37.941018 unchanged; lifetime=900s
+PASS scenarios/queries/matrix/gates/status/evidence unchanged outside 3 authorized cells
+PASS v0.3.2 manifest SHA256=9c4addae69dc0f31b45e8461089eba84a718459d41d5a7051ed61e2096a9ac44
+PASS v0.3.3: exact wall floor=max(90,37.941018)=90; startup/warmup before readiness
+PASS 19/6, S07/S14, all scenarios/queries/gates/CL and held-out rules unchanged
+PASS all old approved files byte-identical; read-only diagnosis frozen
+PASS v0.3.3 manifest SHA256=897356809eadec7264536c61b9f923551305d580aa807a9e18878580b99cba3f

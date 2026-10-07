@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="4" time="1.065" timestamp="2026-10-06T16:27:59.111602-07:00" hostname="szy"><testcase classname="tests.project2.test_runtime" name="test_owner_isolation_and_invalid_states" time="0.273" /><testcase classname="tests.project2.test_runtime" name="test_duplicate_resume_and_unknown_attempt" time="0.038"><failure message="PermissionError: [Errno 13] Permission denied">tmp_path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/c4ec7347b6b3453bbe6fe1dd37b9d930')
+
+    def test_duplicate_resume_and_unknown_attempt(tmp_path):
+        from agents.project2.service_runtime import StateStore, RuntimeRejected, bind_budget
+        store = StateStore(tmp_path, 'version')
+        budget = Budget();state = store.create(request_body(), owner(), budget)
+        bind_budget(budget, store, state)
+        budget.reserve('llm');budget.reserve('db')
+        saved = store.load(state['run_id'], owner())
+        restored = Budget();bind_budget(restored, store, saved, restore=True)
+        assert restored.attempts==2 and restored.llm_calls==1
+        assert restored.absolute_deadline==budget.absolute_deadline
+        with store.lease(state['run_id']):
+            with pytest.raises(RuntimeRejected, match='run_busy'):
+&gt;               with store.lease(state['run_id']):pass
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+enterprise-ai-agent\tests\project2\test_runtime.py:48: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\AppData\Local\Python\pythoncore-3.12-64\Lib\contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;agents.project2.service_runtime.StateStore object at 0x0000029BC7276C60&gt;
+run_id = '48525df6d7a9411f8ee87988c82f6511'
+
+    @contextmanager
+    def lease(self, run_id: str):
+        path = self.path(run_id).with_suffix('.lease')
+        with path.open('a+b') as handle:
+            handle.seek(0)
+&gt;           if not handle.read(1):handle.write(b'0');handle.flush()
+                   ^^^^^^^^^^^^^^
+E           PermissionError: [Errno 13] Permission denied
+
+enterprise-ai-agent\agents\project2\service_runtime.py:102: PermissionError</failure></testcase><testcase classname="tests.project2.test_runtime" name="test_invalid_expired_resume" time="0.043" /><testcase classname="tests.project2.test_runtime" name="test_runtime_state_never_contains_credentials_or_prompts" time="0.040" /></testsuite></testsuites>

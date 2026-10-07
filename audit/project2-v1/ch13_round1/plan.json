@@ -1,0 +1,39 @@
+{
+  "chapter": "Chap13",
+  "repair_round": 1,
+  "checks": [
+    "budget_not_reset",
+    "completed_database_skipped",
+    "frozen_budget_and_baseline",
+    "heldout_reuse_only",
+    "illegal_state_rejected",
+    "owner_read_resume_isolation",
+    "parent_child_trace",
+    "read_only_policy_unregistered_publish",
+    "real_sqlite_fault_located_by_trace",
+    "real_subprocess_restart",
+    "revocation_rechecked",
+    "runtime_contract_tests",
+    "same_run_id",
+    "unchanged_native_answer_body",
+    "unknown_run_rejected"
+  ],
+  "scenario_ids": [
+    "AC13-01",
+    "AC13-02",
+    "AC13-03",
+    "AC13-04",
+    "AC13-05",
+    "AC13-06"
+  ],
+  "heldout_calls": 0,
+  "scope": "tune registered originals only",
+  "script_sha256": "288e5f9c1482ee61043b740c8ae532497b540e1002f0010691940d6602f16463",
+  "budget_sha256": "d952e3fc5cadbc1c22fe2a978b5c44822eb1d2015da380b2fde574ce2e4752ba",
+  "authorization_sha256": "7de338451b14aa2da2951086b088116e28dd7f61675a91de5f9011b88fe44e0f",
+  "runtime_files": {
+    "enterprise-ai-agent/agents/project2/service_runtime.py": "0029b4acd323a0e6a4f7da4bb195d2a8e7358e5532a8b9a2d1b735bfdee2c2c7",
+    "enterprise-ai-agent/api/project2_runtime_main.py": "72fac617befaea53918df407f4c052a376afd18b7d42cc81c9ae06817e8fca47",
+    "scripts/project2_runtime_server.py": "1da1531e20437717a8d19bd2c19677d6c2b3123eb8367de637e60e095554b214"
+  }
+}

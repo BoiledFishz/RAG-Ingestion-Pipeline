@@ -53,6 +53,11 @@ def sources(root: Path) -> list[Path]:
     paths.update(target/name for name in read(target/'frozen_manifest.json')['files'])
     paths.update(root/name for name in {**protocol['protected_files'],**protocol['batch1_files']})
     paths.update(docs/name for name in read(docs/'version_manifest.json')['files'])
+    for version in ('v0.3.2','v0.3.3'):
+        revised=root/'specs/project2'/version
+        if (revised/'version_manifest.json').is_file():
+            paths.add(revised/'version_manifest.json')
+            paths.update(revised/name for name in read(revised/'version_manifest.json')['files'])
     paths={path.resolve() for path in paths}
     if any(not path.is_relative_to(root.resolve()) for path in paths):
         raise ValueError('Frozen budget source escaped workspace')

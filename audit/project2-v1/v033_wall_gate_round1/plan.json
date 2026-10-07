@@ -1,0 +1,26 @@
+{
+  "spec_version": "v0.3.3",
+  "budget": {
+    "attempts": 19,
+    "llm_calls": 6,
+    "seconds": 90
+  },
+  "scenario_ids": [
+    "AC12-05",
+    "AC12-16"
+  ],
+  "repeats": 3,
+  "queries_sha256": {
+    "AC12-05": "79cd4429f831d1e70bd79ac66142aab078bbf7ea4cae5313f7838bae45b24e53",
+    "AC12-16": "79cd4429f831d1e70bd79ac66142aab078bbf7ea4cae5313f7838bae45b24e53"
+  },
+  "AC12-05_fault": "original planned HTTP dispatch cancellation: suspend before effective dependency result, no fabricated corpus/count",
+  "AC12-16_fault": "real localhost model HTTP blackhole; actual counted HTTP sends",
+  "matrix_unchanged": true,
+  "repair_round": 1,
+  "gate_definition_source_sha256": "aca3f041eea4cd41119137938638e49130274a1af80546f370514083d9e77fc3",
+  "AC12-16_predicate": "original predicate: S07, RAG timeout, DB completed, counted LLM send, unknown tokens null, owned child cancelled; no elapsed lower bound in approved original gate",
+  "correction": "round0 wrongly added an unapproved 89s lower bound to AC12-16; restored original definition, old failures retained",
+  "heldout_calls": 0,
+  "script_sha256": "935215fd9ee9d8efe3759ccaca9f35f28881de054c686bd1da08b72000f83a3c"
+}

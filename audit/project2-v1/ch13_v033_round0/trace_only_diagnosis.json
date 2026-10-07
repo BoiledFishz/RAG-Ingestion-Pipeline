@@ -1,0 +1,15 @@
+{
+  "diagnosis": [
+    {
+      "stage": "database",
+      "error_category": "database_error",
+      "status": "failed"
+    },
+    {
+      "stage": "database",
+      "error_category": "database_error",
+      "status": "failed"
+    }
+  ],
+  "query_or_answer_read": false
+}

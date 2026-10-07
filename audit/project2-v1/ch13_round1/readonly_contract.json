@@ -1,0 +1,7 @@
+{
+  "http_status": 422,
+  "status": "failed",
+  "attempts": 0,
+  "fake_publish_executed": false,
+  "evidence_type": "契约测试(Mock)"
+}

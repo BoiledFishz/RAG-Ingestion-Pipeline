@@ -1,15 +1,15 @@
 {
   "started_at": "2026-10-06T00:38:38.533183+00:00",
   "base_commit": "74601e4a587ce70d6d9d82012bc5f42b42a0501d",
-  "branch": "codex/project2-ch12",
-  "current_stage": "Chap12",
-  "execution_status": "stopped_s14_acceptance",
-  "stop_reason": "批准S14未满足：tune原成功对照7题退化；80份答案仍缺独立双评分。工程门禁通过，质量未验收；本阶段held-out已消费一次，不改配置重跑，不把阶段记为完整通过或推进Chap13。",
-  "heldout_stage_calls_project2": 1,
-  "heldout_repetitions_project2": 3,
+  "branch": "codex/project2-ch13-v033",
+  "current_stage": "Chap13",
+  "execution_status": "in_progress",
+  "stop_reason": null,
+  "heldout_stage_calls_project2": 2,
+  "heldout_repetitions_project2": 6,
   "resume_progress_previously_present": true,
-  "updated_at": "2026-10-06T22:55:04.739077+00:00",
-  "active_spec_version": "v0.3.1",
+  "updated_at": "2026-10-07T05:15:05.886630+00:00",
+  "active_spec_version": "v0.3.3",
   "repair_rounds": 0,
   "previous_v02_repair_rounds": 2,
   "v03_authorization_date": "2026-10-05",
@@ -21,5 +21,23 @@
     "expected": 555,
     "failed_observations": 0,
     "records": "audit/project2-v1/v031_native_requests_round1.jsonl"
+  },
+  "continuation_authorization_sha256": "7de338451b14aa2da2951086b088116e28dd7f61675a91de5f9011b88fe44e0f",
+  "evaluation_progress": {
+    "qa-tune": {
+      "completed_slots": 117,
+      "expected_slots": 117,
+      "file": "evals/project2-v1/ch13_v033/qa-tune/requests.jsonl"
+    },
+    "business": {
+      "completed_slots": 150,
+      "expected_slots": 150,
+      "file": "evals/project2-v1/ch13_v033/business/requests.jsonl"
+    },
+    "qa-held-out": {
+      "completed_slots": 90,
+      "expected_slots": 90,
+      "file": "evals/project2-v1/ch13_v033/qa-held-out/requests.jsonl"
+    }
   }
 }
