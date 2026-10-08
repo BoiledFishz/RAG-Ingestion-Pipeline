@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.777" timestamp="2026-10-07T09:53:04.305148-07:00" hostname="szy"><testcase classname="tests.project2.test_v034_component_supplement" name="test_v034_validates_prior_versions_and_exact_data_delta" time="0.002"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\specs\\project2\\v0.3.4\\check_docs.py'">def test_v034_validates_prior_versions_and_exact_data_delta():
+        docs = ROOT / 'specs/project2/v0.3.4'
+        spec = importlib.util.spec_from_file_location('v034_checker', docs / 'check_docs.py')
+        module = importlib.util.module_from_spec(spec)
+&gt;       spec.loader.exec_module(module)
+
+tests\project2\test_v034_component_supplement.py:12: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+&lt;frozen importlib._bootstrap_external&gt;:995: in exec_module
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:1132: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;_frozen_importlib_external.SourceFileLoader object at 0x0000021B556ECC80&gt;
+path = 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\specs\\project2\\v0.3.4\\check_docs.py'
+
+&gt;   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\specs\\project2\\v0.3.4\\check_docs.py'
+
+&lt;frozen importlib._bootstrap_external&gt;:1190: FileNotFoundError</failure></testcase></testsuite></testsuites>

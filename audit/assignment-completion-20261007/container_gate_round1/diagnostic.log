@@ -1,0 +1,15 @@
+api-1  | INFO:api.project2_container_main:P2_CACHE {'mode': 'retained_existing_cache', 'seed_sha256': '138f57efc0bbc54cf47a691aea01c00c6ce9b11d3fbbd10eaa925833d7760a40'}
+api-1  | INFO:     Started server process [1]
+api-1  | INFO:     Waiting for application startup.
+api-1  | INFO:agents.project2.rag_process:P2_STARTUP {"type": "ready", "scope": "full", "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b", "worker_pid": 14, "warmup": {"completed": true, "selection": "official full docs ORDER BY doc_id LIMIT 1, text only", "text_sha256": "27566416452b285c86c1df3f65970d4eb327c96d9c97ebf6b77b64c095776b2d", "qa_fields_used": [], "corpus_read_seconds": 0.0064786240000103135, "embedding_inference_seconds": 1.1300086270020984, "index_warmup_seconds": 0.27551064699946437, "total_seconds": 1.411997898001573, "llm_calls": 0, "request_budget_created": false}, "startup_timings": {"imports_seconds": 0.3878455269987171, "agent_build_seconds": 0.010464220998983365, "index_and_encoder_seconds": 45.74940199300181, "faiss_index_load_seconds": 36.665472644002875, "child_initialization_seconds": 47.681669968998904}, "launch_to_ready_seconds": 47.97133220699834}
+api-1  | INFO:     Application startup complete.
+api-1  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+api-1  | INFO:     172.19.0.1:54074 - "GET /healthz HTTP/1.1" 200 OK
+api-1  | INFO:     127.0.0.1:45222 - "GET /healthz HTTP/1.1" 200 OK
+api-1  | INFO:tools.techqa_document_query:Database request=e0b95c43682d4f0c88ea9df0a7e88b0b status=completed counts=[18296]
+api-1  | INFO:     127.0.0.1:44742 - "GET /healthz HTTP/1.1" 200 OK
+api-1  | INFO:agents.project2.supervisor:Project2 run=e0b95c43682d4f0c88ea9df0a7e88b0b status=completed attempts=15
+api-1  | INFO:     172.19.0.1:54090 - "POST /v2/project2/analysis HTTP/1.1" 200 OK
+api-1  | WARNING:api.project2_main:P2_INVALID_INPUT trace_id=bd4a29bd817e4032bbbca7405efe7257 fields=[['body', 'analysis_operation']]
+api-1  | INFO:     172.19.0.1:46868 - "POST /v2/project2/analysis HTTP/1.1" 422 Unprocessable Entity
+

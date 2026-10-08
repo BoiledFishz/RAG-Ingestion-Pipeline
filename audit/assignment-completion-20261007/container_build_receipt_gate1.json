@@ -1,0 +1,24 @@
+{
+  "build_exit_code": 0,
+  "build_log": "audit/assignment-completion-20261007/container_clean_build_final.log",
+  "sources_match": true,
+  "sources": {
+    "enterprise-ai-agent/agents/project2/service_runtime.py": "95a8f3c8c88e2cf8c233978d1599ca5ecb8e7e6f7d6878ea65d95dd883a3600c",
+    "enterprise-ai-agent/agents/project2/cache_identity.py": "c9b0129fe3dee3ce426784c27ae3324eed5b393075d5b3654fe3604a9206da18",
+    "enterprise-ai-agent/agents/project2/budget.py": "ed2b1bd962b30cd3b6595e0e72e56c9ece624533e7b14c90dd49458ddfdf31d8",
+    "enterprise-ai-agent/agents/project2/supervisor.py": "36233de48c7cec713c8a20c58d4b3414c8c21015600b62823cac5d78399bb8d2",
+    "enterprise-ai-agent/agents/project2/batched_retrieval.py": "3ff8a21c3d5517bdfd36b9477f921f818161315867cadfa4b319d8bf3e8681f2",
+    "enterprise-ai-agent/agents/project2/rag_process.py": "81af9c67b2f542ced0132c89784f7b8775785bca1df3e00e239767ad8ad1fb8a",
+    "enterprise-ai-agent/api/project2_main.py": "3ae74cd2fca6381e5372d5ad5b1d1674cb663f5956498f5bd3fbfa4e5a78be6c",
+    "enterprise-ai-agent/api/project2_container_main.py": "9464e348f73fbf89ad38bad1b52b0230c2342bfafa7df40d808272825eb92c8b",
+    "enterprise-ai-agent/tools/techqa_document_query.py": "1bcb81fec4dc45f77522e93a49432fceb98a4bf6bea49acd2773f4015d265250",
+    "specs/project2/v0.3.4/version_manifest.json": "9963a596fb1a29262976d29434e2dcbbee6213d1e243eb040611f8f26fc621b1"
+  },
+  "network": "none",
+  "no_cache": true,
+  "limits": {
+    "attempts": 19,
+    "llm_calls": 6,
+    "seconds": 90
+  }
+}

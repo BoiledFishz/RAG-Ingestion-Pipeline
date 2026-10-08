@@ -150,6 +150,9 @@ def component_evidence(audit: Path) -> list[dict[str, Any]]:
 
 
 def generate(root: Path) -> str:
+    if (root/'specs/project2/v0.3.4/version_manifest.json').is_file() and (root/'audit/project2-course-completion-20261007/historical_v033_summary.json').is_file():
+        from project2_course_report import generate as generate_course
+        return generate_course(root)
     if (root/'specs/project2/v0.3.3/version_manifest.json').is_file():
         from project2_v033_report import generate as generate_v033
         return generate_v033(root)
@@ -296,9 +299,16 @@ def generate(root: Path) -> str:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument("--assignment", action="store_true", help="Verify current homework evidence and generate its final report")
     args = parser.parse_args()
     try:
-        text = generate(args.root.resolve())
+        if args.assignment:
+            from reaudit_assignment import ROOT, summary
+            if args.root.resolve() != ROOT:
+                raise ValueError("Assignment evidence belongs to this repository only")
+            text = summary()
+        else:
+            text = generate(args.root.resolve())
     except (ValueError, KeyError, OSError, RuntimeError) as error:
         sys.stdout.write(f"FAIL summary generation: {error}\n")
         return 2

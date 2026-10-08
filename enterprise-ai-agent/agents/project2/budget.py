@@ -85,6 +85,7 @@ class Budget:
         self.cancelled = False
         self.run_id: str | None = None
         self.database_result: Any = None
+        self.cache_scope: str | None = None
 
     def remaining(self, local_limit: float | None = None) -> float:
         with self.lock:

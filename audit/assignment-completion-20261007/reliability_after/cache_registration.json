@@ -1,0 +1,8 @@
+{
+  "path": "C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\.rag_data\\assignment_reliability_final_cache.sqlite",
+  "initial_new_namespace": "empty",
+  "reason": "cold namespace matches trial0; existing caches and failed trial preserved",
+  "subject": "homework-evaluator",
+  "tenant": "local",
+  "resource_scope": "full"
+}

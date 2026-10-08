@@ -1,0 +1,60 @@
+{
+  "started_at": "2026-10-07T21:43:53.771336+00:00",
+  "kind": "existing project automated tests, not a golden-dataset evaluation",
+  "heldout_evaluation_started": false,
+  "projects": [
+    {
+      "project": "root",
+      "exit_code": 1,
+      "status": "failed",
+      "totals": {
+        "tests": 219,
+        "failures": 2,
+        "errors": 0,
+        "skipped": 0
+      },
+      "failure_checks": [
+        {
+          "classname": "tests.project2.test_v033_offline_reporting",
+          "name": "test_current_chap13_trace_evidence_is_classified_check_by_check"
+        },
+        {
+          "classname": "tests.project2.test_v033_offline_reporting",
+          "name": "test_container_startup_failure_is_reported_as_a_prerequisite_failure"
+        }
+      ],
+      "evidence_file": "audit/assignment-completion-20261007/final_tests/test_repair_round1/root.junit.xml",
+      "log_file": "audit/assignment-completion-20261007/final_tests/test_repair_round1/root.pytest.log"
+    },
+    {
+      "project": "enterprise",
+      "exit_code": 0,
+      "status": "passed",
+      "totals": {
+        "tests": 122,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "failure_checks": [],
+      "evidence_file": "audit/assignment-completion-20261007/final_tests/test_repair_round1/enterprise.junit.xml",
+      "log_file": "audit/assignment-completion-20261007/final_tests/test_repair_round1/enterprise.pytest.log"
+    },
+    {
+      "project": "agentic",
+      "exit_code": 0,
+      "status": "passed",
+      "totals": {
+        "tests": 59,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "failure_checks": [],
+      "evidence_file": "audit/assignment-completion-20261007/final_tests/test_repair_round1/agentic.junit.xml",
+      "log_file": "audit/assignment-completion-20261007/final_tests/test_repair_round1/agentic.pytest.log"
+    }
+  ],
+  "status": "failed",
+  "finished_at": "2026-10-07T21:49:33.338299+00:00"
+}

@@ -1,0 +1,14 @@
+{
+  "scope": "仅 tune/对照集，非 held-out 验证",
+  "requirement": "REL-02",
+  "classification_defect": "BudgetExceeded inherits TimeoutError; terminal quota errors were classified as transport timeouts and stopped an idle, reusable worker",
+  "effects": {
+    "recorded": 150,
+    "worker_failures": 82,
+    "runtime_errors": 73
+  },
+  "fix_scope": "classify quota and transport separately; keep worker only after terminal quota reply; real transport timeouts still cancel",
+  "budget_change": false,
+  "generation_or_ranking_change": false,
+  "trial_records_preserved": true
+}

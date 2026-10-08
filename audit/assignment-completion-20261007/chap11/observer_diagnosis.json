@@ -1,0 +1,8 @@
+{
+  "defect": "original /api/generate classified as generic HTTP, not LLM",
+  "source_sha256": "020461c7c49e6d52eff191e98f1ab353fc2e427c8a03142aff9fc0d4ac16577e",
+  "raw_records_preserved": true,
+  "model_reruns": 0,
+  "correction_basis": "Original generator adapter sends only /api/generate; reranker /api/embed counted separately; original LLM attempts = total observed HTTP attempts - embedding attempts. Verify all observed URLs from runtime log.",
+  "lost_signal": "Original generator token usage was not recorded; keep unknown, not inferred from answer length."
+}

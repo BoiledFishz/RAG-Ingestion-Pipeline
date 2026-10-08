@@ -35,3 +35,16 @@
 /src/rag/generation/service.py -text
 /src/rag/ingestion/cli.py -text
 /src/rag/ingestion/vector_store.py -text
+
+# Keep the homework audit receipts and image source checks byte reproducible.
+/audit/assignment-completion-20261007/** -text
+/audit/project2-course-completion-20261007/** -text
+/enterprise-ai-agent/api/project2_container_main.py -text
+/scripts/run_assignment_comparisons.py -text
+/scripts/correct_assignment_measurements.py -text
+/scripts/verify_assignment_reliability.py -text
+/scripts/reaudit_assignment.py -text
+/scripts/check_course_tests.py -text
+/scripts/check_course_component_counts.py -text
+/scripts/audit_project2_course_counts.py -text
+/scripts/create_project2_v034.py -text

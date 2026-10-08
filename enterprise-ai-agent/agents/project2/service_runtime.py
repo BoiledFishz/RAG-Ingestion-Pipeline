@@ -287,7 +287,9 @@ class RuntimeCoordinator:
             for name, worker in result['workers'].items():
                 self.store.trace(state['run_id'], name, worker['status'], error_category=(worker.get('error') or {}).get('category'))
             self.store.trace(state['run_id'], 'supervisor', result['status'], elapsed_seconds=time.monotonic()-started)
-            budget.remaining();return result
+            # The initial response and terminal resume share the persisted,
+            # privacy-filtered projection. Answer/data/evidence are unchanged.
+            budget.remaining();return stored
         except BaseException as error:
             budget.run_id=state['run_id']
             if budget.database_result is not None:

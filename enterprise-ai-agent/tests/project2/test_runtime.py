@@ -100,3 +100,27 @@ def test_atomic_checkpoint_retries_transient_sharing_violation_but_is_bounded(tm
         store.write(state)
     assert len(attempts) == 4
     assert not list(tmp_path.glob('*.tmp'))
+
+
+def test_initial_result_matches_persisted_result_and_terminal_resume(tmp_path, monkeypatch):
+    """Replay an actual TechQA result; contract evidence only, no fake corpus."""
+    import copy
+    from types import SimpleNamespace
+    from agents.project2.service_runtime import RuntimeCoordinator, StateStore
+    from agents.project2.supervisor import Supervisor
+
+    recorded = json.loads((ROOT / 'audit/project2-course-completion-20261007/'
+                           'container_gate_round2/combined_response.json').read_text(encoding='utf-8'))
+    async def recorded_run(self, request, context, budget):
+        return copy.deepcopy(recorded)
+    monkeypatch.setattr(Supervisor, 'run', recorded_run)
+    store = StateStore(tmp_path, 'contract-replay')
+    database = SimpleNamespace(path=ROOT / '.rag_data/techqa_full.sqlite')
+    coordinator = RuntimeCoordinator(Supervisor(database, SimpleNamespace()), store)
+    initial = asyncio.run(coordinator.analyze(request_body(), owner(), Budget()))
+    stored = store.load(initial['run_id'], owner())['result']
+    resumed = asyncio.run(coordinator.resume(initial['run_id'], owner(), Budget()))
+    assert initial == stored == resumed
+    assert initial['answer'] == recorded['answer']
+    assert initial['data_results'] == recorded['data_results']
+    assert initial['evidence'] == recorded['evidence']

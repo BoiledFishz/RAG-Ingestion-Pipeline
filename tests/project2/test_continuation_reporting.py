@@ -71,7 +71,27 @@ def test_failed_runtime_gate_can_bind_only_passed_components_as_partial(tmp_path
     assert [x['scenario_id'] for x in result[0]['partial_evidence']]==['AC13-03']
 def test_one_page_reports_stop_undefined_kappa_and_every_state_without_claiming_production():
     from project2_v031_report import one_page
-    report=json.loads((ROOT/'audit/project2-v1/summary.json').read_text(encoding='utf-8'))
+    # This is a formatter contract for the historical v031 schema, not the
+    # changing current-stage report or an endorsement of invalidated scores.
+    read=lambda name:json.loads((ROOT/name).read_text(encoding='utf-8'))
+    current=read('audit/project2-v1/summary.json')
+    oldgate=read('audit/project2-v1/ch13_round1/gate.json')
+    report={
+        'execution_status':'stopped_frozen_deadline','stop_reason':'Historical frozen deadline exhausted',
+        'stages':[{'stage':'Chap12','status':'passed','report':read('audit/project2-v1/v031_chap12_gate.json')},
+                  {'stage':'Chap13','status':'failed','report':oldgate},
+                  {'stage':'Chap14','status':'not_executed','report':None},
+                  {'stage':'Chap15','status':'not_executed','report':None}],
+        'traceability_counts':current['traceability_counts'],'comparisons':[],
+        'heldout_stage_calls_project2':1,'heldout_repetitions_project2':3,'new_local_commits':0,
+        'continuation_authorization':{'contract_fixture':True},
+        'quality_receipt':{'acceptance':'not_accepted'},'state_distributions':current['state_distributions'],
+        'scoring_status':{'description':'契约测试(Mock)：人工抽检待办；不称独立人工评分',
+             'agreement':{'kappa':None},'first_model':'fixture-first','second_model':'fixture-second',
+             'paired_observations':0,'answer_observations':{'tune':0},'spot_check_random':0,'spot_check_extra':0},
+        'batches':[],'revision_history':[],'two_table_consistency':current['two_table_consistency'],
+        'baseline_sut_files_unchanged':current['baseline_sut_files_unchanged'],'document_checks':11,
+    }
     text=one_page(ROOT,report)
     assert len(text.splitlines())<=55
     assert 'S14未通过' in text and 'κ未定义' in text

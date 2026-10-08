@@ -1,0 +1,552 @@
+E501 Line too long (114 > 100)
+  --> enterprise-ai-agent\tests\project2\test_cache_identity.py:18:101
+   |
+17 | def official_text() -> str:
+18 |     with sqlite3.connect((ROOT / ".rag_data/techqa_full.sqlite").resolve().as_uri() + "?mode=ro", uri=True) as db:
+   |                                                                                                     ^^^^^^^^^^^^^^
+19 |         return db.execute("SELECT text FROM docs ORDER BY doc_id LIMIT 1").fetchone()[0]
+   |
+
+E501 Line too long (106 > 100)
+  --> enterprise-ai-agent\tests\project2\test_cache_identity.py:33:101
+   |
+31 |     assert key != embedding_key("nomic-embed-text", text[:-1], "index-v1", scope)
+32 |     assert key != embedding_key("nomic-embed-text", text, "index-v2", scope)
+33 |     assert key != embedding_key("nomic-embed-text", text, "index-v1", authorization_scope(owner("other")))
+   |                                                                                                     ^^^^^^
+34 |     assert key != embedding_key("nomic-embed-text", text, "index-v1", authorization_scope(owner(subject="other")))
+35 |     with pytest.raises(PermissionError):
+   |
+
+E501 Line too long (114 > 100)
+  --> enterprise-ai-agent\tests\project2\test_cache_identity.py:34:101
+   |
+32 |     assert key != embedding_key("nomic-embed-text", text, "index-v2", scope)
+33 |     assert key != embedding_key("nomic-embed-text", text, "index-v1", authorization_scope(owner("other")))
+34 |     assert key != embedding_key("nomic-embed-text", text, "index-v1", authorization_scope(owner(subject="other")))
+   |                                                                                                     ^^^^^^^^^^^^^^
+35 |     with pytest.raises(PermissionError):
+36 |         authorization_scope(TrustedContext("owner", "local", frozenset({"full"}), frozenset()))
+   |
+
+E402 Module level import not at top of file
+  --> scripts\run_assignment_comparisons.py:24:1
+   |
+22 | sys.path[:0] = [str(ROOT), str(ROOT / "scripts"), str(ROOT / "src"),
+23 |                 str(ROOT / "enterprise-ai-agent")]
+24 | from project2_stage_eval import select_questions
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+25 | from project2_v031_calibration import HostGuard, digest, save
+   |
+help: Move module level imports to top of file
+
+E402 Module level import not at top of file
+  --> scripts\run_assignment_comparisons.py:25:1
+   |
+23 |                 str(ROOT / "enterprise-ai-agent")]
+24 | from project2_stage_eval import select_questions
+25 | from project2_v031_calibration import HostGuard, digest, save
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+26 |
+27 | from evaluation_protocol.statistics import metric
+   |
+help: Move module level imports to top of file
+
+E402 Module level import not at top of file
+  --> scripts\run_assignment_comparisons.py:27:1
+   |
+25 | from project2_v031_calibration import HostGuard, digest, save
+26 |
+27 | from evaluation_protocol.statistics import metric
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+28 | from evaluation_protocol.storage import query
+   |
+help: Move module level imports to top of file
+
+E402 Module level import not at top of file
+  --> scripts\run_assignment_comparisons.py:28:1
+   |
+27 | from evaluation_protocol.statistics import metric
+28 | from evaluation_protocol.storage import query
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+29 |
+30 | AUDIT = ROOT / "audit/assignment-completion-20261007"
+   |
+help: Move module level imports to top of file
+
+E501 Line too long (105 > 100)
+  --> scripts\run_assignment_comparisons.py:47:101
+   |
+45 |                 "repeats": 3, "tasks": tasks, "baseline_sha256": digest(baseline),
+46 |                 "online_sources": {p.relative_to(ROOT).as_posix(): digest(p)
+47 |                                    for p in (ROOT / "enterprise-ai-agent/agents/project2").glob("*.py")},
+   |                                                                                                     ^^^^^
+48 |                 "heldout_new_calls": 0, "errors_remain_in_denominator": True,
+49 |                 "cost": None, "token_counts": "provider observation when available; no fabricated totals",
+   |
+
+E501 Line too long (106 > 100)
+  --> scripts\run_assignment_comparisons.py:49:101
+   |
+47 |                                    for p in (ROOT / "enterprise-ai-agent/agents/project2").glob("*.py")},
+48 |                 "heldout_new_calls": 0, "errors_remain_in_denominator": True,
+49 |                 "cost": None, "token_counts": "provider observation when available; no fabricated totals",
+   |                                                                                                     ^^^^^^
+50 |                 "quality_limit": "body F1 is a proxy, not fact correctness; S14 unchanged"})
+51 |     path.with_suffix(".json.sha256").write_text(digest(path) + "\n", encoding="utf-8")
+   |
+
+E501 Line too long (108 > 100)
+  --> scripts\run_assignment_comparisons.py:92:101
+   |
+90 | …                     "elapsed_seconds": time.monotonic() - start,
+91 | …                     "worker_failure": int(bool(error) or not states or
+92 | …                                           any(s in {"failed", "timeout"} for s in states.values())),
+   |                                                                                               ^^^^^^^^
+93 | …                     "complete": int(result.get("status") == "completed"),
+94 | …                     "partial": int(result.get("status") == "partial"),
+   |
+
+E501 Line too long (103 > 100)
+  --> scripts\run_assignment_comparisons.py:96:101
+   |
+94 |                             "partial": int(result.get("status") == "partial"),
+95 |                             "attempts": usage.get("attempts"), "llm_calls": usage.get("llm_calls"),
+96 |                             "observed_tokens": usage.get("observed_tokens"), "cost": usage.get("cost"),
+   |                                                                                                     ^^^
+97 |                             "evidence_type": "真实运行"})
+98 |                 handle.write(json.dumps(row, ensure_ascii=False) + "\n")
+   |
+
+E501 Line too long (112 > 100)
+   --> scripts\run_assignment_comparisons.py:103:101
+    |
+101 |                 LOGGER.info("%s repeat=%d %d/%d states=%s seconds=%.3f", mode, repeat,
+102 |                             index, len(order), states, row["elapsed_seconds"])
+103 |     summary(folder, rows, ["worker_failure", "complete", "partial", "elapsed_seconds", "attempts", "llm_calls"])
+    |                                                                                                     ^^^^^^^^^^^^
+    |
+
+E501 Line too long (156 > 100)
+   --> scripts\run_assignment_comparisons.py:110:101
+    |
+108 | …oup_sha256"] for r in rows}),
+109 | …: 0,
+110 | …ilure", "complete", "partial", "n_refusal", "citation_valid", "target_cited"}) for k in keys},
+    |                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+111 | …em", "repeat", "error")}
+112 | …"worker_failure")],
+    |
+
+E501 Line too long (107 > 100)
+   --> scripts\run_assignment_comparisons.py:135:101
+    |
+134 |     records = select_questions(ROOT, "tune")
+135 |     tasks = [{"sample_id": str(i), "group_sha256": hashlib.sha256(query(r["record"]).encode()).hexdigest(),
+    |                                                                                                     ^^^^^^^
+136 |               "body": {"query": query(r["record"])}} for i, r in enumerate(records)]
+137 |     folder = AUDIT / "chap11"
+    |
+
+E501 Line too long (117 > 100)
+   --> scripts\run_assignment_comparisons.py:139:101
+    |
+137 |     folder = AUDIT / "chap11"
+138 |     lock(folder, tasks, "chap11-original-rag-vs-agentic")
+139 |     env = json.loads((ROOT / "evals/protocol_v0/baseline_v0.config.json").read_text(encoding="utf-8"))["environment"]
+    |                                                                                                     ^^^^^^^^^^^^^^^^^
+140 |     os.environ.update(env)
+141 |     os.environ["ANSWER_MODEL"] = env["AGENT_MODEL"]
+    |
+
+E501 Line too long (120 > 100)
+   --> scripts\run_assignment_comparisons.py:156:101
+    |
+155 |     async def observe_send(client: Any, request: Any, *args: Any, **kwargs: Any) -> Any:
+156 |         kind = "llm" if request.url.path == "/api/chat" else "embedding" if request.url.path == "/api/embed" else "http"
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^^^
+157 |         calls[kind] = calls.get(kind, 0) + 1
+158 |         return await original_send(client, request, *args, **kwargs)
+    |
+
+E501 Line too long (117 > 100)
+   --> scripts\run_assignment_comparisons.py:163:101
+    |
+161 |     rows = []
+162 |     try:
+163 |         with HostGuard(folder / "power") as guard, (folder / "requests.jsonl").open("x", encoding="utf-8") as handle:
+    |                                                                                                     ^^^^^^^^^^^^^^^^^
+164 |             for repeat in (1, 2, 3):
+165 |                 order = list(range(len(tasks)))
+    |
+
+E501 Line too long (114 > 100)
+   --> scripts\run_assignment_comparisons.py:175:101
+    |
+173 | …     try:
+174 | …         if system == "original_rag":
+175 | …             result = asyncio.run(simple.query(task["body"]["query"], mode="hybrid")).to_dict()
+    |                                                                                   ^^^^^^^^^^^^^^
+176 | …         else:
+177 | …             result = asyncio.run(agent.run(QueryRequest.model_construct(**task["body"], filters={}))).model_dump(mode="json")
+    |
+
+E501 Line too long (145 > 100)
+   --> scripts\run_assignment_comparisons.py:177:101
+    |
+175 | …             result = asyncio.run(simple.query(task["body"]["query"], mode="hybrid")).to_dict()
+176 | …         else:
+177 | …             result = asyncio.run(agent.run(QueryRequest.model_construct(**task["body"], filters={}))).model_dump(mode="json")
+    |                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+178 | …     except Exception as exc:
+179 | …         error = type(exc).__name__ + ": " + str(exc)[:400]
+    |
+
+E501 Line too long (101 > 100)
+   --> scripts\run_assignment_comparisons.py:183:101
+    |
+181 |                         # Oracle begins here, strictly after retrieval/generation.
+182 |                         record = records[index]["record"]
+183 |                         response = result if system == "original_rag" else result.get("response", {})
+    |                                                                                                     ^
+184 |                         answer = response.get("answer", "")
+185 |                         sources = response.get("citations", response.get("sources", []))
+    |
+
+E501 Line too long (130 > 100)
+   --> scripts\run_assignment_comparisons.py:190:101
+    |
+188 |                         valid = bool(cited) and cited <= {s.get("source_id") for s in sources}
+189 |                         trace = result.get("trace", {})
+190 |                         refused = response.get("refused", False) if system == "original_rag" else trace.get("status") == "refused"
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+191 |                         target = record.get("DOC_IDS", [None])[0] if record.get("ANSWERABLE") == "Y" else None
+192 |                         row = {k: v for k, v in task.items() if k != "body"}
+    |
+
+E501 Line too long (110 > 100)
+   --> scripts\run_assignment_comparisons.py:191:101
+    |
+189 |                         trace = result.get("trace", {})
+190 |                         refused = response.get("refused", False) if system == "original_rag" else trace.get("status") == "refused"
+191 |                         target = record.get("DOC_IDS", [None])[0] if record.get("ANSWERABLE") == "Y" else None
+    |                                                                                                     ^^^^^^^^^^
+192 |                         row = {k: v for k, v in task.items() if k != "body"}
+193 |                         row.update({"repeat": repeat, "system": system, "result": result, "error": error,
+    |
+
+E501 Line too long (105 > 100)
+   --> scripts\run_assignment_comparisons.py:193:101
+    |
+191 |                         target = record.get("DOC_IDS", [None])[0] if record.get("ANSWERABLE") == "Y" else None
+192 |                         row = {k: v for k, v in task.items() if k != "body"}
+193 |                         row.update({"repeat": repeat, "system": system, "result": result, "error": error,
+    |                                                                                                     ^^^^^
+194 |                                     "elapsed_seconds": elapsed, "llm_calls": calls.get("llm", 0),
+195 |                                     "embedding_calls": calls.get("embedding", 0), "calls": sum(calls.values()),
+    |
+
+E501 Line too long (111 > 100)
+   --> scripts\run_assignment_comparisons.py:195:101
+    |
+193 |                         row.update({"repeat": repeat, "system": system, "result": result, "error": error,
+194 |                                     "elapsed_seconds": elapsed, "llm_calls": calls.get("llm", 0),
+195 |                                     "embedding_calls": calls.get("embedding", 0), "calls": sum(calls.values()),
+    |                                                                                                     ^^^^^^^^^^^
+196 |                                     "worker_failure": int(error is not None),
+197 |                                     "citation_valid": int(valid) if not refused else None,
+    |
+
+E501 Line too long (131 > 100)
+   --> scripts\run_assignment_comparisons.py:198:101
+    |
+196 | …     "worker_failure": int(error is not None),
+197 | …     "citation_valid": int(valid) if not refused else None,
+198 | …     "n_refusal": int(bool(refused) and error is None) if record.get("ANSWERABLE") == "N" else None,
+    |                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+199 | …     "target_cited": int(valid and any(document_id(s.get("chunk_id", "")) == target for s in sources)) if target else None,
+200 | …     "body_f1": body_f1(answer, record["ANSWER"]) if target else None,
+    |
+
+E501 Line too long (154 > 100)
+   --> scripts\run_assignment_comparisons.py:199:101
+    |
+197 | …     "citation_valid": int(valid) if not refused else None,
+198 | …     "n_refusal": int(bool(refused) and error is None) if record.get("ANSWERABLE") == "N" else None,
+199 | …     "target_cited": int(valid and any(document_id(s.get("chunk_id", "")) == target for s in sources)) if target else None,
+    |                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+200 | …     "body_f1": body_f1(answer, record["ANSWER"]) if target else None,
+201 | …     "observed_tokens": None, "cost": None, "evidence_type": "真实运行"})
+    |
+
+E501 Line too long (101 > 100)
+   --> scripts\run_assignment_comparisons.py:200:101
+    |
+198 | …                 "n_refusal": int(bool(refused) and error is None) if record.get("ANSWERABLE") == "N" else None,
+199 | …                 "target_cited": int(valid and any(document_id(s.get("chunk_id", "")) == target for s in sources)) if target else No…
+200 | …                 "body_f1": body_f1(answer, record["ANSWER"]) if target else None,
+    |                                                                                   ^
+201 | …                 "observed_tokens": None, "cost": None, "evidence_type": "真实运行"})
+202 | …     handle.write(json.dumps(row, ensure_ascii=False) + "\n"); handle.flush(); rows.append(row)
+    |
+
+E501 Line too long (104 > 100)
+   --> scripts\run_assignment_comparisons.py:201:98
+    |
+199 | …                 "target_cited": int(valid and any(document_id(s.get("chunk_id", "")) == target for s in sources)) if target else No…
+200 | …                 "body_f1": body_f1(answer, record["ANSWER"]) if target else None,
+201 | …                 "observed_tokens": None, "cost": None, "evidence_type": "真实运行"})
+    |                                                                                    ^^^
+202 | …     handle.write(json.dumps(row, ensure_ascii=False) + "\n"); handle.flush(); rows.append(row)
+203 | …     LOGGER.info("chap11 %s repeat=%d sample=%s seconds=%.3f error=%s", system, repeat, task["sample_id"], elapsed, error)
+    |
+
+E702 Multiple statements on one line (semicolon)
+   --> scripts\run_assignment_comparisons.py:202:81
+    |
+200 |                                     "body_f1": body_f1(answer, record["ANSWER"]) if target else None,
+201 |                                     "observed_tokens": None, "cost": None, "evidence_type": "真实运行"})
+202 |                         handle.write(json.dumps(row, ensure_ascii=False) + "\n"); handle.flush(); rows.append(row)
+    |                                                                                 ^
+203 |                         LOGGER.info("chap11 %s repeat=%d sample=%s seconds=%.3f error=%s", system, repeat, task["sample_id"], elapsed…
+204 |     finally:
+    |
+
+E702 Multiple statements on one line (semicolon)
+   --> scripts\run_assignment_comparisons.py:202:97
+    |
+200 |                                     "body_f1": body_f1(answer, record["ANSWER"]) if target else None,
+201 |                                     "observed_tokens": None, "cost": None, "evidence_type": "真实运行"})
+202 |                         handle.write(json.dumps(row, ensure_ascii=False) + "\n"); handle.flush(); rows.append(row)
+    |                                                                                                 ^
+203 |                         LOGGER.info("chap11 %s repeat=%d sample=%s seconds=%.3f error=%s", system, repeat, task["sample_id"], elapsed…
+204 |     finally:
+    |
+
+E501 Line too long (114 > 100)
+   --> scripts\run_assignment_comparisons.py:202:101
+    |
+200 |                                     "body_f1": body_f1(answer, record["ANSWER"]) if target else None,
+201 |                                     "observed_tokens": None, "cost": None, "evidence_type": "真实运行"})
+202 |                         handle.write(json.dumps(row, ensure_ascii=False) + "\n"); handle.flush(); rows.append(row)
+    |                                                                                                     ^^^^^^^^^^^^^^
+203 |                         LOGGER.info("chap11 %s repeat=%d sample=%s seconds=%.3f error=%s", system, repeat, task["sample_id"], elapsed…
+204 |     finally:
+    |
+
+E501 Line too long (141 > 100)
+   --> scripts\run_assignment_comparisons.py:203:101
+    |
+201 | …None, "cost": None, "evidence_type": "真实运行"})
+202 | …sure_ascii=False) + "\n"); handle.flush(); rows.append(row)
+203 | …d sample=%s seconds=%.3f error=%s", system, repeat, task["sample_id"], elapsed, error)
+    |                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+204 | …
+205 | …
+    |
+
+E501 Line too long (158 > 100)
+   --> scripts\run_assignment_comparisons.py:208:101
+    |
+206 | …
+207 | …ding="utf-8"))
+208 | …stem"] == s], k, binary=k in {"worker_failure", "citation_valid", "n_refusal", "target_cited"})
+    |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+209 | …on_valid", "target_cited", "n_refusal", "body_f1", "elapsed_seconds", "llm_calls", "embedding_calls", "calls")}
+210 | …)}
+    |
+
+E501 Line too long (174 > 100)
+   --> scripts\run_assignment_comparisons.py:209:101
+    |
+207 | …f-8"))
+208 | …= s], k, binary=k in {"worker_failure", "citation_valid", "n_refusal", "target_cited"})
+209 | …", "target_cited", "n_refusal", "body_f1", "elapsed_seconds", "llm_calls", "embedding_calls", "calls")}
+    |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+210 | …
+211 | …
+    |
+
+E501 Line too long (116 > 100)
+  --> scripts\verify_assignment_reliability.py:41:101
+   |
+39 |     corpus = ROOT / ".rag_data/techqa_full.sqlite"
+40 |     with closing(sqlite3.connect(corpus.resolve().as_uri() + "?mode=ro", uri=True)) as db:
+41 |         text = "search_document: " + db.execute("SELECT text FROM docs ORDER BY doc_id LIMIT 1").fetchone()[0][:512]
+   |                                                                                                     ^^^^^^^^^^^^^^^^
+42 |         manifest = dict(db.execute("SELECT key,value FROM manifest"))
+43 |     version = hashlib.sha256(json.dumps(manifest, sort_keys=True).encode()).hexdigest()
+   |
+
+E501 Line too long (110 > 100)
+  --> scripts\verify_assignment_reliability.py:46:101
+   |
+44 |     owner = TrustedContext("fault-evaluator", "local", frozenset({"full"}),
+45 |                            frozenset({"document_count", "compare_document_counts", "rag_explain"}))
+46 |     other = TrustedContext("fault-evaluator", "other-tenant", frozenset({"full"}), frozenset({"rag_explain"}))
+   |                                                                                                     ^^^^^^^^^^
+47 |
+48 |     # Preserve and execute the actual pre-change cache implementation, not a
+   |
+
+E501 Line too long (104 > 100)
+  --> scripts\verify_assignment_reliability.py:52:101
+   |
+50 |     source = AUDIT / "reliability_before/source_snapshot/batched_retrieval.py"
+51 |     before_plan = json.loads((AUDIT / "reliability_before/plan.json").read_text(encoding="utf-8"))
+52 |     expected = before_plan["online_sources"]["enterprise-ai-agent/agents/project2/batched_retrieval.py"]
+   |                                                                                                     ^^^^
+53 |     if hashlib.sha256(source.read_bytes()).hexdigest() != expected:
+54 |         raise ValueError("Before source snapshot differs from registered source")
+   |
+
+E501 Line too long (131 > 100)
+  --> scripts\verify_assignment_reliability.py:68:101
+   |
+66 |     stale = await before.embeddings([text])
+67 |     check("injected_stale_legacy_entry_reproduced", stale == [[0.0] * 768], "故障注入",
+68 |           {"stage": "reranker.embedding_cache", "root_cause": "legacy key contains model/text only; no data or permission version",
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+69 |            "before_source_sha256": expected, "corpus_or_qa_changed": False})
+70 |     original = after.embedder.embed_documents
+   |
+
+E501 Line too long (107 > 100)
+  --> scripts\verify_assignment_reliability.py:81:100
+   |
+79 |         fresh = await after.embeddings([text])
+80 |         cached = await after.embeddings([text])
+81 |     check("stale_entry_bypassed_and_actual_model_recovered", fresh == cached and any(fresh[0]), "故障注入",
+   |                                                                                                      ^^^^^^
+82 |           {"same_text_sha256": hashlib.sha256(text.encode()).hexdigest(), "actual_http_embedding_calls": len(calls),
+83 |            "vector_dimension": len(fresh[0]), "same_condition_retest": True})
+   |
+
+E501 Line too long (116 > 100)
+  --> scripts\verify_assignment_reliability.py:82:101
+   |
+80 |         cached = await after.embeddings([text])
+81 |     check("stale_entry_bypassed_and_actual_model_recovered", fresh == cached and any(fresh[0]), "故障注入",
+82 |           {"same_text_sha256": hashlib.sha256(text.encode()).hexdigest(), "actual_http_embedding_calls": len(calls),
+   |                                                                                                     ^^^^^^^^^^^^^^^^
+83 |            "vector_dimension": len(fresh[0]), "same_condition_retest": True})
+84 |     with cache_context(version, authorization_scope(other)):
+   |
+
+E501 Line too long (101 > 100)
+  --> scripts\verify_assignment_reliability.py:90:97
+   |
+88 |     check("cache_authorization_and_version_isolation", len(calls) == 3 and
+89 |           all(abs(a-b) < 1e-5 for a, b in zip(fresh[0], tenant_result[0], strict=True)) and
+90 |           all(abs(a-b) < 1e-5 for a, b in zip(fresh[0], version_result[0], strict=True)), "真实运行",
+   |                                                                                                     ^
+91 |           {"actual_embedding_calls": len(calls), "changed_metadata_is_fault_injection": True,
+92 |            "same_scope_hit": True, "model": after.embedder.model, "data_version": version})
+   |
+
+E501 Line too long (116 > 100)
+  --> scripts\verify_assignment_reliability.py:95:101
+   |
+94 |     budget = Budget()
+95 |     with closing(sqlite3.connect(corpus.resolve().as_uri() + "?mode=ro", uri=True, factory=BudgetConnection)) as db:
+   |                                                                                                     ^^^^^^^^^^^^^^^^
+96 |         db.request_budget = budget
+97 |         for _ in range(budget.max_attempts):
+   |
+
+E501 Line too long (109 > 100)
+   --> scripts\verify_assignment_reliability.py:104:97
+    |
+102 |         except BudgetExceeded:
+103 |             denied = True
+104 |     check("dependency_N_plus_1_not_started", denied and budget.attempts == 19, "故障注入", budget.snapshot())
+    |                                                                                                     ^^^^^^^^^
+105 |
+106 |     samples = json.loads((ROOT / "evals/project2-v1/calibration_v031/protocol.json").read_text(encoding="utf-8"))["samples"]
+    |
+
+E501 Line too long (124 > 100)
+   --> scripts\verify_assignment_reliability.py:106:101
+    |
+104 |     check("dependency_N_plus_1_not_started", denied and budget.attempts == 19, "故障注入", budget.snapshot())
+105 |
+106 |     samples = json.loads((ROOT / "evals/project2-v1/calibration_v031/protocol.json").read_text(encoding="utf-8"))["samples"]
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^
+107 |     sample = next(s for s in samples if s["analysis_operation"] == "compare_document_counts" and len(query_groups(AnalysisRequest(que…
+108 |     request = AnalysisRequest(query=sample["query"], analysis_operation=sample["analysis_operation"])
+    |
+
+E501 Line too long (199 > 100)
+   --> scripts\verify_assignment_reliability.py:107:101
+    |
+106 | ….read_text(encoding="utf-8"))["samples"]
+107 | …_counts" and len(query_groups(AnalysisRequest(query=s["query"], analysis_operation=s["analysis_operation"]))) == 2)
+    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+108 | …ysis_operation"])
+109 | …
+    |
+
+E501 Line too long (101 > 100)
+   --> scripts\verify_assignment_reliability.py:108:101
+    |
+106 |     samples = json.loads((ROOT / "evals/project2-v1/calibration_v031/protocol.json").read_text(encoding="utf-8"))["samples"]
+107 |     sample = next(s for s in samples if s["analysis_operation"] == "compare_document_counts" and len(query_groups(AnalysisRequest(que…
+108 |     request = AnalysisRequest(query=sample["query"], analysis_operation=sample["analysis_operation"])
+    |                                                                                                     ^
+109 |     worker = DatabaseWorker(corpus, inject_timeout_group=1)
+110 |     result = await worker.run(request, owner, Budget(), "fault-readonly")
+    |
+
+E501 Line too long (110 > 100)
+   --> scripts\verify_assignment_reliability.py:112:101
+    |
+110 |     result = await worker.run(request, owner, Budget(), "fault-readonly")
+111 |     groups = result.payload.get("groups", [])
+112 |     check("real_database_partial_preserves_null_not_zero", result.status == "partial" and len(groups) == 2 and
+    |                                                                                                     ^^^^^^^^^^
+113 |           groups[0]["count"] is not None and groups[1]["count"] is None, "故障注入", result.model_dump(mode="json"))
+114 |     return {"stage": "Chap15", "status": "passed" if all(c["observed"] for c in checks) else "failed",
+    |
+
+E501 Line too long (116 > 100)
+   --> scripts\verify_assignment_reliability.py:113:97
+    |
+111 |     groups = result.payload.get("groups", [])
+112 |     check("real_database_partial_preserves_null_not_zero", result.status == "partial" and len(groups) == 2 and
+113 |           groups[0]["count"] is not None and groups[1]["count"] is None, "故障注入", result.model_dump(mode="json"))
+    |                                                                                                     ^^^^^^^^^^^^^^^^
+114 |     return {"stage": "Chap15", "status": "passed" if all(c["observed"] for c in checks) else "failed",
+115 |             "system_gate_executed": True, "checks": checks,
+    |
+
+E501 Line too long (102 > 100)
+   --> scripts\verify_assignment_reliability.py:114:101
+    |
+112 |     check("real_database_partial_preserves_null_not_zero", result.status == "partial" and len(groups) == 2 and
+113 |           groups[0]["count"] is not None and groups[1]["count"] is None, "故障注入", result.model_dump(mode="json"))
+114 |     return {"stage": "Chap15", "status": "passed" if all(c["observed"] for c in checks) else "failed",
+    |                                                                                                     ^^
+115 |             "system_gate_executed": True, "checks": checks,
+116 |             "failure_items": [c["check"] for c in checks if not c["observed"]],
+    |
+
+E501 Line too long (139 > 100)
+   --> scripts\verify_assignment_reliability.py:119:101
+    |
+117 | …al_qa_unchanged": True,
+118 | …ult cache, circuit breaker or new retry",
+119 | …> source/SQLite trace diagnosis -> namespace fix -> identical injected entry retest"}
+    |                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+
+E501 Line too long (129 > 100)
+   --> scripts\verify_assignment_reliability.py:125:101
+    |
+123 |     logging.basicConfig(level=logging.INFO)
+124 |     result = asyncio.run(verify())
+125 |     (AUDIT / "reliability_fault/gate.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+126 |     raise SystemExit(int(result["status"] != "passed"))
+    |
+
+Found 55 errors (4 fixed, 51 remaining).

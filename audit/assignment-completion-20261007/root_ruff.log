@@ -1,0 +1,1362 @@
+E501 Line too long (104 > 100)
+  --> tests\project2\test_continuation_diagnosis.py:13:101
+   |
+11 |     from models.project2 import AnalysisRequest
+12 |     from tools.techqa_document_query import query_groups
+13 |     rows = json.loads((ROOT / 'evals/project2-v1/ch12/qa-tune/scored.json').read_text(encoding='utf-8'))
+   |                                                                                                     ^^^^
+14 |     baseline = json.loads((ROOT / 'evals/protocol_v0/runs/baseline-v0-quick/tune/runs.json').read_text(encoding='utf-8'))
+15 |     questions = {x['question_id']: x['native']['run']['trace']['original_query'] for x in baseline}
+   |
+
+E501 Line too long (121 > 100)
+  --> tests\project2\test_continuation_diagnosis.py:14:101
+   |
+12 |     from tools.techqa_document_query import query_groups
+13 |     rows = json.loads((ROOT / 'evals/project2-v1/ch12/qa-tune/scored.json').read_text(encoding='utf-8'))
+14 |     baseline = json.loads((ROOT / 'evals/protocol_v0/runs/baseline-v0-quick/tune/runs.json').read_text(encoding='utf-8'))
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^
+15 |     questions = {x['question_id']: x['native']['run']['trace']['original_query'] for x in baseline}
+16 |     controls = {x['question_id'] for x in json.loads((ROOT / 'evals/protocol_v0/controls.json').read_text(encoding='utf-8'))['records'…
+   |
+
+E501 Line too long (136 > 100)
+  --> tests\project2\test_continuation_diagnosis.py:16:101
+   |
+14 | …/runs/baseline-v0-quick/tune/runs.json').read_text(encoding='utf-8'))
+15 | …]['trace']['original_query'] for x in baseline}
+16 | …((ROOT / 'evals/protocol_v0/controls.json').read_text(encoding='utf-8'))['records']}
+   |                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+17 | …'question_id'] in controls and
+18 | …error') or {}).get('category') == 'clarification_required'}
+   |
+
+E501 Line too long (111 > 100)
+  --> tests\project2\test_continuation_diagnosis.py:18:101
+   |
+16 |     controls = {x['question_id'] for x in json.loads((ROOT / 'evals/protocol_v0/controls.json').read_text(encoding='utf-8'))['records'…
+17 |     selected = {x['question_id'] for x in rows if x['question_id'] in controls and
+18 |                 (x['result']['workers']['rag'].get('error') or {}).get('category') == 'clarification_required'}
+   |                                                                                                     ^^^^^^^^^^^
+19 |     assert selected
+20 |     for identifier in sorted(selected):
+   |
+
+E501 Line too long (127 > 100)
+  --> tests\project2\test_continuation_diagnosis.py:31:101
+   |
+29 |     assert cohen_kappa([0, 0], [0, 0])['kappa'] is None
+30 |     # Score validation uses a real official-data definition and answer body.
+31 |     template = json.loads((ROOT / 'evals/project2-v1/ch12/independent_review/human_template.json').read_text(encoding='utf-8'))
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+32 |     item = next(x for x in template['items'] if x['partition'] == 'tune')
+33 |     import pytest
+   |
+
+E501 Line too long (141 > 100)
+  --> tests\project2\test_continuation_diagnosis.py:35:101
+   |
+33 | …
+34 | …
+35 | … 2, 'answer_quote': 'not in answer', 'reason': 'bad'} for f in item['required_facts']})
+   |                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+36 | …duplicate_slots():
+37 | …validate_repair_slots
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> tests\project2\test_continuation_diagnosis.py:37:5
+   |
+35 |           validate_scores(item, {f['fact_id']: {'score': 2, 'answer_quote': 'not in answer', 'reason': 'bad'} for f in item['required_fa…
+36 |   def test_offline_repair_summary_refuses_incomplete_or_duplicate_slots():
+37 | /     from scripts.project2_regression_diagnosis import validate_repair_slots
+38 | |     import pytest
+   | |_________________^
+39 |       questions = [{'record': {'QUESTION_ID': 'join-key-only'}, 'group_sha256': 'group'}]
+40 |       rows = [{'question_id': 'join-key-only', 'group_sha256': 'group', 'repeat': r} for r in (1, 2, 3)]
+   |
+help: Organize imports
+
+E501 Line too long (102 > 100)
+  --> tests\project2\test_continuation_diagnosis.py:40:101
+   |
+38 |     import pytest
+39 |     questions = [{'record': {'QUESTION_ID': 'join-key-only'}, 'group_sha256': 'group'}]
+40 |     rows = [{'question_id': 'join-key-only', 'group_sha256': 'group', 'repeat': r} for r in (1, 2, 3)]
+   |                                                                                                     ^^
+41 |     validate_repair_slots(rows, questions)
+42 |     with pytest.raises(ValueError, match='incomplete'):
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests\project2\test_continuation_reporting.py:2:1
+  |
+1 |   """Reporting never turns the S14 exception into a quality pass."""
+2 | / import importlib
+3 | | import json
+4 | | import sys
+5 | | from pathlib import Path
+  | |________________________^
+6 |   ROOT=Path(__file__).resolve().parents[2]
+7 |   sys.path.insert(0,str(ROOT/'scripts'))
+  |
+help: Organize imports
+
+F401 [*] `importlib` imported but unused
+ --> tests\project2\test_continuation_reporting.py:2:8
+  |
+1 | """Reporting never turns the S14 exception into a quality pass."""
+2 | import importlib
+  |        ^^^^^^^^^
+3 | import json
+4 | import sys
+  |
+help: Remove unused import: `importlib`
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> tests\project2\test_continuation_reporting.py:17:5
+   |
+16 | def test_all_six_states_account_for_all_real_combined_observations():
+17 |     from project2_continuation_report import state_counts,STATES
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+18 |     result=state_counts(ROOT/'evals/project2-v1/ch12/business.requests.jsonl')
+19 |     assert set(result['counts'])==set(STATES)
+   |
+help: Organize imports
+
+E501 Line too long (102 > 100)
+  --> tests\project2\test_continuation_reporting.py:23:101
+   |
+21 |     summary=json.loads((ROOT/'evals/project2-v1/ch12/summary.json').read_text(encoding='utf-8'))
+22 |     other=summary['requests']-summary['new_version']['complete']['numerator']-summary['new_version']['partial']['numerator']
+23 |     assert sum(result['counts'][k] for k in ('no_data','permission_denied','timeout','failed'))==other
+   |                                                                                                     ^^
+   |
+
+E501 Line too long (103 > 100)
+  --> tests\project2\test_continuation_reporting.py:30:101
+   |
+28 |     from summarize_project2 import stage_verdict
+29 |     report={'status':'passed','system_gate_executed':True,'gate_scope':'system_gate',
+30 |             'checks':[{'check':x,'observed':True,'expected':True,'status':'passed'} for x in REQUIRED]}
+   |                                                                                                     ^^^
+31 |     assert stage_verdict(report)=='passed'
+32 |     report['checks'][0]['observed']=False
+   |
+
+E501 Line too long (102 > 100)
+  --> tests\project2\test_continuation_reporting.py:34:101
+   |
+32 |     report['checks'][0]['observed']=False
+33 |     assert stage_verdict(report)=='failed'
+34 | def test_runtime_binding_requires_immutable_passing_gate_and_never_claims_whole_requirement(tmp_path):
+   |                                                                                                     ^^
+35 |     from project2_continuation_report import bind_runtime_stage_evidence
+36 |     approved=[{'requirement_id':'runtime-contract','scenario_ids':'AC13-01'}]
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_continuation_reporting.py:40:52
+   |
+38 |     gate={'stage':'Chap13','status':'passed','repair_rounds':0,'system_gate_executed':True,'gate_scope':'system_gate',
+39 |           'checks':[{'check':'same_run_id','expected':True,'observed':True,'status':'passed'}]}
+40 |     folder=tmp_path/'audit/project2-v1/ch13_round0';folder.mkdir(parents=True)
+   |                                                    ^
+41 |     (folder/'gate.json').write_text(json.dumps(gate),encoding='utf-8')
+42 |     result=bind_runtime_stage_evidence(tmp_path,approved,items,gate)
+   |
+
+E501 Line too long (106 > 100)
+  --> tests\project2\test_continuation_reporting.py:57:101
+   |
+55 |             'usage':{'absolute_deadline':100.0,'attempts':13,'llm_calls':2}}
+56 |     decision=classify_runtime_stop(gate,saved,result)
+57 |     assert decision['status']=='stopped_frozen_deadline' and not decision['permission_to_increase_budget']
+   |                                                                                                     ^^^^^^
+58 |     result['usage']['absolute_deadline']=101.0
+59 |     assert classify_runtime_stop(gate,saved,result)['status']=='requires_code_repair'
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_continuation_reporting.py:67:52
+   |
+65 |           'checks':[{'check':'same_run_id','expected':True,'observed':False,'status':'failed'},
+66 |                     {'check':'owner_read_resume_isolation','expected':True,'observed':True,'status':'passed'}]}
+67 |     folder=tmp_path/'audit/project2-v1/ch13_round1';folder.mkdir(parents=True)
+   |                                                    ^
+68 |     (folder/'gate.json').write_text(json.dumps(gate),encoding='utf-8')
+69 |     result=bind_runtime_stage_evidence(tmp_path,approved,items,gate)
+   |
+
+E731 Do not assign a `lambda` expression, use a `def`
+  --> tests\project2\test_continuation_reporting.py:76:5
+   |
+74 |     # This is a formatter contract for the historical v031 schema, not the
+75 |     # changing current-stage report or an endorsement of invalidated scores.
+76 |     read=lambda name:json.loads((ROOT/name).read_text(encoding='utf-8'))
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+77 |     current=read('audit/project2-v1/summary.json')
+78 |     oldgate=read('audit/project2-v1/ch13_round1/gate.json')
+   |
+help: Rewrite `read` as a `def`
+
+E501 Line too long (106 > 100)
+  --> tests\project2\test_continuation_reporting.py:80:101
+   |
+78 |     oldgate=read('audit/project2-v1/ch13_round1/gate.json')
+79 |     report={
+80 |         'execution_status':'stopped_frozen_deadline','stop_reason':'Historical frozen deadline exhausted',
+   |                                                                                                     ^^^^^^
+81 |         'stages':[{'stage':'Chap12','status':'passed','report':read('audit/project2-v1/v031_chap12_gate.json')},
+82 |                   {'stage':'Chap13','status':'failed','report':oldgate},
+   |
+
+E501 Line too long (113 > 100)
+   --> tests\project2\test_continuation_reporting.py:100:101
+    |
+ 98 |     assert '人工抽检' in text and '不称独立人工评分' in text
+ 99 |     assert report['stop_reason'] in text
+100 |     assert all(name in text for name in ('completed','partial','no_data','permission_denied','timeout','failed'))
+    |                                                                                                     ^^^^^^^^^^^^^
+101 |     assert '未执行' in text and '95%CI' in text
+    |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests\project2\test_exhaustive_preflight.py:3:1
+  |
+1 |   """Preflight contracts: real corpus, exhaustive inventory, no online/oracle inputs."""
+2 |
+3 | / from pathlib import Path
+4 | |
+5 | | from scripts.spec_preflight import audit_specs, choose_zero_predicates, read_manifest
+  | |_____________________________________________________________________________________^
+  |
+help: Organize imports
+
+E501 Line too long (101 > 100)
+  --> tests\project2\test_exhaustive_preflight.py:15:101
+   |
+13 |     report = audit_specs(ROOT, "v0.1")
+14 |     assert len(report["scenario_inventory"]) == 42
+15 |     assert set(report["scenario_inventory"]) == {x["scenario_id"] for x in report["scenario_checks"]}
+   |                                                                                                     ^
+16 |     assert report["spec_assertion_inventory"]
+17 |     assert all(x["source_line"] and x["source_text"] for x in report["spec_assertion_inventory"])
+   |
+
+E501 Line too long (103 > 100)
+  --> tests\project2\test_exhaustive_preflight.py:19:101
+   |
+17 |     assert all(x["source_line"] and x["source_text"] for x in report["spec_assertion_inventory"])
+18 |     assert report["inventory_complete"] is True
+19 |     assert report["worker_calls"] == report["llm_calls"] == report["heldout_stage_calls_project2"] == 0
+   |                                                                                                     ^^^
+20 |     assert len(report["sample_measurements"]) == 50
+   |
+
+E501 Line too long (135 > 100)
+  --> tests\project2\test_exhaustive_preflight.py:37:101
+   |
+35 |     second = choose_zero_predicates(DATABASE, seed=20261005, quantity=2)
+36 |     assert first == second
+37 |     assert set(first["input_dependencies"]) <= {"official_full_corpus_titles", "official_full_corpus_fts", "approved_literal_patterns"}
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+38 |     assert len(first["predicates"]) == 2
+39 |     assert all(x["count"] == 0 and x["measurement_complete"] for x in first["predicates"])
+   |
+
+E501 Line too long (101 > 100)
+  --> tests\project2\test_exhaustive_preflight.py:41:101
+   |
+39 |     assert all(x["count"] == 0 and x["measurement_complete"] for x in first["predicates"])
+40 |     assert all(all(n > 0 for n in x["individual_phrase_counts"]) for x in first["predicates"])
+41 |     assert all(x["phrase_roles"] == ["product_or_component", "version"] for x in first["predicates"])
+   |                                                                                                     ^
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests\project2\test_project2_quality_review.py:2:1
+  |
+1 |   """Offline review pack retains official facts and actual answer bytes."""
+2 | / import importlib.util
+3 | | import json
+4 | | import hashlib
+5 | | from pathlib import Path
+  | |________________________^
+6 |
+7 |   ROOT=Path(__file__).resolve().parents[2]
+  |
+help: Organize imports
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_project2_quality_review.py:11:44
+   |
+ 9 | def load():
+10 |     spec=importlib.util.spec_from_file_location('p2_review',ROOT/'scripts/prepare_project2_quality_review.py')
+11 |     m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
+   |                                            ^
+12 |
+13 | def test_pending_tune_answers_are_not_signed_or_changed():
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_project2_quality_review.py:11:71
+   |
+ 9 | def load():
+10 |     spec=importlib.util.spec_from_file_location('p2_review',ROOT/'scripts/prepare_project2_quality_review.py')
+11 |     m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
+   |                                                                       ^
+12 |
+13 | def test_pending_tune_answers_are_not_signed_or_changed():
+   |
+
+E501 Line too long (120 > 100)
+  --> tests\project2\test_project2_quality_review.py:16:101
+   |
+14 |     pack=load().build(ROOT,'ch12',partitions=('tune',))
+15 |     summary=json.loads((ROOT/'evals/project2-v1/ch12/qa-tune/summary.json').read_text(encoding='utf-8'))
+16 |     assert sum(len(x['observations']) for x in pack['items'])==summary['required_facts']['unscored_answer_observations']
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^^
+17 |     assert pack['status']=='pending_independent_ratings'
+18 |     for item in pack['items']:
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests\project2\test_project2_summary.py:3:1
+  |
+1 |   """Reporting must distinguish a numerical failure from a claimed pass."""
+2 |
+3 | / import copy
+4 | | import json
+5 | | from pathlib import Path
+6 | |
+7 | | from scripts.summarize_project2 import stage_verdict, revision_details, latest_native_gate
+  | |__________________________________________________________________________________________^
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests\project2\test_spec_preflight.py:7:1
+  |
+5 |   """
+6 |
+7 | / from pathlib import Path
+8 | |
+9 | | from scripts.project2_spec_preflight import verify_registered_zero_case
+  | |_______________________________________________________________________^
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests\project2\test_v02_documents.py:3:1
+  |
+1 |   """Limited user authorization must not silently change protected contracts."""
+2 |
+3 | / import importlib.util
+4 | | import shutil
+5 | | from pathlib import Path
+6 | |
+7 | | import pytest
+  | |_____________^
+  |
+help: Organize imports
+
+E501 Line too long (130 > 100)
+  --> tests\project2\test_v02_documents.py:31:101
+   |
+29 |     path = copy / "spec.md"
+30 |     original = path.read_text(encoding="utf-8")
+31 |     path.write_text(original.replace("| completed | completed | partial", "| completed | partial | partial", 1), encoding="utf-8")
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+32 |     with pytest.raises(ValueError):
+33 |         validator().validate(copy, ROOT)
+   |
+
+E501 Line too long (109 > 100)
+  --> tests\project2\test_v02_documents.py:40:101
+   |
+38 |     shutil.copytree(DOCS, copy, ignore=shutil.ignore_patterns("__pycache__"))
+39 |     path = copy / "acceptance_scenarios.csv"
+40 |     path.write_text(path.read_text(encoding="utf-8-sig").replace("AC12-23", "AC12-99"), encoding="utf-8-sig")
+   |                                                                                                     ^^^^^^^^^
+41 |     with pytest.raises(ValueError):
+42 |         validator().validate(copy, ROOT)
+   |
+
+E501 Line too long (119 > 100)
+  --> tests\project2\test_v031_batches.py:42:101
+   |
+40 |     import json
+41 |     old=json.loads((ROOT/'evals/project2-v1/calibration_v03/protocol.json').read_text(encoding='utf-8'))
+42 |     for key in ('samples','n_samples','seed','paths','repeats','attempt_definition','fuse_p95','measurement_envelope'):
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^
+43 |         assert p[key]==old[key]
+44 |     assert len(m.slots(p))==300
+   |
+
+E701 Multiple statements on one line (colon)
+  --> tests\project2\test_v031_batches.py:52:20
+   |
+50 |     assert m.decide_batch(rows,False,p)['status']=='incomplete_censored'
+51 |     rows[0]['censored']=False
+52 |     for row in rows: row['attempts']=33
+   |                    ^
+53 |     assert m.decide_batch(rows,False,p)['status']=='stopped_structural_fuse'
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_batches.py:57:15
+   |
+56 | def test_runner_releases_execution_state_after_failure(tmp_path):
+57 |     m=runner(); calls=[]
+   |               ^
+58 |     with pytest.raises(RuntimeError):
+59 |         with m.HostGuard(tmp_path, execution_state=lambda flags:calls.append(flags) or 1,
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_batches.py:67:15
+   |
+66 | def test_unplugged_stops_before_any_slot(tmp_path):
+67 |     m=runner(); calls=[]
+   |               ^
+68 |     with pytest.raises(m.Unplugged):
+69 |         with m.HostGuard(tmp_path, execution_state=lambda flags:calls.append(flags) or 1,
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests\project2\test_v031_budget.py:1:1
+  |
+1 | / import importlib.util
+2 | | import sys
+3 | | from pathlib import Path
+4 | | import pytest
+  | |_____________^
+5 |
+6 |   ROOT=Path(__file__).resolve().parents[2]
+  |
+help: Organize imports
+
+E701 Multiple statements on one line (colon)
+  --> tests\project2\test_v031_budget.py:15:35
+   |
+13 |     path.parent.mkdir(parents=True)
+14 |     path.write_text('{"status":"frozen","version":"project2-v0.3.1-budget-v1","limits":{"attempts":40,"llm_calls":15,"seconds":99}}',e…
+15 |     with pytest.raises(ValueError): read_frozen_limits(tmp_path)
+   |                                   ^
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_budget.py:21:48
+   |
+19 |     path=ROOT/'scripts/project2_v031_budget.py'
+20 |     spec=importlib.util.spec_from_file_location('activate_v031',path)
+21 |     value=importlib.util.module_from_spec(spec);spec.loader.exec_module(value)
+   |                                                ^
+22 |     import json
+23 |     target=tmp_path/'evals/project2-v1/calibration_v031'
+   |
+
+E701 Multiple statements on one line (colon)
+  --> tests\project2\test_v031_budget.py:26:35
+   |
+24 |     target.mkdir(parents=True)
+25 |     (target/'decision.json').write_text(json.dumps({'status':'selected','selected_batch':1}),encoding='utf-8')
+26 |     with pytest.raises(ValueError): value.validate_selected_batch(tmp_path)
+   |                                   ^
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests\project2\test_v031_documents.py:1:1
+  |
+1 | / import importlib.util
+2 | | import shutil
+3 | | from pathlib import Path
+4 | | import pytest
+  | |_____________^
+5 |
+6 |   ROOT=Path(__file__).resolve().parents[2]
+  |
+help: Organize imports
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_documents.py:12:48
+   |
+10 |     path=ROOT/'specs/project2/v0.3.1/check_docs.py'
+11 |     spec=importlib.util.spec_from_file_location('docs_v031',path)
+12 |     value=importlib.util.module_from_spec(spec);spec.loader.exec_module(value);return value
+   |                                                ^
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_documents.py:12:79
+   |
+10 |     path=ROOT/'specs/project2/v0.3.1/check_docs.py'
+11 |     spec=importlib.util.spec_from_file_location('docs_v031',path)
+12 |     value=importlib.util.module_from_spec(spec);spec.loader.exec_module(value);return value
+   |                                                                               ^
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_documents.py:20:25
+   |
+19 | def test_sleep_censor_rule_cannot_be_removed(tmp_path):
+20 |     docs=tmp_path/'docs';shutil.copytree(ROOT/'specs/project2/v0.3.1',docs)
+   |                         ^
+21 |     path=docs/'spec.md';text=path.read_text(encoding='utf-8')
+22 |     path.write_text(text.replace('任何包络右删失不冻结上限','删失也可冻结上限',1),encoding='utf-8')
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_documents.py:21:24
+   |
+19 | def test_sleep_censor_rule_cannot_be_removed(tmp_path):
+20 |     docs=tmp_path/'docs';shutil.copytree(ROOT/'specs/project2/v0.3.1',docs)
+21 |     path=docs/'spec.md';text=path.read_text(encoding='utf-8')
+   |                        ^
+22 |     path.write_text(text.replace('任何包络右删失不冻结上限','删失也可冻结上限',1),encoding='utf-8')
+23 |     with pytest.raises(ValueError): checker().validate_scope(docs,ROOT)
+   |
+
+E701 Multiple statements on one line (colon)
+  --> tests\project2\test_v031_documents.py:23:35
+   |
+21 |     path=docs/'spec.md';text=path.read_text(encoding='utf-8')
+22 |     path.write_text(text.replace('任何包络右删失不冻结上限','删失也可冻结上限',1),encoding='utf-8')
+23 |     with pytest.raises(ValueError): checker().validate_scope(docs,ROOT)
+   |                                   ^
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_documents.py:27:25
+   |
+26 | def test_scene_or_matrix_change_cannot_pass(tmp_path):
+27 |     docs=tmp_path/'docs';shutil.copytree(ROOT/'specs/project2/v0.3.1',docs)
+   |                         ^
+28 |     path=docs/'acceptance_scenarios.csv'
+29 |     path.write_bytes(path.read_bytes()+b'\n')
+   |
+
+E701 Multiple statements on one line (colon)
+  --> tests\project2\test_v031_documents.py:30:35
+   |
+28 |     path=docs/'acceptance_scenarios.csv'
+29 |     path.write_bytes(path.read_bytes()+b'\n')
+30 |     with pytest.raises(ValueError): checker().validate_scope(docs,ROOT)
+   |                                   ^
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests\project2\test_v031_evaluation.py:2:1
+  |
+1 |   """Evaluation boundary tests; fixtures are original TechQA questions."""
+2 | / import importlib.util
+3 | | import json
+4 | | from pathlib import Path
+5 | | import pytest
+  | |_____________^
+6 |
+7 |   ROOT=Path(__file__).resolve().parents[2]
+  |
+help: Organize imports
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_evaluation.py:12:49
+   |
+10 | def load():
+11 |     spec=importlib.util.spec_from_file_location('p2_stage_eval',SCRIPT)
+12 |     module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+   |                                                 ^
+13 |     return module
+   |
+
+E501 Line too long (128 > 100)
+  --> tests\project2\test_v031_evaluation.py:20:101
+   |
+18 |     body=module.online_question(row)
+19 |     assert set(body)=={'query','analysis_operation','include_samples','sample_limit'}
+20 |     row={**row,'ANSWER':'this field may never influence input','DOC_IDS':['sentinel'],'ANSWERABLE':'N','QUESTION_ID':'sentinel'}
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+21 |     assert body==module.online_question(row)
+   |
+
+E501 Line too long (118 > 100)
+  --> tests\project2\test_v031_evaluation.py:35:101
+   |
+33 |     assert set(caps)=={'single_agent','fixed_workflow'}
+34 |     assert all(x['status']=='unsupported' for x in caps.values())
+35 |     assert all(x['source_sha256'] and x['missing_capability']=='independent_full_corpus_count' for x in caps.values())
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^
+36 |
+37 | def test_ci_preserves_three_repeats_and_independent_denominator():
+   |
+
+E501 Line too long (108 > 100)
+  --> tests\project2\test_v031_evaluation.py:39:101
+   |
+37 | def test_ci_preserves_three_repeats_and_independent_denominator():
+38 |     module=load()
+39 |     rows=[{'repeat':repeat,'group_sha256':str(i),'metric':int(i<3)} for repeat in (1,2,3) for i in range(5)]
+   |                                                                                                     ^^^^^^^^
+40 |     value=module.measure_metric(rows,'metric',binary=True)
+41 |     assert value['numerator']==9 and value['denominator']==15
+   |
+
+E501 Line too long (103 > 100)
+  --> tests\project2\test_v031_evaluation.py:53:101
+   |
+51 |     reused=module.reuse_fact_ratings(ROOT,'tune',[row])
+52 |     assert reused['matched_answer_observations']==1 and reused['unscored_answer_observations']==0
+53 |     row['result']['workers']['rag']['payload']['answer']+='\nChanged answer: needs independent review.'
+   |                                                                                                     ^^^
+54 |     pending=module.reuse_fact_ratings(ROOT,'tune',[row])
+55 |     assert pending['matched_answer_observations']==0 and pending['unscored_answer_observations']==1
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_evaluation.py:58:18
+   |
+57 | def test_heldout_repeat_counter_counts_starts_not_plans(tmp_path):
+58 |     module=load();path=tmp_path/'receipt.json'
+   |                  ^
+59 |     path.write_text(json.dumps({'planned_repeats':3,'heldout_repetitions_project2':0}))
+60 |     module.record_repeat(path,1)
+   |
+
+E701 Multiple statements on one line (colon)
+  --> tests\project2\test_v031_evaluation.py:62:35
+   |
+60 |     module.record_repeat(path,1)
+61 |     assert json.loads(path.read_text())['heldout_repetitions_project2']==1
+62 |     with pytest.raises(ValueError):module.record_repeat(path,1)
+   |                                   ^
+63 |     with pytest.raises(ValueError):module.record_repeat(path,3)
+   |
+
+E701 Multiple statements on one line (colon)
+  --> tests\project2\test_v031_evaluation.py:63:35
+   |
+61 |     assert json.loads(path.read_text())['heldout_repetitions_project2']==1
+62 |     with pytest.raises(ValueError):module.record_repeat(path,1)
+63 |     with pytest.raises(ValueError):module.record_repeat(path,3)
+   |                                   ^
+64 |
+65 | def test_failed_inference_cannot_disappear_from_recall_denominator():
+   |
+
+E501 Line too long (125 > 100)
+  --> tests\project2\test_v031_evaluation.py:69:101
+   |
+67 |     assert module.retrieved_ids({'status':'failed','payload':{}})==[]
+68 |     with pytest.raises(ValueError,match='pipeline stage'):
+69 |         module.retrieved_ids({'status':'completed','payload':{'trace':{'candidate_ids':['parent stage is not comparable']}}})
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_full_gate.py:10:44
+   |
+ 8 |     path=ROOT/'scripts/run_project2_ch12_gate.py'
+ 9 |     spec=importlib.util.spec_from_file_location('full_gate',path)
+10 |     m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+   |                                            ^
+11 |     assert m.verdict([])=='failed'
+12 |     checks=[{'check':name,'expected':True,'observed':True,'status':'passed'} for name in m.REQUIRED]
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_full_gate.py:21:44
+   |
+19 |     path=ROOT/'scripts/run_project2_ch12_gate.py'
+20 |     spec=importlib.util.spec_from_file_location('full_gate_repairs',path)
+21 |     m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+   |                                            ^
+22 |     assert m.allowed_repair(2,0) and m.allowed_repair(1,1)
+23 |     assert not m.allowed_repair(1,2) and not m.allowed_repair(2,1)
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests\project2\test_v031_reporting.py:2:1
+  |
+1 |   """Counts and summaries must be derived from files, never entered by hand."""
+2 | / import importlib.util
+3 | | import sys
+4 | | import json
+5 | | from pathlib import Path
+  | |________________________^
+6 |
+7 |   ROOT=Path(__file__).resolve().parents[2]
+  |
+help: Organize imports
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_reporting.py:12:44
+   |
+10 | def load():
+11 |     spec=importlib.util.spec_from_file_location('p2_report',ROOT/'scripts/project2_v031_report.py')
+12 |     m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
+   |                                            ^
+13 |
+14 | def test_prior_batch_count_and_censor_are_read_from_immutable_records():
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_reporting.py:12:71
+   |
+10 | def load():
+11 |     spec=importlib.util.spec_from_file_location('p2_report',ROOT/'scripts/project2_v031_report.py')
+12 |     m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
+   |                                                                       ^
+13 |
+14 | def test_prior_batch_count_and_censor_are_read_from_immutable_records():
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_reporting.py:15:13
+   |
+14 | def test_prior_batch_count_and_censor_are_read_from_immutable_records():
+15 |     m=load();folder=ROOT/'evals/project2-v1/calibration_v03'
+   |             ^
+16 |     rows=[json.loads(x) for x in (folder/'requests.jsonl').read_text(encoding='utf-8').splitlines()]
+17 |     batch=m.old_batch(folder)
+   |
+
+E501 Line too long (107 > 100)
+  --> tests\project2\test_v031_reporting.py:19:101
+   |
+17 |     batch=m.old_batch(folder)
+18 |     assert batch['requests']==len(rows) and not batch['used_for_decision']
+19 |     assert str(round(max(x['elapsed_seconds'] for x in rows if x['censored']),3)) in batch['censor_reason']
+   |                                                                                                     ^^^^^^^
+20 |
+21 | def test_comparison_rendering_is_compact_and_contains_ci_and_declines():
+   |
+
+E501 Line too long (152 > 100)
+  --> tests\project2\test_v031_reporting.py:23:101
+   |
+21 | …_declines():
+22 | …
+23 | …ator':12,'mean':.75,'ci95':[.4,.9]}},'regression_items':[{'sample_id':'an official query'}]}
+   |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+24 | …
+25 | …t
+   |
+
+E501 Line too long (131 > 100)
+  --> tests\project2\test_v031_reporting.py:49:101
+   |
+47 |     tune=json.loads((ROOT/'evals/project2-v1/ch12/qa-tune/summary.json').read_text(encoding='utf-8'))
+48 |     controls=json.loads((ROOT/'evals/protocol_v0/controls.json').read_text(encoding='utf-8'))
+49 |     receipt={'execution_complete':True,'quality':quality_acceptance({'tune':tune},{x['question_id'] for x in controls['records']})}
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+50 |     result=m.stage_progression(receipt)
+51 |     assert result['status']=='stopped_s14_acceptance'
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> tests\project2\test_v031_reporting.py:56:5
+   |
+55 |   def test_gate_evidence_binding_updates_partial_coverage_without_inventing_passes():
+56 | /     import csv
+57 | |     import copy
+   | |_______________^
+58 |       m=load();docs=ROOT/'specs/project2/v0.3.1'
+59 |       approved=list(csv.DictReader((docs/'traceability.csv').open(encoding='utf-8-sig',newline='')))
+   |
+help: Organize imports
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_reporting.py:58:13
+   |
+56 |     import csv
+57 |     import copy
+58 |     m=load();docs=ROOT/'specs/project2/v0.3.1'
+   |             ^
+59 |     approved=list(csv.DictReader((docs/'traceability.csv').open(encoding='utf-8-sig',newline='')))
+60 |     items=json.loads((ROOT/'audit/project2-v1/traceability_runtime.json').read_text(encoding='utf-8'))['items']
+   |
+
+E501 Line too long (111 > 100)
+  --> tests\project2\test_v031_reporting.py:63:97
+   |
+61 |     gate=json.loads((ROOT/'audit/project2-v1/v031_chap12_gate.json').read_text(encoding='utf-8'))
+62 |     bound=m.bind_gate_partial_evidence(ROOT,approved,copy.deepcopy(items),gate)
+63 |     assert sum(x['execution_status']=='部分' for x in bound)>=sum(x['execution_status']=='部分' for x in items)
+   |                                                                                                     ^^^^^^^^^^^
+64 |     assert not any(x['execution_status']=='通过' for x in bound)
+65 |     assert any(y.get('gate_check')=='AC12-01' for x in bound for y in x['partial_evidence'])
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests\project2\test_v031_resume_runner.py:2:1
+  |
+1 |   """Harness resume is only an evaluation checkpoint, not Chap13 evidence."""
+2 | / import importlib.util
+3 | | import sys
+4 | | from pathlib import Path
+  | |________________________^
+5 |   ROOT=Path(__file__).resolve().parents[2]
+6 |   sys.path.insert(0,str(ROOT/'scripts'))
+  |
+help: Organize imports
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_resume_runner.py:10:44
+   |
+ 8 | def test_resume_does_not_replace_prior_heartbeat_session(tmp_path):
+ 9 |     spec=importlib.util.spec_from_file_location('native_runner',ROOT/'scripts/run_project2_v031_gate.py')
+10 |     m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+   |                                            ^
+11 |     base=tmp_path/'power';base.mkdir();prior=base/'host_guard_active.json';prior.write_text('original session')
+12 |     selected=m.power_session(base,True)
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_resume_runner.py:11:26
+   |
+ 9 |     spec=importlib.util.spec_from_file_location('native_runner',ROOT/'scripts/run_project2_v031_gate.py')
+10 |     m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+11 |     base=tmp_path/'power';base.mkdir();prior=base/'host_guard_active.json';prior.write_text('original session')
+   |                          ^
+12 |     selected=m.power_session(base,True)
+13 |     assert selected!=base and not selected.exists()
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_resume_runner.py:11:39
+   |
+ 9 |     spec=importlib.util.spec_from_file_location('native_runner',ROOT/'scripts/run_project2_v031_gate.py')
+10 |     m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+11 |     base=tmp_path/'power';base.mkdir();prior=base/'host_guard_active.json';prior.write_text('original session')
+   |                                       ^
+12 |     selected=m.power_session(base,True)
+13 |     assert selected!=base and not selected.exists()
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_resume_runner.py:11:75
+   |
+ 9 |     spec=importlib.util.spec_from_file_location('native_runner',ROOT/'scripts/run_project2_v031_gate.py')
+10 |     m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+11 |     base=tmp_path/'power';base.mkdir();prior=base/'host_guard_active.json';prior.write_text('original session')
+   |                                                                           ^
+12 |     selected=m.power_session(base,True)
+13 |     assert selected!=base and not selected.exists()
+   |
+
+E501 Line too long (111 > 100)
+  --> tests\project2\test_v031_resume_runner.py:11:101
+   |
+ 9 |     spec=importlib.util.spec_from_file_location('native_runner',ROOT/'scripts/run_project2_v031_gate.py')
+10 |     m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+11 |     base=tmp_path/'power';base.mkdir();prior=base/'host_guard_active.json';prior.write_text('original session')
+   |                                                                                                     ^^^^^^^^^^^
+12 |     selected=m.power_session(base,True)
+13 |     assert selected!=base and not selected.exists()
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests\project2\test_v031_stage_close.py:2:1
+  |
+1 |   """Contract metadata only; no invented questions, answers or corpus rows."""
+2 | / import importlib.util
+3 | | import json
+4 | | import sys
+5 | | from pathlib import Path
+  | |________________________^
+6 |   ROOT=Path(__file__).resolve().parents[2]
+7 |   sys.path.insert(0,str(ROOT/'scripts'))
+  |
+help: Organize imports
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_stage_close.py:12:49
+   |
+10 |     path=ROOT/'scripts/project2_close_stage.py'
+11 |     spec=importlib.util.spec_from_file_location('close_stage',path)
+12 |     result=importlib.util.module_from_spec(spec);spec.loader.exec_module(result)
+   |                                                 ^
+13 |     return result
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v031_stage_close.py:16:38
+   |
+15 | def test_claimed_pass_without_execution_records_cannot_close(tmp_path):
+16 |     path=tmp_path/'audit/project2-v1';path.mkdir(parents=True)
+   |                                      ^
+17 |     (path/'v031_chap12_gate.json').write_text(json.dumps({'status':'passed','system_gate_executed':True,'gate_scope':'system_gate','ch…
+18 |     assert module().inspect_stage(tmp_path,'ch12')['execution_complete'] is False
+   |
+
+E501 Line too long (102 > 100)
+  --> tests\project2\test_v031_stage_close.py:34:101
+   |
+32 |     tune=json.loads((root/'summary.json').read_text(encoding='utf-8'))
+33 |     controls=json.loads((ROOT/'evals/protocol_v0/controls.json').read_text(encoding='utf-8'))
+34 |     result=module().quality_acceptance({'tune':tune}, {x['question_id'] for x in controls['records']})
+   |                                                                                                     ^^
+35 |     assert result['acceptance']=='not_accepted'
+36 |     assert result['pending_independent_fact_ratings']['tune']==tune['required_facts']['unscored_answer_observations']
+   |
+
+E501 Line too long (117 > 100)
+  --> tests\project2\test_v031_stage_close.py:36:101
+   |
+34 |     result=module().quality_acceptance({'tune':tune}, {x['question_id'] for x in controls['records']})
+35 |     assert result['acceptance']=='not_accepted'
+36 |     assert result['pending_independent_fact_ratings']['tune']==tune['required_facts']['unscored_answer_observations']
+   |                                                                                                     ^^^^^^^^^^^^^^^^^
+37 |     assert any(x['check']=='success_controls_zero_regression' and not x['observed'] for x in result['checks'])
+38 |     assert any(x['check']=='independent_required_facts_complete' and not x['observed'] for x in result['checks'])
+   |
+
+E501 Line too long (110 > 100)
+  --> tests\project2\test_v031_stage_close.py:37:101
+   |
+35 |     assert result['acceptance']=='not_accepted'
+36 |     assert result['pending_independent_fact_ratings']['tune']==tune['required_facts']['unscored_answer_observations']
+37 |     assert any(x['check']=='success_controls_zero_regression' and not x['observed'] for x in result['checks'])
+   |                                                                                                     ^^^^^^^^^^
+38 |     assert any(x['check']=='independent_required_facts_complete' and not x['observed'] for x in result['checks'])
+   |
+
+E501 Line too long (113 > 100)
+  --> tests\project2\test_v031_stage_close.py:38:101
+   |
+36 |     assert result['pending_independent_fact_ratings']['tune']==tune['required_facts']['unscored_answer_observations']
+37 |     assert any(x['check']=='success_controls_zero_regression' and not x['observed'] for x in result['checks'])
+38 |     assert any(x['check']=='independent_required_facts_complete' and not x['observed'] for x in result['checks'])
+   |                                                                                                     ^^^^^^^^^^^^^
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests\project2\test_v032_stop_reporting.py:1:1
+  |
+1 | / import json
+2 | | import sys
+3 | | from pathlib import Path
+  | |________________________^
+4 |   ROOT=Path(__file__).resolve().parents[2]
+5 |   sys.path.insert(0,str(ROOT/'scripts'))
+  |
+help: Organize imports
+
+E731 Do not assign a `lambda` expression, use a `def`
+  --> tests\project2\test_v032_stop_reporting.py:10:5
+   |
+ 8 |     from project2_v032_report import classify_stop
+ 9 |     folder=ROOT/'audit/project2-v1/ch13_v032_round0'
+10 |     read=lambda name:json.loads((folder/name).read_text(encoding='utf-8'))
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+11 |     result=classify_stop(read('gate.json'),read('resumed_response.json'),read('recovery_accounting_evidence.json'))
+12 |     assert result['status']=='stopped_frozen_active_execution'
+   |
+help: Rewrite `read` as a `def`
+
+E731 Do not assign a `lambda` expression, use a `def`
+  --> tests\project2\test_v032_stop_reporting.py:19:5
+   |
+17 |     from project2_v032_report import classify_stop
+18 |     folder=ROOT/'audit/project2-v1/ch13_v032_round0'
+19 |     read=lambda name:json.loads((folder/name).read_text(encoding='utf-8'))
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+20 |     response=read('resumed_response.json');response['workers']['rag']['status']='completed'
+21 |     assert not classify_stop(read('gate.json'),response,read('recovery_accounting_evidence.json'))['machine_predicate']
+   |
+help: Rewrite `read` as a `def`
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v032_stop_reporting.py:20:43
+   |
+18 |     folder=ROOT/'audit/project2-v1/ch13_v032_round0'
+19 |     read=lambda name:json.loads((folder/name).read_text(encoding='utf-8'))
+20 |     response=read('resumed_response.json');response['workers']['rag']['status']='completed'
+   |                                           ^
+21 |     assert not classify_stop(read('gate.json'),response,read('recovery_accounting_evidence.json'))['machine_predicate']
+   |
+
+E501 Line too long (119 > 100)
+  --> tests\project2\test_v032_stop_reporting.py:21:101
+   |
+19 |     read=lambda name:json.loads((folder/name).read_text(encoding='utf-8'))
+20 |     response=read('resumed_response.json');response['workers']['rag']['status']='completed'
+21 |     assert not classify_stop(read('gate.json'),response,read('recovery_accounting_evidence.json'))['machine_predicate']
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^
+22 |
+23 | def test_current_report_discloses_failure_and_never_cites_invalid_agreement():
+   |
+
+E731 Do not assign a `lambda` expression, use a `def`
+  --> tests\project2\test_v032_stop_reporting.py:26:5
+   |
+24 |     from project2_v033_report import generate
+25 |     generate(ROOT)
+26 |     read=lambda name:json.loads((ROOT/name).read_text(encoding='utf-8'))
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+27 |     report=read('audit/project2-v1/summary.json')
+28 |     page=(ROOT/'specs/project2/summary.md').read_text(encoding='utf-8')
+   |
+help: Rewrite `read` as a `def`
+
+E501 Line too long (116 > 100)
+  --> tests\project2\test_v032_stop_reporting.py:39:101
+   |
+37 |     assert len(page.splitlines())<=55
+38 |     for distribution in report['state_distributions'].values():
+39 |         assert set(distribution['counts'])=={'completed','partial','no_data','permission_denied','timeout','failed'}
+   |                                                                                                     ^^^^^^^^^^^^^^^^
+40 |         assert sum(distribution['counts'].values())==distribution['denominator']
+41 |     assert sum(report['traceability_counts'].values())==report['two_table_consistency']['approved_rows']
+   |
+
+E501 Line too long (104 > 100)
+  --> tests\project2\test_v032_stop_reporting.py:41:101
+   |
+39 |         assert set(distribution['counts'])=={'completed','partial','no_data','permission_denied','timeout','failed'}
+40 |         assert sum(distribution['counts'].values())==distribution['denominator']
+41 |     assert sum(report['traceability_counts'].values())==report['two_table_consistency']['approved_rows']
+   |                                                                                                     ^^^^
+42 |
+43 | def test_blind_pack_nonempty_and_has_no_identity_or_old_score():
+   |
+
+E731 Do not assign a `lambda` expression, use a `def`
+  --> tests\project2\test_v032_stop_reporting.py:44:5
+   |
+43 | def test_blind_pack_nonempty_and_has_no_identity_or_old_score():
+44 |     read=lambda path:json.loads((ROOT/path).read_text(encoding='utf-8'))
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+45 |     receipt=read('audit/project2-v1/v032_blind_export_receipt.json')
+46 |     pack=read(receipt['public_json']);key=read(receipt['key_file'])
+   |
+help: Rewrite `read` as a `def`
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v032_stop_reporting.py:46:38
+   |
+44 |     read=lambda path:json.loads((ROOT/path).read_text(encoding='utf-8'))
+45 |     receipt=read('audit/project2-v1/v032_blind_export_receipt.json')
+46 |     pack=read(receipt['public_json']);key=read(receipt['key_file'])
+   |                                      ^
+47 |     forbidden={'system','partition','version','question_id','old_score','label','source_file'}
+48 |     assert all(not forbidden & item.keys() for item in pack['items'])
+   |
+
+E501 Line too long (113 > 100)
+  --> tests\project2\test_v032_stop_reporting.py:52:101
+   |
+50 |     assert all(rating['score'] is None for item in pack['items'] for rating in item['ratings'])
+51 |     assert {x['blind_id'] for x in pack['items']}=={x['blind_id'] for x in key['keys']}
+52 |     assert receipt['nonempty_answer_observations']+receipt['auto_zero_observations']==receipt['all_observations']
+   |                                                                                                     ^^^^^^^^^^^^^
+53 |     assert all(x['assigned_fact_score']==0 and x['agreement_eligible'] is False for x in key['automatic_zero'])
+54 |     assert receipt['current_v032_acceptance'] is False and receipt['LLM_calls']==0
+   |
+
+E501 Line too long (111 > 100)
+  --> tests\project2\test_v032_stop_reporting.py:53:101
+   |
+51 |     assert {x['blind_id'] for x in pack['items']}=={x['blind_id'] for x in key['keys']}
+52 |     assert receipt['nonempty_answer_observations']+receipt['auto_zero_observations']==receipt['all_observations']
+53 |     assert all(x['assigned_fact_score']==0 and x['agreement_eligible'] is False for x in key['automatic_zero'])
+   |                                                                                                     ^^^^^^^^^^^
+54 |     assert receipt['current_v032_acceptance'] is False and receipt['LLM_calls']==0
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> tests\project2\test_v033_offline_reporting.py:21:5
+   |
+20 |   def test_summary_records_the_three_comparisons_without_inventing_missing_results():
+21 | /     import json
+22 | |     from project2_v033_report import generate
+   | |_____________________________________________^
+23 |
+24 |       generate(ROOT)
+   |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> tests\project2\test_v033_offline_reporting.py:37:5
+   |
+36 |   def test_current_chap13_trace_evidence_is_classified_check_by_check():
+37 | /     import json
+38 | |     from project2_v033_report import generate
+   | |_____________________________________________^
+39 |
+40 |       generate(ROOT)
+   |
+help: Organize imports
+
+E501 Line too long (108 > 100)
+  --> tests\project2\test_v033_offline_reporting.py:41:101
+   |
+40 |     generate(ROOT)
+41 |     runtime = json.loads((ROOT / 'audit/project2-v1/traceability_runtime.json').read_text(encoding='utf-8'))
+   |                                                                                                     ^^^^^^^^
+42 |     proofs = [proof for item in runtime['items'] for proof in item.get('partial_evidence', [])
+43 |               if proof['evidence_file'].startswith('audit/project2-v1/ch13_v033_')]
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> tests\project2\test_v033_offline_reporting.py:53:5
+   |
+52 |   def test_container_startup_failure_is_reported_as_a_prerequisite_failure():
+53 | /     import json
+54 | |     from project2_v033_report import generate
+   | |_____________________________________________^
+55 |
+56 |       generate(ROOT)
+   |
+help: Organize imports
+
+E501 Line too long (122 > 100)
+  --> tests\project2\test_v033_offline_reporting.py:58:101
+   |
+56 |     generate(ROOT)
+57 |     report = json.loads((ROOT / 'audit/project2-v1/summary.json').read_text(encoding='utf-8'))
+58 |     observed = json.loads((ROOT / 'audit/project2-v1/container_feasibility_after_start.json').read_text(encoding='utf-8'))
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^
+59 |     chapter = next(item for item in report['stages'] if item['stage'] == 'Chap14')
+60 |     assert chapter['status'] == 'blocked'
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v034_component_supplement.py:24:38
+   |
+23 | def test_v034_rejects_a_budget_change(tmp_path):
+24 |     docs=ROOT/'specs/project2/v0.3.4';copy=tmp_path/'v0.3.4'
+   |                                      ^
+25 |     shutil.copytree(docs,copy)
+26 |     policy=json.loads((copy/'recovery_accounting.json').read_text(encoding='utf-8'))
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v034_component_supplement.py:30:49
+   |
+28 |     (copy/'recovery_accounting.json').write_text(json.dumps(policy),encoding='utf-8')
+29 |     spec=importlib.util.spec_from_file_location('v034_negative_checker',docs/'check_docs.py')
+30 |     module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+   |                                                 ^
+31 |     with pytest.raises(ValueError,match='Unapproved copied file change'):
+32 |         module.validate(copy,ROOT)
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests\project2\test_v03_budget_profile.py:1:1
+  |
+1 | / from __future__ import annotations
+2 | | import sys
+3 | | from pathlib import Path
+4 | | import pytest
+  | |_____________^
+5 |
+6 |   ROOT = Path(__file__).resolve().parents[2]
+  |
+help: Organize imports
+
+E402 Module level import not at top of file
+ --> tests\project2\test_v03_budget_profile.py:8:1
+  |
+6 | ROOT = Path(__file__).resolve().parents[2]
+7 | sys.path.insert(0, str(ROOT / 'enterprise-ai-agent'))
+8 | from agents.project2 import budget as module
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+help: Move module level imports to top of file
+
+E501 Line too long (114 > 100)
+  --> tests\project2\test_v03_calibration.py:10:101
+   |
+ 9 | def module():
+10 |     spec = importlib.util.spec_from_file_location('v03_calibration', ROOT / 'scripts/project2_v03_calibration.py')
+   |                                                                                                     ^^^^^^^^^^^^^^
+11 |     value = importlib.util.module_from_spec(spec)
+12 |     spec.loader.exec_module(value)
+   |
+
+E501 Line too long (122 > 100)
+  --> tests\project2\test_v03_calibration.py:23:101
+   |
+21 |     assert registration['paths'] == ['rag_only', 'combination']
+22 |     for row in registration['samples'] + registration['n_samples']:
+23 |         assert set(row) <= {'sample_id', 'query', 'query_sha256', 'analysis_operation', 'include_samples', 'sample_limit'}
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^
+24 |         assert row['query']
+25 |     # Keep all original N rows, including three repeated original queries.
+   |
+
+E501 Line too long (107 > 100)
+  --> tests\project2\test_v03_calibration.py:32:101
+   |
+30 | def test_budget_formula_and_fuse_never_select_on_success_subset():
+31 |     m = module()
+32 |     rows = [{'attempts': 20, 'llm_calls': 4, 'elapsed_seconds': 10, 'censored': False} for _ in range(100)]
+   |                                                                                                     ^^^^^^^
+33 |     result = m.select_limits(rows)
+34 |     assert result['limits'] == {'attempts': 25, 'llm_calls': 5, 'seconds': 15.0}
+   |
+
+E501 Line too long (107 > 100)
+  --> tests\project2\test_v03_calibration.py:37:101
+   |
+35 |     rows[0]['censored'] = True
+36 |     assert m.select_limits(rows)['status'] == 'incomplete_censored'
+37 |     rows = [{'attempts': 33, 'llm_calls': 4, 'elapsed_seconds': 10, 'censored': False} for _ in range(100)]
+   |                                                                                                     ^^^^^^^
+38 |     assert m.select_limits(rows)['status'] == 'stopped_structural_fuse'
+39 |     assert m.select_limits(rows)['limits'] is None
+   |
+
+E501 Line too long (105 > 100)
+  --> tests\project2\test_v03_documents.py:13:101
+   |
+12 | def checker():
+13 |     spec = importlib.util.spec_from_file_location('docs_v03', ROOT / 'specs/project2/v0.3/check_docs.py')
+   |                                                                                                     ^^^^^
+14 |     module = importlib.util.module_from_spec(spec)
+15 |     spec.loader.exec_module(module)
+   |
+
+E501 Line too long (110 > 100)
+  --> tests\project2\test_v03_documents.py:29:101
+   |
+27 |     path = docs / 'spec.md'
+28 |     text = path.read_text(encoding='utf-8')
+29 |     path.write_text(text.replace('| completed | completed |', '| completed | partial |', 1), encoding='utf-8')
+   |                                                                                                     ^^^^^^^^^^
+30 |     with pytest.raises(ValueError, match='Protected spec'):
+31 |         checker().validate_revision_scope(docs, ROOT)
+   |
+
+E501 Line too long (123 > 100)
+  --> tests\project2\test_v03_documents.py:38:101
+   |
+36 |     shutil.copytree(ROOT / 'specs/project2/v0.3', docs)
+37 |     path = docs / 'acceptance_scenarios.csv'
+38 |     path.write_text(path.read_text(encoding='utf-8').replace('"AC12-03","Chap12"', '"AC12-03","Chap13"'), encoding='utf-8')
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^
+39 |     with pytest.raises(ValueError):
+40 |         checker().validate_revision_scope(docs, ROOT)
+   |
+
+E501 Line too long (104 > 100)
+  --> tests\project2\test_v03_native_gate.py:8:101
+   |
+ 7 | def loader():
+ 8 |     spec = importlib.util.spec_from_file_location('gate_v03', ROOT / 'scripts/run_project2_v03_gate.py')
+   |                                                                                                     ^^^^
+ 9 |     m = importlib.util.module_from_spec(spec)
+10 |     spec.loader.exec_module(m)
+   |
+
+E501 Line too long (179 > 100)
+  --> tests\project2\test_v03_native_gate.py:16:101
+   |
+14 | …
+15 | …: 14, 'llm_calls': 3},
+16 | …, 'payload': {'trace': {'original_query': 'original'}}, 'evidence': [{'source_id': 'S1'}], 'error': None},
+   |                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+17 | …ta', 'payload': {'measurement_complete': True, 'groups': [{'count': 0}]}, 'error': None}}}
+   |
+
+E501 Line too long (163 > 100)
+  --> tests\project2\test_v03_native_gate.py:17:101
+   |
+15 | …ttempts': 14, 'llm_calls': 3},
+16 | …mpleted', 'payload': {'trace': {'original_query': 'original'}}, 'evidence': [{'source_id': 'S1'}], 'error': None},
+17 | …: 'no_data', 'payload': {'measurement_complete': True, 'groups': [{'count': 0}]}, 'error': None}}}
+   |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v03_native_gate.py:26:19
+   |
+24 |     assert check['rag_status'] == 'completed'
+25 |     assert 'quality_passed' not in check
+26 |     bad = result(); bad['status'] = 'completed'
+   |                   ^
+27 |     assert not m.check_consistency(bad, m.read_matrix(ROOT))['passed']
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v03_native_gate.py:31:17
+   |
+30 | def test_nontraceable_result_fails():
+31 |     m = loader(); bad = result(); bad['workers']['rag']['run_id'] = 'other'
+   |                 ^
+32 |     assert not m.check_consistency(bad, m.read_matrix(ROOT))['passed']
+33 |     bad = result(); bad['workers']['rag']['payload'] = {}
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v03_native_gate.py:31:33
+   |
+30 | def test_nontraceable_result_fails():
+31 |     m = loader(); bad = result(); bad['workers']['rag']['run_id'] = 'other'
+   |                                 ^
+32 |     assert not m.check_consistency(bad, m.read_matrix(ROOT))['passed']
+33 |     bad = result(); bad['workers']['rag']['payload'] = {}
+   |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v03_native_gate.py:33:19
+   |
+31 |     m = loader(); bad = result(); bad['workers']['rag']['run_id'] = 'other'
+32 |     assert not m.check_consistency(bad, m.read_matrix(ROOT))['passed']
+33 |     bad = result(); bad['workers']['rag']['payload'] = {}
+   |                   ^
+34 |     assert not m.check_consistency(bad, m.read_matrix(ROOT))['passed']
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests\project2\test_v03_report.py:1:1
+  |
+1 | / from pathlib import Path
+2 | | import importlib.util
+  | |_____________________^
+3 |
+4 |   ROOT=Path(__file__).resolve().parents[2]
+  |
+help: Organize imports
+
+E702 Multiple statements on one line (semicolon)
+ --> tests\project2\test_v03_report.py:9:44
+  |
+7 | def module():
+8 |     spec=importlib.util.spec_from_file_location('report_v03',ROOT/'scripts/project2_v03_report.py')
+9 |     m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
+  |                                            ^
+  |
+
+E702 Multiple statements on one line (semicolon)
+ --> tests\project2\test_v03_report.py:9:71
+  |
+7 | def module():
+8 |     spec=importlib.util.spec_from_file_location('report_v03',ROOT/'scripts/project2_v03_report.py')
+9 |     m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
+  |                                                                       ^
+  |
+
+E702 Multiple statements on one line (semicolon)
+  --> tests\project2\test_v03_report.py:13:15
+   |
+12 | def test_tables_match_ids_and_reject_forged_pass():
+13 |     m=module(); approved=[{'requirement_id':'A','status':'待实施'}]
+   |               ^
+14 |     runtime=[{'requirement_id':'A','source_status':'待实施','execution_status':'部分','evidence_files':[],'gate_stages':[]}]
+15 |     assert m.compare_tables(approved,runtime,[])['status']=='passed'
+   |
+
+E501 Line too long (123 > 100)
+  --> tests\project2\test_v03_report.py:25:101
+   |
+23 |     m=module()
+24 |     assert m.execution_status({'status':'stopped_structural_fuse'},None)=='stopped_calibration_fuse'
+25 |     assert m.execution_status({'status':'selected'},{'status':'passed','system_gate_executed':False})=='awaiting_full_gate'
+   |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+
+Found 125 errors.
+[*] 22 fixable with the `--fix` option (5 hidden fixes can be enabled with the `--unsafe-fixes` option).

@@ -1,0 +1,6 @@
+{
+  "date": "2026-10-07",
+  "user_instruction": "修复与本次作业有关的问题并重复验证直到通过或说明无法通过原因",
+  "prior_failed_repairs": 2,
+  "scope": "one necessary runtime result projection fix; original eight checks unchanged; no budget/spec/QA/held-out changes"
+}

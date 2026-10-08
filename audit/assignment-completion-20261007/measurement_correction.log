@@ -1,0 +1,30 @@
+{
+  "raw_records_sha256": "826a48142d7d92e6d0692a2197abcbff8e7eb595221042111264d8dd8e70c18b",
+  "raw_summary_sha256": "9d583dddd4fad15c8ad1f0277b54cdd6ab1c372482028472dfdd3ba06bf17f0e",
+  "corrected_records_sha256": "402aa7de3984ed29a552047528fd06f8a0994fff06a73f1eb9be5024960cfcd7",
+  "generator_source_sha256": "3b3dd877badf02ea88fc143d928f56b55644e7c088d8f3b3a6120b68cf2fa1a6",
+  "observed_paths": [
+    "/api/chat",
+    "/api/embed",
+    "/api/generate"
+  ],
+  "rule": "original LLM attempts = saved total HTTP attempts - embedding attempts",
+  "original_generator_tokens": "unknown; not recoverable from retained observation",
+  "agent_refusal_rule": "trace.status=unanswerable and no exception; clarified/invalid_evidence/partial are not successful N refusals; citations are inapplicable for valid refusals",
+  "agent_status_counts": {
+    "answered": 109,
+    "unanswerable": 6,
+    "None": 2
+  },
+  "original_refusal_rule": "invalid_citation is an output validation failure, not successful knowledge refusal; n_refusal=0 and citation_valid=0, preserved raw values",
+  "agent_schema_sha256": "31e5abf524508257c0fe89310e5b454cb8ba4901847093739870931b188dbf4f",
+  "agent_service_sha256": "ee64ee90ab1f02477ae0ab0e8e5ba638da7b772d1ac62d63d1f8dcfd520a84e6",
+  "models_rerun": 0,
+  "answer_body_f1_retrieval_scores_answers_queries_unchanged": true,
+  "changed_metrics": [
+    "original llm_calls",
+    "n_refusal",
+    "citation_valid",
+    "output_validation_failure"
+  ]
+}

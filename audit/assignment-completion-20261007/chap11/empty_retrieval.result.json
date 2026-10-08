@@ -1,0 +1,35 @@
+{
+  "result": {
+    "response": {
+      "answer": "知识库无法回答该问题。",
+      "sources": [],
+      "confidence": 0.0
+    },
+    "trace": {
+      "original_query": "Error TASK001X while upgrading Portal 8.0.0.1 to 8.0.0.1 CF14 during import-nodes sub-task",
+      "rewritten_query": "Error TASK001X while upgrading Portal 8.0.0.1 to 8.0.0.1 CF14 during import-nodes sub-task",
+      "rewrite_fallback": false,
+      "tool_called": true,
+      "candidate_ids": [],
+      "evidence": [],
+      "original_tokens": 0,
+      "context_tokens": 0,
+      "status": "unanswerable",
+      "covered_facts": [],
+      "missing_facts": [],
+      "retries": 0,
+      "validation_failures": [],
+      "latency_ms": 7234232.995199996
+    }
+  },
+  "checks": {
+    "tool_called": true,
+    "zero_candidates": true,
+    "zero_sources": true,
+    "zero_confidence": true
+  },
+  "status": "passed",
+  "diagnosis": "Requested language filter excludes this official English corpus; failure stage is retrieval before context/answer selection. No unfiltered N-quality claim.",
+  "evidence_type": "故障注入",
+  "scored_set_changed": false
+}

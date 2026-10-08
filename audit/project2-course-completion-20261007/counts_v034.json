@@ -1,0 +1,1179 @@
+{
+  "status": "passed",
+  "scope": "only tune registration; DB-only current-code verification, not held-out or RAG evaluation",
+  "evidence_type": "真实运行",
+  "checks": [
+    {
+      "sample_id": "P2-COMPARE-01",
+      "query_sha256": "f38a6ef8bb91bc101429357c4fb15940803f2f4151c582bed8fdaf254669e605",
+      "independent_counts": [
+        1413,
+        547
+      ],
+      "independent_intersection": 125,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        1413,
+        547
+      ],
+      "worker_predicates": [
+        [
+          "MQ",
+          "9.0"
+        ],
+        [
+          "MQ",
+          "8.5"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.1253351999998813,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-COMPARE-02",
+      "query_sha256": "29c0b8e6079d0d0e18954ee5840b83d528230f8749866c8a39298cc3d70c972e",
+      "independent_counts": [
+        1771,
+        724
+      ],
+      "independent_intersection": 2,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        1771,
+        724
+      ],
+      "worker_predicates": [
+        [
+          "BPM",
+          "8.0.1"
+        ],
+        [
+          "DB2",
+          "10.1.0"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.27284720000011475,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-COMPARE-03",
+      "query_sha256": "cee5b19dac28af6d557499d663a97e1c7bb421b4b95500659c69705bb9db7858",
+      "independent_counts": [
+        1322,
+        1585
+      ],
+      "independent_intersection": 807,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        1322,
+        1585
+      ],
+      "worker_predicates": [
+        [
+          "IBM Integration Bus",
+          "V9.0"
+        ],
+        [
+          "WebSphere Message Broker",
+          "V8.0"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.22682140000006257,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-COMPARE-04",
+      "query_sha256": "aa56577c7b571e7431e687936f97ff38b8bd833d0a1a33b8ef9a5f1a4f3cf263",
+      "independent_counts": [
+        245,
+        79
+      ],
+      "independent_intersection": 2,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        245,
+        79
+      ],
+      "worker_predicates": [
+        [
+          "ICC",
+          "4.0.1"
+        ],
+        [
+          "CPE",
+          "5.2.1.2"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.08321060000002944,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-COMPARE-05",
+      "query_sha256": "458f9f7f407a99d3c8054bad35a5ee6bee0c48efc9fe448ddf2424dcbddade42",
+      "independent_counts": [
+        1322,
+        1585
+      ],
+      "independent_intersection": 807,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        1322,
+        1585
+      ],
+      "worker_predicates": [
+        [
+          "IBM Integration Bus",
+          "V9.0"
+        ],
+        [
+          "WebSphere Message Broker",
+          "V8.0"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.24599100000000362,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-COMPARE-06",
+      "query_sha256": "4d8c352599136a4202687efb7c0ef91b0eb6ca606646842464c78a20d0041960",
+      "independent_counts": [
+        0,
+        0
+      ],
+      "independent_intersection": 0,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        0,
+        0
+      ],
+      "worker_predicates": [
+        [
+          "Nokia NSP",
+          "v17.9"
+        ],
+        [
+          "Nokia NSP",
+          "v17.3"
+        ]
+      ],
+      "worker_status": "no_data",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.00791239999989557,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-COMPARE-07",
+      "query_sha256": "be2e9041bbd58a1157e79a6f2b18e20e92ebfdcdd4266a96897b026c384063ba",
+      "independent_counts": [
+        1322,
+        1585
+      ],
+      "independent_intersection": 807,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        1322,
+        1585
+      ],
+      "worker_predicates": [
+        [
+          "IBM Integration Bus",
+          "V9.0"
+        ],
+        [
+          "WebSphere Message Broker",
+          "V8.0"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.24494289999984176,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-COMPARE-08",
+      "query_sha256": "509159a37ee8b8b6ec3303c38c35a65a312194afc9a63185e1d1688e72838851",
+      "independent_counts": [],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [],
+      "worker_predicates": [],
+      "worker_status": "failed",
+      "worker_error": {
+        "category": "clarification_required",
+        "retryable": false,
+        "detail": "clarification_required:two_entity_version_pairs"
+      },
+      "passed": true,
+      "elapsed_seconds": 0.0016565999999329506,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-PLATFORM-01",
+      "query_sha256": "3533558486eba01f8f292d6f34377e984e68f507669be8f0d2d747935c72e560",
+      "independent_counts": [
+        11126
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        11126
+      ],
+      "worker_predicates": [
+        [
+          "WebSphere Application Server",
+          "Linux"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.22299330000009832,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-PLATFORM-02",
+      "query_sha256": "bd9c2661a8e3c59e84dcd96fa20e6ac681b365e07ff2d7b46abf782953f082d1",
+      "independent_counts": [
+        12259
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        12259
+      ],
+      "worker_predicates": [
+        [
+          "tivoli",
+          "Linux"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.21914089999995667,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-PLATFORM-03",
+      "query_sha256": "ee4b0049cfdeb6e784fa594bc76a70e9027b197609c795e558e686b205516e73",
+      "independent_counts": [
+        178
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        178
+      ],
+      "worker_predicates": [
+        [
+          "BPM",
+          "8.5.0.1",
+          "Windows"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.0533775000001242,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-PLATFORM-04",
+      "query_sha256": "d4cb135e538c84fa527710a34e449e74c62981c91c7b2ac2dfd5a5397efc0947",
+      "independent_counts": [
+        2004
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        2004
+      ],
+      "worker_predicates": [
+        [
+          "SPSS",
+          "Windows"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.031815600000072664,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-PLATFORM-05",
+      "query_sha256": "bb80cba03e3e5cedb8b09724d4a5258622d6ca66f221ca3d4d4d39ea8d65de3d",
+      "independent_counts": [
+        1492
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        1492
+      ],
+      "worker_predicates": [
+        [
+          "DB2",
+          "V11",
+          "z/OS"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.05285730000014155,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-PLATFORM-06",
+      "query_sha256": "b410ced83608032ccdde45f342e6ab5d71e9e451ee687a9e733e64776b9ec202",
+      "independent_counts": [
+        214
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        214
+      ],
+      "worker_predicates": [
+        [
+          "IBM Integration Bus",
+          "UNIX"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.034935199999836186,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-PLATFORM-07",
+      "query_sha256": "7072afc9d08f97a44daf59f949d1aeea3364b071daff1f1d4aeac21fc2b9f331",
+      "independent_counts": [
+        13960
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        13960
+      ],
+      "worker_predicates": [
+        [
+          "CICS",
+          "z/OS"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.216644899999892,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-PLATFORM-08",
+      "query_sha256": "7ee07fd36f04f847677be4f49c82f20ce95b7bc66a37a81cbda6ba3f1670df4b",
+      "independent_counts": [
+        309
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        309
+      ],
+      "worker_predicates": [
+        [
+          "SPSS",
+          "Mac"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.013673500000095373,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-01",
+      "query_sha256": "5c15a28787a894b4bd4359942911b57751590e8c97271c302f53374ff8524aaa",
+      "independent_counts": [
+        6451
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        6451
+      ],
+      "worker_predicates": [
+        [
+          "bpm"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.12012249999997948,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-02",
+      "query_sha256": "50bb45f5911c496ca2ee75cf6f73ae55019c56ec98714d4086f52f53d16918a0",
+      "independent_counts": [
+        18296
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        18296
+      ],
+      "worker_predicates": [
+        [
+          "MQ"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.23676469999986693,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-03",
+      "query_sha256": "53aeba478cc8fecc2769f74d0d2755928332fe04fd9ab9f811072d06e26b213a",
+      "independent_counts": [
+        13881
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        13881
+      ],
+      "worker_predicates": [
+        [
+          "WebSphere MQ"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.22484320000012303,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-04",
+      "query_sha256": "1712487d221041a37e0969d5facde7f571b4e6f9acff1e636eeb585629bf7128",
+      "independent_counts": [
+        13881
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        13881
+      ],
+      "worker_predicates": [
+        [
+          "WebSphere MQ"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.20517760000007002,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-05",
+      "query_sha256": "2231d8d9249b7b7ebd0d491699a1b229517f6d668c60a6c54edf51754e9535fa",
+      "independent_counts": [
+        40526
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        40526
+      ],
+      "worker_predicates": [
+        [
+          "WebSphere Application Server"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.4421860999998444,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-06",
+      "query_sha256": "95592dc813de46efc60a191d67292d685ad1d93e86bed84ab0bb0ca8e9238129",
+      "independent_counts": [
+        3736
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        3736
+      ],
+      "worker_predicates": [
+        [
+          "DataPower"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.060594099999889295,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-07",
+      "query_sha256": "85eefa4b784b2d5921169a59483f659dbdaf8d08947b898c10747a97a8892d31",
+      "independent_counts": [
+        4867
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        4867
+      ],
+      "worker_predicates": [
+        [
+          "WebSphere Message Broker"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.08777839999993375,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-08",
+      "query_sha256": "fa94d6406b4f19c3050b79d7007043e00e88433fda181e4305a7de9b52c16e3a",
+      "independent_counts": [
+        58237
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        58237
+      ],
+      "worker_predicates": [
+        [
+          "rational"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.5647292999999536,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-VERSION-01",
+      "query_sha256": "d5e1045cbcf55f56a88a8dd4b5145b818e35d2979e53eda12a208406beeb5d8f",
+      "independent_counts": [
+        192
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        192
+      ],
+      "worker_predicates": [
+        [
+          "Netcool/Impact",
+          "6.1.0"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.027440500000011525,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-VERSION-02",
+      "query_sha256": "23a2a7190e4016e2e090651e639b5444e3c2bd492f2ae8121aa35e81bed3612d",
+      "independent_counts": [
+        978
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        978
+      ],
+      "worker_predicates": [
+        [
+          "IBM Integration Bus",
+          "V10"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.04948070000000371,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-VERSION-03",
+      "query_sha256": "789e29e5195f63b8e29d243f0518c0d57ddf1f4322cca552868f3a36616eb717",
+      "independent_counts": [
+        3533
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        3533
+      ],
+      "worker_predicates": [
+        [
+          "Cognos",
+          "10.2.2"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.07733510000002752,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-VERSION-04",
+      "query_sha256": "c23421bc31d0f8a7dc657923a3a9b12dab3afd0d75c526833c04d46a4ae40d63",
+      "independent_counts": [
+        142
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        142
+      ],
+      "worker_predicates": [
+        [
+          "ITNM",
+          "4.2"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.01143369999999777,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-VERSION-05",
+      "query_sha256": "27e806cc91f576da9a16c2b7024cc966547fd14301d71dade278ae0dcabd315e",
+      "independent_counts": [
+        673
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        673
+      ],
+      "worker_predicates": [
+        [
+          "DataPower",
+          "7.1.0"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.054856299999983094,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-VERSION-06",
+      "query_sha256": "a4e5df7cec9e7a2c12f84da8816736a05e6645f78be0f917591de4cf960c1552",
+      "independent_counts": [
+        316
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        316
+      ],
+      "worker_predicates": [
+        [
+          "datacap",
+          "9.0"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.019879199999877528,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-VERSION-07",
+      "query_sha256": "ba2137da948ef0e52d7879310ba50feb01720d3195c87f6a68291a0dfd459d09",
+      "independent_counts": [
+        235
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        235
+      ],
+      "worker_predicates": [
+        [
+          "SPSS",
+          "18.1"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.021076600000014878,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-VERSION-08",
+      "query_sha256": "c1633bc0820f1830510b084999861389ee1c97993701d69e578d1d422398b193",
+      "independent_counts": [
+        3736
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        3736
+      ],
+      "worker_predicates": [
+        [
+          "DataPower"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.08315129999982673,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-ENTITY-01",
+      "query_sha256": "0312a53158deb660fa0c16cb3e68818c29a2366c4b7240cc13e968af4b9625f8",
+      "independent_counts": [
+        18296
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        18296
+      ],
+      "worker_predicates": [
+        [
+          "MQ"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.21228949999999713,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-ENTITY-02",
+      "query_sha256": "070bd6335c054090120ed864fc4e2cf3b03bafe964a5123693f09688e7cc96b9",
+      "independent_counts": [
+        3736
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        3736
+      ],
+      "worker_predicates": [
+        [
+          "DataPower"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.08622839999998178,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-ENTITY-03",
+      "query_sha256": "b5c01c130b468de7bea4c25eff65aa053411bd23bce8f1c31da11d49ca684699",
+      "independent_counts": [
+        42569
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        42569
+      ],
+      "worker_predicates": [
+        [
+          "Impact"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.44019600000001446,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-ENTITY-04",
+      "query_sha256": "11b5706becc8fff5d975f5ab75365bacf30a0bcc10a91b7ecaeaa401c5beb532",
+      "independent_counts": [
+        9823
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        9823
+      ],
+      "worker_predicates": [
+        [
+          "WebSphere Portal"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.13461680000000342,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-ENTITY-05",
+      "query_sha256": "cbca0b84877f0d474655d701c35cd28197e78a4bdfb9433143471081c75a9957",
+      "independent_counts": [
+        3736
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        3736
+      ],
+      "worker_predicates": [
+        [
+          "DataPower"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.08164780000015526,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-ENTITY-06",
+      "query_sha256": "e0843c352d431ce55afb79963ada8c8010106ab1c7bc7bd003e32201633467e8",
+      "independent_counts": [
+        18296
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        18296
+      ],
+      "worker_predicates": [
+        [
+          "MQ"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.2137471999999434,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-ENTITY-07",
+      "query_sha256": "a73ce09eb3907e6043b4f5fa1650fe73c45efb27002a2b0fe860109dd76b7da5",
+      "independent_counts": [
+        40526
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        40526
+      ],
+      "worker_predicates": [
+        [
+          "WebSphere Application Server"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.5331316000001607,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-ENTITY-08",
+      "query_sha256": "7008cbedc0a4f5982e255cf82723d106743c094734a66dd07cbfabfb66cc4cbe",
+      "independent_counts": [
+        3736
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        3736
+      ],
+      "worker_predicates": [
+        [
+          "DataPower"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.061512900000025184,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-NOANSWER-01",
+      "query_sha256": "a5d0667a18e672eaf89f2272d8ee0dee3fca89cce84fe4f7f6e7f51425315dbb",
+      "independent_counts": [
+        6451
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        6451
+      ],
+      "worker_predicates": [
+        [
+          "BPM"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.1228611000001365,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-NOANSWER-02",
+      "query_sha256": "817e4256d3e9bce5469cba5d17963bbd53038e96d0082cc27f672afba8b3f6ce",
+      "independent_counts": [
+        1873
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        1873
+      ],
+      "worker_predicates": [
+        [
+          "MQ",
+          "V7.0.1"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.09580619999996998,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-NOANSWER-03",
+      "query_sha256": "c0cbaaf707f84d49629eafaf2ad12d50e3007f38d7b1e418fd1f181a011b462b",
+      "independent_counts": [
+        8643
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        8643
+      ],
+      "worker_predicates": [
+        [
+          "ITM"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.11601949999999306,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-NOANSWER-04",
+      "query_sha256": "23c533707359b13ff7881436e81ed2690a82635bca1663dcaa056fd8a9f7509d",
+      "independent_counts": [
+        6451
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        6451
+      ],
+      "worker_predicates": [
+        [
+          "BPM"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.09636050000017349,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-NOANSWER-05",
+      "query_sha256": "25dfd715856fc3da85e110b9600647582961ec82241e17df0ed92f1aab3b8b10",
+      "independent_counts": [
+        2288
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        2288
+      ],
+      "worker_predicates": [
+        [
+          "Datacap"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.04378730000007636,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-NOANSWER-06",
+      "query_sha256": "afc7c741d2aaf0484cd7eedafad430dc494a3037e29fc5049ae9933d22ce1514",
+      "independent_counts": [
+        3736
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        3736
+      ],
+      "worker_predicates": [
+        [
+          "DataPower"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.0797982999999931,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-NOANSWER-07",
+      "query_sha256": "5d1c1a8056635c3ff7a8c76c306215f43eeb228b294a44dad49b75f363140425",
+      "independent_counts": [
+        3736
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        3736
+      ],
+      "worker_predicates": [
+        [
+          "DataPower"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.09916679999992084,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-NOANSWER-08",
+      "query_sha256": "c41b3e351dc3dc7f97adc2c2a00636254b2efbb859fa508840a2b9aaeebd526c",
+      "independent_counts": [
+        46777
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        46777
+      ],
+      "worker_predicates": [
+        [
+          "Tivoli"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.48630709999997634,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-NOANSWER-09",
+      "query_sha256": "09ef68a24e7421d69e0a0970a526e2e85dbc64397793878bd79692c24f2cc599",
+      "independent_counts": [
+        9823
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        9823
+      ],
+      "worker_predicates": [
+        [
+          "WebSphere Portal"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.12416209999992134,
+      "worker_llm_calls": 0
+    },
+    {
+      "sample_id": "P2-NOANSWER-10",
+      "query_sha256": "a7123382bc668e0c1a11adab2161ebca757d8380659ef85bb46db595a5355653",
+      "independent_counts": [
+        1938
+      ],
+      "independent_intersection": null,
+      "approved_expectation_matches_recount": true,
+      "worker_counts": [
+        1938
+      ],
+      "worker_predicates": [
+        [
+          "MQ",
+          "V8.0"
+        ]
+      ],
+      "worker_status": "completed",
+      "worker_error": null,
+      "passed": true,
+      "elapsed_seconds": 0.06550870000000941,
+      "worker_llm_calls": 0
+    }
+  ],
+  "numerator": 50,
+  "denominator": 50,
+  "new_heldout_calls": 0,
+  "new_model_calls": 0,
+  "llm_vector_rag_disabled": true,
+  "spec_manifest_sha256": "9963a596fb1a29262976d29434e2dcbbee6213d1e243eb040611f8f26fc621b1",
+  "worker_sha256": "1bcb81fec4dc45f77522e93a49432fceb98a4bf6bea49acd2773f4015d265250",
+  "historical_records_modified": false
+}

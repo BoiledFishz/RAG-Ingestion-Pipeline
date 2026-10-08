@@ -3,6 +3,8 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import os
+import tempfile
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -19,7 +21,18 @@ def sha(path: Path) -> str:
 
 def save(path: Path, data: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+    content = json.dumps(data, ensure_ascii=False, indent=2) + '\n'
+    # Windows failed opening existing generated report files for truncation.
+    # Close the sibling temporary file before replacing the destination.
+    with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', newline='\n',
+                                     dir=path.parent, prefix=path.name + '.',
+                                     suffix='.tmp', delete=False) as handle:
+        handle.write(content)
+        temporary = Path(handle.name)
+    try:
+        os.replace(temporary, path)
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 def compare_tables(approved: list[dict], runtime: list[dict], passed_stages: list[str]) -> dict:

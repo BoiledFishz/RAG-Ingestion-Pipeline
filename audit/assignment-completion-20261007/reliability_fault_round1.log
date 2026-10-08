@@ -1,0 +1,4 @@
+INFO:httpx:HTTP Request: POST http://localhost:11434/api/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://localhost:11434/api/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://localhost:11434/api/embed "HTTP/1.1 200 OK"
+WARNING:tools.techqa_document_query:Database request=fault-readonly status=partial timeout=injected_database_group_timeout

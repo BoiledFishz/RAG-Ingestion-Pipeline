@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\scripts\verify_assignment_reliability.py", line 203, in <module>
+    result = asyncio.run(verify())
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\scripts\verify_assignment_reliability.py", line 103, in verify
+    after.embedder.embed_documents = observed
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'OllamaEmbeddingProvider' object attribute 'embed_documents' is read-only

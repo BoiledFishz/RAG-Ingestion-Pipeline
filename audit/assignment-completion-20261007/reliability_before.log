@@ -1,0 +1,599 @@
+C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+2026-10-07 11:35:16,834 INFO P2_STARTUP {"type": "ready", "scope": "full", "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b", "worker_pid": 2280, "warmup": {"completed": true, "selection": "official full docs ORDER BY doc_id LIMIT 1, text only", "text_sha256": "27566416452b285c86c1df3f65970d4eb327c96d9c97ebf6b77b64c095776b2d", "qa_fields_used": [], "corpus_read_seconds": 0.021342099999856146, "embedding_inference_seconds": 0.9874298000004273, "index_warmup_seconds": 0.6947589999999764, "total_seconds": 1.7035309000002599, "llm_calls": 0, "request_budget_created": false}, "startup_timings": {"imports_seconds": 0.7396460999998453, "agent_build_seconds": 0.02141849999952683, "index_and_encoder_seconds": 76.99209530000007, "faiss_index_load_seconds": 18.9057186, "child_initialization_seconds": 79.87911600000007}, "launch_to_ready_seconds": 80.70173239999986}
+2026-10-07 11:35:20,269 INFO Database request=b2308089695c451993fab22ff45c6659 status=completed counts=[12259]
+2026-10-07 11:35:54,948 INFO Project2 run=b2308089695c451993fab22ff45c6659 status=completed attempts=14
+2026-10-07 11:35:55,062 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:35:55,074 INFO reliability_before repeat=1 1/50 states={'rag': 'completed', 'database': 'completed'} seconds=38.203
+2026-10-07 11:35:57,314 INFO Database request=fb18cce3766a46f68b0ed36b7e004cfe status=completed counts=[4867]
+2026-10-07 11:36:31,904 INFO Project2 run=fb18cce3766a46f68b0ed36b7e004cfe status=completed attempts=14
+2026-10-07 11:36:31,942 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:36:31,946 INFO reliability_before repeat=1 2/50 states={'rag': 'completed', 'database': 'completed'} seconds=36.875
+2026-10-07 11:36:32,226 INFO Database request=bc53d8567d5e409db6aa87e4c13a1342 status=completed counts=[316]
+2026-10-07 11:36:51,191 INFO Project2 run=bc53d8567d5e409db6aa87e4c13a1342 status=completed attempts=14
+2026-10-07 11:36:51,210 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:36:51,214 INFO reliability_before repeat=1 3/50 states={'rag': 'completed', 'database': 'completed'} seconds=19.266
+2026-10-07 11:36:53,861 INFO Database request=f3d49bb27a0240bc80c31513ee50f6dd status=completed counts=[11126]
+2026-10-07 11:37:17,172 INFO Project2 run=f3d49bb27a0240bc80c31513ee50f6dd status=completed attempts=14
+2026-10-07 11:37:17,194 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:37:17,197 INFO reliability_before repeat=1 4/50 states={'rag': 'completed', 'database': 'completed'} seconds=25.984
+2026-10-07 11:37:18,126 INFO Database request=d68a6043c2794d6e8f84a9ca01247418 status=completed counts=[3736]
+2026-10-07 11:37:33,418 INFO Project2 run=d68a6043c2794d6e8f84a9ca01247418 status=completed attempts=14
+2026-10-07 11:37:33,436 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:37:33,437 INFO reliability_before repeat=1 5/50 states={'rag': 'completed', 'database': 'completed'} seconds=16.235
+2026-10-07 11:37:40,458 INFO Database request=974f64bbf42b47428aabd42541a29b32 status=completed counts=[46777]
+2026-10-07 11:37:54,026 INFO Project2 run=974f64bbf42b47428aabd42541a29b32 status=completed attempts=14
+2026-10-07 11:37:54,049 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:37:54,054 INFO reliability_before repeat=1 6/50 states={'rag': 'completed', 'database': 'completed'} seconds=20.625
+2026-10-07 11:37:54,974 INFO Database request=cca69ca109ad40cbb1f2acb112cffa78 status=completed counts=[245, 79]
+2026-10-07 11:38:23,552 INFO Project2 run=cca69ca109ad40cbb1f2acb112cffa78 status=completed attempts=19
+2026-10-07 11:38:23,576 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:38:23,578 INFO reliability_before repeat=1 7/50 states={'rag': 'completed', 'database': 'completed'} seconds=29.515
+2026-10-07 11:38:26,837 INFO Database request=50aaab40ebee42f98ff63af2faaf4d7f status=completed counts=[18296]
+2026-10-07 11:38:43,111 INFO Project2 run=50aaab40ebee42f98ff63af2faaf4d7f status=completed attempts=14
+2026-10-07 11:38:43,129 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:38:43,131 INFO reliability_before repeat=1 8/50 states={'rag': 'completed', 'database': 'completed'} seconds=19.563
+2026-10-07 11:38:43,632 INFO Database request=62e21aac1f2c4ee9be9021dd7dc30667 status=completed counts=[13881]
+2026-10-07 11:38:58,161 INFO Project2 run=62e21aac1f2c4ee9be9021dd7dc30667 status=completed attempts=14
+2026-10-07 11:38:58,204 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:38:58,211 INFO reliability_before repeat=1 9/50 states={'rag': 'completed', 'database': 'completed'} seconds=15.062
+2026-10-07 11:38:58,928 INFO Database request=2165a35ee7ef44c9be5997ec19774153 status=completed counts=[192]
+2026-10-07 11:39:09,204 INFO Project2 run=2165a35ee7ef44c9be5997ec19774153 status=completed attempts=14
+2026-10-07 11:39:09,225 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:39:09,227 INFO reliability_before repeat=1 10/50 states={'rag': 'completed', 'database': 'completed'} seconds=11.015
+2026-10-07 11:39:09,852 INFO Database request=14e882254aac4ebb8054b2844a0b340e status=completed counts=[673]
+2026-10-07 11:39:24,069 INFO Project2 run=14e882254aac4ebb8054b2844a0b340e status=completed attempts=14
+2026-10-07 11:39:24,086 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:39:24,087 INFO reliability_before repeat=1 11/50 states={'rag': 'completed', 'database': 'completed'} seconds=14.860
+2026-10-07 11:39:30,471 INFO Database request=f32f0be35a0541d9a0c3852146e0c0c3 status=completed counts=[40526]
+2026-10-07 11:39:49,041 INFO Project2 run=f32f0be35a0541d9a0c3852146e0c0c3 status=completed attempts=14
+2026-10-07 11:39:49,062 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:39:49,064 INFO reliability_before repeat=1 12/50 states={'rag': 'completed', 'database': 'completed'} seconds=24.969
+2026-10-07 11:39:49,255 INFO Database request=f30bda2c69854ef7b42f500f41aa46cd status=completed counts=[142]
+2026-10-07 11:40:00,702 INFO Project2 run=f30bda2c69854ef7b42f500f41aa46cd status=completed attempts=14
+2026-10-07 11:40:00,725 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:40:00,730 INFO reliability_before repeat=1 13/50 states={'rag': 'completed', 'database': 'completed'} seconds=11.671
+2026-10-07 11:40:01,530 INFO Database request=74bd9876bf164e8f85eb82f11387454f status=completed counts=[1938]
+2026-10-07 11:40:12,922 INFO Project2 run=74bd9876bf164e8f85eb82f11387454f status=completed attempts=14
+2026-10-07 11:40:12,945 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:40:12,947 INFO reliability_before repeat=1 14/50 states={'rag': 'completed', 'database': 'completed'} seconds=12.219
+2026-10-07 11:40:13,491 INFO Database request=aea29b5e852d4d6d8095cdd4c4916f75 status=completed counts=[178]
+2026-10-07 11:40:28,477 INFO Project2 run=aea29b5e852d4d6d8095cdd4c4916f75 status=completed attempts=14
+2026-10-07 11:40:28,504 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:40:28,506 INFO reliability_before repeat=1 15/50 states={'rag': 'completed', 'database': 'completed'} seconds=15.563
+2026-10-07 11:40:29,133 INFO Database request=2294d395163a43d48496179253f6c1e3 status=completed counts=[978]
+2026-10-07 11:40:43,330 INFO Project2 run=2294d395163a43d48496179253f6c1e3 status=completed attempts=14
+2026-10-07 11:40:43,349 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:40:43,351 INFO reliability_before repeat=1 16/50 states={'rag': 'completed', 'database': 'completed'} seconds=14.843
+2026-10-07 11:40:44,524 INFO Database request=e2e0974dd5ae46cf81ae670814794631 status=completed counts=[1771, 724]
+2026-10-07 11:41:04,479 INFO Project2 run=e2e0974dd5ae46cf81ae670814794631 status=completed attempts=17
+2026-10-07 11:41:04,498 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:41:04,501 INFO reliability_before repeat=1 17/50 states={'rag': 'completed', 'database': 'completed'} seconds=21.141
+2026-10-07 11:41:04,788 INFO Database request=b8373a6bb35d4e9ab36b1fd547deafd1 status=completed counts=[235]
+2026-10-07 11:41:18,467 INFO Project2 run=b8373a6bb35d4e9ab36b1fd547deafd1 status=completed attempts=14
+2026-10-07 11:41:18,495 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:41:18,498 INFO reliability_before repeat=1 18/50 states={'rag': 'completed', 'database': 'completed'} seconds=14.000
+2026-10-07 11:41:26,477 INFO Database request=3923bcde94d54bffb2b3e614baf8a784 status=completed counts=[58237]
+2026-10-07 11:41:52,409 INFO Project2 run=3923bcde94d54bffb2b3e614baf8a784 status=completed attempts=14
+2026-10-07 11:41:52,430 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:41:52,432 INFO reliability_before repeat=1 19/50 states={'rag': 'completed', 'database': 'completed'} seconds=33.938
+2026-10-07 11:41:53,356 INFO Database request=53a6ab8f30544f0b874d38a353821d70 status=completed counts=[3736]
+2026-10-07 11:42:14,698 INFO Project2 run=53a6ab8f30544f0b874d38a353821d70 status=completed attempts=14
+2026-10-07 11:42:14,719 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:42:14,722 INFO reliability_before repeat=1 20/50 states={'rag': 'completed', 'database': 'completed'} seconds=22.281
+2026-10-07 11:42:15,877 INFO Database request=b750c45ebab1418e8385ddee527281ed status=completed counts=[3533]
+2026-10-07 11:42:31,011 INFO Project2 run=b750c45ebab1418e8385ddee527281ed status=completed attempts=14
+2026-10-07 11:42:31,036 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:42:31,039 INFO reliability_before repeat=1 21/50 states={'rag': 'completed', 'database': 'completed'} seconds=16.313
+2026-10-07 11:42:32,438 INFO Database request=7308815b966d496792ca1149203e98e9 status=completed counts=[1322, 1585]
+2026-10-07 11:42:51,929 INFO Project2 run=7308815b966d496792ca1149203e98e9 status=completed attempts=17
+2026-10-07 11:42:51,961 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:42:51,963 INFO reliability_before repeat=1 22/50 states={'rag': 'completed', 'database': 'completed'} seconds=20.922
+2026-10-07 11:42:58,894 INFO Database request=dc611a64260e424ead9f665c1853d470 status=completed counts=[40526]
+2026-10-07 11:43:13,462 INFO Project2 run=dc611a64260e424ead9f665c1853d470 status=completed attempts=14
+2026-10-07 11:43:13,481 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:43:13,484 INFO reliability_before repeat=1 23/50 states={'rag': 'completed', 'database': 'completed'} seconds=21.515
+2026-10-07 11:43:14,255 INFO Database request=0cb83dc8b63548ebb546f8373fc43ad8 status=completed counts=[2288]
+2026-10-07 11:43:25,470 INFO Project2 run=0cb83dc8b63548ebb546f8373fc43ad8 status=completed attempts=14
+2026-10-07 11:43:25,501 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:43:25,503 INFO reliability_before repeat=1 24/50 states={'rag': 'completed', 'database': 'completed'} seconds=12.016
+2026-10-07 11:43:29,037 INFO Database request=805bc9eac75840158c12a36df6be6ac0 status=completed counts=[18296]
+2026-10-07 11:43:39,283 INFO Project2 run=805bc9eac75840158c12a36df6be6ac0 status=completed attempts=14
+2026-10-07 11:43:39,336 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:43:39,344 INFO reliability_before repeat=1 25/50 states={'rag': 'completed', 'database': 'completed'} seconds=13.844
+2026-10-07 11:43:40,991 INFO Database request=04875dcf33824cba82c442b50c7d626a status=completed counts=[8643]
+2026-10-07 11:43:51,427 INFO Project2 run=04875dcf33824cba82c442b50c7d626a status=completed attempts=14
+2026-10-07 11:43:51,449 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:43:51,450 INFO reliability_before repeat=1 26/50 states={'rag': 'completed', 'database': 'completed'} seconds=12.109
+2026-10-07 11:43:52,281 INFO Database request=b2d01fbdca154cae954cbd50ce0ed5d0 status=completed counts=[3736]
+2026-10-07 11:44:04,654 INFO Project2 run=b2d01fbdca154cae954cbd50ce0ed5d0 status=completed attempts=14
+2026-10-07 11:44:04,676 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:44:04,679 INFO reliability_before repeat=1 27/50 states={'rag': 'completed', 'database': 'completed'} seconds=13.235
+2026-10-07 11:44:05,173 INFO Database request=31e4428f2c0f4df6a9656941175b93af status=completed counts=[2004]
+2026-10-07 11:44:25,632 INFO Project2 run=31e4428f2c0f4df6a9656941175b93af status=completed attempts=14
+2026-10-07 11:44:25,657 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:44:25,661 INFO reliability_before repeat=1 28/50 states={'rag': 'completed', 'database': 'completed'} seconds=20.968
+2026-10-07 11:44:26,097 INFO Database request=46189fecdcba49c79de236783ed1db35 status=completed counts=[214]
+2026-10-07 11:44:40,015 INFO Project2 run=46189fecdcba49c79de236783ed1db35 status=partial attempts=13
+2026-10-07 11:44:40,037 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:44:40,038 INFO reliability_before repeat=1 29/50 states={'rag': 'no_data', 'database': 'completed'} seconds=14.375
+2026-10-07 11:44:40,938 INFO Database request=bfb6c078d8f4412493ff7aa8a98e7775 status=completed counts=[3736]
+2026-10-07 11:44:51,819 INFO Project2 run=bfb6c078d8f4412493ff7aa8a98e7775 status=completed attempts=14
+2026-10-07 11:44:51,846 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:44:51,847 INFO reliability_before repeat=1 30/50 states={'rag': 'completed', 'database': 'completed'} seconds=11.797
+2026-10-07 11:44:52,745 INFO Database request=46f6c427ea274631ba8b36d47796a63d status=completed counts=[1873]
+2026-10-07 11:45:04,482 INFO Project2 run=46f6c427ea274631ba8b36d47796a63d status=completed attempts=14
+2026-10-07 11:45:04,501 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:45:04,504 INFO reliability_before repeat=1 31/50 states={'rag': 'completed', 'database': 'completed'} seconds=12.656
+2026-10-07 11:45:05,707 INFO Database request=b5ffecbfc1dc47d1b6d982e1f96b08bd status=completed counts=[6451]
+2026-10-07 11:45:24,348 INFO Project2 run=b5ffecbfc1dc47d1b6d982e1f96b08bd status=completed attempts=14
+2026-10-07 11:45:24,368 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:45:24,374 INFO reliability_before repeat=1 32/50 states={'rag': 'completed', 'database': 'completed'} seconds=19.875
+2026-10-07 11:45:27,696 INFO Database request=750352f0801a4526b99a50a8cb3d5c90 status=completed counts=[9823]
+2026-10-07 11:45:37,777 INFO Project2 run=750352f0801a4526b99a50a8cb3d5c90 status=completed attempts=14
+2026-10-07 11:45:37,802 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:45:37,804 INFO reliability_before repeat=1 33/50 states={'rag': 'completed', 'database': 'completed'} seconds=13.438
+2026-10-07 11:45:37,865 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:45:37,867 INFO reliability_before repeat=1 34/50 states={'rag': 'failed', 'database': 'failed'} seconds=0.062
+2026-10-07 11:45:38,070 INFO Database request=bc83962e731544fa80b1550d32e932ed status=completed counts=[309]
+2026-10-07 11:46:00,495 INFO Project2 run=bc83962e731544fa80b1550d32e932ed status=completed attempts=14
+2026-10-07 11:46:00,517 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:46:00,518 INFO reliability_before repeat=1 35/50 states={'rag': 'completed', 'database': 'completed'} seconds=22.641
+2026-10-07 11:46:01,627 INFO Database request=5dade51b5b9a43a98e1af3643fb4e361 status=completed counts=[1413, 547]
+2026-10-07 11:46:19,068 INFO Project2 run=5dade51b5b9a43a98e1af3643fb4e361 status=partial attempts=16
+2026-10-07 11:46:19,085 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:46:19,088 INFO reliability_before repeat=1 36/50 states={'rag': 'no_data', 'database': 'completed'} seconds=18.578
+2026-10-07 11:46:20,410 INFO Database request=74baf91207394bf8a9cd6b2dad11eb0b status=completed counts=[1322, 1585]
+2026-10-07 11:46:35,760 INFO Project2 run=74baf91207394bf8a9cd6b2dad11eb0b status=completed attempts=17
+2026-10-07 11:46:35,783 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:46:35,785 INFO reliability_before repeat=1 37/50 states={'rag': 'completed', 'database': 'completed'} seconds=16.687
+2026-10-07 11:46:36,246 INFO Database request=5486a4909aa9485f8b2eed80975f02fc status=completed counts=[1322, 1585]
+2026-10-07 11:46:53,131 INFO Project2 run=5486a4909aa9485f8b2eed80975f02fc status=completed attempts=17
+2026-10-07 11:46:53,155 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:46:53,157 INFO reliability_before repeat=1 38/50 states={'rag': 'completed', 'database': 'completed'} seconds=17.375
+2026-10-07 11:47:00,145 INFO Database request=657a4f374801416ba4167a8f1ed766e9 status=completed counts=[42569]
+2026-10-07 11:47:13,846 INFO Project2 run=657a4f374801416ba4167a8f1ed766e9 status=completed attempts=14
+2026-10-07 11:47:13,869 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:47:13,871 INFO reliability_before repeat=1 39/50 states={'rag': 'completed', 'database': 'completed'} seconds=20.719
+2026-10-07 11:47:15,278 INFO Database request=29507c0732a048d396b451ec1cd6ffea status=completed counts=[6451]
+2026-10-07 11:47:30,391 INFO Project2 run=29507c0732a048d396b451ec1cd6ffea status=completed attempts=14
+2026-10-07 11:47:30,414 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:47:30,419 INFO reliability_before repeat=1 40/50 states={'rag': 'completed', 'database': 'completed'} seconds=16.547
+2026-10-07 11:47:31,438 INFO Database request=c6999d07577148c2b737a80116b2f994 status=completed counts=[3736]
+2026-10-07 11:47:47,088 INFO Project2 run=c6999d07577148c2b737a80116b2f994 status=completed attempts=14
+2026-10-07 11:47:47,122 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:47:47,126 INFO reliability_before repeat=1 41/50 states={'rag': 'completed', 'database': 'completed'} seconds=16.703
+2026-10-07 11:47:50,065 INFO Database request=cecd10dc3c0549f78c6cd30ff756f87d status=completed counts=[13960]
+2026-10-07 11:48:17,805 INFO Project2 run=cecd10dc3c0549f78c6cd30ff756f87d status=completed attempts=14
+2026-10-07 11:48:17,825 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:48:17,827 INFO reliability_before repeat=1 42/50 states={'rag': 'completed', 'database': 'completed'} seconds=30.703
+2026-10-07 11:48:19,546 INFO Database request=1405a95cc86e48bcb2a80ff69282a2ea status=completed counts=[9823]
+2026-10-07 11:48:32,313 INFO Project2 run=1405a95cc86e48bcb2a80ff69282a2ea status=partial attempts=13
+2026-10-07 11:48:32,333 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:48:32,335 INFO reliability_before repeat=1 43/50 states={'rag': 'no_data', 'database': 'completed'} seconds=14.516
+2026-10-07 11:48:32,892 INFO Database request=29c3b65665224e88bf3584b73bf336b9 status=completed counts=[1492]
+2026-10-07 11:48:56,906 INFO Project2 run=29c3b65665224e88bf3584b73bf336b9 status=completed attempts=14
+2026-10-07 11:48:56,931 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:48:56,934 INFO reliability_before repeat=1 44/50 states={'rag': 'completed', 'database': 'completed'} seconds=24.594
+2026-10-07 11:49:00,250 INFO Database request=0e5770a960d04378a5df7b7129b3f1b8 status=completed counts=[18296]
+2026-10-07 11:49:14,015 INFO Project2 run=0e5770a960d04378a5df7b7129b3f1b8 status=completed attempts=14
+2026-10-07 11:49:14,043 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:49:14,049 INFO reliability_before repeat=1 45/50 states={'rag': 'completed', 'database': 'completed'} seconds=17.109
+2026-10-07 11:49:15,024 INFO Database request=a08a7ecd7b5645f4bf4c8b51b04723b4 status=completed counts=[3736]
+2026-10-07 11:49:28,886 INFO Project2 run=a08a7ecd7b5645f4bf4c8b51b04723b4 status=completed attempts=14
+2026-10-07 11:49:28,917 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:49:28,923 INFO reliability_before repeat=1 46/50 states={'rag': 'completed', 'database': 'completed'} seconds=14.875
+2026-10-07 11:49:31,672 INFO Database request=d293c2257a25482db1facccf270903e0 status=completed counts=[13881]
+2026-10-07 11:49:48,272 INFO Project2 run=d293c2257a25482db1facccf270903e0 status=completed attempts=14
+2026-10-07 11:49:48,293 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:49:48,295 INFO reliability_before repeat=1 47/50 states={'rag': 'completed', 'database': 'completed'} seconds=19.375
+2026-10-07 11:49:49,521 INFO Database request=899be91f8d104b86a2a03ff4e3166114 status=completed counts=[6451]
+2026-10-07 11:49:58,950 INFO Project2 run=899be91f8d104b86a2a03ff4e3166114 status=partial attempts=13
+2026-10-07 11:49:58,970 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:49:58,972 INFO reliability_before repeat=1 48/50 states={'rag': 'no_data', 'database': 'completed'} seconds=10.672
+2026-10-07 11:49:59,106 INFO Database request=03cca7f34efe434aa8a2f2df4aa2f6d3 status=no_data counts=[0, 0]
+2026-10-07 11:50:12,974 INFO Project2 run=03cca7f34efe434aa8a2f2df4aa2f6d3 status=partial attempts=17
+2026-10-07 11:50:13,000 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:50:13,002 INFO reliability_before repeat=1 49/50 states={'rag': 'completed', 'database': 'no_data'} seconds=14.031
+2026-10-07 11:50:14,079 INFO Database request=1c577ce94c304113b87f6d1c0ce1cbc7 status=completed counts=[3736]
+2026-10-07 11:50:30,490 INFO Project2 run=1c577ce94c304113b87f6d1c0ce1cbc7 status=completed attempts=14
+2026-10-07 11:50:30,509 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:50:30,510 INFO reliability_before repeat=1 50/50 states={'rag': 'completed', 'database': 'completed'} seconds=17.516
+2026-10-07 11:50:38,280 INFO Database request=fdf7617fe73049928d3079578c5ff0ee status=completed counts=[58237]
+2026-10-07 11:50:58,322 INFO Project2 run=fdf7617fe73049928d3079578c5ff0ee status=completed attempts=12
+2026-10-07 11:50:58,343 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:50:58,345 INFO reliability_before repeat=2 1/50 states={'rag': 'completed', 'database': 'completed'} seconds=27.828
+2026-10-07 11:50:58,731 INFO Database request=b0e364c537b048abb2889902e0e6e78f status=completed counts=[192]
+2026-10-07 11:51:06,877 INFO Project2 run=b0e364c537b048abb2889902e0e6e78f status=completed attempts=12
+2026-10-07 11:51:06,903 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:51:06,905 INFO reliability_before repeat=2 2/50 states={'rag': 'completed', 'database': 'completed'} seconds=8.562
+2026-10-07 11:51:08,388 INFO Database request=e2317c402e0e4efc817cd9df9ed1dd29 status=completed counts=[1322, 1585]
+2026-10-07 11:51:21,311 INFO Project2 run=e2317c402e0e4efc817cd9df9ed1dd29 status=completed attempts=15
+2026-10-07 11:51:21,332 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:51:21,336 INFO reliability_before repeat=2 3/50 states={'rag': 'completed', 'database': 'completed'} seconds=14.438
+2026-10-07 11:51:22,265 INFO Database request=3678bade238741b8bc21bd5819083733 status=completed counts=[3736]
+2026-10-07 11:51:30,901 INFO Project2 run=3678bade238741b8bc21bd5819083733 status=completed attempts=12
+2026-10-07 11:51:30,927 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:51:30,929 INFO reliability_before repeat=2 4/50 states={'rag': 'completed', 'database': 'completed'} seconds=9.594
+2026-10-07 11:51:31,222 INFO Database request=848aa829576441409b124fc9f94f83a5 status=completed counts=[316]
+2026-10-07 11:51:50,003 INFO Project2 run=848aa829576441409b124fc9f94f83a5 status=completed attempts=14
+2026-10-07 11:51:50,028 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:51:50,029 INFO reliability_before repeat=2 5/50 states={'rag': 'completed', 'database': 'completed'} seconds=19.093
+2026-10-07 11:51:50,253 INFO Database request=936561c6838c4e4dac4390cff38c5418 status=completed counts=[142]
+2026-10-07 11:51:59,492 INFO Project2 run=936561c6838c4e4dac4390cff38c5418 status=completed attempts=12
+2026-10-07 11:51:59,513 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:51:59,516 INFO reliability_before repeat=2 6/50 states={'rag': 'completed', 'database': 'completed'} seconds=9.485
+2026-10-07 11:52:06,792 INFO Database request=f27499bbbed24d8b9ee765800dcdb6c0 status=completed counts=[46777]
+2026-10-07 11:52:16,000 INFO Project2 run=f27499bbbed24d8b9ee765800dcdb6c0 status=completed attempts=12
+2026-10-07 11:52:16,019 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:52:16,020 INFO reliability_before repeat=2 7/50 states={'rag': 'completed', 'database': 'completed'} seconds=16.500
+2026-10-07 11:52:16,692 INFO Database request=348e49284116415e9cde7d498b334148 status=completed counts=[1938]
+2026-10-07 11:52:25,297 INFO Project2 run=348e49284116415e9cde7d498b334148 status=completed attempts=12
+2026-10-07 11:52:25,323 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:52:25,326 INFO reliability_before repeat=2 8/50 states={'rag': 'completed', 'database': 'completed'} seconds=9.297
+2026-10-07 11:52:25,779 INFO Database request=39f48af98eb5482e90f3283399ad04a3 status=completed counts=[12259]
+2026-10-07 11:52:39,170 INFO Project2 run=39f48af98eb5482e90f3283399ad04a3 status=completed attempts=12
+2026-10-07 11:52:39,197 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:52:39,200 INFO reliability_before repeat=2 9/50 states={'rag': 'completed', 'database': 'completed'} seconds=13.875
+2026-10-07 11:52:40,379 INFO Database request=b573fdba5c514a0db855971e4bd3a96d status=completed counts=[3736]
+2026-10-07 11:52:52,235 INFO Project2 run=b573fdba5c514a0db855971e4bd3a96d status=completed attempts=12
+2026-10-07 11:52:52,257 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:52:52,261 INFO reliability_before repeat=2 10/50 states={'rag': 'completed', 'database': 'completed'} seconds=13.063
+2026-10-07 11:52:53,446 INFO Database request=59633a3323ab47fab42b6a014a46812e status=completed counts=[6451]
+2026-10-07 11:53:09,812 INFO Project2 run=59633a3323ab47fab42b6a014a46812e status=completed attempts=12
+2026-10-07 11:53:09,839 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:53:09,841 INFO reliability_before repeat=2 11/50 states={'rag': 'completed', 'database': 'completed'} seconds=17.578
+2026-10-07 11:53:10,428 INFO Database request=5f5e1aab65fb478f80bfde32fed3bce2 status=completed counts=[978]
+2026-10-07 11:53:22,361 INFO Project2 run=5f5e1aab65fb478f80bfde32fed3bce2 status=completed attempts=12
+2026-10-07 11:53:22,390 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:53:22,391 INFO reliability_before repeat=2 12/50 states={'rag': 'completed', 'database': 'completed'} seconds=12.547
+2026-10-07 11:53:22,832 INFO Database request=64c6b30762354eda9bc4753bbaa38605 status=completed counts=[214]
+2026-10-07 11:53:32,000 INFO Project2 run=64c6b30762354eda9bc4753bbaa38605 status=partial attempts=11
+2026-10-07 11:53:32,025 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:53:32,027 INFO reliability_before repeat=2 13/50 states={'rag': 'no_data', 'database': 'completed'} seconds=9.640
+2026-10-07 11:53:32,977 INFO Database request=6a83f59978424fa98dd95c8de5a14db7 status=completed counts=[3736]
+2026-10-07 11:53:48,751 INFO Project2 run=6a83f59978424fa98dd95c8de5a14db7 status=completed attempts=12
+2026-10-07 11:53:48,773 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:53:48,776 INFO reliability_before repeat=2 14/50 states={'rag': 'completed', 'database': 'completed'} seconds=16.750
+2026-10-07 11:53:55,155 INFO Database request=aa628ce3b2264048a5b995cc962f2338 status=completed counts=[40526]
+2026-10-07 11:54:09,818 INFO Project2 run=aa628ce3b2264048a5b995cc962f2338 status=completed attempts=12
+2026-10-07 11:54:09,836 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:54:09,839 INFO reliability_before repeat=2 15/50 states={'rag': 'completed', 'database': 'completed'} seconds=21.063
+2026-10-07 11:54:10,835 INFO Database request=783540b6bc004bd0a25a31919895c14a status=completed counts=[3533]
+2026-10-07 11:54:20,387 INFO Project2 run=783540b6bc004bd0a25a31919895c14a status=completed attempts=12
+2026-10-07 11:54:20,417 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:54:20,420 INFO reliability_before repeat=2 16/50 states={'rag': 'completed', 'database': 'completed'} seconds=10.578
+2026-10-07 11:54:21,944 INFO Database request=bc72e54aa5b6468aa7e70f14617a9044 status=completed counts=[1771, 724]
+2026-10-07 11:54:38,103 INFO Project2 run=bc72e54aa5b6468aa7e70f14617a9044 status=completed attempts=15
+2026-10-07 11:54:38,127 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:54:38,129 INFO reliability_before repeat=2 17/50 states={'rag': 'completed', 'database': 'completed'} seconds=17.703
+2026-10-07 11:54:39,174 INFO Database request=d98f7065dc1c4d74a4ae8f985c111cf8 status=completed counts=[1873]
+2026-10-07 11:54:47,928 INFO Project2 run=d98f7065dc1c4d74a4ae8f985c111cf8 status=completed attempts=12
+2026-10-07 11:54:47,956 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:54:47,958 INFO reliability_before repeat=2 18/50 states={'rag': 'completed', 'database': 'completed'} seconds=9.812
+2026-10-07 11:54:49,327 INFO Database request=732a11e64882458fb573b76d7b028538 status=completed counts=[6451]
+2026-10-07 11:55:01,056 INFO Project2 run=732a11e64882458fb573b76d7b028538 status=completed attempts=12
+2026-10-07 11:55:01,078 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:55:01,081 INFO reliability_before repeat=2 19/50 states={'rag': 'completed', 'database': 'completed'} seconds=13.109
+2026-10-07 11:55:01,786 INFO Database request=05ee938dcc7149e5a867679acea76d13 status=completed counts=[673]
+2026-10-07 11:55:13,080 INFO Project2 run=05ee938dcc7149e5a867679acea76d13 status=completed attempts=12
+2026-10-07 11:55:13,102 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:55:13,104 INFO reliability_before repeat=2 20/50 states={'rag': 'completed', 'database': 'completed'} seconds=12.015
+2026-10-07 11:55:14,093 INFO Database request=1d6a175b3ab24fa287dfa7b45e7e7461 status=completed counts=[3736]
+2026-10-07 11:55:25,465 INFO Project2 run=1d6a175b3ab24fa287dfa7b45e7e7461 status=completed attempts=12
+2026-10-07 11:55:25,485 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:55:25,488 INFO reliability_before repeat=2 21/50 states={'rag': 'completed', 'database': 'completed'} seconds=12.375
+2026-10-07 11:55:33,858 INFO Database request=904877af91514159b15891432e3e3e98 status=completed counts=[42569]
+2026-10-07 11:55:42,509 INFO Project2 run=904877af91514159b15891432e3e3e98 status=completed attempts=12
+2026-10-07 11:55:42,533 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:55:42,535 INFO reliability_before repeat=2 22/50 states={'rag': 'completed', 'database': 'completed'} seconds=17.047
+2026-10-07 11:55:42,995 INFO Database request=e2aba4ec4e1e46fea969294e75f6cb74 status=completed counts=[2288]
+2026-10-07 11:55:50,664 INFO Project2 run=e2aba4ec4e1e46fea969294e75f6cb74 status=completed attempts=12
+2026-10-07 11:55:50,685 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:55:50,687 INFO reliability_before repeat=2 23/50 states={'rag': 'completed', 'database': 'completed'} seconds=8.157
+2026-10-07 11:55:50,866 INFO Database request=8ded1b4b80c146348beef2c39f01f114 status=completed counts=[309]
+2026-10-07 11:56:08,089 INFO Project2 run=8ded1b4b80c146348beef2c39f01f114 status=completed attempts=12
+2026-10-07 11:56:08,109 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:56:08,111 INFO reliability_before repeat=2 24/50 states={'rag': 'completed', 'database': 'completed'} seconds=17.421
+2026-10-07 11:56:10,747 INFO Database request=44c25ae49d5d429f8ca68bc017b14e60 status=completed counts=[13881]
+2026-10-07 11:56:21,201 INFO Project2 run=44c25ae49d5d429f8ca68bc017b14e60 status=completed attempts=12
+2026-10-07 11:56:21,222 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:56:21,226 INFO reliability_before repeat=2 25/50 states={'rag': 'completed', 'database': 'completed'} seconds=13.125
+2026-10-07 11:56:21,790 INFO Database request=72b196b2051645c192d0a3b31b6554f7 status=completed counts=[2004]
+2026-10-07 11:56:36,972 INFO Project2 run=72b196b2051645c192d0a3b31b6554f7 status=completed attempts=12
+2026-10-07 11:56:36,995 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:56:36,997 INFO reliability_before repeat=2 26/50 states={'rag': 'completed', 'database': 'completed'} seconds=15.766
+2026-10-07 11:56:37,044 WARNING Checkpoint sharing violation run=d4b8dd9a1dd84eb0b0463f4963b093e8 retry=1
+2026-10-07 11:56:38,643 INFO Database request=993d2148a8224c6f9c9f684f4d191d28 status=completed counts=[6451]
+2026-10-07 11:56:44,924 INFO Project2 run=993d2148a8224c6f9c9f684f4d191d28 status=partial attempts=11
+2026-10-07 11:56:44,945 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:56:44,947 INFO reliability_before repeat=2 27/50 states={'rag': 'no_data', 'database': 'completed'} seconds=7.953
+2026-10-07 11:56:46,527 INFO Database request=9ff69c33808142e8b66bf216f08bfba7 status=completed counts=[9823]
+2026-10-07 11:56:55,743 INFO Project2 run=9ff69c33808142e8b66bf216f08bfba7 status=completed attempts=12
+2026-10-07 11:56:55,774 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:56:55,777 INFO reliability_before repeat=2 28/50 states={'rag': 'completed', 'database': 'completed'} seconds=10.828
+2026-10-07 11:56:56,780 INFO Database request=9638827e3a8346529738ff4030602a24 status=completed counts=[3736]
+2026-10-07 11:57:08,228 INFO Project2 run=9638827e3a8346529738ff4030602a24 status=completed attempts=12
+2026-10-07 11:57:08,248 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:57:08,249 INFO reliability_before repeat=2 29/50 states={'rag': 'completed', 'database': 'completed'} seconds=12.469
+2026-10-07 11:57:09,034 INFO Database request=bb4dc901e64743528e3703f37ff2390a status=completed counts=[245, 79]
+2026-10-07 11:57:33,967 INFO Project2 run=bb4dc901e64743528e3703f37ff2390a status=completed attempts=17
+2026-10-07 11:57:33,992 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:57:33,995 INFO reliability_before repeat=2 30/50 states={'rag': 'completed', 'database': 'completed'} seconds=25.750
+2026-10-07 11:57:34,138 INFO Database request=89f62bdffe6a485db18b5785a2dfd517 status=no_data counts=[0, 0]
+2026-10-07 11:57:44,471 INFO Project2 run=89f62bdffe6a485db18b5785a2dfd517 status=partial attempts=15
+2026-10-07 11:57:44,493 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:57:44,495 INFO reliability_before repeat=2 31/50 states={'rag': 'completed', 'database': 'no_data'} seconds=10.500
+2026-10-07 11:57:45,252 INFO Database request=ec49bf0336f2409ab0cfb4a420a629dc status=completed counts=[178]
+2026-10-07 11:57:59,056 INFO Project2 run=ec49bf0336f2409ab0cfb4a420a629dc status=completed attempts=12
+2026-10-07 11:57:59,081 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:57:59,084 INFO reliability_before repeat=2 32/50 states={'rag': 'completed', 'database': 'completed'} seconds=14.578
+2026-10-07 11:57:59,152 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:57:59,154 INFO reliability_before repeat=2 33/50 states={'rag': 'failed', 'database': 'failed'} seconds=0.062
+2026-10-07 11:57:59,825 INFO Database request=a322dde5b6574b4183c1299fb179cd5a status=completed counts=[1492]
+2026-10-07 11:58:19,354 INFO Project2 run=a322dde5b6574b4183c1299fb179cd5a status=completed attempts=12
+2026-10-07 11:58:19,377 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:58:19,380 INFO reliability_before repeat=2 34/50 states={'rag': 'completed', 'database': 'completed'} seconds=20.219
+2026-10-07 11:58:20,457 INFO Database request=cf449bda03e04b288405706c2d035f09 status=completed counts=[1413, 547]
+2026-10-07 11:58:31,569 INFO Project2 run=cf449bda03e04b288405706c2d035f09 status=partial attempts=14
+2026-10-07 11:58:31,605 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:58:31,608 INFO reliability_before repeat=2 35/50 states={'rag': 'no_data', 'database': 'completed'} seconds=12.218
+2026-10-07 11:58:31,934 INFO Database request=ea31d40499ad4d04b0d30c4cbaf348b1 status=completed counts=[235]
+2026-10-07 11:58:45,611 INFO Project2 run=ea31d40499ad4d04b0d30c4cbaf348b1 status=completed attempts=12
+2026-10-07 11:58:45,634 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:58:45,637 INFO reliability_before repeat=2 36/50 states={'rag': 'completed', 'database': 'completed'} seconds=14.032
+2026-10-07 11:58:49,279 INFO Database request=8a7b5899e40d4603880085a7613afa2b status=completed counts=[18296]
+2026-10-07 11:58:57,135 INFO Project2 run=8a7b5899e40d4603880085a7613afa2b status=completed attempts=12
+2026-10-07 11:58:57,156 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:58:57,159 INFO reliability_before repeat=2 37/50 states={'rag': 'completed', 'database': 'completed'} seconds=11.515
+2026-10-07 11:58:58,531 INFO Database request=900702825c734aeaa8f575613c9bbe1e status=completed counts=[8643]
+2026-10-07 11:59:06,404 INFO Project2 run=900702825c734aeaa8f575613c9bbe1e status=completed attempts=12
+2026-10-07 11:59:06,426 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:59:06,427 INFO reliability_before repeat=2 38/50 states={'rag': 'completed', 'database': 'completed'} seconds=9.266
+2026-10-07 11:59:07,915 INFO Database request=997bf833ca10410ca625a98b8d9a8964 status=completed counts=[9823]
+2026-10-07 11:59:15,230 INFO Project2 run=997bf833ca10410ca625a98b8d9a8964 status=partial attempts=11
+2026-10-07 11:59:15,250 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:59:15,251 INFO reliability_before repeat=2 39/50 states={'rag': 'no_data', 'database': 'completed'} seconds=8.812
+2026-10-07 11:59:15,747 INFO Database request=17a0b1719c6641c996c9653c7c5d7de8 status=completed counts=[18296]
+2026-10-07 11:59:24,304 INFO Project2 run=17a0b1719c6641c996c9653c7c5d7de8 status=completed attempts=12
+2026-10-07 11:59:24,328 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:59:24,329 INFO reliability_before repeat=2 40/50 states={'rag': 'completed', 'database': 'completed'} seconds=9.078
+2026-10-07 11:59:26,517 INFO Database request=18ecb440e5ee4ee8b572e7dc6c39882d status=completed counts=[11126]
+2026-10-07 11:59:45,049 INFO Project2 run=18ecb440e5ee4ee8b572e7dc6c39882d status=completed attempts=12
+2026-10-07 11:59:45,072 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 11:59:45,074 INFO reliability_before repeat=2 41/50 states={'rag': 'completed', 'database': 'completed'} seconds=20.750
+2026-10-07 11:59:48,048 INFO Database request=d1cd62ed11dc4bc29d66b8c8493528f9 status=completed counts=[18296]
+2026-10-07 12:00:05,115 INFO Project2 run=d1cd62ed11dc4bc29d66b8c8493528f9 status=completed attempts=12
+2026-10-07 12:00:05,137 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:00:05,140 INFO reliability_before repeat=2 42/50 states={'rag': 'completed', 'database': 'completed'} seconds=20.063
+2026-10-07 12:00:06,422 INFO Database request=533f2f7027904b67b6b0af18cdb402ac status=completed counts=[1322, 1585]
+2026-10-07 12:00:16,773 INFO Project2 run=533f2f7027904b67b6b0af18cdb402ac status=completed attempts=15
+2026-10-07 12:00:16,794 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:00:16,797 INFO reliability_before repeat=2 43/50 states={'rag': 'completed', 'database': 'completed'} seconds=11.656
+2026-10-07 12:00:18,498 INFO Database request=1c44fec254dd401481de486d79f77668 status=completed counts=[3736]
+2026-10-07 12:00:28,809 INFO Project2 run=1c44fec254dd401481de486d79f77668 status=completed attempts=12
+2026-10-07 12:00:28,830 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:00:28,833 INFO reliability_before repeat=2 44/50 states={'rag': 'completed', 'database': 'completed'} seconds=12.031
+2026-10-07 12:00:29,700 INFO Database request=488c012a1d0d44dc83ced22873a2c797 status=completed counts=[3736]
+2026-10-07 12:00:46,113 INFO Project2 run=488c012a1d0d44dc83ced22873a2c797 status=completed attempts=14
+2026-10-07 12:00:46,135 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:00:46,137 INFO reliability_before repeat=2 45/50 states={'rag': 'completed', 'database': 'completed'} seconds=17.297
+2026-10-07 12:00:52,415 INFO Database request=026d3fcd76f245d3bcd2a84b0d8b5603 status=completed counts=[40526]
+2026-10-07 12:01:01,769 INFO Project2 run=026d3fcd76f245d3bcd2a84b0d8b5603 status=completed attempts=12
+2026-10-07 12:01:01,793 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:01:01,795 INFO reliability_before repeat=2 46/50 states={'rag': 'completed', 'database': 'completed'} seconds=15.656
+2026-10-07 12:01:03,896 INFO Database request=45e2a0328b1f4e3db6f11cc99321b486 status=completed counts=[13881]
+2026-10-07 12:01:16,410 INFO Project2 run=45e2a0328b1f4e3db6f11cc99321b486 status=completed attempts=12
+2026-10-07 12:01:16,431 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:01:16,434 INFO reliability_before repeat=2 47/50 states={'rag': 'completed', 'database': 'completed'} seconds=14.641
+2026-10-07 12:01:17,681 INFO Database request=9829790b55054026be5dcfa5b8ce1ff2 status=completed counts=[1322, 1585]
+2026-10-07 12:01:30,779 INFO Project2 run=9829790b55054026be5dcfa5b8ce1ff2 status=completed attempts=15
+2026-10-07 12:01:30,804 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:01:30,806 INFO reliability_before repeat=2 48/50 states={'rag': 'completed', 'database': 'completed'} seconds=14.375
+2026-10-07 12:01:31,384 INFO Database request=2b1afa74448d40d49c67e306376b8e8f status=completed counts=[4867]
+2026-10-07 12:01:53,106 INFO Project2 run=2b1afa74448d40d49c67e306376b8e8f status=completed attempts=12
+2026-10-07 12:01:53,128 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:01:53,131 INFO reliability_before repeat=2 49/50 states={'rag': 'completed', 'database': 'completed'} seconds=22.312
+2026-10-07 12:01:55,852 INFO Database request=98f726f785e44c1d8ebe4ae0baadcadc status=completed counts=[13960]
+2026-10-07 12:02:17,925 INFO Project2 run=98f726f785e44c1d8ebe4ae0baadcadc status=completed attempts=12
+2026-10-07 12:02:17,945 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:02:17,947 INFO reliability_before repeat=2 50/50 states={'rag': 'completed', 'database': 'completed'} seconds=24.812
+2026-10-07 12:02:18,157 INFO Database request=07fdc3ee538f4044bee961c6b9cfb3fe status=completed counts=[142]
+2026-10-07 12:02:28,053 INFO Project2 run=07fdc3ee538f4044bee961c6b9cfb3fe status=completed attempts=12
+2026-10-07 12:02:28,073 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:02:28,075 INFO reliability_before repeat=3 1/50 states={'rag': 'completed', 'database': 'completed'} seconds=10.125
+2026-10-07 12:02:28,749 INFO Database request=cfeabc8f61f54d40a362c47e4ca15662 status=completed counts=[245, 79]
+2026-10-07 12:02:49,941 INFO Project2 run=cfeabc8f61f54d40a362c47e4ca15662 status=completed attempts=17
+2026-10-07 12:02:49,965 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:02:49,967 INFO reliability_before repeat=3 2/50 states={'rag': 'completed', 'database': 'completed'} seconds=21.891
+2026-10-07 12:02:51,306 INFO Database request=0c8401e274994b45bc4445497be13d30 status=completed counts=[6451]
+2026-10-07 12:03:02,514 INFO Project2 run=0c8401e274994b45bc4445497be13d30 status=completed attempts=12
+2026-10-07 12:03:02,532 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:03:02,533 INFO reliability_before repeat=3 3/50 states={'rag': 'completed', 'database': 'completed'} seconds=12.562
+2026-10-07 12:03:03,712 INFO Database request=20a791cc83054cee8883d60ae8f3eabd status=completed counts=[1322, 1585]
+2026-10-07 12:03:14,672 INFO Project2 run=20a791cc83054cee8883d60ae8f3eabd status=completed attempts=15
+2026-10-07 12:03:14,692 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:03:14,695 INFO reliability_before repeat=3 4/50 states={'rag': 'completed', 'database': 'completed'} seconds=12.172
+2026-10-07 12:03:21,307 INFO Database request=ce1d0bb581b84d858b1f787c992d06de status=completed counts=[42569]
+2026-10-07 12:03:29,725 INFO Project2 run=ce1d0bb581b84d858b1f787c992d06de status=completed attempts=12
+2026-10-07 12:03:29,742 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:03:29,744 INFO reliability_before repeat=3 5/50 states={'rag': 'completed', 'database': 'completed'} seconds=15.047
+2026-10-07 12:03:30,506 INFO Database request=278124c1de494080b3a0fce29163545d status=completed counts=[3736]
+2026-10-07 12:03:41,528 INFO Project2 run=278124c1de494080b3a0fce29163545d status=completed attempts=12
+2026-10-07 12:03:41,548 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:03:41,550 INFO reliability_before repeat=3 6/50 states={'rag': 'completed', 'database': 'completed'} seconds=11.797
+2026-10-07 12:03:42,223 INFO Database request=2b492ac61e12401d906cb80133e96374 status=completed counts=[178]
+2026-10-07 12:03:53,950 INFO Project2 run=2b492ac61e12401d906cb80133e96374 status=completed attempts=12
+2026-10-07 12:03:53,970 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:03:53,972 INFO reliability_before repeat=3 7/50 states={'rag': 'completed', 'database': 'completed'} seconds=12.406
+2026-10-07 12:03:55,318 INFO Database request=bf397d484b794b0d9d0af19c2db0b5fa status=completed counts=[6451]
+2026-10-07 12:04:09,699 INFO Project2 run=bf397d484b794b0d9d0af19c2db0b5fa status=completed attempts=12
+2026-10-07 12:04:09,717 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:04:09,719 INFO reliability_before repeat=3 8/50 states={'rag': 'completed', 'database': 'completed'} seconds=15.735
+2026-10-07 12:04:10,596 INFO Database request=6a22b1620ead41c7a8aae3913379caa3 status=completed counts=[1873]
+2026-10-07 12:04:19,030 INFO Project2 run=6a22b1620ead41c7a8aae3913379caa3 status=completed attempts=12
+2026-10-07 12:04:19,054 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:04:19,056 INFO reliability_before repeat=3 9/50 states={'rag': 'completed', 'database': 'completed'} seconds=9.344
+2026-10-07 12:04:21,403 INFO Database request=17bdaa552be943c6bd000a77f6472686 status=completed counts=[11126]
+2026-10-07 12:04:37,457 INFO Project2 run=17bdaa552be943c6bd000a77f6472686 status=completed attempts=12
+2026-10-07 12:04:37,482 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:04:37,486 INFO reliability_before repeat=3 10/50 states={'rag': 'completed', 'database': 'completed'} seconds=18.421
+2026-10-07 12:04:37,878 INFO Database request=d79e24a6dee44a598c9c85a49c3a7d49 status=completed counts=[192]
+2026-10-07 12:04:47,225 INFO Project2 run=d79e24a6dee44a598c9c85a49c3a7d49 status=completed attempts=12
+2026-10-07 12:04:47,244 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:04:47,247 INFO reliability_before repeat=3 11/50 states={'rag': 'completed', 'database': 'completed'} seconds=9.766
+2026-10-07 12:04:48,610 INFO Database request=cabecc6e50a24bd9b3e4e8164d148b7f status=completed counts=[6451]
+2026-10-07 12:04:54,569 INFO Project2 run=cabecc6e50a24bd9b3e4e8164d148b7f status=partial attempts=11
+2026-10-07 12:04:54,590 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:04:54,590 INFO reliability_before repeat=3 12/50 states={'rag': 'no_data', 'database': 'completed'} seconds=7.344
+2026-10-07 12:04:55,251 INFO Database request=3956043b1ecf4228a10701d5d921cce9 status=completed counts=[1938]
+2026-10-07 12:05:04,516 INFO Project2 run=3956043b1ecf4228a10701d5d921cce9 status=completed attempts=12
+2026-10-07 12:05:04,536 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:05:04,538 INFO reliability_before repeat=3 13/50 states={'rag': 'completed', 'database': 'completed'} seconds=9.937
+2026-10-07 12:05:10,576 INFO Database request=8362ab60f1314bba95ac00fe5bc4974c status=completed counts=[40526]
+2026-10-07 12:05:18,250 INFO Project2 run=8362ab60f1314bba95ac00fe5bc4974c status=completed attempts=12
+2026-10-07 12:05:18,273 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:05:18,275 INFO reliability_before repeat=3 14/50 states={'rag': 'completed', 'database': 'completed'} seconds=13.734
+2026-10-07 12:05:19,152 INFO Database request=7350596edcd6485aa315abaead47bdca status=completed counts=[4867]
+2026-10-07 12:05:33,713 INFO Project2 run=7350596edcd6485aa315abaead47bdca status=completed attempts=12
+2026-10-07 12:05:33,737 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:05:33,739 INFO reliability_before repeat=3 15/50 states={'rag': 'completed', 'database': 'completed'} seconds=15.453
+2026-10-07 12:05:34,513 INFO Database request=d4e55f62a6ac452eafa94a0b8ac638da status=completed counts=[3736]
+2026-10-07 12:05:45,387 INFO Project2 run=d4e55f62a6ac452eafa94a0b8ac638da status=completed attempts=12
+2026-10-07 12:05:45,407 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:05:45,408 INFO reliability_before repeat=3 16/50 states={'rag': 'completed', 'database': 'completed'} seconds=11.656
+2026-10-07 12:05:45,853 INFO Database request=4b3ec158116248128853d6d029283b4c status=completed counts=[2004]
+2026-10-07 12:06:01,636 INFO Project2 run=4b3ec158116248128853d6d029283b4c status=completed attempts=12
+2026-10-07 12:06:01,657 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:06:01,660 INFO reliability_before repeat=3 17/50 states={'rag': 'completed', 'database': 'completed'} seconds=16.250
+2026-10-07 12:06:02,652 INFO Database request=fa9634540e8b40b79da2a0f61c900d0c status=completed counts=[1413, 547]
+2026-10-07 12:06:11,723 INFO Project2 run=fa9634540e8b40b79da2a0f61c900d0c status=partial attempts=14
+2026-10-07 12:06:11,748 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:06:11,750 INFO reliability_before repeat=3 18/50 states={'rag': 'no_data', 'database': 'completed'} seconds=10.094
+2026-10-07 12:06:18,690 INFO Database request=ff6ca0d4ccb54efca0265c59eaea24bc status=completed counts=[46777]
+2026-10-07 12:06:27,947 INFO Project2 run=ff6ca0d4ccb54efca0265c59eaea24bc status=completed attempts=12
+2026-10-07 12:06:27,968 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:06:27,970 INFO reliability_before repeat=3 19/50 states={'rag': 'completed', 'database': 'completed'} seconds=16.219
+2026-10-07 12:06:33,508 INFO Database request=9f5a072d41bb47c18f63c7043622bb0a status=completed counts=[40526]
+2026-10-07 12:06:47,070 INFO Project2 run=9f5a072d41bb47c18f63c7043622bb0a status=completed attempts=12
+2026-10-07 12:06:47,092 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:06:47,094 INFO reliability_before repeat=3 20/50 states={'rag': 'completed', 'database': 'completed'} seconds=19.125
+2026-10-07 12:06:50,264 INFO Database request=9c09f423b06f4f4c8f3279bb81361b6b status=completed counts=[18296]
+2026-10-07 12:06:57,791 INFO Project2 run=9c09f423b06f4f4c8f3279bb81361b6b status=completed attempts=12
+2026-10-07 12:06:57,809 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:06:57,810 INFO reliability_before repeat=3 21/50 states={'rag': 'completed', 'database': 'completed'} seconds=10.719
+2026-10-07 12:06:58,545 INFO Database request=1dcbcd4eecb9440cb6fe88e8a8e74d63 status=completed counts=[3736]
+2026-10-07 12:07:08,870 INFO Project2 run=1dcbcd4eecb9440cb6fe88e8a8e74d63 status=completed attempts=12
+2026-10-07 12:07:08,891 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:07:08,894 INFO reliability_before repeat=3 22/50 states={'rag': 'completed', 'database': 'completed'} seconds=11.078
+2026-10-07 12:07:09,398 INFO Database request=0257dcdc00434437a53d90c7c02db5aa status=completed counts=[1492]
+2026-10-07 12:07:26,339 INFO Project2 run=0257dcdc00434437a53d90c7c02db5aa status=completed attempts=12
+2026-10-07 12:07:26,363 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:07:26,365 INFO reliability_before repeat=3 23/50 states={'rag': 'completed', 'database': 'completed'} seconds=17.468
+2026-10-07 12:07:26,576 INFO Database request=fd376ecd7ab24cbda89b96de639bf3f9 status=completed counts=[3736]
+2026-10-07 12:07:40,994 INFO Project2 run=fd376ecd7ab24cbda89b96de639bf3f9 status=completed attempts=12
+2026-10-07 12:07:41,014 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:07:41,016 INFO reliability_before repeat=3 24/50 states={'rag': 'completed', 'database': 'completed'} seconds=14.641
+2026-10-07 12:07:41,288 INFO Database request=8a69a964335141bdbb2341ca18bf3c1d status=completed counts=[235]
+2026-10-07 12:07:50,369 INFO Project2 run=8a69a964335141bdbb2341ca18bf3c1d status=completed attempts=12
+2026-10-07 12:07:50,388 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:07:50,390 INFO reliability_before repeat=3 25/50 states={'rag': 'completed', 'database': 'completed'} seconds=9.375
+2026-10-07 12:07:50,984 INFO Database request=eee91daea83a440a96e4ee31b9209098 status=completed counts=[2288]
+2026-10-07 12:07:58,412 INFO Project2 run=eee91daea83a440a96e4ee31b9209098 status=completed attempts=12
+2026-10-07 12:07:58,433 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:07:58,434 INFO reliability_before repeat=3 26/50 states={'rag': 'completed', 'database': 'completed'} seconds=8.047
+2026-10-07 12:08:00,010 INFO Database request=9407c2856ea74487af3ec2d3c19849b1 status=completed counts=[9823]
+2026-10-07 12:08:07,838 INFO Project2 run=9407c2856ea74487af3ec2d3c19849b1 status=completed attempts=12
+2026-10-07 12:08:07,857 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:08:07,859 INFO reliability_before repeat=3 27/50 states={'rag': 'completed', 'database': 'completed'} seconds=9.421
+2026-10-07 12:08:09,236 INFO Database request=5d6e893381a64757b5d7d9bf0edf565b status=completed counts=[1322, 1585]
+2026-10-07 12:08:20,448 INFO Project2 run=5d6e893381a64757b5d7d9bf0edf565b status=completed attempts=15
+2026-10-07 12:08:20,468 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:08:20,471 INFO reliability_before repeat=3 28/50 states={'rag': 'completed', 'database': 'completed'} seconds=12.610
+2026-10-07 12:08:22,199 INFO Database request=b1068a39350140a781777406929425e9 status=completed counts=[9823]
+2026-10-07 12:08:29,840 INFO Project2 run=b1068a39350140a781777406929425e9 status=partial attempts=11
+2026-10-07 12:08:29,861 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:08:29,863 INFO reliability_before repeat=3 29/50 states={'rag': 'no_data', 'database': 'completed'} seconds=9.390
+2026-10-07 12:08:32,881 INFO Database request=b66c4136bbcf40c4af8b5ad92698de2f status=completed counts=[18296]
+2026-10-07 12:08:40,948 INFO Project2 run=b66c4136bbcf40c4af8b5ad92698de2f status=completed attempts=12
+2026-10-07 12:08:40,967 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:08:40,969 INFO reliability_before repeat=3 30/50 states={'rag': 'completed', 'database': 'completed'} seconds=11.110
+2026-10-07 12:08:41,676 INFO Database request=d229e644aa7247d0b4d1051817aaad87 status=completed counts=[3736]
+2026-10-07 12:08:51,089 INFO Project2 run=d229e644aa7247d0b4d1051817aaad87 status=completed attempts=12
+2026-10-07 12:08:51,107 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:08:51,108 INFO reliability_before repeat=3 31/50 states={'rag': 'completed', 'database': 'completed'} seconds=10.140
+2026-10-07 12:08:51,304 INFO Database request=1f3396ba3606494e8429e2fb1d222d88 status=completed counts=[3736]
+2026-10-07 12:09:01,402 INFO Project2 run=1f3396ba3606494e8429e2fb1d222d88 status=completed attempts=12
+2026-10-07 12:09:01,421 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:09:01,424 INFO reliability_before repeat=3 32/50 states={'rag': 'completed', 'database': 'completed'} seconds=10.313
+2026-10-07 12:09:03,812 INFO Database request=ac5b2dfcf72e4c57a7c2db2ee3f8ff14 status=completed counts=[13960]
+2026-10-07 12:09:23,124 INFO Project2 run=ac5b2dfcf72e4c57a7c2db2ee3f8ff14 status=completed attempts=12
+2026-10-07 12:09:23,146 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:09:23,148 INFO reliability_before repeat=3 33/50 states={'rag': 'completed', 'database': 'completed'} seconds=21.734
+2026-10-07 12:09:30,469 INFO Database request=d3ef3e2c519b4e2cafe5dec4fb567567 status=completed counts=[58237]
+2026-10-07 12:09:50,937 INFO Project2 run=d3ef3e2c519b4e2cafe5dec4fb567567 status=completed attempts=12
+2026-10-07 12:09:50,956 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:09:50,959 INFO reliability_before repeat=3 34/50 states={'rag': 'completed', 'database': 'completed'} seconds=27.797
+2026-10-07 12:09:51,480 INFO Database request=45b40615dab64863b177b1939939a40f status=completed counts=[978]
+2026-10-07 12:10:03,524 INFO Project2 run=45b40615dab64863b177b1939939a40f status=completed attempts=12
+2026-10-07 12:10:03,546 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:10:03,549 INFO reliability_before repeat=3 35/50 states={'rag': 'completed', 'database': 'completed'} seconds=12.578
+2026-10-07 12:10:05,052 INFO Database request=1573c0ab03ab47498bf7aeb9b6791ad5 status=completed counts=[1771, 724]
+2026-10-07 12:10:18,749 INFO Project2 run=1573c0ab03ab47498bf7aeb9b6791ad5 status=completed attempts=15
+2026-10-07 12:10:18,771 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:10:18,773 INFO reliability_before repeat=3 36/50 states={'rag': 'completed', 'database': 'completed'} seconds=15.234
+2026-10-07 12:10:18,976 INFO Database request=d239a53b1b254bba8fa1e39ca7056094 status=completed counts=[316]
+2026-10-07 12:10:32,356 INFO Project2 run=d239a53b1b254bba8fa1e39ca7056094 status=completed attempts=12
+2026-10-07 12:10:32,378 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:10:32,378 INFO reliability_before repeat=3 37/50 states={'rag': 'completed', 'database': 'completed'} seconds=13.594
+2026-10-07 12:10:33,188 INFO Database request=66cffd45dfcf4deaa9595d29d025f27a status=completed counts=[3736]
+2026-10-07 12:10:41,495 INFO Project2 run=66cffd45dfcf4deaa9595d29d025f27a status=completed attempts=12
+2026-10-07 12:10:41,517 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:10:41,519 INFO reliability_before repeat=3 38/50 states={'rag': 'completed', 'database': 'completed'} seconds=9.141
+2026-10-07 12:10:41,577 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:10:41,577 INFO reliability_before repeat=3 39/50 states={'rag': 'failed', 'database': 'failed'} seconds=0.062
+2026-10-07 12:10:42,534 INFO Database request=d1cdbd7f911d40329b0b6946ef8a220e status=completed counts=[3533]
+2026-10-07 12:10:53,083 INFO Project2 run=d1cdbd7f911d40329b0b6946ef8a220e status=completed attempts=12
+2026-10-07 12:10:53,103 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:10:53,105 INFO reliability_before repeat=3 40/50 states={'rag': 'completed', 'database': 'completed'} seconds=11.531
+2026-10-07 12:10:54,672 INFO Database request=722846f7637643ef90eb5a73a23a25fb status=completed counts=[8643]
+2026-10-07 12:11:03,892 INFO Project2 run=722846f7637643ef90eb5a73a23a25fb status=completed attempts=12
+2026-10-07 12:11:03,914 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:11:03,917 INFO reliability_before repeat=3 41/50 states={'rag': 'completed', 'database': 'completed'} seconds=10.813
+2026-10-07 12:11:06,617 INFO Database request=df2d0c7b9e6147d8a86c73161a272e54 status=completed counts=[13881]
+2026-10-07 12:11:19,862 INFO Project2 run=df2d0c7b9e6147d8a86c73161a272e54 status=completed attempts=12
+2026-10-07 12:11:19,884 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:11:19,887 INFO reliability_before repeat=3 42/50 states={'rag': 'completed', 'database': 'completed'} seconds=15.969
+2026-10-07 12:11:20,305 INFO Database request=b0f81de3c6c64c7fa40cc0c1969f3a4b status=completed counts=[214]
+2026-10-07 12:11:30,417 INFO Project2 run=b0f81de3c6c64c7fa40cc0c1969f3a4b status=partial attempts=11
+2026-10-07 12:11:30,440 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:11:30,442 INFO reliability_before repeat=3 43/50 states={'rag': 'no_data', 'database': 'completed'} seconds=10.547
+2026-10-07 12:11:30,576 INFO Database request=61eb90f3be6f40649f7c27e8e13745a4 status=no_data counts=[0, 0]
+2026-10-07 12:11:41,268 INFO Project2 run=61eb90f3be6f40649f7c27e8e13745a4 status=partial attempts=15
+2026-10-07 12:11:41,294 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:11:41,296 INFO reliability_before repeat=3 44/50 states={'rag': 'completed', 'database': 'no_data'} seconds=10.844
+2026-10-07 12:11:44,617 INFO Database request=910719f1b0e14894a56a999fee8d5912 status=completed counts=[18296]
+2026-10-07 12:11:56,748 INFO Project2 run=910719f1b0e14894a56a999fee8d5912 status=completed attempts=12
+2026-10-07 12:11:56,777 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:11:56,781 INFO reliability_before repeat=3 45/50 states={'rag': 'completed', 'database': 'completed'} seconds=15.484
+2026-10-07 12:11:59,039 INFO Database request=e3b3caf24f8c4d3aacf28f1b219f9ae8 status=completed counts=[12259]
+2026-10-07 12:12:10,757 INFO Project2 run=e3b3caf24f8c4d3aacf28f1b219f9ae8 status=completed attempts=12
+2026-10-07 12:12:10,777 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:12:10,780 INFO reliability_before repeat=3 46/50 states={'rag': 'completed', 'database': 'completed'} seconds=14.000
+2026-10-07 12:12:10,932 INFO Database request=8273de78d670444082eb18ef93258eef status=completed counts=[309]
+2026-10-07 12:12:28,250 INFO Project2 run=8273de78d670444082eb18ef93258eef status=completed attempts=12
+2026-10-07 12:12:28,273 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:12:28,276 INFO reliability_before repeat=3 47/50 states={'rag': 'completed', 'database': 'completed'} seconds=17.500
+2026-10-07 12:12:29,152 INFO Database request=8fa3321a34754b3a889700f48b002b73 status=completed counts=[673]
+2026-10-07 12:12:40,998 INFO Project2 run=8fa3321a34754b3a889700f48b002b73 status=completed attempts=12
+2026-10-07 12:12:41,018 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:12:41,019 INFO reliability_before repeat=3 48/50 states={'rag': 'completed', 'database': 'completed'} seconds=12.735
+2026-10-07 12:12:42,305 INFO Database request=980582be82444e22b14b51459ca2590b status=completed counts=[1322, 1585]
+2026-10-07 12:12:55,337 INFO Project2 run=980582be82444e22b14b51459ca2590b status=completed attempts=15
+2026-10-07 12:12:55,358 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:12:55,360 INFO reliability_before repeat=3 49/50 states={'rag': 'completed', 'database': 'completed'} seconds=14.328
+2026-10-07 12:12:57,917 INFO Database request=aebb7902c7494429a406548cd8ea80d2 status=completed counts=[13881]
+2026-10-07 12:13:10,263 INFO Project2 run=aebb7902c7494429a406548cd8ea80d2 status=completed attempts=12
+2026-10-07 12:13:10,283 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:13:10,287 INFO reliability_before repeat=3 50/50 states={'rag': 'completed', 'database': 'completed'} seconds=14.922
+2026-10-07 12:13:12,660 INFO P2_CLEANUP {"mode": "owned_force_cancel", "elapsed_seconds": 2.357356399999844, "process_retained": false}

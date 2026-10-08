@@ -111,6 +111,8 @@ def create_app(*, credentials: dict[str, TrustedContext] | None = None, warmup: 
     @app.exception_handler(RequestValidationError)
     async def invalid_input(request: Request, error: RequestValidationError):
         run_id = uuid4().hex
+        LOGGER.warning('P2_INVALID_INPUT trace_id=%s fields=%s',run_id,
+                       [list(item['loc']) for item in error.errors()])
         return JSONResponse(status_code=422, content=response(run_id, empty_result("rag", "failed", run_id, "invalid_input"), empty_result("database", "failed", run_id, "invalid_input"), request.state.budget))
 
     @app.get("/healthz")

@@ -1,0 +1,45 @@
+[
+    {
+        "CreatedAt": "2026-10-07T17:13:40Z",
+        "Driver": "local",
+        "Labels": {
+            "com.docker.compose.config-hash": "f935be018d65b4438e5fb1d850f1c7c34b5d4119eee1d48e079415c167aba00b",
+            "com.docker.compose.project": "techqa-project2-course",
+            "com.docker.compose.version": "5.2.0",
+            "com.docker.compose.volume": "logs"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/techqa-project2-course_logs/_data",
+        "Name": "techqa-project2-course_logs",
+        "Options": null,
+        "Scope": "local"
+    },
+    {
+        "CreatedAt": "2026-10-07T17:49:07Z",
+        "Driver": "local",
+        "Labels": {
+            "com.docker.compose.config-hash": "ce90c842042bebb0b9c9ce1a6ead9d3a2661b1fdd428d795a93f44b3e33ec69d",
+            "com.docker.compose.project": "techqa-project2-course",
+            "com.docker.compose.version": "5.2.0",
+            "com.docker.compose.volume": "rerank_cache"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/techqa-project2-course_rerank_cache/_data",
+        "Name": "techqa-project2-course_rerank_cache",
+        "Options": null,
+        "Scope": "local"
+    },
+    {
+        "CreatedAt": "2026-10-07T17:13:40Z",
+        "Driver": "local",
+        "Labels": {
+            "com.docker.compose.config-hash": "c12bd59545ecc42d38f201c4176ef901478e8808ef4554b2d9ff991289d558d2",
+            "com.docker.compose.project": "techqa-project2-course",
+            "com.docker.compose.version": "5.2.0",
+            "com.docker.compose.volume": "state"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/techqa-project2-course_state/_data",
+        "Name": "techqa-project2-course_state",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+

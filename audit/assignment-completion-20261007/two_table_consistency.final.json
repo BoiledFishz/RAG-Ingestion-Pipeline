@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "approved_rows": 61,
+  "runtime_rows": 61,
+  "approved_sha256": "14c308d2759dd8c0b127d385770b650753bca8d405bac67da5116c0a5790bde2",
+  "requirement_ids_match": true,
+  "approved_status_unchanged": true,
+  "runtime_counts": {
+    "✅": 45,
+    "⚠️": 2,
+    "❌": 6,
+    "➕": 8
+  }
+}

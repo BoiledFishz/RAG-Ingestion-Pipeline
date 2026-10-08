@@ -1,0 +1,1897 @@
+{
+  "registration_date": "2026-10-05",
+  "timezone": "America/Los_Angeles",
+  "stage": "implementation-before-review",
+  "protocol_version": "techqa-query-task-v1",
+  "seed": 20261005,
+  "partition": "tune",
+  "input_projection": [
+    "QUESTION_TITLE",
+    "QUESTION_TEXT"
+  ],
+  "source": "evals/protocol_v0/tune.json",
+  "source_sha256": "b5bd47d78d995395da2765d4396ebfd3e37b1d109ea4a434fa480070f14012c6",
+  "construction": "query = original_question_title + LF + original_question_text; no normalization; separate analysis_operation",
+  "selection": "SHA256(seed + colon + query_sha256), ascending; exclusive compare/platform/identifier/version/entity; 8 each; challenge=10 shortest remaining queries, selection_key tie break",
+  "quotas": {
+    "compare": 8,
+    "platform": 8,
+    "identifier": 8,
+    "version": 8,
+    "entity": 8,
+    "no_answer_challenge": 10
+  },
+  "status": "待实施",
+  "actual": "未执行",
+  "evidence_file": "",
+  "evaluation_runs": 0,
+  "no_answer_notice": "Challenge means a preregistered hypothesis, not a gold no-answer label. If applicable evidence is found, record scenario failure; do not replace question or change expectation after running.",
+  "sampling_rules": {
+    "entity_pattern": "WebSphere\\s+Application\\s+Server|WebSphere\\s+Message\\s+Broker|IBM\\s+Integration\\s+Bus|WebSphere\\s+MQ|IBM\\s+HTTP\\s+Server|WebSphere\\s+Portal|Netcool\\/Impact|Netcool|DataPower|ClearQuest|Datacap|Cognos|SPSS|DB2|BPM|MQ|Impact|Rational|CICS|Tivoli|FileNet|PureApplication|Passport\\s+Advantage|Fix\\s+Central|UCD|RDz|ITNM|ITM|Nokia\\s+NSP",
+    "version_pattern": "\\b(?:V(?:ersion)?\\s*\\d+(?:\\.\\d+)*|Release\\s*\\d+|\\d+\\.\\d+(?:\\.\\d+)*)\\b",
+    "platform_pattern": "\\bz\\/OS\\b|\\b(?:Windows|Linux|AIX|UNIX|Solaris|macOS|Mac|NonStop|RedHat|RHEL)\\b",
+    "identifier_pattern": "\\b(?:[A-Z]{2,}[0-9]{3,}[A-Z]?|CVE-\\d{4}-\\d+|[a-z][a-z0-9]*(?:[._/-][a-z0-9]+)+)\\b"
+  },
+  "samples": [
+    {
+      "sample_id": "P2-COMPARE-01",
+      "stratum": "compare",
+      "ordinal": 1,
+      "original_question_title": "Does ODM 8.5.1 support MQ 9.0?",
+      "original_question_text": "\n\nDoes ODM 8.5.1 support MQ 9.0 where ODM Rule Execution Server is running on WAS 8.5.0.2 (embedded with ODM)?\n\nNo MQ version is specified in ODM 8.5.1 System Requirements.",
+      "query": "Does ODM 8.5.1 support MQ 9.0?\n\n\nDoes ODM 8.5.1 support MQ 9.0 where ODM Rule Execution Server is running on WAS 8.5.0.2 (embedded with ODM)?\n\nNo MQ version is specified in ODM 8.5.1 System Requirements.",
+      "query_sha256": "f38a6ef8bb91bc101429357c4fb15940803f2f4151c582bed8fdaf254669e605",
+      "analysis_operation": "compare_document_counts",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "MQ",
+            "start": 23,
+            "end": 25
+          }
+        ],
+        "versions": [
+          {
+            "text": "8.5.1",
+            "start": 9,
+            "end": 14
+          },
+          {
+            "text": "9.0",
+            "start": 26,
+            "end": 29
+          },
+          {
+            "text": "8.5.0.2",
+            "start": 113,
+            "end": 120
+          }
+        ],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "0b06d567dd830021b119bbaa9292748c15392bd27cb8b3542674123bd5600528",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-COMPARE-02",
+      "stratum": "compare",
+      "ordinal": 2,
+      "original_question_title": "I can't find the JDBC driver for my DB2.",
+      "original_question_text": "I am running BPM 8.0.1 with DB2 10.1.0.\n\n \n\nReading this technote:\nhttp://www-01.ibm.com/support/docview.wss\n\n\"Use the JDBC driver of your database product instead of the JDBC delivered with IBM Business Process Manager (BPM)\"I am trying to download the latest JDBC driver from the following technote:\n\nhttp://www-01.ibm.com/support/docview.wss\n\nIt looks like the link for the JDBC driver download for DB2 10.1.0 is greyed out. Where can I download this driver?",
+      "query": "I can't find the JDBC driver for my DB2.\nI am running BPM 8.0.1 with DB2 10.1.0.\n\n \n\nReading this technote:\nhttp://www-01.ibm.com/support/docview.wss\n\n\"Use the JDBC driver of your database product instead of the JDBC delivered with IBM Business Process Manager (BPM)\"I am trying to download the latest JDBC driver from the following technote:\n\nhttp://www-01.ibm.com/support/docview.wss\n\nIt looks like the link for the JDBC driver download for DB2 10.1.0 is greyed out. Where can I download this driver?",
+      "query_sha256": "29c0b8e6079d0d0e18954ee5840b83d528230f8749866c8a39298cc3d70c972e",
+      "analysis_operation": "compare_document_counts",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "DB2",
+            "start": 36,
+            "end": 39
+          },
+          {
+            "text": "BPM",
+            "start": 54,
+            "end": 57
+          }
+        ],
+        "versions": [
+          {
+            "text": "8.0.1",
+            "start": 58,
+            "end": 63
+          },
+          {
+            "text": "10.1.0",
+            "start": 73,
+            "end": 79
+          }
+        ],
+        "platforms": [],
+        "identifiers": [
+          {
+            "text": "www-01.ibm.com/support/docview.wss",
+            "start": 115,
+            "end": 149
+          }
+        ]
+      },
+      "selection_key": "0b7a3e04124fb4ff08279c8f6903f1f27c5715dd91d70fa9c29cf080abe38ad0",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-COMPARE-03",
+      "stratum": "compare",
+      "ordinal": 3,
+      "original_question_title": "Help with Action required for IIB H.E. V9 and WMB H.E. V8 for security vulnerabilities in Red Hat Linux (CVE-2011-5320, CVE-2017-15670, CVE-2017-15671, CVE-2017-15804)",
+      "original_question_text": "I need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux. Where can I find this information? ",
+      "query": "Help with Action required for IIB H.E. V9 and WMB H.E. V8 for security vulnerabilities in Red Hat Linux (CVE-2011-5320, CVE-2017-15670, CVE-2017-15671, CVE-2017-15804)\nI need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux. Where can I find this information? ",
+      "query_sha256": "cee5b19dac28af6d557499d663a97e1c7bb421b4b95500659c69705bb9db7858",
+      "analysis_operation": "compare_document_counts",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "IBM Integration Bus",
+            "start": 227,
+            "end": 246
+          },
+          {
+            "text": "WebSphere Message Broker",
+            "start": 275,
+            "end": 299
+          }
+        ],
+        "versions": [
+          {
+            "text": "V9",
+            "start": 39,
+            "end": 41
+          },
+          {
+            "text": "V8",
+            "start": 55,
+            "end": 57
+          },
+          {
+            "text": "V9.0",
+            "start": 266,
+            "end": 270
+          },
+          {
+            "text": "V8.0",
+            "start": 319,
+            "end": 323
+          }
+        ],
+        "platforms": [
+          {
+            "text": "Linux",
+            "start": 98,
+            "end": 103
+          }
+        ],
+        "identifiers": [
+          {
+            "text": "CVE-2011-5320",
+            "start": 105,
+            "end": 118
+          },
+          {
+            "text": "CVE-2017-15670",
+            "start": 120,
+            "end": 134
+          },
+          {
+            "text": "CVE-2017-15671",
+            "start": 136,
+            "end": 150
+          },
+          {
+            "text": "CVE-2017-15804",
+            "start": 152,
+            "end": 166
+          }
+        ]
+      },
+      "selection_key": "0bbc2b76069dc9f850ecbfb508a9709c0c586db76effadcc2c477659dee5eaee",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-COMPARE-04",
+      "stratum": "compare",
+      "ordinal": 4,
+      "original_question_title": "A .NET API error is thrown when attempting to install ICC 4.0.1",
+      "original_question_text": "A .NET API error is thrown when attempting to install ICC 4.0.1. The error claims that either an incorrect version of the IBM FileNet P8 Content Processing Engine (CPE) .NET API 5.2.1.2 is installed or that it is missing some components.  How do I fix this?",
+      "query": "A .NET API error is thrown when attempting to install ICC 4.0.1\nA .NET API error is thrown when attempting to install ICC 4.0.1. The error claims that either an incorrect version of the IBM FileNet P8 Content Processing Engine (CPE) .NET API 5.2.1.2 is installed or that it is missing some components.  How do I fix this?",
+      "query_sha256": "aa56577c7b571e7431e687936f97ff38b8bd833d0a1a33b8ef9a5f1a4f3cf263",
+      "analysis_operation": "compare_document_counts",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "FileNet",
+            "start": 190,
+            "end": 197
+          }
+        ],
+        "versions": [
+          {
+            "text": "4.0.1",
+            "start": 58,
+            "end": 63
+          },
+          {
+            "text": "5.2.1.2",
+            "start": 242,
+            "end": 249
+          }
+        ],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "0fc0cb6d8a75562501ea200fedacec6d77b01f8039dc2e7a95899dbf9bc3efc7",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-COMPARE-05",
+      "stratum": "compare",
+      "ordinal": 5,
+      "original_question_title": "Help with Action required for IIB H.E. V9 & WMB H.E. V8 for security vulnerabilities in Red Hat Linux",
+      "original_question_text": "\n\nI need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux.\n\nThis is related to CVEID:\nCVE-2017-15277\nCVE-2017-15281\n\nWhere can I find this information?",
+      "query": "Help with Action required for IIB H.E. V9 & WMB H.E. V8 for security vulnerabilities in Red Hat Linux\n\n\nI need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux.\n\nThis is related to CVEID:\nCVE-2017-15277\nCVE-2017-15281\n\nWhere can I find this information?",
+      "query_sha256": "458f9f7f407a99d3c8054bad35a5ee6bee0c48efc9fe448ddf2424dcbddade42",
+      "analysis_operation": "compare_document_counts",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "IBM Integration Bus",
+            "start": 163,
+            "end": 182
+          },
+          {
+            "text": "WebSphere Message Broker",
+            "start": 211,
+            "end": 235
+          }
+        ],
+        "versions": [
+          {
+            "text": "V9",
+            "start": 39,
+            "end": 41
+          },
+          {
+            "text": "V8",
+            "start": 53,
+            "end": 55
+          },
+          {
+            "text": "V9.0",
+            "start": 202,
+            "end": 206
+          },
+          {
+            "text": "V8.0",
+            "start": 255,
+            "end": 259
+          }
+        ],
+        "platforms": [
+          {
+            "text": "Linux",
+            "start": 96,
+            "end": 101
+          }
+        ],
+        "identifiers": [
+          {
+            "text": "CVE-2017-15277",
+            "start": 334,
+            "end": 348
+          },
+          {
+            "text": "CVE-2017-15281",
+            "start": 349,
+            "end": 363
+          }
+        ]
+      },
+      "selection_key": "130a1eff07f24da66b005887d97bcd0b0e82a5730beb12088144d7a1c00a3a15",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-COMPARE-06",
+      "stratum": "compare",
+      "ordinal": 6,
+      "original_question_title": "Are there any probes that can connecto the Nokia NSP EPC v17.9 and Nokia NSP RAN v17.3 using JMS/HTTP?",
+      "original_question_text": "The customer has asked if there are any probes that can connect to their Nokia servers, both of which use a HTTP/JMS interface:\n\n Nokia NSP EPC v17.9 \n Nokia NSP RAN v17.3 ",
+      "query": "Are there any probes that can connecto the Nokia NSP EPC v17.9 and Nokia NSP RAN v17.3 using JMS/HTTP?\nThe customer has asked if there are any probes that can connect to their Nokia servers, both of which use a HTTP/JMS interface:\n\n Nokia NSP EPC v17.9 \n Nokia NSP RAN v17.3 ",
+      "query_sha256": "4d8c352599136a4202687efb7c0ef91b0eb6ca606646842464c78a20d0041960",
+      "analysis_operation": "compare_document_counts",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "Nokia NSP",
+            "start": 43,
+            "end": 52
+          }
+        ],
+        "versions": [
+          {
+            "text": "v17.9",
+            "start": 57,
+            "end": 62
+          },
+          {
+            "text": "v17.3",
+            "start": 81,
+            "end": 86
+          }
+        ],
+        "platforms": [],
+        "identifiers": [
+          {
+            "text": "v17.9",
+            "start": 57,
+            "end": 62
+          },
+          {
+            "text": "v17.3",
+            "start": 81,
+            "end": 86
+          }
+        ]
+      },
+      "selection_key": "13509af9bac9650be8099efd9a071faf55bd50f89365137e0b3ebb5d9f7719e3",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-COMPARE-07",
+      "stratum": "compare",
+      "ordinal": 7,
+      "original_question_title": "Help with Action required for IIB H.E.V9 and WMB H.E. V8 for security vulnerabilities in Red Hat Linux",
+      "original_question_text": "\n\nI need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux.\n\nWhere can I find this information?",
+      "query": "Help with Action required for IIB H.E.V9 and WMB H.E. V8 for security vulnerabilities in Red Hat Linux\n\n\nI need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux.\n\nWhere can I find this information?",
+      "query_sha256": "be2e9041bbd58a1157e79a6f2b18e20e92ebfdcdd4266a96897b026c384063ba",
+      "analysis_operation": "compare_document_counts",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "IBM Integration Bus",
+            "start": 164,
+            "end": 183
+          },
+          {
+            "text": "WebSphere Message Broker",
+            "start": 212,
+            "end": 236
+          }
+        ],
+        "versions": [
+          {
+            "text": "V9",
+            "start": 38,
+            "end": 40
+          },
+          {
+            "text": "V8",
+            "start": 54,
+            "end": 56
+          },
+          {
+            "text": "V9.0",
+            "start": 203,
+            "end": 207
+          },
+          {
+            "text": "V8.0",
+            "start": 256,
+            "end": 260
+          }
+        ],
+        "platforms": [
+          {
+            "text": "Linux",
+            "start": 97,
+            "end": 102
+          }
+        ],
+        "identifiers": []
+      },
+      "selection_key": "139a3bc2f5a81536bfa1f5f30e7953c6b173e77a60cb6c41755ac64d28e866ad",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-COMPARE-08",
+      "stratum": "compare",
+      "ordinal": 8,
+      "original_question_title": "Why are the users unable to login to Web GUI 8.1 after I modify timeout to 2147483647 in security.xml file ?",
+      "original_question_text": "\n\nI followed the Web GUI 8.1 reference guide here to switching off the session timeout\n\nhttp://www-01.ibm.com/support/knowledgecenter/SSSHTQ_8.1.0/com.ibm.netcool_OMNIbus.doc_8.1.0/webtop/wip/task/web_adm_settimeout.html\n\nAfter I edited /config/cells/JazzSMNode01Cell/security.xml file, modified timeout setting to 2147483647, users are not able to login anymore.",
+      "query": "Why are the users unable to login to Web GUI 8.1 after I modify timeout to 2147483647 in security.xml file ?\n\n\nI followed the Web GUI 8.1 reference guide here to switching off the session timeout\n\nhttp://www-01.ibm.com/support/knowledgecenter/SSSHTQ_8.1.0/com.ibm.netcool_OMNIbus.doc_8.1.0/webtop/wip/task/web_adm_settimeout.html\n\nAfter I edited /config/cells/JazzSMNode01Cell/security.xml file, modified timeout setting to 2147483647, users are not able to login anymore.",
+      "query_sha256": "509159a37ee8b8b6ec3303c38c35a65a312194afc9a63185e1d1688e72838851",
+      "analysis_operation": "compare_document_counts",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "netcool",
+            "start": 264,
+            "end": 271
+          }
+        ],
+        "versions": [
+          {
+            "text": "8.1",
+            "start": 45,
+            "end": 48
+          },
+          {
+            "text": "1.0",
+            "start": 252,
+            "end": 255
+          }
+        ],
+        "platforms": [],
+        "identifiers": [
+          {
+            "text": "security.xml",
+            "start": 89,
+            "end": 101
+          },
+          {
+            "text": "www-01.ibm.com/support/knowledgecenter",
+            "start": 204,
+            "end": 242
+          },
+          {
+            "text": "com.ibm",
+            "start": 256,
+            "end": 263
+          },
+          {
+            "text": "doc_8.1.0/webtop/wip/task/web_adm_settimeout.html",
+            "start": 280,
+            "end": 329
+          },
+          {
+            "text": "config/cells",
+            "start": 347,
+            "end": 359
+          }
+        ]
+      },
+      "selection_key": "15fb3706cc601de13c1bc34aea74dc0a997d00d47fe0c9732c1803c646982ce4",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-PLATFORM-01",
+      "stratum": "platform",
+      "ordinal": 1,
+      "original_question_title": "Why does my install of the latest Installation Manager on a Linux Ingram Server not function?",
+      "original_question_text": "\n\nI've installed the latest Installation Manager on an Ingram Server that I mount to different Linux machines where I have installed WebSphere Application Server. I received the following error when trying to use the Installation Manager:\n\n     00:02.25 ERROR [main] org.eclipse.equinox.log.internal.\n     ExtendedLogReaderServiceFactory safeLogged\n       Application error\n       java.lang.NoClassDefFoundError: org.eclipse.jface.dialogs.\n     ProgressMonitorDialog\n         at java.lang.ClassLoader.defineClassImpl(Native Method)\n         at java.lang.ClassLoader.defineClass(ClassLoader.java:324)\n         at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.\n     defineClass(DefaultClassLoader.java:188)\n         at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.\n     defineClassHoldingLock(ClasspathManager.java:632)\n\nI have unmounted and remounted the drive but does not appear to resolve the issue.",
+      "query": "Why does my install of the latest Installation Manager on a Linux Ingram Server not function?\n\n\nI've installed the latest Installation Manager on an Ingram Server that I mount to different Linux machines where I have installed WebSphere Application Server. I received the following error when trying to use the Installation Manager:\n\n     00:02.25 ERROR [main] org.eclipse.equinox.log.internal.\n     ExtendedLogReaderServiceFactory safeLogged\n       Application error\n       java.lang.NoClassDefFoundError: org.eclipse.jface.dialogs.\n     ProgressMonitorDialog\n         at java.lang.ClassLoader.defineClassImpl(Native Method)\n         at java.lang.ClassLoader.defineClass(ClassLoader.java:324)\n         at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.\n     defineClass(DefaultClassLoader.java:188)\n         at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.\n     defineClassHoldingLock(ClasspathManager.java:632)\n\nI have unmounted and remounted the drive but does not appear to resolve the issue.",
+      "query_sha256": "3533558486eba01f8f292d6f34377e984e68f507669be8f0d2d747935c72e560",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "WebSphere Application Server",
+            "start": 227,
+            "end": 255
+          }
+        ],
+        "versions": [
+          {
+            "text": "02.25",
+            "start": 342,
+            "end": 347
+          }
+        ],
+        "platforms": [
+          {
+            "text": "Linux",
+            "start": 60,
+            "end": 65
+          }
+        ],
+        "identifiers": [
+          {
+            "text": "org.eclipse.equinox.log.internal",
+            "start": 361,
+            "end": 393
+          },
+          {
+            "text": "java.lang",
+            "start": 475,
+            "end": 484
+          },
+          {
+            "text": "org.eclipse.jface.dialogs",
+            "start": 507,
+            "end": 532
+          },
+          {
+            "text": "org.eclipse.osgi.internal.baseadaptor",
+            "start": 706,
+            "end": 743
+          },
+          {
+            "text": "org.eclipse.osgi.baseadaptor.loader",
+            "start": 822,
+            "end": 857
+          }
+        ]
+      },
+      "selection_key": "01efa1c46e14eb1a0119572cd441209f0a6079c27ebd4602b750c2e239a1e5a9",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-PLATFORM-02",
+      "stratum": "platform",
+      "ordinal": 2,
+      "original_question_title": "How do to restore corrupted Object server DB using data from Backup Object server in Linux?",
+      "original_question_text": "Error: E-REG-002-025: Region 'table_store', from directory '/opt/IBM/tivoli/netcool/omnibus/db/NCOMS/', has been recovered in a corrupt state: Extent statistics mismatch Error: E-OBX-102-020: Failed to start the storage system. (-490:Extent statistics mismatch) ",
+      "query": "How do to restore corrupted Object server DB using data from Backup Object server in Linux?\nError: E-REG-002-025: Region 'table_store', from directory '/opt/IBM/tivoli/netcool/omnibus/db/NCOMS/', has been recovered in a corrupt state: Extent statistics mismatch Error: E-OBX-102-020: Failed to start the storage system. (-490:Extent statistics mismatch) ",
+      "query_sha256": "bd9c2661a8e3c59e84dcd96fa20e6ac681b365e07ff2d7b46abf782953f082d1",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "tivoli",
+            "start": 161,
+            "end": 167
+          },
+          {
+            "text": "netcool",
+            "start": 168,
+            "end": 175
+          }
+        ],
+        "versions": [],
+        "platforms": [
+          {
+            "text": "Linux",
+            "start": 85,
+            "end": 90
+          }
+        ],
+        "identifiers": [
+          {
+            "text": "table_store",
+            "start": 122,
+            "end": 133
+          },
+          {
+            "text": "tivoli/netcool/omnibus/db",
+            "start": 161,
+            "end": 186
+          }
+        ]
+      },
+      "selection_key": "021be432b7e894c5070153426016c257701d246e5ab37ba46db24aadff6f23c8",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-PLATFORM-03",
+      "stratum": "platform",
+      "ordinal": 3,
+      "original_question_title": "How to start PC DMgr as a Windows service?",
+      "original_question_text": " hi all. I just installed BPM 8.5.0.1 Process Center on a Windows 2008 R2 cloud server. The default BPM85 typical installation installs ProcessCenter Quickstart web page for starting the Dmgr and NodeMgr servers using the installation admin user . However, logout stops the services started by and attached to the admin user. I need to have this ProcessCenter (and Deployment Env Process SErvers) BPM85 DMgr / Node/ WASND started as a managed Windows managed service. I didn't see a Service Definition page to select run as Windows service. Can I possibly run BPMConfig -start dmgrprofile as a Windows service or is a profile update to my dmgr (hope not) needed to do this? ",
+      "query": "How to start PC DMgr as a Windows service?\n hi all. I just installed BPM 8.5.0.1 Process Center on a Windows 2008 R2 cloud server. The default BPM85 typical installation installs ProcessCenter Quickstart web page for starting the Dmgr and NodeMgr servers using the installation admin user . However, logout stops the services started by and attached to the admin user. I need to have this ProcessCenter (and Deployment Env Process SErvers) BPM85 DMgr / Node/ WASND started as a managed Windows managed service. I didn't see a Service Definition page to select run as Windows service. Can I possibly run BPMConfig -start dmgrprofile as a Windows service or is a profile update to my dmgr (hope not) needed to do this? ",
+      "query_sha256": "ee4b0049cfdeb6e784fa594bc76a70e9027b197609c795e558e686b205516e73",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "BPM",
+            "start": 69,
+            "end": 72
+          }
+        ],
+        "versions": [
+          {
+            "text": "8.5.0.1",
+            "start": 73,
+            "end": 80
+          }
+        ],
+        "platforms": [
+          {
+            "text": "Windows",
+            "start": 26,
+            "end": 33
+          }
+        ],
+        "identifiers": []
+      },
+      "selection_key": "0226b6fa4505383c5ba6e98d0b241511f443f002acc4b011ace95094b3cd4496",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-PLATFORM-04",
+      "stratum": "platform",
+      "ordinal": 4,
+      "original_question_title": "How do I transfer my SPSS 24 license key to a new computer?",
+      "original_question_text": "I need to transfer my SPSS 24 license key to a new computer. I was able to download IBM® SPSS® Statistics Standard GradPack 24 for Windows (12-Mo Rental) onto the new computer, but every time I put in the activation code, I am met with this error message: \n\nAuthorization failed.: You are not allowed to generate any more new licenses.\nEnd Of Transaction. \nNo additional authorizations are permitted on this code. \nWhat should I do?\n\n\n\nThis dW Answers question is about an IBM document with the Title: \nSPSS Student Version and Graduate Pack Resources",
+      "query": "How do I transfer my SPSS 24 license key to a new computer?\nI need to transfer my SPSS 24 license key to a new computer. I was able to download IBM® SPSS® Statistics Standard GradPack 24 for Windows (12-Mo Rental) onto the new computer, but every time I put in the activation code, I am met with this error message: \n\nAuthorization failed.: You are not allowed to generate any more new licenses.\nEnd Of Transaction. \nNo additional authorizations are permitted on this code. \nWhat should I do?\n\n\n\nThis dW Answers question is about an IBM document with the Title: \nSPSS Student Version and Graduate Pack Resources",
+      "query_sha256": "d4cb135e538c84fa527710a34e449e74c62981c91c7b2ac2dfd5a5397efc0947",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "SPSS",
+            "start": 21,
+            "end": 25
+          }
+        ],
+        "versions": [],
+        "platforms": [
+          {
+            "text": "Windows",
+            "start": 191,
+            "end": 198
+          }
+        ],
+        "identifiers": []
+      },
+      "selection_key": "1f8b40d06c97eaca6f4e5cefd1fba32bf4105a7fa0b5f0611359425d0d839d7a",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-PLATFORM-05",
+      "stratum": "platform",
+      "ordinal": 5,
+      "original_question_title": "DSNT408I SQLCODE -401 creating stored procedure CIUSNTSR after upgrading to DB2 11",
+      "original_question_text": "\n\nWhy would CIUSNTSR stored procedure creation fail with message DSNT408I and SQLCODE=-401? I am running CICS Interdependency Analyzer for z/OS (CICS IA) CIUDBCQ JCL when the failure occurs. This happened after I upgraded z/OS DB2 to V11.\n\nHere are the messages I receive:\n\n     DSNT408I SQLCODE = -401, ERROR:  THE OPERANDS OF AN ARITHMETIC OR COMPARISON OPERATION ARE\n     NOT COMPARABLE\n     DSNT418I SQLSTATE  = 42818 SQLSTATE RETURN CODE\n     DSNT415I SQLERRP   = DSNXOBFC SQL PROCEDURE DETECTING ERROR\n     DSNT416I SQLERRD   = 930 0  1  -1  0  0 SQL DIAGNOSTIC INFORMATION\n     DSNT416I SQLERRD   = X'000003A2' X'00000000' X'00000001' X'FFFFFFFF' X'00000000' X'00000000'\n     SQL DIAGNOSTIC INFORMATION\n",
+      "query": "DSNT408I SQLCODE -401 creating stored procedure CIUSNTSR after upgrading to DB2 11\n\n\nWhy would CIUSNTSR stored procedure creation fail with message DSNT408I and SQLCODE=-401? I am running CICS Interdependency Analyzer for z/OS (CICS IA) CIUDBCQ JCL when the failure occurs. This happened after I upgraded z/OS DB2 to V11.\n\nHere are the messages I receive:\n\n     DSNT408I SQLCODE = -401, ERROR:  THE OPERANDS OF AN ARITHMETIC OR COMPARISON OPERATION ARE\n     NOT COMPARABLE\n     DSNT418I SQLSTATE  = 42818 SQLSTATE RETURN CODE\n     DSNT415I SQLERRP   = DSNXOBFC SQL PROCEDURE DETECTING ERROR\n     DSNT416I SQLERRD   = 930 0  1  -1  0  0 SQL DIAGNOSTIC INFORMATION\n     DSNT416I SQLERRD   = X'000003A2' X'00000000' X'00000001' X'FFFFFFFF' X'00000000' X'00000000'\n     SQL DIAGNOSTIC INFORMATION\n",
+      "query_sha256": "bb80cba03e3e5cedb8b09724d4a5258622d6ca66f221ca3d4d4d39ea8d65de3d",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "DB2",
+            "start": 76,
+            "end": 79
+          },
+          {
+            "text": "CICS",
+            "start": 188,
+            "end": 192
+          }
+        ],
+        "versions": [
+          {
+            "text": "V11",
+            "start": 317,
+            "end": 320
+          }
+        ],
+        "platforms": [
+          {
+            "text": "z/OS",
+            "start": 222,
+            "end": 226
+          }
+        ],
+        "identifiers": [
+          {
+            "text": "DSNT408I",
+            "start": 0,
+            "end": 8
+          },
+          {
+            "text": "DSNT418I",
+            "start": 478,
+            "end": 486
+          },
+          {
+            "text": "DSNT415I",
+            "start": 531,
+            "end": 539
+          },
+          {
+            "text": "DSNT416I",
+            "start": 596,
+            "end": 604
+          }
+        ]
+      },
+      "selection_key": "2a7342e048200bd3a4daa2df6613856d5aa30e5d663627eb9d60c5e1fa7474fc",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-PLATFORM-06",
+      "stratum": "platform",
+      "ordinal": 6,
+      "original_question_title": "What are the files created in $TEMP on startup of IIB or WMB?",
+      "original_question_text": "What are the 0 byte files created in $TEMP/.com_ibm_tools_attach directory upon IBM Integration Bus (IIB) / WebSphere Message Broker (WMB) startup?\nFor example: The following files are created on UNIX / Windows if $TEMP is /tmp:\n/tmp/.com_ibm_tools_attach/_attachlock\n/tmp/.com_ibm_tools_attach/_master\n/tmp/.com_ibm_tools_attach/_notifier",
+      "query": "What are the files created in $TEMP on startup of IIB or WMB?\nWhat are the 0 byte files created in $TEMP/.com_ibm_tools_attach directory upon IBM Integration Bus (IIB) / WebSphere Message Broker (WMB) startup?\nFor example: The following files are created on UNIX / Windows if $TEMP is /tmp:\n/tmp/.com_ibm_tools_attach/_attachlock\n/tmp/.com_ibm_tools_attach/_master\n/tmp/.com_ibm_tools_attach/_notifier",
+      "query_sha256": "b410ced83608032ccdde45f342e6ab5d71e9e451ee687a9e733e64776b9ec202",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "IBM Integration Bus",
+            "start": 142,
+            "end": 161
+          },
+          {
+            "text": "WebSphere Message Broker",
+            "start": 170,
+            "end": 194
+          }
+        ],
+        "versions": [],
+        "platforms": [
+          {
+            "text": "UNIX",
+            "start": 258,
+            "end": 262
+          },
+          {
+            "text": "Windows",
+            "start": 265,
+            "end": 272
+          }
+        ],
+        "identifiers": [
+          {
+            "text": "com_ibm_tools_attach",
+            "start": 106,
+            "end": 126
+          }
+        ]
+      },
+      "selection_key": "2a991dba22203c565aa2d70977067069c2c7e2933d5bd53aa1fc78f65f3fb5c0",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-PLATFORM-07",
+      "stratum": "platform",
+      "ordinal": 7,
+      "original_question_title": "CICS VR FRLOG option that logs changes to VSAM datasets",
+      "original_question_text": "Is the information about the NONE option for FRLOG in the CICS VSAM Recovery for z/OS (CICS VR) documentation correct? If it is not, what information is logged when NONE is specified?\n\nI am working on a POC for the Classic change data capture (CDC) for VSAM. In order for Classic CDC to capture changes from a VSAM file, it has to be altered to have a FRLOG option.\n\nAccording to the CICS VR documentation, FRLOG has NULL, NONE, REDO, UNDO, and ALL options. By default I would think FRLOG(ALL) option will give everything in the log. However when using this option, customer cannot run their batch update job after the alter. The file cannot be opened by the batch job. We were told by Classic team to use the FRLOG=NONE option and this option actually worked. I am really confused because according to the manual NONE option will not log any changes. Here is the paragraph from the manual:",
+      "query": "CICS VR FRLOG option that logs changes to VSAM datasets\nIs the information about the NONE option for FRLOG in the CICS VSAM Recovery for z/OS (CICS VR) documentation correct? If it is not, what information is logged when NONE is specified?\n\nI am working on a POC for the Classic change data capture (CDC) for VSAM. In order for Classic CDC to capture changes from a VSAM file, it has to be altered to have a FRLOG option.\n\nAccording to the CICS VR documentation, FRLOG has NULL, NONE, REDO, UNDO, and ALL options. By default I would think FRLOG(ALL) option will give everything in the log. However when using this option, customer cannot run their batch update job after the alter. The file cannot be opened by the batch job. We were told by Classic team to use the FRLOG=NONE option and this option actually worked. I am really confused because according to the manual NONE option will not log any changes. Here is the paragraph from the manual:",
+      "query_sha256": "7072afc9d08f97a44daf59f949d1aeea3364b071daff1f1d4aeac21fc2b9f331",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "CICS",
+            "start": 0,
+            "end": 4
+          }
+        ],
+        "versions": [],
+        "platforms": [
+          {
+            "text": "z/OS",
+            "start": 137,
+            "end": 141
+          }
+        ],
+        "identifiers": []
+      },
+      "selection_key": "31b4c4c25e43beae054ed662f75002b030d0e3cc3336900fc863b3d010feb100",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-PLATFORM-08",
+      "stratum": "platform",
+      "ordinal": 8,
+      "original_question_title": "SPSS will not start on Mac",
+      "original_question_text": "\n\nI downloaded SPSS about 3 weeks ago. On the day when I downloaded it, it was working fine. Last week, I tried starting SPSS but it did not start. I tried reinstalling it, it still would not open. I've updated JAVA (thought this would be a problem), it slowly opened the program but then now that I have reinstalled it and entered in my code, I've used up my code and I have no authorization. But just now, I started SPSS and the same problem is happening. The IBM SPSS name screen appears but nothing happens.\n\n    SPSS would not start.\n\n    Even if it does start, I have licensing problems.\n",
+      "query": "SPSS will not start on Mac\n\n\nI downloaded SPSS about 3 weeks ago. On the day when I downloaded it, it was working fine. Last week, I tried starting SPSS but it did not start. I tried reinstalling it, it still would not open. I've updated JAVA (thought this would be a problem), it slowly opened the program but then now that I have reinstalled it and entered in my code, I've used up my code and I have no authorization. But just now, I started SPSS and the same problem is happening. The IBM SPSS name screen appears but nothing happens.\n\n    SPSS would not start.\n\n    Even if it does start, I have licensing problems.\n",
+      "query_sha256": "7ee07fd36f04f847677be4f49c82f20ce95b7bc66a37a81cbda6ba3f1670df4b",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "SPSS",
+            "start": 0,
+            "end": 4
+          }
+        ],
+        "versions": [],
+        "platforms": [
+          {
+            "text": "Mac",
+            "start": 23,
+            "end": 26
+          }
+        ],
+        "identifiers": []
+      },
+      "selection_key": "3710b49e8b3c4deccce3cfbb9d2c0e54a44a824f5753853f41a44e3a23f1fd8a",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-01",
+      "stratum": "identifier",
+      "ordinal": 1,
+      "original_question_title": "Why the exception \"BO Service is not supported or disabled in this profile\" when trying to publish from IID to a local Process Server?",
+      "original_question_text": "When trying to publish a project from IBM Integration Designer (IID) to the local Process Server, it fails with error ADMA5014E in SystemOut.log. The FFDC log is showing exception of BO Service is not supported or disabled in this profile; Trace:\n\nFFDC Exception:java.lang.ExceptionInInitializerError SourceId:com.ibm.ws.bpm.cmdfrmwrk.task.WBICleanupTask ProbeId:200 java.lang.ExceptionInInitializerError at java.lang.J9VMInternals.initialize(J9VMInternals.java:259) \n....\nCaused by: java.lang.IllegalStateException: BO Service is not supported or disabled in this profile. at com.ibm.ws.bo.BOCore.init(BOCore.java:107) ....",
+      "query": "Why the exception \"BO Service is not supported or disabled in this profile\" when trying to publish from IID to a local Process Server?\nWhen trying to publish a project from IBM Integration Designer (IID) to the local Process Server, it fails with error ADMA5014E in SystemOut.log. The FFDC log is showing exception of BO Service is not supported or disabled in this profile; Trace:\n\nFFDC Exception:java.lang.ExceptionInInitializerError SourceId:com.ibm.ws.bpm.cmdfrmwrk.task.WBICleanupTask ProbeId:200 java.lang.ExceptionInInitializerError at java.lang.J9VMInternals.initialize(J9VMInternals.java:259) \n....\nCaused by: java.lang.IllegalStateException: BO Service is not supported or disabled in this profile. at com.ibm.ws.bo.BOCore.init(BOCore.java:107) ....",
+      "query_sha256": "5c15a28787a894b4bd4359942911b57751590e8c97271c302f53374ff8524aaa",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "bpm",
+            "start": 456,
+            "end": 459
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": [
+          {
+            "text": "ADMA5014E",
+            "start": 253,
+            "end": 262
+          },
+          {
+            "text": "java.lang",
+            "start": 398,
+            "end": 407
+          },
+          {
+            "text": "com.ibm.ws.bpm.cmdfrmwrk.task",
+            "start": 445,
+            "end": 474
+          },
+          {
+            "text": "com.ibm.ws.bo",
+            "start": 712,
+            "end": 725
+          }
+        ]
+      },
+      "selection_key": "044e881f2a964ea2def13e505ee885468724a92dde7e6ae42b8847bb1745b6cb",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-02",
+      "stratum": "identifier",
+      "ordinal": 2,
+      "original_question_title": "Help with Security Bulletin: IBM MQ Clients can send a specially crafted message that could cause a channel to SIGSEGV. (CVE-2017-1747)",
+      "original_question_text": "I need to understand details regarding Security Bulletin: IBM MQ Clients can send a specially crafted message that could cause a channel to SIGSEGV. (CVE-2017-1747). Where can I find this information? ",
+      "query": "Help with Security Bulletin: IBM MQ Clients can send a specially crafted message that could cause a channel to SIGSEGV. (CVE-2017-1747)\nI need to understand details regarding Security Bulletin: IBM MQ Clients can send a specially crafted message that could cause a channel to SIGSEGV. (CVE-2017-1747). Where can I find this information? ",
+      "query_sha256": "50bb45f5911c496ca2ee75cf6f73ae55019c56ec98714d4086f52f53d16918a0",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "MQ",
+            "start": 33,
+            "end": 35
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": [
+          {
+            "text": "CVE-2017-1747",
+            "start": 121,
+            "end": 134
+          }
+        ]
+      },
+      "selection_key": "0555c12059964f675af72ccb639cd55060b25dc6f7086ad4b2cfdc976a551afc",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-03",
+      "stratum": "identifier",
+      "ordinal": 3,
+      "original_question_title": "Security Bulletin: Non-configured connections could cause denial of service in IBM WebSphere MQ Internet Pass-Thru (CVE-2017-1118)",
+      "original_question_text": "I need to understand details regarding Security Bulletin: Non-configured connections could cause denial of service in IBM WebSphere MQ Internet Pass-Thru (CVE-2017-1118). Where can I find this information?\n",
+      "query": "Security Bulletin: Non-configured connections could cause denial of service in IBM WebSphere MQ Internet Pass-Thru (CVE-2017-1118)\nI need to understand details regarding Security Bulletin: Non-configured connections could cause denial of service in IBM WebSphere MQ Internet Pass-Thru (CVE-2017-1118). Where can I find this information?\n",
+      "query_sha256": "53aeba478cc8fecc2769f74d0d2755928332fe04fd9ab9f811072d06e26b213a",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "WebSphere MQ",
+            "start": 83,
+            "end": 95
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": [
+          {
+            "text": "CVE-2017-1118",
+            "start": 116,
+            "end": 129
+          }
+        ]
+      },
+      "selection_key": "07cf7e15914c5aa79c6d22c4c74d0354a21942b66ed3847508960ed9a9304193",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-04",
+      "stratum": "identifier",
+      "ordinal": 4,
+      "original_question_title": "Help with Security Bulletin: IBM WebSphere MQ MQXR insecure passwords (CVE-2015-2012)",
+      "original_question_text": "I need to understand details regarding Security Bulletin: IBM WebSphere MQ MQXR insecure passwords (CVE-2015-2012). Where can I find this information? ",
+      "query": "Help with Security Bulletin: IBM WebSphere MQ MQXR insecure passwords (CVE-2015-2012)\nI need to understand details regarding Security Bulletin: IBM WebSphere MQ MQXR insecure passwords (CVE-2015-2012). Where can I find this information? ",
+      "query_sha256": "1712487d221041a37e0969d5facde7f571b4e6f9acff1e636eeb585629bf7128",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "WebSphere MQ",
+            "start": 33,
+            "end": 45
+          },
+          {
+            "text": "MQ",
+            "start": 46,
+            "end": 48
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": [
+          {
+            "text": "CVE-2015-2012",
+            "start": 71,
+            "end": 84
+          }
+        ]
+      },
+      "selection_key": "09f8d80301ba7aadcf720b750ca6a8a82339f16aaa1be2dac732d7f02fc48f07",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-05",
+      "stratum": "identifier",
+      "ordinal": 5,
+      "original_question_title": "How to generate Javacores automatically in on hung threads reported in SystemOut.log for WebSphere Application Server?",
+      "original_question_text": "Need Javacores to be generated on hung threads messages reported in SystemOut.log for WebSphere Applicaiton Server.Example:WSVR0605W: Thread has been active for and may be hung. There are in total in the server that may be hung.",
+      "query": "How to generate Javacores automatically in on hung threads reported in SystemOut.log for WebSphere Application Server?\nNeed Javacores to be generated on hung threads messages reported in SystemOut.log for WebSphere Applicaiton Server.Example:WSVR0605W: Thread has been active for and may be hung. There are in total in the server that may be hung.",
+      "query_sha256": "2231d8d9249b7b7ebd0d491699a1b229517f6d668c60a6c54edf51754e9535fa",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "WebSphere Application Server",
+            "start": 89,
+            "end": 117
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": [
+          {
+            "text": "WSVR0605W",
+            "start": 242,
+            "end": 251
+          }
+        ]
+      },
+      "selection_key": "0ac877bd652db239384e5243edc95c06757d7fcc379fe13ded7bc5d7de561206",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-06",
+      "stratum": "identifier",
+      "ordinal": 6,
+      "original_question_title": "Is DataPower affected by the bash environment variable vulnerability CVE-2014-6271 or CVE-2014-7169",
+      "original_question_text": "Is DataPower affected by the recent vulnerability reported through CVE-2014-6271 or CVE-2014-7169?\n\nhttp://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-6271 http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-7169",
+      "query": "Is DataPower affected by the bash environment variable vulnerability CVE-2014-6271 or CVE-2014-7169\nIs DataPower affected by the recent vulnerability reported through CVE-2014-6271 or CVE-2014-7169?\n\nhttp://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-6271 http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-7169",
+      "query_sha256": "95592dc813de46efc60a191d67292d685ad1d93e86bed84ab0bb0ca8e9238129",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "DataPower",
+            "start": 3,
+            "end": 12
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": [
+          {
+            "text": "CVE-2014-6271",
+            "start": 69,
+            "end": 82
+          },
+          {
+            "text": "CVE-2014-7169",
+            "start": 86,
+            "end": 99
+          },
+          {
+            "text": "web.nvd.nist.gov/view/vuln/detail",
+            "start": 207,
+            "end": 240
+          }
+        ]
+      },
+      "selection_key": "0cae9292b3a130889e8a5e43d6ab010ae84a6f117a853318cdac040b0ce6fa4f",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-07",
+      "stratum": "identifier",
+      "ordinal": 7,
+      "original_question_title": "Help with Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects WMB & IIB (CVE-2015-4000)",
+      "original_question_text": "I need to understand details regarding Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000). This vulnerability is commonly referred to as \"Logjam\". Where can I find this information?",
+      "query": "Help with Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects WMB & IIB (CVE-2015-4000)\nI need to understand details regarding Security Bulletin: Vulnerability in Diffie-Hellman ciphers known as Logjam affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-4000). This vulnerability is commonly referred to as \"Logjam\". Where can I find this information?",
+      "query_sha256": "85eefa4b784b2d5921169a59483f659dbdaf8d08947b898c10747a97a8892d31",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "WebSphere Message Broker",
+            "start": 245,
+            "end": 269
+          },
+          {
+            "text": "IBM Integration Bus",
+            "start": 274,
+            "end": 293
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": [
+          {
+            "text": "CVE-2015-4000",
+            "start": 104,
+            "end": 117
+          }
+        ]
+      },
+      "selection_key": "112f5f81a176cd8035636b3edd7c0b5c672c0f5f3e5ec3c5b22710ab1ed917ef",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-08",
+      "stratum": "identifier",
+      "ordinal": 8,
+      "original_question_title": "Executing a scenario suite with a Scenario Service Provider (SSP) over HTTPS",
+      "original_question_text": "How to configure the machines hosting the WebSphere Operational Decision Management modules with regard to HTTPS when executing scenario suites ?\nHow to avoid the exception below while requesting from Decision Center the execution of a scenario suite on Scenario Service Provider (SSP) over HTTPS ?\n Exception caught while contacting RES ilog.rules.res.util.http.IlrConnectionException: IO error when contacting \"/res/repositoryService\"\n ....\n Caused by: javax.net.ssl.SSLHandshakeException: com.ibm.jsse2.util.g: PKIX path building failed: java.security.cert.CertPathBuilderException: unable to find valid certification path to requested target",
+      "query": "Executing a scenario suite with a Scenario Service Provider (SSP) over HTTPS\nHow to configure the machines hosting the WebSphere Operational Decision Management modules with regard to HTTPS when executing scenario suites ?\nHow to avoid the exception below while requesting from Decision Center the execution of a scenario suite on Scenario Service Provider (SSP) over HTTPS ?\n Exception caught while contacting RES ilog.rules.res.util.http.IlrConnectionException: IO error when contacting \"/res/repositoryService\"\n ....\n Caused by: javax.net.ssl.SSLHandshakeException: com.ibm.jsse2.util.g: PKIX path building failed: java.security.cert.CertPathBuilderException: unable to find valid certification path to requested target",
+      "query_sha256": "fa94d6406b4f19c3050b79d7007043e00e88433fda181e4305a7de9b52c16e3a",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "rational",
+            "start": 132,
+            "end": 140
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": [
+          {
+            "text": "ilog.rules.res.util.http",
+            "start": 415,
+            "end": 439
+          },
+          {
+            "text": "javax.net.ssl",
+            "start": 532,
+            "end": 545
+          },
+          {
+            "text": "com.ibm.jsse2.util.g",
+            "start": 569,
+            "end": 589
+          },
+          {
+            "text": "java.security.cert",
+            "start": 618,
+            "end": 636
+          }
+        ]
+      },
+      "selection_key": "12dd63f5b5897900573e771cfc869ef31d118e3ecb328e6adac6e755fb4274bd",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-VERSION-01",
+      "stratum": "version",
+      "ordinal": 1,
+      "original_question_title": "Netcool/Impact 6.1.0: How to change the HSQLDB password?",
+      "original_question_text": "Netcool/Impact 6.1.0: How to change the HSQLDB password?",
+      "query": "Netcool/Impact 6.1.0: How to change the HSQLDB password?\nNetcool/Impact 6.1.0: How to change the HSQLDB password?",
+      "query_sha256": "d5e1045cbcf55f56a88a8dd4b5145b818e35d2979e53eda12a208406beeb5d8f",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "Netcool/Impact",
+            "start": 0,
+            "end": 14
+          }
+        ],
+        "versions": [
+          {
+            "text": "6.1.0",
+            "start": 15,
+            "end": 20
+          }
+        ],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "0d19c9215d25abb3acefec99f3ba3aa0360d8880818b69323ce102f689358e7d",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-VERSION-02",
+      "stratum": "version",
+      "ordinal": 2,
+      "original_question_title": "Is WebSphere Transformation Extender (WTX) supported for IBM Integration Bus V10?",
+      "original_question_text": "When will WebSphere Transformation Extender (WTX) be supported for IBM Integration Bus V10?",
+      "query": "Is WebSphere Transformation Extender (WTX) supported for IBM Integration Bus V10?\nWhen will WebSphere Transformation Extender (WTX) be supported for IBM Integration Bus V10?",
+      "query_sha256": "23a2a7190e4016e2e090651e639b5444e3c2bd492f2ae8121aa35e81bed3612d",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "IBM Integration Bus",
+            "start": 57,
+            "end": 76
+          }
+        ],
+        "versions": [
+          {
+            "text": "V10",
+            "start": 77,
+            "end": 80
+          }
+        ],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "19801b953264e6c72e704d70afe89996916d61c3ae8fec10e85a2517afac9df2",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-VERSION-03",
+      "stratum": "version",
+      "ordinal": 3,
+      "original_question_title": "Cognos Workspace Advanced Users are unable to see features. Why?",
+      "original_question_text": "\n\nCertain Workspace Advanced users cannot open Report Studio. This happens with certain custom roles.\n\nEnvironment: IBM Cognos 10.2.2.x",
+      "query": "Cognos Workspace Advanced Users are unable to see features. Why?\n\n\nCertain Workspace Advanced users cannot open Report Studio. This happens with certain custom roles.\n\nEnvironment: IBM Cognos 10.2.2.x",
+      "query_sha256": "789e29e5195f63b8e29d243f0518c0d57ddf1f4322cca552868f3a36616eb717",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "Cognos",
+            "start": 0,
+            "end": 6
+          }
+        ],
+        "versions": [
+          {
+            "text": "10.2.2",
+            "start": 192,
+            "end": 198
+          }
+        ],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "1da2cccc1c328fea5b55c7c4272190ad8973465b34bc18f645185b807354cfb2",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-VERSION-04",
+      "stratum": "version",
+      "ordinal": 4,
+      "original_question_title": "ITNM 4.2 Fix Pack 3 link and build number?.",
+      "original_question_text": "ITNM 4.2 FP3 is available, if yes then where we can download?. ",
+      "query": "ITNM 4.2 Fix Pack 3 link and build number?.\nITNM 4.2 FP3 is available, if yes then where we can download?. ",
+      "query_sha256": "c23421bc31d0f8a7dc657923a3a9b12dab3afd0d75c526833c04d46a4ae40d63",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "ITNM",
+            "start": 0,
+            "end": 4
+          }
+        ],
+        "versions": [
+          {
+            "text": "4.2",
+            "start": 5,
+            "end": 8
+          }
+        ],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "26133220f868f9829c6d6f68e14513fada171bcccc20c9008b2fa651743aeccf",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-VERSION-05",
+      "stratum": "version",
+      "ordinal": 5,
+      "original_question_title": "How to refresh a DataPower WebService Proxy which WSDL got changed?",
+      "original_question_text": "I have made changes to a WSDL stored in DP local filesystem.\n\nHow can I make the WSP reflect this change since DataPower Gateway 7.1.0 WebService Proxy WebGUI doesn't offer the \"Refresh\" button anymore?\n\nIs there a best practice to refresh the WSP if I modified my WSDL?",
+      "query": "How to refresh a DataPower WebService Proxy which WSDL got changed?\nI have made changes to a WSDL stored in DP local filesystem.\n\nHow can I make the WSP reflect this change since DataPower Gateway 7.1.0 WebService Proxy WebGUI doesn't offer the \"Refresh\" button anymore?\n\nIs there a best practice to refresh the WSP if I modified my WSDL?",
+      "query_sha256": "27e806cc91f576da9a16c2b7024cc966547fd14301d71dade278ae0dcabd315e",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "DataPower",
+            "start": 17,
+            "end": 26
+          }
+        ],
+        "versions": [
+          {
+            "text": "7.1.0",
+            "start": 197,
+            "end": 202
+          }
+        ],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "30f3d00995dd9e947dd50f8c6e2bc9e6cb8c9edfd7cb1ddb5c1ad4ebdb50925e",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-VERSION-06",
+      "stratum": "version",
+      "ordinal": 6,
+      "original_question_title": "How to create batches for bulk upload",
+      "original_question_text": "\n\nI am new in datacap 9.0 .I just started developing with datacap studio and currently I have learned  to recognize, capture and export the data into filenet.\n\nNow I want to Create batches of image or pdf files so that I can process images and pdf .\n\n \n\nAs per requirement client is sharing document at one shared location.I need to pickup all the documnets from shared location. For creating batches which tool I should use? how it works?\n\n \n\nCan anyone help how I proceed with this.\n\n \n\nRegards,\n\nChhaya Sahu\n",
+      "query": "How to create batches for bulk upload\n\n\nI am new in datacap 9.0 .I just started developing with datacap studio and currently I have learned  to recognize, capture and export the data into filenet.\n\nNow I want to Create batches of image or pdf files so that I can process images and pdf .\n\n \n\nAs per requirement client is sharing document at one shared location.I need to pickup all the documnets from shared location. For creating batches which tool I should use? how it works?\n\n \n\nCan anyone help how I proceed with this.\n\n \n\nRegards,\n\nChhaya Sahu\n",
+      "query_sha256": "a4e5df7cec9e7a2c12f84da8816736a05e6645f78be0f917591de4cf960c1552",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "datacap",
+            "start": 52,
+            "end": 59
+          },
+          {
+            "text": "filenet",
+            "start": 188,
+            "end": 195
+          }
+        ],
+        "versions": [
+          {
+            "text": "9.0",
+            "start": 60,
+            "end": 63
+          }
+        ],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "3150e5991179af9533669270e1e4a40d641234c9f437a3b08ea0951b4d80de44",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-VERSION-07",
+      "stratum": "version",
+      "ordinal": 7,
+      "original_question_title": "Error while installing SpSS modeler trial version",
+      "original_question_text": "I have downloaded the SPSS modeller trial version (18.1) (64 bit) and trying to install the same. I get the following error 1152: Error extracting modelerClient64.msi to the temporary location\n",
+      "query": "Error while installing SpSS modeler trial version\nI have downloaded the SPSS modeller trial version (18.1) (64 bit) and trying to install the same. I get the following error 1152: Error extracting modelerClient64.msi to the temporary location\n",
+      "query_sha256": "ba2137da948ef0e52d7879310ba50feb01720d3195c87f6a68291a0dfd459d09",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "SpSS",
+            "start": 23,
+            "end": 27
+          }
+        ],
+        "versions": [
+          {
+            "text": "18.1",
+            "start": 101,
+            "end": 105
+          }
+        ],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "35b9f121e062ea6e4addfa69dfa2c5443bd935e19edc6840fe2661e99ee8ca21",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-VERSION-08",
+      "stratum": "version",
+      "ordinal": 8,
+      "original_question_title": "When should I use conversation sharing in DataPower MQ queue managers?",
+      "original_question_text": "MQ version 7.0 introduced a new feature, conversation sharing. Are there any special values on DataPower when configuring conversation sharing?",
+      "query": "When should I use conversation sharing in DataPower MQ queue managers?\nMQ version 7.0 introduced a new feature, conversation sharing. Are there any special values on DataPower when configuring conversation sharing?",
+      "query_sha256": "c1633bc0820f1830510b084999861389ee1c97993701d69e578d1d422398b193",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "DataPower",
+            "start": 42,
+            "end": 51
+          },
+          {
+            "text": "MQ",
+            "start": 52,
+            "end": 54
+          }
+        ],
+        "versions": [
+          {
+            "text": "version 7.0",
+            "start": 74,
+            "end": 85
+          }
+        ],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "4280585f6f7a9f4b3bd73ea0c4707d649d94d5de00eb6230f526802e3af24c3c",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-ENTITY-01",
+      "stratum": "entity",
+      "ordinal": 1,
+      "original_question_title": "How do I tell when there are mismatched MQ jars in my application server?",
+      "original_question_text": "Mismatched jar files can cause strange and unpredictable errors when using the MQ JMS classes. ",
+      "query": "How do I tell when there are mismatched MQ jars in my application server?\nMismatched jar files can cause strange and unpredictable errors when using the MQ JMS classes. ",
+      "query_sha256": "0312a53158deb660fa0c16cb3e68818c29a2366c4b7240cc13e968af4b9625f8",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "MQ",
+            "start": 40,
+            "end": 42
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "09822b5106a8c5fdc6fea1501b5dc5329b31e131eae026e9414b23f6e90a6183",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-ENTITY-02",
+      "stratum": "entity",
+      "ordinal": 2,
+      "original_question_title": "I am receiving AC power supply failures on my DataPower 9235 appliance. How can I resolve this?",
+      "original_question_text": "\n\nI am observing the following errors on my DataPower 9235 device:\n\n[failure] Power supply '1' has no AC input power, or is not present. [failure] Power supply '2' has no AC input power, or is not present.\nDo i need to replace the power supplies?",
+      "query": "I am receiving AC power supply failures on my DataPower 9235 appliance. How can I resolve this?\n\n\nI am observing the following errors on my DataPower 9235 device:\n\n[failure] Power supply '1' has no AC input power, or is not present. [failure] Power supply '2' has no AC input power, or is not present.\nDo i need to replace the power supplies?",
+      "query_sha256": "070bd6335c054090120ed864fc4e2cf3b03bafe964a5123693f09688e7cc96b9",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "DataPower",
+            "start": 46,
+            "end": 55
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "0b4c0b03875adec81d1ffba4ae6caae48fb58a01cc4280cd0b6e48c2837194e4",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-ENTITY-03",
+      "stratum": "entity",
+      "ordinal": 3,
+      "original_question_title": "How to turn on event debug to troubleshoot Impact Event Processing stopping ?",
+      "original_question_text": "Impact support has requested a set of recreate logs with event logging turned on. What are the steps to do this?\n",
+      "query": "How to turn on event debug to troubleshoot Impact Event Processing stopping ?\nImpact support has requested a set of recreate logs with event logging turned on. What are the steps to do this?\n",
+      "query_sha256": "b5c01c130b468de7bea4c25eff65aa053411bd23bce8f1c31da11d49ca684699",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "Impact",
+            "start": 43,
+            "end": 49
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "1264bb28096631b2a065f9ddfe8ab2f76288a70a65b1075b0e12c25920079e38",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-ENTITY-04",
+      "stratum": "entity",
+      "ordinal": 4,
+      "original_question_title": "Can Portal prevent the usage of simultaneous logins with the same userID?",
+      "original_question_text": "Is it possible for WebSphere Portal to limit the usage of a userID to one authenticated session as a time? In other words, prevent authenticating to Portal as \"user1\" from one browser and then simultaneously authenticating to Portal again as \"user1\" from another browser? ",
+      "query": "Can Portal prevent the usage of simultaneous logins with the same userID?\nIs it possible for WebSphere Portal to limit the usage of a userID to one authenticated session as a time? In other words, prevent authenticating to Portal as \"user1\" from one browser and then simultaneously authenticating to Portal again as \"user1\" from another browser? ",
+      "query_sha256": "11b5706becc8fff5d975f5ab75365bacf30a0bcc10a91b7ecaeaa401c5beb532",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "WebSphere Portal",
+            "start": 93,
+            "end": 109
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "13182e4d0bbb185f7de99c1b179018dc305bfc5df95417d4523c211428ae415d",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-ENTITY-05",
+      "stratum": "entity",
+      "ordinal": 5,
+      "original_question_title": "DataPower remote log targets, tracking efficieny",
+      "original_question_text": "How can I track the efficiency of my log target (remote endpoint)? ",
+      "query": "DataPower remote log targets, tracking efficieny\nHow can I track the efficiency of my log target (remote endpoint)? ",
+      "query_sha256": "cbca0b84877f0d474655d701c35cd28197e78a4bdfb9433143471081c75a9957",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "DataPower",
+            "start": 0,
+            "end": 9
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "1b5e1615b85a17e3303433cff4a87eaacf860c3281369c5114e6256232941a51",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-ENTITY-06",
+      "stratum": "entity",
+      "ordinal": 6,
+      "original_question_title": "MQSeries Events correlation",
+      "original_question_text": "How are MQSeries Events cleared? ",
+      "query": "MQSeries Events correlation\nHow are MQSeries Events cleared? ",
+      "query_sha256": "e0843c352d431ce55afb79963ada8c8010106ab1c7bc7bd003e32201633467e8",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "MQ",
+            "start": 0,
+            "end": 2
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "2162ac63032a501f3eaa90ccf6b660117d129f248c824c84fdcc0e48e03fee4b",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-ENTITY-07",
+      "stratum": "entity",
+      "ordinal": 7,
+      "original_question_title": "How to check IBM Java ORB build version in WebSphere Application Server?",
+      "original_question_text": "Just a simple question: How to check IBM Java ORB build version in WebSphere Application Server? ",
+      "query": "How to check IBM Java ORB build version in WebSphere Application Server?\nJust a simple question: How to check IBM Java ORB build version in WebSphere Application Server? ",
+      "query_sha256": "a73ce09eb3907e6043b4f5fa1650fe73c45efb27002a2b0fe860109dd76b7da5",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "WebSphere Application Server",
+            "start": 43,
+            "end": 71
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "21cc138cf4ea8b4cb5bff103ab27e5b27e361b30525a6461eac7b96a10b7621a",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-ENTITY-08",
+      "stratum": "entity",
+      "ordinal": 8,
+      "original_question_title": "How do I downgrade an IBM Gateway, DataPower, appliance to a lower major firmware release?",
+      "original_question_text": "I would like to know the proper, and supported, method to downgrade an appliance to prevent any issues or problems. ",
+      "query": "How do I downgrade an IBM Gateway, DataPower, appliance to a lower major firmware release?\nI would like to know the proper, and supported, method to downgrade an appliance to prevent any issues or problems. ",
+      "query_sha256": "7008cbedc0a4f5982e255cf82723d106743c094734a66dd07cbfabfb66cc4cbe",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "DataPower",
+            "start": 35,
+            "end": 44
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "22a92870f45cee690c10b014593e8bdf31612a463786bb1365abd420b256b0f0",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-NOANSWER-01",
+      "stratum": "no_answer_challenge",
+      "ordinal": 1,
+      "original_question_title": "Is Java 7 supported for BPM?",
+      "original_question_text": "What versions of BPM support Java 7?",
+      "query": "Is Java 7 supported for BPM?\nWhat versions of BPM support Java 7?",
+      "query_sha256": "a5d0667a18e672eaf89f2272d8ee0dee3fca89cce84fe4f7f6e7f51425315dbb",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "BPM",
+            "start": 24,
+            "end": 27
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "eee6b1ad63da662724d208a86d0caa0a6e222c96b284ea2d0f2aa90c769f0bc1",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-NOANSWER-02",
+      "stratum": "no_answer_challenge",
+      "ordinal": 2,
+      "original_question_title": "Is MQ V7.0.1 is going out of support?",
+      "original_question_text": "When is the last date of support?",
+      "query": "Is MQ V7.0.1 is going out of support?\nWhen is the last date of support?",
+      "query_sha256": "817e4256d3e9bce5469cba5d17963bbd53038e96d0082cc27f672afba8b3f6ce",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "MQ",
+            "start": 3,
+            "end": 5
+          }
+        ],
+        "versions": [
+          {
+            "text": "V7.0.1",
+            "start": 6,
+            "end": 12
+          }
+        ],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "c113927c8f641e27682e46bacda98d104dc668b5ea0f2c1f149b2c72ebee140b",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-NOANSWER-03",
+      "stratum": "no_answer_challenge",
+      "ordinal": 3,
+      "original_question_title": "Is there a scripting feature in ITM?",
+      "original_question_text": "Is there a scripting feature in ITM? ",
+      "query": "Is there a scripting feature in ITM?\nIs there a scripting feature in ITM? ",
+      "query_sha256": "c0cbaaf707f84d49629eafaf2ad12d50e3007f38d7b1e418fd1f181a011b462b",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "ITM",
+            "start": 32,
+            "end": 35
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "2bad8094a161441a09ab43b1c96a6f48648570bfac5e4b8ddb94a87f767ecd8e",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-NOANSWER-04",
+      "stratum": "no_answer_challenge",
+      "ordinal": 4,
+      "original_question_title": "Is Java 7 supported for BPM?",
+      "original_question_text": "What versions of BPM, if any,  support Java 7?",
+      "query": "Is Java 7 supported for BPM?\nWhat versions of BPM, if any,  support Java 7?",
+      "query_sha256": "23c533707359b13ff7881436e81ed2690a82635bca1663dcaa056fd8a9f7509d",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "BPM",
+            "start": 24,
+            "end": 27
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "ea55dbaed2c693f9b3c88ecfe129ca678a026a0e28cdc5ea28668ec421876d0b",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-NOANSWER-05",
+      "stratum": "no_answer_challenge",
+      "ordinal": 5,
+      "original_question_title": "can Datacap support to Arabic language?",
+      "original_question_text": "can Datacap support to Arabic language?",
+      "query": "can Datacap support to Arabic language?\ncan Datacap support to Arabic language?",
+      "query_sha256": "25dfd715856fc3da85e110b9600647582961ec82241e17df0ed92f1aab3b8b10",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "Datacap",
+            "start": 4,
+            "end": 11
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "53d22f9ede21323401101e3d10d7756e4ff0c43ee8fab700ace3fcdb72913942",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-NOANSWER-06",
+      "stratum": "no_answer_challenge",
+      "ordinal": 6,
+      "original_question_title": "Does DataPower support SHA-2?",
+      "original_question_text": "\n\nIs DataPower able to support SHA-2 (SHA256)?\n  1",
+      "query": "Does DataPower support SHA-2?\n\n\nIs DataPower able to support SHA-2 (SHA256)?\n  1",
+      "query_sha256": "afc7c741d2aaf0484cd7eedafad430dc494a3037e29fc5049ae9933d22ce1514",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "DataPower",
+            "start": 5,
+            "end": 14
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": [
+          {
+            "text": "SHA256",
+            "start": 68,
+            "end": 74
+          }
+        ]
+      },
+      "selection_key": "4f23b8748d7fa29339b2cc89880c39537b799c8e1999d483b6d5338002ec0088",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-NOANSWER-07",
+      "stratum": "no_answer_challenge",
+      "ordinal": 7,
+      "original_question_title": "DataPower support for SHA-2",
+      "original_question_text": "Does DataPower support the SHA-256 cryptographic hash function?",
+      "query": "DataPower support for SHA-2\nDoes DataPower support the SHA-256 cryptographic hash function?",
+      "query_sha256": "5d1c1a8056635c3ff7a8c76c306215f43eeb228b294a44dad49b75f363140425",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "DataPower",
+            "start": 0,
+            "end": 9
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "fdb546207a390aaf00f792415fb3dc20568b1cc186788ede28d1279aace314bb",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-NOANSWER-08",
+      "stratum": "no_answer_challenge",
+      "ordinal": 8,
+      "original_question_title": "Can I disable RC4 cyphers in TIP?",
+      "original_question_text": "How can one disable the RC4 cypers in Tivoli Integrated Portal?",
+      "query": "Can I disable RC4 cyphers in TIP?\nHow can one disable the RC4 cypers in Tivoli Integrated Portal?",
+      "query_sha256": "c41b3e351dc3dc7f97adc2c2a00636254b2efbb859fa508840a2b9aaeebd526c",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "Tivoli",
+            "start": 72,
+            "end": 78
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "fd03860d0eb818284e7b5e041f7ccde3b7f192e7416c55f94e3df8c6c6e239f9",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-NOANSWER-09",
+      "stratum": "no_answer_challenge",
+      "ordinal": 9,
+      "original_question_title": "How do I configure WebSphere Portal with OpenLDAP?",
+      "original_question_text": "How do I configure WebSphere Portal with OpenLDAP?\n",
+      "query": "How do I configure WebSphere Portal with OpenLDAP?\nHow do I configure WebSphere Portal with OpenLDAP?\n",
+      "query_sha256": "09ef68a24e7421d69e0a0970a526e2e85dbc64397793878bd79692c24f2cc599",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "WebSphere Portal",
+            "start": 19,
+            "end": 35
+          }
+        ],
+        "versions": [],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "9da284715e63f7e1dca37a78b3cef6b4ce1133f2e5618bbb7cef6b2187acb99d",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    },
+    {
+      "sample_id": "P2-NOANSWER-10",
+      "stratum": "no_answer_challenge",
+      "ordinal": 10,
+      "original_question_title": "Can my system run MQ V8.0?",
+      "original_question_text": "Where are the system requirements listed, and are there any significant changes? ",
+      "query": "Can my system run MQ V8.0?\nWhere are the system requirements listed, and are there any significant changes? ",
+      "query_sha256": "a7123382bc668e0c1a11adab2161ebca757d8380659ef85bb46db595a5355653",
+      "analysis_operation": "document_count",
+      "request_slots": {
+        "entities": [
+          {
+            "text": "MQ",
+            "start": 18,
+            "end": 20
+          }
+        ],
+        "versions": [
+          {
+            "text": "V8.0",
+            "start": 21,
+            "end": 25
+          }
+        ],
+        "platforms": [],
+        "identifiers": []
+      },
+      "selection_key": "887e1c0306ac378316cae59bb7b430f1e31da00681443f11ca9b2dc8fdac985d",
+      "status": "待实施",
+      "actual": "未执行",
+      "evidence_file": ""
+    }
+  ]
+}

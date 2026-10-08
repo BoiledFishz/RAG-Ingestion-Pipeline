@@ -1,0 +1,33 @@
+.F                                                                       [100%]
+================================== FAILURES ===================================
+_______ test_rerank_cache_cannot_reuse_across_tenants_or_data_versions ________
+
+tmp_path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/ec2fa5a30c844d4a85f7b5843fc9428e')
+
+    def test_rerank_cache_cannot_reuse_across_tenants_or_data_versions(tmp_path: Path) -> None:
+        calls = []
+    
+        async def embed(texts):
+            calls.append(texts)
+            return [[1.0, 0.0] for _ in texts]  # Adapter contract Mock, official text only.
+    
+        reranker = BatchedReranker(False)
+        reranker.embedder = SimpleNamespace(model="nomic-embed-text", embed_documents=embed)
+        reranker.cache = tmp_path / "cache.sqlite"
+        text = official_text()
+        with cache_context("index-v1", authorization_scope(owner())):
+            assert asyncio.run(reranker.embeddings([text])) == [[1.0, 0.0]]
+            assert asyncio.run(reranker.embeddings([text])) == [[1.0, 0.0]]
+        assert len(calls) == 1
+        with cache_context("index-v1", authorization_scope(owner("other"))):
+            asyncio.run(reranker.embeddings([text]))
+        with cache_context("index-v2", authorization_scope(owner())):
+            asyncio.run(reranker.embeddings([text]))
+>       assert len(calls) == 3
+E       AssertionError: assert 1 == 3
+E        +  where 1 = len([['IBM API Connect Developer Portal;IBM API Connect;USN-3646-1;API Connect Ubuntu PHP;API Connect PHP SECURITY BULLETI...PACT OF ANY ACTUAL OR POTENTIAL SECURITY VULNERABILITY.\n\nPRODUCT ALIAS/SYNONYM\nIBM API Connect\nAPI Connect\nAPIC']])
+
+tests\project2\test_cache_identity.py:58: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/project2/test_cache_identity.py::test_rerank_cache_cannot_reuse_across_tenants_or_data_versions
+1 failed, 1 passed in 1.65s

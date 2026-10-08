@@ -1,0 +1,51 @@
+{
+  "started_at": "2026-10-07T21:51:00.912199+00:00",
+  "kind": "existing project automated tests, not a golden-dataset evaluation",
+  "heldout_evaluation_started": false,
+  "projects": [
+    {
+      "project": "root",
+      "exit_code": 0,
+      "status": "passed",
+      "totals": {
+        "tests": 219,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "failure_checks": [],
+      "evidence_file": "audit/assignment-completion-20261007/final_tests/test_repair_round2/root.junit.xml",
+      "log_file": "audit/assignment-completion-20261007/final_tests/test_repair_round2/root.pytest.log"
+    },
+    {
+      "project": "enterprise",
+      "exit_code": 0,
+      "status": "passed",
+      "totals": {
+        "tests": 122,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "failure_checks": [],
+      "evidence_file": "audit/assignment-completion-20261007/final_tests/test_repair_round2/enterprise.junit.xml",
+      "log_file": "audit/assignment-completion-20261007/final_tests/test_repair_round2/enterprise.pytest.log"
+    },
+    {
+      "project": "agentic",
+      "exit_code": 0,
+      "status": "passed",
+      "totals": {
+        "tests": 59,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "failure_checks": [],
+      "evidence_file": "audit/assignment-completion-20261007/final_tests/test_repair_round2/agentic.junit.xml",
+      "log_file": "audit/assignment-completion-20261007/final_tests/test_repair_round2/agentic.pytest.log"
+    }
+  ],
+  "status": "passed",
+  "finished_at": "2026-10-07T21:56:35.681627+00:00"
+}

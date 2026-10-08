@@ -1,0 +1,32 @@
+[
+  {
+    "name": "root_ruff",
+    "exit_code": 1,
+    "evidence": "audit\\assignment-completion-20261007\\root_ruff.log"
+  },
+  {
+    "name": "enterprise_ruff",
+    "exit_code": 1,
+    "evidence": "audit\\assignment-completion-20261007\\enterprise_ruff.log"
+  },
+  {
+    "name": "agentic_ruff",
+    "exit_code": 0,
+    "evidence": "audit\\assignment-completion-20261007\\agentic_ruff.log"
+  },
+  {
+    "name": "root_mypy",
+    "exit_code": 0,
+    "evidence": "audit\\assignment-completion-20261007\\root_mypy.log"
+  },
+  {
+    "name": "enterprise_mypy",
+    "exit_code": 2,
+    "evidence": "audit\\assignment-completion-20261007\\enterprise_mypy.log"
+  },
+  {
+    "name": "agentic_mypy",
+    "exit_code": 0,
+    "evidence": "audit\\assignment-completion-20261007\\agentic_mypy.log"
+  }
+]

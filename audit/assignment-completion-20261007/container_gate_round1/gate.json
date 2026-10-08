@@ -1,0 +1,201 @@
+{
+  "stage": "Chap14",
+  "status": "passed",
+  "system_gate_executed": true,
+  "gate_scope": "system_gate",
+  "checks": [
+    {
+      "check": "clean_build",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit\\assignment-completion-20261007\\container_clean_build_final.log"
+    },
+    {
+      "check": "ready_after_full_warmup",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit\\assignment-completion-20261007\\container_gate_round1\\startup.log"
+    },
+    {
+      "check": "real_combined_completed",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit\\assignment-completion-20261007\\container_gate_round1\\combined_response.json"
+    },
+    {
+      "check": "independent_count_exact",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit\\assignment-completion-20261007\\container_gate_round1\\combined_response.json"
+    },
+    {
+      "check": "input_fault_located_in_logs",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "故障注入",
+      "evidence_file": "audit\\assignment-completion-20261007\\container_gate_round1\\diagnostic.log"
+    },
+    {
+      "check": "stop_retains_volume",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit\\assignment-completion-20261007\\container_gate_round1\\retained_volumes.json"
+    },
+    {
+      "check": "same_run_state_after_restart",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit\\assignment-completion-20261007\\container_gate_round1\\restored_state.json"
+    },
+    {
+      "check": "owner_isolation",
+      "expected": true,
+      "observed": true,
+      "status": "passed",
+      "evidence_type": "真实运行",
+      "evidence_file": "audit\\assignment-completion-20261007\\container_gate_round1\\owner_denied.json"
+    }
+  ],
+  "failure_items": [],
+  "commands": [
+    {
+      "command": [
+        "image",
+        "inspect",
+        "techqa-project2-course:local"
+      ],
+      "exit_code": 0,
+      "evidence_file": "audit/assignment-completion-20261007/container_gate_round1/image.json"
+    },
+    {
+      "command": [
+        "compose",
+        "-f",
+        "containers/project2/compose.yaml",
+        "up",
+        "-d",
+        "--no-build",
+        "--pull",
+        "never"
+      ],
+      "exit_code": 0,
+      "evidence_file": "audit/assignment-completion-20261007/container_gate_round1/start.log"
+    },
+    {
+      "command": [
+        "compose",
+        "-f",
+        "containers/project2/compose.yaml",
+        "logs",
+        "--no-color",
+        "api"
+      ],
+      "exit_code": 0,
+      "evidence_file": "audit/assignment-completion-20261007/container_gate_round1/startup.log"
+    },
+    {
+      "command": [
+        "compose",
+        "-f",
+        "containers/project2/compose.yaml",
+        "logs",
+        "--no-color",
+        "api"
+      ],
+      "exit_code": 0,
+      "evidence_file": "audit/assignment-completion-20261007/container_gate_round1/diagnostic.log"
+    },
+    {
+      "command": [
+        "compose",
+        "-f",
+        "containers/project2/compose.yaml",
+        "ps",
+        "-q",
+        "api"
+      ],
+      "exit_code": 0,
+      "evidence_file": "audit/assignment-completion-20261007/container_gate_round1/container_id.log"
+    },
+    {
+      "command": [
+        "inspect",
+        "438d5dee746db922984d396e0aa109ccb1493468966c60adf323279690dd7ec3"
+      ],
+      "exit_code": 0,
+      "evidence_file": "audit/assignment-completion-20261007/container_gate_round1/before_stop.json"
+    },
+    {
+      "command": [
+        "compose",
+        "-f",
+        "containers/project2/compose.yaml",
+        "stop",
+        "api"
+      ],
+      "exit_code": 0,
+      "evidence_file": "audit/assignment-completion-20261007/container_gate_round1/stop.log"
+    },
+    {
+      "command": [
+        "volume",
+        "inspect",
+        "techqa-project2-course_logs",
+        "techqa-project2-course_rerank_cache",
+        "techqa-project2-course_state"
+      ],
+      "exit_code": 0,
+      "evidence_file": "audit/assignment-completion-20261007/container_gate_round1/retained_volumes.json"
+    },
+    {
+      "command": [
+        "compose",
+        "-f",
+        "containers/project2/compose.yaml",
+        "start",
+        "api"
+      ],
+      "exit_code": 0,
+      "evidence_file": "audit/assignment-completion-20261007/container_gate_round1/restart.log"
+    },
+    {
+      "command": [
+        "inspect",
+        "438d5dee746db922984d396e0aa109ccb1493468966c60adf323279690dd7ec3"
+      ],
+      "exit_code": 0,
+      "evidence_file": "audit/assignment-completion-20261007/container_gate_round1/after_restart.json"
+    },
+    {
+      "command": [
+        "compose",
+        "-f",
+        "containers/project2/compose.yaml",
+        "stop",
+        "api"
+      ],
+      "exit_code": 0,
+      "evidence_file": "audit/assignment-completion-20261007/container_gate_round1/final_stop.log"
+    }
+  ],
+  "error": null,
+  "repair_rounds": 1,
+  "heldout_new_calls": 0,
+  "heldout_reuse": "Chap13 stage2 records; container transport/platform only, frozen generator/model/prompt unchanged",
+  "source_plan_sha256": "b8488749d7a401952760ea11bab1bdc86ff7457d2d92cbfe5e72d0e7b94e6823",
+  "s14_status": "未通过",
+  "volumes_deleted": false
+}

@@ -1,0 +1,14 @@
+{
+  "observed_at": "2026-10-07T22:58:54.9984041Z",
+  "evidence_type": "真实运行（只读环境观测）",
+  "models": [
+    {
+      "name": "qwen2.5:7b",
+      "size": 5378513303,
+      "size_vram": 4254764891,
+      "context_length": 8192
+    }
+  ],
+  "cs2_running": false,
+  "configuration_changed": false
+}

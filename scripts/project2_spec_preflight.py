@@ -25,15 +25,24 @@ def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def verify_registered_zero_case(root: Path) -> dict[str, Any]:
+def verify_registered_zero_case(root: Path, version: str = "v0.3.4") -> dict[str, Any]:
     """Check AC12-02's frozen DB=no_data expectation using exact FTS COUNT."""
-    docs = root / "specs/project2/v0.1"
-    signed = (docs / "review_sheet_signed_2026-10-05.md").read_text(encoding="utf-8-sig")
+    baseline_docs = root / "specs/project2/v0.1"
+    docs = root / "specs/project2" / version
+    if version not in {"v0.1", "v0.2", "v0.3", "v0.3.1", "v0.3.2", "v0.3.3", "v0.3.4"}:
+        raise ValueError("Unknown approved specification version")
+    if version != "v0.1":
+        import importlib.util
+        loader = importlib.util.spec_from_file_location("zero_case_approved_checker", docs / "check_docs.py")
+        checker = importlib.util.module_from_spec(loader)
+        loader.loader.exec_module(checker)
+        checker.validate(docs, root)
+    signed = (baseline_docs / "review_sheet_signed_2026-10-05.md").read_text(encoding="utf-8-sig")
     hashes = re.findall(r"(?<![0-9a-f])[0-9a-f]{64}(?![0-9a-f])", signed)
     approved_files = ("requirements_v0.1.md", "task_preregistration.json")
     if len(hashes) != len(approved_files):
         raise ValueError("Signed baseline hash list is not unambiguous")
-    if any(digest(docs / name) != expected for name, expected in zip(approved_files, hashes)):
+    if any(digest(baseline_docs / name) != expected for name, expected in zip(approved_files, hashes)):
         raise ValueError("Approved baseline hash mismatch")
     with (docs / "acceptance_scenarios.csv").open(encoding="utf-8-sig", newline="") as handle:
         rows = list(csv.DictReader(handle))
@@ -59,6 +68,11 @@ def verify_registered_zero_case(root: Path) -> dict[str, Any]:
     if version is None:
         raise ValueError("Prerequisite needs an unambiguous adjacent version")
     literals = [entity.group(), version.group()]
+    if request.get("analysis_predicates") is not None:
+        registration_zero = json.loads((docs / "zero_predicate_registration.json").read_text(encoding="utf-8"))
+        literals = request["analysis_predicates"][0]
+        if not any(item["phrases"] == literals and item["count"] == 0 for item in registration_zero["predicates"]):
+            raise ValueError("Literal zero predicate is not independently registered")
     expression = " AND ".join('"' + phrase.replace('"', '""') + '"' for phrase in literals)
 
     database = (root / ".rag_data/techqa_full.sqlite").resolve()

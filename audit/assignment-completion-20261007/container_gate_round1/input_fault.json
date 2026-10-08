@@ -1,0 +1,86 @@
+{
+  "http_status": 422,
+  "response": {
+    "contract_version": "project2-v1",
+    "run_id": "bd4a29bd817e4032bbbca7405efe7257",
+    "trace_id": "bd4a29bd817e4032bbbca7405efe7257",
+    "status": "failed",
+    "answer": "",
+    "evidence": [],
+    "data_results": {},
+    "worker_results": {
+      "rag": {
+        "contract_version": "project2-v1",
+        "run_id": "bd4a29bd817e4032bbbca7405efe7257",
+        "task_id": "rag_explain",
+        "worker": "rag",
+        "status": "failed",
+        "payload": {},
+        "evidence": [],
+        "limitations": [],
+        "error": {
+          "category": "invalid_input",
+          "retryable": false
+        },
+        "usage": {}
+      },
+      "database": {
+        "contract_version": "project2-v1",
+        "run_id": "bd4a29bd817e4032bbbca7405efe7257",
+        "task_id": "techqa_document_query",
+        "worker": "database",
+        "status": "failed",
+        "payload": {},
+        "evidence": [],
+        "limitations": [],
+        "error": {
+          "category": "invalid_input",
+          "retryable": false
+        },
+        "usage": {}
+      }
+    },
+    "workers": {
+      "rag": {
+        "contract_version": "project2-v1",
+        "run_id": "bd4a29bd817e4032bbbca7405efe7257",
+        "task_id": "rag_explain",
+        "worker": "rag",
+        "status": "failed",
+        "payload": {},
+        "evidence": [],
+        "limitations": [],
+        "error": {
+          "category": "invalid_input",
+          "retryable": false
+        },
+        "usage": {}
+      },
+      "database": {
+        "contract_version": "project2-v1",
+        "run_id": "bd4a29bd817e4032bbbca7405efe7257",
+        "task_id": "techqa_document_query",
+        "worker": "database",
+        "status": "failed",
+        "payload": {},
+        "evidence": [],
+        "limitations": [],
+        "error": {
+          "category": "invalid_input",
+          "retryable": false
+        },
+        "usage": {}
+      }
+    },
+    "usage": {
+      "attempts": 0,
+      "llm_calls": 0,
+      "attempts_by_kind": {},
+      "absolute_deadline": 1791425740.9261324,
+      "observed_tokens": null,
+      "estimated_tokens": null,
+      "cost": null
+    },
+    "limitations": []
+  }
+}

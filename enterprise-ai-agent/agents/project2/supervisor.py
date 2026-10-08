@@ -95,6 +95,10 @@ class Supervisor:
             return response(run_id, empty_result("rag", "failed", run_id, "data_version_mismatch"), database, budget)
         rag = empty_result("rag", "permission_denied", run_id, "permission_denied")
         if allowed_rag:
+            # Trusted server context, never a prompt/request-body grant.
+            from agents.project2.cache_identity import authorization_scope
+            assert context is not None
+            budget.cache_scope = authorization_scope(context)
             try:
                 message = await self.rag_process.run(request.query, budget)
                 if message.get("budget_exceeded"):

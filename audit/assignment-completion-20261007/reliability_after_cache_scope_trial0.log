@@ -1,0 +1,1418 @@
+C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+2026-10-07 12:22:19,814 INFO P2_STARTUP {"type": "ready", "scope": "full", "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b", "worker_pid": 25304, "warmup": {"completed": true, "selection": "official full docs ORDER BY doc_id LIMIT 1, text only", "text_sha256": "27566416452b285c86c1df3f65970d4eb327c96d9c97ebf6b77b64c095776b2d", "qa_fields_used": [], "corpus_read_seconds": 0.012475700001232326, "embedding_inference_seconds": 0.48765589999857184, "index_warmup_seconds": 0.37351200000011886, "total_seconds": 0.873643599999923, "llm_calls": 0, "request_budget_created": false}, "startup_timings": {"imports_seconds": 0.6221767999995791, "agent_build_seconds": 0.0062385000001086155, "index_and_encoder_seconds": 55.43765280000116, "faiss_index_load_seconds": 22.370653799998763, "child_initialization_seconds": 57.32071609999912}, "launch_to_ready_seconds": 57.862972299999456}
+2026-10-07 12:22:22,217 INFO Database request=a475e50619104039a4b83f502d8421c6 status=completed counts=[12259]
+2026-10-07 12:22:49,478 INFO Project2 run=a475e50619104039a4b83f502d8421c6 status=completed attempts=17
+2026-10-07 12:22:49,513 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:22:49,516 INFO reliability_after repeat=1 1/50 states={'rag': 'completed', 'database': 'completed'} seconds=29.672
+2026-10-07 12:22:50,532 INFO Database request=ef189361f4b041f6b74d9eab72e010cc status=completed counts=[4867]
+2026-10-07 12:23:14,327 INFO Project2 run=ef189361f4b041f6b74d9eab72e010cc status=completed attempts=17
+2026-10-07 12:23:14,346 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:23:14,349 INFO reliability_after repeat=1 2/50 states={'rag': 'completed', 'database': 'completed'} seconds=24.843
+2026-10-07 12:23:14,589 INFO Database request=2a454e5b089943f9ae144b783534552b status=completed counts=[316]
+2026-10-07 12:23:31,800 INFO Project2 run=2a454e5b089943f9ae144b783534552b status=completed attempts=17
+2026-10-07 12:23:31,821 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:23:31,823 INFO reliability_after repeat=1 3/50 states={'rag': 'completed', 'database': 'completed'} seconds=17.469
+2026-10-07 12:23:34,177 INFO Database request=ec05a31fadee412aad5b8b9baae047dd status=completed counts=[11126]
+2026-10-07 12:23:55,478 INFO Project2 run=ec05a31fadee412aad5b8b9baae047dd status=completed attempts=17
+2026-10-07 12:23:55,500 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:23:55,502 INFO reliability_after repeat=1 4/50 states={'rag': 'completed', 'database': 'completed'} seconds=23.672
+2026-10-07 12:23:56,202 INFO Database request=62d275b12ceb4d248286f477b8d7b15d status=completed counts=[3736]
+2026-10-07 12:24:11,568 INFO Project2 run=62d275b12ceb4d248286f477b8d7b15d status=completed attempts=17
+2026-10-07 12:24:11,591 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:24:11,593 INFO reliability_after repeat=1 5/50 states={'rag': 'completed', 'database': 'completed'} seconds=16.094
+2026-10-07 12:24:17,986 INFO Database request=f23e9d083d464ab0808b08c0b2fe6e88 status=completed counts=[46777]
+2026-10-07 12:24:29,412 INFO Project2 run=f23e9d083d464ab0808b08c0b2fe6e88 status=completed attempts=17
+2026-10-07 12:24:29,439 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:24:29,441 INFO reliability_after repeat=1 6/50 states={'rag': 'completed', 'database': 'completed'} seconds=17.844
+2026-10-07 12:24:30,092 INFO Database request=b78d00f24de54e7199465f52e268eb21 status=completed counts=[245, 79]
+2026-10-07 12:24:42,879 INFO P2_CLEANUP {"mode": "owned_force_cancel", "elapsed_seconds": 0.27077339999959804, "process_retained": false}
+2026-10-07 12:24:42,880 WARNING RAG run=b78d00f24de54e7199465f52e268eb21 timeout=BudgetExceeded
+2026-10-07 12:24:42,881 INFO Project2 run=b78d00f24de54e7199465f52e268eb21 status=partial attempts=19
+2026-10-07 12:24:42,898 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:24:42,899 INFO reliability_after repeat=1 7/50 states={'rag': 'timeout', 'database': 'completed'} seconds=13.453
+2026-10-07 12:24:45,636 INFO Database request=40b65b2b3bff4e9d8c8c98992d6ebdf7 status=completed counts=[18296]
+2026-10-07 12:24:45,646 ERROR RAG run=40b65b2b3bff4e9d8c8c98992d6ebdf7 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:24:45,655 INFO Project2 run=40b65b2b3bff4e9d8c8c98992d6ebdf7 status=partial attempts=4
+2026-10-07 12:24:45,673 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:24:45,675 INFO reliability_after repeat=1 8/50 states={'rag': 'failed', 'database': 'completed'} seconds=2.766
+2026-10-07 12:24:46,087 INFO Database request=15a858b0c2374335b8315a594e5bdd2f status=completed counts=[13881]
+2026-10-07 12:24:46,096 ERROR RAG run=15a858b0c2374335b8315a594e5bdd2f failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:24:46,097 INFO Project2 run=15a858b0c2374335b8315a594e5bdd2f status=partial attempts=4
+2026-10-07 12:24:46,119 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:24:46,119 INFO reliability_after repeat=1 9/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.453
+2026-10-07 12:24:46,321 INFO Database request=2087a4e4b6994867ac524e80961ac597 status=completed counts=[192]
+2026-10-07 12:24:46,332 ERROR RAG run=2087a4e4b6994867ac524e80961ac597 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:24:46,332 INFO Project2 run=2087a4e4b6994867ac524e80961ac597 status=partial attempts=4
+2026-10-07 12:24:46,349 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:24:46,351 INFO reliability_after repeat=1 10/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.234
+2026-10-07 12:24:46,713 INFO Database request=3750a5c3bd6444f4bce082b2209ed55c status=completed counts=[673]
+2026-10-07 12:24:46,722 ERROR RAG run=3750a5c3bd6444f4bce082b2209ed55c failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:24:46,723 INFO Project2 run=3750a5c3bd6444f4bce082b2209ed55c status=partial attempts=4
+2026-10-07 12:24:46,740 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:24:46,741 INFO reliability_after repeat=1 11/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.391
+2026-10-07 12:24:51,614 INFO Database request=3a0143c4050f497cbb5e149cbe92321e status=completed counts=[40526]
+2026-10-07 12:24:51,625 ERROR RAG run=3a0143c4050f497cbb5e149cbe92321e failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:24:51,626 INFO Project2 run=3a0143c4050f497cbb5e149cbe92321e status=partial attempts=4
+2026-10-07 12:24:51,642 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:24:51,642 INFO reliability_after repeat=1 12/50 states={'rag': 'failed', 'database': 'completed'} seconds=4.891
+2026-10-07 12:24:51,758 INFO Database request=1a89d5c6842d4e22a87a04083e85e52a status=completed counts=[142]
+2026-10-07 12:24:51,769 ERROR RAG run=1a89d5c6842d4e22a87a04083e85e52a failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:24:51,769 INFO Project2 run=1a89d5c6842d4e22a87a04083e85e52a status=partial attempts=4
+2026-10-07 12:24:51,787 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:24:51,787 INFO reliability_after repeat=1 13/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.156
+2026-10-07 12:24:51,973 INFO Database request=bf1a69705dfe47acad051effd083ef16 status=completed counts=[1938]
+2026-10-07 12:24:51,984 ERROR RAG run=bf1a69705dfe47acad051effd083ef16 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:24:51,986 INFO Project2 run=bf1a69705dfe47acad051effd083ef16 status=partial attempts=4
+2026-10-07 12:24:52,001 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:24:52,002 INFO reliability_after repeat=1 14/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.203
+2026-10-07 12:24:52,300 INFO Database request=3efb063cc3e54ade8cfa7c72bed9b8b1 status=completed counts=[178]
+2026-10-07 12:24:52,308 ERROR RAG run=3efb063cc3e54ade8cfa7c72bed9b8b1 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:24:52,310 INFO Project2 run=3efb063cc3e54ade8cfa7c72bed9b8b1 status=partial attempts=4
+2026-10-07 12:24:52,330 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:24:52,331 INFO reliability_after repeat=1 15/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.328
+2026-10-07 12:24:52,755 INFO Database request=7220b39f67a244d7b2d4640c098c962b status=completed counts=[978]
+2026-10-07 12:24:52,767 ERROR RAG run=7220b39f67a244d7b2d4640c098c962b failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:24:52,768 INFO Project2 run=7220b39f67a244d7b2d4640c098c962b status=partial attempts=4
+2026-10-07 12:24:52,784 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:24:52,784 INFO reliability_after repeat=1 16/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.453
+2026-10-07 12:24:53,640 INFO Database request=01a4bd488b8b445990c4d28f57c76d3a status=completed counts=[1771, 724]
+2026-10-07 12:24:53,651 ERROR RAG run=01a4bd488b8b445990c4d28f57c76d3a failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:24:53,652 INFO Project2 run=01a4bd488b8b445990c4d28f57c76d3a status=partial attempts=7
+2026-10-07 12:24:53,670 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:24:53,671 INFO reliability_after repeat=1 17/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.891
+2026-10-07 12:24:53,811 INFO Database request=b96ef4a544a844f8ae91ca1b92339078 status=completed counts=[235]
+2026-10-07 12:24:53,823 ERROR RAG run=b96ef4a544a844f8ae91ca1b92339078 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:24:53,823 INFO Project2 run=b96ef4a544a844f8ae91ca1b92339078 status=partial attempts=4
+2026-10-07 12:24:53,840 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:24:53,840 INFO reliability_after repeat=1 18/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.172
+2026-10-07 12:25:10,460 INFO Database request=4fb3da6e64f0410e8aea8f16bbe5431d status=completed counts=[58237]
+2026-10-07 12:25:10,475 ERROR RAG run=4fb3da6e64f0410e8aea8f16bbe5431d failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:25:10,477 INFO Project2 run=4fb3da6e64f0410e8aea8f16bbe5431d status=partial attempts=4
+2026-10-07 12:25:10,495 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:10,496 INFO reliability_after repeat=1 19/50 states={'rag': 'failed', 'database': 'completed'} seconds=16.656
+2026-10-07 12:25:11,383 INFO Database request=6e7f648ab26140d5a118e6f3f2336f8a status=completed counts=[3736]
+2026-10-07 12:25:11,393 ERROR RAG run=6e7f648ab26140d5a118e6f3f2336f8a failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:25:11,394 INFO Project2 run=6e7f648ab26140d5a118e6f3f2336f8a status=partial attempts=4
+2026-10-07 12:25:11,413 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:11,414 INFO reliability_after repeat=1 20/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.922
+2026-10-07 12:25:11,556 INFO P2_STARTUP {"type": "ready", "scope": "full", "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b", "worker_pid": 6024, "warmup": {"completed": true, "selection": "official full docs ORDER BY doc_id LIMIT 1, text only", "text_sha256": "27566416452b285c86c1df3f65970d4eb327c96d9c97ebf6b77b64c095776b2d", "qa_fields_used": [], "corpus_read_seconds": 0.018249699998705182, "embedding_inference_seconds": 0.6326982999999018, "index_warmup_seconds": 0.6960165000000416, "total_seconds": 1.3469644999986485, "llm_calls": 0, "request_budget_created": false}, "startup_timings": {"imports_seconds": 0.8540749000003416, "agent_build_seconds": 0.01459669999894686, "index_and_encoder_seconds": 25.299211500001547, "faiss_index_load_seconds": 10.205349100000603, "child_initialization_seconds": 28.012390500000038}, "launch_to_ready_seconds": 28.652103800000987}
+2026-10-07 12:25:12,234 INFO Database request=8e11bc0609b6468b9804666a663a2316 status=completed counts=[3533]
+2026-10-07 12:25:27,551 INFO Project2 run=8e11bc0609b6468b9804666a663a2316 status=completed attempts=17
+2026-10-07 12:25:27,573 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:27,575 INFO reliability_after repeat=1 21/50 states={'rag': 'completed', 'database': 'completed'} seconds=16.156
+2026-10-07 12:25:28,682 INFO Database request=1069628d46c842c49bd507e69a0333f6 status=completed counts=[1322, 1585]
+2026-10-07 12:25:43,061 INFO P2_CLEANUP {"mode": "owned_force_cancel", "elapsed_seconds": 0.2694316999986768, "process_retained": false}
+2026-10-07 12:25:43,061 WARNING RAG run=1069628d46c842c49bd507e69a0333f6 timeout=BudgetExceeded
+2026-10-07 12:25:43,063 INFO Project2 run=1069628d46c842c49bd507e69a0333f6 status=partial attempts=19
+2026-10-07 12:25:43,080 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:43,080 INFO reliability_after repeat=1 22/50 states={'rag': 'timeout', 'database': 'completed'} seconds=15.500
+2026-10-07 12:25:48,439 INFO Database request=6d591cbe5e594b36b511a0347b520b3f status=completed counts=[40526]
+2026-10-07 12:25:48,451 ERROR RAG run=6d591cbe5e594b36b511a0347b520b3f failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:25:48,452 INFO Project2 run=6d591cbe5e594b36b511a0347b520b3f status=partial attempts=4
+2026-10-07 12:25:48,469 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:48,469 INFO reliability_after repeat=1 23/50 states={'rag': 'failed', 'database': 'completed'} seconds=5.391
+2026-10-07 12:25:48,841 INFO Database request=74589073a2d84937b1628851d1aa51c9 status=completed counts=[2288]
+2026-10-07 12:25:48,851 ERROR RAG run=74589073a2d84937b1628851d1aa51c9 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:25:48,853 INFO Project2 run=74589073a2d84937b1628851d1aa51c9 status=partial attempts=4
+2026-10-07 12:25:48,869 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:48,869 INFO reliability_after repeat=1 24/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.406
+2026-10-07 12:25:51,388 INFO Database request=e0e9e5112dad46d0a392dc977367240d status=completed counts=[18296]
+2026-10-07 12:25:51,398 ERROR RAG run=e0e9e5112dad46d0a392dc977367240d failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:25:51,399 INFO Project2 run=e0e9e5112dad46d0a392dc977367240d status=partial attempts=4
+2026-10-07 12:25:51,419 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:51,420 INFO reliability_after repeat=1 25/50 states={'rag': 'failed', 'database': 'completed'} seconds=2.547
+2026-10-07 12:25:52,604 INFO Database request=0f56534761e3450a967eeee4d8fba4ee status=completed counts=[8643]
+2026-10-07 12:25:52,613 ERROR RAG run=0f56534761e3450a967eeee4d8fba4ee failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:25:52,615 INFO Project2 run=0f56534761e3450a967eeee4d8fba4ee status=partial attempts=4
+2026-10-07 12:25:52,631 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:52,631 INFO reliability_after repeat=1 26/50 states={'rag': 'failed', 'database': 'completed'} seconds=1.219
+2026-10-07 12:25:52,802 INFO Database request=b324316afa234ce2a6328a01ddea3cb7 status=completed counts=[3736]
+2026-10-07 12:25:52,812 ERROR RAG run=b324316afa234ce2a6328a01ddea3cb7 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:25:52,812 INFO Project2 run=b324316afa234ce2a6328a01ddea3cb7 status=partial attempts=4
+2026-10-07 12:25:52,829 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:52,830 INFO reliability_after repeat=1 27/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.187
+2026-10-07 12:25:53,214 INFO Database request=a18deaf23a57422aa081ade34e1b05f4 status=completed counts=[2004]
+2026-10-07 12:25:53,224 ERROR RAG run=a18deaf23a57422aa081ade34e1b05f4 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:25:53,225 INFO Project2 run=a18deaf23a57422aa081ade34e1b05f4 status=partial attempts=4
+2026-10-07 12:25:53,241 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:53,242 INFO reliability_after repeat=1 28/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.422
+2026-10-07 12:25:53,383 INFO Database request=7aac3dfb7fd34a2b9cf2b7862157a374 status=completed counts=[214]
+2026-10-07 12:25:53,394 ERROR RAG run=7aac3dfb7fd34a2b9cf2b7862157a374 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:25:53,394 INFO Project2 run=7aac3dfb7fd34a2b9cf2b7862157a374 status=partial attempts=4
+2026-10-07 12:25:53,413 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:53,414 INFO reliability_after repeat=1 29/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.172
+2026-10-07 12:25:53,601 INFO Database request=5c00aaa13592426295a1f94dc906dd54 status=completed counts=[3736]
+2026-10-07 12:25:53,611 ERROR RAG run=5c00aaa13592426295a1f94dc906dd54 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:25:53,612 INFO Project2 run=5c00aaa13592426295a1f94dc906dd54 status=partial attempts=4
+2026-10-07 12:25:53,629 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:53,629 INFO reliability_after repeat=1 30/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.203
+2026-10-07 12:25:53,971 INFO Database request=d247f3c21448432195119f22a2db9250 status=completed counts=[1873]
+2026-10-07 12:25:53,982 ERROR RAG run=d247f3c21448432195119f22a2db9250 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:25:53,983 INFO Project2 run=d247f3c21448432195119f22a2db9250 status=partial attempts=4
+2026-10-07 12:25:54,003 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:54,003 INFO reliability_after repeat=1 31/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.359
+2026-10-07 12:25:54,985 INFO Database request=7bf4de81fbe04f988f60e76f2b18baa8 status=completed counts=[6451]
+2026-10-07 12:25:54,998 ERROR RAG run=7bf4de81fbe04f988f60e76f2b18baa8 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:25:54,998 INFO Project2 run=7bf4de81fbe04f988f60e76f2b18baa8 status=partial attempts=4
+2026-10-07 12:25:55,015 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:55,016 INFO reliability_after repeat=1 32/50 states={'rag': 'failed', 'database': 'completed'} seconds=1.016
+2026-10-07 12:25:56,124 INFO Database request=23fb44e84fab478d87c741e9171975ac status=completed counts=[9823]
+2026-10-07 12:25:56,136 ERROR RAG run=23fb44e84fab478d87c741e9171975ac failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:25:56,137 INFO Project2 run=23fb44e84fab478d87c741e9171975ac status=partial attempts=4
+2026-10-07 12:25:56,153 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:56,154 INFO reliability_after repeat=1 33/50 states={'rag': 'failed', 'database': 'completed'} seconds=1.140
+2026-10-07 12:25:56,205 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:56,205 INFO reliability_after repeat=1 34/50 states={'rag': 'failed', 'database': 'failed'} seconds=0.047
+2026-10-07 12:25:56,303 INFO Database request=7f168b3502d041318a60f041f1325f82 status=completed counts=[309]
+2026-10-07 12:25:56,314 ERROR RAG run=7f168b3502d041318a60f041f1325f82 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:25:56,315 INFO Project2 run=7f168b3502d041318a60f041f1325f82 status=partial attempts=4
+2026-10-07 12:25:56,331 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:56,332 INFO reliability_after repeat=1 35/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.125
+2026-10-07 12:25:56,813 INFO Database request=58b0efcfe78d4eb58359134412aeda71 status=completed counts=[1413, 547]
+2026-10-07 12:25:56,826 ERROR RAG run=58b0efcfe78d4eb58359134412aeda71 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:25:56,827 INFO Project2 run=58b0efcfe78d4eb58359134412aeda71 status=partial attempts=7
+2026-10-07 12:25:56,846 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:56,846 INFO reliability_after repeat=1 36/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.516
+2026-10-07 12:25:57,191 INFO Database request=13567c4beac24e7e9a0a451929696064 status=completed counts=[1322, 1585]
+2026-10-07 12:25:57,206 ERROR RAG run=13567c4beac24e7e9a0a451929696064 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:25:57,207 INFO Project2 run=13567c4beac24e7e9a0a451929696064 status=partial attempts=7
+2026-10-07 12:25:57,223 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:57,224 INFO reliability_after repeat=1 37/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.375
+2026-10-07 12:25:57,638 INFO Database request=775a1cef259b4321b29e08abafcf74f4 status=completed counts=[1322, 1585]
+2026-10-07 12:25:57,652 ERROR RAG run=775a1cef259b4321b29e08abafcf74f4 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:25:57,652 INFO Project2 run=775a1cef259b4321b29e08abafcf74f4 status=partial attempts=7
+2026-10-07 12:25:57,676 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:25:57,677 INFO reliability_after repeat=1 38/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.438
+2026-10-07 12:26:06,548 INFO P2_STARTUP {"type": "ready", "scope": "full", "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b", "worker_pid": 33692, "warmup": {"completed": true, "selection": "official full docs ORDER BY doc_id LIMIT 1, text only", "text_sha256": "27566416452b285c86c1df3f65970d4eb327c96d9c97ebf6b77b64c095776b2d", "qa_fields_used": [], "corpus_read_seconds": 0.016708200000721263, "embedding_inference_seconds": 0.6306303999990632, "index_warmup_seconds": 1.154345300001296, "total_seconds": 1.8016839000010805, "llm_calls": 0, "request_budget_created": false}, "startup_timings": {"imports_seconds": 0.7420039000007819, "agent_build_seconds": 0.01595420000012382, "index_and_encoder_seconds": 19.831738700000642, "faiss_index_load_seconds": 5.003663200001029, "child_initialization_seconds": 22.818875500001013}, "launch_to_ready_seconds": 23.466613000000507}
+2026-10-07 12:26:08,269 INFO Database request=0b6e1e6b4ee8491b9065f3adaf50b26c status=completed counts=[42569]
+2026-10-07 12:26:21,721 INFO Project2 run=0b6e1e6b4ee8491b9065f3adaf50b26c status=completed attempts=17
+2026-10-07 12:26:21,744 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:26:21,746 INFO reliability_after repeat=1 39/50 states={'rag': 'completed', 'database': 'completed'} seconds=24.062
+2026-10-07 12:26:22,729 INFO Database request=eba4cd3895cc4445ac0a736369d7cf74 status=completed counts=[6451]
+2026-10-07 12:26:45,513 INFO Project2 run=eba4cd3895cc4445ac0a736369d7cf74 status=completed attempts=17
+2026-10-07 12:26:45,532 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:26:45,534 INFO reliability_after repeat=1 40/50 states={'rag': 'completed', 'database': 'completed'} seconds=23.781
+2026-10-07 12:26:46,230 INFO Database request=1276b4709b7a4c9191f338745ed39332 status=completed counts=[3736]
+2026-10-07 12:27:00,381 INFO Project2 run=1276b4709b7a4c9191f338745ed39332 status=completed attempts=17
+2026-10-07 12:27:00,399 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:27:00,401 INFO reliability_after repeat=1 41/50 states={'rag': 'completed', 'database': 'completed'} seconds=14.875
+2026-10-07 12:27:02,682 INFO Database request=f2851b8d642046c291e1cf60f8226078 status=completed counts=[13960]
+2026-10-07 12:27:28,687 INFO Project2 run=f2851b8d642046c291e1cf60f8226078 status=completed attempts=17
+2026-10-07 12:27:28,707 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:27:28,709 INFO reliability_after repeat=1 42/50 states={'rag': 'completed', 'database': 'completed'} seconds=28.313
+2026-10-07 12:27:30,180 INFO Database request=29d0f480aa544256a564ca33d9d8eb95 status=completed counts=[9823]
+2026-10-07 12:27:41,946 INFO Project2 run=29d0f480aa544256a564ca33d9d8eb95 status=partial attempts=16
+2026-10-07 12:27:41,968 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:27:41,969 INFO reliability_after repeat=1 43/50 states={'rag': 'no_data', 'database': 'completed'} seconds=13.250
+2026-10-07 12:27:42,464 INFO Database request=542fa08d5017427cb7de283c757683f5 status=completed counts=[1492]
+2026-10-07 12:28:06,368 INFO Project2 run=542fa08d5017427cb7de283c757683f5 status=completed attempts=17
+2026-10-07 12:28:06,386 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:28:06,388 INFO reliability_after repeat=1 44/50 states={'rag': 'completed', 'database': 'completed'} seconds=24.422
+2026-10-07 12:28:09,255 INFO Database request=da8bc2bd48044efaaf28736f2f1120ab status=completed counts=[18296]
+2026-10-07 12:28:22,423 INFO Project2 run=da8bc2bd48044efaaf28736f2f1120ab status=completed attempts=17
+2026-10-07 12:28:22,444 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:28:22,446 INFO reliability_after repeat=1 45/50 states={'rag': 'completed', 'database': 'completed'} seconds=16.062
+2026-10-07 12:28:23,285 INFO Database request=efe0c0904c0d4006bc8f170a70e423b5 status=completed counts=[3736]
+2026-10-07 12:28:36,317 INFO Project2 run=efe0c0904c0d4006bc8f170a70e423b5 status=completed attempts=17
+2026-10-07 12:28:36,334 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:28:36,336 INFO reliability_after repeat=1 46/50 states={'rag': 'completed', 'database': 'completed'} seconds=13.891
+2026-10-07 12:28:38,558 INFO Database request=2ca72cd6ba4940dc85fe41df430c7e3f status=completed counts=[13881]
+2026-10-07 12:28:54,125 INFO Project2 run=2ca72cd6ba4940dc85fe41df430c7e3f status=completed attempts=17
+2026-10-07 12:28:54,148 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:28:54,149 INFO reliability_after repeat=1 47/50 states={'rag': 'completed', 'database': 'completed'} seconds=17.812
+2026-10-07 12:28:55,293 INFO Database request=23fe3168ac2545f682f280a854a01736 status=completed counts=[6451]
+2026-10-07 12:29:04,444 INFO Project2 run=23fe3168ac2545f682f280a854a01736 status=partial attempts=16
+2026-10-07 12:29:04,470 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:29:04,472 INFO reliability_after repeat=1 48/50 states={'rag': 'no_data', 'database': 'completed'} seconds=10.313
+2026-10-07 12:29:04,604 INFO Database request=1011d44ce8d945a4b6dc6d642aca2fe3 status=no_data counts=[0, 0]
+2026-10-07 12:29:15,775 INFO P2_CLEANUP {"mode": "owned_force_cancel", "elapsed_seconds": 0.27639629999976023, "process_retained": false}
+2026-10-07 12:29:15,776 WARNING RAG run=1011d44ce8d945a4b6dc6d642aca2fe3 timeout=BudgetExceeded
+2026-10-07 12:29:15,776 INFO Project2 run=1011d44ce8d945a4b6dc6d642aca2fe3 status=timeout attempts=19
+2026-10-07 12:29:15,792 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:29:15,794 INFO reliability_after repeat=1 49/50 states={'rag': 'timeout', 'database': 'no_data'} seconds=11.328
+2026-10-07 12:29:16,692 INFO Database request=00fc17eacf9c4c859f7ca57915376183 status=completed counts=[3736]
+2026-10-07 12:29:16,704 ERROR RAG run=00fc17eacf9c4c859f7ca57915376183 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:29:16,707 INFO Project2 run=00fc17eacf9c4c859f7ca57915376183 status=partial attempts=4
+2026-10-07 12:29:16,723 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:29:16,725 INFO reliability_after repeat=1 50/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.922
+2026-10-07 12:29:23,695 INFO Database request=f2e9f578e1614b3394983414984cb7cf status=completed counts=[58237]
+2026-10-07 12:29:23,707 ERROR RAG run=f2e9f578e1614b3394983414984cb7cf failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:29:23,707 INFO Project2 run=f2e9f578e1614b3394983414984cb7cf status=partial attempts=4
+2026-10-07 12:29:23,724 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:29:23,725 INFO reliability_after repeat=2 1/50 states={'rag': 'failed', 'database': 'completed'} seconds=7.000
+2026-10-07 12:29:24,047 INFO Database request=07d77062243d486fb6c42f1e356ca636 status=completed counts=[192]
+2026-10-07 12:29:24,058 ERROR RAG run=07d77062243d486fb6c42f1e356ca636 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:29:24,059 INFO Project2 run=07d77062243d486fb6c42f1e356ca636 status=partial attempts=4
+2026-10-07 12:29:24,079 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:29:24,081 INFO reliability_after repeat=2 2/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.344
+2026-10-07 12:29:25,125 INFO Database request=017bcc67b69843c7a50c7f5f1cc76646 status=completed counts=[1322, 1585]
+2026-10-07 12:29:25,138 ERROR RAG run=017bcc67b69843c7a50c7f5f1cc76646 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:29:25,139 INFO Project2 run=017bcc67b69843c7a50c7f5f1cc76646 status=partial attempts=7
+2026-10-07 12:29:25,156 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:29:25,156 INFO reliability_after repeat=2 3/50 states={'rag': 'failed', 'database': 'completed'} seconds=1.078
+2026-10-07 12:29:25,340 INFO Database request=70730b253f324984a57d28614b36b7ef status=completed counts=[3736]
+2026-10-07 12:29:25,351 ERROR RAG run=70730b253f324984a57d28614b36b7ef failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:29:25,352 INFO Project2 run=70730b253f324984a57d28614b36b7ef status=partial attempts=4
+2026-10-07 12:29:25,372 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:29:25,373 INFO reliability_after repeat=2 4/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.219
+2026-10-07 12:29:25,548 INFO Database request=665d07f6c34d4d97bbc4140a7749a376 status=completed counts=[316]
+2026-10-07 12:29:25,559 ERROR RAG run=665d07f6c34d4d97bbc4140a7749a376 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:29:25,560 INFO Project2 run=665d07f6c34d4d97bbc4140a7749a376 status=partial attempts=4
+2026-10-07 12:29:25,578 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:29:25,579 INFO reliability_after repeat=2 5/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.203
+2026-10-07 12:29:25,747 INFO Database request=4b1cc58bf1e545558728b4239a3217af status=completed counts=[142]
+2026-10-07 12:29:25,758 ERROR RAG run=4b1cc58bf1e545558728b4239a3217af failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:29:25,759 INFO Project2 run=4b1cc58bf1e545558728b4239a3217af status=partial attempts=4
+2026-10-07 12:29:25,776 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:29:25,776 INFO reliability_after repeat=2 6/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.203
+2026-10-07 12:29:41,465 INFO Database request=9991fecea8b44a87a510ff4ab6863536 status=completed counts=[46777]
+2026-10-07 12:29:41,493 ERROR RAG run=9991fecea8b44a87a510ff4ab6863536 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:29:41,502 INFO Project2 run=9991fecea8b44a87a510ff4ab6863536 status=partial attempts=4
+2026-10-07 12:29:41,523 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:29:41,524 INFO reliability_after repeat=2 7/50 states={'rag': 'failed', 'database': 'completed'} seconds=15.750
+2026-10-07 12:29:42,223 INFO Database request=22d875f70a5d42b5931a9909683be90c status=completed counts=[1938]
+2026-10-07 12:29:42,232 ERROR RAG run=22d875f70a5d42b5931a9909683be90c failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:29:42,233 INFO Project2 run=22d875f70a5d42b5931a9909683be90c status=partial attempts=4
+2026-10-07 12:29:42,248 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:29:42,250 INFO reliability_after repeat=2 8/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.719
+2026-10-07 12:29:43,678 INFO P2_STARTUP {"type": "ready", "scope": "full", "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b", "worker_pid": 29120, "warmup": {"completed": true, "selection": "official full docs ORDER BY doc_id LIMIT 1, text only", "text_sha256": "27566416452b285c86c1df3f65970d4eb327c96d9c97ebf6b77b64c095776b2d", "qa_fields_used": [], "corpus_read_seconds": 0.01543850000052771, "embedding_inference_seconds": 0.8221838999997999, "index_warmup_seconds": 0.391339900001185, "total_seconds": 1.2289623000015126, "llm_calls": 0, "request_budget_created": false}, "startup_timings": {"imports_seconds": 0.781059599999935, "agent_build_seconds": 0.014912300001014955, "index_and_encoder_seconds": 24.809327899998607, "faiss_index_load_seconds": 9.765158700000029, "child_initialization_seconds": 27.26036589999967}, "launch_to_ready_seconds": 27.882516800000303}
+2026-10-07 12:29:44,463 INFO Database request=8ae852a877ad4d1899f21af183999bdb status=completed counts=[12259]
+2026-10-07 12:29:58,093 INFO Project2 run=8ae852a877ad4d1899f21af183999bdb status=completed attempts=14
+2026-10-07 12:29:58,120 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:29:58,122 INFO reliability_after repeat=2 9/50 states={'rag': 'completed', 'database': 'completed'} seconds=15.875
+2026-10-07 12:29:58,860 INFO Database request=9e9953d8b19848bc8a19fd4c0e54f5af status=completed counts=[3736]
+2026-10-07 12:30:11,058 INFO Project2 run=9e9953d8b19848bc8a19fd4c0e54f5af status=completed attempts=14
+2026-10-07 12:30:11,078 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:30:11,079 INFO reliability_after repeat=2 10/50 states={'rag': 'completed', 'database': 'completed'} seconds=12.953
+2026-10-07 12:30:12,103 INFO Database request=90f60e32b3744c728bac14a04ea9c12d status=completed counts=[6451]
+2026-10-07 12:30:30,583 INFO Project2 run=90f60e32b3744c728bac14a04ea9c12d status=completed attempts=17
+2026-10-07 12:30:30,609 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:30:30,610 INFO reliability_after repeat=2 11/50 states={'rag': 'completed', 'database': 'completed'} seconds=19.531
+2026-10-07 12:30:31,075 INFO Database request=b957237693414fc3952d5966c26e279e status=completed counts=[978]
+2026-10-07 12:30:44,715 INFO Project2 run=b957237693414fc3952d5966c26e279e status=completed attempts=17
+2026-10-07 12:30:44,733 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:30:44,734 INFO reliability_after repeat=2 12/50 states={'rag': 'completed', 'database': 'completed'} seconds=14.125
+2026-10-07 12:30:44,920 INFO Database request=9d04367864994490a801c327be81b356 status=completed counts=[214]
+2026-10-07 12:30:58,255 INFO Project2 run=9d04367864994490a801c327be81b356 status=partial attempts=16
+2026-10-07 12:30:58,278 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:30:58,280 INFO reliability_after repeat=2 13/50 states={'rag': 'no_data', 'database': 'completed'} seconds=13.547
+2026-10-07 12:30:59,030 INFO Database request=ed51555fd3954179aeb6276191444552 status=completed counts=[3736]
+2026-10-07 12:31:18,495 INFO Project2 run=ed51555fd3954179aeb6276191444552 status=completed attempts=17
+2026-10-07 12:31:18,520 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:31:18,523 INFO reliability_after repeat=2 14/50 states={'rag': 'completed', 'database': 'completed'} seconds=20.250
+2026-10-07 12:31:24,179 INFO Database request=becfeb426db748e497e5930154c9b06a status=completed counts=[40526]
+2026-10-07 12:31:42,999 INFO Project2 run=becfeb426db748e497e5930154c9b06a status=completed attempts=17
+2026-10-07 12:31:43,017 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:31:43,020 INFO reliability_after repeat=2 15/50 states={'rag': 'completed', 'database': 'completed'} seconds=24.485
+2026-10-07 12:31:43,896 INFO Database request=0018c43ec41b48cc986b4b76df4c0bfe status=completed counts=[3533]
+2026-10-07 12:31:54,993 INFO Project2 run=0018c43ec41b48cc986b4b76df4c0bfe status=completed attempts=14
+2026-10-07 12:31:55,010 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:31:55,012 INFO reliability_after repeat=2 16/50 states={'rag': 'completed', 'database': 'completed'} seconds=11.985
+2026-10-07 12:31:56,166 INFO Database request=c7fcb9434c3e43a68055c36f2650ea49 status=completed counts=[1771, 724]
+2026-10-07 12:32:12,456 INFO P2_CLEANUP {"mode": "owned_force_cancel", "elapsed_seconds": 0.2880256999997073, "process_retained": false}
+2026-10-07 12:32:12,456 WARNING RAG run=c7fcb9434c3e43a68055c36f2650ea49 timeout=BudgetExceeded
+2026-10-07 12:32:12,457 INFO Project2 run=c7fcb9434c3e43a68055c36f2650ea49 status=partial attempts=19
+2026-10-07 12:32:12,484 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:12,485 INFO reliability_after repeat=2 17/50 states={'rag': 'timeout', 'database': 'completed'} seconds=17.468
+2026-10-07 12:32:13,055 INFO Database request=df0069e6a64843a1b066e1c983909fae status=completed counts=[1873]
+2026-10-07 12:32:13,066 ERROR RAG run=df0069e6a64843a1b066e1c983909fae failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:13,069 INFO Project2 run=df0069e6a64843a1b066e1c983909fae status=partial attempts=4
+2026-10-07 12:32:13,085 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:13,085 INFO reliability_after repeat=2 18/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.610
+2026-10-07 12:32:13,982 INFO Database request=b9757f38a134422794aa2bdaad089654 status=completed counts=[6451]
+2026-10-07 12:32:13,992 ERROR RAG run=b9757f38a134422794aa2bdaad089654 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:13,992 INFO Project2 run=b9757f38a134422794aa2bdaad089654 status=partial attempts=4
+2026-10-07 12:32:14,009 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:14,009 INFO reliability_after repeat=2 19/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.922
+2026-10-07 12:32:14,312 INFO Database request=79d06d9649a14c94ba8f8d4a7e343f85 status=completed counts=[673]
+2026-10-07 12:32:14,321 ERROR RAG run=79d06d9649a14c94ba8f8d4a7e343f85 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:14,323 INFO Project2 run=79d06d9649a14c94ba8f8d4a7e343f85 status=partial attempts=4
+2026-10-07 12:32:14,343 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:14,344 INFO reliability_after repeat=2 20/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.328
+2026-10-07 12:32:14,952 INFO Database request=b9c8a715630a40dd971d60d3304b33ac status=completed counts=[3736]
+2026-10-07 12:32:14,962 ERROR RAG run=b9c8a715630a40dd971d60d3304b33ac failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:14,963 INFO Project2 run=b9c8a715630a40dd971d60d3304b33ac status=partial attempts=4
+2026-10-07 12:32:14,979 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:14,980 INFO reliability_after repeat=2 21/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.640
+2026-10-07 12:32:20,919 INFO Database request=e859ff3d665449dd8670beb0fb7db98f status=completed counts=[42569]
+2026-10-07 12:32:20,929 ERROR RAG run=e859ff3d665449dd8670beb0fb7db98f failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:20,931 INFO Project2 run=e859ff3d665449dd8670beb0fb7db98f status=partial attempts=4
+2026-10-07 12:32:20,949 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:20,950 INFO reliability_after repeat=2 22/50 states={'rag': 'failed', 'database': 'completed'} seconds=5.969
+2026-10-07 12:32:21,341 INFO Database request=b0c2b6c4fc89499792b6aa4782c1ed4f status=completed counts=[2288]
+2026-10-07 12:32:21,351 ERROR RAG run=b0c2b6c4fc89499792b6aa4782c1ed4f failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:21,352 INFO Project2 run=b0c2b6c4fc89499792b6aa4782c1ed4f status=partial attempts=4
+2026-10-07 12:32:21,369 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:21,370 INFO reliability_after repeat=2 23/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.422
+2026-10-07 12:32:21,503 INFO Database request=6e2aab227e21405da33881b9d129f36e status=completed counts=[309]
+2026-10-07 12:32:21,514 ERROR RAG run=6e2aab227e21405da33881b9d129f36e failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:21,514 INFO Project2 run=6e2aab227e21405da33881b9d129f36e status=partial attempts=4
+2026-10-07 12:32:21,533 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:21,534 INFO reliability_after repeat=2 24/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.156
+2026-10-07 12:32:23,427 INFO Database request=6e53ae5a7c9f46f2a020f40ea51ded5c status=completed counts=[13881]
+2026-10-07 12:32:23,440 ERROR RAG run=6e53ae5a7c9f46f2a020f40ea51ded5c failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:23,441 INFO Project2 run=6e53ae5a7c9f46f2a020f40ea51ded5c status=partial attempts=4
+2026-10-07 12:32:23,458 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:23,458 INFO reliability_after repeat=2 25/50 states={'rag': 'failed', 'database': 'completed'} seconds=1.922
+2026-10-07 12:32:23,812 INFO Database request=5e287a29f3f04257a60392b759b8410b status=completed counts=[2004]
+2026-10-07 12:32:23,822 ERROR RAG run=5e287a29f3f04257a60392b759b8410b failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:23,823 INFO Project2 run=5e287a29f3f04257a60392b759b8410b status=partial attempts=4
+2026-10-07 12:32:23,839 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:23,839 INFO reliability_after repeat=2 26/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.375
+2026-10-07 12:32:24,083 INFO Database request=d6f76e933c0b4c3e9abea78c2658dc58 status=completed counts=[6451]
+2026-10-07 12:32:24,094 ERROR RAG run=d6f76e933c0b4c3e9abea78c2658dc58 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:24,094 INFO Project2 run=d6f76e933c0b4c3e9abea78c2658dc58 status=partial attempts=4
+2026-10-07 12:32:24,113 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:24,114 INFO reliability_after repeat=2 27/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.265
+2026-10-07 12:32:25,337 INFO Database request=13e305bedd804443b89a624d1f75d3a1 status=completed counts=[9823]
+2026-10-07 12:32:25,345 ERROR RAG run=13e305bedd804443b89a624d1f75d3a1 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:25,347 INFO Project2 run=13e305bedd804443b89a624d1f75d3a1 status=partial attempts=4
+2026-10-07 12:32:25,363 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:25,364 INFO reliability_after repeat=2 28/50 states={'rag': 'failed', 'database': 'completed'} seconds=1.234
+2026-10-07 12:32:25,549 INFO Database request=b02c787d1a6048a6807ef15f8223e732 status=completed counts=[3736]
+2026-10-07 12:32:25,557 ERROR RAG run=b02c787d1a6048a6807ef15f8223e732 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:25,559 INFO Project2 run=b02c787d1a6048a6807ef15f8223e732 status=partial attempts=4
+2026-10-07 12:32:25,577 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:25,577 INFO reliability_after repeat=2 29/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.219
+2026-10-07 12:32:25,919 INFO Database request=8bcd8a0aca68466b992251455767723c status=completed counts=[245, 79]
+2026-10-07 12:32:25,930 ERROR RAG run=8bcd8a0aca68466b992251455767723c failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:25,931 INFO Project2 run=8bcd8a0aca68466b992251455767723c status=partial attempts=7
+2026-10-07 12:32:25,947 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:25,948 INFO reliability_after repeat=2 30/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.375
+2026-10-07 12:32:26,056 INFO Database request=95dac9a5b26244d5ab34b9f0458872c3 status=no_data counts=[0, 0]
+2026-10-07 12:32:26,067 ERROR RAG run=95dac9a5b26244d5ab34b9f0458872c3 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:26,068 INFO Project2 run=95dac9a5b26244d5ab34b9f0458872c3 status=failed attempts=7
+2026-10-07 12:32:26,086 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:26,086 INFO reliability_after repeat=2 31/50 states={'rag': 'failed', 'database': 'no_data'} seconds=0.141
+2026-10-07 12:32:26,271 INFO Database request=0c9c11b2da1c4a3e8783a7e8a2e7dec8 status=completed counts=[178]
+2026-10-07 12:32:26,282 ERROR RAG run=0c9c11b2da1c4a3e8783a7e8a2e7dec8 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:26,283 INFO Project2 run=0c9c11b2da1c4a3e8783a7e8a2e7dec8 status=partial attempts=4
+2026-10-07 12:32:26,302 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:26,302 INFO reliability_after repeat=2 32/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.203
+2026-10-07 12:32:26,351 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:26,352 INFO reliability_after repeat=2 33/50 states={'rag': 'failed', 'database': 'failed'} seconds=0.062
+2026-10-07 12:32:26,748 INFO Database request=fa294dc70ff146cdae6ab612e97dd96b status=completed counts=[1492]
+2026-10-07 12:32:26,758 ERROR RAG run=fa294dc70ff146cdae6ab612e97dd96b failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:26,759 INFO Project2 run=fa294dc70ff146cdae6ab612e97dd96b status=partial attempts=4
+2026-10-07 12:32:26,778 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:26,778 INFO reliability_after repeat=2 34/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.422
+2026-10-07 12:32:27,512 INFO Database request=55f9db3157214ffd81e99e5a767e08ed status=completed counts=[1413, 547]
+2026-10-07 12:32:27,530 ERROR RAG run=55f9db3157214ffd81e99e5a767e08ed failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:27,531 INFO Project2 run=55f9db3157214ffd81e99e5a767e08ed status=partial attempts=7
+2026-10-07 12:32:27,556 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:27,558 INFO reliability_after repeat=2 35/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.782
+2026-10-07 12:32:28,110 INFO Database request=ce90f33bd6f247dbaa9a1587125390c0 status=completed counts=[235]
+2026-10-07 12:32:28,128 ERROR RAG run=ce90f33bd6f247dbaa9a1587125390c0 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:28,182 INFO Project2 run=ce90f33bd6f247dbaa9a1587125390c0 status=partial attempts=4
+2026-10-07 12:32:28,204 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:28,206 INFO reliability_after repeat=2 36/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.640
+2026-10-07 12:32:39,693 INFO Database request=b6299d65a67b46c3832583cb53fe0db9 status=completed counts=[18296]
+2026-10-07 12:32:39,712 ERROR RAG run=b6299d65a67b46c3832583cb53fe0db9 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:39,715 INFO Project2 run=b6299d65a67b46c3832583cb53fe0db9 status=partial attempts=4
+2026-10-07 12:32:39,736 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:39,737 INFO reliability_after repeat=2 37/50 states={'rag': 'failed', 'database': 'completed'} seconds=11.531
+2026-10-07 12:32:44,827 INFO Database request=4ce86fb0e25f45d896b7748a58fd8278 status=completed counts=[8643]
+2026-10-07 12:32:44,839 ERROR RAG run=4ce86fb0e25f45d896b7748a58fd8278 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:44,841 INFO Project2 run=4ce86fb0e25f45d896b7748a58fd8278 status=partial attempts=4
+2026-10-07 12:32:44,859 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:44,860 INFO reliability_after repeat=2 38/50 states={'rag': 'failed', 'database': 'completed'} seconds=5.125
+2026-10-07 12:32:46,409 INFO Database request=a5deaa55696f4e1b95db2030da56ee81 status=completed counts=[9823]
+2026-10-07 12:32:46,423 ERROR RAG run=a5deaa55696f4e1b95db2030da56ee81 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:46,424 INFO Project2 run=a5deaa55696f4e1b95db2030da56ee81 status=partial attempts=4
+2026-10-07 12:32:46,443 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:46,444 INFO reliability_after repeat=2 39/50 states={'rag': 'failed', 'database': 'completed'} seconds=1.594
+2026-10-07 12:32:49,334 INFO Database request=e6c2635be4224a2c971afe03931b5c07 status=completed counts=[18296]
+2026-10-07 12:32:49,350 ERROR RAG run=e6c2635be4224a2c971afe03931b5c07 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:32:49,351 INFO Project2 run=e6c2635be4224a2c971afe03931b5c07 status=partial attempts=4
+2026-10-07 12:32:49,382 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:32:49,383 INFO reliability_after repeat=2 40/50 states={'rag': 'failed', 'database': 'completed'} seconds=2.938
+2026-10-07 12:32:49,633 INFO P2_STARTUP {"type": "ready", "scope": "full", "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b", "worker_pid": 28776, "warmup": {"completed": true, "selection": "official full docs ORDER BY doc_id LIMIT 1, text only", "text_sha256": "27566416452b285c86c1df3f65970d4eb327c96d9c97ebf6b77b64c095776b2d", "qa_fields_used": [], "corpus_read_seconds": 0.01422900000034133, "embedding_inference_seconds": 0.6271782999992865, "index_warmup_seconds": 0.3329780000003666, "total_seconds": 0.9743852999999945, "llm_calls": 0, "request_budget_created": false}, "startup_timings": {"imports_seconds": 0.799654799999189, "agent_build_seconds": 0.0073146000013366574, "index_and_encoder_seconds": 34.25481190000028, "faiss_index_load_seconds": 19.050189699999464, "child_initialization_seconds": 36.50218909999967}, "launch_to_ready_seconds": 37.14451200000076}
+2026-10-07 12:32:51,205 INFO Database request=8a6e942265524a57b36dd0508a65aae3 status=completed counts=[11126]
+2026-10-07 12:33:10,937 INFO Project2 run=8a6e942265524a57b36dd0508a65aae3 status=completed attempts=14
+2026-10-07 12:33:10,954 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:33:10,958 INFO reliability_after repeat=2 41/50 states={'rag': 'completed', 'database': 'completed'} seconds=21.562
+2026-10-07 12:33:11,345 INFO Database request=d8b38bf9c4d54b19885b7fab98572897 status=completed counts=[18296]
+2026-10-07 12:33:29,784 INFO Project2 run=d8b38bf9c4d54b19885b7fab98572897 status=completed attempts=17
+2026-10-07 12:33:29,804 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:33:29,806 INFO reliability_after repeat=2 42/50 states={'rag': 'completed', 'database': 'completed'} seconds=18.844
+2026-10-07 12:33:30,732 INFO Database request=b03577fb9a8e40d08da6cd19621551c2 status=completed counts=[1322, 1585]
+2026-10-07 12:33:42,439 INFO P2_CLEANUP {"mode": "owned_force_cancel", "elapsed_seconds": 0.24902510000174516, "process_retained": false}
+2026-10-07 12:33:42,439 WARNING RAG run=b03577fb9a8e40d08da6cd19621551c2 timeout=BudgetExceeded
+2026-10-07 12:33:42,439 INFO Project2 run=b03577fb9a8e40d08da6cd19621551c2 status=partial attempts=19
+2026-10-07 12:33:42,459 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:33:42,460 INFO reliability_after repeat=2 43/50 states={'rag': 'timeout', 'database': 'completed'} seconds=12.656
+2026-10-07 12:33:43,148 INFO Database request=d5e1193539014009a1946c754b803ae8 status=completed counts=[3736]
+2026-10-07 12:33:43,160 ERROR RAG run=d5e1193539014009a1946c754b803ae8 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:33:43,161 INFO Project2 run=d5e1193539014009a1946c754b803ae8 status=partial attempts=4
+2026-10-07 12:33:43,178 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:33:43,178 INFO reliability_after repeat=2 44/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.719
+2026-10-07 12:33:43,363 INFO Database request=80a5338b3fb24d8cb10d36624b1781af status=completed counts=[3736]
+2026-10-07 12:33:43,374 ERROR RAG run=80a5338b3fb24d8cb10d36624b1781af failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:33:43,376 INFO Project2 run=80a5338b3fb24d8cb10d36624b1781af status=partial attempts=4
+2026-10-07 12:33:43,392 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:33:43,392 INFO reliability_after repeat=2 45/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.203
+2026-10-07 12:33:47,302 INFO Database request=33c184796cab4b53bdd55f04e0767d8e status=completed counts=[40526]
+2026-10-07 12:33:47,312 ERROR RAG run=33c184796cab4b53bdd55f04e0767d8e failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:33:47,312 INFO Project2 run=33c184796cab4b53bdd55f04e0767d8e status=partial attempts=4
+2026-10-07 12:33:47,329 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:33:47,329 INFO reliability_after repeat=2 46/50 states={'rag': 'failed', 'database': 'completed'} seconds=3.937
+2026-10-07 12:33:47,689 INFO Database request=184da6f739b14c69b9365def46c775c1 status=completed counts=[13881]
+2026-10-07 12:33:47,698 ERROR RAG run=184da6f739b14c69b9365def46c775c1 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:33:47,700 INFO Project2 run=184da6f739b14c69b9365def46c775c1 status=partial attempts=4
+2026-10-07 12:33:47,716 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:33:47,716 INFO reliability_after repeat=2 47/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.391
+2026-10-07 12:33:48,066 INFO Database request=1716cfe54e404051bca4b2620473fc16 status=completed counts=[1322, 1585]
+2026-10-07 12:33:48,076 ERROR RAG run=1716cfe54e404051bca4b2620473fc16 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:33:48,077 INFO Project2 run=1716cfe54e404051bca4b2620473fc16 status=partial attempts=7
+2026-10-07 12:33:48,094 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:33:48,094 INFO reliability_after repeat=2 48/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.375
+2026-10-07 12:33:48,603 INFO Database request=36587295ab864dd6a07b34b52daf767a status=completed counts=[4867]
+2026-10-07 12:33:48,614 ERROR RAG run=36587295ab864dd6a07b34b52daf767a failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:33:48,615 INFO Project2 run=36587295ab864dd6a07b34b52daf767a status=partial attempts=4
+2026-10-07 12:33:48,631 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:33:48,632 INFO reliability_after repeat=2 49/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.547
+2026-10-07 12:33:50,773 INFO Database request=cb4c1df9565b4657af247e83a063b554 status=completed counts=[13960]
+2026-10-07 12:33:50,782 ERROR RAG run=cb4c1df9565b4657af247e83a063b554 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:33:50,783 INFO Project2 run=cb4c1df9565b4657af247e83a063b554 status=partial attempts=4
+2026-10-07 12:33:50,799 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:33:50,800 INFO reliability_after repeat=2 50/50 states={'rag': 'failed', 'database': 'completed'} seconds=2.156
+2026-10-07 12:33:50,971 INFO Database request=96d2df05b69e4572b6dc28199901c66e status=completed counts=[142]
+2026-10-07 12:33:50,982 ERROR RAG run=96d2df05b69e4572b6dc28199901c66e failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:33:50,982 INFO Project2 run=96d2df05b69e4572b6dc28199901c66e status=partial attempts=4
+2026-10-07 12:33:51,000 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:33:51,001 INFO reliability_after repeat=3 1/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.187
+2026-10-07 12:33:51,512 INFO Database request=48676bacce584092a401b35dd467d0d1 status=completed counts=[245, 79]
+2026-10-07 12:33:51,523 ERROR RAG run=48676bacce584092a401b35dd467d0d1 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:33:51,523 INFO Project2 run=48676bacce584092a401b35dd467d0d1 status=partial attempts=7
+2026-10-07 12:33:51,542 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:33:51,542 INFO reliability_after repeat=3 2/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.547
+2026-10-07 12:33:52,533 INFO Database request=ebba9162ba964f1889193f7ed306de28 status=completed counts=[6451]
+2026-10-07 12:33:52,542 ERROR RAG run=ebba9162ba964f1889193f7ed306de28 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:33:52,543 INFO Project2 run=ebba9162ba964f1889193f7ed306de28 status=partial attempts=4
+2026-10-07 12:33:52,560 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:33:52,560 INFO reliability_after repeat=3 3/50 states={'rag': 'failed', 'database': 'completed'} seconds=1.016
+2026-10-07 12:33:52,901 INFO Database request=1ce9afedfad64f5fbd566ac88d61ed6e status=completed counts=[1322, 1585]
+2026-10-07 12:33:52,913 ERROR RAG run=1ce9afedfad64f5fbd566ac88d61ed6e failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:33:52,913 INFO Project2 run=1ce9afedfad64f5fbd566ac88d61ed6e status=partial attempts=7
+2026-10-07 12:33:52,930 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:33:52,930 INFO reliability_after repeat=3 4/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.375
+2026-10-07 12:34:08,889 INFO Database request=20d83452e193487e898f391140bf3ca3 status=completed counts=[42569]
+2026-10-07 12:34:08,942 ERROR RAG run=20d83452e193487e898f391140bf3ca3 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:34:08,954 INFO Project2 run=20d83452e193487e898f391140bf3ca3 status=partial attempts=4
+2026-10-07 12:34:09,004 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:34:09,009 INFO reliability_after repeat=3 5/50 states={'rag': 'failed', 'database': 'completed'} seconds=16.078
+2026-10-07 12:34:09,867 INFO Database request=0332ac8fd08a4e99a7035f82ce4d84dc status=completed counts=[3736]
+2026-10-07 12:34:09,881 ERROR RAG run=0332ac8fd08a4e99a7035f82ce4d84dc failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:34:09,882 INFO Project2 run=0332ac8fd08a4e99a7035f82ce4d84dc status=partial attempts=4
+2026-10-07 12:34:09,902 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:34:09,904 INFO reliability_after repeat=3 6/50 states={'rag': 'failed', 'database': 'completed'} seconds=0.890
+2026-10-07 12:34:10,355 INFO P2_STARTUP {"type": "ready", "scope": "full", "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b", "worker_pid": 12664, "warmup": {"completed": true, "selection": "official full docs ORDER BY doc_id LIMIT 1, text only", "text_sha256": "27566416452b285c86c1df3f65970d4eb327c96d9c97ebf6b77b64c095776b2d", "qa_fields_used": [], "corpus_read_seconds": 0.012463499999284977, "embedding_inference_seconds": 0.5524536000011722, "index_warmup_seconds": 0.34029720000035013, "total_seconds": 0.9052143000008073, "llm_calls": 0, "request_budget_created": false}, "startup_timings": {"imports_seconds": 0.6713614000000234, "agent_build_seconds": 0.01798129999951925, "index_and_encoder_seconds": 25.26012230000015, "faiss_index_load_seconds": 11.156387999999424, "child_initialization_seconds": 27.308010099999592}, "launch_to_ready_seconds": 27.89185499999985}
+2026-10-07 12:34:10,533 INFO Database request=b00d7fe1103e4c4c8a4d908819826ff3 status=completed counts=[178]
+2026-10-07 12:34:28,658 INFO Project2 run=b00d7fe1103e4c4c8a4d908819826ff3 status=completed attempts=17
+2026-10-07 12:34:28,681 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:34:28,683 INFO reliability_after repeat=3 7/50 states={'rag': 'completed', 'database': 'completed'} seconds=18.782
+2026-10-07 12:34:29,458 INFO Database request=e6f9b4e1bbdf44fbaa5b31fcaeb2ed15 status=completed counts=[6451]
+2026-10-07 12:34:45,320 INFO Project2 run=e6f9b4e1bbdf44fbaa5b31fcaeb2ed15 status=completed attempts=14
+2026-10-07 12:34:45,341 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:34:45,344 INFO reliability_after repeat=3 8/50 states={'rag': 'completed', 'database': 'completed'} seconds=16.656
+2026-10-07 12:34:45,567 INFO Database request=7611f022d57743b7b53f732b0f11224a status=completed counts=[1873]
+2026-10-07 12:34:56,627 INFO Project2 run=7611f022d57743b7b53f732b0f11224a status=completed attempts=17
+2026-10-07 12:34:56,650 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:34:56,652 INFO reliability_after repeat=3 9/50 states={'rag': 'completed', 'database': 'completed'} seconds=11.312
+2026-10-07 12:34:57,063 INFO Database request=68c58372259f45aaa40c8e89298545a1 status=completed counts=[11126]
+2026-10-07 12:35:14,628 INFO Project2 run=68c58372259f45aaa40c8e89298545a1 status=completed attempts=14
+2026-10-07 12:35:14,655 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:35:14,657 INFO reliability_after repeat=3 10/50 states={'rag': 'completed', 'database': 'completed'} seconds=18.000
+2026-10-07 12:35:14,979 INFO Database request=b1ca27e9ea7c467ea8af2a78652a1541 status=completed counts=[192]
+2026-10-07 12:35:24,772 INFO Project2 run=b1ca27e9ea7c467ea8af2a78652a1541 status=completed attempts=17
+2026-10-07 12:35:24,791 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:35:24,794 INFO reliability_after repeat=3 11/50 states={'rag': 'completed', 'database': 'completed'} seconds=10.141
+2026-10-07 12:35:25,563 INFO Database request=92331387474245e7a68137dc6f6adf83 status=completed counts=[6451]
+2026-10-07 12:35:32,939 INFO Project2 run=92331387474245e7a68137dc6f6adf83 status=partial attempts=13
+2026-10-07 12:35:32,956 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:35:32,958 INFO reliability_after repeat=3 12/50 states={'rag': 'no_data', 'database': 'completed'} seconds=8.156
+2026-10-07 12:35:33,260 INFO Database request=eb933bf551cd4ea6883fe7dad7ca6f15 status=completed counts=[1938]
+2026-10-07 12:35:44,206 INFO Project2 run=eb933bf551cd4ea6883fe7dad7ca6f15 status=completed attempts=17
+2026-10-07 12:35:44,225 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:35:44,227 INFO reliability_after repeat=3 13/50 states={'rag': 'completed', 'database': 'completed'} seconds=11.265
+2026-10-07 12:35:48,727 INFO Database request=4b98d3fae4b141f1927549119d420286 status=completed counts=[40526]
+2026-10-07 12:36:00,403 INFO Project2 run=4b98d3fae4b141f1927549119d420286 status=completed attempts=17
+2026-10-07 12:36:00,422 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:36:00,423 INFO reliability_after repeat=3 14/50 states={'rag': 'completed', 'database': 'completed'} seconds=16.188
+2026-10-07 12:36:01,343 INFO Database request=228d7913b1b844e7aa1a35c5b1d8e792 status=completed counts=[4867]
+2026-10-07 12:36:17,519 INFO Project2 run=228d7913b1b844e7aa1a35c5b1d8e792 status=completed attempts=14
+2026-10-07 12:36:17,539 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:36:17,541 INFO reliability_after repeat=3 15/50 states={'rag': 'completed', 'database': 'completed'} seconds=17.125
+2026-10-07 12:36:18,296 INFO Database request=bb26d4c3e7e0433daeb975e3e144a862 status=completed counts=[3736]
+2026-10-07 12:36:31,226 INFO Project2 run=bb26d4c3e7e0433daeb975e3e144a862 status=completed attempts=14
+2026-10-07 12:36:31,246 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:36:31,247 INFO reliability_after repeat=3 16/50 states={'rag': 'completed', 'database': 'completed'} seconds=13.703
+2026-10-07 12:36:31,635 INFO Database request=abdd44b632b24ebe9f3b3f5ee8e283c5 status=completed counts=[2004]
+2026-10-07 12:36:51,293 INFO Project2 run=abdd44b632b24ebe9f3b3f5ee8e283c5 status=completed attempts=17
+2026-10-07 12:36:51,319 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:36:51,321 INFO reliability_after repeat=3 17/50 states={'rag': 'completed', 'database': 'completed'} seconds=20.078
+2026-10-07 12:36:51,641 INFO Database request=d60aae0642c347b7bcab3d886b383232 status=completed counts=[1413, 547]
+2026-10-07 12:37:05,273 INFO Project2 run=d60aae0642c347b7bcab3d886b383232 status=partial attempts=19
+2026-10-07 12:37:05,293 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:37:05,294 INFO reliability_after repeat=3 18/50 states={'rag': 'no_data', 'database': 'completed'} seconds=13.969
+2026-10-07 12:37:10,504 INFO Database request=67a1641426e9403d9ffc4940dba8f262 status=completed counts=[46777]
+2026-10-07 12:37:19,746 INFO Project2 run=67a1641426e9403d9ffc4940dba8f262 status=completed attempts=14
+2026-10-07 12:37:19,767 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:37:19,768 INFO reliability_after repeat=3 19/50 states={'rag': 'completed', 'database': 'completed'} seconds=14.469
+2026-10-07 12:37:24,271 INFO Database request=0b9a1581a6334af8a9ac823401315dcb status=completed counts=[40526]
+2026-10-07 12:37:40,507 INFO Project2 run=0b9a1581a6334af8a9ac823401315dcb status=completed attempts=14
+2026-10-07 12:37:40,525 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:37:40,527 INFO reliability_after repeat=3 20/50 states={'rag': 'completed', 'database': 'completed'} seconds=20.765
+2026-10-07 12:37:40,900 INFO Database request=53b41cb6f8b941478346f11701ca0e10 status=completed counts=[18296]
+2026-10-07 12:37:55,025 INFO Project2 run=53b41cb6f8b941478346f11701ca0e10 status=completed attempts=17
+2026-10-07 12:37:55,043 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:37:55,046 INFO reliability_after repeat=3 21/50 states={'rag': 'completed', 'database': 'completed'} seconds=14.516
+2026-10-07 12:37:55,852 INFO Database request=dad7c725e08c45d18d1b9b7ed5d13284 status=completed counts=[3736]
+2026-10-07 12:38:10,146 INFO Project2 run=dad7c725e08c45d18d1b9b7ed5d13284 status=completed attempts=17
+2026-10-07 12:38:10,165 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:38:10,167 INFO reliability_after repeat=3 22/50 states={'rag': 'completed', 'database': 'completed'} seconds=15.125
+2026-10-07 12:38:10,657 INFO Database request=4728933a752b490e80b4d202de887d61 status=completed counts=[1492]
+2026-10-07 12:38:29,804 INFO Project2 run=4728933a752b490e80b4d202de887d61 status=completed attempts=14
+2026-10-07 12:38:29,823 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:38:29,825 INFO reliability_after repeat=3 23/50 states={'rag': 'completed', 'database': 'completed'} seconds=19.656
+2026-10-07 12:38:30,563 INFO Database request=aa21041c214a4fa4941081420ca82a8b status=completed counts=[3736]
+2026-10-07 12:38:45,918 INFO Project2 run=aa21041c214a4fa4941081420ca82a8b status=completed attempts=14
+2026-10-07 12:38:45,942 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:38:45,944 INFO reliability_after repeat=3 24/50 states={'rag': 'completed', 'database': 'completed'} seconds=16.125
+2026-10-07 12:38:46,103 INFO Database request=daf76014114741b0862d8eb5a8f9b4cb status=completed counts=[235]
+2026-10-07 12:38:58,364 INFO Project2 run=daf76014114741b0862d8eb5a8f9b4cb status=completed attempts=17
+2026-10-07 12:38:58,382 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:38:58,384 INFO reliability_after repeat=3 25/50 states={'rag': 'completed', 'database': 'completed'} seconds=12.438
+2026-10-07 12:38:58,834 INFO Database request=f0aac0363ebf4e4097cc3aaedfccf690 status=completed counts=[2288]
+2026-10-07 12:39:08,436 INFO Project2 run=f0aac0363ebf4e4097cc3aaedfccf690 status=completed attempts=17
+2026-10-07 12:39:08,461 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:39:08,463 INFO reliability_after repeat=3 26/50 states={'rag': 'completed', 'database': 'completed'} seconds=10.078
+2026-10-07 12:39:09,984 INFO Database request=9b8ad7fdc5994cf0a083047056b62aa6 status=completed counts=[9823]
+2026-10-07 12:39:19,456 INFO Project2 run=9b8ad7fdc5994cf0a083047056b62aa6 status=completed attempts=17
+2026-10-07 12:39:19,476 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:39:19,477 INFO reliability_after repeat=3 27/50 states={'rag': 'completed', 'database': 'completed'} seconds=11.015
+2026-10-07 12:39:20,585 INFO Database request=7ed01bae286e4697b3a148861cc698db status=completed counts=[1322, 1585]
+2026-10-07 12:39:32,006 INFO Project2 run=7ed01bae286e4697b3a148861cc698db status=completed attempts=17
+2026-10-07 12:39:32,024 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:39:32,026 INFO reliability_after repeat=3 28/50 states={'rag': 'completed', 'database': 'completed'} seconds=12.547
+2026-10-07 12:39:33,321 INFO Database request=12f57453fdce4423ab6c64c8f1a9d3af status=completed counts=[9823]
+2026-10-07 12:39:42,619 INFO Project2 run=12f57453fdce4423ab6c64c8f1a9d3af status=partial attempts=13
+2026-10-07 12:39:42,638 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:39:42,639 INFO reliability_after repeat=3 29/50 states={'rag': 'no_data', 'database': 'completed'} seconds=10.610
+2026-10-07 12:39:45,348 INFO Database request=56093c4f07fd4f8b90e00e4a7aa9e7a1 status=completed counts=[18296]
+2026-10-07 12:39:54,677 INFO Project2 run=56093c4f07fd4f8b90e00e4a7aa9e7a1 status=completed attempts=14
+2026-10-07 12:39:54,695 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:39:54,697 INFO reliability_after repeat=3 30/50 states={'rag': 'completed', 'database': 'completed'} seconds=12.062
+2026-10-07 12:39:55,354 INFO Database request=7f103d6960c3486595d651603e12c77d status=completed counts=[3736]
+2026-10-07 12:40:05,535 INFO Project2 run=7f103d6960c3486595d651603e12c77d status=completed attempts=17
+2026-10-07 12:40:05,559 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:40:05,561 INFO reliability_after repeat=3 31/50 states={'rag': 'completed', 'database': 'completed'} seconds=10.860
+2026-10-07 12:40:05,723 INFO Database request=605aac9f9e5e47cd84e616b38f43a75d status=completed counts=[3736]
+2026-10-07 12:40:15,454 INFO Project2 run=605aac9f9e5e47cd84e616b38f43a75d status=completed attempts=14
+2026-10-07 12:40:15,474 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:40:15,477 INFO reliability_after repeat=3 32/50 states={'rag': 'completed', 'database': 'completed'} seconds=9.921
+2026-10-07 12:40:17,562 INFO Database request=402044683ee9413881409753fe0365da status=completed counts=[13960]
+2026-10-07 12:40:38,322 INFO Project2 run=402044683ee9413881409753fe0365da status=completed attempts=14
+2026-10-07 12:40:38,341 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:40:38,344 INFO reliability_after repeat=3 33/50 states={'rag': 'completed', 'database': 'completed'} seconds=22.860
+2026-10-07 12:40:48,263 INFO Database request=11f119f8c7ae41ffa2db4f998fff9af2 status=completed counts=[58237]
+2026-10-07 12:41:11,914 INFO Project2 run=11f119f8c7ae41ffa2db4f998fff9af2 status=completed attempts=17
+2026-10-07 12:41:11,934 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:41:11,935 INFO reliability_after repeat=3 34/50 states={'rag': 'completed', 'database': 'completed'} seconds=33.594
+2026-10-07 12:41:12,487 INFO Database request=31575afac0054763afea88312bbe1c2b status=completed counts=[978]
+2026-10-07 12:41:23,587 INFO Project2 run=31575afac0054763afea88312bbe1c2b status=completed attempts=14
+2026-10-07 12:41:23,606 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:41:23,608 INFO reliability_after repeat=3 35/50 states={'rag': 'completed', 'database': 'completed'} seconds=11.671
+2026-10-07 12:41:24,952 INFO Database request=320771cab1e247e0ac59fee732c8a50b status=completed counts=[1771, 724]
+2026-10-07 12:41:40,279 INFO Project2 run=320771cab1e247e0ac59fee732c8a50b status=completed attempts=17
+2026-10-07 12:41:40,296 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:41:40,297 INFO reliability_after repeat=3 36/50 states={'rag': 'completed', 'database': 'completed'} seconds=16.688
+2026-10-07 12:41:40,459 INFO Database request=66dd04912fa948a4abeed0e1a4a8d36a status=completed counts=[316]
+2026-10-07 12:41:54,985 INFO Project2 run=66dd04912fa948a4abeed0e1a4a8d36a status=completed attempts=17
+2026-10-07 12:41:55,009 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:41:55,010 INFO reliability_after repeat=3 37/50 states={'rag': 'completed', 'database': 'completed'} seconds=14.719
+2026-10-07 12:41:55,813 INFO Database request=4068cb36c9ab4ac0ad3c6410e587e415 status=completed counts=[3736]
+2026-10-07 12:42:06,478 INFO Project2 run=4068cb36c9ab4ac0ad3c6410e587e415 status=completed attempts=17
+2026-10-07 12:42:06,499 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:42:06,501 INFO reliability_after repeat=3 38/50 states={'rag': 'completed', 'database': 'completed'} seconds=11.484
+2026-10-07 12:42:06,555 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:42:06,555 INFO reliability_after repeat=3 39/50 states={'rag': 'failed', 'database': 'failed'} seconds=0.063
+2026-10-07 12:42:07,379 INFO Database request=d288358f494e4118822eb60dcd2c267d status=completed counts=[3533]
+2026-10-07 12:42:17,881 INFO Project2 run=d288358f494e4118822eb60dcd2c267d status=completed attempts=14
+2026-10-07 12:42:17,901 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:42:17,904 INFO reliability_after repeat=3 40/50 states={'rag': 'completed', 'database': 'completed'} seconds=11.343
+2026-10-07 12:42:19,137 INFO Database request=32cf5a2cdbdb47d8865f6d7d1605092b status=completed counts=[8643]
+2026-10-07 12:42:28,719 INFO Project2 run=32cf5a2cdbdb47d8865f6d7d1605092b status=completed attempts=17
+2026-10-07 12:42:28,738 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:42:28,739 INFO reliability_after repeat=3 41/50 states={'rag': 'completed', 'database': 'completed'} seconds=10.828
+2026-10-07 12:42:30,900 INFO Database request=dc43c861383f414b9f8d4737d2cb9d01 status=completed counts=[13881]
+2026-10-07 12:42:43,875 INFO Project2 run=dc43c861383f414b9f8d4737d2cb9d01 status=completed attempts=17
+2026-10-07 12:42:43,893 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:42:43,896 INFO reliability_after repeat=3 42/50 states={'rag': 'completed', 'database': 'completed'} seconds=15.141
+2026-10-07 12:42:44,231 INFO Database request=66df0093511c4747a3b7df03fa3b4432 status=completed counts=[214]
+2026-10-07 12:42:55,420 INFO Project2 run=66df0093511c4747a3b7df03fa3b4432 status=partial attempts=13
+2026-10-07 12:42:55,440 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:42:55,443 INFO reliability_after repeat=3 43/50 states={'rag': 'no_data', 'database': 'completed'} seconds=11.532
+2026-10-07 12:42:55,567 INFO Database request=8799344528bd4292996b99171d702cf3 status=no_data counts=[0, 0]
+2026-10-07 12:43:05,188 INFO Project2 run=8799344528bd4292996b99171d702cf3 status=partial attempts=17
+2026-10-07 12:43:05,213 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:43:05,214 INFO reliability_after repeat=3 44/50 states={'rag': 'completed', 'database': 'no_data'} seconds=9.766
+2026-10-07 12:43:07,984 INFO Database request=e0805907157a488786237cea59e6dda1 status=completed counts=[18296]
+2026-10-07 12:43:19,657 INFO Project2 run=e0805907157a488786237cea59e6dda1 status=completed attempts=14
+2026-10-07 12:43:19,678 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:43:19,680 INFO reliability_after repeat=3 45/50 states={'rag': 'completed', 'database': 'completed'} seconds=14.469
+2026-10-07 12:43:21,984 INFO Database request=9e482592810644a3a2265eaefeba99ed status=completed counts=[12259]
+2026-10-07 12:43:33,191 INFO Project2 run=9e482592810644a3a2265eaefeba99ed status=completed attempts=14
+2026-10-07 12:43:33,212 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:43:33,214 INFO reliability_after repeat=3 46/50 states={'rag': 'completed', 'database': 'completed'} seconds=13.531
+2026-10-07 12:43:33,359 INFO Database request=96d49b719bca4bf6bd43fe917d26b28b status=completed counts=[309]
+2026-10-07 12:43:52,347 INFO Project2 run=96d49b719bca4bf6bd43fe917d26b28b status=completed attempts=17
+2026-10-07 12:43:52,364 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:43:52,366 INFO reliability_after repeat=3 47/50 states={'rag': 'completed', 'database': 'completed'} seconds=19.156
+2026-10-07 12:43:52,973 INFO Database request=9053bffab02845c49a9ed6df65313a1a status=completed counts=[673]
+2026-10-07 12:44:06,216 INFO Project2 run=9053bffab02845c49a9ed6df65313a1a status=completed attempts=17
+2026-10-07 12:44:06,236 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:44:06,239 INFO reliability_after repeat=3 48/50 states={'rag': 'completed', 'database': 'completed'} seconds=13.859
+2026-10-07 12:44:07,275 INFO Database request=4a1685e8d7e645daa59ea4e56a4fe3c2 status=completed counts=[1322, 1585]
+2026-10-07 12:44:21,078 INFO P2_CLEANUP {"mode": "owned_force_cancel", "elapsed_seconds": 0.2646334000000934, "process_retained": false}
+2026-10-07 12:44:21,080 WARNING RAG run=4a1685e8d7e645daa59ea4e56a4fe3c2 timeout=BudgetExceeded
+2026-10-07 12:44:21,080 INFO Project2 run=4a1685e8d7e645daa59ea4e56a4fe3c2 status=partial attempts=19
+2026-10-07 12:44:21,096 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:44:21,097 INFO reliability_after repeat=3 49/50 states={'rag': 'timeout', 'database': 'completed'} seconds=14.844
+2026-10-07 12:44:23,343 INFO Database request=73274ab6abef4134a4316c7d491da3f0 status=completed counts=[13881]
+2026-10-07 12:44:23,354 ERROR RAG run=73274ab6abef4134a4316c7d491da3f0 failed
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\supervisor.py", line 103, in run
+    message = await self.rag_process.run(request.query, budget)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\service_runtime.py", line 265, in run
+    return await self.rag_process.run(query,active_budget)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\project2\rag_process.py", line 341, in run
+    raise RuntimeError('worker_not_ready')
+RuntimeError: worker_not_ready
+2026-10-07 12:44:23,362 INFO Project2 run=73274ab6abef4134a4316c7d491da3f0 status=partial attempts=4
+2026-10-07 12:44:23,378 INFO HTTP Request: POST http://testserver/v1/project2/analysis "HTTP/1.1 200 OK"
+2026-10-07 12:44:23,380 INFO reliability_after repeat=3 50/50 states={'rag': 'failed', 'database': 'completed'} seconds=2.282
+2026-10-07 12:44:25,677 INFO P2_CLEANUP {"mode": "owned_force_cancel", "elapsed_seconds": 2.2861584999991464, "process_retained": false}

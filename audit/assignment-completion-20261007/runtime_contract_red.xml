@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.951" timestamp="2026-10-07T11:13:37.429011-07:00" hostname="szy"><testcase classname="tests.project2.test_runtime" name="test_initial_result_matches_persisted_result_and_terminal_resume" time="0.308"><failure message="AttributeError: 'types.SimpleNamespace' object has no attribute 'path'">tmp_path = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/enterprise-ai-agent/.test_tmp/069f4399b5144e35a7e43b33a1381856')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000199FF690980&gt;
+
+    def test_initial_result_matches_persisted_result_and_terminal_resume(tmp_path, monkeypatch):
+        """Replay an actual TechQA result; contract evidence only, no fake corpus."""
+        import copy
+        from types import SimpleNamespace
+        from agents.project2.service_runtime import RuntimeCoordinator, StateStore
+        from agents.project2.supervisor import Supervisor
+    
+        recorded = json.loads((ROOT / 'audit/project2-course-completion-20261007/'
+                               'container_gate_round2/combined_response.json').read_text(encoding='utf-8'))
+        async def recorded_run(self, request, context, budget):
+            return copy.deepcopy(recorded)
+        monkeypatch.setattr(Supervisor, 'run', recorded_run)
+        store = StateStore(tmp_path, 'contract-replay')
+        coordinator = RuntimeCoordinator(Supervisor(SimpleNamespace(), SimpleNamespace()), store)
+&gt;       initial = asyncio.run(coordinator.analyze(request_body(), owner(), Budget()))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+enterprise-ai-agent\tests\project2\test_runtime.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\runners.py:195: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\base_events.py:691: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+enterprise-ai-agent\agents\project2\service_runtime.py:242: in analyze
+    return await self.execute(state, context, budget, resume=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+enterprise-ai-agent\agents\project2\service_runtime.py:261: in execute
+    proxy = CheckpointDatabase(self.database, self.store, state)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;agents.project2.service_runtime.CheckpointDatabase object at 0x00000199FF6ACB30&gt;
+database = namespace()
+store = &lt;agents.project2.service_runtime.StateStore object at 0x00000199FF6929C0&gt;
+state = {'run_id': 'a6f7185844dc4caa909e68fb2acb9ba0', 'request_id': '960cd2f33d224c7db6f62124d0cd4e47', 'owner': 'runtime-owner', 'tenant': 'local', ...}
+
+    def __init__(self, database: DatabaseWorker, store: StateStore, state: dict) -&gt; None:
+&gt;       self.database = database;self.path = database.path;self.store = store;self.state = state
+                                             ^^^^^^^^^^^^^
+E       AttributeError: 'types.SimpleNamespace' object has no attribute 'path'
+
+enterprise-ai-agent\agents\project2\service_runtime.py:211: AttributeError</failure></testcase></testsuite></testsuites>

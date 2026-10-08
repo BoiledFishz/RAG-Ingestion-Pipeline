@@ -8,6 +8,7 @@ are not monkey-patched. A cancelled request terminates this isolated child.
 from __future__ import annotations
 
 import asyncio
+import hashlib
 import json
 import logging
 import os
@@ -25,6 +26,15 @@ LOGGER = logging.getLogger(__name__)
 _REQUEST_BUDGET: Any = None
 _CONNECT = sqlite3.connect
 
+
+def native_python(root: Path, *, platform: str | None = None) -> Path:
+    """Keep Windows runtime unchanged; Linux uses the installed container Python."""
+    platform = sys.platform if platform is None else platform
+    python = root / '.venv312/Scripts/python.exe' if platform == 'win32' else Path(sys.executable)
+    if not python.is_file():
+        raise FileNotFoundError('Native local Python runtime absent; no install permitted')
+    return python
+
 def dependency_timeout(error: BaseException) -> bool:
     """Retain a wrapped transport timeout across this isolated process boundary."""
     import httpx
@@ -33,7 +43,7 @@ def dependency_timeout(error: BaseException) -> bool:
         current=pending.pop()
         if id(current) in seen:continue
         seen.add(id(current))
-        if isinstance(current,(TimeoutError,httpx.TimeoutException)):return True
+        if not isinstance(current,BudgetExceeded) and isinstance(current,(TimeoutError,httpx.TimeoutException)):return True
         pending.extend(x for x in (current.__cause__,current.__context__) if x is not None)
     return False
 
@@ -159,6 +169,7 @@ def child_main() -> int:
         from rag.retrieval.filters import FilterPolicy
         from rag.techqa.semantic import SEMANTIC_ROOT
         from agents.project2.batched_retrieval import BatchedIndex, BatchedParents, BatchedReranker, BatchedSemanticSearch
+        from agents.project2.cache_identity import cache_context
 
         imported=time.perf_counter()
         agent = build_agent(Settings.from_env())
@@ -179,10 +190,18 @@ def child_main() -> int:
         engine.encoder.model = EncoderModelProxy(engine.encoder.model)
         agent.retriever.pipeline.dense = LocalDense(engine, FilterPolicy())
         index = BatchedIndex(agent.retriever.pipeline.sparse.index.path)
+        data_version = hashlib.sha256(json.dumps(
+            {"documents": index.manifest, "semantic": engine.manifest}, sort_keys=True
+        ).encode()).hexdigest()
         agent.retriever.pipeline.sparse.index = index
         agent.retriever.parents = BatchedParents(index)
         old_reranker = agent.retriever.pipeline.reranker
         agent.retriever.pipeline.reranker = BatchedReranker(old_reranker.semantic, weights=old_reranker.weights)
+        if cache_path := os.getenv('PROJECT2_RERANK_CACHE'):
+            cache = Path(cache_path).resolve()
+            if not cache.is_relative_to(Path(__file__).resolve().parents[3]/'.rag_data'):
+                raise ValueError('Container cache must remain within registered local data directory')
+            agent.retriever.pipeline.reranker.cache = cache
         from agents.project2.observability import observe_pipeline
         pipeline_measurement: dict[str, Any] = {}
         observe_pipeline(agent.retriever.pipeline, pipeline_measurement)
@@ -193,14 +212,15 @@ def child_main() -> int:
         sys.stdout.flush()
         while line := sys.stdin.readline():
             command = json.loads(line)
-            if set(command) != {"query", "absolute_deadline"}:
-                raise ValueError("Only original query and trusted parent deadline may enter RAG")
+            if set(command) != {"query", "absolute_deadline", "cache_scope"}:
+                raise ValueError("Only original query and trusted parent budget/cache scope may enter RAG")
             _REQUEST_BUDGET = RemoteBudget(command["absolute_deadline"])
             pipeline_measurement.clear()
             try:
                 # New outer request already validates type/size; preserve whitespace.
                 request = QueryRequest.model_construct(query=command["query"], filters={})
-                result = asyncio.run(agent.run(request))
+                with cache_context(data_version, command["cache_scope"]):
+                    result = asyncio.run(agent.run(request))
                 message = {"type": "result", "data": result.model_dump(mode="json"), "pipeline": dict(pipeline_measurement), "budget_exceeded": _REQUEST_BUDGET.exceeded, "budget_exceeded_reason": _REQUEST_BUDGET.denial_reason}
             except Exception as exc:
                 LOGGER.exception("Project 2 isolated RAG failed")
@@ -246,9 +266,7 @@ class BoundedRAGProcess:
 
     async def _start(self) -> dict[str, Any]:
         root = Path(__file__).resolve().parents[3]
-        python = root / ".venv312/Scripts/python.exe"
-        if not python.is_file():
-            raise FileNotFoundError("Native local Python runtime absent; no install permitted")
+        python = native_python(root)
         env = {**os.environ, **self.environment, "PYTHONIOENCODING": "utf-8", "PYTHONPATH": str(root / "src")+os.pathsep+str(root / "enterprise-ai-agent"), "TECHQA_QUERY_DEVICE": "cpu"}
         log = root / "audit/project2-v1/rag_child.stderr.log"
         with log.open("a", encoding="utf-8") as stderr:
@@ -327,7 +345,7 @@ class BoundedRAGProcess:
                 budget.remaining()
                 self.active_budget = budget
                 query_sent = True
-                self.process.stdin.write(json.dumps({"query": query, "absolute_deadline": budget.absolute_deadline}) + "\n")
+                self.process.stdin.write(json.dumps({"query": query, "absolute_deadline": budget.absolute_deadline, "cache_scope": budget.cache_scope}) + "\n")
                 self.process.stdin.flush()
                 while True:
                     raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
@@ -343,7 +361,7 @@ class BoundedRAGProcess:
                         self.process.stdin.write(json.dumps(reply) + "\n")
                         self.process.stdin.flush()
                     else:
-                        if message.get('type')=='error' and message.get('dependency_timeout') is True:
+                        if message.get('type')=='error' and message.get('dependency_timeout') is True and not message.get('budget_exceeded'):
                             raise TimeoutError(message.get('category','dependency_timeout'))
                         return message
             except (TimeoutError, RuntimeError, asyncio.CancelledError):

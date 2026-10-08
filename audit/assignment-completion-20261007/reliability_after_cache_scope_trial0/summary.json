@@ -1,0 +1,777 @@
+{
+  "requests": 150,
+  "independent_tasks": 50,
+  "repeats": 3,
+  "partition": "tune",
+  "heldout_new_calls": 0,
+  "metrics": {
+    "worker_failure": {
+      "mean": 0.5466666666666666,
+      "range": [
+        0.18,
+        0.8
+      ],
+      "numerator": 82.0,
+      "denominator": 150,
+      "independent_query_groups": 50,
+      "ci95": [
+        0.09770192670234178,
+        0.887562499842239
+      ],
+      "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 33.0,
+          "denominator": 50,
+          "value": 0.66,
+          "ci95": [
+            0.521538260502326,
+            0.7756305077749992
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 2,
+          "numerator": 40.0,
+          "denominator": 50,
+          "value": 0.8,
+          "ci95": [
+            0.6696289406777459,
+            0.887562499842239
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 3,
+          "numerator": 9.0,
+          "denominator": 50,
+          "value": 0.18,
+          "ci95": [
+            0.09770192670234178,
+            0.30796053674300783
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "complete": {
+      "mean": 0.39999999999999997,
+      "range": [
+        0.18,
+        0.72
+      ],
+      "numerator": 60.0,
+      "denominator": 150,
+      "independent_query_groups": 50,
+      "ci95": [
+        0.09770192670234178,
+        0.8252582933408878
+      ],
+      "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 15.0,
+          "denominator": 50,
+          "value": 0.3,
+          "ci95": [
+            0.19103553500880954,
+            0.437503504644534
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 2,
+          "numerator": 9.0,
+          "denominator": 50,
+          "value": 0.18,
+          "ci95": [
+            0.09770192670234178,
+            0.30796053674300783
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 3,
+          "numerator": 36.0,
+          "denominator": 50,
+          "value": 0.72,
+          "ci95": [
+            0.5833487630404344,
+            0.8252582933408878
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "partial": {
+      "mean": 0.5666666666666667,
+      "range": [
+        0.26,
+        0.78
+      ],
+      "numerator": 85.0,
+      "denominator": 150,
+      "independent_query_groups": 50,
+      "ci95": [
+        0.15871527493552393,
+        0.8724608402978559
+      ],
+      "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 33.0,
+          "denominator": 50,
+          "value": 0.66,
+          "ci95": [
+            0.521538260502326,
+            0.7756305077749992
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 2,
+          "numerator": 39.0,
+          "denominator": 50,
+          "value": 0.78,
+          "ci95": [
+            0.6475845041874634,
+            0.8724608402978559
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        },
+        {
+          "repeat": 3,
+          "numerator": 13.0,
+          "denominator": 50,
+          "value": 0.26,
+          "ci95": [
+            0.15871527493552393,
+            0.39553157264848837
+          ],
+          "ci_method": "Wilson, independent query groups within repeat"
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "elapsed_seconds": {
+      "mean": 8.821986666666646,
+      "range": [
+        5.479999999999928,
+        12.649699999999974
+      ],
+      "numerator": 1323.297999999997,
+      "denominator": 150,
+      "independent_query_groups": 50,
+      "ci95": [
+        7.425786666666657,
+        10.11970666666662
+      ],
+      "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 416.8130000000019,
+          "denominator": 50,
+          "value": 8.336260000000038
+        },
+        {
+          "repeat": 2,
+          "numerator": 273.99999999999636,
+          "denominator": 50,
+          "value": 5.479999999999928
+        },
+        {
+          "repeat": 3,
+          "numerator": 632.4849999999988,
+          "denominator": 50,
+          "value": 12.649699999999974
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "attempts": {
+      "mean": 10.166666666666666,
+      "range": [
+        7.16,
+        13.9
+      ],
+      "numerator": 1525.0,
+      "denominator": 150,
+      "independent_query_groups": 50,
+      "ci95": [
+        9.36,
+        10.88
+      ],
+      "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 472.0,
+          "denominator": 50,
+          "value": 9.44
+        },
+        {
+          "repeat": 2,
+          "numerator": 358.0,
+          "denominator": 50,
+          "value": 7.16
+        },
+        {
+          "repeat": 3,
+          "numerator": 695.0,
+          "denominator": 50,
+          "value": 13.9
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    },
+    "llm_calls": {
+      "mean": 1.3933333333333333,
+      "range": [
+        0.66,
+        2.42
+      ],
+      "numerator": 209.0,
+      "denominator": 150,
+      "independent_query_groups": 50,
+      "ci95": [
+        1.2,
+        1.58
+      ],
+      "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+      "per_repeat": [
+        {
+          "repeat": 1,
+          "numerator": 55.0,
+          "denominator": 50,
+          "value": 1.1
+        },
+        {
+          "repeat": 2,
+          "numerator": 33.0,
+          "denominator": 50,
+          "value": 0.66
+        },
+        {
+          "repeat": 3,
+          "numerator": 121.0,
+          "denominator": 50,
+          "value": 2.42
+        }
+      ],
+      "interpretation": "estimate with CI",
+      "repeated_runs_are_independent_questions": false
+    }
+  },
+  "failures": [
+    {
+      "sample_id": "P2-COMPARE-04",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-02",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-04",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-VERSION-01",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-VERSION-05",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-05",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-VERSION-04",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-NOANSWER-10",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-PLATFORM-03",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-VERSION-02",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-COMPARE-02",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-VERSION-07",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-08",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-06",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-COMPARE-05",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-ENTITY-07",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-NOANSWER-05",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-ENTITY-06",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-NOANSWER-03",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-ENTITY-05",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-PLATFORM-04",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-PLATFORM-06",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-NOANSWER-06",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-NOANSWER-02",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-01",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-NOANSWER-09",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-COMPARE-08",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-PLATFORM-08",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-COMPARE-01",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-COMPARE-07",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-COMPARE-03",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-COMPARE-06",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-VERSION-08",
+      "system": null,
+      "repeat": 1,
+      "error": null
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-08",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-VERSION-01",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-COMPARE-03",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-NOANSWER-06",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-VERSION-06",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-VERSION-04",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-NOANSWER-08",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-NOANSWER-10",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-COMPARE-02",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-NOANSWER-02",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-NOANSWER-01",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-VERSION-05",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-NOANSWER-07",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-ENTITY-03",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-NOANSWER-05",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-PLATFORM-08",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-04",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-PLATFORM-04",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-NOANSWER-04",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-NOANSWER-09",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-VERSION-08",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-COMPARE-04",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-COMPARE-06",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-PLATFORM-03",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-COMPARE-08",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-PLATFORM-05",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-COMPARE-01",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-VERSION-07",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-ENTITY-06",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-NOANSWER-03",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-ENTITY-04",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-ENTITY-01",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-COMPARE-07",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-ENTITY-05",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-ENTITY-08",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-ENTITY-07",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-03",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-COMPARE-05",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-07",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-PLATFORM-07",
+      "system": null,
+      "repeat": 2,
+      "error": null
+    },
+    {
+      "sample_id": "P2-VERSION-04",
+      "system": null,
+      "repeat": 3,
+      "error": null
+    },
+    {
+      "sample_id": "P2-COMPARE-04",
+      "system": null,
+      "repeat": 3,
+      "error": null
+    },
+    {
+      "sample_id": "P2-NOANSWER-01",
+      "system": null,
+      "repeat": 3,
+      "error": null
+    },
+    {
+      "sample_id": "P2-COMPARE-05",
+      "system": null,
+      "repeat": 3,
+      "error": null
+    },
+    {
+      "sample_id": "P2-ENTITY-03",
+      "system": null,
+      "repeat": 3,
+      "error": null
+    },
+    {
+      "sample_id": "P2-ENTITY-02",
+      "system": null,
+      "repeat": 3,
+      "error": null
+    },
+    {
+      "sample_id": "P2-COMPARE-08",
+      "system": null,
+      "repeat": 3,
+      "error": null
+    },
+    {
+      "sample_id": "P2-COMPARE-03",
+      "system": null,
+      "repeat": 3,
+      "error": null
+    },
+    {
+      "sample_id": "P2-IDENTIFIER-03",
+      "system": null,
+      "repeat": 3,
+      "error": null
+    }
+  ],
+  "plan_sha256": "9701e7018e79963feedbb038d1b8c7a1225f0b03bc5d2d8628bf1e7ca416fb13",
+  "records_sha256": "087bb20208008f541776721e9f98ec317bbf22b5969999d91abac0bdc2ac87cb",
+  "superiority_claim": false,
+  "cost": null,
+  "cost_reason": "local models; monetary price and full token usage not observed",
+  "s14_status": "未通过",
+  "scope": "仅 tune/对照集，非 held-out 验证"
+}

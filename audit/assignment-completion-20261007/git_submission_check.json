@@ -1,0 +1,13 @@
+{
+  "all_staged_source_document_check_exit": 2,
+  "all_diagnostics_preserved": "audit/assignment-completion-20261007/staged_source_diff_check.log",
+  "findings": 7,
+  "paths": [
+    "specs/project2/v0.3.4/requirements_v0.1.md",
+    "specs/project2/v0.3.4/review_sheet_signed_2026-10-05.md"
+  ],
+  "reason": "Only pre-existing two-space Markdown hard line breaks in copied approved requirement/signature documents. Their approved SHA bytes must remain unchanged. No formatting exception changes any homework gate.",
+  "mutable_source_document_check_exit": 0,
+  "approved_document_checker": "21 PASS",
+  "approved_files_changed": false
+}

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="4" time="2.046" timestamp="2026-10-07T12:41:07.718031-07:00" hostname="szy"><testcase classname="tests.project2.test_v033_dependency_timeout" name="test_wrapped_real_http_timeout_is_recognized_without_classifying_other_errors" time="0.002" /><testcase classname="tests.project2.test_v033_dependency_timeout" name="test_timeout_message_cancels_owned_child_and_propagates_timeout" time="0.629" /><testcase classname="tests.project2.test_v033_dependency_timeout" name="test_budget_denial_is_not_a_transport_timeout" time="0.001"><failure message="AssertionError: assert not True&#10; +  where True = &lt;function dependency_timeout at 0x00000167E0A7C360&gt;(RuntimeError('provider failed'))">def test_budget_denial_is_not_a_transport_timeout():
+        from agents.project2.budget import BudgetExceeded
+        from agents.project2.rag_process import dependency_timeout
+        error = RuntimeError('provider failed')
+        error.__cause__ = BudgetExceeded('dependency_attempt_limit')
+&gt;       assert not dependency_timeout(error)
+E       AssertionError: assert not True
+E        +  where True = &lt;function dependency_timeout at 0x00000167E0A7C360&gt;(RuntimeError('provider failed'))
+
+tests\project2\test_v033_dependency_timeout.py:41: AssertionError</failure></testcase><testcase classname="tests.project2.test_v033_dependency_timeout" name="test_terminal_budget_denial_keeps_idle_worker_ready" time="0.011"><failure message="TimeoutError: BudgetExceeded">def test_terminal_budget_denial_keeps_idle_worker_ready():
+        env = json.loads((ROOT/'evals/protocol_v0/baseline_v0.config.json').read_text(encoding='utf-8'))['environment']
+        runtime = BoundedRAGProcess(env)
+        runtime.startup_required = runtime.ready = True
+        message = {'type': 'error', 'category': 'BudgetExceeded', 'dependency_timeout': True,
+                   'budget_exceeded': True, 'budget_exceeded_reason': 'dependency_attempt_limit'}
+        class Pipe:
+            def write(self, text): pass
+            def flush(self): pass
+            def readline(self): return json.dumps(message) + '\n'
+        class Process:
+            stdin = Pipe()
+            stdout = Pipe()
+            def poll(self): return None
+        runtime.process = Process()
+        cancelled = []
+        runtime.stop = lambda: cancelled.append(True)
+        query = json.loads((ROOT/'specs/project2/v0.3.3/task_preregistration.json').read_text(encoding='utf-8'))['samples'][0]['query']
+&gt;       assert asyncio.run(runtime.run(query, Budget())) == message
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\project2\test_v033_dependency_timeout.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\runners.py:195: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Python\pythoncore-3.12-64\Lib\asyncio\base_events.py:691: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;agents.project2.rag_process.BoundedRAGProcess object at 0x00000167E0A6DD00&gt;
+query = 'Does ODM 8.5.1 support MQ 9.0?\n\n\nDoes ODM 8.5.1 support MQ 9.0 where ODM Rule Execution Server is running on WAS 8.5.0.2 (embedded with ODM)?\n\nNo MQ version is specified in ODM 8.5.1 System Requirements.'
+budget = &lt;agents.project2.budget.Budget object at 0x00000167E0A6DD60&gt;
+
+    async def run(self, query: str, budget: Budget) -&gt; dict[str, Any]:
+        acquired = False
+        query_sent = False
+        try:
+            remaining = budget.remaining()
+            await asyncio.wait_for(self.lock.acquire(), remaining)
+            acquired = True
+            try:
+                if self.startup_required and not (self.active and self.ready):
+                    raise RuntimeError('worker_not_ready')
+                remaining = budget.remaining()
+                if not self.startup_required:
+                    await asyncio.wait_for(self.start(), remaining)
+                budget.remaining()
+                self.active_budget = budget
+                query_sent = True
+                self.process.stdin.write(json.dumps({"query": query, "absolute_deadline": budget.absolute_deadline, "cache_scope": budget.cache_scope}) + "\n")
+                self.process.stdin.flush()
+                while True:
+                    raw = await asyncio.wait_for(asyncio.to_thread(self.process.stdout.readline), budget.remaining())
+                    if not raw:
+                        raise RuntimeError("Native RAG process stopped unexpectedly")
+                    message = json.loads(raw)
+                    if message["type"] == "reserve":
+                        try:
+                            budget.reserve(message["kind"])
+                            reply = {"allowed": True}
+                        except BudgetExceeded as exc:
+                            reply = {"allowed": False, "reason": str(exc)}
+                        self.process.stdin.write(json.dumps(reply) + "\n")
+                        self.process.stdin.flush()
+                    else:
+                        if message.get('type')=='error' and message.get('dependency_timeout') is True:
+&gt;                           raise TimeoutError(message.get('category','dependency_timeout'))
+E                           TimeoutError: BudgetExceeded
+
+agents\project2\rag_process.py:365: TimeoutError</failure></testcase></testsuite></testsuites>

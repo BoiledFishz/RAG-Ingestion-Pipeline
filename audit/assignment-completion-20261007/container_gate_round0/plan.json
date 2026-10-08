@@ -1,0 +1,32 @@
+{
+  "registered_at": "2026-10-07T18:20:57.862401+00:00",
+  "required_checks": [
+    "clean_build",
+    "independent_count_exact",
+    "input_fault_located_in_logs",
+    "owner_isolation",
+    "ready_after_full_warmup",
+    "real_combined_completed",
+    "same_run_state_after_restart",
+    "stop_retains_volume"
+  ],
+  "source_sha256": {
+    "containers/project2/Dockerfile": "f9d380a3b73f8d14be0d875b224728e867ff5d6401add932fe992bea45275105",
+    "containers/project2/compose.yaml": "93219cfda5764e40dbf8cef2428282bd98366c1acdc512bb35943facc706cee8",
+    "enterprise-ai-agent/agents/project2/rag_process.py": "ec456462b54c149cae6f9b9f426296333fadc8ae6e4a6c107357f8dee2a10feb",
+    "enterprise-ai-agent/api/project2_main.py": "3ae74cd2fca6381e5372d5ad5b1d1674cb663f5956498f5bd3fbfa4e5a78be6c",
+    "enterprise-ai-agent/tools/techqa_document_query.py": "1bcb81fec4dc45f77522e93a49432fceb98a4bf6bea49acd2773f4015d265250",
+    "specs/project2/v0.3.4/version_manifest.json": "9963a596fb1a29262976d29434e2dcbbee6213d1e243eb040611f8f26fc621b1",
+    "scripts/run_project2_container_gate.py": "274320d18a68a889fdd1f48b3dabf094df3e9b4a2a59613312fdd638743075d5",
+    "enterprise-ai-agent/api/project2_container_main.py": "9464e348f73fbf89ad38bad1b52b0230c2342bfafa7df40d808272825eb92c8b",
+    "enterprise-ai-agent/agents/project2/container_cache.py": "56c7a16af21d3f04431561335999a9f81b3db17df8420984f8232e7fd261ea9e",
+    "enterprise-ai-agent/agents/project2/container_transport.py": "c69d93923885edcd7c48ecf3c90ba663069874f4d1a1c31e0285aebca8644990"
+  },
+  "heldout_new_calls": 0,
+  "budget": {
+    "attempts": 19,
+    "llm_calls": 6,
+    "seconds": 90
+  },
+  "no_qa_oracle_to_worker": true
+}

@@ -1,0 +1,31 @@
+{
+  "evidence_type": "真实运行/故障注入",
+  "elapsed_seconds": 7234.232995199996,
+  "excluded_from_scored_set": true,
+  "main_comparison_requests": 234,
+  "main_comparison_host_guard": {
+    "status": "released",
+    "host_suspended": false,
+    "gaps": [],
+    "failure": null,
+    "power_plugged": null,
+    "psutil_installed": false,
+    "calls": [
+      {
+        "flags": 2147483649,
+        "previous": 2147483648
+      },
+      {
+        "flags": 2147483648,
+        "previous": 2147483649
+      }
+    ],
+    "process_id": 17748,
+    "system_power_settings_changed": false
+  },
+  "supplement_guard_active": false,
+  "observation": "234 requests and guarded heartbeats finished before supplementary empty-retrieval request. Supplementary request spanned a two-hour wall-clock gap; OS sleep not directly measured in this unguarded segment. Do not use its latency as normal performance evidence.",
+  "raw_result": "audit/assignment-completion-20261007/chap11/empty_retrieval.result.json",
+  "raw_record_changed": false,
+  "rerun": false
+}

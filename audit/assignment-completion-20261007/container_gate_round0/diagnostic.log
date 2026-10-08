@@ -1,0 +1,17 @@
+api-1  | INFO:api.project2_container_main:P2_CACHE {'mode': 'retained_existing_cache', 'seed_sha256': '138f57efc0bbc54cf47a691aea01c00c6ce9b11d3fbbd10eaa925833d7760a40'}
+api-1  | INFO:     Started server process [1]
+api-1  | INFO:     Waiting for application startup.
+api-1  | INFO:agents.project2.rag_process:P2_STARTUP {"type": "ready", "scope": "full", "embedding_id": "8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b", "worker_pid": 14, "warmup": {"completed": true, "selection": "official full docs ORDER BY doc_id LIMIT 1, text only", "text_sha256": "27566416452b285c86c1df3f65970d4eb327c96d9c97ebf6b77b64c095776b2d", "qa_fields_used": [], "corpus_read_seconds": 0.01478386400049203, "embedding_inference_seconds": 2.237270828999499, "index_warmup_seconds": 0.46090995899976406, "total_seconds": 2.712964651999755, "llm_calls": 0, "request_budget_created": false}, "startup_timings": {"imports_seconds": 0.5255243960000371, "agent_build_seconds": 0.014092318999246345, "index_and_encoder_seconds": 62.86159016400052, "faiss_index_load_seconds": 50.078148801999305, "child_initialization_seconds": 66.29062447400065}, "launch_to_ready_seconds": 66.6714335000006}
+api-1  | INFO:     Application startup complete.
+api-1  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+api-1  | INFO:     172.19.0.1:47102 - "GET /healthz HTTP/1.1" 200 OK
+api-1  | INFO:     127.0.0.1:43250 - "GET /healthz HTTP/1.1" 200 OK
+api-1  | INFO:tools.techqa_document_query:Database request=5a7c18251f8f46b8b544715a1263e465 status=completed counts=[18296]
+api-1  | INFO:     127.0.0.1:32828 - "GET /healthz HTTP/1.1" 200 OK
+api-1  | INFO:     127.0.0.1:60910 - "GET /healthz HTTP/1.1" 200 OK
+api-1  | INFO:     127.0.0.1:39352 - "GET /healthz HTTP/1.1" 200 OK
+api-1  | INFO:agents.project2.supervisor:Project2 run=5a7c18251f8f46b8b544715a1263e465 status=completed attempts=14
+api-1  | INFO:     172.19.0.1:47108 - "POST /v2/project2/analysis HTTP/1.1" 200 OK
+api-1  | WARNING:api.project2_main:P2_INVALID_INPUT trace_id=ae2985124aa5480d91cdb23040eace33 fields=[['body', 'analysis_operation']]
+api-1  | INFO:     172.19.0.1:43136 - "POST /v2/project2/analysis HTTP/1.1" 422 Unprocessable Entity
+

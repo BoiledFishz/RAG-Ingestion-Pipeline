@@ -1,0 +1,1446 @@
+2026-10-07 15:09:50,133 INFO Loading faiss with AVX2 support.
+2026-10-07 15:09:50,134 INFO Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2026-10-07 15:09:50,134 INFO Loading faiss.
+2026-10-07 15:09:50,198 INFO Successfully loaded faiss.
+2026-10-07 15:10:03,751 INFO MiniLM device=cpu identity=8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b
+2026-10-07 15:10:16,211 INFO Serving {'complete': True, 'scope': 'full', 'source_archive_sha256': '6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118', 'documents': 801996, 'chunks': 3089056, 'dimension': 384, 'embedding_id': '8fe17f450ba67b9b0ee7aa9f3a644cb9fd90a1180987ed68f9451b4ba186649b', 'encoder': {'model': 'sentence-transformers/all-MiniLM-L6-v2', 'revision': '1110a243fdf4706b3f48f1d95db1a4f5529b4d41', 'pooling': 'window256-stride16-mean-v1'}, 'search': 'Faiss IndexFlatIP, exact cosine over unit vectors', 'source_index': 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\.rag_data\\techqa_full.sqlite'}
+You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+2026-10-07 15:10:38,608 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:10:38,626 INFO chap11 original_rag repeat=1 sample=20 seconds=22.219 error=None
+2026-10-07 15:10:48,627 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:10:53,571 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:10:53,572 INFO Evidence selection: sources=['S2'] sufficient=True
+2026-10-07 15:10:55,347 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:10:55,350 INFO Agent status=answered candidates=8 context_tokens=2224 latency_ms=16718.57
+2026-10-07 15:10:55,356 INFO chap11 agentic_rag repeat=1 sample=20 seconds=16.734 error=None
+2026-10-07 15:11:14,356 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:11:14,357 WARNING Invalid citations (); retrying generation once
+2026-10-07 15:11:25,482 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:11:25,485 INFO chap11 original_rag repeat=1 sample=1 seconds=30.125 error=None
+2026-10-07 15:11:40,405 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:11:40,407 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 15:11:51,291 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:11:51,292 INFO Evidence selection: sources=['S4'] sufficient=True
+2026-10-07 15:11:55,621 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:11:55,622 INFO Ignoring product conflict without distinct named families
+2026-10-07 15:11:55,623 INFO Agent status=answered candidates=8 context_tokens=2398 latency_ms=30134.41
+2026-10-07 15:11:55,627 INFO chap11 agentic_rag repeat=1 sample=1 seconds=30.141 error=None
+2026-10-07 15:12:35,776 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:12:35,779 WARNING Invalid citations (); retrying generation once
+2026-10-07 15:12:56,301 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:12:56,305 INFO chap11 original_rag repeat=1 sample=4 seconds=60.672 error=None
+2026-10-07 15:13:10,120 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:13:17,691 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:13:17,692 INFO Evidence selection: sources=['S1', 'S3'] sufficient=True
+2026-10-07 15:13:19,956 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:13:19,957 INFO Agent status=answered candidates=8 context_tokens=2146 latency_ms=23649.07
+2026-10-07 15:13:19,960 INFO chap11 agentic_rag repeat=1 sample=4 seconds=23.641 error=None
+2026-10-07 15:13:39,310 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:13:39,316 INFO chap11 original_rag repeat=1 sample=19 seconds=19.343 error=None
+2026-10-07 15:13:52,095 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:13:58,234 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:13:58,236 INFO Evidence selection: sources=['S1', 'S2'] sufficient=True
+2026-10-07 15:14:01,034 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:14:01,035 INFO Agent status=answered candidates=8 context_tokens=2173 latency_ms=21716.92
+2026-10-07 15:14:01,069 INFO chap11 agentic_rag repeat=1 sample=19 seconds=21.750 error=None
+2026-10-07 15:14:52,324 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:14:52,327 WARNING Invalid citations (); retrying generation once
+2026-10-07 15:15:19,397 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:15:19,412 INFO chap11 original_rag repeat=1 sample=21 seconds=78.344 error=None
+2026-10-07 15:15:32,209 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:15:42,705 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:15:42,707 INFO Evidence selection: sources=['S1', 'S5'] sufficient=True
+2026-10-07 15:15:46,056 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:15:46,059 INFO Agent status=answered candidates=8 context_tokens=2394 latency_ms=26642.12
+2026-10-07 15:15:46,064 INFO chap11 agentic_rag repeat=1 sample=21 seconds=26.640 error=None
+2026-10-07 15:15:49,018 INFO chap11 original_rag repeat=1 sample=9 seconds=2.953 error=None
+2026-10-07 15:15:52,676 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:15:58,948 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:15:58,950 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 15:16:00,913 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:16:00,916 INFO Agent status=answered candidates=8 context_tokens=2338 latency_ms=11894.54
+2026-10-07 15:16:00,919 INFO chap11 agentic_rag repeat=1 sample=9 seconds=11.907 error=None
+2026-10-07 15:16:25,536 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:16:25,542 INFO chap11 original_rag repeat=1 sample=16 seconds=24.625 error=None
+2026-10-07 15:16:35,706 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:16:41,971 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:16:41,972 INFO Evidence selection: sources=[] sufficient=False
+2026-10-07 15:16:41,972 INFO Agent status=unanswerable candidates=8 context_tokens=2013 latency_ms=16428.07
+2026-10-07 15:16:41,975 INFO chap11 agentic_rag repeat=1 sample=16 seconds=16.422 error=None
+2026-10-07 15:17:08,322 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:17:08,327 INFO chap11 original_rag repeat=1 sample=24 seconds=26.344 error=None
+2026-10-07 15:17:20,750 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:17:20,752 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 15:17:28,292 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:17:28,293 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 15:17:30,292 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:17:30,295 INFO Agent status=answered candidates=8 context_tokens=2322 latency_ms=21966.58
+2026-10-07 15:17:30,299 INFO chap11 agentic_rag repeat=1 sample=24 seconds=21.969 error=None
+2026-10-07 15:17:34,777 INFO chap11 original_rag repeat=1 sample=22 seconds=4.484 error=None
+2026-10-07 15:17:40,783 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:17:40,784 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 102, in rewrite
+    raise ValueError("a specific API/error identifier is searchable")
+ValueError: a specific API/error identifier is searchable
+2026-10-07 15:17:48,681 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:17:48,682 INFO Evidence selection: sources=['S7'] sufficient=True
+2026-10-07 15:17:50,672 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:17:50,673 INFO Agent status=answered candidates=8 context_tokens=2307 latency_ms=15894.09
+2026-10-07 15:17:50,676 INFO chap11 agentic_rag repeat=1 sample=22 seconds=15.891 error=None
+2026-10-07 15:18:15,447 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:18:15,448 WARNING Invalid citations (); retrying generation once
+2026-10-07 15:18:57,070 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:18:57,076 INFO chap11 original_rag repeat=1 sample=28 seconds=66.406 error=None
+2026-10-07 15:19:10,144 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:19:18,247 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:19:18,248 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 15:19:20,666 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:19:20,667 INFO Agent status=answered candidates=8 context_tokens=2350 latency_ms=23589.64
+2026-10-07 15:19:20,670 INFO chap11 agentic_rag repeat=1 sample=28 seconds=23.594 error=None
+2026-10-07 15:19:47,530 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:19:47,533 WARNING Invalid citations (); retrying generation once
+2026-10-07 15:20:31,580 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:20:31,583 WARNING Citation repair failed with invalid IDs ()
+2026-10-07 15:20:31,586 INFO chap11 original_rag repeat=1 sample=10 seconds=70.906 error=None
+2026-10-07 15:20:46,303 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:20:55,719 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:20:55,721 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 15:21:00,813 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:21:00,814 INFO Ignoring product conflict without distinct named families
+2026-10-07 15:21:00,816 INFO Agent status=answered candidates=8 context_tokens=2089 latency_ms=29227.29
+2026-10-07 15:21:00,825 INFO chap11 agentic_rag repeat=1 sample=10 seconds=29.234 error=None
+2026-10-07 15:21:21,485 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:21:21,498 INFO chap11 original_rag repeat=1 sample=33 seconds=20.672 error=None
+2026-10-07 15:21:36,190 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:21:46,761 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:21:46,770 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 15:21:49,116 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:21:49,121 INFO Agent status=answered candidates=8 context_tokens=2044 latency_ms=27618.67
+2026-10-07 15:21:49,340 INFO chap11 agentic_rag repeat=1 sample=33 seconds=27.828 error=None
+2026-10-07 15:23:57,407 INFO chap11 original_rag repeat=1 sample=25 seconds=128.046 error=ReadTimeout: 
+2026-10-07 15:25:58,588 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\http11.py", line 136, in handle_async_request
+    raise exc
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 100, in generate
+    response = await client.post(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_client.py", line 1859, in post
+    return await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\scripts\run_assignment_comparisons.py", line 298, in observe_send
+    response = await original_send(client, request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 90, in rewrite
+    await self.model.generate(prompt, RewriteDraft.model_json_schema())
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 118, in generate
+    raise DependencyUnavailable("Ollama structured generation failed") from exc
+models.errors.DependencyUnavailable: Ollama structured generation failed
+2026-10-07 15:28:14,858 INFO chap11 agentic_rag repeat=1 sample=25 seconds=257.438 error=DependencyUnavailable: Ollama structured generation failed
+2026-10-07 15:30:27,891 INFO chap11 original_rag repeat=1 sample=27 seconds=133.016 error=ReadTimeout: 
+2026-10-07 15:32:29,115 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\http11.py", line 136, in handle_async_request
+    raise exc
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 100, in generate
+    response = await client.post(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_client.py", line 1859, in post
+    return await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\scripts\run_assignment_comparisons.py", line 298, in observe_send
+    response = await original_send(client, request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 90, in rewrite
+    await self.model.generate(prompt, RewriteDraft.model_json_schema())
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 118, in generate
+    raise DependencyUnavailable("Ollama structured generation failed") from exc
+models.errors.DependencyUnavailable: Ollama structured generation failed
+2026-10-07 15:34:43,935 INFO chap11 agentic_rag repeat=1 sample=27 seconds=256.016 error=DependencyUnavailable: Ollama structured generation failed
+2026-10-07 15:34:55,518 INFO chap11 original_rag repeat=1 sample=17 seconds=11.578 error=None
+2026-10-07 15:36:56,625 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\http11.py", line 136, in handle_async_request
+    raise exc
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 100, in generate
+    response = await client.post(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_client.py", line 1859, in post
+    return await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\scripts\run_assignment_comparisons.py", line 298, in observe_send
+    response = await original_send(client, request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacha\AppData\Local\Python\pythoncore-3.12-64\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\.venv312\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 90, in rewrite
+    await self.model.generate(prompt, RewriteDraft.model_json_schema())
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\models\providers.py", line 118, in generate
+    raise DependencyUnavailable("Ollama structured generation failed") from exc
+models.errors.DependencyUnavailable: Ollama structured generation failed
+2026-10-07 15:38:27,995 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:38:28,031 INFO Evidence selection: sources=[] sufficient=False
+2026-10-07 15:38:28,040 INFO Agent status=unanswerable candidates=8 context_tokens=2359 latency_ms=212498.30
+2026-10-07 15:38:28,214 INFO chap11 agentic_rag repeat=1 sample=17 seconds=212.672 error=None
+2026-10-07 15:39:15,915 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:39:15,925 WARNING Invalid citations (); retrying generation once
+2026-10-07 15:39:45,792 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:39:45,933 INFO chap11 original_rag repeat=1 sample=15 seconds=77.703 error=None
+2026-10-07 15:39:57,818 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:40:06,599 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:40:06,605 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 15:40:11,183 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:40:11,185 INFO Ignoring product conflict without distinct named families
+2026-10-07 15:40:11,187 INFO Agent status=answered candidates=8 context_tokens=2049 latency_ms=25249.06
+2026-10-07 15:40:11,302 INFO chap11 agentic_rag repeat=1 sample=15 seconds=25.360 error=None
+2026-10-07 15:40:40,496 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:40:40,503 WARNING Invalid citations (); retrying generation once
+2026-10-07 15:40:52,846 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:40:52,865 INFO chap11 original_rag repeat=1 sample=37 seconds=41.562 error=None
+2026-10-07 15:41:07,556 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:41:15,989 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:41:15,990 INFO Evidence selection: sources=['S3', 'S4'] sufficient=True
+2026-10-07 15:41:18,914 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:41:18,915 INFO Agent status=answered candidates=8 context_tokens=2282 latency_ms=26046.58
+2026-10-07 15:41:18,921 INFO chap11 agentic_rag repeat=1 sample=37 seconds=26.063 error=None
+2026-10-07 15:41:22,174 INFO chap11 original_rag repeat=1 sample=26 seconds=3.250 error=None
+2026-10-07 15:41:27,831 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:41:27,832 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 15:41:34,892 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:41:34,893 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 15:41:36,978 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:41:36,979 INFO Agent status=answered candidates=8 context_tokens=2363 latency_ms=14803.15
+2026-10-07 15:41:36,982 INFO chap11 agentic_rag repeat=1 sample=26 seconds=14.812 error=None
+2026-10-07 15:41:40,947 INFO chap11 original_rag repeat=1 sample=29 seconds=3.953 error=None
+2026-10-07 15:41:46,501 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:41:54,181 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:41:54,183 INFO Evidence selection: sources=['S2'] sufficient=True
+2026-10-07 15:41:56,083 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:41:56,084 INFO Agent status=answered candidates=8 context_tokens=2340 latency_ms=15135.91
+2026-10-07 15:41:56,086 INFO chap11 agentic_rag repeat=1 sample=29 seconds=15.125 error=None
+2026-10-07 15:42:39,881 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:42:39,883 WARNING Invalid citations (); retrying generation once
+2026-10-07 15:43:01,113 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:43:01,120 INFO chap11 original_rag repeat=1 sample=6 seconds=65.031 error=None
+2026-10-07 15:43:17,162 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:43:24,363 INFO HTTP Request: POST http://localhost:11434/api/embed "HTTP/1.1 200 OK"
+2026-10-07 15:43:28,673 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:43:28,675 INFO Evidence selection: sources=['S1', 'S2'] sufficient=True
+2026-10-07 15:43:31,276 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:43:31,278 INFO Agent status=answered candidates=8 context_tokens=2260 latency_ms=30155.48
+2026-10-07 15:43:31,284 INFO chap11 agentic_rag repeat=1 sample=6 seconds=30.156 error=None
+2026-10-07 15:43:34,415 INFO chap11 original_rag repeat=1 sample=11 seconds=3.141 error=None
+2026-10-07 15:43:37,665 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:43:44,436 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:43:44,436 INFO Evidence selection: sources=['S3'] sufficient=True
+2026-10-07 15:43:46,479 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:43:46,480 INFO Agent status=answered candidates=8 context_tokens=2330 latency_ms=12062.35
+2026-10-07 15:43:46,482 INFO chap11 agentic_rag repeat=1 sample=11 seconds=12.062 error=None
+2026-10-07 15:44:08,829 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:44:08,838 INFO chap11 original_rag repeat=1 sample=13 seconds=22.360 error=None
+2026-10-07 15:44:20,219 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:44:27,601 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:44:27,602 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 15:44:29,658 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:44:29,659 INFO Agent status=answered candidates=8 context_tokens=2333 latency_ms=20818.82
+2026-10-07 15:44:29,663 INFO chap11 agentic_rag repeat=1 sample=13 seconds=20.812 error=None
+2026-10-07 15:44:51,397 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:44:51,399 WARNING Invalid citations (); retrying generation once
+2026-10-07 15:45:07,261 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:45:07,266 INFO chap11 original_rag repeat=1 sample=35 seconds=37.609 error=None
+2026-10-07 15:45:29,439 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:45:36,781 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:45:36,781 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 15:45:41,699 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:45:41,700 INFO Ignoring product conflict without distinct named families
+2026-10-07 15:45:41,701 INFO Agent status=answered candidates=8 context_tokens=1987 latency_ms=34432.22
+2026-10-07 15:45:41,703 INFO chap11 agentic_rag repeat=1 sample=35 seconds=34.438 error=None
+2026-10-07 15:46:40,069 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:46:40,072 WARNING Invalid citations (); retrying generation once
+2026-10-07 15:47:00,585 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:47:00,592 INFO chap11 original_rag repeat=1 sample=34 seconds=78.891 error=None
+2026-10-07 15:47:12,671 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:47:12,672 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 15:47:21,065 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:47:21,066 INFO Evidence selection: sources=['S1', 'S2'] sufficient=True
+2026-10-07 15:47:23,438 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:47:23,439 INFO Agent status=answered candidates=8 context_tokens=2361 latency_ms=22844.71
+2026-10-07 15:47:23,443 INFO chap11 agentic_rag repeat=1 sample=34 seconds=22.843 error=None
+2026-10-07 15:48:13,235 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:48:13,237 WARNING Invalid citations (); retrying generation once
+2026-10-07 15:48:52,437 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:48:52,443 INFO chap11 original_rag repeat=1 sample=8 seconds=89.000 error=None
+2026-10-07 15:49:05,284 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:49:13,191 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:49:13,192 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 15:49:19,025 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:49:19,027 INFO Ignoring product conflict without distinct named families
+2026-10-07 15:49:19,027 INFO Agent status=answered candidates=8 context_tokens=2360 latency_ms=26582.43
+2026-10-07 15:49:19,031 INFO chap11 agentic_rag repeat=1 sample=8 seconds=26.594 error=None
+2026-10-07 15:49:42,958 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:49:42,960 WARNING Invalid citations (); retrying generation once
+2026-10-07 15:50:10,470 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:50:10,474 INFO chap11 original_rag repeat=1 sample=23 seconds=51.438 error=None
+2026-10-07 15:50:23,098 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:50:32,223 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:50:32,224 INFO Evidence selection: sources=['S1', 'S3'] sufficient=True
+2026-10-07 15:50:43,079 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:50:43,080 INFO Ignoring product conflict without distinct named families
+2026-10-07 15:50:43,081 WARNING Invalid structured evidence, attempt=1: Conflict claims must quote actual query/source substrings: query_claim 'WebSphere Remote Server version V6.2, 6.2.1, 7.0, 7.1, 7.1.1, 7.1.2, 8.5' is absent from QUESTION; copy a shorter exact span from QUESTION
+2026-10-07 15:50:45,638 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:50:45,639 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 15:50:51,035 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:50:51,036 INFO Ignoring product conflict without distinct named families
+2026-10-07 15:50:51,038 INFO Agent status=answered candidates=8 context_tokens=2338 latency_ms=40561.81
+2026-10-07 15:50:51,047 INFO chap11 agentic_rag repeat=1 sample=23 seconds=40.578 error=None
+2026-10-07 15:50:52,965 INFO chap11 original_rag repeat=1 sample=38 seconds=1.906 error=None
+2026-10-07 15:51:01,250 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:51:01,251 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 15:51:06,430 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:51:06,431 INFO Evidence selection: sources=['S1', 'S6'] sufficient=True
+2026-10-07 15:51:08,609 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:51:08,610 INFO Agent status=answered candidates=8 context_tokens=2360 latency_ms=15640.36
+2026-10-07 15:51:08,612 INFO chap11 agentic_rag repeat=1 sample=38 seconds=15.640 error=None
+2026-10-07 15:51:26,416 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:51:26,421 INFO chap11 original_rag repeat=1 sample=30 seconds=17.813 error=None
+2026-10-07 15:51:37,329 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:51:43,236 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:51:43,236 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 15:51:45,301 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:51:45,302 INFO Agent status=answered candidates=8 context_tokens=2234 latency_ms=18878.47
+2026-10-07 15:51:45,305 INFO chap11 agentic_rag repeat=1 sample=30 seconds=18.875 error=None
+2026-10-07 15:52:07,507 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:52:07,512 INFO chap11 original_rag repeat=1 sample=7 seconds=22.203 error=None
+2026-10-07 15:52:22,401 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:52:22,402 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 15:52:32,275 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:52:32,276 INFO Evidence selection: sources=['S3'] sufficient=True
+2026-10-07 15:52:43,208 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:52:43,212 INFO Ignoring product conflict without distinct named families
+2026-10-07 15:52:43,213 INFO Ignoring product conflict without distinct named families
+2026-10-07 15:52:43,213 INFO Agent status=answered candidates=8 context_tokens=2291 latency_ms=35699.35
+2026-10-07 15:52:43,225 INFO chap11 agentic_rag repeat=1 sample=7 seconds=35.704 error=None
+2026-10-07 15:53:04,558 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:53:04,563 INFO chap11 original_rag repeat=1 sample=0 seconds=21.328 error=None
+2026-10-07 15:53:16,196 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:53:21,532 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:53:21,533 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 15:53:23,713 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:53:23,715 INFO Agent status=answered candidates=8 context_tokens=1972 latency_ms=19148.96
+2026-10-07 15:53:23,717 INFO chap11 agentic_rag repeat=1 sample=0 seconds=19.157 error=None
+2026-10-07 15:53:26,563 INFO chap11 original_rag repeat=1 sample=3 seconds=2.843 error=None
+2026-10-07 15:53:31,860 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:53:38,928 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:53:38,929 INFO Evidence selection: sources=['S4'] sufficient=True
+2026-10-07 15:53:41,098 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:53:41,099 INFO Agent status=answered candidates=8 context_tokens=2279 latency_ms=14533.47
+2026-10-07 15:53:41,102 INFO chap11 agentic_rag repeat=1 sample=3 seconds=14.532 error=None
+2026-10-07 15:53:58,386 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:53:58,390 INFO chap11 original_rag repeat=1 sample=2 seconds=17.281 error=None
+2026-10-07 15:54:09,244 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:54:14,310 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:54:14,311 INFO Evidence selection: sources=['S2'] sufficient=True
+2026-10-07 15:54:18,721 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:54:18,722 INFO Ignoring product conflict without distinct named families
+2026-10-07 15:54:18,722 INFO Agent status=answered candidates=8 context_tokens=2054 latency_ms=20329.11
+2026-10-07 15:54:18,725 INFO chap11 agentic_rag repeat=1 sample=2 seconds=20.329 error=None
+2026-10-07 15:55:27,844 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:55:27,847 WARNING Invalid citations (); retrying generation once
+2026-10-07 15:56:53,487 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:56:53,489 WARNING Citation repair failed with invalid IDs ()
+2026-10-07 15:56:53,493 INFO chap11 original_rag repeat=1 sample=14 seconds=154.765 error=None
+2026-10-07 15:57:07,958 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:57:17,283 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:57:17,284 INFO Evidence selection: sources=['S1', 'S2'] sufficient=True
+2026-10-07 15:57:25,535 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:57:25,537 INFO Ignoring product conflict without distinct named families
+2026-10-07 15:57:25,537 INFO Ignoring product conflict without distinct named families
+2026-10-07 15:57:25,537 INFO Agent status=answered candidates=8 context_tokens=2335 latency_ms=32041.55
+2026-10-07 15:57:25,539 INFO chap11 agentic_rag repeat=1 sample=14 seconds=32.047 error=None
+2026-10-07 15:58:13,512 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:58:13,523 WARNING Invalid citations (); retrying generation once
+2026-10-07 15:58:34,910 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:58:35,070 INFO chap11 original_rag repeat=1 sample=12 seconds=69.515 error=None
+2026-10-07 15:58:50,835 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:58:59,348 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:58:59,350 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 15:59:01,424 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 15:59:01,426 INFO Agent status=answered candidates=8 context_tokens=1954 latency_ms=26350.31
+2026-10-07 15:59:01,434 INFO chap11 agentic_rag repeat=1 sample=12 seconds=26.359 error=None
+2026-10-07 15:59:24,017 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:59:24,020 WARNING Invalid citations (); retrying generation once
+2026-10-07 15:59:52,710 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 15:59:52,715 INFO chap11 original_rag repeat=1 sample=32 seconds=51.282 error=None
+2026-10-07 16:00:03,213 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:00:09,929 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:00:09,930 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:00:11,905 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:00:11,906 INFO Agent status=answered candidates=8 context_tokens=2182 latency_ms=19189.61
+2026-10-07 16:00:11,909 INFO chap11 agentic_rag repeat=1 sample=32 seconds=19.187 error=None
+2026-10-07 16:00:40,464 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:00:40,470 INFO chap11 original_rag repeat=1 sample=36 seconds=28.563 error=None
+2026-10-07 16:00:50,619 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:00:55,642 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:00:55,643 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:00:57,674 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:00:57,675 INFO Agent status=answered candidates=8 context_tokens=2031 latency_ms=17202.41
+2026-10-07 16:00:57,678 INFO chap11 agentic_rag repeat=1 sample=36 seconds=17.203 error=None
+2026-10-07 16:01:25,795 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:01:25,796 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:02:07,958 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:02:07,960 WARNING Citation repair failed with invalid IDs ()
+2026-10-07 16:02:07,964 INFO chap11 original_rag repeat=1 sample=18 seconds=70.297 error=None
+2026-10-07 16:02:21,083 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:02:21,084 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 16:02:29,781 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:02:29,782 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:02:34,398 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:02:34,399 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:02:34,400 INFO Agent status=answered candidates=8 context_tokens=2256 latency_ms=26433.71
+2026-10-07 16:02:34,402 INFO chap11 agentic_rag repeat=1 sample=18 seconds=26.437 error=None
+2026-10-07 16:02:56,275 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:02:56,280 INFO chap11 original_rag repeat=1 sample=5 seconds=21.875 error=None
+2026-10-07 16:03:07,992 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:03:14,587 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:03:14,588 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:03:16,581 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:03:16,582 INFO Agent status=answered candidates=8 context_tokens=1912 latency_ms=20298.87
+2026-10-07 16:03:16,584 INFO chap11 agentic_rag repeat=1 sample=5 seconds=20.297 error=None
+2026-10-07 16:04:01,460 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:04:01,463 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:04:40,859 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:04:40,868 INFO chap11 original_rag repeat=1 sample=31 seconds=84.281 error=None
+2026-10-07 16:04:53,370 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:05:01,160 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:05:01,162 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:05:03,718 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:05:03,721 INFO Agent status=answered candidates=8 context_tokens=2027 latency_ms=22849.88
+2026-10-07 16:05:03,725 INFO chap11 agentic_rag repeat=1 sample=31 seconds=22.844 error=None
+2026-10-07 16:05:28,022 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:05:28,025 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:05:39,913 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:05:39,920 INFO chap11 original_rag repeat=2 sample=37 seconds=36.188 error=None
+2026-10-07 16:05:54,981 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:05:59,831 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:05:59,832 INFO Evidence selection: sources=['S3', 'S4'] sufficient=True
+2026-10-07 16:06:02,640 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:06:02,642 INFO Agent status=answered candidates=8 context_tokens=2282 latency_ms=22719.19
+2026-10-07 16:06:02,645 INFO chap11 agentic_rag repeat=2 sample=37 seconds=22.718 error=None
+2026-10-07 16:06:17,841 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:06:17,846 INFO chap11 original_rag repeat=2 sample=13 seconds=15.204 error=None
+2026-10-07 16:06:28,780 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:06:33,578 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:06:33,579 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:06:35,622 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:06:35,623 INFO Agent status=answered candidates=8 context_tokens=2333 latency_ms=17774.48
+2026-10-07 16:06:35,626 INFO chap11 agentic_rag repeat=2 sample=13 seconds=17.781 error=None
+2026-10-07 16:06:52,834 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:06:52,839 INFO chap11 original_rag repeat=2 sample=2 seconds=17.219 error=None
+2026-10-07 16:07:03,986 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:07:08,265 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:07:08,267 INFO Evidence selection: sources=['S2'] sufficient=True
+2026-10-07 16:07:12,490 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:07:12,492 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:07:12,492 INFO Agent status=answered candidates=8 context_tokens=2054 latency_ms=19650.06
+2026-10-07 16:07:12,494 INFO chap11 agentic_rag repeat=2 sample=2 seconds=19.656 error=None
+2026-10-07 16:07:31,502 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:07:31,504 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:07:45,761 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:07:45,766 INFO chap11 original_rag repeat=2 sample=35 seconds=33.265 error=None
+2026-10-07 16:08:05,528 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:08:10,159 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:08:10,161 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:08:14,667 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:08:14,668 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:08:14,669 INFO Agent status=answered candidates=8 context_tokens=1987 latency_ms=28900.03
+2026-10-07 16:08:14,671 INFO chap11 agentic_rag repeat=2 sample=35 seconds=28.907 error=None
+2026-10-07 16:08:33,665 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:08:33,669 INFO chap11 original_rag repeat=2 sample=7 seconds=19.000 error=None
+2026-10-07 16:08:47,515 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:08:47,516 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 16:08:52,134 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:08:52,135 INFO Evidence selection: sources=['S3'] sufficient=True
+2026-10-07 16:08:59,871 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:08:59,872 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:08:59,872 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:08:59,873 INFO Agent status=answered candidates=8 context_tokens=2291 latency_ms=26201.11
+2026-10-07 16:08:59,875 INFO chap11 agentic_rag repeat=2 sample=7 seconds=26.203 error=None
+2026-10-07 16:09:23,090 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:09:23,094 INFO chap11 original_rag repeat=2 sample=16 seconds=23.219 error=None
+2026-10-07 16:09:33,362 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:09:37,798 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:09:37,799 INFO Evidence selection: sources=[] sufficient=False
+2026-10-07 16:09:37,799 INFO Agent status=unanswerable candidates=8 context_tokens=2013 latency_ms=14702.69
+2026-10-07 16:09:37,803 INFO chap11 agentic_rag repeat=2 sample=16 seconds=14.703 error=None
+2026-10-07 16:09:54,375 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:09:54,376 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:10:05,381 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:10:05,385 INFO chap11 original_rag repeat=2 sample=1 seconds=27.593 error=None
+2026-10-07 16:10:19,942 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:10:19,943 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 16:10:25,367 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:10:25,368 INFO Evidence selection: sources=['S4'] sufficient=True
+2026-10-07 16:10:29,547 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:10:29,548 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:10:29,550 INFO Agent status=answered candidates=8 context_tokens=2398 latency_ms=24163.13
+2026-10-07 16:10:29,552 INFO chap11 agentic_rag repeat=2 sample=1 seconds=24.157 error=None
+2026-10-07 16:11:06,384 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:11:06,386 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:11:24,108 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:11:24,112 INFO chap11 original_rag repeat=2 sample=12 seconds=54.562 error=None
+2026-10-07 16:11:36,732 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:11:40,963 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:11:40,964 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:11:43,082 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:11:43,083 INFO Agent status=answered candidates=8 context_tokens=1954 latency_ms=18968.35
+2026-10-07 16:11:43,085 INFO chap11 agentic_rag repeat=2 sample=12 seconds=18.969 error=None
+2026-10-07 16:12:03,077 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:12:03,079 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:12:30,842 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:12:30,847 INFO chap11 original_rag repeat=2 sample=32 seconds=47.750 error=None
+2026-10-07 16:12:41,618 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:12:45,933 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:12:45,934 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:12:47,878 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:12:47,879 INFO Agent status=answered candidates=8 context_tokens=2182 latency_ms=17030.28
+2026-10-07 16:12:47,882 INFO chap11 agentic_rag repeat=2 sample=32 seconds=17.031 error=None
+2026-10-07 16:13:15,021 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:13:15,025 INFO chap11 original_rag repeat=2 sample=36 seconds=27.141 error=None
+2026-10-07 16:13:24,742 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:13:29,011 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:13:29,012 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:13:30,937 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:13:30,938 INFO Agent status=answered candidates=8 context_tokens=2031 latency_ms=15910.85
+2026-10-07 16:13:30,940 INFO chap11 agentic_rag repeat=2 sample=36 seconds=15.906 error=None
+2026-10-07 16:13:46,263 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:13:46,268 INFO chap11 original_rag repeat=2 sample=30 seconds=15.328 error=None
+2026-10-07 16:13:56,582 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:14:00,918 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:14:00,919 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:14:02,870 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:14:02,871 INFO Agent status=answered candidates=8 context_tokens=2234 latency_ms=16599.69
+2026-10-07 16:14:02,874 INFO chap11 agentic_rag repeat=2 sample=30 seconds=16.610 error=None
+2026-10-07 16:14:03,329 INFO chap11 original_rag repeat=2 sample=9 seconds=0.453 error=None
+2026-10-07 16:14:06,416 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:14:10,669 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:14:10,669 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:14:13,914 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:14:13,915 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:14:13,916 INFO Agent status=answered candidates=8 context_tokens=2338 latency_ms=10584.51
+2026-10-07 16:14:13,917 INFO chap11 agentic_rag repeat=2 sample=9 seconds=10.594 error=None
+2026-10-07 16:14:41,425 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:14:41,428 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:14:48,974 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:14:48,980 INFO chap11 original_rag repeat=2 sample=27 seconds=35.062 error=None
+2026-10-07 16:14:59,636 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:15:05,574 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:15:05,575 INFO Evidence selection: sources=['S1', 'S2'] sufficient=True
+2026-10-07 16:15:07,762 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:15:07,763 INFO Agent status=answered candidates=8 context_tokens=2054 latency_ms=18781.56
+2026-10-07 16:15:07,765 INFO chap11 agentic_rag repeat=2 sample=27 seconds=18.781 error=None
+2026-10-07 16:15:24,763 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:15:24,768 INFO chap11 original_rag repeat=2 sample=19 seconds=17.000 error=None
+2026-10-07 16:15:36,097 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:15:40,646 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:15:40,646 INFO Evidence selection: sources=['S1', 'S2'] sufficient=True
+2026-10-07 16:15:42,884 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:15:42,885 INFO Agent status=answered candidates=8 context_tokens=2173 latency_ms=18114.76
+2026-10-07 16:15:42,888 INFO chap11 agentic_rag repeat=2 sample=19 seconds=18.125 error=None
+2026-10-07 16:15:43,360 INFO chap11 original_rag repeat=2 sample=38 seconds=0.469 error=None
+2026-10-07 16:15:50,269 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:15:50,270 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 16:15:54,651 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:15:54,652 INFO Evidence selection: sources=['S1', 'S6'] sufficient=True
+2026-10-07 16:15:56,857 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:15:56,857 INFO Agent status=answered candidates=8 context_tokens=2360 latency_ms=13495.89
+2026-10-07 16:15:56,860 INFO chap11 agentic_rag repeat=2 sample=38 seconds=13.500 error=None
+2026-10-07 16:16:17,714 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:16:17,716 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:16:55,770 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:16:55,774 INFO chap11 original_rag repeat=2 sample=28 seconds=58.906 error=None
+2026-10-07 16:17:07,688 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:17:12,174 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:17:12,175 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:17:14,485 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:17:14,486 INFO Agent status=answered candidates=8 context_tokens=2350 latency_ms=18709.70
+2026-10-07 16:17:14,488 INFO chap11 agentic_rag repeat=2 sample=28 seconds=18.703 error=None
+2026-10-07 16:17:14,933 INFO chap11 original_rag repeat=2 sample=11 seconds=0.453 error=None
+2026-10-07 16:17:17,942 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:17:22,576 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:17:22,577 INFO Evidence selection: sources=['S3'] sufficient=True
+2026-10-07 16:17:24,503 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:17:24,503 INFO Agent status=answered candidates=8 context_tokens=2330 latency_ms=9568.17
+2026-10-07 16:17:24,505 INFO chap11 agentic_rag repeat=2 sample=11 seconds=9.563 error=None
+2026-10-07 16:17:53,859 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:17:53,861 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:18:19,467 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:18:19,471 INFO chap11 original_rag repeat=2 sample=25 seconds=54.969 error=None
+2026-10-07 16:18:31,737 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:18:39,992 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:18:39,993 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:18:44,442 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:18:44,444 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:18:44,445 INFO Agent status=answered candidates=8 context_tokens=2195 latency_ms=24971.59
+2026-10-07 16:18:44,447 INFO chap11 agentic_rag repeat=2 sample=25 seconds=24.984 error=None
+2026-10-07 16:19:06,741 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:19:06,743 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:19:43,629 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:19:43,631 WARNING Citation repair failed with invalid IDs ()
+2026-10-07 16:19:43,632 INFO chap11 original_rag repeat=2 sample=10 seconds=59.172 error=None
+2026-10-07 16:19:55,453 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:19:59,906 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:19:59,907 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:20:04,382 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:20:04,383 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:20:04,383 INFO Agent status=answered candidates=8 context_tokens=2089 latency_ms=20748.10
+2026-10-07 16:20:04,385 INFO chap11 agentic_rag repeat=2 sample=10 seconds=20.750 error=None
+2026-10-07 16:20:27,149 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:20:27,153 INFO chap11 original_rag repeat=2 sample=24 seconds=22.766 error=None
+2026-10-07 16:20:38,710 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:20:38,711 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 16:20:43,319 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:20:43,320 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:20:45,174 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:20:45,175 INFO Agent status=answered candidates=8 context_tokens=2322 latency_ms=18019.31
+2026-10-07 16:20:45,178 INFO chap11 agentic_rag repeat=2 sample=24 seconds=18.016 error=None
+2026-10-07 16:21:21,590 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:21:21,592 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:21:43,772 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:21:43,777 INFO chap11 original_rag repeat=2 sample=21 seconds=58.609 error=None
+2026-10-07 16:21:55,040 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:22:00,445 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:22:00,446 INFO Evidence selection: sources=['S1', 'S5'] sufficient=True
+2026-10-07 16:22:03,533 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:22:03,534 INFO Agent status=answered candidates=8 context_tokens=2394 latency_ms=19754.13
+2026-10-07 16:22:03,537 INFO chap11 agentic_rag repeat=2 sample=21 seconds=19.750 error=None
+2026-10-07 16:22:22,175 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:22:22,178 INFO chap11 original_rag repeat=2 sample=5 seconds=18.641 error=None
+2026-10-07 16:22:32,753 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:22:36,779 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:22:36,780 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:22:38,650 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:22:38,652 INFO Agent status=answered candidates=8 context_tokens=1912 latency_ms=16470.24
+2026-10-07 16:22:38,654 INFO chap11 agentic_rag repeat=2 sample=5 seconds=16.484 error=None
+2026-10-07 16:22:52,969 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:22:52,973 INFO chap11 original_rag repeat=2 sample=33 seconds=14.313 error=None
+2026-10-07 16:23:04,551 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:23:09,348 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:23:09,349 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:23:11,378 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:23:11,381 INFO Agent status=answered candidates=8 context_tokens=2044 latency_ms=18405.63
+2026-10-07 16:23:11,383 INFO chap11 agentic_rag repeat=2 sample=33 seconds=18.406 error=None
+2026-10-07 16:23:11,817 INFO chap11 original_rag repeat=2 sample=29 seconds=0.422 error=None
+2026-10-07 16:23:16,207 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:23:20,162 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:23:20,163 INFO Evidence selection: sources=['S2'] sufficient=True
+2026-10-07 16:23:21,840 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:23:21,840 INFO Agent status=answered candidates=8 context_tokens=2340 latency_ms=10021.04
+2026-10-07 16:23:21,843 INFO chap11 agentic_rag repeat=2 sample=29 seconds=10.032 error=None
+2026-10-07 16:23:39,621 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:23:39,623 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:24:02,041 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:24:02,044 INFO chap11 original_rag repeat=2 sample=23 seconds=40.203 error=None
+2026-10-07 16:24:13,597 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:24:18,434 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:24:18,434 INFO Evidence selection: sources=['S1', 'S3'] sufficient=True
+2026-10-07 16:24:27,229 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:24:27,231 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:24:27,231 WARNING Invalid structured evidence, attempt=1: Conflict claims must quote actual query/source substrings: query_claim 'WebSphere Remote Server version V6.2, 6.2.1, 7.0, 7.1, 7.1.1, 7.1.2, 8.5' is absent from QUESTION; copy a shorter exact span from QUESTION
+2026-10-07 16:24:29,091 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:24:29,092 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:24:33,206 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:24:33,207 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:24:33,207 INFO Agent status=answered candidates=8 context_tokens=2338 latency_ms=31159.95
+2026-10-07 16:24:33,210 INFO chap11 agentic_rag repeat=2 sample=23 seconds=31.156 error=None
+2026-10-07 16:25:11,719 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:25:11,721 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:25:44,365 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:25:44,371 INFO chap11 original_rag repeat=2 sample=31 seconds=71.156 error=None
+2026-10-07 16:25:55,502 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:25:59,828 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:25:59,828 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:26:02,102 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:26:02,103 INFO Agent status=answered candidates=8 context_tokens=2027 latency_ms=17730.17
+2026-10-07 16:26:02,106 INFO chap11 agentic_rag repeat=2 sample=31 seconds=17.734 error=None
+2026-10-07 16:26:19,562 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:26:19,566 INFO chap11 original_rag repeat=2 sample=20 seconds=17.453 error=None
+2026-10-07 16:26:28,882 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:26:32,702 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:26:32,703 INFO Evidence selection: sources=['S2'] sufficient=True
+2026-10-07 16:26:34,504 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:26:34,505 INFO Agent status=answered candidates=8 context_tokens=2224 latency_ms=14936.57
+2026-10-07 16:26:34,507 INFO chap11 agentic_rag repeat=2 sample=20 seconds=14.938 error=None
+2026-10-07 16:26:50,452 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:26:50,456 INFO chap11 original_rag repeat=2 sample=0 seconds=15.938 error=None
+2026-10-07 16:27:00,533 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:27:04,667 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:27:04,668 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:27:06,496 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:27:06,497 INFO Agent status=answered candidates=8 context_tokens=1972 latency_ms=16038.98
+2026-10-07 16:27:06,499 INFO chap11 agentic_rag repeat=2 sample=0 seconds=16.047 error=None
+2026-10-07 16:27:34,384 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:27:34,385 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:27:57,757 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:27:57,762 INFO chap11 original_rag repeat=2 sample=15 seconds=51.265 error=None
+2026-10-07 16:28:08,202 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:28:12,187 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:28:12,188 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:28:15,850 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:28:15,852 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:28:15,852 INFO Agent status=answered candidates=8 context_tokens=2049 latency_ms=18087.83
+2026-10-07 16:28:15,854 INFO chap11 agentic_rag repeat=2 sample=15 seconds=18.094 error=None
+2026-10-07 16:28:16,333 INFO chap11 original_rag repeat=2 sample=3 seconds=0.469 error=None
+2026-10-07 16:28:20,560 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:28:24,809 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:28:24,811 INFO Evidence selection: sources=['S4'] sufficient=True
+2026-10-07 16:28:26,643 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:28:26,644 INFO Agent status=answered candidates=8 context_tokens=2279 latency_ms=10309.22
+2026-10-07 16:28:26,646 INFO chap11 agentic_rag repeat=2 sample=3 seconds=10.312 error=None
+2026-10-07 16:28:27,112 INFO chap11 original_rag repeat=2 sample=26 seconds=0.469 error=None
+2026-10-07 16:28:32,116 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:28:32,118 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 16:28:36,542 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:28:36,543 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:28:38,273 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:28:38,275 INFO Agent status=answered candidates=8 context_tokens=2363 latency_ms=11161.09
+2026-10-07 16:28:38,277 INFO chap11 agentic_rag repeat=2 sample=26 seconds=11.172 error=None
+2026-10-07 16:29:23,120 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:29:23,124 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:29:40,132 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:29:40,138 INFO chap11 original_rag repeat=2 sample=34 seconds=61.859 error=None
+2026-10-07 16:29:50,840 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:29:50,841 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 16:29:55,462 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:29:55,463 INFO Evidence selection: sources=['S1', 'S2'] sufficient=True
+2026-10-07 16:29:57,669 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:29:57,669 INFO Agent status=answered candidates=8 context_tokens=2361 latency_ms=17529.41
+2026-10-07 16:29:57,671 INFO chap11 agentic_rag repeat=2 sample=34 seconds=17.532 error=None
+2026-10-07 16:30:37,210 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:30:37,212 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:31:10,143 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:31:10,149 INFO chap11 original_rag repeat=2 sample=8 seconds=72.468 error=None
+2026-10-07 16:31:22,122 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:31:26,984 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:31:26,985 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:31:31,958 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:31:31,961 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:31:31,961 INFO Agent status=answered candidates=8 context_tokens=2360 latency_ms=21811.00
+2026-10-07 16:31:31,965 INFO chap11 agentic_rag repeat=2 sample=8 seconds=21.813 error=None
+2026-10-07 16:31:32,417 INFO chap11 original_rag repeat=2 sample=17 seconds=0.453 error=None
+2026-10-07 16:31:36,735 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:31:36,736 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 16:31:40,895 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:31:40,896 INFO Evidence selection: sources=[] sufficient=False
+2026-10-07 16:31:40,896 INFO Agent status=unanswerable candidates=8 context_tokens=2359 latency_ms=8477.20
+2026-10-07 16:31:40,899 INFO chap11 agentic_rag repeat=2 sample=17 seconds=8.468 error=None
+2026-10-07 16:32:16,367 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:32:16,369 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:32:35,465 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:32:35,470 INFO chap11 original_rag repeat=2 sample=6 seconds=54.563 error=None
+2026-10-07 16:32:49,998 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:32:54,289 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:32:54,289 INFO Evidence selection: sources=['S1', 'S2'] sufficient=True
+2026-10-07 16:32:56,532 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:32:56,533 INFO Agent status=answered candidates=8 context_tokens=2260 latency_ms=21060.86
+2026-10-07 16:32:56,535 INFO chap11 agentic_rag repeat=2 sample=6 seconds=21.062 error=None
+2026-10-07 16:33:19,648 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:33:19,650 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:33:57,928 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:33:57,930 WARNING Citation repair failed with invalid IDs ()
+2026-10-07 16:33:57,932 INFO chap11 original_rag repeat=2 sample=18 seconds=61.406 error=None
+2026-10-07 16:34:09,969 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:34:09,970 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 16:34:14,746 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:34:14,746 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:34:18,930 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:34:18,931 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:34:18,931 INFO Agent status=answered candidates=8 context_tokens=2256 latency_ms=20996.44
+2026-10-07 16:34:18,934 INFO chap11 agentic_rag repeat=2 sample=18 seconds=21.000 error=None
+2026-10-07 16:34:52,822 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:34:52,824 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:35:10,848 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:35:10,852 INFO chap11 original_rag repeat=2 sample=4 seconds=51.907 error=None
+2026-10-07 16:35:23,072 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:35:27,390 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:35:27,391 INFO Evidence selection: sources=['S1', 'S3'] sufficient=True
+2026-10-07 16:35:29,510 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:35:29,510 INFO Agent status=answered candidates=8 context_tokens=2146 latency_ms=18655.48
+2026-10-07 16:35:29,513 INFO chap11 agentic_rag repeat=2 sample=4 seconds=18.656 error=None
+2026-10-07 16:35:29,967 INFO chap11 original_rag repeat=2 sample=22 seconds=0.454 error=None
+2026-10-07 16:35:34,954 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:35:34,955 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 102, in rewrite
+    raise ValueError("a specific API/error identifier is searchable")
+ValueError: a specific API/error identifier is searchable
+2026-10-07 16:35:39,002 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:35:39,003 INFO Evidence selection: sources=['S7'] sufficient=True
+2026-10-07 16:35:40,887 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:35:40,888 INFO Agent status=answered candidates=8 context_tokens=2307 latency_ms=10919.76
+2026-10-07 16:35:40,891 INFO chap11 agentic_rag repeat=2 sample=22 seconds=10.921 error=None
+2026-10-07 16:36:35,130 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:36:35,133 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:37:38,948 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:37:38,949 WARNING Citation repair failed with invalid IDs ()
+2026-10-07 16:37:38,954 INFO chap11 original_rag repeat=2 sample=14 seconds=118.063 error=None
+2026-10-07 16:37:51,255 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:37:56,316 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:37:56,317 INFO Evidence selection: sources=['S1', 'S2'] sufficient=True
+2026-10-07 16:38:02,988 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:38:02,989 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:38:02,990 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:38:02,990 INFO Agent status=answered candidates=8 context_tokens=2335 latency_ms=24033.48
+2026-10-07 16:38:02,991 INFO chap11 agentic_rag repeat=2 sample=14 seconds=24.031 error=None
+2026-10-07 16:38:23,989 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:38:23,994 INFO chap11 original_rag repeat=3 sample=16 seconds=20.984 error=None
+2026-10-07 16:38:33,309 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:38:37,324 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:38:37,324 INFO Evidence selection: sources=[] sufficient=False
+2026-10-07 16:38:37,324 INFO Agent status=unanswerable candidates=8 context_tokens=2013 latency_ms=13329.02
+2026-10-07 16:38:37,328 INFO chap11 agentic_rag repeat=3 sample=16 seconds=13.328 error=None
+2026-10-07 16:38:54,724 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:38:54,728 INFO chap11 original_rag repeat=3 sample=20 seconds=17.406 error=None
+2026-10-07 16:39:04,366 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:39:08,351 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:39:08,352 INFO Evidence selection: sources=['S2'] sufficient=True
+2026-10-07 16:39:10,145 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:39:10,146 INFO Agent status=answered candidates=8 context_tokens=2224 latency_ms=15415.78
+2026-10-07 16:39:10,148 INFO chap11 agentic_rag repeat=3 sample=20 seconds=15.406 error=None
+2026-10-07 16:39:31,924 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:39:31,927 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:40:08,055 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:40:08,057 WARNING Citation repair failed with invalid IDs ()
+2026-10-07 16:40:08,060 INFO chap11 original_rag repeat=3 sample=10 seconds=57.906 error=None
+2026-10-07 16:40:19,907 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:40:24,347 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:40:24,348 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:40:28,686 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:40:28,687 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:40:28,687 INFO Agent status=answered candidates=8 context_tokens=2089 latency_ms=20625.20
+2026-10-07 16:40:28,690 INFO chap11 agentic_rag repeat=3 sample=10 seconds=20.625 error=None
+2026-10-07 16:40:49,822 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:40:49,825 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:41:00,991 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:41:00,995 INFO chap11 original_rag repeat=3 sample=37 seconds=32.313 error=None
+2026-10-07 16:41:13,915 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:41:18,495 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:41:18,495 INFO Evidence selection: sources=['S3', 'S4'] sufficient=True
+2026-10-07 16:41:21,088 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:41:21,089 INFO Agent status=answered candidates=8 context_tokens=2282 latency_ms=20091.59
+2026-10-07 16:41:21,091 INFO chap11 agentic_rag repeat=3 sample=37 seconds=20.094 error=None
+2026-10-07 16:41:40,051 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:41:40,053 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:42:07,114 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:42:07,130 INFO chap11 original_rag repeat=3 sample=32 seconds=46.031 error=None
+2026-10-07 16:42:16,770 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:42:20,920 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:42:20,921 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:42:22,830 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:42:22,831 INFO Agent status=answered candidates=8 context_tokens=2182 latency_ms=15698.67
+2026-10-07 16:42:22,833 INFO chap11 agentic_rag repeat=3 sample=32 seconds=15.703 error=None
+2026-10-07 16:42:41,189 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:42:41,191 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:42:53,912 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:42:53,928 INFO chap11 original_rag repeat=3 sample=35 seconds=31.094 error=None
+2026-10-07 16:43:11,887 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:43:16,237 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:43:16,238 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:43:20,266 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:43:20,267 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:43:20,268 INFO Agent status=answered candidates=8 context_tokens=1987 latency_ms=26338.01
+2026-10-07 16:43:20,271 INFO chap11 agentic_rag repeat=3 sample=35 seconds=26.343 error=None
+2026-10-07 16:43:20,715 INFO chap11 original_rag repeat=3 sample=29 seconds=0.454 error=None
+2026-10-07 16:43:25,270 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:43:29,242 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:43:29,242 INFO Evidence selection: sources=['S2'] sufficient=True
+2026-10-07 16:43:31,169 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:43:31,171 INFO Agent status=answered candidates=8 context_tokens=2340 latency_ms=10453.81
+2026-10-07 16:43:31,174 INFO chap11 agentic_rag repeat=3 sample=29 seconds=10.453 error=None
+2026-10-07 16:43:48,091 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:43:48,095 INFO chap11 original_rag repeat=3 sample=19 seconds=16.922 error=None
+2026-10-07 16:43:59,393 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:44:03,966 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:44:03,967 INFO Evidence selection: sources=['S1', 'S2'] sufficient=True
+2026-10-07 16:44:06,210 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:44:06,211 INFO Agent status=answered candidates=8 context_tokens=2173 latency_ms=18113.49
+2026-10-07 16:44:06,213 INFO chap11 agentic_rag repeat=3 sample=19 seconds=18.125 error=None
+2026-10-07 16:44:20,531 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:44:20,535 INFO chap11 original_rag repeat=3 sample=33 seconds=14.312 error=None
+2026-10-07 16:44:32,498 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:44:37,343 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:44:37,344 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:44:39,419 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:44:39,420 INFO Agent status=answered candidates=8 context_tokens=2044 latency_ms=18882.31
+2026-10-07 16:44:39,422 INFO chap11 agentic_rag repeat=3 sample=33 seconds=18.891 error=None
+2026-10-07 16:44:39,900 INFO chap11 original_rag repeat=3 sample=26 seconds=0.484 error=None
+2026-10-07 16:44:45,132 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:44:45,133 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 16:44:49,691 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:44:49,691 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:44:51,435 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:44:51,436 INFO Agent status=answered candidates=8 context_tokens=2363 latency_ms=11533.77
+2026-10-07 16:44:51,439 INFO chap11 agentic_rag repeat=3 sample=26 seconds=11.531 error=None
+2026-10-07 16:45:25,691 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:45:25,693 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:45:43,851 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:45:43,855 INFO chap11 original_rag repeat=3 sample=4 seconds=52.422 error=None
+2026-10-07 16:45:56,321 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:46:00,692 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:46:00,693 INFO Evidence selection: sources=['S1', 'S3'] sufficient=True
+2026-10-07 16:46:02,841 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:46:02,841 INFO Agent status=answered candidates=8 context_tokens=2146 latency_ms=18984.44
+2026-10-07 16:46:02,844 INFO chap11 agentic_rag repeat=3 sample=4 seconds=18.985 error=None
+2026-10-07 16:46:42,748 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:46:42,751 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:47:16,193 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:47:16,197 INFO chap11 original_rag repeat=3 sample=8 seconds=73.359 error=None
+2026-10-07 16:47:28,311 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:47:33,192 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:47:33,192 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:47:38,237 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:47:38,239 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:47:38,239 INFO Agent status=answered candidates=8 context_tokens=2360 latency_ms=22039.20
+2026-10-07 16:47:38,242 INFO chap11 agentic_rag repeat=3 sample=8 seconds=22.031 error=None
+2026-10-07 16:47:53,629 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:47:53,630 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:48:04,139 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:48:04,144 INFO chap11 original_rag repeat=3 sample=1 seconds=25.890 error=None
+2026-10-07 16:48:18,309 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:48:18,311 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 16:48:23,627 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:48:23,628 INFO Evidence selection: sources=['S4'] sufficient=True
+2026-10-07 16:48:27,602 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:48:27,603 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:48:27,604 INFO Agent status=answered candidates=8 context_tokens=2398 latency_ms=23457.45
+2026-10-07 16:48:27,606 INFO chap11 agentic_rag repeat=3 sample=1 seconds=23.469 error=None
+2026-10-07 16:48:50,625 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:48:50,630 INFO chap11 original_rag repeat=3 sample=24 seconds=23.016 error=None
+2026-10-07 16:49:02,366 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:49:02,367 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 16:49:07,156 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:49:07,157 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:49:09,093 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:49:09,093 INFO Agent status=answered candidates=8 context_tokens=2322 latency_ms=18462.01
+2026-10-07 16:49:09,096 INFO chap11 agentic_rag repeat=3 sample=24 seconds=18.469 error=None
+2026-10-07 16:49:35,732 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:49:35,736 INFO chap11 original_rag repeat=3 sample=36 seconds=26.640 error=None
+2026-10-07 16:49:45,421 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:49:49,558 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:49:49,558 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:49:51,480 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:49:51,481 INFO Agent status=answered candidates=8 context_tokens=2031 latency_ms=15742.58
+2026-10-07 16:49:51,483 INFO chap11 agentic_rag repeat=3 sample=36 seconds=15.750 error=None
+2026-10-07 16:50:18,630 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:50:18,633 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:50:26,153 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:50:26,156 INFO chap11 original_rag repeat=3 sample=27 seconds=34.672 error=None
+2026-10-07 16:50:36,678 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:50:40,973 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:50:40,975 INFO Evidence selection: sources=['S1', 'S2'] sufficient=True
+2026-10-07 16:50:43,175 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:50:43,176 INFO Agent status=answered candidates=8 context_tokens=2054 latency_ms=17017.74
+2026-10-07 16:50:43,179 INFO chap11 agentic_rag repeat=3 sample=27 seconds=17.016 error=None
+2026-10-07 16:50:58,794 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:50:58,798 INFO chap11 original_rag repeat=3 sample=30 seconds=15.610 error=None
+2026-10-07 16:51:09,095 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:51:13,259 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:51:13,260 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:51:15,194 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:51:15,195 INFO Agent status=answered candidates=8 context_tokens=2234 latency_ms=16395.02
+2026-10-07 16:51:15,198 INFO chap11 agentic_rag repeat=3 sample=30 seconds=16.406 error=None
+2026-10-07 16:51:33,206 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:51:33,208 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:51:56,349 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:51:56,392 INFO chap11 original_rag repeat=3 sample=23 seconds=41.156 error=None
+2026-10-07 16:52:08,181 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:52:13,114 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:52:13,115 INFO Evidence selection: sources=['S1', 'S3'] sufficient=True
+2026-10-07 16:52:21,904 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:52:21,906 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:52:21,907 WARNING Invalid structured evidence, attempt=1: Conflict claims must quote actual query/source substrings: query_claim 'WebSphere Remote Server version V6.2, 6.2.1, 7.0, 7.1, 7.1.1, 7.1.2, 8.5' is absent from QUESTION; copy a shorter exact span from QUESTION
+2026-10-07 16:52:23,781 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:52:23,782 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:52:27,889 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:52:27,890 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:52:27,890 INFO Agent status=answered candidates=8 context_tokens=2338 latency_ms=31495.62
+2026-10-07 16:52:27,893 INFO chap11 agentic_rag repeat=3 sample=23 seconds=31.500 error=None
+2026-10-07 16:52:45,309 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:52:45,313 INFO chap11 original_rag repeat=3 sample=7 seconds=17.422 error=None
+2026-10-07 16:52:57,790 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:52:57,791 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 16:53:02,454 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:53:02,455 INFO Evidence selection: sources=['S3'] sufficient=True
+2026-10-07 16:53:09,676 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:53:09,677 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:53:09,677 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:53:09,677 INFO Agent status=answered candidates=8 context_tokens=2291 latency_ms=24361.37
+2026-10-07 16:53:09,680 INFO chap11 agentic_rag repeat=3 sample=7 seconds=24.360 error=None
+2026-10-07 16:53:10,118 INFO chap11 original_rag repeat=3 sample=11 seconds=0.422 error=None
+2026-10-07 16:53:13,204 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:53:17,819 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:53:17,820 INFO Evidence selection: sources=['S3'] sufficient=True
+2026-10-07 16:53:19,801 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:53:19,802 INFO Agent status=answered candidates=8 context_tokens=2330 latency_ms=9682.69
+2026-10-07 16:53:19,805 INFO chap11 agentic_rag repeat=3 sample=11 seconds=9.672 error=None
+2026-10-07 16:53:55,278 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:53:55,281 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:54:12,248 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:54:12,252 INFO chap11 original_rag repeat=3 sample=12 seconds=52.438 error=None
+2026-10-07 16:54:24,275 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:54:28,295 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:54:28,296 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:54:30,160 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:54:30,161 INFO Agent status=answered candidates=8 context_tokens=1954 latency_ms=17906.62
+2026-10-07 16:54:30,174 INFO chap11 agentic_rag repeat=3 sample=12 seconds=17.906 error=None
+2026-10-07 16:54:45,817 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:54:45,821 INFO chap11 original_rag repeat=3 sample=0 seconds=15.656 error=None
+2026-10-07 16:54:55,798 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:54:59,778 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:54:59,779 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:55:01,656 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:55:01,657 INFO Agent status=answered candidates=8 context_tokens=1972 latency_ms=15832.88
+2026-10-07 16:55:01,659 INFO chap11 agentic_rag repeat=3 sample=0 seconds=15.828 error=None
+2026-10-07 16:55:55,109 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:55:55,112 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:56:58,148 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:56:58,150 WARNING Citation repair failed with invalid IDs ()
+2026-10-07 16:56:58,164 INFO chap11 original_rag repeat=3 sample=14 seconds=116.500 error=None
+2026-10-07 16:57:10,586 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:57:15,541 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:57:15,542 INFO Evidence selection: sources=['S1', 'S2'] sufficient=True
+2026-10-07 16:57:22,027 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:57:22,029 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:57:22,029 INFO Ignoring product conflict without distinct named families
+2026-10-07 16:57:22,029 INFO Agent status=answered candidates=8 context_tokens=2335 latency_ms=23863.38
+2026-10-07 16:57:22,032 INFO chap11 agentic_rag repeat=3 sample=14 seconds=23.859 error=None
+2026-10-07 16:57:22,539 INFO chap11 original_rag repeat=3 sample=38 seconds=0.500 error=None
+2026-10-07 16:57:29,351 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:57:29,352 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 16:57:33,601 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:57:33,602 INFO Evidence selection: sources=['S1', 'S6'] sufficient=True
+2026-10-07 16:57:35,800 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:57:35,801 INFO Agent status=answered candidates=8 context_tokens=2360 latency_ms=13259.93
+2026-10-07 16:57:35,803 INFO chap11 agentic_rag repeat=3 sample=38 seconds=13.250 error=None
+2026-10-07 16:57:36,297 INFO chap11 original_rag repeat=3 sample=3 seconds=0.500 error=None
+2026-10-07 16:57:40,103 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:57:40,104 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 16:57:46,986 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:57:46,986 INFO Evidence selection: sources=['S6'] sufficient=True
+2026-10-07 16:57:48,830 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:57:48,831 INFO Agent status=answered candidates=8 context_tokens=2279 latency_ms=12532.88
+2026-10-07 16:57:48,833 INFO chap11 agentic_rag repeat=3 sample=3 seconds=12.531 error=None
+2026-10-07 16:58:27,159 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:58:27,161 WARNING Invalid citations (); retrying generation once
+2026-10-07 16:58:59,480 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:58:59,496 INFO chap11 original_rag repeat=3 sample=31 seconds=70.656 error=None
+2026-10-07 16:59:10,536 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:59:14,856 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:59:14,857 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 16:59:17,117 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 16:59:17,117 INFO Agent status=answered candidates=8 context_tokens=2027 latency_ms=17619.16
+2026-10-07 16:59:17,119 INFO chap11 agentic_rag repeat=3 sample=31 seconds=17.625 error=None
+2026-10-07 16:59:52,114 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 16:59:52,117 WARNING Invalid citations (); retrying generation once
+2026-10-07 17:00:11,128 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 17:00:11,133 INFO chap11 original_rag repeat=3 sample=6 seconds=54.000 error=None
+2026-10-07 17:00:25,647 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:00:29,869 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:00:29,869 INFO Evidence selection: sources=['S1', 'S2'] sufficient=True
+2026-10-07 17:00:32,090 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:00:32,091 INFO Agent status=answered candidates=8 context_tokens=2260 latency_ms=20954.82
+2026-10-07 17:00:32,093 INFO chap11 agentic_rag repeat=3 sample=6 seconds=20.954 error=None
+2026-10-07 17:00:32,570 INFO chap11 original_rag repeat=3 sample=22 seconds=0.468 error=None
+2026-10-07 17:00:38,539 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:00:44,531 INFO HTTP Request: POST http://localhost:11434/api/embed "HTTP/1.1 200 OK"
+2026-10-07 17:00:48,476 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:00:48,477 INFO Evidence selection: sources=['S3', 'S4'] sufficient=True
+2026-10-07 17:00:50,649 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:00:50,650 INFO Agent status=answered candidates=8 context_tokens=2385 latency_ms=18077.44
+2026-10-07 17:00:50,652 INFO chap11 agentic_rag repeat=3 sample=22 seconds=18.078 error=None
+2026-10-07 17:01:26,866 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 17:01:26,868 WARNING Invalid citations (); retrying generation once
+2026-10-07 17:01:48,851 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 17:01:48,857 INFO chap11 original_rag repeat=3 sample=21 seconds=58.203 error=None
+2026-10-07 17:01:59,754 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:02:05,125 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:02:05,126 INFO Evidence selection: sources=['S1', 'S5'] sufficient=True
+2026-10-07 17:02:08,153 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:02:08,153 INFO Agent status=answered candidates=8 context_tokens=2394 latency_ms=19294.96
+2026-10-07 17:02:08,167 INFO chap11 agentic_rag repeat=3 sample=21 seconds=19.297 error=None
+2026-10-07 17:02:36,671 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 17:02:36,672 WARNING Invalid citations (); retrying generation once
+2026-10-07 17:03:01,405 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 17:03:01,409 INFO chap11 original_rag repeat=3 sample=25 seconds=53.234 error=None
+2026-10-07 17:03:13,374 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:03:18,210 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:03:18,211 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 17:03:22,395 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:03:22,397 INFO Ignoring product conflict without distinct named families
+2026-10-07 17:03:22,397 INFO Agent status=answered candidates=8 context_tokens=2195 latency_ms=20986.01
+2026-10-07 17:03:22,400 INFO chap11 agentic_rag repeat=3 sample=25 seconds=21.000 error=None
+2026-10-07 17:04:06,380 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 17:04:06,383 WARNING Invalid citations (); retrying generation once
+2026-10-07 17:04:23,313 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 17:04:23,319 INFO chap11 original_rag repeat=3 sample=34 seconds=60.906 error=None
+2026-10-07 17:04:34,077 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:04:34,078 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 17:04:38,780 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:04:38,781 INFO Evidence selection: sources=['S1', 'S2'] sufficient=True
+2026-10-07 17:04:40,956 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:04:40,957 INFO Agent status=answered candidates=8 context_tokens=2361 latency_ms=17635.50
+2026-10-07 17:04:40,959 INFO chap11 agentic_rag repeat=3 sample=34 seconds=17.625 error=None
+2026-10-07 17:04:55,063 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 17:04:55,068 INFO chap11 original_rag repeat=3 sample=13 seconds=14.093 error=None
+2026-10-07 17:05:04,865 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:05:09,319 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:05:09,320 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 17:05:11,211 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:05:11,211 INFO Agent status=answered candidates=8 context_tokens=2333 latency_ms=16141.23
+2026-10-07 17:05:11,213 INFO chap11 agentic_rag repeat=3 sample=13 seconds=16.157 error=None
+2026-10-07 17:05:29,309 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 17:05:29,313 INFO chap11 original_rag repeat=3 sample=5 seconds=18.093 error=None
+2026-10-07 17:05:39,803 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:05:43,825 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:05:43,826 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 17:05:45,626 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:05:45,627 INFO Agent status=answered candidates=8 context_tokens=1912 latency_ms=16311.92
+2026-10-07 17:05:45,629 INFO chap11 agentic_rag repeat=3 sample=5 seconds=16.313 error=None
+2026-10-07 17:05:46,064 INFO chap11 original_rag repeat=3 sample=17 seconds=0.437 error=None
+2026-10-07 17:05:50,353 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:05:50,354 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 17:05:54,406 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:05:54,407 INFO Evidence selection: sources=[] sufficient=False
+2026-10-07 17:05:54,407 INFO Agent status=unanswerable candidates=8 context_tokens=2359 latency_ms=8340.96
+2026-10-07 17:05:54,420 INFO chap11 agentic_rag repeat=3 sample=17 seconds=8.360 error=None
+2026-10-07 17:05:54,871 INFO chap11 original_rag repeat=3 sample=9 seconds=0.453 error=None
+2026-10-07 17:05:58,028 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:06:02,234 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:06:02,235 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 17:06:05,316 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:06:05,328 INFO Ignoring product conflict without distinct named families
+2026-10-07 17:06:05,328 INFO Agent status=answered candidates=8 context_tokens=2338 latency_ms=10455.95
+2026-10-07 17:06:05,331 INFO chap11 agentic_rag repeat=3 sample=9 seconds=10.453 error=None
+2026-10-07 17:06:32,902 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 17:06:32,904 WARNING Invalid citations (); retrying generation once
+2026-10-07 17:06:56,290 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 17:06:56,296 INFO chap11 original_rag repeat=3 sample=15 seconds=50.969 error=None
+2026-10-07 17:07:06,462 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:07:10,425 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:07:10,426 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 17:07:14,097 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:07:14,097 INFO Ignoring product conflict without distinct named families
+2026-10-07 17:07:14,098 INFO Agent status=answered candidates=8 context_tokens=2049 latency_ms=17799.53
+2026-10-07 17:07:14,100 INFO chap11 agentic_rag repeat=3 sample=15 seconds=17.797 error=None
+2026-10-07 17:07:34,179 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 17:07:34,181 WARNING Invalid citations (); retrying generation once
+2026-10-07 17:08:11,202 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 17:08:11,218 INFO chap11 original_rag repeat=3 sample=28 seconds=57.109 error=None
+2026-10-07 17:08:22,751 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:08:27,183 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:08:27,184 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 17:08:29,399 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:08:29,400 INFO Agent status=answered candidates=8 context_tokens=2350 latency_ms=18179.52
+2026-10-07 17:08:29,402 INFO chap11 agentic_rag repeat=3 sample=28 seconds=18.187 error=None
+2026-10-07 17:08:44,150 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 17:08:44,153 INFO chap11 original_rag repeat=3 sample=2 seconds=14.750 error=None
+2026-10-07 17:08:53,994 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:08:58,172 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:08:58,172 INFO Evidence selection: sources=['S2'] sufficient=True
+2026-10-07 17:09:02,205 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:09:02,216 INFO Ignoring product conflict without distinct named families
+2026-10-07 17:09:02,218 INFO Agent status=answered candidates=8 context_tokens=2054 latency_ms=18061.37
+2026-10-07 17:09:02,220 INFO chap11 agentic_rag repeat=3 sample=2 seconds=18.063 error=None
+2026-10-07 17:09:25,075 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 17:09:25,077 WARNING Invalid citations (); retrying generation once
+2026-10-07 17:10:03,456 INFO HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-10-07 17:10:03,457 WARNING Citation repair failed with invalid IDs ()
+2026-10-07 17:10:03,461 INFO chap11 original_rag repeat=3 sample=18 seconds=61.234 error=None
+2026-10-07 17:10:15,460 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:10:15,460 WARNING Query rewrite failed validation or timed out; using safe fallback
+Traceback (most recent call last):
+  File "C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\agents\rag_agent\rewrite.py", line 98, in rewrite
+    raise ValueError("rewrite dropped a protected term")
+ValueError: rewrite dropped a protected term
+2026-10-07 17:10:20,263 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:10:20,264 INFO Evidence selection: sources=['S1'] sufficient=True
+2026-10-07 17:10:24,409 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 17:10:24,422 INFO Ignoring product conflict without distinct named families
+2026-10-07 17:10:24,422 INFO Agent status=answered candidates=8 context_tokens=2256 latency_ms=20959.45
+2026-10-07 17:10:24,424 INFO chap11 agentic_rag repeat=3 sample=18 seconds=20.953 error=None
+2026-10-07 19:10:58,508 INFO HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-07 19:10:58,585 INFO Agent status=unanswerable candidates=0 context_tokens=0 latency_ms=7234233.00

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="1.748" timestamp="2026-10-07T11:39:20.978088-07:00" hostname="szy"><testcase classname="" name="tests.project2.test_cache_identity" time="0.000"><error message="collection failure">ImportError while importing test module 'C:\Users\zacha\Documents\Ingestion Pipeline\enterprise-ai-agent\tests\project2\test_cache_identity.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\AppData\Local\Python\pythoncore-3.12-64\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\project2\test_cache_identity.py:11: in &lt;module&gt;
+    from agents.project2.cache_identity import authorization_scope, cache_context, embedding_key
+E   ModuleNotFoundError: No module named 'agents.project2.cache_identity'</error></testcase></testsuite></testsuites>

@@ -21,11 +21,17 @@ def test_stop_requires_actual_timeout_not_just_a_prose_claim():
     assert not classify_stop(read('gate.json'),response,read('recovery_accounting_evidence.json'))['machine_predicate']
 
 def test_current_report_discloses_failure_and_never_cites_invalid_agreement():
+    from project2_v033_report import generate
+    generate(ROOT)
     read=lambda name:json.loads((ROOT/name).read_text(encoding='utf-8'))
     report=read('audit/project2-v1/summary.json')
     page=(ROOT/'specs/project2/summary.md').read_text(encoding='utf-8')
-    assert report['s14_status']=='未通过' and report['stages'][1]['status']=='failed'
-    assert report['chap13_heldout_new_calls']==0 and report['heldout_stage_calls_project2']==1
+    # The stopped v032 proof remains failed after v033's separately authorized
+    # successful gate. Never substitute the mutable current-stage summary.
+    old_gate=read('audit/project2-v1/v032_chap13_gate.json')
+    old_heldout=read('evals/project2-v1/ch12/heldout_receipt.json')
+    assert report['s14_status']=='未通过' and old_gate['status']=='failed'
+    assert old_gate['heldout_new_calls']==0 and old_heldout['heldout_stage_calls_project2']==1
     assert report['scoring_status']=='待盲评' and report['agreement_quoted'] is False
     assert 'κ' not in page and '103/103' not in page
     assert len(page.splitlines())<=55

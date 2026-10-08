@@ -1,0 +1,157 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.90kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f
+#2 DONE 0.9s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 977B done
+#3 DONE 0.0s
+
+#4 [ 1/17] FROM docker.io/library/python@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f
+#4 resolve docker.io/library/python@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f 0.0s done
+#4 DONE 0.0s
+
+#5 [ 2/17] WORKDIR /app
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 48.17kB 0.0s done
+#6 DONE 0.1s
+
+#7 [ 3/17] COPY .container-wheelhouse /wheels
+#7 DONE 0.8s
+
+#8 [ 4/17] COPY containers/project2/runtime.requirements.txt /runtime.requirements.txt
+#8 DONE 0.1s
+
+#9 [ 5/17] RUN python -m pip install --no-index --find-links=/wheels -r /runtime.requirements.txt     && python -m pip check && rm -rf /wheels
+#9 1.648 Looking in links: /wheels
+#9 1.659 Processing /wheels/fastapi-0.142.2-py3-none-any.whl (from -r /runtime.requirements.txt (line 2))
+#9 1.670 Processing /wheels/uvicorn-0.54.0-py3-none-any.whl (from -r /runtime.requirements.txt (line 3))
+#9 1.674 Processing /wheels/pydantic-2.13.4-py3-none-any.whl (from -r /runtime.requirements.txt (line 4))
+#9 1.680 Processing /wheels/httpx-0.28.1-py3-none-any.whl (from -r /runtime.requirements.txt (line 5))
+#9 1.684 Processing /wheels/ijson-3.4.0.post0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from -r /runtime.requirements.txt (line 6))
+#9 1.688 Processing /wheels/qdrant_client-1.18.0-py3-none-any.whl (from -r /runtime.requirements.txt (line 7))
+#9 1.693 Processing /wheels/langchain_text_splitters-0.3.11-py3-none-any.whl (from -r /runtime.requirements.txt (line 8))
+#9 1.696 Processing /wheels/python_dotenv-1.2.2-py3-none-any.whl (from -r /runtime.requirements.txt (line 9))
+#9 1.699 Processing /wheels/pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from -r /runtime.requirements.txt (line 10))
+#9 1.702 Processing /wheels/numpy-2.5.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (from -r /runtime.requirements.txt (line 11))
+#9 1.723 Processing /wheels/faiss_cpu-1.15.1-cp310-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (from -r /runtime.requirements.txt (line 12))
+#9 1.738 Processing /wheels/transformers-4.57.6-py3-none-any.whl (from -r /runtime.requirements.txt (line 13))
+#9 1.922 Processing /wheels/torch-2.8.0+cpu-cp312-cp312-manylinux_2_28_x86_64.whl (from -r /runtime.requirements.txt (line 14))
+#9 2.121 Processing /wheels/pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (from -r /runtime.requirements.txt (line 15))
+#9 2.131 Processing /wheels/pymupdf-1.28.0-cp310-abi3-manylinux_2_28_x86_64.whl (from -r /runtime.requirements.txt (line 16))
+#9 2.150 Processing /wheels/pypdf-6.7.5-py3-none-any.whl (from -r /runtime.requirements.txt (line 17))
+#9 2.157 Processing /wheels/pytesseract-0.3.13-py3-none-any.whl (from -r /runtime.requirements.txt (line 18))
+#9 2.160 Processing /wheels/starlette-1.7.0-py3-none-any.whl (from fastapi==0.142.2->-r /runtime.requirements.txt (line 2))
+#9 2.164 Processing /wheels/typing_extensions-4.16.0-py3-none-any.whl (from fastapi==0.142.2->-r /runtime.requirements.txt (line 2))
+#9 2.166 Processing /wheels/typing_inspection-0.4.4-py3-none-any.whl (from fastapi==0.142.2->-r /runtime.requirements.txt (line 2))
+#9 2.169 Processing /wheels/annotated_doc-0.0.5-py3-none-any.whl (from fastapi==0.142.2->-r /runtime.requirements.txt (line 2))
+#9 2.171 Processing /wheels/opentelemetry_api-1.45.1-py3-none-any.whl (from fastapi==0.142.2->-r /runtime.requirements.txt (line 2))
+#9 2.175 Processing /wheels/click-8.5.0-py3-none-any.whl (from uvicorn==0.54.0->-r /runtime.requirements.txt (line 3))
+#9 2.177 Processing /wheels/h11-0.16.0-py3-none-any.whl (from uvicorn==0.54.0->-r /runtime.requirements.txt (line 3))
+#9 2.181 Processing /wheels/annotated_types-0.8.0-py3-none-any.whl (from pydantic==2.13.4->-r /runtime.requirements.txt (line 4))
+#9 2.184 Processing /wheels/pydantic_core-2.46.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from pydantic==2.13.4->-r /runtime.requirements.txt (line 4))
+#9 2.189 Processing /wheels/anyio-4.15.1-py3-none-any.whl (from httpx==0.28.1->-r /runtime.requirements.txt (line 5))
+#9 2.192 Processing /wheels/certifi-2026.7.22-py3-none-any.whl (from httpx==0.28.1->-r /runtime.requirements.txt (line 5))
+#9 2.195 Processing /wheels/httpcore-1.0.9-py3-none-any.whl (from httpx==0.28.1->-r /runtime.requirements.txt (line 5))
+#9 2.200 Processing /wheels/idna-3.20-py3-none-any.whl (from httpx==0.28.1->-r /runtime.requirements.txt (line 5))
+#9 2.206 Processing /wheels/grpcio-1.84.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (from qdrant-client==1.18.0->-r /runtime.requirements.txt (line 7))
+#9 2.214 Processing /wheels/portalocker-3.2.0-py3-none-any.whl (from qdrant-client==1.18.0->-r /runtime.requirements.txt (line 7))
+#9 2.218 Processing /wheels/protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (from qdrant-client==1.18.0->-r /runtime.requirements.txt (line 7))
+#9 2.221 Processing /wheels/urllib3-2.8.0-py3-none-any.whl (from qdrant-client==1.18.0->-r /runtime.requirements.txt (line 7))
+#9 2.227 Processing /wheels/langchain_core-1.6.7-py3-none-any.whl (from langchain-text-splitters==0.3.11->-r /runtime.requirements.txt (line 8))
+#9 2.233 Processing /wheels/packaging-26.3-py3-none-any.whl (from faiss-cpu==1.15.1->-r /runtime.requirements.txt (line 12))
+#9 2.240 Processing /wheels/filelock-4.0.12-py3-none-any.whl (from transformers==4.57.6->-r /runtime.requirements.txt (line 13))
+#9 2.243 Processing /wheels/huggingface_hub-0.36.2-py3-none-any.whl (from transformers==4.57.6->-r /runtime.requirements.txt (line 13))
+#9 2.269 Processing /wheels/regex-2026.9.29-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from transformers==4.57.6->-r /runtime.requirements.txt (line 13))
+#9 2.274 Processing /wheels/requests-2.34.2-py3-none-any.whl (from transformers==4.57.6->-r /runtime.requirements.txt (line 13))
+#9 2.277 Processing /wheels/tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from transformers==4.57.6->-r /runtime.requirements.txt (line 13))
+#9 2.283 Processing /wheels/safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from transformers==4.57.6->-r /runtime.requirements.txt (line 13))
+#9 2.291 Processing /wheels/tqdm-4.70.1-py3-none-any.whl (from transformers==4.57.6->-r /runtime.requirements.txt (line 13))
+#9 2.298 Processing /wheels/setuptools-84.0.0-py3-none-any.whl (from torch==2.8.0+cpu->-r /runtime.requirements.txt (line 14))
+#9 2.308 Processing /wheels/sympy-1.14.0-py3-none-any.whl (from torch==2.8.0+cpu->-r /runtime.requirements.txt (line 14))
+#9 2.322 Processing /wheels/networkx-3.7-py3-none-any.whl (from torch==2.8.0+cpu->-r /runtime.requirements.txt (line 14))
+#9 2.333 Processing /wheels/jinja2-3.1.6-py3-none-any.whl (from torch==2.8.0+cpu->-r /runtime.requirements.txt (line 14))
+#9 2.336 Processing /wheels/fsspec-2026.9.0-py3-none-any.whl (from torch==2.8.0+cpu->-r /runtime.requirements.txt (line 14))
+#9 2.372 Processing /wheels/h2-4.4.1-py3-none-any.whl (from httpx[http2]>=0.20.0->qdrant-client==1.18.0->-r /runtime.requirements.txt (line 7))
+#9 2.378 Processing /wheels/hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (from huggingface-hub<1.0,>=0.34.0->transformers==4.57.6->-r /runtime.requirements.txt (line 13))
+#9 2.388 Processing /wheels/jsonpatch-1.33-py2.py3-none-any.whl (from langchain-core<2.0.0,>=0.3.75->langchain-text-splitters==0.3.11->-r /runtime.requirements.txt (line 8))
+#9 2.390 Processing /wheels/langchain_protocol-0.0.19-py3-none-any.whl (from langchain-core<2.0.0,>=0.3.75->langchain-text-splitters==0.3.11->-r /runtime.requirements.txt (line 8))
+#9 2.393 Processing /wheels/langsmith-0.14.4-py3-none-any.whl (from langchain-core<2.0.0,>=0.3.75->langchain-text-splitters==0.3.11->-r /runtime.requirements.txt (line 8))
+#9 2.406 Processing /wheels/tenacity-9.2.1-py3-none-any.whl (from langchain-core<2.0.0,>=0.3.75->langchain-text-splitters==0.3.11->-r /runtime.requirements.txt (line 8))
+#9 2.409 Processing /wheels/uuid_utils-0.17.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from langchain-core<2.0.0,>=0.3.75->langchain-text-splitters==0.3.11->-r /runtime.requirements.txt (line 8))
+#9 2.428 Processing /wheels/mpmath-1.3.0-py3-none-any.whl (from sympy>=1.13.3->torch==2.8.0+cpu->-r /runtime.requirements.txt (line 14))
+#9 2.448 Processing /wheels/markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from jinja2->torch==2.8.0+cpu->-r /runtime.requirements.txt (line 14))
+#9 2.455 Processing /wheels/charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from requests->transformers==4.57.6->-r /runtime.requirements.txt (line 13))
+#9 2.466 Processing /wheels/hyperframe-6.1.0-py3-none-any.whl (from h2<5,>=3->httpx[http2]>=0.20.0->qdrant-client==1.18.0->-r /runtime.requirements.txt (line 7))
+#9 2.469 Processing /wheels/hpack-4.2.0-py3-none-any.whl (from h2<5,>=3->httpx[http2]>=0.20.0->qdrant-client==1.18.0->-r /runtime.requirements.txt (line 7))
+#9 2.476 Processing /wheels/jsonpointer-3.2.0-py3-none-any.whl (from jsonpatch<2.0.0,>=1.33.0->langchain-core<2.0.0,>=0.3.75->langchain-text-splitters==0.3.11->-r /runtime.requirements.txt (line 8))
+#9 2.485 Processing /wheels/distro-1.9.0-py3-none-any.whl (from langsmith<1.0.0,>=0.3.45->langchain-core<2.0.0,>=0.3.75->langchain-text-splitters==0.3.11->-r /runtime.requirements.txt (line 8))
+#9 2.488 Processing /wheels/httpx2-2.13.1-py3-none-any.whl (from langsmith<1.0.0,>=0.3.45->langchain-core<2.0.0,>=0.3.75->langchain-text-splitters==0.3.11->-r /runtime.requirements.txt (line 8))
+#9 2.493 Processing /wheels/orjson-3.13.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from langsmith<1.0.0,>=0.3.45->langchain-core<2.0.0,>=0.3.75->langchain-text-splitters==0.3.11->-r /runtime.requirements.txt (line 8))
+#9 2.499 Processing /wheels/requests_toolbelt-1.0.0-py2.py3-none-any.whl (from langsmith<1.0.0,>=0.3.45->langchain-core<2.0.0,>=0.3.75->langchain-text-splitters==0.3.11->-r /runtime.requirements.txt (line 8))
+#9 2.503 Processing /wheels/sniffio-1.3.1-py3-none-any.whl (from langsmith<1.0.0,>=0.3.45->langchain-core<2.0.0,>=0.3.75->langchain-text-splitters==0.3.11->-r /runtime.requirements.txt (line 8))
+#9 2.507 Processing /wheels/websockets-17.2-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (from langsmith<1.0.0,>=0.3.45->langchain-core<2.0.0,>=0.3.75->langchain-text-splitters==0.3.11->-r /runtime.requirements.txt (line 8))
+#9 2.511 Processing /wheels/xxhash-4.0.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from langsmith<1.0.0,>=0.3.45->langchain-core<2.0.0,>=0.3.75->langchain-text-splitters==0.3.11->-r /runtime.requirements.txt (line 8))
+#9 2.515 Processing /wheels/zstandard-0.25.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (from langsmith<1.0.0,>=0.3.45->langchain-core<2.0.0,>=0.3.75->langchain-text-splitters==0.3.11->-r /runtime.requirements.txt (line 8))
+#9 2.534 Processing /wheels/httpcore2-2.13.1-py3-none-any.whl (from httpx2<3,>=2->langsmith<1.0.0,>=0.3.45->langchain-core<2.0.0,>=0.3.75->langchain-text-splitters==0.3.11->-r /runtime.requirements.txt (line 8))
+#9 2.540 Processing /wheels/truststore-0.10.4-py3-none-any.whl (from httpx2<3,>=2->langsmith<1.0.0,>=0.3.45->langchain-core<2.0.0,>=0.3.75->langchain-text-splitters==0.3.11->-r /runtime.requirements.txt (line 8))
+#9 2.782 Installing collected packages: mpmath, zstandard, xxhash, websockets, uuid-utils, urllib3, typing-extensions, truststore, tqdm, tenacity, sympy, sniffio, setuptools, safetensors, regex, PyYAML, python-dotenv, pypdf, pymupdf, protobuf, portalocker, pillow, packaging, orjson, numpy, networkx, MarkupSafe, jsonpointer, ijson, idna, hyperframe, hpack, hf-xet, h11, fsspec, filelock, distro, click, charset_normalizer, certifi, annotated-types, annotated-doc, uvicorn, typing-inspection, requests, pytesseract, pydantic-core, opentelemetry-api, langchain-protocol, jsonpatch, jinja2, httpcore2, httpcore, h2, grpcio, faiss-cpu, anyio, torch, starlette, requests-toolbelt, pydantic, huggingface-hub, httpx2, httpx, tokenizers, langsmith, fastapi, transformers, qdrant-client, langchain-core, langchain-text-splitters
+#9 42.53 Successfully installed MarkupSafe-3.0.4 PyYAML-6.0.3 annotated-doc-0.0.5 annotated-types-0.8.0 anyio-4.15.1 certifi-2026.7.22 charset_normalizer-3.5.2 click-8.5.0 distro-1.9.0 faiss-cpu-1.15.1 fastapi-0.142.2 filelock-4.0.12 fsspec-2026.9.0 grpcio-1.84.0 h11-0.16.0 h2-4.4.1 hf-xet-1.7.0 hpack-4.2.0 httpcore-1.0.9 httpcore2-2.13.1 httpx-0.28.1 httpx2-2.13.1 huggingface-hub-0.36.2 hyperframe-6.1.0 idna-3.20 ijson-3.4.0.post0 jinja2-3.1.6 jsonpatch-1.33 jsonpointer-3.2.0 langchain-core-1.6.7 langchain-protocol-0.0.19 langchain-text-splitters-0.3.11 langsmith-0.14.4 mpmath-1.3.0 networkx-3.7 numpy-2.5.1 opentelemetry-api-1.45.1 orjson-3.13.0 packaging-26.3 pillow-12.3.0 portalocker-3.2.0 protobuf-7.36.2 pydantic-2.13.4 pydantic-core-2.46.4 pymupdf-1.28.0 pypdf-6.7.5 pytesseract-0.3.13 python-dotenv-1.2.2 qdrant-client-1.18.0 regex-2026.9.29 requests-2.34.2 requests-toolbelt-1.0.0 safetensors-0.8.0 setuptools-84.0.0 sniffio-1.3.1 starlette-1.7.0 sympy-1.14.0 tenacity-9.2.1 tokenizers-0.22.2 torch-2.8.0+cpu tqdm-4.70.1 transformers-4.57.6 truststore-0.10.4 typing-extensions-4.16.0 typing-inspection-0.4.4 urllib3-2.8.0 uuid-utils-0.17.1 uvicorn-0.54.0 websockets-17.2 xxhash-4.0.1 zstandard-0.25.0
+#9 42.53 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#9 43.62 No broken requirements found.
+#9 DONE 44.2s
+
+#10 [ 6/17] COPY src/rag /app/src/rag
+#10 DONE 0.3s
+
+#11 [ 7/17] COPY config /app/config
+#11 DONE 0.1s
+
+#12 [ 8/17] COPY enterprise-ai-agent/api /app/enterprise-ai-agent/api
+#12 DONE 0.1s
+
+#13 [ 9/17] COPY enterprise-ai-agent/agents /app/enterprise-ai-agent/agents
+#13 DONE 0.1s
+
+#14 [10/17] COPY enterprise-ai-agent/tools /app/enterprise-ai-agent/tools
+#14 DONE 0.1s
+
+#15 [11/17] COPY enterprise-ai-agent/models /app/enterprise-ai-agent/models
+#15 DONE 0.1s
+
+#16 [12/17] COPY enterprise-ai-agent/vectorstore /app/enterprise-ai-agent/vectorstore
+#16 DONE 0.1s
+
+#17 [13/17] COPY specs/project2 /app/specs/project2
+#17 DONE 0.2s
+
+#18 [14/17] COPY evals/protocol_v0/baseline_v0.config.json /app/evals/protocol_v0/baseline_v0.config.json
+#18 DONE 0.1s
+
+#19 [15/17] COPY evals/project2-v1/calibration_v031 /app/evals/project2-v1/calibration_v031
+#19 DONE 0.1s
+
+#20 [16/17] COPY evals/project2-v1/calibration_v03 /app/evals/project2-v1/calibration_v03
+#20 DONE 0.1s
+
+#21 [17/17] RUN mkdir -p /app/.rag_data/models /app/.rag_data/techqa_semantic /app/.rag_data/project2_runtime /app/.rag_data/rerank_cache /app/audit/project2-v1     && chown -R 10001:10001 /app/.rag_data /app/audit
+#21 DONE 0.2s
+
+#22 exporting to image
+#22 exporting layers
+#22 exporting layers 39.2s done
+#22 exporting manifest sha256:b0c756ebf6aa37e68dabf39832149c968f0f9810208616b95fb77bae9e970dc7 0.0s done
+#22 exporting config sha256:23421a4323f32fe42bfc5227eb9cab6b5dccf8499e88154c044a8cc239b18b6a 0.0s done
+#22 exporting attestation manifest sha256:efc1d61b588045d93a96b97395f6a3eb30a78a91e84fc345245c75d22ff2fe23 0.1s done
+#22 exporting manifest list sha256:16843d134268036cb26fc9f9b9f90f3a06770acb455135deaece97692fff50a1
+#22 exporting manifest list sha256:16843d134268036cb26fc9f9b9f90f3a06770acb455135deaece97692fff50a1 0.0s done
+#22 naming to docker.io/library/techqa-project2-course:local done
+#22 unpacking to docker.io/library/techqa-project2-course:local
+#22 unpacking to docker.io/library/techqa-project2-course:local 12.1s done
+#22 DONE 51.6s

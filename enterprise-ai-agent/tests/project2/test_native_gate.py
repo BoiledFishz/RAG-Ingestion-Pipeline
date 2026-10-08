@@ -8,12 +8,15 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 
 
-def test_real_completed_and_real_no_answer_are_both_demonstrated() -> None:
-    spec = importlib.util.spec_from_file_location("project2_native_gate", ROOT / "scripts/run_project2_native_gate.py")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    recorded = sorted((ROOT / "audit/project2-v1").glob("native_gate_round*.json"))
-    # Reuse immutable actual results; ordinary pytest must not consume another
-    # native gate/repair round. The original pass condition remains unchanged.
-    report = json.loads(recorded[-1].read_text(encoding="utf-8")) if recorded else module.run_gate(ROOT, repair_round=0)
+def test_approved_native_gate_preserves_failed_no_answer_quality_record() -> None:
+    # v03 explicitly replaced AC12-23 with state-consistency(a) and quality(b).
+    # The old failed native gate is retained, never relabelled as a success.
+    old=json.loads((ROOT/'audit/project2-v1/native_gate_round2.json').read_text(encoding='utf-8'))
+    assert old['status']=='failed' and 'AC12-23' in old['failure_items']
+    report=json.loads((ROOT/'audit/project2-v1/v031_native_gate_round1.json').read_text(encoding='utf-8'))
     assert report["status"] == "passed", report["failure_items"]
+    assert all(x['observed']==x['expected'] and x['status']=='passed' for x in report['checks'])
+    assert {'AC12-01','AC12-23(a)'}=={x['check'] for x in report['checks']}
+    assert report['n_quality']['metric_is_gate'] is False
+    assert report['n_quality']['numerator'] < report['n_quality']['denominator']
+    assert report['n_quality']['project2_claims_quality_improvement'] is False

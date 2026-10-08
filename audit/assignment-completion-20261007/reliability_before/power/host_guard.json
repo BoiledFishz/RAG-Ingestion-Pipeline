@@ -1,0 +1,20 @@
+{
+  "status": "released",
+  "host_suspended": false,
+  "gaps": [],
+  "failure": null,
+  "power_plugged": null,
+  "psutil_installed": false,
+  "calls": [
+    {
+      "flags": 2147483649,
+      "previous": 2147483648
+    },
+    {
+      "flags": 2147483648,
+      "previous": 2147483649
+    }
+  ],
+  "process_id": 33388,
+  "system_power_settings_changed": false
+}

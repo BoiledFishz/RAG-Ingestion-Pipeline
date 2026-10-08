@@ -1,47 +1,76 @@
-# Project 2 自动执行续跑记录
+# 作业必做缺口续跑记录
 
 {
-  "started_at": "2026-10-06T00:38:38.533183+00:00",
-  "base_commit": "74601e4a587ce70d6d9d82012bc5f42b42a0501d",
-  "branch": "codex/project2-ch13-v033",
-  "current_stage": "Chap13",
-  "execution_status": "in_progress",
-  "stop_reason": null,
+  "current_stage": "允许范围内作业验收结束",
+  "execution_status": "stopped_at_authorization_boundary",
+  "spec": "v0.3.4",
+  "engineering_gates": [
+    {
+      "chapter": 12,
+      "passed": 13,
+      "total": 13,
+      "status": "passed",
+      "evidence": {
+        "file": "audit/project2-v1/v031_chap12_gate.json",
+        "sha256": "4b61a4eb42e43b1a85b4902bdcb479db76627ba8478e76a4a099b98f213934ed",
+        "evidence_type": "真实运行/契约测试(Mock)/故障注入"
+      }
+    },
+    {
+      "chapter": 13,
+      "passed": 15,
+      "total": 15,
+      "status": "passed",
+      "evidence": {
+        "file": "audit/project2-v1/v033_chap13_gate.json",
+        "sha256": "9a7ec615523b4c2c911f0d658109b27d5deff9ebd8fa4a093b2bd2e5c497ded2",
+        "evidence_type": "真实运行/契约测试(Mock)/故障注入"
+      }
+    },
+    {
+      "chapter": 14,
+      "passed": 8,
+      "total": 8,
+      "status": "passed",
+      "evidence": {
+        "file": "audit/assignment-completion-20261007/container_gate_final/gate.json",
+        "sha256": "d4c09e7cad1497aeaac718d5ba6069f8e59c205352e0c5d6ab9c9bfd33194c31",
+        "evidence_type": "真实运行/契约测试(Mock)/故障注入"
+      }
+    },
+    {
+      "chapter": 15,
+      "passed": 5,
+      "total": 5,
+      "status": "passed",
+      "evidence": {
+        "file": "audit/assignment-completion-20261007/reliability_fault/gate.json",
+        "sha256": "68f3d0351953b581fcc8609a886a3bcf9f987dec8b84da933bfe4c51f9fddec6",
+        "evidence_type": "真实运行/契约测试(Mock)/故障注入"
+      }
+    }
+  ],
+  "assignment_counts": {
+    "⚠️": 2,
+    "✅": 45,
+    "❌": 6
+  },
+  "required_count": 53,
+  "remaining": [
+    "PRE-01",
+    "PRE-06",
+    "CLOUD-01",
+    "CLOUD-02",
+    "CLOUD-03",
+    "CLOUD-04",
+    "CLOUD-05",
+    "SUBMIT-01"
+  ],
+  "s14_status": "未通过",
+  "scoring_status": "待人工盲评；额外实验暂停",
   "heldout_stage_calls_project2": 2,
   "heldout_repetitions_project2": 6,
-  "resume_progress_previously_present": true,
-  "updated_at": "2026-10-07T05:15:05.886630+00:00",
-  "active_spec_version": "v0.3.3",
-  "repair_rounds": 0,
-  "previous_v02_repair_rounds": 2,
-  "v03_authorization_date": "2026-10-05",
-  "calibration_progress": 300,
-  "calibration_batch": 2,
-  "native_progress": {
-    "repair_round": 1,
-    "requests": 555,
-    "expected": 555,
-    "failed_observations": 0,
-    "records": "audit/project2-v1/v031_native_requests_round1.jsonl"
-  },
-  "continuation_authorization_sha256": "7de338451b14aa2da2951086b088116e28dd7f61675a91de5f9011b88fe44e0f",
-  "evaluation_progress": {
-    "qa-tune": {
-      "completed_slots": 117,
-      "expected_slots": 117,
-      "file": "evals/project2-v1/ch13_v033/qa-tune/requests.jsonl"
-    },
-    "business": {
-      "completed_slots": 150,
-      "expected_slots": 150,
-      "file": "evals/project2-v1/ch13_v033/business/requests.jsonl"
-    },
-    "qa-held-out": {
-      "completed_slots": 90,
-      "expected_slots": 90,
-      "file": "evals/project2-v1/ch13_v033/qa-held-out/requests.jsonl"
-    }
-  }
+  "new_heldout_calls": 0,
+  "stop_reason": "明确禁止云部署/push/PR；既有静态检查未通过，已披露。不修改冻结代码、不转入额外优化",
+  "evidence": "audit/assignment-completion-20261007/summary.final.json"
 }
-
-已通过/失败门禁见audit/project2-v1/summary.json。旧37.941秒结果保留，新90秒记录独立；S14未通过，不记Chap12完整通过。续跑先读本文件。held-out按已登记阶段一次，无重新选题。评分暂停，旧盲评包弃用，新包仅最终代码与确认性运行完成后导出。Chap16/远端/付费/安装/Fake Publish均不在范围。

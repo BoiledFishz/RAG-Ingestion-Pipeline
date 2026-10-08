@@ -1,0 +1,343 @@
+{
+  "mode": "chap11-original-rag-vs-agentic",
+  "partition": "tune",
+  "seed": 20261005,
+  "repeats": 3,
+  "tasks": [
+    {
+      "sample_id": "0",
+      "group_sha256": "d73c6fcb761a22ed38356fe552a2fd2873a6873fe6e8a3a217c0514df190c85a",
+      "body": {
+        "query": "Error TASK001X while upgrading Portal 8.0.0.1 to 8.0.0.1 CF14 during import-nodes sub-task"
+      },
+      "query_form": "explicit"
+    },
+    {
+      "sample_id": "1",
+      "group_sha256": "267e241d5fec85ada4a9edf11a6ed9b9a5b6cd07c8c62a89b30c8682bc0b3a35",
+      "body": {
+        "query": "Unable to open profile from P8 Content Engine Configuration manager (CMUI) on Redhat Linux 7.2, getting GPF and javacore dump.\nLaunch configmgr then try to open an existing profile. Once I click ok on the dialog box to\n\"Verify your application server setting before proceeding...\" Configuration manager would crash and GPF. I can see the javacore.txt and dmp file created.\nThe javacore.txt contains the following:\n\n0SECTION TITLE subcomponent dump routine NULL =============================== 1TICHARSET UTF-8 1TISIGINFO Dump Event \"gpf\" (00002000) received 1TIDATETIME Date: 2016/05/05 at 04:53:30 1TIFILENAME Javacore filename: /opt/IBM/FileNet/ContentEngine/tools/configure/javacore.20160505.045330.25035.0002.txt 1TIREQFLAGS Request Flags: 0x81 (exclusive+preempt) 1TIPREPSTATE Prep State: 0x100 (trace_disabled) 1TIPREPINFO Exclusive VM access not taken: data may not be consistent across javacore sections NULL ------------------------------------------------------------------------ 0SECTION GPINFO subcomponent dump routine NULL ================================ 2XHOSLEVEL OS Level : Linux 3.10.0-327.13.1.el7.x86_64 2XHCPUS Processors - 3XHCPUARCH Architecture : x86 3XHNUMCPUS How Many : 1 3XHNUMASUP NUMA is either not supported or has been disabled by user NULL\n1XHEXCPCODE J9Generic_Signal_Number: 00000004 1XHEXCPCODE Signal_Number: 0000000B 1XHEXCPCODE Error_Value: 00000000 1XHEXCPCODE Signal_Code: 00000080 1XHEXCPCODE Handler1: F72A2E6A 1XHEXCPCODE Handler2: F724D00A 1XHEXCPCODE InaccessibleAddress: 00000000 NULL\n1XHEXCPMODULE Module: /lib/libcairo.so.2 1XHEXCPMODULE Module_base_address: D55FC000\n\nThis is a Redhat Linux 7.2 environment with Content Platform Engine CPE 5.2.1.4."
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "2",
+      "group_sha256": "83d847855d66ef02e304feec0b3cbeac5439241dd3aadd24782bf80326855bdc",
+      "body": {
+        "query": "How can I export a private key from DataPower Gateway Appliance?\nIs it possible to export a private key from DataPower Gateway Appliance?"
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "3",
+      "group_sha256": "0169a879e5232a83418478825da3d24640c5c6b7dad538d4e270da135aa6d8f1",
+      "body": {
+        "query": "Why are some Datatypes corrupt after Impact cluster failover/failback ?\nRunning Impact 7.1.0.11. The symptom is whenever Impact does a failover, a couple DataTypes\nturn out empty.\n\nI've checked the type files before and after Impact failover and the difference happens in the property\n\n*.SQL.USERPARAMETERS\n\nThis property no longer exists for the corrupted datatypes\"."
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "4",
+      "group_sha256": "d615bdc67f14bf31e4e302d65f354ef4aa9a2a3823790ef0c9bad6bc1a57a142",
+      "body": {
+        "query": "Why is the test suite execution failing from Decision Center?\nWhen executing a test suite from Decision Center the run may fail with an error message similar to:\n XU client error.\n GBRXU0448E: Plugin error.\n Unable to retrieve the engine manager.\n The parsing of the ruleset failed Problem occurred loading translation: Error when translating parameter \"inputParameter\": Cannot translate class \"sample.InputParameter\".\n\nWhat can be causing this error?"
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "5",
+      "group_sha256": "c73ded6685d52049e9fac6f53c6ae1be85d64136a2567e66dbf6beeaf4189f89",
+      "body": {
+        "query": "Why does my upgrade to Portal 8001 CF14 fail with the following errors, ADMA5008E, ADMA0063E, ADMA5069E, WASX7017E?"
+      },
+      "query_form": "explicit"
+    },
+    {
+      "sample_id": "6",
+      "group_sha256": "4b4b5e31065a807d8c3a448420a4e81cc5b92cc2f31a23533fc9d48ea5eb07e5",
+      "body": {
+        "query": "Why Plug-in log file reports an error message after install & configure the WebSphere Plugin 8.5 version on a Apache 2.4 webserver.\nDuring web server start-up, errors like the following will be logged into the Plug-in log file (http_plugin.log):\n\nERROR: lib_security: loadSecurityLibrary: Failed to load gsk library from /opt/IBM/WebSphere/Plugins/gsk8/gsk8_64 ERROR: ws_transport: transportInitializeSecurity: Unable to load security library ERROR: ws_server: serverAddTransport: Failed to initialize security ERROR: ws_server: serverAddTransport: HTTPS Transport is skipped\n\nNote: This is after install & configure the WebSphere Plugin 8.5 version on a Apache 2.4 webserver  on a Linux platform"
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "7",
+      "group_sha256": "e66e1fbfa0b44993dcd89f77a8d24cc63f63f023f63ca8b192cd08e3cf77d848",
+      "body": {
+        "query": "Why is the reload() not clearing the attribute cache so I can see my newly updated LDAP data in real time?\nYou are leveraging the reload() functionality as described in the blog post:\n  https://www.ibm.com/developerworks/community/blogs/PortalL2Thoughts/entry/how_to_programatically_refresh_data_from_ldap64?lang=en\n\nto refresh the attribute cache after a change has been made to data within your LDAP. The purpose of this reload() is to update the data in real time on the Portal server. You discover that you are calling the reload(); however, the newly updated data is not immediately available to the application. How can this be fixed?"
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "8",
+      "group_sha256": "1e77ce9dec9f43b80bf56b02c76ede5bd7288d0bdbd39d88cf743b77b2fd4177",
+      "body": {
+        "query": "Help with Security Bulletin: Vulnerability in Diffie-Hellman ciphers affects IBM Image Construction and CompositionTool. (CVE-2015-4000)\nI need to understand details regarding \"Security Bulletin: Vulnerability in Diffie-Hellman ciphers affects IBM Image Construction and CompositionTool. (CVE-2015-4000\". Where can I find this information?"
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "9",
+      "group_sha256": "cccc581d8d21daf518ad10cf8c4611715e92a584112232dd840cb9ecb2693926",
+      "body": {
+        "query": "How to resolve DataPower firmware loading error % Loading firmware failed: Internal receive API error (3)?\nMessage % Loading firmware failed: Internal receive API error (3) was observed during firmware update. How do you resolve this issue?"
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "10",
+      "group_sha256": "11a6f38a878d3cb2aa03bc42a94841c695c02da565eea750ac3d7d4e7dbf2250",
+      "body": {
+        "query": "Help with Security Bulletin: Vulnerabilities in OpenSSL affect WebSphere MQ 5.3 for HP NonStop Server (CVE-2017-3735)\nI need to understand details regarding Security Bulletin: Vulnerabilities in OpenSSL affect WebSphere MQ 5.3 for HP NonStop Server (CVE-2017-3735). What  versions of the product are affected?"
+      },
+      "query_form": "explicit"
+    },
+    {
+      "sample_id": "11",
+      "group_sha256": "c04657eef6219b5977f3c6d765ee8dc8b7de3939d9d23c65e29cabfb64345d48",
+      "body": {
+        "query": "How do I change from shared to unshared connection?\nin WAS, how do I change from shared to unshared connection. I am seeing connections max out and take a long time to release."
+      },
+      "query_form": "explicit"
+    },
+    {
+      "sample_id": "12",
+      "group_sha256": "aea603a4dcf6eacdb1d075ba9fc13c29c96dba804df377ae996a5dfc4a89c17d",
+      "body": {
+        "query": "Invalid operation: result set is closed. ERRORCODE=-4470, SQLSTATE=null\nWhen using BPM, I see runtime exceptions saying that this SQL error occurs: Invalid operation: result set is closed. ERRORCODE=-4470, SQLSTATE=null\n\nFor example:\n\nCWLLG2015E: An unexpected runtime exception occurred. See exception for more details. Error: Wrapped com.lombardisoftware.core.TeamWorksRuntimeException:"
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "13",
+      "group_sha256": "c41b3e351dc3dc7f97adc2c2a00636254b2efbb859fa508840a2b9aaeebd526c",
+      "body": {
+        "query": "Can I disable RC4 cyphers in TIP?\nHow can one disable the RC4 cypers in Tivoli Integrated Portal?"
+      },
+      "query_form": "explicit"
+    },
+    {
+      "sample_id": "14",
+      "group_sha256": "5943072d704005209697888d18f74e01e7c6e2057e52d67ef197bff3e43ac16a",
+      "body": {
+        "query": "Help with Security Bulletin: WMB and IIB Toolkit cannot connect to a remote WMB broker or IIB node with a TLS-compliant cipher (CVE-2015-0118)\nI need to understand details regarding Security Bulletin: WebSphere Message Broker Toolkit and IBM Integration Toolkit cannot connect to a remote WebSphere Message Broker broker or IBM Integration Bus node with a TLS-compliant cipher (CVE-2015-0118). Where can I find this information?"
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "15",
+      "group_sha256": "c1633bc0820f1830510b084999861389ee1c97993701d69e578d1d422398b193",
+      "body": {
+        "query": "When should I use conversation sharing in DataPower MQ queue managers?\nMQ version 7.0 introduced a new feature, conversation sharing. Are there any special values on DataPower when configuring conversation sharing?"
+      },
+      "query_form": "explicit"
+    },
+    {
+      "sample_id": "16",
+      "group_sha256": "7620b55592e4e9f123669858262d80119a25192d9cffe69fcffe6c7a6acd402d",
+      "body": {
+        "query": "Does IBM DataPower Gateway Appliance support the HTTP CONNECT method?"
+      },
+      "query_form": "explicit"
+    },
+    {
+      "sample_id": "17",
+      "group_sha256": "7f8853c3907b4142503e289964f4931d680e33b8c69555a38145ba3825e396bc",
+      "body": {
+        "query": "Why the Editor for Messages logon page does not work?\nWe have Editor for Messages installed on a Windows server. Users are accessing the web UI from a terminal server session that has been replaced recently. Users cannot login anymore from the new environment.\n\nThe fails as follows : the Editor for Messages logon page loads but when the user wants to validate their user/password by clicking on the \"login\" button, nothing occurs."
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "18",
+      "group_sha256": "fdda6a683ef97e054412c09a312afeaf716b494982cf893a1904e196dd41cafb",
+      "body": {
+        "query": "Help with Security Bulletin: MQSISTOP/STARTMSGFLOW commands with unauthorized user succeed affects WMB and IIB (CVE-2015-5011)\nI need to understand details regarding Security Bulletin: MQSISTOP/STARTMSGFLOW commands with unauthorized user succeed affects IBM WebSphere Message Broker and IBM Integration Bus (CVE-2015-5011). Where can I find this information?"
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "19",
+      "group_sha256": "7348c1540a212c079b4c4e461bf21fbfd6e171a1e58378a67441cd0f718f629b",
+      "body": {
+        "query": "My SystemOut.log is overfilled by messages SECJ0371W (LTPA token expired). I am sick and tired of them. Can I disable them?"
+      },
+      "query_form": "explicit"
+    },
+    {
+      "sample_id": "20",
+      "group_sha256": "93751e2bb9914f8e9970b7f4cc52af8dbd2b8c8eeeff927d3ec4ba709644c5c7",
+      "body": {
+        "query": "MQSeries Events correlation\nHow are MQSeries Events cleared?"
+      },
+      "query_form": "explicit"
+    },
+    {
+      "sample_id": "21",
+      "group_sha256": "b7c2565197f2838f5e2936e0fca4a4b41ec595e29f619b425f1931abe0306acf",
+      "body": {
+        "query": "Help with Security Bulletin: Multiple vulnerabilities in IBM® Java SDK affect WebSphere Enterprise Service Bus (CVE-2015-2613)\nI would like to know details on how vulnerabilities in IBM Java SDK affect Websphere Application Server and in turn, Websphere Enterprise Service Bus product."
+      },
+      "query_form": "explicit"
+    },
+    {
+      "sample_id": "22",
+      "group_sha256": "2d29701335c58903242282400b2d67698145f4e873788be235339696d3505246",
+      "body": {
+        "query": "Deploying RuleRunner on a separate server\nHello everyone,\n\nI am trying to have a setup as follows:\n\nServer 1: Running Full Datacap Features\nServer 2: Running only the RuleRunner service\n\nI managed to deploy Server 1 successfully and all modules are working.\n\nOn Server 2, I installed the following:\nDatacap Client, Rulerunner, and connectors\n\nI updated the Application Manager on server 2 to point to \\\\server1\\Datacap\\datacap.xml\n\nI can successfully open that path from Server 2 using internet explorer.\n\nWhen I try to open any application such as TravelDocs using Datacap Deskstop from server 2, I receive the following error:\n\nUnable to connect to Datacap application TravelDocs.\n\nAny hints as to what the issue might be ?\n\nRegards"
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "23",
+      "group_sha256": "8a9c677a0da2ed60f7bbacf7d6682571cb4b2a0f6b67adb00f4bcaddc716c66f",
+      "body": {
+        "query": "Help with Security Bulletin: Security vulnerabilities have been identified in IBM DB2 shipped with WebSphere Remote Server (CVE-2015-2808)\nI need to understand details regarding Security Bulletin: Security vulnerabilities have been identified in IBM DB2 shipped with WebSphere Remote Server (CVE-2015-2808). Where can I find this information?"
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "24",
+      "group_sha256": "0e634c8781e34a4f579506396695b245395b70e3846d7a729c92b1b9d90b8592",
+      "body": {
+        "query": "Why do I receive the message, \"IKJ79154I INSTALLATION EXIT IKJEESX0 REQUESTED TERMINATION. \" for a TSO SEND command?\nIf you issue the TSO SEND command in a batch job and receive this message:\n\nIKJ79154I INSTALLATION EXIT IKJEESX0 REQUESTED TERMINATION.\nIKJ79154I REASON CODE X'00000004'."
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "25",
+      "group_sha256": "09c37c659693d1eab4f46f010651b14accf1200077df49e2689b506852385380",
+      "body": {
+        "query": "Security Bulletin: MQ Explorer directory created with owner '555' on Linux x86-64 vulnerability affects IBM MQ (CVE-2016-6089)\nI need to understand details regarding Security Bulletin: MQ Explorer directory created with owner '555' on Linux x86-64 vulnerability affects IBM MQ (CVE-2016-6089). Where can I find this information?"
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "26",
+      "group_sha256": "c3e974abecddc6cb7bb0f15f7ac80891ef8d45f846de3ffeb55d74304ceec527",
+      "body": {
+        "query": "How to start PC DMgr as a Windows service?\nhi all. I just installed BPM 8.5.0.1 Process Center on a Windows 2008 R2 cloud server. The default BPM85 typical installation installs ProcessCenter Quickstart web page for starting the Dmgr and NodeMgr servers using the installation admin user . However, logout stops the services started by and attached to the admin user. I need to have this ProcessCenter (and Deployment Env Process SErvers) BPM85 DMgr / Node/ WASND started as a managed Windows managed service. I didn't see a Service Definition page to select run as Windows service. Can I possibly run BPMConfig -start dmgrprofile as a Windows service or is a profile update to my dmgr (hope not) needed to do this?"
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "27",
+      "group_sha256": "6dabd077e3bb621b1c0ce7a36d55819a516838e89d9c883dd71def689c1fb67b",
+      "body": {
+        "query": "Improve Performance of Decision Center and Rule Team Server (RTS)\nHow can I improve the performance of ODM Decision Center and WebSphere ILOG Rule Team Server (RTS)?"
+      },
+      "query_form": "explicit"
+    },
+    {
+      "sample_id": "28",
+      "group_sha256": "eeb978e846dfe60894a0a29e21b9a1a03b474bd0db9c980b98c802597717ba8a",
+      "body": {
+        "query": "Security Bulletin: IBM MQ and IBM MQ Appliance Shared memory leak caused by MQ applications using dynamic queues (CVE-2017-1283)\nI need to understand details regarding Security Bulletin: IBM MQ and IBM MQ Appliance Shared memory leak caused by MQ applications using dynamic queues (CVE-2017-1283). Where can I find this information?"
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "29",
+      "group_sha256": "a3ee29850fe1f4517280919b7629e494dda003dc77831979aa80ab6905140b24",
+      "body": {
+        "query": "Unable to view batches in DotEdit\nHi all,\n\nIs there any limitation to view batches in Dot Edit client application, because I am unable to see batches with QID more than 1119.\n\nAlso unable to see batches with status as \"Pending\"."
+      },
+      "query_form": "explicit"
+    },
+    {
+      "sample_id": "30",
+      "group_sha256": "8d6ee4c37838b86726989d81b182fbba1665ca4f53977d4d0fdae13e6df0c1c7",
+      "body": {
+        "query": "Recurrent RES StaleConnectionException\nHow to prevent rule execution failing because of recurrent StaleConnectionException on ODM 8.8 Rule Execution Server?"
+      },
+      "query_form": "explicit"
+    },
+    {
+      "sample_id": "31",
+      "group_sha256": "e5822e3bb641e11e7051323aac8b469eefc20f096d754abeac702fff75cb63f7",
+      "body": {
+        "query": "Help with Security Bulletin: TLS padding vulnerability affects IBM PureApplication System (CVE-2014-8730)\nI need to understand details regarding \"Security Bulletin: TLS padding vulnerability affects IBM PureApplication System (CVE-2014-8730)\". Where can I find this information?"
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "32",
+      "group_sha256": "430916836c2e5a07ac68689d4848b3cc4c85f829b1ef2d9f67e4d856d5f10cb4",
+      "body": {
+        "query": "How to use the LIKE operator, wildcard and special characters in your IBM FileNet Content Platform Engine Sweep's Filter Expression?"
+      },
+      "query_form": "explicit"
+    },
+    {
+      "sample_id": "33",
+      "group_sha256": "7e219bc43a4422aa75b71cda0f64348b631c537c3393a314121fa386a706ec46",
+      "body": {
+        "query": "Help with Security Bulletin: The WebAdmin context for WMB V8 allows directory listings (CVE-2016-6080)\nI need to understand details regarding Security Bulletin: The WebAdmin context for WebSphere Message Broker Version 8 allows directory listings (CVE-2016-6080). Where can I find this information?\n  0"
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "34",
+      "group_sha256": "44b8c44e7f4c40ad4413853fd86c810347e141f32a09499794bbd772b569fb8e",
+      "body": {
+        "query": "Is WAS TE v7.0.0.41 available for RAD?\nIs WebSphere Application Server 7.0 Test Environment Extension (WTE) v 7.0.0.41 available for Rational Application Developer for WebSphere Software (RAD) ?"
+      },
+      "query_form": "explicit"
+    },
+    {
+      "sample_id": "35",
+      "group_sha256": "4462758f8ace96c4bd407ea3b886d535fb5452f197c5654a4928012bfbbef019",
+      "body": {
+        "query": "Why get SQL1227N when replay db2look output on DB2 V9.7 FP11?\nWhy get below SQL1227N when replay db2look output on DB2 V9.7 FP11?\n\n     -----\n     UPDATE SYSSTAT.COLUMNS SET COLCARD=4, NUMNULLS=1, SUB_COUNT=-1, SUB_DELIM_LENGTH=-1, \n     AVGCOLLENCHAR=7, HIGH2KEY='', LOW2KEY='        ', AVGCOLLEN=12 WHERE COLNAME = 'COL1' \n     AND TABNAME = 'TAB1' AND TABSCHEMA = 'DB2INST1'\n     DB21034E  The command was processed as an SQL statement because it was not a\n     valid Command Line Processor command.  During SQL processing it returned:\n     SQL1227N  The catalog statistic \"\" for column \"HIGH2KEY\" is out of range for\n     its target column, has an invalid format, or is inconsistent in relation to\n     some other statistic. Reason Code = \"3\".  SQLSTATE=23521\n     -----"
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "36",
+      "group_sha256": "0f889a25df3861760d57190f88ff72ce3be1c1a0def736b63df4f23b7ff6ede5",
+      "body": {
+        "query": "How to import a certificate in ITCAM for Data Power ?\nHow can I import a certificate in ITCAM for Data Power?"
+      },
+      "query_form": "explicit"
+    },
+    {
+      "sample_id": "37",
+      "group_sha256": "23a0f471cf174ab224f58c0225d65f72aa146449cb67c6918d5c76b48d000702",
+      "body": {
+        "query": "Error running krzgrant.sql script provided with 6.3.1.2-TIV-ITM_KRZ-IF0003.tar\nWhen running the krzgrant.sql script provided in the package - 6.3.1.2-TIV-ITM_KRZ-IF0003.tar get the following errors:\n\nERROR at line 1:\nORA-00942: table or view does not exist ORA-06512: at line 50 \n\nHow to correct this?"
+      },
+      "query_form": "context_or_rewrite"
+    },
+    {
+      "sample_id": "38",
+      "group_sha256": "460d5b89b8c006e9d634540d488c94180f2e6ffacb195ccf7e82a7849d0ecc1b",
+      "body": {
+        "query": "CQWEB  can\\'t retrieve repository dropdown list options in RedHat Linux, how to deal with it ?\nI setup a cq demo env in redhat linux with oracle database, CQ 7.1.2, LRKS 8.1.3,  Linux CQ client can login CQ as the following picture 1, but CQWEB login page can't retrieve the repository dropdown list options as the following picture 2.  I used cqreg to register CQ database:\n\ncqreg add_dbset -v ORACLE -s 192.168.0.84 -d ESBDB -u cqadmin -p cqadmin -dbset CQ_DEMO_ORACLE -co LOB_TYPE=CLOB -force\n\nWhat's matter for this happen?"
+      },
+      "query_form": "context_or_rewrite"
+    }
+  ],
+  "baseline_sha256": "6938224c85488fd9b59b032d02bacbf346068277180e8fa0f8f728a7ecb422d2",
+  "online_sources": {
+    "enterprise-ai-agent/agents/project2/batched_retrieval.py": "3ff8a21c3d5517bdfd36b9477f921f818161315867cadfa4b319d8bf3e8681f2",
+    "enterprise-ai-agent/agents/project2/budget.py": "ed2b1bd962b30cd3b6595e0e72e56c9ece624533e7b14c90dd49458ddfdf31d8",
+    "enterprise-ai-agent/agents/project2/budget_cache.py": "3c6b2df5ef15b93de82c8e9314722ead0624453ef06d56088cfe9e71411d8030",
+    "enterprise-ai-agent/agents/project2/cache_identity.py": "c9b0129fe3dee3ce426784c27ae3324eed5b393075d5b3654fe3604a9206da18",
+    "enterprise-ai-agent/agents/project2/calibration_profile.py": "6155c2f7f9b4f3e965e4cd24ed64d6b4d8826f5d5dffc652f25ab905b919f1f9",
+    "enterprise-ai-agent/agents/project2/container_cache.py": "56c7a16af21d3f04431561335999a9f81b3db17df8420984f8232e7fd261ea9e",
+    "enterprise-ai-agent/agents/project2/container_transport.py": "c69d93923885edcd7c48ecf3c90ba663069874f4d1a1c31e0285aebca8644990",
+    "enterprise-ai-agent/agents/project2/execution_clock.py": "ff750b7955bb6c941b859933eb38f4b839681d174f2fd7bc48b71d86ae746624",
+    "enterprise-ai-agent/agents/project2/observability.py": "1d4b591924aa3c4e2e0dd7c454e841cd5440508d7a46767d58a83ca974385fe3",
+    "enterprise-ai-agent/agents/project2/policy.py": "fadd908e8d68b66d690879ea0422e5dc14dc61a7bfde9d6300bc9a188857dcbc",
+    "enterprise-ai-agent/agents/project2/rag_process.py": "81af9c67b2f542ced0132c89784f7b8775785bca1df3e00e239767ad8ad1fb8a",
+    "enterprise-ai-agent/agents/project2/service_runtime.py": "95a8f3c8c88e2cf8c233978d1599ca5ecb8e7e6f7d6878ea65d95dd883a3600c",
+    "enterprise-ai-agent/agents/project2/startup_warmup.py": "6cd56a4af1d66190581b6ed6e8ba50ad13c3983960e2eb84f4a32509b2544178",
+    "enterprise-ai-agent/agents/project2/supervisor.py": "36233de48c7cec713c8a20c58d4b3414c8c21015600b62823cac5d78399bb8d2",
+    "enterprise-ai-agent/agents/project2/__init__.py": "399d4551fd117fa903406618e4dd12cfc263ee0cd896d1cdefdd79d219a1c10e"
+  },
+  "heldout_new_calls": 0,
+  "errors_remain_in_denominator": true,
+  "cost": null,
+  "token_counts": "provider observation when available; no fabricated totals",
+  "quality_limit": "body F1 is a proxy, not fact correctness; S14 unchanged"
+}

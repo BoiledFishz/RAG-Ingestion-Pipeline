@@ -1,0 +1,15 @@
+INFO:scripts.run_project2_container_gate:Chap14 clean_build: True
+INFO:httpx:HTTP Request: GET http://127.0.0.1:18012/healthz "HTTP/1.1 200 OK"
+INFO:scripts.run_project2_container_gate:Chap14 ready_after_full_warmup: True
+INFO:httpx:HTTP Request: POST http://127.0.0.1:18012/v2/project2/analysis "HTTP/1.1 200 OK"
+INFO:scripts.run_project2_container_gate:Chap14 real_combined_completed: True
+INFO:scripts.run_project2_container_gate:Chap14 independent_count_exact: True
+INFO:httpx:HTTP Request: POST http://127.0.0.1:18012/v2/project2/analysis "HTTP/1.1 422 Unprocessable Entity"
+INFO:scripts.run_project2_container_gate:Chap14 input_fault_located_in_logs: True
+INFO:scripts.run_project2_container_gate:Chap14 stop_retains_volume: True
+INFO:httpx:HTTP Request: GET http://127.0.0.1:18012/healthz "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET http://127.0.0.1:18012/v2/project2/runs/94892279aa04492ea48604f140b43386 "HTTP/1.1 200 OK"
+INFO:scripts.run_project2_container_gate:Chap14 same_run_state_after_restart: True
+INFO:httpx:HTTP Request: GET http://127.0.0.1:18012/v2/project2/runs/94892279aa04492ea48604f140b43386 "HTTP/1.1 403 Forbidden"
+INFO:scripts.run_project2_container_gate:Chap14 owner_isolation: True
+INFO:scripts.run_project2_container_gate:Chap14 gate=passed 8/8

@@ -74,7 +74,9 @@ def test_real_wrong_scope_fails_with_null() -> None:
 
 
 def test_attempt_17_and_llm_7_never_start() -> None:
-    budget = Budget()
+    # This historical case exercises the explicitly narrower 16-call cap.
+    # Current default 19/6 is independently checked by test_budget and v033.
+    budget = Budget(attempts=16)
     started = []
     for number in range(16):
         budget.reserve("db")
@@ -83,7 +85,7 @@ def test_attempt_17_and_llm_7_never_start() -> None:
         budget.reserve("db")
         started.append(16)
     assert len(started) == 16
-    model_budget = Budget()
+    model_budget = Budget(attempts=16)
     for _ in range(6):
         model_budget.reserve("llm")
     with pytest.raises(BudgetExceeded):
@@ -94,7 +96,7 @@ def test_attempt_17_and_llm_7_never_start() -> None:
 def test_direct_worker_cannot_bypass_budget_or_policy() -> None:
     sample = original_sample("P2-ENTITY-01")
     request = AnalysisRequest(query=sample["query"])
-    budget = Budget()
+    budget = Budget(attempts=16)
     for _ in range(16):
         budget.reserve("db")
     result = asyncio.run(DatabaseWorker(FULL).run(request, owner(), budget, "test-budget"))

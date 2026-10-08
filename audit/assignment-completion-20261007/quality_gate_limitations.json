@@ -1,0 +1,91 @@
+{
+  "quality_gates_passed": false,
+  "results": [
+    {
+      "name": "root_ruff",
+      "command": [
+        "C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\.venv312\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests",
+        "main.py",
+        "utils.py",
+        "test_pipeline.py"
+      ],
+      "exit_code": 1,
+      "evidence": "audit/assignment-completion-20261007/final_quality/root_ruff.log"
+    },
+    {
+      "name": "root_mypy",
+      "command": [
+        "C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\.venv312\\Scripts\\python.exe",
+        "-m",
+        "mypy"
+      ],
+      "exit_code": 0,
+      "evidence": "audit/assignment-completion-20261007/final_quality/root_mypy.log"
+    },
+    {
+      "name": "enterprise_ruff",
+      "command": [
+        "C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\.venv312\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "api",
+        "agents",
+        "tools",
+        "vectorstore",
+        "models",
+        "evaluation",
+        "tests"
+      ],
+      "exit_code": 1,
+      "evidence": "audit/assignment-completion-20261007/final_quality/enterprise_ruff.log"
+    },
+    {
+      "name": "enterprise_mypy",
+      "command": [
+        "C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\.venv312\\Scripts\\python.exe",
+        "-m",
+        "mypy"
+      ],
+      "exit_code": 2,
+      "evidence": "audit/assignment-completion-20261007/final_quality/enterprise_mypy.log"
+    },
+    {
+      "name": "agentic_ruff",
+      "command": [
+        "C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\.venv312\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "api",
+        "agents",
+        "tools",
+        "vectorstore",
+        "models",
+        "evaluation",
+        "tests"
+      ],
+      "exit_code": 0,
+      "evidence": "audit/assignment-completion-20261007/final_quality/agentic_ruff.log"
+    },
+    {
+      "name": "agentic_mypy",
+      "command": [
+        "C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\.venv312\\Scripts\\python.exe",
+        "-m",
+        "mypy"
+      ],
+      "exit_code": 0,
+      "evidence": "audit/assignment-completion-20261007/final_quality/agentic_mypy.log"
+    }
+  ],
+  "frozen_enterprise_config": false,
+  "type_failure": "Configured Python 3.11 checker cannot parse installed NumPy Python 3.12 Type statement",
+  "format_failure": "Existing Project 2 implementation and research/test formatting findings; no semantic failure is inferred from formatting",
+  "policy": "No suppression/exclusion or check weakening; no mass formatting or frozen source modification. PRE-01 remains partial and actual failures stay in submission limitations."
+}

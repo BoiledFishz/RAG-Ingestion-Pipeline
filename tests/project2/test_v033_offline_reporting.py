@@ -47,3 +47,17 @@ def test_current_chap13_trace_evidence_is_classified_check_by_check():
         assert all(item['evidence_type'] in {'真实运行', '故障注入', '契约测试(Mock)'}
                    for item in proof['check_evidence'])
         assert all((ROOT / item['evidence_file']).is_file() for item in proof['check_evidence'])
+
+
+def test_container_startup_failure_is_reported_as_a_prerequisite_failure():
+    import json
+    from project2_v033_report import generate
+
+    generate(ROOT)
+    report = json.loads((ROOT / 'audit/project2-v1/summary.json').read_text(encoding='utf-8'))
+    observed = json.loads((ROOT / 'audit/project2-v1/container_feasibility_after_start.json').read_text(encoding='utf-8'))
+    chapter = next(item for item in report['stages'] if item['stage'] == 'Chap14')
+    assert chapter['status'] == 'blocked'
+    assert chapter['gate_status'] == 'not_run'
+    assert report['stop_reason'] == observed['reason']
+    assert report['container_feasibility']['container_gate_executed'] is False

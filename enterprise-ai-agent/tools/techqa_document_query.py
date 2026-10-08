@@ -24,7 +24,8 @@ PLATFORM = re.compile(r"\bz\/OS\b|\b(?:Windows|Linux|AIX|UNIX|Solaris|macOS|Mac|
 # deliberately limited to a missing known entity, keeping existing predicates.
 COMPONENT = re.compile(r"\b(?:[A-Z]{2,12}|[A-Z][a-z]+(?:[A-Z][A-Za-z]*)+|[A-Z][a-z]+(?=\s+(?:(?:[Vv](?:ersion)?|Release)\s*)?\d))\b", re.ASCII)
 NON_COMPONENT = frozenset({"ERROR", "WARNING", "INFO", "ANSWER", "QUESTION", "HTTP", "HTTPS", "URL", "SQL", "XML", "IP", "ID", "QID", "SSL", "INSTALLATION", "EXIT", "REQUESTED", "TERMINATION", "REASON", "CODE", "API", "NET"})
-REQUEST_SLOTS_VERSION = "request-slots-v1.2-literal-version-adjacency"
+URL = re.compile(r"\b(?:[a-z][a-z0-9+.-]*://|www\.)\S+", re.I | re.ASCII)
+REQUEST_SLOTS_VERSION = "request-slots-v1.3-url-exclusion"
 LIMITATIONS = [
     "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
     "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
@@ -39,17 +40,21 @@ def query_groups(request: AnalysisRequest) -> list[list[str]]:
         if len(groups) != (2 if request.analysis_operation == "compare_document_counts" else 1):
             raise ValueError("clarification_required:predicate_group_count")
         return groups
-    entities = list(ENTITY.finditer(request.query))
+    # URL path/version fragments are source locations, not product slots.
+    # The length-preserving view retains every original span and leaves the
+    # actual request and RAG input byte-for-byte unchanged.
+    slot_text = URL.sub(lambda match: " " * len(match.group()), request.query)
+    entities = list(ENTITY.finditer(slot_text))
     if not entities:
-        entities = [match for match in COMPONENT.finditer(request.query)
+        entities = [match for match in COMPONENT.finditer(slot_text)
                     if match.group() not in NON_COMPONENT]
     if not entities:
         raise ValueError("clarification_required:entity")
     pairs: list[list[str]] = []
     for index, entity in enumerate(entities):
-        end = min(entity.end()+32, entities[index+1].start() if index+1 < len(entities) else len(request.query))
-        version = VERSION.search(request.query, entity.end(), end)
-        if version and not re.search(r"\b(?:IP|XML)\b", request.query[max(0, version.start()-15):version.start()], re.I):
+        end = min(entity.end()+32, entities[index+1].start() if index+1 < len(entities) else len(slot_text))
+        version = VERSION.search(slot_text, entity.end(), end)
+        if version and not re.search(r"\b(?:IP|XML)\b", slot_text[max(0, version.start()-15):version.start()], re.I):
             group = [entity.group(), version.group()]
             if tuple(x.casefold() for x in group) not in {tuple(x.casefold() for x in p) for p in pairs}:
                 pairs.append(group)
@@ -57,20 +62,20 @@ def query_groups(request: AnalysisRequest) -> list[list[str]]:
         if len(pairs) < 2:
             # A known product must not hide another literal component in the
             # same request. Preserve already valid pairs; no aliases or gold.
-            extras=[m for m in COMPONENT.finditer(request.query) if m.group() not in NON_COMPONENT
+            extras=[m for m in COMPONENT.finditer(slot_text) if m.group() not in NON_COMPONENT
                     and not any(m.start()<e.end() and e.start()<m.end() for e in entities)]
             expanded=sorted([*entities,*extras],key=lambda m:m.start())
             for index,entity in enumerate(expanded):
-                end=min(entity.end()+32,expanded[index+1].start() if index+1<len(expanded) else len(request.query))
-                version=VERSION.search(request.query,entity.end(),end)
-                if version and not re.search(r"\b(?:IP|XML)\b",request.query[max(0,version.start()-15):version.start()],re.I):
+                end=min(entity.end()+32,expanded[index+1].start() if index+1<len(expanded) else len(slot_text))
+                version=VERSION.search(slot_text,entity.end(),end)
+                if version and not re.search(r"\b(?:IP|XML)\b",slot_text[max(0,version.start()-15):version.start()],re.I):
                     group=[entity.group(),version.group()]
                     if tuple(x.casefold() for x in group) not in {tuple(x.casefold() for x in p) for p in pairs}:pairs.append(group)
             if len(pairs)<2:raise ValueError("clarification_required:two_entity_version_pairs")
         return pairs[:2]
     first = entities[0].group()
     group = next((p for p in pairs if p[0].casefold() == first.casefold()), [first])
-    platform = PLATFORM.search(request.query)
+    platform = PLATFORM.search(slot_text)
     return [[*group, platform.group()]] if platform else [group]
 
 

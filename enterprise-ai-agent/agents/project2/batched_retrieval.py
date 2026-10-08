@@ -17,6 +17,8 @@ from contextlib import closing
 from dataclasses import replace
 from typing import Any
 
+from agents.project2.cache_identity import current_identity, embedding_key
+
 from rag.retrieval.filters import FilterPolicy
 from rag.techqa.embedding_server import SemanticSearch
 from rag.techqa.index import TechQAIndex, tokens
@@ -25,9 +27,10 @@ from rag.techqa.retrieval import TechQAParentResolver, TechQAReranker, legacy_ch
 
 class BatchedIndex(TechQAIndex):
     def search(self, query: str, limit: int = 30) -> list[dict[str, Any]]:
-        key = query, limit
+        identity = current_identity()
+        key = json.dumps([identity, query]), limit
         with self._cache_lock:
-            if key in self._cache:
+            if identity is not None and key in self._cache:
                 self._cache.move_to_end(key)
                 return self._cache[key]
         terms = Counter(tokens(query))
@@ -43,6 +46,8 @@ class BatchedIndex(TechQAIndex):
             expression = " OR ".join('"'+term+'"' for term in chosen)
             rows = db.execute("SELECT d.doc_id,d.title,d.text,d.metadata,ranked.rank FROM (SELECT rowid,rank FROM search WHERE search MATCH ? AND rank MATCH 'bm25(3,1)' ORDER BY rank LIMIT ?) ranked JOIN docs d ON d.rowid=ranked.rowid ORDER BY ranked.rank", (expression, limit)).fetchall()
         result = [{**self._document(row), "bm25_score": -row[4], "rank": rank} for rank, row in enumerate(rows, 1)]
+        if identity is None:
+            return result
         with self._cache_lock:
             self._cache[key] = result
             if len(self._cache) > 128:
@@ -109,7 +114,11 @@ class BatchedSemanticSearch(SemanticSearch):
 
 class BatchedReranker(TechQAReranker):
     async def embeddings(self, texts: list[str]) -> list[list[float]]:
-        keys = [hashlib.sha256((self.embedder.model+":v1:"+text).encode()).hexdigest() for text in texts]
+        identity = current_identity()
+        if identity is None:
+            return await self.embedder.embed_documents(texts)
+        data_version, scope = identity
+        keys = [embedding_key(self.embedder.model, text, data_version, scope) for text in texts]
         self.cache.parent.mkdir(parents=True, exist_ok=True)
         with closing(sqlite3.connect(self.cache)) as db:
             # Inherits the actual existing cache, not a new result cache.

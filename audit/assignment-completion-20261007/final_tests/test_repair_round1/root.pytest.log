@@ -1,0 +1,76 @@
+............................................................FF.......... [ 32%]
+........................................................................ [ 65%]
+........................................................................ [ 98%]
+...                                                                      [100%]
+================================== FAILURES ===================================
+_______ test_current_chap13_trace_evidence_is_classified_check_by_check _______
+
+    def test_current_chap13_trace_evidence_is_classified_check_by_check():
+        import json
+        from project2_v033_report import generate
+    
+>       generate(ROOT)
+
+tests\project2\test_v033_offline_reporting.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\project2_v033_report.py:60: in generate
+    checks=m.validate(docs,root);(audit/'v033_docs_final.log').write_text('\n'.join(checks)+'\n',encoding='utf-8')
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Python\pythoncore-3.12-64\Lib\pathlib.py:1047: in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/audit/project2-v1/v033_docs_final.log')
+mode = 'w', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: [Errno 22] Invalid argument: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\audit\\project2-v1\\v033_docs_final.log'
+
+..\..\AppData\Local\Python\pythoncore-3.12-64\Lib\pathlib.py:1013: OSError
+____ test_container_startup_failure_is_reported_as_a_prerequisite_failure _____
+
+    def test_container_startup_failure_is_reported_as_a_prerequisite_failure():
+        import json
+        from project2_v033_report import generate
+    
+>       generate(ROOT)
+
+tests\project2\test_v033_offline_reporting.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\project2_v033_report.py:60: in generate
+    checks=m.validate(docs,root);(audit/'v033_docs_final.log').write_text('\n'.join(checks)+'\n',encoding='utf-8')
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Python\pythoncore-3.12-64\Lib\pathlib.py:1047: in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/zacha/Documents/Ingestion Pipeline/audit/project2-v1/v033_docs_final.log')
+mode = 'w', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: [Errno 22] Invalid argument: 'C:\\Users\\zacha\\Documents\\Ingestion Pipeline\\audit\\project2-v1\\v033_docs_final.log'
+
+..\..\AppData\Local\Python\pythoncore-3.12-64\Lib\pathlib.py:1013: OSError
+=========================== short test summary info ===========================
+FAILED tests/project2/test_v033_offline_reporting.py::test_current_chap13_trace_evidence_is_classified_check_by_check
+FAILED tests/project2/test_v033_offline_reporting.py::test_container_startup_failure_is_reported_as_a_prerequisite_failure

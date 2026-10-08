@@ -1,0 +1,51 @@
+{
+  "started_at": "2026-10-07T19:34:14.770227+00:00",
+  "kind": "existing project automated tests, not a golden-dataset evaluation",
+  "heldout_evaluation_started": false,
+  "projects": [
+    {
+      "project": "root",
+      "exit_code": 0,
+      "status": "passed",
+      "totals": {
+        "tests": 219,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "failure_checks": [],
+      "evidence_file": "audit/assignment-completion-20261007/root.junit.xml",
+      "log_file": "audit/assignment-completion-20261007/root.pytest.log"
+    },
+    {
+      "project": "enterprise",
+      "exit_code": 0,
+      "status": "passed",
+      "totals": {
+        "tests": 120,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "failure_checks": [],
+      "evidence_file": "audit/assignment-completion-20261007/enterprise.junit.xml",
+      "log_file": "audit/assignment-completion-20261007/enterprise.pytest.log"
+    },
+    {
+      "project": "agentic",
+      "exit_code": 0,
+      "status": "passed",
+      "totals": {
+        "tests": 59,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "failure_checks": [],
+      "evidence_file": "audit/assignment-completion-20261007/agentic.junit.xml",
+      "log_file": "audit/assignment-completion-20261007/agentic.pytest.log"
+    }
+  ],
+  "status": "passed",
+  "finished_at": "2026-10-07T19:38:43.891452+00:00"
+}

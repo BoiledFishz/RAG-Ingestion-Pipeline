@@ -13,6 +13,13 @@ htmlcov/
 .env
 .rag_data/
 .test_tmp/
+.container-wheelhouse/
+.container-secrets.env
+.container-cache-seed.sqlite
+audit/project2-course-completion-20261007/container_gate_round*/before_stop.json
+audit/project2-course-completion-20261007/container_gate_round*/after_restart.json
+audit/assignment-completion-20261007/container_gate_round*/before_stop.json
+audit/assignment-completion-20261007/container_gate_round*/after_restart.json
 dist/
 build/
 *.egg-info/

@@ -1,0 +1,162 @@
+[
+  {
+    "check": "injected_stale_legacy_entry_reproduced",
+    "observed": true,
+    "expected": true,
+    "status": "passed",
+    "evidence_type": "故障注入",
+    "detail": {
+      "stage": "reranker.embedding_cache",
+      "root_cause": "legacy key contains model/text only; no data or permission version",
+      "before_source_sha256": "b0853740d771e5da200b6394346e489d7328455899448834c21f8340361e5187",
+      "corpus_or_qa_changed": false
+    }
+  },
+  {
+    "check": "stale_entry_bypassed_and_actual_model_recovered",
+    "observed": true,
+    "expected": true,
+    "status": "passed",
+    "evidence_type": "故障注入",
+    "detail": {
+      "same_text_sha256": "85bd1013814e2b097d0e617643a01e7915391280da9df35b36993208326589f5",
+      "actual_http_embedding_calls": 1,
+      "vector_dimension": 768,
+      "same_condition_retest": true
+    }
+  },
+  {
+    "check": "cache_authorization_and_version_isolation",
+    "observed": true,
+    "expected": true,
+    "status": "passed",
+    "evidence_type": "真实运行",
+    "detail": {
+      "actual_embedding_calls": 3,
+      "changed_metadata_is_fault_injection": true,
+      "same_scope_hit": true,
+      "model": "nomic-embed-text",
+      "data_version": "ec657740c443f8ef6dde72cf5695375da97567aaa6ef5a9988d1061291934e38"
+    }
+  },
+  {
+    "check": "dependency_N_plus_1_not_started",
+    "observed": true,
+    "expected": true,
+    "status": "passed",
+    "evidence_type": "故障注入",
+    "detail": {
+      "attempts": 19,
+      "llm_calls": 0,
+      "attempts_by_kind": {
+        "db": 19
+      },
+      "absolute_deadline": 1791400800.086148,
+      "observed_tokens": null,
+      "estimated_tokens": null,
+      "cost": null
+    }
+  },
+  {
+    "check": "real_database_partial_preserves_null_not_zero",
+    "observed": true,
+    "expected": true,
+    "status": "passed",
+    "evidence_type": "故障注入",
+    "detail": {
+      "contract_version": "project2-v1",
+      "run_id": "fault-readonly",
+      "task_id": "techqa_document_query",
+      "worker": "database",
+      "status": "partial",
+      "payload": {
+        "groups": [
+          {
+            "predicate": [
+              "MQ",
+              "9.0"
+            ],
+            "count": 1413,
+            "samples": [
+              {
+                "doc_id": "ibm10716113",
+                "title": "IBM Security Bulletin: Invalid user group vulnerability in IBM MQ on Unix platform(CVE-2018-1551) - United States"
+              },
+              {
+                "doc_id": "ibm10716253",
+                "title": "IBM Product readme for IBM MQ Appliance V9.1 and its maintenance - United States"
+              },
+              {
+                "doc_id": "ibm10717517",
+                "title": "IBM Security Bulletin: IBM MQ Appliance affected by an OpenSSL vulnerability (CVE-2018-0739) - United States"
+              },
+              {
+                "doc_id": "ibm10717929",
+                "title": "IBM Security Bulletin: IBM MQ Appliance is affected by a kernel vulnerability (CVE-2014-2523) - United States"
+              },
+              {
+                "doc_id": "ibm10718583",
+                "title": "IBM: z/VSE - Service and support - RSL - PTFs 520O - United States"
+              }
+            ]
+          },
+          {
+            "predicate": [
+              "MQ",
+              "8.5"
+            ],
+            "count": null,
+            "samples": []
+          }
+        ],
+        "intersection": null,
+        "delta_a_minus_b": null,
+        "measurement_complete": false,
+        "unit": "original_document",
+        "data_version": {
+          "scope": "full",
+          "document_count": "801996",
+          "complete": "true",
+          "source_archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+          "format_version": "1"
+        },
+        "rules_version": "techqa-fts-predicate-v1",
+        "request_slots_version": "request-slots-v1.3-url-exclusion",
+        "operation": "compare_document_counts"
+      },
+      "evidence": [
+        {
+          "source_id": "Q1",
+          "predicate": [
+            "MQ",
+            "9.0"
+          ],
+          "count": 1413,
+          "scope": "full",
+          "measurement_complete": true
+        }
+      ],
+      "limitations": [
+        "文档数是词项匹配的知识库覆盖计数，不是工单量、故障率、用户数、产品使用量或销售指标。",
+        "包含产品/版本词项不证明该版本受支持、受影响或适用于用户；技术适用性由RAG依据原文解释。",
+        "同一文档可命中两个比较组；tokenizer的词干和标点处理可能扩大字面匹配。",
+        "统计只覆盖明确授权的数据快照；示例文档为有限行，不代表完整清单。"
+      ],
+      "error": {
+        "category": "injected_database_group_timeout",
+        "retryable": false
+      },
+      "usage": {
+        "attempts": 5,
+        "llm_calls": 0,
+        "attempts_by_kind": {
+          "db": 5
+        },
+        "absolute_deadline": 1791400800.5332568,
+        "observed_tokens": null,
+        "estimated_tokens": null,
+        "cost": null
+      }
+    }
+  }
+]

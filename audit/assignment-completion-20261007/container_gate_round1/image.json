@@ -1,0 +1,101 @@
+[
+    {
+        "Id": "sha256:65de41b37838361c6658dffac118c9b9fb606654a1ba631982b549a4db24ed7d",
+        "RepoTags": [
+            "techqa-project2-course:local"
+        ],
+        "RepoDigests": [
+            "techqa-project2-course@sha256:65de41b37838361c6658dffac118c9b9fb606654a1ba631982b549a4db24ed7d"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-10-08T02:11:58.206087738Z",
+        "Config": {
+            "User": "10001:10001",
+            "ExposedPorts": {
+                "8000/tcp": {}
+            },
+            "Env": [
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+                "PYTHON_VERSION=3.12.15",
+                "PYTHON_SHA256=c2c4321961fab0fb999d66e0cecf521c2ab3994c7992873ea99e306c1094fd5a",
+                "PYTHONUNBUFFERED=1",
+                "PYTHONUTF8=1",
+                "PYTHONDONTWRITEBYTECODE=1",
+                "PYTHONPATH=/app/src:/app/enterprise-ai-agent",
+                "HF_HUB_OFFLINE=1",
+                "TRANSFORMERS_OFFLINE=1",
+                "TECHQA_QUERY_DEVICE=cpu",
+                "PROJECT2_STATE_DIRECTORY=/app/.rag_data/project2_runtime",
+                "PROJECT2_RERANK_CACHE=/app/.rag_data/rerank_cache/cache.sqlite"
+            ],
+            "Cmd": [
+                "python",
+                "-m",
+                "uvicorn",
+                "api.project2_container_main:app",
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "8000"
+            ],
+            "WorkingDir": "/app",
+            "ArgsEscaped": true,
+            "Healthcheck": {
+                "Test": [
+                    "CMD-SHELL",
+                    "python -c \"import urllib.request,json; assert json.load(urllib.request.urlopen('http://127.0.0.1:8000/healthz',timeout=2))['ready']\""
+                ],
+                "Interval": 10000000000,
+                "Timeout": 3000000000,
+                "StartPeriod": 180000000000
+            }
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 716897105,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:15f1c8eb1ab18eae260c7fb6296434cbe1ff0e1e30fd814ae92a80dd54005e62",
+                "sha256:e1fa2746ad6d51e7de9171dfcbb1fe93d01d51c5d8d3623e0c3b223076dc5d23",
+                "sha256:b361fa3b97940ee89a1aab8fde1027e47ab2c2e700ca2f8d5988ad2c64386e5c",
+                "sha256:dca2a125b4903477bcb42084172cfc98865299810620ffd617bf6e12dd83d89f",
+                "sha256:055ae3712d53cddb0bd3e21e30171042a684c188dafc5335b4c7f2834219f30a",
+                "sha256:81bc9adb0510eedff33e80f5b5415541b0d9e85c04531df067dbb98a7d1cd34a",
+                "sha256:9cac971cc830cb49712f8e4935f799aa8ecebef41f0c781490e24714727af51a",
+                "sha256:4f549eb5c7fd97c295fac22aa87e4c88d515a19baacce7d615490d850871b652",
+                "sha256:acea294d501da028338392942e4a9c80435bf939daf04ace911592b3e9122ea2",
+                "sha256:86c3e5a0082f9103e370f559ea65071f1705422aa0e3c4d63cf8ab145dd9ea77",
+                "sha256:c44dec56cfcf253b67a545b7511753488efcc26bd8965cd26d9c59908bee88df",
+                "sha256:8795983d4cfc368dc23d77ffe582832b10bb2000a7f38086405e719eb164c8f1",
+                "sha256:c567fe6db4cd41c8211ce7e23c4a5e28df50582c4dd5a328099a95acd081f628",
+                "sha256:e213c5f7fc6f0f5c3f876cebfece8041a41430da14b92d769279c791847dc88d",
+                "sha256:4f5d214de4116dea3fc94515a34287ab1ebf12e854541ebeda5ad48dd0f66899",
+                "sha256:a95d7aa5d4f67a73e857601659d84a2533ae4d84e8d0ef2ce256b9a67e57acdb",
+                "sha256:cbdf3d3a144f3ab58c832d06a718e013d1e69f158ead3cec1b74e9cff43088b7",
+                "sha256:bcfb95162011acce39916e8fc8d83983dbb5fe86576d922a4be2832c93bce97e",
+                "sha256:258064736aec77c4a3c6c591199a36da5f2df83e586b8677389324a144b555af",
+                "sha256:efe19941961a89d52bb784b52b619f9c23b17493a56b7ed4f20e02f25f667e11"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-10-08T02:12:34.408132266Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:65de41b37838361c6658dffac118c9b9fb606654a1ba631982b549a4db24ed7d",
+            "size": 856
+        },
+        "Identity": {
+            "Build": [
+                {
+                    "Ref": "wjp9igvf59rx9be0kmxr4osud",
+                    "CreatedAt": "2026-10-08T02:12:46.249707086Z"
+                }
+            ]
+        }
+    }
+]
+

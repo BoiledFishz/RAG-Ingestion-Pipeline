@@ -1,0 +1,3654 @@
+{
+  "requests": 234,
+  "independent_tasks": 39,
+  "repeats": 3,
+  "partition": "tune",
+  "heldout_new_calls": 0,
+  "metrics": {},
+  "failures": [
+    {
+      "sample_id": "25",
+      "system": "original_rag",
+      "repeat": 1,
+      "error": "ReadTimeout: "
+    },
+    {
+      "sample_id": "25",
+      "system": "agentic_rag",
+      "repeat": 1,
+      "error": "DependencyUnavailable: Ollama structured generation failed"
+    },
+    {
+      "sample_id": "27",
+      "system": "original_rag",
+      "repeat": 1,
+      "error": "ReadTimeout: "
+    },
+    {
+      "sample_id": "27",
+      "system": "agentic_rag",
+      "repeat": 1,
+      "error": "DependencyUnavailable: Ollama structured generation failed"
+    }
+  ],
+  "plan_sha256": "d1c54f4998c8719d897e59abb19f32ae0c8422328e7ee4b9704c1719dfc574be",
+  "records_sha256": "826a48142d7d92e6d0692a2197abcbff8e7eb595221042111264d8dd8e70c18b",
+  "superiority_claim": false,
+  "cost": null,
+  "cost_reason": "local models; monetary price and full token usage not observed",
+  "s14_status": "未通过",
+  "scope": "仅 tune/对照集，非 held-out 验证",
+  "systems": {
+    "original_rag": {
+      "worker_failure": {
+        "mean": 0.017094017094017092,
+        "range": [
+          0.0,
+          0.05128205128205128
+        ],
+        "numerator": 2.0,
+        "denominator": 117,
+        "independent_query_groups": 39,
+        "ci95": [
+          0.0,
+          0.16885640047613612
+        ],
+        "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 2.0,
+            "denominator": 39,
+            "value": 0.05128205128205128,
+            "ci95": [
+              0.014177955415274113,
+              0.16885640047613612
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 2,
+            "numerator": 0.0,
+            "denominator": 39,
+            "value": 0.0,
+            "ci95": [
+              0.0,
+              0.08966685370757144
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 3,
+            "numerator": 0.0,
+            "denominator": 39,
+            "value": 0.0,
+            "ci95": [
+              0.0,
+              0.08966685370757144
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "citation_valid": {
+        "mean": 0.8817204301075269,
+        "range": [
+          0.8387096774193549,
+          0.9032258064516129
+        ],
+        "numerator": 82.0,
+        "denominator": 93,
+        "independent_query_groups": 31,
+        "ci95": [
+          0.6736564604120674,
+          0.9665353558368026
+        ],
+        "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 26.0,
+            "denominator": 31,
+            "value": 0.8387096774193549,
+            "ci95": [
+              0.6736564604120674,
+              0.9290737555663471
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 2,
+            "numerator": 28.0,
+            "denominator": 31,
+            "value": 0.9032258064516129,
+            "ci95": [
+              0.7510006155660716,
+              0.9665353558368026
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 3,
+            "numerator": 28.0,
+            "denominator": 31,
+            "value": 0.9032258064516129,
+            "ci95": [
+              0.7510006155660716,
+              0.9665353558368026
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "target_cited": {
+        "mean": 0.3103448275862069,
+        "range": [
+          0.3103448275862069,
+          0.3103448275862069
+        ],
+        "numerator": 27.0,
+        "denominator": 87,
+        "independent_query_groups": 29,
+        "ci95": [
+          0.17275616744483216,
+          0.4923013423309317
+        ],
+        "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 9.0,
+            "denominator": 29,
+            "value": 0.3103448275862069,
+            "ci95": [
+              0.17275616744483216,
+              0.4923013423309317
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 2,
+            "numerator": 9.0,
+            "denominator": 29,
+            "value": 0.3103448275862069,
+            "ci95": [
+              0.17275616744483216,
+              0.4923013423309317
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 3,
+            "numerator": 9.0,
+            "denominator": 29,
+            "value": 0.3103448275862069,
+            "ci95": [
+              0.17275616744483216,
+              0.4923013423309317
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "n_refusal": {
+        "mean": 0.3,
+        "range": [
+          0.3,
+          0.3
+        ],
+        "numerator": 9.0,
+        "denominator": 30,
+        "independent_query_groups": 10,
+        "ci95": [
+          0.10779126740630099,
+          0.6032218525388546
+        ],
+        "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 3.0,
+            "denominator": 10,
+            "value": 0.3,
+            "ci95": [
+              0.10779126740630099,
+              0.6032218525388546
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 2,
+            "numerator": 3.0,
+            "denominator": 10,
+            "value": 0.3,
+            "ci95": [
+              0.10779126740630099,
+              0.6032218525388546
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 3,
+            "numerator": 3.0,
+            "denominator": 10,
+            "value": 0.3,
+            "ci95": [
+              0.10779126740630099,
+              0.6032218525388546
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "body_f1": {
+        "mean": 0.19279180066921123,
+        "range": [
+          0.19279180066921123,
+          0.19279180066921123
+        ],
+        "numerator": 16.772886658221378,
+        "denominator": 87,
+        "independent_query_groups": 29,
+        "ci95": [
+          0.12621872256024477,
+          0.266860841994057
+        ],
+        "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 5.590962219407126,
+            "denominator": 29,
+            "value": 0.19279180066921123
+          },
+          {
+            "repeat": 2,
+            "numerator": 5.590962219407126,
+            "denominator": 29,
+            "value": 0.19279180066921123
+          },
+          {
+            "repeat": 3,
+            "numerator": 5.590962219407126,
+            "denominator": 29,
+            "value": 0.19279180066921123
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "elapsed_seconds": {
+        "mean": 36.42877777777763,
+        "range": [
+          32.018307692307594,
+          44.55443589743542
+        ],
+        "numerator": 4262.166999999983,
+        "denominator": 117,
+        "independent_query_groups": 39,
+        "ci95": [
+          27.55101709401707,
+          45.96108547008516
+        ],
+        "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 1737.6229999999814,
+            "denominator": 39,
+            "value": 44.55443589743542
+          },
+          {
+            "repeat": 2,
+            "numerator": 1275.8300000000054,
+            "denominator": 39,
+            "value": 32.71358974358988
+          },
+          {
+            "repeat": 3,
+            "numerator": 1248.7139999999963,
+            "denominator": 39,
+            "value": 32.018307692307594
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "llm_calls": {
+        "mean": 1.2649572649572651,
+        "range": [
+          1.2307692307692308,
+          1.2820512820512822
+        ],
+        "numerator": 148.0,
+        "denominator": 117,
+        "independent_query_groups": 39,
+        "ci95": [
+          1.0256410256410255,
+          1.5128205128205128
+        ],
+        "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 48.0,
+            "denominator": 39,
+            "value": 1.2307692307692308
+          },
+          {
+            "repeat": 2,
+            "numerator": 50.0,
+            "denominator": 39,
+            "value": 1.2820512820512822
+          },
+          {
+            "repeat": 3,
+            "numerator": 50.0,
+            "denominator": 39,
+            "value": 1.2820512820512822
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "embedding_calls": {
+        "mean": 0.0,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "numerator": 0.0,
+        "denominator": 117,
+        "independent_query_groups": 39,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 0.0,
+            "denominator": 39,
+            "value": 0.0
+          },
+          {
+            "repeat": 2,
+            "numerator": 0.0,
+            "denominator": 39,
+            "value": 0.0
+          },
+          {
+            "repeat": 3,
+            "numerator": 0.0,
+            "denominator": 39,
+            "value": 0.0
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "calls": {
+        "mean": 1.2649572649572651,
+        "range": [
+          1.2307692307692308,
+          1.2820512820512822
+        ],
+        "numerator": 148.0,
+        "denominator": 117,
+        "independent_query_groups": 39,
+        "ci95": [
+          1.0256410256410255,
+          1.5128205128205128
+        ],
+        "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 48.0,
+            "denominator": 39,
+            "value": 1.2307692307692308
+          },
+          {
+            "repeat": 2,
+            "numerator": 50.0,
+            "denominator": 39,
+            "value": 1.2820512820512822
+          },
+          {
+            "repeat": 3,
+            "numerator": 50.0,
+            "denominator": 39,
+            "value": 1.2820512820512822
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "retrieval_recall5": {
+        "mean": 0.5517241379310345,
+        "range": [
+          0.5517241379310345,
+          0.5517241379310345
+        ],
+        "numerator": 48.0,
+        "denominator": 87,
+        "independent_query_groups": 29,
+        "ci95": [
+          0.37547963210970914,
+          0.7158683197696281
+        ],
+        "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 16.0,
+            "denominator": 29,
+            "value": 0.5517241379310345,
+            "ci95": [
+              0.37547963210970914,
+              0.7158683197696281
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 2,
+            "numerator": 16.0,
+            "denominator": 29,
+            "value": 0.5517241379310345,
+            "ci95": [
+              0.37547963210970914,
+              0.7158683197696281
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 3,
+            "numerator": 16.0,
+            "denominator": 29,
+            "value": 0.5517241379310345,
+            "ci95": [
+              0.37547963210970914,
+              0.7158683197696281
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "retrieval_mrr": {
+        "mean": 0.4235632183908046,
+        "range": [
+          0.4235632183908046,
+          0.4235632183908046
+        ],
+        "numerator": 36.85,
+        "denominator": 87,
+        "independent_query_groups": 29,
+        "ci95": [
+          0.26264367816091955,
+          0.5862068965517241
+        ],
+        "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 12.283333333333333,
+            "denominator": 29,
+            "value": 0.4235632183908046
+          },
+          {
+            "repeat": 2,
+            "numerator": 12.283333333333333,
+            "denominator": 29,
+            "value": 0.4235632183908046
+          },
+          {
+            "repeat": 3,
+            "numerator": 12.283333333333333,
+            "denominator": 29,
+            "value": 0.4235632183908046
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "observed_tokens": {
+        "mean": null,
+        "range": null,
+        "numerator": 0,
+        "denominator": 0,
+        "independent_query_groups": 0,
+        "ci95": null,
+        "interpretation": "仅描述，不作结论",
+        "reason": "no eligible observations"
+      },
+      "output_validation_failure": {
+        "mean": 0.07692307692307693,
+        "range": [
+          0.07692307692307693,
+          0.07692307692307693
+        ],
+        "numerator": 9.0,
+        "denominator": 117,
+        "independent_query_groups": 39,
+        "ci95": [
+          0.02650739530377974,
+          0.20321071167954996
+        ],
+        "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 3.0,
+            "denominator": 39,
+            "value": 0.07692307692307693,
+            "ci95": [
+              0.02650739530377974,
+              0.20321071167954996
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 2,
+            "numerator": 3.0,
+            "denominator": 39,
+            "value": 0.07692307692307693,
+            "ci95": [
+              0.02650739530377974,
+              0.20321071167954996
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 3,
+            "numerator": 3.0,
+            "denominator": 39,
+            "value": 0.07692307692307693,
+            "ci95": [
+              0.02650739530377974,
+              0.20321071167954996
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      }
+    },
+    "agentic_rag": {
+      "worker_failure": {
+        "mean": 0.017094017094017092,
+        "range": [
+          0.0,
+          0.05128205128205128
+        ],
+        "numerator": 2.0,
+        "denominator": 117,
+        "independent_query_groups": 39,
+        "ci95": [
+          0.0,
+          0.16885640047613612
+        ],
+        "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 2.0,
+            "denominator": 39,
+            "value": 0.05128205128205128,
+            "ci95": [
+              0.014177955415274113,
+              0.16885640047613612
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 2,
+            "numerator": 0.0,
+            "denominator": 39,
+            "value": 0.0,
+            "ci95": [
+              0.0,
+              0.08966685370757144
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 3,
+            "numerator": 0.0,
+            "denominator": 39,
+            "value": 0.0,
+            "ci95": [
+              0.0,
+              0.08966685370757144
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "citation_valid": {
+        "mean": 0.9819819819819819,
+        "range": [
+          0.9459459459459459,
+          1.0
+        ],
+        "numerator": 109.0,
+        "denominator": 111,
+        "independent_query_groups": 37,
+        "ci95": [
+          0.822953456491869,
+          1.0
+        ],
+        "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 35.0,
+            "denominator": 37,
+            "value": 0.9459459459459459,
+            "ci95": [
+              0.822953456491869,
+              0.9850490231668423
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 2,
+            "numerator": 37.0,
+            "denominator": 37,
+            "value": 1.0,
+            "ci95": [
+              0.9059421741627975,
+              1.0
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 3,
+            "numerator": 37.0,
+            "denominator": 37,
+            "value": 1.0,
+            "ci95": [
+              0.9059421741627975,
+              1.0
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "target_cited": {
+        "mean": 0.3103448275862069,
+        "range": [
+          0.3103448275862069,
+          0.3103448275862069
+        ],
+        "numerator": 27.0,
+        "denominator": 87,
+        "independent_query_groups": 29,
+        "ci95": [
+          0.17275616744483216,
+          0.4923013423309317
+        ],
+        "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 9.0,
+            "denominator": 29,
+            "value": 0.3103448275862069,
+            "ci95": [
+              0.17275616744483216,
+              0.4923013423309317
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 2,
+            "numerator": 9.0,
+            "denominator": 29,
+            "value": 0.3103448275862069,
+            "ci95": [
+              0.17275616744483216,
+              0.4923013423309317
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 3,
+            "numerator": 9.0,
+            "denominator": 29,
+            "value": 0.3103448275862069,
+            "ci95": [
+              0.17275616744483216,
+              0.4923013423309317
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "n_refusal": {
+        "mean": 0.0,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "numerator": 0.0,
+        "denominator": 30,
+        "independent_query_groups": 10,
+        "ci95": [
+          0.0,
+          0.2775327998628892
+        ],
+        "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 0.0,
+            "denominator": 10,
+            "value": 0.0,
+            "ci95": [
+              0.0,
+              0.2775327998628892
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 2,
+            "numerator": 0.0,
+            "denominator": 10,
+            "value": 0.0,
+            "ci95": [
+              0.0,
+              0.2775327998628892
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 3,
+            "numerator": 0.0,
+            "denominator": 10,
+            "value": 0.0,
+            "ci95": [
+              0.0,
+              0.2775327998628892
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "body_f1": {
+        "mean": 0.4566597172881349,
+        "range": [
+          0.4566597172881349,
+          0.4566597172881349
+        ],
+        "numerator": 39.72939540406774,
+        "denominator": 87,
+        "independent_query_groups": 29,
+        "ci95": [
+          0.33478823730329627,
+          0.5706477445320693
+        ],
+        "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 13.243131801355913,
+            "denominator": 29,
+            "value": 0.4566597172881349
+          },
+          {
+            "repeat": 2,
+            "numerator": 13.243131801355913,
+            "denominator": 29,
+            "value": 0.4566597172881349
+          },
+          {
+            "repeat": 3,
+            "numerator": 13.243131801355913,
+            "denominator": 29,
+            "value": 0.4566597172881349
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "elapsed_seconds": {
+        "mean": 25.170846153846288,
+        "range": [
+          17.75366666666695,
+          39.72643589743632
+        ],
+        "numerator": 2944.989000000016,
+        "denominator": 117,
+        "independent_query_groups": 39,
+        "ci95": [
+          19.604478632478898,
+          32.04240170940167
+        ],
+        "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 1549.3310000000165,
+            "denominator": 39,
+            "value": 39.72643589743632
+          },
+          {
+            "repeat": 2,
+            "numerator": 703.2649999999885,
+            "denominator": 39,
+            "value": 18.0324358974356
+          },
+          {
+            "repeat": 3,
+            "numerator": 692.3930000000109,
+            "denominator": 39,
+            "value": 17.75366666666695
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "llm_calls": {
+        "mean": 2.982905982905983,
+        "range": [
+          2.948717948717949,
+          3.0
+        ],
+        "numerator": 349.0,
+        "denominator": 117,
+        "independent_query_groups": 39,
+        "ci95": [
+          2.8632478632478633,
+          3.128205128205128
+        ],
+        "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 115.0,
+            "denominator": 39,
+            "value": 2.948717948717949
+          },
+          {
+            "repeat": 2,
+            "numerator": 117.0,
+            "denominator": 39,
+            "value": 3.0
+          },
+          {
+            "repeat": 3,
+            "numerator": 117.0,
+            "denominator": 39,
+            "value": 3.0
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "embedding_calls": {
+        "mean": 0.017094017094017092,
+        "range": [
+          0.0,
+          0.02564102564102564
+        ],
+        "numerator": 2.0,
+        "denominator": 117,
+        "independent_query_groups": 39,
+        "ci95": [
+          0.0,
+          0.042735042735042736
+        ],
+        "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 1.0,
+            "denominator": 39,
+            "value": 0.02564102564102564
+          },
+          {
+            "repeat": 2,
+            "numerator": 0.0,
+            "denominator": 39,
+            "value": 0.0
+          },
+          {
+            "repeat": 3,
+            "numerator": 1.0,
+            "denominator": 39,
+            "value": 0.02564102564102564
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "calls": {
+        "mean": 3.0,
+        "range": [
+          2.9743589743589745,
+          3.0256410256410255
+        ],
+        "numerator": 351.0,
+        "denominator": 117,
+        "independent_query_groups": 39,
+        "ci95": [
+          2.8803418803418803,
+          3.1367521367521367
+        ],
+        "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 116.0,
+            "denominator": 39,
+            "value": 2.9743589743589745
+          },
+          {
+            "repeat": 2,
+            "numerator": 117.0,
+            "denominator": 39,
+            "value": 3.0
+          },
+          {
+            "repeat": 3,
+            "numerator": 118.0,
+            "denominator": 39,
+            "value": 3.0256410256410255
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "retrieval_recall5": {
+        "mean": 0.5517241379310345,
+        "range": [
+          0.5517241379310345,
+          0.5517241379310345
+        ],
+        "numerator": 48.0,
+        "denominator": 87,
+        "independent_query_groups": 29,
+        "ci95": [
+          0.37547963210970914,
+          0.7158683197696281
+        ],
+        "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 16.0,
+            "denominator": 29,
+            "value": 0.5517241379310345,
+            "ci95": [
+              0.37547963210970914,
+              0.7158683197696281
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 2,
+            "numerator": 16.0,
+            "denominator": 29,
+            "value": 0.5517241379310345,
+            "ci95": [
+              0.37547963210970914,
+              0.7158683197696281
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 3,
+            "numerator": 16.0,
+            "denominator": 29,
+            "value": 0.5517241379310345,
+            "ci95": [
+              0.37547963210970914,
+              0.7158683197696281
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "retrieval_mrr": {
+        "mean": 0.43448275862068964,
+        "range": [
+          0.43448275862068964,
+          0.43448275862068964
+        ],
+        "numerator": 37.8,
+        "denominator": 87,
+        "independent_query_groups": 29,
+        "ci95": [
+          0.2804597701149425,
+          0.5954022988505747
+        ],
+        "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 12.6,
+            "denominator": 29,
+            "value": 0.43448275862068964
+          },
+          {
+            "repeat": 2,
+            "numerator": 12.6,
+            "denominator": 29,
+            "value": 0.43448275862068964
+          },
+          {
+            "repeat": 3,
+            "numerator": 12.6,
+            "denominator": 29,
+            "value": 0.43448275862068964
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "observed_tokens": {
+        "mean": 4899.996072996073,
+        "range": [
+          4887.27027027027,
+          4917.846153846154
+        ],
+        "numerator": 563525.0,
+        "denominator": 115,
+        "independent_query_groups": 39,
+        "ci95": [
+          4546.652173913043,
+          5332.173913043478
+        ],
+        "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 180829.0,
+            "denominator": 37,
+            "value": 4887.27027027027
+          },
+          {
+            "repeat": 2,
+            "numerator": 190900.0,
+            "denominator": 39,
+            "value": 4894.871794871795
+          },
+          {
+            "repeat": 3,
+            "numerator": 191796.0,
+            "denominator": 39,
+            "value": 4917.846153846154
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      },
+      "output_validation_failure": {
+        "mean": 0.0,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "numerator": 0.0,
+        "denominator": 117,
+        "independent_query_groups": 39,
+        "ci95": [
+          0.0,
+          0.08966685370757144
+        ],
+        "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "numerator": 0.0,
+            "denominator": 39,
+            "value": 0.0,
+            "ci95": [
+              0.0,
+              0.08966685370757144
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 2,
+            "numerator": 0.0,
+            "denominator": 39,
+            "value": 0.0,
+            "ci95": [
+              0.0,
+              0.08966685370757144
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          },
+          {
+            "repeat": 3,
+            "numerator": 0.0,
+            "denominator": 39,
+            "value": 0.0,
+            "ci95": [
+              0.0,
+              0.08966685370757144
+            ],
+            "ci_method": "Wilson, independent query groups within repeat"
+          }
+        ],
+        "interpretation": "estimate with CI",
+        "repeated_runs_are_independent_questions": false
+      }
+    }
+  },
+  "type_rule": "Registered query-side form: pronoun it/this/these/that/those or fewer than 8 whitespace words => context_or_rewrite; otherwise explicit. Official N is assigned only after response for scoring; it is not an online input.",
+  "retrieval_scope": "Native returned bounded candidates before parent expansion; Recall@5 and MRR over that list. Original and Agentic retain their configured candidate limits.",
+  "token_scope": "Agentic observed completed-response Ollama usage; original generation usage was not captured. Original token total remains unknown; raw embedding-only usage is retained in the raw records. No local monetary price is invented.",
+  "by_type": {
+    "original_rag": {
+      "explicit": {
+        "body_f1": {
+          "mean": 0.24411186975316643,
+          "range": [
+            0.24411186975316643,
+            0.24411186975316643
+          ],
+          "numerator": 9.520362920373492,
+          "denominator": 39,
+          "independent_query_groups": 13,
+          "ci95": [
+            0.14328743710820654,
+            0.36054996866050826
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 3.1734543067911636,
+              "denominator": 13,
+              "value": 0.24411186975316643
+            },
+            {
+              "repeat": 2,
+              "numerator": 3.1734543067911636,
+              "denominator": 13,
+              "value": 0.24411186975316643
+            },
+            {
+              "repeat": 3,
+              "numerator": 3.1734543067911636,
+              "denominator": 13,
+              "value": 0.24411186975316643
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "citation_valid": {
+          "mean": 0.9166666666666666,
+          "range": [
+            0.9166666666666666,
+            0.9166666666666666
+          ],
+          "numerator": 33.0,
+          "denominator": 36,
+          "independent_query_groups": 12,
+          "ci95": [
+            0.646120088858883,
+            0.9851349055950829
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 11.0,
+              "denominator": 12,
+              "value": 0.9166666666666666,
+              "ci95": [
+                0.646120088858883,
+                0.9851349055950829
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 11.0,
+              "denominator": 12,
+              "value": 0.9166666666666666,
+              "ci95": [
+                0.646120088858883,
+                0.9851349055950829
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 11.0,
+              "denominator": 12,
+              "value": 0.9166666666666666,
+              "ci95": [
+                0.646120088858883,
+                0.9851349055950829
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "n_refusal": {
+          "mean": null,
+          "range": null,
+          "numerator": 0,
+          "denominator": 0,
+          "independent_query_groups": 0,
+          "ci95": null,
+          "interpretation": "仅描述，不作结论",
+          "reason": "no eligible observations"
+        },
+        "retrieval_recall5": {
+          "mean": 0.5384615384615384,
+          "range": [
+            0.5384615384615384,
+            0.5384615384615384
+          ],
+          "numerator": 21.0,
+          "denominator": 39,
+          "independent_query_groups": 13,
+          "ci95": [
+            0.29143795714506004,
+            0.7679393219046169
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 7.0,
+              "denominator": 13,
+              "value": 0.5384615384615384,
+              "ci95": [
+                0.29143795714506004,
+                0.7679393219046169
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 7.0,
+              "denominator": 13,
+              "value": 0.5384615384615384,
+              "ci95": [
+                0.29143795714506004,
+                0.7679393219046169
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 7.0,
+              "denominator": 13,
+              "value": 0.5384615384615384,
+              "ci95": [
+                0.29143795714506004,
+                0.7679393219046169
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "retrieval_mrr": {
+          "mean": 0.44871794871794873,
+          "range": [
+            0.44871794871794873,
+            0.44871794871794873
+          ],
+          "numerator": 17.5,
+          "denominator": 39,
+          "independent_query_groups": 13,
+          "ci95": [
+            0.20512820512820512,
+            0.717948717948718
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 5.833333333333333,
+              "denominator": 13,
+              "value": 0.44871794871794873
+            },
+            {
+              "repeat": 2,
+              "numerator": 5.833333333333333,
+              "denominator": 13,
+              "value": 0.44871794871794873
+            },
+            {
+              "repeat": 3,
+              "numerator": 5.833333333333333,
+              "denominator": 13,
+              "value": 0.44871794871794873
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "elapsed_seconds": {
+          "mean": 31.872205128205213,
+          "range": [
+            28.757076923076685,
+            37.53253846153866
+          ],
+          "numerator": 1243.0160000000033,
+          "denominator": 39,
+          "independent_query_groups": 13,
+          "ci95": [
+            21.244897435897794,
+            43.96274358974355
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 487.9230000000025,
+              "denominator": 13,
+              "value": 37.53253846153866
+            },
+            {
+              "repeat": 2,
+              "numerator": 381.25100000000384,
+              "denominator": 13,
+              "value": 29.327000000000297
+            },
+            {
+              "repeat": 3,
+              "numerator": 373.8419999999969,
+              "denominator": 13,
+              "value": 28.757076923076685
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "llm_calls": {
+          "mean": 1.2307692307692308,
+          "range": [
+            1.2307692307692308,
+            1.2307692307692308
+          ],
+          "numerator": 48.0,
+          "denominator": 39,
+          "independent_query_groups": 13,
+          "ci95": [
+            0.9230769230769231,
+            1.5384615384615385
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 16.0,
+              "denominator": 13,
+              "value": 1.2307692307692308
+            },
+            {
+              "repeat": 2,
+              "numerator": 16.0,
+              "denominator": 13,
+              "value": 1.2307692307692308
+            },
+            {
+              "repeat": 3,
+              "numerator": 16.0,
+              "denominator": 13,
+              "value": 1.2307692307692308
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "worker_failure": {
+          "mean": 0.0,
+          "range": [
+            0.0,
+            0.0
+          ],
+          "numerator": 0.0,
+          "denominator": 39,
+          "independent_query_groups": 13,
+          "ci95": [
+            0.0,
+            0.22809537235419838
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 0.0,
+              "denominator": 13,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.22809537235419838
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 0.0,
+              "denominator": 13,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.22809537235419838
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 0.0,
+              "denominator": 13,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.22809537235419838
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "output_validation_failure": {
+          "mean": 0.07692307692307693,
+          "range": [
+            0.07692307692307693,
+            0.07692307692307693
+          ],
+          "numerator": 3.0,
+          "denominator": 39,
+          "independent_query_groups": 13,
+          "ci95": [
+            0.013710421242556586,
+            0.3331395092109959
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 1.0,
+              "denominator": 13,
+              "value": 0.07692307692307693,
+              "ci95": [
+                0.013710421242556586,
+                0.3331395092109959
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 1.0,
+              "denominator": 13,
+              "value": 0.07692307692307693,
+              "ci95": [
+                0.013710421242556586,
+                0.3331395092109959
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 1.0,
+              "denominator": 13,
+              "value": 0.07692307692307693,
+              "ci95": [
+                0.013710421242556586,
+                0.3331395092109959
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        }
+      },
+      "context_or_rewrite": {
+        "body_f1": {
+          "mean": 0.15109424453849765,
+          "range": [
+            0.15109424453849765,
+            0.15109424453849765
+          ],
+          "numerator": 7.252523737847887,
+          "denominator": 48,
+          "independent_query_groups": 16,
+          "ci95": [
+            0.07348054942893735,
+            0.24494161489466335
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 2.4175079126159624,
+              "denominator": 16,
+              "value": 0.15109424453849765
+            },
+            {
+              "repeat": 2,
+              "numerator": 2.4175079126159624,
+              "denominator": 16,
+              "value": 0.15109424453849765
+            },
+            {
+              "repeat": 3,
+              "numerator": 2.4175079126159624,
+              "denominator": 16,
+              "value": 0.15109424453849765
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "citation_valid": {
+          "mean": 0.9166666666666666,
+          "range": [
+            0.9166666666666666,
+            0.9166666666666666
+          ],
+          "numerator": 33.0,
+          "denominator": 36,
+          "independent_query_groups": 12,
+          "ci95": [
+            0.646120088858883,
+            0.9851349055950829
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 11.0,
+              "denominator": 12,
+              "value": 0.9166666666666666,
+              "ci95": [
+                0.646120088858883,
+                0.9851349055950829
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 11.0,
+              "denominator": 12,
+              "value": 0.9166666666666666,
+              "ci95": [
+                0.646120088858883,
+                0.9851349055950829
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 11.0,
+              "denominator": 12,
+              "value": 0.9166666666666666,
+              "ci95": [
+                0.646120088858883,
+                0.9851349055950829
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "n_refusal": {
+          "mean": null,
+          "range": null,
+          "numerator": 0,
+          "denominator": 0,
+          "independent_query_groups": 0,
+          "ci95": null,
+          "interpretation": "仅描述，不作结论",
+          "reason": "no eligible observations"
+        },
+        "retrieval_recall5": {
+          "mean": 0.5625,
+          "range": [
+            0.5625,
+            0.5625
+          ],
+          "numerator": 27.0,
+          "denominator": 48,
+          "independent_query_groups": 16,
+          "ci95": [
+            0.331785563988119,
+            0.7690134759450765
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 9.0,
+              "denominator": 16,
+              "value": 0.5625,
+              "ci95": [
+                0.331785563988119,
+                0.7690134759450765
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 9.0,
+              "denominator": 16,
+              "value": 0.5625,
+              "ci95": [
+                0.331785563988119,
+                0.7690134759450765
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 9.0,
+              "denominator": 16,
+              "value": 0.5625,
+              "ci95": [
+                0.331785563988119,
+                0.7690134759450765
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "retrieval_mrr": {
+          "mean": 0.403125,
+          "range": [
+            0.403125,
+            0.403125
+          ],
+          "numerator": 19.35,
+          "denominator": 48,
+          "independent_query_groups": 16,
+          "ci95": [
+            0.18437499999999998,
+            0.61875
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 6.45,
+              "denominator": 16,
+              "value": 0.403125
+            },
+            {
+              "repeat": 2,
+              "numerator": 6.45,
+              "denominator": 16,
+              "value": 0.403125
+            },
+            {
+              "repeat": 3,
+              "numerator": 6.45,
+              "denominator": 16,
+              "value": 0.403125
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "elapsed_seconds": {
+          "mean": 32.46181249999972,
+          "range": [
+            29.817250000000286,
+            36.89924999999903
+          ],
+          "numerator": 1558.1669999999867,
+          "denominator": 48,
+          "independent_query_groups": 16,
+          "ci95": [
+            19.889208333333197,
+            45.58120833333275
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 590.3879999999845,
+              "denominator": 16,
+              "value": 36.89924999999903
+            },
+            {
+              "repeat": 2,
+              "numerator": 490.7029999999977,
+              "denominator": 16,
+              "value": 30.668937499999856
+            },
+            {
+              "repeat": 3,
+              "numerator": 477.07600000000457,
+              "denominator": 16,
+              "value": 29.817250000000286
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "llm_calls": {
+          "mean": 1.25,
+          "range": [
+            1.25,
+            1.25
+          ],
+          "numerator": 60.0,
+          "denominator": 48,
+          "independent_query_groups": 16,
+          "ci95": [
+            0.8125,
+            1.625
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 20.0,
+              "denominator": 16,
+              "value": 1.25
+            },
+            {
+              "repeat": 2,
+              "numerator": 20.0,
+              "denominator": 16,
+              "value": 1.25
+            },
+            {
+              "repeat": 3,
+              "numerator": 20.0,
+              "denominator": 16,
+              "value": 1.25
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "worker_failure": {
+          "mean": 0.0,
+          "range": [
+            0.0,
+            0.0
+          ],
+          "numerator": 0.0,
+          "denominator": 48,
+          "independent_query_groups": 16,
+          "ci95": [
+            0.0,
+            0.1936076805344365
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 0.0,
+              "denominator": 16,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.1936076805344365
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 0.0,
+              "denominator": 16,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.1936076805344365
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 0.0,
+              "denominator": 16,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.1936076805344365
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "output_validation_failure": {
+          "mean": 0.0625,
+          "range": [
+            0.0625,
+            0.0625
+          ],
+          "numerator": 3.0,
+          "denominator": 48,
+          "independent_query_groups": 16,
+          "ci95": [
+            0.01111934476464252,
+            0.28328737570298945
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 1.0,
+              "denominator": 16,
+              "value": 0.0625,
+              "ci95": [
+                0.01111934476464252,
+                0.28328737570298945
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 1.0,
+              "denominator": 16,
+              "value": 0.0625,
+              "ci95": [
+                0.01111934476464252,
+                0.28328737570298945
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 1.0,
+              "denominator": 16,
+              "value": 0.0625,
+              "ci95": [
+                0.01111934476464252,
+                0.28328737570298945
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        }
+      },
+      "no_answer": {
+        "body_f1": {
+          "mean": null,
+          "range": null,
+          "numerator": 0,
+          "denominator": 0,
+          "independent_query_groups": 0,
+          "ci95": null,
+          "interpretation": "仅描述，不作结论",
+          "reason": "no eligible observations"
+        },
+        "citation_valid": {
+          "mean": 0.7619047619047619,
+          "range": [
+            0.5714285714285714,
+            0.8571428571428571
+          ],
+          "numerator": 16.0,
+          "denominator": 21,
+          "independent_query_groups": 7,
+          "ci95": [
+            0.2504583645276572,
+            0.9743203756552565
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 4.0,
+              "denominator": 7,
+              "value": 0.5714285714285714,
+              "ci95": [
+                0.2504583645276572,
+                0.8417801447485302
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 6.0,
+              "denominator": 7,
+              "value": 0.8571428571428571,
+              "ci95": [
+                0.4868721707256811,
+                0.9743203756552565
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 6.0,
+              "denominator": 7,
+              "value": 0.8571428571428571,
+              "ci95": [
+                0.4868721707256811,
+                0.9743203756552565
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "仅描述，不作结论",
+          "repeated_runs_are_independent_questions": false
+        },
+        "n_refusal": {
+          "mean": 0.3,
+          "range": [
+            0.3,
+            0.3
+          ],
+          "numerator": 9.0,
+          "denominator": 30,
+          "independent_query_groups": 10,
+          "ci95": [
+            0.10779126740630099,
+            0.6032218525388546
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 3.0,
+              "denominator": 10,
+              "value": 0.3,
+              "ci95": [
+                0.10779126740630099,
+                0.6032218525388546
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 3.0,
+              "denominator": 10,
+              "value": 0.3,
+              "ci95": [
+                0.10779126740630099,
+                0.6032218525388546
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 3.0,
+              "denominator": 10,
+              "value": 0.3,
+              "ci95": [
+                0.10779126740630099,
+                0.6032218525388546
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "retrieval_recall5": {
+          "mean": null,
+          "range": null,
+          "numerator": 0,
+          "denominator": 0,
+          "independent_query_groups": 0,
+          "ci95": null,
+          "interpretation": "仅描述，不作结论",
+          "reason": "no eligible observations"
+        },
+        "retrieval_mrr": {
+          "mean": null,
+          "range": null,
+          "numerator": 0,
+          "denominator": 0,
+          "independent_query_groups": 0,
+          "ci95": null,
+          "interpretation": "仅描述，不作结论",
+          "reason": "no eligible observations"
+        },
+        "elapsed_seconds": {
+          "mean": 48.69946666666644,
+          "range": [
+            39.77959999999948,
+            65.93119999999945
+          ],
+          "numerator": 1460.983999999993,
+          "denominator": 30,
+          "independent_query_groups": 10,
+          "ci95": [
+            26.510366666666354,
+            71.82556666666655
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 659.3119999999944,
+              "denominator": 10,
+              "value": 65.93119999999945
+            },
+            {
+              "repeat": 2,
+              "numerator": 403.87600000000384,
+              "denominator": 10,
+              "value": 40.38760000000038
+            },
+            {
+              "repeat": 3,
+              "numerator": 397.7959999999948,
+              "denominator": 10,
+              "value": 39.77959999999948
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "llm_calls": {
+          "mean": 1.3333333333333333,
+          "range": [
+            1.2,
+            1.4
+          ],
+          "numerator": 40.0,
+          "denominator": 30,
+          "independent_query_groups": 10,
+          "ci95": [
+            0.7666666666666667,
+            1.8666666666666667
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 12.0,
+              "denominator": 10,
+              "value": 1.2
+            },
+            {
+              "repeat": 2,
+              "numerator": 14.0,
+              "denominator": 10,
+              "value": 1.4
+            },
+            {
+              "repeat": 3,
+              "numerator": 14.0,
+              "denominator": 10,
+              "value": 1.4
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "worker_failure": {
+          "mean": 0.06666666666666667,
+          "range": [
+            0.0,
+            0.2
+          ],
+          "numerator": 2.0,
+          "denominator": 30,
+          "independent_query_groups": 10,
+          "ci95": [
+            0.0,
+            0.5098375284633583
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 2.0,
+              "denominator": 10,
+              "value": 0.2,
+              "ci95": [
+                0.05668215145437519,
+                0.5098375284633583
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 0.0,
+              "denominator": 10,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.2775327998628892
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 0.0,
+              "denominator": 10,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.2775327998628892
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "output_validation_failure": {
+          "mean": 0.1,
+          "range": [
+            0.1,
+            0.1
+          ],
+          "numerator": 3.0,
+          "denominator": 30,
+          "independent_query_groups": 10,
+          "ci95": [
+            0.017876213095072896,
+            0.4041500267952385
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 1.0,
+              "denominator": 10,
+              "value": 0.1,
+              "ci95": [
+                0.017876213095072896,
+                0.4041500267952385
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 1.0,
+              "denominator": 10,
+              "value": 0.1,
+              "ci95": [
+                0.017876213095072896,
+                0.4041500267952385
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 1.0,
+              "denominator": 10,
+              "value": 0.1,
+              "ci95": [
+                0.017876213095072896,
+                0.4041500267952385
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        }
+      }
+    },
+    "agentic_rag": {
+      "explicit": {
+        "body_f1": {
+          "mean": 0.557542489719529,
+          "range": [
+            0.557542489719529,
+            0.557542489719529
+          ],
+          "numerator": 21.74415709906163,
+          "denominator": 39,
+          "independent_query_groups": 13,
+          "ci95": [
+            0.3631212876678507,
+            0.7379538208077852
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 7.2480523663538765,
+              "denominator": 13,
+              "value": 0.557542489719529
+            },
+            {
+              "repeat": 2,
+              "numerator": 7.2480523663538765,
+              "denominator": 13,
+              "value": 0.557542489719529
+            },
+            {
+              "repeat": 3,
+              "numerator": 7.2480523663538765,
+              "denominator": 13,
+              "value": 0.557542489719529
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "citation_valid": {
+          "mean": 1.0,
+          "range": [
+            1.0,
+            1.0
+          ],
+          "numerator": 36.0,
+          "denominator": 36,
+          "independent_query_groups": 12,
+          "ci95": [
+            0.7575059933447592,
+            1.0
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 12.0,
+              "denominator": 12,
+              "value": 1.0,
+              "ci95": [
+                0.7575059933447592,
+                1.0
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 12.0,
+              "denominator": 12,
+              "value": 1.0,
+              "ci95": [
+                0.7575059933447592,
+                1.0
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 12.0,
+              "denominator": 12,
+              "value": 1.0,
+              "ci95": [
+                0.7575059933447592,
+                1.0
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "n_refusal": {
+          "mean": null,
+          "range": null,
+          "numerator": 0,
+          "denominator": 0,
+          "independent_query_groups": 0,
+          "ci95": null,
+          "interpretation": "仅描述，不作结论",
+          "reason": "no eligible observations"
+        },
+        "retrieval_recall5": {
+          "mean": 0.5384615384615384,
+          "range": [
+            0.5384615384615384,
+            0.5384615384615384
+          ],
+          "numerator": 21.0,
+          "denominator": 39,
+          "independent_query_groups": 13,
+          "ci95": [
+            0.29143795714506004,
+            0.7679393219046169
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 7.0,
+              "denominator": 13,
+              "value": 0.5384615384615384,
+              "ci95": [
+                0.29143795714506004,
+                0.7679393219046169
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 7.0,
+              "denominator": 13,
+              "value": 0.5384615384615384,
+              "ci95": [
+                0.29143795714506004,
+                0.7679393219046169
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 7.0,
+              "denominator": 13,
+              "value": 0.5384615384615384,
+              "ci95": [
+                0.29143795714506004,
+                0.7679393219046169
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "retrieval_mrr": {
+          "mean": 0.4666666666666667,
+          "range": [
+            0.4666666666666667,
+            0.4666666666666667
+          ],
+          "numerator": 18.2,
+          "denominator": 39,
+          "independent_query_groups": 13,
+          "ci95": [
+            0.2358974358974359,
+            0.7230769230769231
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 6.066666666666666,
+              "denominator": 13,
+              "value": 0.4666666666666667
+            },
+            {
+              "repeat": 2,
+              "numerator": 6.066666666666666,
+              "denominator": 13,
+              "value": 0.4666666666666667
+            },
+            {
+              "repeat": 3,
+              "numerator": 6.066666666666666,
+              "denominator": 13,
+              "value": 0.4666666666666667
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "elapsed_seconds": {
+          "mean": 17.956769230769286,
+          "range": [
+            16.39307692307697,
+            20.804000000000087
+          ],
+          "numerator": 700.3140000000021,
+          "denominator": 39,
+          "independent_query_groups": 13,
+          "ci95": [
+            16.433153846153754,
+            19.574615384615473
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 270.45200000000114,
+              "denominator": 13,
+              "value": 20.804000000000087
+            },
+            {
+              "repeat": 2,
+              "numerator": 216.7520000000004,
+              "denominator": 13,
+              "value": 16.673230769230802
+            },
+            {
+              "repeat": 3,
+              "numerator": 213.11000000000058,
+              "denominator": 13,
+              "value": 16.39307692307697
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "llm_calls": {
+          "mean": 2.923076923076923,
+          "range": [
+            2.923076923076923,
+            2.923076923076923
+          ],
+          "numerator": 114.0,
+          "denominator": 39,
+          "independent_query_groups": 13,
+          "ci95": [
+            2.769230769230769,
+            3.0
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 38.0,
+              "denominator": 13,
+              "value": 2.923076923076923
+            },
+            {
+              "repeat": 2,
+              "numerator": 38.0,
+              "denominator": 13,
+              "value": 2.923076923076923
+            },
+            {
+              "repeat": 3,
+              "numerator": 38.0,
+              "denominator": 13,
+              "value": 2.923076923076923
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "worker_failure": {
+          "mean": 0.0,
+          "range": [
+            0.0,
+            0.0
+          ],
+          "numerator": 0.0,
+          "denominator": 39,
+          "independent_query_groups": 13,
+          "ci95": [
+            0.0,
+            0.22809537235419838
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 0.0,
+              "denominator": 13,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.22809537235419838
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 0.0,
+              "denominator": 13,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.22809537235419838
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 0.0,
+              "denominator": 13,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.22809537235419838
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "output_validation_failure": {
+          "mean": 0.0,
+          "range": [
+            0.0,
+            0.0
+          ],
+          "numerator": 0.0,
+          "denominator": 39,
+          "independent_query_groups": 13,
+          "ci95": [
+            0.0,
+            0.22809537235419838
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 0.0,
+              "denominator": 13,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.22809537235419838
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 0.0,
+              "denominator": 13,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.22809537235419838
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 0.0,
+              "denominator": 13,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.22809537235419838
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        }
+      },
+      "context_or_rewrite": {
+        "body_f1": {
+          "mean": 0.37469246468762724,
+          "range": [
+            0.37469246468762724,
+            0.37469246468762724
+          ],
+          "numerator": 17.985238305006106,
+          "denominator": 48,
+          "independent_query_groups": 16,
+          "ci95": [
+            0.2538266896553243,
+            0.5073167664221131
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 5.995079435002036,
+              "denominator": 16,
+              "value": 0.37469246468762724
+            },
+            {
+              "repeat": 2,
+              "numerator": 5.995079435002036,
+              "denominator": 16,
+              "value": 0.37469246468762724
+            },
+            {
+              "repeat": 3,
+              "numerator": 5.995079435002036,
+              "denominator": 16,
+              "value": 0.37469246468762724
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "citation_valid": {
+          "mean": 1.0,
+          "range": [
+            1.0,
+            1.0
+          ],
+          "numerator": 45.0,
+          "denominator": 45,
+          "independent_query_groups": 15,
+          "ci95": [
+            0.7961166989641515,
+            1.0
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 15.0,
+              "denominator": 15,
+              "value": 1.0,
+              "ci95": [
+                0.7961166989641515,
+                1.0
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 15.0,
+              "denominator": 15,
+              "value": 1.0,
+              "ci95": [
+                0.7961166989641515,
+                1.0
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 15.0,
+              "denominator": 15,
+              "value": 1.0,
+              "ci95": [
+                0.7961166989641515,
+                1.0
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "n_refusal": {
+          "mean": null,
+          "range": null,
+          "numerator": 0,
+          "denominator": 0,
+          "independent_query_groups": 0,
+          "ci95": null,
+          "interpretation": "仅描述，不作结论",
+          "reason": "no eligible observations"
+        },
+        "retrieval_recall5": {
+          "mean": 0.5625,
+          "range": [
+            0.5625,
+            0.5625
+          ],
+          "numerator": 27.0,
+          "denominator": 48,
+          "independent_query_groups": 16,
+          "ci95": [
+            0.331785563988119,
+            0.7690134759450765
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 9.0,
+              "denominator": 16,
+              "value": 0.5625,
+              "ci95": [
+                0.331785563988119,
+                0.7690134759450765
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 9.0,
+              "denominator": 16,
+              "value": 0.5625,
+              "ci95": [
+                0.331785563988119,
+                0.7690134759450765
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 9.0,
+              "denominator": 16,
+              "value": 0.5625,
+              "ci95": [
+                0.331785563988119,
+                0.7690134759450765
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "retrieval_mrr": {
+          "mean": 0.4083333333333333,
+          "range": [
+            0.4083333333333333,
+            0.4083333333333333
+          ],
+          "numerator": 19.6,
+          "denominator": 48,
+          "independent_query_groups": 16,
+          "ci95": [
+            0.1864583333333333,
+            0.6208333333333333
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 6.533333333333333,
+              "denominator": 16,
+              "value": 0.4083333333333333
+            },
+            {
+              "repeat": 2,
+              "numerator": 6.533333333333333,
+              "denominator": 16,
+              "value": 0.4083333333333333
+            },
+            {
+              "repeat": 3,
+              "numerator": 6.533333333333333,
+              "denominator": 16,
+              "value": 0.4083333333333333
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "elapsed_seconds": {
+          "mean": 24.597729166666795,
+          "range": [
+            18.44443750000005,
+            36.48456250000072
+          ],
+          "numerator": 1180.6910000000062,
+          "denominator": 48,
+          "independent_query_groups": 16,
+          "ci95": [
+            19.148208333333287,
+            33.04208333333327
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 583.7530000000115,
+              "denominator": 16,
+              "value": 36.48456250000072
+            },
+            {
+              "repeat": 2,
+              "numerator": 301.82699999999386,
+              "denominator": 16,
+              "value": 18.864187499999616
+            },
+            {
+              "repeat": 3,
+              "numerator": 295.1110000000008,
+              "denominator": 16,
+              "value": 18.44443750000005
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "llm_calls": {
+          "mean": 2.9375,
+          "range": [
+            2.9375,
+            2.9375
+          ],
+          "numerator": 141.0,
+          "denominator": 48,
+          "independent_query_groups": 16,
+          "ci95": [
+            2.8125,
+            3.0
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 47.0,
+              "denominator": 16,
+              "value": 2.9375
+            },
+            {
+              "repeat": 2,
+              "numerator": 47.0,
+              "denominator": 16,
+              "value": 2.9375
+            },
+            {
+              "repeat": 3,
+              "numerator": 47.0,
+              "denominator": 16,
+              "value": 2.9375
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "worker_failure": {
+          "mean": 0.0,
+          "range": [
+            0.0,
+            0.0
+          ],
+          "numerator": 0.0,
+          "denominator": 48,
+          "independent_query_groups": 16,
+          "ci95": [
+            0.0,
+            0.1936076805344365
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 0.0,
+              "denominator": 16,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.1936076805344365
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 0.0,
+              "denominator": 16,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.1936076805344365
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 0.0,
+              "denominator": 16,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.1936076805344365
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "output_validation_failure": {
+          "mean": 0.0,
+          "range": [
+            0.0,
+            0.0
+          ],
+          "numerator": 0.0,
+          "denominator": 48,
+          "independent_query_groups": 16,
+          "ci95": [
+            0.0,
+            0.1936076805344365
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 0.0,
+              "denominator": 16,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.1936076805344365
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 0.0,
+              "denominator": 16,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.1936076805344365
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 0.0,
+              "denominator": 16,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.1936076805344365
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        }
+      },
+      "no_answer": {
+        "body_f1": {
+          "mean": null,
+          "range": null,
+          "numerator": 0,
+          "denominator": 0,
+          "independent_query_groups": 0,
+          "ci95": null,
+          "interpretation": "仅描述，不作结论",
+          "reason": "no eligible observations"
+        },
+        "citation_valid": {
+          "mean": 0.9333333333333333,
+          "range": [
+            0.8,
+            1.0
+          ],
+          "numerator": 28.0,
+          "denominator": 30,
+          "independent_query_groups": 10,
+          "ci95": [
+            0.49016247153664183,
+            0.9999999999999999
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 8.0,
+              "denominator": 10,
+              "value": 0.8,
+              "ci95": [
+                0.49016247153664183,
+                0.9433178485456247
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 10.0,
+              "denominator": 10,
+              "value": 1.0,
+              "ci95": [
+                0.7224672001371107,
+                0.9999999999999999
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 10.0,
+              "denominator": 10,
+              "value": 1.0,
+              "ci95": [
+                0.7224672001371107,
+                0.9999999999999999
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "n_refusal": {
+          "mean": 0.0,
+          "range": [
+            0.0,
+            0.0
+          ],
+          "numerator": 0.0,
+          "denominator": 30,
+          "independent_query_groups": 10,
+          "ci95": [
+            0.0,
+            0.2775327998628892
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 0.0,
+              "denominator": 10,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.2775327998628892
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 0.0,
+              "denominator": 10,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.2775327998628892
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 0.0,
+              "denominator": 10,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.2775327998628892
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "retrieval_recall5": {
+          "mean": null,
+          "range": null,
+          "numerator": 0,
+          "denominator": 0,
+          "independent_query_groups": 0,
+          "ci95": null,
+          "interpretation": "仅描述，不作结论",
+          "reason": "no eligible observations"
+        },
+        "retrieval_mrr": {
+          "mean": null,
+          "range": null,
+          "numerator": 0,
+          "denominator": 0,
+          "independent_query_groups": 0,
+          "ci95": null,
+          "interpretation": "仅描述，不作结论",
+          "reason": "no eligible observations"
+        },
+        "elapsed_seconds": {
+          "mean": 35.46613333333359,
+          "range": [
+            18.417200000000957,
+            69.51260000000039
+          ],
+          "numerator": 1063.9840000000077,
+          "denominator": 30,
+          "independent_query_groups": 10,
+          "ci95": [
+            17.55830000000048,
+            57.59586666666643
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 695.1260000000038,
+              "denominator": 10,
+              "value": 69.51260000000039
+            },
+            {
+              "repeat": 2,
+              "numerator": 184.68599999999424,
+              "denominator": 10,
+              "value": 18.468599999999423
+            },
+            {
+              "repeat": 3,
+              "numerator": 184.17200000000958,
+              "denominator": 10,
+              "value": 18.417200000000957
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "llm_calls": {
+          "mean": 3.1333333333333333,
+          "range": [
+            3.0,
+            3.2
+          ],
+          "numerator": 94.0,
+          "denominator": 30,
+          "independent_query_groups": 10,
+          "ci95": [
+            2.8666666666666667,
+            3.566666666666667
+          ],
+          "ci_method": "percentile bootstrap of whole query groups; 2000 draws, fixed seed",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 30.0,
+              "denominator": 10,
+              "value": 3.0
+            },
+            {
+              "repeat": 2,
+              "numerator": 32.0,
+              "denominator": 10,
+              "value": 3.2
+            },
+            {
+              "repeat": 3,
+              "numerator": 32.0,
+              "denominator": 10,
+              "value": 3.2
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "worker_failure": {
+          "mean": 0.06666666666666667,
+          "range": [
+            0.0,
+            0.2
+          ],
+          "numerator": 2.0,
+          "denominator": 30,
+          "independent_query_groups": 10,
+          "ci95": [
+            0.0,
+            0.5098375284633583
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 2.0,
+              "denominator": 10,
+              "value": 0.2,
+              "ci95": [
+                0.05668215145437519,
+                0.5098375284633583
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 0.0,
+              "denominator": 10,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.2775327998628892
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 0.0,
+              "denominator": 10,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.2775327998628892
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        },
+        "output_validation_failure": {
+          "mean": 0.0,
+          "range": [
+            0.0,
+            0.0
+          ],
+          "numerator": 0.0,
+          "denominator": 30,
+          "independent_query_groups": 10,
+          "ci95": [
+            0.0,
+            0.2775327998628892
+          ],
+          "ci_method": "conservative envelope of per-repeat Wilson intervals; never pool repeat n",
+          "per_repeat": [
+            {
+              "repeat": 1,
+              "numerator": 0.0,
+              "denominator": 10,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.2775327998628892
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 2,
+              "numerator": 0.0,
+              "denominator": 10,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.2775327998628892
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            },
+            {
+              "repeat": 3,
+              "numerator": 0.0,
+              "denominator": 10,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.2775327998628892
+              ],
+              "ci_method": "Wilson, independent query groups within repeat"
+            }
+          ],
+          "interpretation": "estimate with CI",
+          "repeated_runs_are_independent_questions": false
+        }
+      }
+    }
+  },
+  "answer_proxy_comparison": [
+    {
+      "sample_id": "0",
+      "query_form": "explicit",
+      "means": {
+        "original_rag": 0.2625,
+        "agentic_rag": 0.8717948717948718
+      },
+      "delta": 0.6092948717948719
+    },
+    {
+      "sample_id": "1",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.06866952789699571,
+        "agentic_rag": 0.9433962264150942
+      },
+      "delta": 0.8747266985180986
+    },
+    {
+      "sample_id": "2",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.6368159203980099,
+        "agentic_rag": 0.29292929292929293
+      },
+      "delta": -0.343886627468717
+    },
+    {
+      "sample_id": "3",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.0,
+        "agentic_rag": 0.2647058823529412
+      },
+      "delta": 0.2647058823529412
+    },
+    {
+      "sample_id": "4",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.0,
+        "agentic_rag": 0.0
+      },
+      "delta": 0.0
+    },
+    {
+      "sample_id": "5",
+      "query_form": "explicit",
+      "means": {
+        "original_rag": 0.10416666666666667,
+        "agentic_rag": 0.2376237623762376
+      },
+      "delta": 0.13345709570957093
+    },
+    {
+      "sample_id": "6",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.14814814814814814,
+        "agentic_rag": 0.4045801526717557
+      },
+      "delta": 0.25643200452360754
+    },
+    {
+      "sample_id": "7",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.13452914798206278,
+        "agentic_rag": 0.0909090909090909
+      },
+      "delta": -0.04362005707297188
+    },
+    {
+      "sample_id": "8",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.41602465331278893,
+        "agentic_rag": 0.40238450074515647
+      },
+      "delta": -0.013640152567632458
+    },
+    {
+      "sample_id": "9",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.0,
+        "agentic_rag": 0.0
+      },
+      "delta": 0.0
+    },
+    {
+      "sample_id": "10",
+      "query_form": "explicit",
+      "means": {
+        "original_rag": 0.0,
+        "agentic_rag": 0.14736842105263157
+      },
+      "delta": 0.14736842105263157
+    },
+    {
+      "sample_id": "11",
+      "query_form": "explicit",
+      "means": {
+        "original_rag": 0.0,
+        "agentic_rag": 0.0
+      },
+      "delta": 0.0
+    },
+    {
+      "sample_id": "12",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.0,
+        "agentic_rag": 0.0
+      },
+      "delta": 0.0
+    },
+    {
+      "sample_id": "13",
+      "query_form": "explicit",
+      "means": {
+        "original_rag": 0.7733333333333333,
+        "agentic_rag": 1.0
+      },
+      "delta": 0.22666666666666668
+    },
+    {
+      "sample_id": "14",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.0,
+        "agentic_rag": 0.0
+      },
+      "delta": 0.0
+    },
+    {
+      "sample_id": "15",
+      "query_form": "explicit",
+      "means": {
+        "original_rag": 0.19172932330827067,
+        "agentic_rag": 0.5882352941176471
+      },
+      "delta": 0.39650597080937644
+    },
+    {
+      "sample_id": "16",
+      "query_form": "explicit",
+      "means": {
+        "original_rag": 0.20553359683794467,
+        "agentic_rag": 0.0
+      },
+      "delta": -0.20553359683794467
+    },
+    {
+      "sample_id": "17",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.0,
+        "agentic_rag": 0.0
+      },
+      "delta": 0.0
+    },
+    {
+      "sample_id": "18",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.0,
+        "agentic_rag": 0.6289752650176679
+      },
+      "delta": 0.6289752650176679
+    },
+    {
+      "sample_id": "19",
+      "query_form": "explicit",
+      "means": {
+        "original_rag": 0.3552631578947369,
+        "agentic_rag": 0.44155844155844154
+      },
+      "delta": 0.08629528366370465
+    },
+    {
+      "sample_id": "20",
+      "query_form": "explicit",
+      "means": {
+        "original_rag": 0.19753086419753085,
+        "agentic_rag": 0.9863013698630136
+      },
+      "delta": 0.7887705056654828
+    },
+    {
+      "sample_id": "21",
+      "query_form": "explicit",
+      "means": {
+        "original_rag": 0.15714285714285714,
+        "agentic_rag": 0.19014084507042253
+      },
+      "delta": 0.03299798792756539
+    },
+    {
+      "sample_id": "22",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.0,
+        "agentic_rag": 0.0
+      },
+      "delta": 0.0
+    },
+    {
+      "sample_id": "23",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.0,
+        "agentic_rag": 0.0
+      },
+      "delta": 0.0
+    },
+    {
+      "sample_id": "24",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.1019607843137255,
+        "agentic_rag": 0.7142857142857143
+      },
+      "delta": 0.6123249299719888
+    },
+    {
+      "sample_id": "25",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.0,
+        "agentic_rag": 0.0
+      },
+      "delta": 0.0
+    },
+    {
+      "sample_id": "26",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.0,
+        "agentic_rag": 0.20000000000000004
+      },
+      "delta": 0.20000000000000004
+    },
+    {
+      "sample_id": "27",
+      "query_form": "explicit",
+      "means": {
+        "original_rag": 0.0,
+        "agentic_rag": 0.0
+      },
+      "delta": 0.0
+    },
+    {
+      "sample_id": "28",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.17361111111111108,
+        "agentic_rag": 0.5076142131979695
+      },
+      "delta": 0.33400310208685846
+    },
+    {
+      "sample_id": "29",
+      "query_form": "explicit",
+      "means": {
+        "original_rag": 0.0,
+        "agentic_rag": 0.9704142011834319
+      },
+      "delta": 0.9704142011834319
+    },
+    {
+      "sample_id": "30",
+      "query_form": "explicit",
+      "means": {
+        "original_rag": 0.5527638190954773,
+        "agentic_rag": 0.8674698795180723
+      },
+      "delta": 0.31470606042259497
+    },
+    {
+      "sample_id": "31",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.2971246006389776,
+        "agentic_rag": 0.5685483870967742
+      },
+      "delta": 0.27142378645779663
+    },
+    {
+      "sample_id": "32",
+      "query_form": "explicit",
+      "means": {
+        "original_rag": 0.0,
+        "agentic_rag": 0.0
+      },
+      "delta": 0.0
+    },
+    {
+      "sample_id": "33",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.27710843373493976,
+        "agentic_rag": 0.6126760563380281
+      },
+      "delta": 0.33556762260308837
+    },
+    {
+      "sample_id": "34",
+      "query_form": "explicit",
+      "means": {
+        "original_rag": 0.1678832116788321,
+        "agentic_rag": 0.1885245901639344
+      },
+      "delta": 0.020641378485102307
+    },
+    {
+      "sample_id": "35",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.05825242718446602,
+        "agentic_rag": 0.11392405063291139
+      },
+      "delta": 0.05567162344844537
+    },
+    {
+      "sample_id": "36",
+      "query_form": "explicit",
+      "means": {
+        "original_rag": 0.205607476635514,
+        "agentic_rag": 0.7586206896551723
+      },
+      "delta": 0.5530132130196582
+    },
+    {
+      "sample_id": "37",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.10526315789473684,
+        "agentic_rag": 0.06265060240963856
+      },
+      "delta": -0.04261255548509828
+    },
+    {
+      "sample_id": "38",
+      "query_form": "context_or_rewrite",
+      "means": {
+        "original_rag": 0.0,
+        "agentic_rag": 0.1875
+      },
+      "delta": 0.1875
+    }
+  ],
+  "measurement_correction": {
+    "raw_records_sha256": "826a48142d7d92e6d0692a2197abcbff8e7eb595221042111264d8dd8e70c18b",
+    "raw_summary_sha256": "9d583dddd4fad15c8ad1f0277b54cdd6ab1c372482028472dfdd3ba06bf17f0e",
+    "corrected_records_sha256": "402aa7de3984ed29a552047528fd06f8a0994fff06a73f1eb9be5024960cfcd7",
+    "generator_source_sha256": "3b3dd877badf02ea88fc143d928f56b55644e7c088d8f3b3a6120b68cf2fa1a6",
+    "observed_paths": [
+      "/api/chat",
+      "/api/embed",
+      "/api/generate"
+    ],
+    "rule": "original LLM attempts = saved total HTTP attempts - embedding attempts",
+    "original_generator_tokens": "unknown; not recoverable from retained observation",
+    "agent_refusal_rule": "trace.status=unanswerable and no exception; clarified/invalid_evidence/partial are not successful N refusals; citations are inapplicable for valid refusals",
+    "agent_status_counts": {
+      "answered": 109,
+      "unanswerable": 6,
+      "None": 2
+    },
+    "original_refusal_rule": "invalid_citation is an output validation failure, not successful knowledge refusal; n_refusal=0 and citation_valid=0, preserved raw values",
+    "agent_schema_sha256": "31e5abf524508257c0fe89310e5b454cb8ba4901847093739870931b188dbf4f",
+    "agent_service_sha256": "ee64ee90ab1f02477ae0ab0e8e5ba638da7b772d1ac62d63d1f8dcfd520a84e6",
+    "models_rerun": 0,
+    "answer_body_f1_retrieval_scores_answers_queries_unchanged": true,
+    "changed_metrics": [
+      "original llm_calls",
+      "n_refusal",
+      "citation_valid",
+      "output_validation_failure"
+    ]
+  }
+}

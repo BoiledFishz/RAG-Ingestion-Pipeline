@@ -31,3 +31,33 @@ def test_timeout_message_cancels_owned_child_and_propagates_timeout():
         with pytest.raises(TimeoutError):await runtime.run(query,Budget())
     asyncio.run(run())
     assert cancelled==[True]
+
+
+def test_budget_denial_is_not_a_transport_timeout():
+    from agents.project2.budget import BudgetExceeded
+    from agents.project2.rag_process import dependency_timeout
+    error = RuntimeError('provider failed')
+    error.__cause__ = BudgetExceeded('dependency_attempt_limit')
+    assert not dependency_timeout(error)
+
+
+def test_terminal_budget_denial_keeps_idle_worker_ready():
+    env = json.loads((ROOT/'evals/protocol_v0/baseline_v0.config.json').read_text(encoding='utf-8'))['environment']
+    runtime = BoundedRAGProcess(env)
+    runtime.startup_required = runtime.ready = True
+    message = {'type': 'error', 'category': 'BudgetExceeded', 'dependency_timeout': True,
+               'budget_exceeded': True, 'budget_exceeded_reason': 'dependency_attempt_limit'}
+    class Pipe:
+        def write(self, text): pass
+        def flush(self): pass
+        def readline(self): return json.dumps(message) + '\n'
+    class Process:
+        stdin = Pipe()
+        stdout = Pipe()
+        def poll(self): return None
+    runtime.process = Process()
+    cancelled = []
+    runtime.stop = lambda: cancelled.append(True)
+    query = json.loads((ROOT/'specs/project2/v0.3.3/task_preregistration.json').read_text(encoding='utf-8'))['samples'][0]['query']
+    assert asyncio.run(runtime.run(query, Budget())) == message
+    assert not cancelled and runtime.ready
