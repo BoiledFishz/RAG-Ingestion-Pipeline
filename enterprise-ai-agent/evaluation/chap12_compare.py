@@ -117,6 +117,8 @@ async def run_multi(supervisor: Any, task: dict[str, Any]) -> dict[str, Any]:
             "retrieved": getattr(rag_payload, "retrieved_doc_ids", []),
             "data_status": db.status, "data_error": db.error.category if db.error else None,
             "data_product": result.data_result.product_id if result.data_result else None,
+            "data_product_source": (result.data_result.product_source if result.data_result
+                                    else None),
             "data_count": result.data_result.count if result.data_result else None,
             "error": rag.error.category if rag.error else None,
             "llm_calls": result.usage.llm_calls, "embedding_calls": result.usage.embedding_calls,
@@ -131,19 +133,53 @@ async def run_multi(supervisor: Any, task: dict[str, Any]) -> dict[str, Any]:
     return record
 
 
+def gold_products(db: sqlite3.Connection, doc: str) -> set[str]:
+    row = db.execute("SELECT metadata FROM docs WHERE doc_id=?", (doc,)).fetchone()
+    raw = json.loads(row[0]).get("productId") if row else ""
+    return {p.strip() for p in str(raw or "").split(",") if p.strip()}
+
+
 def score(record: dict[str, Any], gold: dict[str, Any], db: sqlite3.Connection) -> dict[str, Any]:
     answerable = gold["answerable"] == "Y"
     published = bool(record["cited"])
-    out = {"answerable": answerable, "published": published}
+    out: dict[str, Any] = {"answerable": answerable, "published": published}
     if answerable:
+        retrieved = record["retrieved"]
+        rank = retrieved.index(gold["document"]) + 1 if gold["document"] in retrieved else None
         out |= {"gold_cited": gold["document"] in record["cited"],
-                "gold_retrieved": gold["document"] in record["retrieved"],
+                "gold_retrieved": rank is not None, "gold_rank": rank,
                 "token_f1": token_f1(record["answer"], gold["answer"]) if published else 0.0}
+        if record.get("data_product"):
+            # Proxy only: the product tagged on the official answer document.
+            out["data_product_matches_gold_doc"] = record["data_product"] in gold_products(
+                db, gold["document"])
     else:
         out["refused"] = not published
     if record.get("data_count") is not None and record.get("data_product"):
         out["data_correct"] = record["data_count"] == independent_count(db, record["data_product"])
     return out
+
+
+def counts(rows: list[dict[str, Any]], key: str) -> dict[str, int]:
+    output: dict[str, int] = {}
+    for row in rows:
+        value = str(row.get(key))
+        output[value] = output.get(value, 0) + 1
+    return output
+
+
+def recall(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    """Document-level gold recall of the RAG candidates (order = agent candidate order)."""
+    ranks = [r["score"].get("gold_rank") for r in rows if r["score"]["answerable"]]
+    n = len(ranks)
+    output: dict[str, Any] = {"denominator": n}
+    if not n:
+        return output
+    for k in (1, 3, 5, 8):
+        hits = sum(1 for x in ranks if x is not None and x <= k)
+        output[f"R@{k}"] = {"value": round(hits / n, 4), "hits": hits, "wilson95": wilson(hits, n)}
+    output["MRR"] = round(sum(1 / x for x in ranks if x) / n, 4)
+    return output
 
 
 def summarize(records: list[dict[str, Any]]) -> dict[str, Any]:
@@ -186,6 +222,13 @@ def summarize(records: list[dict[str, Any]]) -> dict[str, Any]:
             "Y_token_f1_mean": mean([r for r in rows if r["score"]["answerable"]], "token_f1",
                                     True),
             "N_refused": rate(rows, "refused"),
+            "retrieval_Y": recall(rows),
+            "data_product_source_counts": counts(rows, "data_product_source"),
+            "data_product_matches_gold_doc": rate(rows, "data_product_matches_gold_doc"),
+            "data_product_matches_gold_doc_by_source": {
+                source: rate([r for r in rows if r.get("data_product_source") == source],
+                             "data_product_matches_gold_doc")
+                for source in ("query_literal", "inferred", "explicit")},
             "data_result_correct": rate(rows, "data_correct"),
             "latency_ms": {"mean": round(statistics.fmean(latencies), 1),
                            "p50": round(latencies[len(latencies) // 2], 1),

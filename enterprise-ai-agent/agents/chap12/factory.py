@@ -43,7 +43,9 @@ def build_rag_agent(settings: Settings, path: Path) -> RAGAgent:
     selector: EvidenceSelector
     if settings.profile == "offline":
         rewriter, selector = RuleRewriter(), ExtractiveSelector()
-        retriever = SampleRetrieverTool(path, semantic_rerank=False)
+        # No model service offline: MiniLM rerank over stored vectors when the sidecar exists.
+        offline = "minilm" if path.with_suffix(".dense.sqlite").is_file() else "lexical"
+        retriever = SampleRetrieverTool(path, rerank=os.getenv("CHAP12_RERANKER", offline))
     else:
         model = BudgetedModel(
             OllamaStructuredModel(settings.ollama_url, settings.model, settings.llm_timeout))

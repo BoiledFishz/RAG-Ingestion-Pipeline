@@ -30,14 +30,13 @@ def db_input(request: AnalysisRequest, catalog: Catalog) -> tuple[DbInput, list[
     notes: list[str] = []
     explicit = request.data_request
     if explicit is not None and explicit.product is not None:
-        return DbInput(**explicit.model_dump()), notes
+        return DbInput(**explicit.model_dump(), product_source="explicit"), notes
     found = catalog.find(request.query)
     product = found[0].product_id if found else None
     if len(found) > 1:
         notes.append("问题中识别到多个产品，数据查询只使用首个："
                      + "、".join(p.name for p in found[:4]))
-    if product is None:
-        notes.append("未能从问题中识别快照目录中的产品名称；可在 data_request.product 中指定。")
     base = explicit.model_dump() if explicit is not None else {}
     return DbInput(**{**base, "operation": base.get("operation", "count_documents"),
-                      "product": product}), notes
+                      "product": product, "product_source": "query_literal",
+                      "infer_product": product is None, "query": request.query}), notes

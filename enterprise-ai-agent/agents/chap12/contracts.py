@@ -96,9 +96,16 @@ class RagPayload(Strict):
     retrieved_doc_ids: list[str] = Field(default_factory=list)
 
 
+ProductSource = Literal["explicit", "query_literal", "inferred"]
+
+
 class DbInput(Strict):
     operation: DbOperation
     product: str | None = None
+    product_source: ProductSource = "explicit"
+    # When no product is named, let the DB Worker infer one from its own BM25 index.
+    infer_product: bool = False
+    query: str | None = Field(default=None, max_length=4000)
     date_from: date | None = None
     date_to: date | None = None
     doc_class: DocClass | None = None
@@ -114,6 +121,8 @@ class DbPayload(Strict):
     operation: DbOperation
     product_name: str | None
     product_id: str | None
+    product_source: ProductSource = "explicit"
+    inference_doc_ids: list[str] = Field(default_factory=list)
     date_from: str | None
     date_to: str | None
     doc_class: str | None

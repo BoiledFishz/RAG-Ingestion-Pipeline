@@ -57,7 +57,7 @@ flowchart TD
 | Worker | completed | partial | no_data | permission_denied | timeout | failed |
 | --- | --- | --- | --- | --- | --- | --- |
 | RAG | 回答带有经过校验的引用 | 只回答了一部分 | 拒答或需要澄清 | 主体无 RAG 权限 | 超过截止时间 | 证据校验失败、依赖不可用、预算耗尽 |
-| DB | 查询完整成功 | 按年分组结果超过 40 行被截断 | 查询成功，计数为 0 | 操作或产品不在授权范围 | 语句被截止时间中断 | 需要澄清、参数非法、依赖错误、预算耗尽 |
+| DB | 查询完整成功 | 按年分组结果超过 40 行被截断 | 查询成功但计数为 0，或无法确定产品（clarification_required） | 操作或产品不在授权范围 | 语句被截止时间中断 | 参数非法、依赖错误、预算耗尽 |
 
 ### 汇合规则
 
@@ -75,7 +75,7 @@ flowchart TD
   产品必须能在快照目录里精确匹配，否则在执行任何 SQL 之前就以 invalid_input 拒绝。
   每条查询都会带上授权的产品条件；越权时只返回 permission_denied，不透露数据是否存在。
   `list_recent_documents` 的 limit 不超过 10，按年分组不超过 40 行。
-- RAG：沿用 Project 1 的过滤白名单和 `published` 强制过滤。检索范围限定在样本索引内。全库 MiniLM dense 服务会越出样本范围，所以没有使用，只用 BM25，再加 nomic 或词法重排。
+- RAG：沿用 Project 1 的过滤白名单和 `published` 强制过滤。检索范围限定在样本内：BM25 加上样本自己的 MiniLM 向量（从 Project 1 全量向量中复制），经 RRF 混合后重排。重排在 offline 档位用 MiniLM，在 ollama 档位默认用 nomic。全库 dense 服务会越出样本范围，所以不使用。
 
 ## 6. 预算与终止（`budget.py`）
 
@@ -95,6 +95,5 @@ Token：复用的 Ollama 适配层不返回 token 数，所以记为 `null`，�
 
 ## 8. 已知限制
 
-- 产品槽位只从问题中**字面出现**的目录产品名识别。离线实跑中只有 59/150 题能识别出产品，其余 91 题的 DB 结果是 `failed/clarification_required`，整体状态降为 partial 或 failed。
-  可选的改进方向：让 LLM 从目录候选中挑选产品，程序再校验它是否在白名单里。这会多一次 LLM 调用，目前未实现。
+- 产品槽位优先使用问题中**字面出现**的目录产品名；没有时由 DB Worker 用自己的 BM25 前 3 篇文档推断，结果标注 `product_source=inferred`。推断仍无结果时返回 `no_data/clarification_required`。详见 `improvements.md`。
 - 文档计数只反映样本快照的覆盖情况，不代表 IBM 全量知识库，也不是故障率或工单量。

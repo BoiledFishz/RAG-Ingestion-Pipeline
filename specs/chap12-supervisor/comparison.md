@@ -1,4 +1,6 @@
-# 固定样本对照：单 Agent vs Multi-Agent
+# 固定样本对照：单 Agent vs Multi-Agent（v1，第一轮）
+
+> 第二轮（v2）的改进与结果见 [improvements.md](improvements.md)；下文保留 v1 原始数字。
 
 ## 运行条件
 

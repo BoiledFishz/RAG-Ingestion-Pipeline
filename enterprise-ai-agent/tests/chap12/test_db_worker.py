@@ -102,9 +102,35 @@ def test_out_of_scope_product_and_operation_denied_without_query(worker) -> None
     assert denied.status == "permission_denied" and budget.used["db"] == 0
 
 
-def test_missing_product_needs_clarification(worker) -> None:  # type: ignore[no-untyped-def]
-    result, _ = run(worker, DbInput(operation="count_documents"))
-    assert result.status == "failed" and result.error.category == "clarification_required"  # type: ignore[union-attr]
+def test_missing_product_needs_clarification_not_failure(worker) -> None:  # type: ignore[no-untyped-def]
+    result, budget = run(worker, DbInput(operation="count_documents"))
+    assert result.status == "no_data" and result.error.category == "clarification_required"  # type: ignore[union-attr]
+    assert budget.used["db"] == 0
+
+
+def test_product_inferred_from_own_bm25_when_not_named(worker) -> None:  # type: ignore[no-untyped-def]
+    query = "Jobs do not pick up environment variables from .bashrc with ODBC operators"
+    assert worker.catalog.find(query) == []  # no product named literally
+    result, budget = run(worker, DbInput(operation="count_documents", infer_product=True,
+                                         query=query, product_source="query_literal"))
+    assert result.status == "completed" and budget.used["db"] == 2
+    assert result.payload.product_id == "SSCRJU"  # type: ignore[union-attr]
+    assert result.payload.product_source == "inferred"  # type: ignore[union-attr]
+    assert len(result.payload.inference_doc_ids) == 3  # type: ignore[union-attr]
+    assert result.limitations[0].startswith("问题未写明目录中的产品名")
+
+
+def test_inference_without_agreement_asks_for_clarification(worker) -> None:  # type: ignore[no-untyped-def]
+    result, _ = run(worker, DbInput(operation="count_documents", infer_product=True,
+                                    query="zzqx unknownterm"))
+    assert result.status == "no_data" and result.error.category == "clarification_required"  # type: ignore[union-attr]
+
+
+def test_inferred_product_still_obeys_scope(worker) -> None:  # type: ignore[no-untyped-def]
+    query = "Jobs do not pick up environment variables from .bashrc with ODBC operators"
+    result, _ = run(worker, DbInput(operation="count_documents", infer_product=True, query=query),
+                    context(products={"SSFKSJ"}))
+    assert result.status == "permission_denied" and result.payload is None
 
 
 def test_db_budget_enforced_before_execution(worker) -> None:  # type: ignore[no-untyped-def]

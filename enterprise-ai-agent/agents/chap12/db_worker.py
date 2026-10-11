@@ -28,6 +28,13 @@ from agents.chap12.contracts import (
 )
 
 MAX_GROUP_ROWS = 40
+# Product inference, chosen on the tune split only (evaluation/chap12_retrieval_tune.py):
+# the product tagged on >= 60% of the top-3 BM25 documents of the question.
+INFER_TOP_K = 3
+INFER_MIN_SHARE = 0.6
+INFERENCE_LIMITATION = (
+    "问题未写明目录中的产品名；产品由问题在样本库中 BM25 前 3 篇文档的官方产品标注推断"
+    "（至少 2 篇一致），可能不是提问者所指产品。")
 LIMITATIONS = [
     "计数口径：本次样本快照（随机抽取的 TechQA 训练题的官方候选文档并集）中，官方 metadata "
     "的 productId 与条件匹配的不同文档数；不是 IBM 全量知识库，也不是工单量、故障率或用户数。",
@@ -123,6 +130,9 @@ class DatabaseQueryWorker:
             ).fetchall()
             ids = [r[0] for r in db.execute(
                 "SELECT DISTINCT product_id FROM document_products ORDER BY product_id")]
+        from rag.techqa.index import TechQAIndex
+
+        self.index = TechQAIndex(self.path)
         self.snapshot = (f"{manifest['scope']}:seed={manifest.get('seed')}:"
                          f"docs={manifest['document_count']}")
         names: dict[str, str] = {}
@@ -169,20 +179,30 @@ class DatabaseQueryWorker:
                 ctx.allowed_db_operations:
             return fail("permission_denied", "permission_denied",
                         f"operation {request.operation} is not authorized")
-        if request.product is None:
-            return fail("failed", "clarification_required",
+        try:
+            budget.reserve("tool", self.name)
+        except BudgetExhausted as exc:
+            return fail("failed", "budget_exhausted", str(exc))
+        reference, source = request.product, request.product_source
+        evidence: list[str] = []
+        if reference is None and request.infer_product and request.query:
+            try:
+                budget.reserve("db", self.name)
+            except BudgetExhausted as exc:
+                return fail("failed", "budget_exhausted", str(exc))
+            reference, evidence = await asyncio.to_thread(self._infer, request.query)
+            source = "inferred"
+        if reference is None:
+            # Missing input is not an execution failure: nothing publishable, ask the user.
+            return fail("no_data", "clarification_required",
                         "no catalogue product identified; specify data_request.product")
-        product = self.catalog.lookup(request.product)
+        product = self.catalog.lookup(reference)
         if product is None:
             return fail("failed", "invalid_input", "product is not in the snapshot catalogue")
         if not ctx.product_allowed(product.product_id):
             # Same message whether or not data exists: no existence leak.
             return fail("permission_denied", "permission_denied",
                         "product scope is not authorized")
-        try:
-            budget.reserve("tool", self.name)
-        except BudgetExhausted as exc:
-            return fail("failed", "budget_exhausted", str(exc))
 
         start = request.date_from.isoformat() if request.date_from else None
         end = request.date_to.isoformat() if request.date_to else None
@@ -222,7 +242,8 @@ class DatabaseQueryWorker:
 
         payload: dict[str, Any] = {
             "operation": request.operation, "product_name": product.name,
-            "product_id": product.product_id, "date_from": start, "date_to": end,
+            "product_id": product.product_id, "product_source": source,
+            "inference_doc_ids": evidence, "date_from": start, "date_to": end,
             "doc_class": request.doc_class, "unit": "documents", "snapshot": self.snapshot,
             "query_template": request.operation,
         }
@@ -244,9 +265,25 @@ class DatabaseQueryWorker:
                         "rows": [DbRow(key=str(d), value=f"{d2 or 'undated'} | {t}")
                                  for d, t, d2 in rows], "truncated": truncated}
             empty = not rows
-        return self._result(run_id, task_id, "no_data" if empty else status,
-                            payload=DbPayload.model_validate(payload), started=started,
-                            budget=budget, retries=retries)
+        result = self._result(run_id, task_id, "no_data" if empty else status,
+                              payload=DbPayload.model_validate(payload), started=started,
+                              budget=budget, retries=retries)
+        if source == "inferred":
+            result.limitations.insert(0, INFERENCE_LIMITATION)
+        return result
+
+    def _infer(self, query: str) -> tuple[str | None, list[str]]:
+        docs = [d["id"] for d in self.index.search(query, INFER_TOP_K)]
+        if not docs:
+            return None, []
+        with self.connect(time.monotonic() + self.statement_timeout) as db:
+            marks = ",".join("?" * len(docs))
+            rows = db.execute(f"SELECT product_id, count(*) FROM document_products "
+                              f"WHERE doc_id IN ({marks}) GROUP BY product_id "
+                              "ORDER BY 2 DESC, product_id", docs).fetchall()
+        if rows and rows[0][1] / len(docs) >= INFER_MIN_SHARE:
+            return str(rows[0][0]), docs
+        return None, docs
 
     def _execute(self, sql: str, params: list[Any], deadline: float) -> list[tuple[Any, ...]]:
         with self.connect(deadline) as db:

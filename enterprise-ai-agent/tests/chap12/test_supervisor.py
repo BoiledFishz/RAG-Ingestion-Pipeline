@@ -135,11 +135,11 @@ def test_explicit_data_request_overrides_slot_resolution() -> None:
     assert db.inputs[0].operation == "count_by_year" and db.inputs[0].product == "WebSphere MQ"
 
 
-def test_unresolved_product_is_disclosed() -> None:
-    db = FakeWorker("database", "failed")
-    result = go(supervisor(FakeWorker("rag"), db), AnalysisRequest(query="ulimit settings"))
-    assert db.inputs[0].product is None
-    assert any("未能从问题中识别" in x for x in result.limitations)
+def test_unnamed_product_is_delegated_to_db_inference() -> None:
+    db = FakeWorker("database")
+    go(supervisor(FakeWorker("rag"), db), AnalysisRequest(query="ulimit settings"))
+    assert db.inputs[0].product is None and db.inputs[0].infer_product
+    assert db.inputs[0].query == "ulimit settings"
 
 
 def test_global_permission_denial_calls_no_worker() -> None:
