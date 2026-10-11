@@ -1,0 +1,100 @@
+# Chap12 Supervisor–Worker（精简版）规格
+
+状态：**实现已完成，待人工审阅**。本规格与实现同批交付，未经过“先审阅后实现”的流程；请审阅后再合并。
+分支：`feature/chap12-supervisor-lite`。与 `specs/project2/` 的 v0.x 系列相互独立，不修改其中任何文件。
+
+## 1. 范围与数据
+
+- 数据：从官方 TechQA `training_Q_A.json` 中以固定种子 `20261011` 随机抽取 **150 题**（123 Y / 27 N）。
+  语料为这 150 题官方 `DOC_IDS`（每题 50 篇候选：答案文档加官方干扰文档）的并集，共 **6,612 篇**，全部来自官方全文库，无合成文本。
+- 选 training 而不选 dev：dev 的 held-out 部分按既有协议封存，本作业不触碰。
+  已知偏差：复用的 Project 1 检索阈值是在 training 上标定的，所以 RAG 的绝对指标偏乐观；两个对照系统使用同一阈值，比较仍然公平。
+- 产物（构建命令 `python -m evaluation.chap12_build_sample`）：
+  - `.rag_data/chap12_sample.sqlite`：`docs` + FTS5 `search` + `vocabulary` + `manifest`（与 Project 1 `TechQAIndex` 同一 schema），另有结构化表 `technotes`、`document_products`；
+  - `enterprise-ai-agent/evaluation/chap12/tasks.jsonl`：任务（只含问题文本）；
+  - `.../gold.jsonl`：答案、标签、金标文档，**只供离线评分使用**，两个系统都读不到；
+  - `.../sample_manifest.json`：种子、题号、源文件和索引的 SHA256。
+
+## 2. 拓扑
+
+```mermaid
+flowchart TD
+    U[POST /v1/chap12/analyze] --> A[服务端凭证 → TrustedContext]
+    A --> S[Supervisor：校验 / 计划 / 预算]
+    S -->|RagInput: query| R[RAG Worker<br/>复用 Project 1 RAGAgent]
+    S -->|DbInput: 操作+产品+时间| D[Database Query Worker<br/>参数化只读模板]
+    R --> M[程序汇合状态与证据]
+    D --> M
+    M --> F[FinalResponse]
+```
+
+- Supervisor 的计划是确定性的：`goal` 是一个枚举，`explain → [rag]`，`data → [database]`，`explain_and_data → [rag, database]`。不使用 LLM Planner，也没有 Replan。
+- RAG 和 DB 之间没有数据依赖，所以**并行执行**（`asyncio`）。每个 Worker 只返回自己的结果对象，Supervisor 在两者都结束或总截止时间到达后才汇合，因此不存在共享 State 的写冲突。
+- 模型可能参与的环节只有复用 RAG 内部的改写和证据选择。节点、工具和权限都由程序决定。
+
+## 3. Worker 选型
+
+| 候选 | 结论 | 理由 |
+| --- | --- | --- |
+| Database Query Worker | **采用** | 样本文档带有官方 metadata（productId/productName/date），可以构造真实的结构化查询；结果可以独立复算 |
+| Analytics/Forecast | 不采用 | 没有业务时间序列或观测量，预测会是编造的 |
+| Domain/API | 不采用 | 没有项目真正需要的外部服务 |
+| Evidence Reviewer | 不采用 | Project 1 已有程序化引用校验和适用性复核；另做一个 Reviewer 只会重复这些检查 |
+
+## 4. Contract（`agents/chap12/contracts.py`，版本 `chap12-v1`）
+
+- `AnalysisRequest{query, goal, data_request?}`：拒绝未知字段，请求正文**不能**携带身份或权限。
+- `DataRequest/DbInput{operation ∈ count_documents|count_by_year|list_recent_documents, product, date_from, date_to, doc_class, limit≤10}`。
+- `TrustedContext{subject_id, tenant_id, allowed_workers, allowed_db_operations, allowed_product_ids}`：只由服务端根据凭证的 SHA256 映射构造（环境变量 `CHAP12_CREDENTIALS_JSON`）。
+- `WorkerResult{contract_version, run_id, task_id, worker, status, payload, limitations, error{category, message, retryable}, usage}`。
+  校验规则：`completed`/`partial` 必须带 payload；`permission_denied`/`timeout`/`failed` 必须带 error。
+- RAG payload：answer、citations（source_id、doc_id、quote）、confidence、rag_status、rewritten_query、retrieved_doc_ids。
+- DB payload：operation、产品名与 ID、时间范围、doc_class、metric（口径）、unit、count/rows、truncated、snapshot、query_template。
+- `FinalResponse`：status、plan、answer、citations、data_result、limitations、worker_results、usage、trace。
+
+### 状态定义
+
+| Worker | completed | partial | no_data | permission_denied | timeout | failed |
+| --- | --- | --- | --- | --- | --- | --- |
+| RAG | 回答带有经过校验的引用 | 只回答了一部分 | 拒答或需要澄清 | 主体无 RAG 权限 | 超过截止时间 | 证据校验失败、依赖不可用、预算耗尽 |
+| DB | 查询完整成功 | 按年分组结果超过 40 行被截断 | 查询成功，计数为 0 | 操作或产品不在授权范围 | 语句被截止时间中断 | 需要澄清、参数非法、依赖错误、预算耗尽 |
+
+### 汇合规则
+
+两个任务都是必需的：
+
+- 都是 completed → completed；
+- 只要有一个是 completed 或 partial → partial，并在限制说明里列出缺失部分；
+- 否则按 permission_denied > timeout > failed > no_data 的优先级取。
+
+全部 36 种组合都有测试覆盖。凭证有效但没有任何 Worker 权限时，直接返回 permission_denied，不调用任何 Worker。
+
+## 5. 权限、白名单与规模限制
+
+- DB：不支持 Text-to-SQL。只有 3 个程序持有的参数化 SQL 模板，连接以 `mode=ro` 打开并设置 `PRAGMA query_only`。
+  产品必须能在快照目录里精确匹配，否则在执行任何 SQL 之前就以 invalid_input 拒绝。
+  每条查询都会带上授权的产品条件；越权时只返回 permission_denied，不透露数据是否存在。
+  `list_recent_documents` 的 limit 不超过 10，按年分组不超过 40 行。
+- RAG：沿用 Project 1 的过滤白名单和 `published` 强制过滤。检索范围限定在样本索引内。全库 MiniLM dense 服务会越出样本范围，所以没有使用，只用 BM25，再加 nomic 或词法重排。
+
+## 6. 预算与终止（`budget.py`）
+
+每个请求有一个绝对截止时间，并对 LLM、embedding、DB、tool 调用分别设上限，默认为 150 s / 8 / 4 / 4 / 4，可通过环境变量 `CHAP12_*` 调整。
+
+- 每次调用在**开始之前**预留额度；失败、重试和取消的调用都照样计数。
+- 计数通过 ContextVar 对复用的模型和重排 embedder 生效，不需要改动 Project 1 的代码。
+- DB 遇到 locked/busy 错误时最多重试 1 次，重试同样消耗 DB 额度。
+- 到达截止时间时，取消仍在运行的 Worker，并把它标记为 timeout。
+- Project 1 的证据校验重试上限（1 次）保持原样。
+
+Token：复用的 Ollama 适配层不返回 token 数，所以记为 `null`，不写成 0。
+
+## 7. 非目标
+
+不做 Text-to-SQL、LLM Planner/Replan、Critic、写操作或 HITL、MCP/A2A、新的结果缓存，也不改动 Project 1 代码或旧的 `api.main`。
+
+## 8. 已知限制
+
+- 产品槽位只从问题中**字面出现**的目录产品名识别。离线实跑中只有 59/150 题能识别出产品，其余 91 题的 DB 结果是 `failed/clarification_required`，整体状态降为 partial 或 failed。
+  可选的改进方向：让 LLM 从目录候选中挑选产品，程序再校验它是否在白名单里。这会多一次 LLM 调用，目前未实现。
+- 文档计数只反映样本快照的覆盖情况，不代表 IBM 全量知识库，也不是故障率或工单量。
