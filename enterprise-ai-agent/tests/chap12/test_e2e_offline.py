@@ -31,11 +31,16 @@ def test_combined_request_runs_both_real_workers(supervisor) -> None:  # type: i
     result = asyncio.run(supervisor.run(AnalysisRequest(query=QUESTION), context()))
     rag, db = result.worker_results
     assert db.status == "completed" and result.data_result.product_id == "SSCRJU"  # type: ignore[union-attr]
-    assert result.data_result.count == 2  # type: ignore[union-attr]
+    # Combined task: the data part lists the product's related documents (P1-5).
+    assert result.data_result.operation == "list_recent_documents"  # type: ignore[union-attr]
+    assert [r.key for r in result.data_result.rows] == ["swg21996508", "swg27038498"]  # type: ignore[union-attr]
+    assert "[相关文档]" in result.answer
     assert rag.status in {"completed", "partial"}
     assert "swg21996508" in rag.payload.retrieved_doc_ids  # type: ignore[union-attr]
     assert all(c.quote for c in result.citations)
     assert result.usage.llm_calls == 0 and result.usage.db_queries == 1
+    count = asyncio.run(supervisor.run(AnalysisRequest(query=QUESTION, goal="data"), context()))
+    assert count.data_result.operation == "count_documents" and count.data_result.count == 2  # type: ignore[union-attr]
 
 
 def test_scoped_subject_gets_partial_not_leak(supervisor) -> None:  # type: ignore[no-untyped-def]

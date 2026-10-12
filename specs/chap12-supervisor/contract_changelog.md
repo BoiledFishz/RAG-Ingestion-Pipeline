@@ -9,3 +9,5 @@
 | chap12-v1（行为变更，字段不变） | P0-2 | RAG 检索按授权产品过滤（检索时，在 RRF 之前）；DB 推断只在授权文档中进行；受限主体追加 limitation | 审阅决定 D3；工作单 P0-2 |
 | **chap12-v2** | P0-3 | `CONTRACT_VERSION` 改为 chap12-v2（补上 v2 字段变更的版本号）；`Usage` 增加 `sql_statements`、`local_compute`、`embedding_cache_hits`；预算增加 `sql`（400）和 `local`（16）两个类别 | 审阅决定 D4；工作单 P0-3、P2 |
 | chap12-v2 | P2 | `count_documents` 和 `count_by_year` 计数为 0 时返回 **completed**（payload.count=0）；只有 `list_recent_documents` 返回空列表时为 no_data | 审阅决定 D1 |
+| chap12-v2 | P1-5 | explain_and_data 的默认数据操作由 `count_documents` 改为 `list_recent_documents`（limit 5），最终回答中作为“相关文档”（doc_id、日期、标题）呈现；data 目标的默认操作仍是计数 | 工作单 P1-5 |
+| chap12-v2 | P0-4 | `Usage` 增加 `prompt_tokens`、`completion_tokens`（取自 Ollama 的 prompt_eval_count/eval_count；拿不到时为 null，不记为 0），`tokens` 为两者之和 | 工作单 P0-4 |

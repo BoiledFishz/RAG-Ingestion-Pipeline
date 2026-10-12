@@ -153,8 +153,11 @@ class Usage(Strict):
     local_compute: int = 0
     embedding_cache_hits: int = 0
     retries: int = 0
-    # Local Ollama does not expose token counts through the reused adapter: unknown is null.
+    # Observed Ollama prompt/completion tokens (TokenMeteredOllamaModel); null when unknown,
+    # e.g. offline profile or adapters that do not report them. Never silently zero.
     tokens: int | None = None
+    prompt_tokens: int | None = None
+    completion_tokens: int | None = None
     elapsed_ms: float = 0
 
 

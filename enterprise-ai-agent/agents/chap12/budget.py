@@ -49,6 +49,9 @@ class Budget:
                                      "local": 0}
         # Informational: texts served from the nomic embedding cache (no external call).
         self.embedding_cache_hits = 0
+        # Observed model tokens; None until a response actually reports them.
+        self.prompt_tokens: int | None = None
+        self.completion_tokens: int | None = None
         self.by_worker: dict[str, dict[str, int]] = {}
         self._lock = threading.Lock()
 
@@ -84,6 +87,13 @@ class Budget:
     def record_cache_hits(self, count: int) -> None:
         with self._lock:
             self.embedding_cache_hits += count
+
+    def record_tokens(self, prompt: Any, completion: Any) -> None:
+        with self._lock:
+            if isinstance(prompt, int):
+                self.prompt_tokens = (self.prompt_tokens or 0) + prompt
+            if isinstance(completion, int):
+                self.completion_tokens = (self.completion_tokens or 0) + completion
 
     def worker_count(self, worker: str, kind: Kind) -> int:
         return self.by_worker.get(worker, {}).get(kind, 0)

@@ -37,6 +37,11 @@ def db_input(request: AnalysisRequest, catalog: Catalog) -> tuple[DbInput, list[
         notes.append("问题中识别到多个产品，数据查询只使用首个："
                      + "、".join(p.name for p in found[:4]))
     base = explicit.model_dump() if explicit is not None else {}
-    return DbInput(**{**base, "operation": base.get("operation", "count_documents"),
+    # P1-5: in a combined task the data part serves the answer: the product's most recent
+    # documents (doc_id, title, date) are returned as "related documents". A pure data
+    # question defaults to a count (knowledge-coverage metric, not a business metric).
+    default = "list_recent_documents" if request.goal == "explain_and_data" else \
+        "count_documents"
+    return DbInput(**{**base, "operation": base.get("operation", default),
                       "product": product, "product_source": "query_literal",
                       "infer_product": product is None, "query": request.query}), notes

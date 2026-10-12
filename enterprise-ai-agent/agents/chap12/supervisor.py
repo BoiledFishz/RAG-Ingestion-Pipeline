@@ -165,6 +165,9 @@ class Supervisor:
             db_queries=budget.used["db"], tool_calls=budget.used["tool"],
             sql_statements=budget.used["sql"], local_compute=budget.used["local"],
             embedding_cache_hits=budget.embedding_cache_hits,
+            prompt_tokens=budget.prompt_tokens, completion_tokens=budget.completion_tokens,
+            tokens=None if budget.prompt_tokens is None and budget.completion_tokens is None
+            else (budget.prompt_tokens or 0) + (budget.completion_tokens or 0),
             retries=sum(r.usage.retries for r in results), elapsed_ms=budget.elapsed_ms(),
         )
         return FinalResponse(run_id=run_id, status=status, goal=request.goal,  # type: ignore[arg-type]
@@ -183,8 +186,12 @@ def _data_sentence(payload: DbPayload) -> str:
     if payload.operation == "count_documents":
         return (f"[数据] 样本快照中产品 {payload.product_name}（{payload.product_id}）"
                 f"{condition}的文档数：{payload.count}。")
+    if payload.operation == "list_recent_documents":
+        lines = "\n".join(f"- {r.key}（{r.value}）" for r in payload.rows) or "- 无"
+        more = "\n（同产品还有更多文档，仅列出最近几篇）" if payload.truncated else ""
+        return (f"[相关文档] 样本知识库中产品 {payload.product_name}{condition}最近的文档："
+                f"\n{lines}{more}")
     rows = "；".join(f"{r.key}: {r.value}" for r in payload.rows)
     more = "（结果已截断）" if payload.truncated else ""
-    title = "按年份文档数" if payload.operation == "count_by_year" else "最近文档"
-    return f"[数据] {payload.product_name}{condition}{title}：{rows or '无'}{more}。"
+    return f"[数据] {payload.product_name}{condition}按年份文档数：{rows or '无'}{more}。"
 

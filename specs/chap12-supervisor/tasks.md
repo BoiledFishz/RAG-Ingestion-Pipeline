@@ -50,3 +50,8 @@
 ### P1-5 产品槽位先行的替代方案（调参集）
 - 改动：新增 `evaluation/chap12_product_filter_study.py`，输出 `tune/product_filter_study.json`；spec §10 写入比较结果与结论。
 - 命令：`python -m evaluation.chap12_product_filter_study` → 当前方案 R@8 0.688、MRR 0.535，替代方案 R@8 0.661、MRR 0.508，槽位解析额外 124 ms → 保留当前方案。
+
+### P1-5（续）数据部分服务于回答；P0-4（第一部分）token 采集
+- 改动：`planner.py` 中 explain_and_data 的默认操作改为 list_recent_documents；`supervisor.py` 把列表渲染为“[相关文档]”；新增 `agents/chap12/ollama_tokens.py`（TokenMeteredOllamaModel 继承 Project 1 的适配器，重复相同的请求并记录 prompt_eval_count/eval_count），`factory.py` 的 ollama 档位改用它；`budget.py` 增加 `record_tokens`；Usage 增加 token 字段；新增 `test_ollama_tokens.py`（用 httpx MockTransport 验证请求参数与 Project 1 一致、token 累加、缺失时为 null、遇到 length 截断时失败）；更新 e2e 测试。
+- 命令：`pytest tests/chap12 -q` → `105 passed`；`ruff check` → 通过。
+- 未执行：真实 Ollama 的 token 采集（本环境连不到 Ollama）。

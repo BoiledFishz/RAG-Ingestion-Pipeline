@@ -9,13 +9,13 @@ from rag.techqa.data import ROOT
 
 from agents.chap12.budget import BudgetedModel, BudgetLimits
 from agents.chap12.db_worker import DatabaseQueryWorker
+from agents.chap12.ollama_tokens import TokenMeteredOllamaModel
 from agents.chap12.rag_worker import RagWorker
 from agents.chap12.supervisor import Supervisor
 from agents.rag_agent.compression import ContextCompressor
 from agents.rag_agent.generation import EvidenceSelector, ExtractiveSelector, LLMSelector
 from agents.rag_agent.rewrite import LLMRewriter, QueryRewriter, RuleRewriter
 from agents.rag_agent.service import RAGAgent
-from models.providers import OllamaStructuredModel
 from models.settings import Settings
 
 DEFAULT_INDEX = ROOT / ".rag_data/chap12_sample.sqlite"
@@ -50,7 +50,7 @@ def build_rag_agent(settings: Settings, path: Path) -> RAGAgent:
         retriever = SampleRetrieverTool(path, rerank=os.getenv("CHAP12_RERANKER", offline))
     else:
         model = BudgetedModel(
-            OllamaStructuredModel(settings.ollama_url, settings.model, settings.llm_timeout))
+            TokenMeteredOllamaModel(settings.ollama_url, settings.model, settings.llm_timeout))
         rewriter = LLMRewriter(model)
         selector = LLMSelector(
             model, controlled=os.getenv("TECHQA_GENERATION", "extractive") == "controlled")
