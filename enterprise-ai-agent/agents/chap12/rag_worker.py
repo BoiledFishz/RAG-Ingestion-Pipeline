@@ -61,6 +61,8 @@ class RagWorker:
                 "usage": {
                     "llm_calls": budget.worker_count(self.name, "llm"),
                     "embedding_calls": budget.worker_count(self.name, "embedding"),
+                    "sql_statements": budget.worker_count(self.name, "sql"),
+                    "local_compute": budget.worker_count(self.name, "local"),
                     "tool_calls": budget.worker_count(self.name, "tool"),
                     "elapsed_ms": (time.monotonic() - started) * 1000,
                 },

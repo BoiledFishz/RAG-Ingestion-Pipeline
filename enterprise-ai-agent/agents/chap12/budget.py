@@ -18,7 +18,11 @@ from pydantic import Field
 
 from agents.chap12.contracts import Strict
 
-Kind = Literal["llm", "embedding", "db", "tool"]
+# llm: model generations; embedding: nomic embedding requests (cache misses);
+# db: logical DB Worker queries/inferences; tool: Worker invocations;
+# sql: every individual SQL statement (RAG BM25/parents and DB Worker);
+# local: local model compute (MiniLM query encoding).
+Kind = Literal["llm", "embedding", "db", "tool", "sql", "local"]
 
 
 class BudgetExhausted(RuntimeError):
@@ -33,13 +37,18 @@ class BudgetLimits(Strict):
     max_embedding_calls: int = Field(default=4, ge=0, le=64)
     max_db_queries: int = Field(default=4, ge=0, le=64)
     max_tool_calls: int = Field(default=4, ge=0, le=64)
+    max_sql_statements: int = Field(default=400, ge=0, le=10000)
+    max_local_compute: int = Field(default=16, ge=0, le=256)
 
 
 class Budget:
     def __init__(self, limits: BudgetLimits, clock: Any = time.monotonic) -> None:
         self.limits, self.clock = limits, clock
         self.started = clock()
-        self.used: dict[str, int] = {"llm": 0, "embedding": 0, "db": 0, "tool": 0}
+        self.used: dict[str, int] = {"llm": 0, "embedding": 0, "db": 0, "tool": 0, "sql": 0,
+                                     "local": 0}
+        # Informational: texts served from the nomic embedding cache (no external call).
+        self.embedding_cache_hits = 0
         self.by_worker: dict[str, dict[str, int]] = {}
         self._lock = threading.Lock()
 
@@ -49,6 +58,8 @@ class Budget:
             "embedding": self.limits.max_embedding_calls,
             "db": self.limits.max_db_queries,
             "tool": self.limits.max_tool_calls,
+            "sql": self.limits.max_sql_statements,
+            "local": self.limits.max_local_compute,
         }[kind]
 
     def remaining(self) -> float:
@@ -70,6 +81,10 @@ class Budget:
             counts = self.by_worker.setdefault(worker, {k: 0 for k in self.used})
             counts[kind] += 1
 
+    def record_cache_hits(self, count: int) -> None:
+        with self._lock:
+            self.embedding_cache_hits += count
+
     def worker_count(self, worker: str, kind: Kind) -> int:
         return self.by_worker.get(worker, {}).get(kind, 0)
 
@@ -87,10 +102,19 @@ def metered(budget: Budget, worker: str) -> Iterator[None]:
 
 
 def charge(kind: Kind) -> None:
-    """Reserve against the active request budget. Outside a request (e.g. tests) is a no-op."""
+    """Reserve against the active request budget. Outside a request (e.g. tests) is a no-op.
+
+    Called immediately before every external or expensive call, including from worker
+    threads (asyncio.to_thread copies the context). After the deadline it raises, so a thread
+    abandoned by a cancelled coroutine cannot start any further call."""
     active = CURRENT.get()
     if active is not None:
         active[0].reserve(kind, active[1])
+
+
+def deadline_remaining() -> float | None:
+    active = CURRENT.get()
+    return None if active is None else active[0].remaining()
 
 
 class BudgetedModel:
@@ -116,5 +140,6 @@ class BudgetedEmbedder:
 
     async def embed_documents(self, texts: list[str]) -> list[list[float]]:
         charge("embedding")
+        self.last_batch_size = len(texts)
         result: list[list[float]] = await self.inner.embed_documents(texts)
         return result

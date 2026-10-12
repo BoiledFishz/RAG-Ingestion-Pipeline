@@ -16,11 +16,11 @@ from typing import Any
 
 from rag.retrieval.contracts import RetrievalMode
 from rag.retrieval.pipeline import RetrievalConfig, RetrievalPipeline
-from rag.techqa.index import TechQAIndex
-from rag.techqa.retrieval import FullSparseRetriever, TechQAParentResolver, TechQAReranker
+from rag.techqa.retrieval import FullSparseRetriever, TechQAParentResolver
 from rag.techqa.settings import acceptance_score
 
 from agents.chap12.budget import BudgetedEmbedder
+from agents.chap12.metered import CountingReranker, MeteredIndex
 from agents.chap12.rag_worker import doc_id
 from agents.chap12.scope import PRODUCT_SCOPE, DocumentScope, ScopedRetriever
 from models.schemas import Document, RetrieverInput
@@ -47,7 +47,7 @@ class SampleRetrieverTool(TechQARetrieverTool):
     def __init__(self, index_path: Path, *, semantic_rerank: bool | None = None,
                  final_k: int = 20, dense: Any | None = None, use_dense: bool = True,
                  rerank: str | None = None) -> None:
-        index = TechQAIndex(index_path)
+        index = MeteredIndex(index_path)
         self.scope = DocumentScope(index_path)
         sidecar = index_path.with_suffix(".dense.sqlite")
         if dense is None and use_dense and sidecar.is_file():
@@ -69,7 +69,7 @@ class SampleRetrieverTool(TechQARetrieverTool):
             reranker = VectorReranker(dense)
             self.minilm = True
         else:
-            reranker = TechQAReranker(choice == "nomic")
+            reranker = CountingReranker(choice == "nomic")
             reranker.embedder = BudgetedEmbedder(reranker.embedder)
         self.pipeline = RetrievalPipeline(
             # Both branches are scoped before fusion/rerank, so unauthorized documents never

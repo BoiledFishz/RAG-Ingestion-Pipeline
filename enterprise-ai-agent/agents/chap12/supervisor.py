@@ -163,6 +163,8 @@ class Supervisor:
         usage = Usage(
             llm_calls=budget.used["llm"], embedding_calls=budget.used["embedding"],
             db_queries=budget.used["db"], tool_calls=budget.used["tool"],
+            sql_statements=budget.used["sql"], local_compute=budget.used["local"],
+            embedding_cache_hits=budget.embedding_cache_hits,
             retries=sum(r.usage.retries for r in results), elapsed_ms=budget.elapsed_ms(),
         )
         return FinalResponse(run_id=run_id, status=status, goal=request.goal,  # type: ignore[arg-type]

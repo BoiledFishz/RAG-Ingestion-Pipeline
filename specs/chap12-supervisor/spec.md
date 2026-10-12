@@ -78,17 +78,28 @@ flowchart TD
 - RAG（审阅决定 D3，检索时过滤）：RagWorker 把 `TrustedContext.allowed_product_ids` 写入请求范围的 ContextVar。BM25 和 dense 两路都包了一层 `ScopedRetriever`：先多取（limit × 20，上限 1000），再按 `document_products` 只保留授权产品的文档，然后才进入 RRF 和重排，所以未授权文档不会进入重排器、父文档解析或 LLM 上下文。父文档展开前还会再检查一次，越界就抛错。受限主体的结果中会附带限制说明。DB 的产品推断也只在授权文档中进行，拒权时不会透露问题与哪个未授权产品相似。
 - 沿用 Project 1 的过滤白名单和 `published` 强制过滤。检索范围限定在样本内：BM25 加上样本自己的 MiniLM 向量（从 Project 1 全量向量中复制），经 RRF 混合后重排。重排在 offline 档位用 MiniLM，在 ollama 档位默认用 nomic。全库 dense 服务会越出样本范围，所以不使用。
 
-## 6. 预算与终止（`budget.py`）
+## 6. 预算与终止（`budget.py`、`metered.py`，Contract chap12-v2）
 
-每个请求有一个绝对截止时间，并对 LLM、embedding、DB、tool 调用分别设上限，默认为 150 s / 8 / 4 / 4 / 4，可通过环境变量 `CHAP12_*` 调整。
+每个请求有一个绝对截止时间，并按类别设置调用上限，默认值为：
 
-- 每次调用在**开始之前**预留额度；失败、重试和取消的调用都照样计数。
-- 计数通过 ContextVar 对复用的模型和重排 embedder 生效，不需要改动 Project 1 的代码。
-- DB 遇到 locked/busy 错误时最多重试 1 次，重试同样消耗 DB 额度。
-- 到达截止时间时，取消仍在运行的 Worker，并把它标记为 timeout。
-- Project 1 的证据校验重试上限（1 次）保持原样。
+| 类别 | 含义 | 默认上限 |
+| --- | --- | --- |
+| llm | 模型生成调用 | 8 |
+| embedding | nomic embedding 请求（缓存未命中的批次） | 4 |
+| db | DB Worker 的逻辑查询和产品推断 | 4 |
+| tool | Worker 调用 | 4 |
+| sql | **每一条** SQL 语句，包括 RAG 的 BM25、父文档查询和 DB Worker 的语句 | 400 |
+| local | 本地模型计算（MiniLM 查询编码） | 16 |
 
-Token：复用的 Ollama 适配层不返回 token 数，所以记为 `null`，不写成 0。
+另外记录 nomic 缓存命中的文本数（`embedding_cache_hits`）。命中不产生外部调用，不设上限。截止时间默认 150 s。所有上限都可以用环境变量 `CHAP12_*` 修改；默认值由审阅决定 D4 确认。
+
+- **调用前预留**：每次调用在开始前预留额度，失败、重试和取消的调用都计数。计数通过 ContextVar 进入复用的模型、重排 embedder、Project 1 的 `TechQAIndex`（由 `MeteredIndex` 包装每条语句）以及 MiniLM 编码，不修改 Project 1 代码。
+- **线程内的截止语义（P0-3）**：检索、编码和 SQL 在 `asyncio.to_thread` 的线程里运行。到截止时间时，Supervisor 取消等待中的协程，但无法终止已经开始的线程。因此：
+  - 每条 SQL、每次 LLM/embedding/本地编码调用前都调用 `charge()`；截止时间一过，它就抛出 `BudgetExhausted(deadline)`，被放弃的线程不能再发起新的调用；
+  - 正在执行的 SQL 由 progress handler 在截止时间中断；
+  - 已经开始的单次本地计算（例如一次编码）会继续跑完，但结果被丢弃。
+- **重试**：DB 遇到 locked/busy 最多重试 1 次；RAG 证据校验重试沿用 Project 1 的上限（1 次）。
+- Token 数：复用的 Ollama 适配层不返回 token。真实档位的采集方式见 P0-4。
 
 ## 7. 非目标
 

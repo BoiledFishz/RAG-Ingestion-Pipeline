@@ -10,7 +10,7 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
-CONTRACT_VERSION = "chap12-v1"
+CONTRACT_VERSION = "chap12-v2"
 
 WorkerStatus = Literal["completed", "partial", "no_data", "permission_denied", "timeout", "failed"]
 WorkerName = Literal["rag", "database"]
@@ -149,6 +149,9 @@ class Usage(Strict):
     embedding_calls: int = 0
     db_queries: int = 0
     tool_calls: int = 0
+    sql_statements: int = 0
+    local_compute: int = 0
+    embedding_cache_hits: int = 0
     retries: int = 0
     # Local Ollama does not expose token counts through the reused adapter: unknown is null.
     tokens: int | None = None

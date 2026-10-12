@@ -17,7 +17,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from agents.chap12.budget import Budget, BudgetExhausted
+from agents.chap12.budget import Budget, BudgetExhausted, metered
 from agents.chap12.contracts import (
     DbInput,
     DbPayload,
@@ -26,6 +26,7 @@ from agents.chap12.contracts import (
     WorkerError,
     WorkerResult,
 )
+from agents.chap12.metered import MeteredConnection
 
 MAX_GROUP_ROWS = 40
 # Product inference, chosen on the tune split only (evaluation/chap12_retrieval_tune.py):
@@ -131,9 +132,9 @@ class DatabaseQueryWorker:
             ).fetchall()
             ids = [r[0] for r in db.execute(
                 "SELECT DISTINCT product_id FROM document_products ORDER BY product_id")]
-        from rag.techqa.index import TechQAIndex
+        from agents.chap12.metered import MeteredIndex
 
-        self.index = TechQAIndex(self.path)
+        self.index = MeteredIndex(self.path)
         self.snapshot = (f"{manifest['scope']}:seed={manifest.get('seed')}:"
                          f"docs={manifest['document_count']}")
         names: dict[str, str] = {}
@@ -143,14 +144,14 @@ class DatabaseQueryWorker:
         self.catalog = Catalog([Product(i, names.get(i, i)) for i in ids])
 
     @contextmanager
-    def connect(self, deadline: float) -> Iterator[sqlite3.Connection]:
+    def connect(self, deadline: float) -> Iterator[Any]:
         db = sqlite3.connect(self.path.as_uri() + "?mode=ro", uri=True, timeout=2,
                              check_same_thread=False)
         try:
             db.execute("PRAGMA query_only = ON")
             # Abort the running statement once the deadline passes (SQLITE_INTERRUPT).
             db.set_progress_handler(lambda: int(time.monotonic() > deadline), 1000)
-            yield db
+            yield MeteredConnection(db)  # every statement: `sql` reservation + deadline check
         finally:
             db.close()
 
@@ -161,12 +162,18 @@ class DatabaseQueryWorker:
             "run_id": run_id, "task_id": task_id, "worker": self.name, "status": status,
             "payload": payload, "error": error, "limitations": list(LIMITATIONS),
             "usage": {"db_queries": budget.worker_count(self.name, "db"),
+                      "sql_statements": budget.worker_count(self.name, "sql"),
                       "tool_calls": budget.worker_count(self.name, "tool"), "retries": retries,
                       "elapsed_ms": (time.monotonic() - started) * 1000},
         })
 
     async def run(self, run_id: str, task_id: str, request: DbInput, ctx: TrustedContext,
                   budget: Budget) -> WorkerResult:
+        with metered(budget, self.name):
+            return await self._run(run_id, task_id, request, ctx, budget)
+
+    async def _run(self, run_id: str, task_id: str, request: DbInput, ctx: TrustedContext,
+                   budget: Budget) -> WorkerResult:
         started = time.monotonic()
 
         def fail(status: str, category: str, message: str, retryable: bool = False,
@@ -191,7 +198,13 @@ class DatabaseQueryWorker:
                 budget.reserve("db", self.name)
             except BudgetExhausted as exc:
                 return fail("failed", "budget_exhausted", str(exc))
-            reference, evidence = await asyncio.to_thread(self._infer, request.query, ctx)
+            try:
+                reference, evidence = await asyncio.to_thread(self._infer, request.query, ctx)
+            except BudgetExhausted as exc:
+                return (fail("timeout", "timeout", "request deadline reached during inference")
+                        if exc.kind == "deadline" else fail("failed", "budget_exhausted", str(exc)))
+            except sqlite3.OperationalError:
+                return fail("timeout", "timeout", "statement deadline exceeded during inference")
             source = "inferred"
         if reference is None:
             # Missing input is not an execution failure: nothing publishable, ask the user.
@@ -240,6 +253,10 @@ class DatabaseQueryWorker:
             except sqlite3.DatabaseError:
                 return fail("failed", "dependency_unavailable", "database error",
                             retries=retries)
+            except BudgetExhausted as exc:
+                if exc.kind == "deadline":
+                    return fail("timeout", "timeout", "request deadline reached", retries=retries)
+                return fail("failed", "budget_exhausted", str(exc), retries=retries)
 
         payload: dict[str, Any] = {
             "operation": request.operation, "product_name": product.name,
@@ -295,7 +312,7 @@ class DatabaseQueryWorker:
         return None, []
 
     @staticmethod
-    def _products(db: sqlite3.Connection, doc: str) -> list[str]:
+    def _products(db: Any, doc: str) -> list[str]:
         return [r[0] for r in db.execute(
             "SELECT product_id FROM document_products WHERE doc_id = ?", (doc,))]
 

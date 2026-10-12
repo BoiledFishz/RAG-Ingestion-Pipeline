@@ -97,7 +97,10 @@ class SampleDenseRetriever:
 
         import numpy as np
 
+        from agents.chap12.budget import charge
+
         secure = self.policy.apply(filters)
+        charge("local")
         vector = (await asyncio.to_thread(self.encoder.encode, [query]))[0]
         scores = self.vectors @ vector
         order = np.argsort(-scores, kind="stable")
@@ -136,8 +139,11 @@ class VectorReranker:
 
         from rag.techqa.retrieval import coverage
 
+        from agents.chap12.budget import charge
+
         if not candidates or limit <= 0:
             return []
+        charge("local")
         vector = (await asyncio.to_thread(self.dense.encoder.encode, [query]))[0]
         semantic_w, lexical_w, prior_w = self.weights
         ranked = []

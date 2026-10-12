@@ -32,6 +32,8 @@ def budget_limits() -> BudgetLimits:
         max_embedding_calls=int(os.getenv("CHAP12_MAX_EMBEDDING_CALLS", "4")),
         max_db_queries=int(os.getenv("CHAP12_MAX_DB_QUERIES", "4")),
         max_tool_calls=int(os.getenv("CHAP12_MAX_TOOL_CALLS", "4")),
+        max_sql_statements=int(os.getenv("CHAP12_MAX_SQL_STATEMENTS", "400")),
+        max_local_compute=int(os.getenv("CHAP12_MAX_LOCAL_COMPUTE", "16")),
     )
 
 

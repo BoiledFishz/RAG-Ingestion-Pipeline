@@ -32,3 +32,9 @@
 - 改动：新增 `agents/chap12/scope.py`（ContextVar、DocumentScope、ScopedRetriever）；`tools/sample_retriever.py` 的两路检索都经过范围过滤，父文档展开前再检查一次；`rag_worker.py` 设置范围并追加 limitation；`db_worker.py` 的推断只考虑授权文档；新增 `tests/chap12/test_scope.py`（4 项），调整 `test_db_worker.py` 中一项的预期。
 - 命令：`pytest tests/chap12 -q` → `95 passed`；`ruff check` → 通过。
 - 结果：受限主体（只授权 SSFKSJ）查询 Streams 问题时，引用与检索候选中没有 SSCRJU 文档，DB 返回 permission_denied，序列化后的响应中不含 SSCRJU 和这两篇 doc_id；未写明产品的问题在受限时不会推断出 Streams。
+
+### P0-3 截止时间取消的真实性
+- 核查结论（修复前）：RAGAgent 和 LLM 调用是原生 async（httpx，可取消）；BM25 和父文档查询（Project 1 `FullSparseRetriever`/`TechQAParentResolver`）、MiniLM 编码、DB 推断与查询都在 `asyncio.to_thread` 中执行。协程被取消后线程仍会继续；其中 RAG 的 BM25 SQL 和 DB 推断里的 `index.search` 没有任何截止检查，可能在截止后继续发出 SQL。
+- 改动：新增 `agents/chap12/metered.py`（MeteredConnection、MeteredIndex、CountingReranker）；`budget.py` 增加 `sql`、`local` 两个类别和 `deadline_remaining`；DB Worker 的连接改为逐语句计量，推断和查询中的 `BudgetExhausted(deadline)` 映射为 timeout；dense 检索和重排在编码前计量 `local`；Contract 升级为 chap12-v2；新增 `tests/chap12/test_deadline.py`（3 项，用线程内真实的 `time.sleep` 阻塞）。
+- 命令：`pytest tests/chap12 -q` → `98 passed`；`ruff check ...` → `All checks passed!`；`mypy --python-version 3.12 agents/chap12 ...` → `Success: no issues found in 18 source files`。
+- 结果：DB 线程在截止后醒来时，第一条 SQL 就被 `BudgetExhausted(deadline)` 拒绝；返回后再等 1.2 s，预算计数没有任何变化，sql 为 0。RAG 检索线程阻塞到截止之后，也没有再产生任何计数。
