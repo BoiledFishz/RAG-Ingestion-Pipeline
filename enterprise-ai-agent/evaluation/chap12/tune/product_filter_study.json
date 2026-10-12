@@ -1,0 +1,24 @@
+{
+ "split": "tune",
+ "y_questions": 112,
+ "slot_resolved": 98,
+ "unfiltered_parallel (current)": {
+  "R@1": 0.4643,
+  "R@3": 0.5536,
+  "R@5": 0.625,
+  "R@8": 0.6875,
+  "MRR": 0.5348
+ },
+ "product_filtered_serial (alternative)": {
+  "R@1": 0.4286,
+  "R@3": 0.5446,
+  "R@5": 0.6161,
+  "R@8": 0.6607,
+  "MRR": 0.5079
+ },
+ "slot_resolution_ms": {
+  "mean": 123.8,
+  "p95": 281.1
+ },
+ "note": "Filtered retrieval must wait for slot resolution (serial); unfiltered RAG runs in parallel with DB. Unresolved questions fall back to unfiltered retrieval."
+}

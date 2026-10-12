@@ -99,3 +99,17 @@ def test_hybrid_tool_uses_tune_threshold(sidecar: Path, own_index: Path,
         query="Streams 4.1.1.1 jobs do not inherit environment variables from .bashrc", top_k=5)))
     assert "techqa:swg21996508:parent" in [d.chunk_id for d in docs]
     assert {d.metadata["_acceptance_threshold"] for d in docs} == {0.0}
+
+
+def test_gap_gate_refuses_by_rejecting_every_candidate(sidecar: Path, own_index: Path,
+                                                     monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("CHAP12_MINILM_THRESHOLD", "0.0")
+    dense = SampleDenseRetriever(sidecar, encoder=HashEncoder())
+    tool = SampleRetrieverTool(own_index, dense=dense, rerank="minilm")
+    query = "Streams 4.1.1.1 jobs do not inherit environment variables from .bashrc"
+    monkeypatch.setenv("CHAP12_GAP_GATE", "10")  # impossible gap: must refuse
+    refused = asyncio.run(tool.invoke(RetrieverInput(query=query, top_k=5)))
+    assert refused and {d.metadata["_acceptance_threshold"] for d in refused} == {1e9}
+    monkeypatch.setenv("CHAP12_GAP_GATE", "")  # gate disabled
+    kept = asyncio.run(tool.invoke(RetrieverInput(query=query, top_k=5)))
+    assert {d.metadata["_acceptance_threshold"] for d in kept} == {0.0}

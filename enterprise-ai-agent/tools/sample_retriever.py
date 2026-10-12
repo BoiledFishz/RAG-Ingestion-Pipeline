@@ -38,6 +38,21 @@ def minilm_threshold() -> float:
     return float(data["minilm_rerank"]["threshold"])
 
 
+SIGNALS = THRESHOLDS.parent / "refusal_signals.json"
+REFUSE = 1e9  # finite (metadata must be finite); above any rerank score -> nothing accepted
+
+
+def refusal_gate() -> float | None:
+    """Top-1/top-2 rerank gap gate, only if adopted by the tune-split signal study (D2)."""
+    configured = os.getenv("CHAP12_GAP_GATE")
+    if configured is not None:
+        return float(configured) if configured else None
+    if not SIGNALS.is_file():
+        return None
+    gap = json.loads(SIGNALS.read_text(encoding="utf-8")).get("top1_top2_gap", {})
+    return float(gap["best"]["threshold"]) if gap.get("adopt") else None
+
+
 class _NoDense:
     async def retrieve(self, *args: object, **kwargs: object) -> list[object]:
         return []
@@ -93,6 +108,12 @@ class SampleRetrieverTool(TechQARetrieverTool):
         by_id = {p.chunk_id: p for p in parents}
         output: list[Document] = []
         active = PRODUCT_SCOPE.get()
+        gate = refusal_gate() if self.minilm else None
+        refuse = False
+        if gate is not None and not outcome.diagnostics.reranker_fallback:
+            scores = [r.score for r in outcome.results] + [0.0, 0.0]
+            # Below the gate no candidate may be accepted: the agent refuses (no_data).
+            refuse = scores[0] - scores[1] < gate
         for result in outcome.results:
             if not self.scope.allowed(doc_id(str(result.metadata.get("parent_id", ""))), active):
                 raise PermissionError("unauthorized document escaped retrieval scope")
@@ -100,7 +121,7 @@ class SampleRetrieverTool(TechQARetrieverTool):
             if parent is None or any(d.chunk_id == parent.chunk_id for d in output):
                 continue
             if self.minilm and not outcome.diagnostics.reranker_fallback:
-                score, threshold = result.score, minilm_threshold()
+                score, threshold = result.score, (REFUSE if refuse else minilm_threshold())
             else:
                 score, threshold = acceptance_score(
                     request.query, result.text, result.score,

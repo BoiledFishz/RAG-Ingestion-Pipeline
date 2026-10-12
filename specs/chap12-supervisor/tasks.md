@@ -42,3 +42,11 @@
 ### P2（第一部分）count=0 语义、重试上限、预算细化测试
 - 改动：`db_worker.py` 按 D1 修改状态判定；`test_db_worker.py` 中的零值用例改为同时断言三种操作；`test_rag_worker.py` 新增“证据校验重试达到上限”用例（真实的 Project 1 RAGAgent + 总是失败的 selector，断言调用 2 次、状态 failed、错误类别 invalid_evidence、错误文案 “evidence validation failed after retry”）；新增 `test_metering.py`（逐语句 SQL 按 Worker 计数、SQL 上限阻断下一条语句、embedding 未命中与缓存命中分开计数）。
 - 命令：`pytest tests/chap12 -q` → `102 passed`；`ruff check` → 通过。
+
+### P1-3 拒答信号（调参集）
+- 改动：新增 `evaluation/chap12_refusal_signals.py`，输出 `tune/refusal_signals.json`（含 top-1 分数的完整阈值曲线）；`tools/sample_retriever.py` 加入 `refusal_gate()`（只在 MiniLM 重排下生效，可用环境变量关闭）；`test_dense.py` 新增门槛用例。
+- 命令：`python -m evaluation.chap12_refusal_signals` → 结果见 spec §9（只有 top-1/top-2 间隔的 BA 为 0.614，按事先规则采用，其余 ≤ 0.571）；`pytest tests/chap12 -q` → `103 passed`。
+
+### P1-5 产品槽位先行的替代方案（调参集）
+- 改动：新增 `evaluation/chap12_product_filter_study.py`，输出 `tune/product_filter_study.json`；spec §10 写入比较结果与结论。
+- 命令：`python -m evaluation.chap12_product_filter_study` → 当前方案 R@8 0.688、MRR 0.535，替代方案 R@8 0.661、MRR 0.508，槽位解析额外 124 ms → 保留当前方案。
