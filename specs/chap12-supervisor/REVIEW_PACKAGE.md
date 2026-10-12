@@ -1,3 +1,5 @@
+> **已过时**：本材料包对应 ab4e8d7（v2）。工作单执行之后的状态以 comparison.md、improvements.md、review_log.md、PR_DESCRIPTION.md 为准。
+
 # Chap12 作业评审材料包（Project 2：Supervisor–Worker）
 
 > 给评审者：本文分三部分。第 1 部分是作业原文（未改动）；第 2 部分是实现概要和全部评测数字；第 3 部分是作者自己承认的短板。

@@ -51,3 +51,33 @@ python -m evaluation.chap12_build_dense --index ../.rag_data/chap12_sample.sqlit
 python -m evaluation.chap12_build_dense --index ../.rag_data/chap12_tune.sqlite
 python -m evaluation.chap12_retrieval_tune --split tune        # 方案比较 + 阈值标定
 ```
+
+---
+
+# 第三轮（AI 评审工作单，2026-10-11 20:05 之后）
+
+逐项记录（改动、命令、结果）见 tasks.md 的“工作单执行记录”；对照结果见 comparison.md。
+
+## 已完成
+
+| 工作单项 | 结果 |
+| --- | --- |
+| P0-1 流程 | 新增 review_log（如实的时间线，确认没有事前审阅、没有使用 Spec Kit）；Spec Kit 1.1.4.dev0 的 analyze 由代理按模板执行，结果见 analyze_report.md；人工审阅 4 个决策点（D1–D4，事后）；新增 contract_changelog |
+| P0-2 权限 | RAG 在检索时按授权产品过滤（在 RRF 之前，两路检索都过滤），父文档展开前再检查一次；DB 推断只在授权文档中进行；新增泄漏测试 4 项 |
+| P0-3 截止时间 | 每条 SQL、LLM 调用、embedding、本地编码之前都检查截止时间，线程被放弃后不能再发起新调用；用真实 `time.sleep` 阻塞线程的测试 3 项 |
+| P0-4 真实评测 | 提供 ps1/sh 脚本（记录 digest、3 次重复、分层子集、只在调参集上标定 nomic、确认集只运行一次）；token 采集；**真实运行未执行** |
+| P1-1 混合任务集 | explain 76 / explain_and_data 74 / data 60，data 题有独立复算的金标 |
+| P1-2 指标 | 正确完成、BA、阈值曲线、Project 1 原配置基线；failed 44→0 拆分为：产品推断补救 33，状态重新归类 11 |
+| P1-3 拒答信号 | 研究了 5 个信号，只有 top-1/top-2 间隔的 BA 为 0.614（调参集，刚过 0.6），按事先规则采用；**确认集上没有复现**（BA 0.536，Project 1 原配置为 0.521） |
+| P1-4 确认集 | 种子 20261013，冻结配置 2f7fe55，只运行一次（offline） |
+| P1-5 DB 价值 | explain_and_data 改为返回“相关文档”；“先解析产品、再同时过滤 RAG”的替代方案在调参集上更差（R@8 0.661 vs 0.688，并增加 124 ms 延迟），未采用 |
+| P2 | count=0 归为 completed（D1）；证据校验重试达到上限的显式状态测试；预算细分 sql/local/缓存命中计数；Python 3.11 下 157 个测试通过；uvicorn + curl 冒烟测试 |
+
+## 仍存在的问题
+
+1. **真实模型档位未执行**：所有质量数字都来自 offline（0 次 LLM 调用）；token 采集只经过 mock 的管线连通性验证。
+2. **拒答没有可靠信号**：top-1 分数的 AUC 为 0.53；间隔门槛在调参集上的 BA 0.614 是在样本内取的最优值，确认集只有 0.536，同时还以少答 Y 题为代价。
+3. **“相关文档”对回答帮助很弱**：列表包含金标文档的比例只有约 7%。
+4. 约 11–22% 的 explain_and_data 题无法确定产品，只能返回 clarification。
+5. 流程：没有事前审阅；PR 待创建并等待 Review。
+6. `.ps1` 在本环境中没有 PowerShell，未验证。

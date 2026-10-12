@@ -1,6 +1,6 @@
 # Chap12 Supervisor–Worker（精简版）规格
 
-状态：**实现已完成，待人工审阅**。本规格与实现同批交付，未经过“先审阅后实现”的流程；请审阅后再合并。
+状态：实现已完成。本规格与实现同批写成，**没有经过事前审阅**。2026-10-11 20:05（PT）用户对决策点 D1–D4 做了事后审阅（见 review_log.md），本文已按审阅结果修改，变更记录见 contract_changelog.md。合并之前仍需完成 PR Review。
 分支：`feature/chap12-supervisor-lite`。与 `specs/project2/` 的 v0.x 系列相互独立，不修改其中任何文件。
 
 ## 1. 范围与数据
