@@ -26,3 +26,9 @@
 - 改动：新增 review_log.md、contract_changelog.md、plan.md（事后补写）、analyze_report.md；纳入 REVIEW_PACKAGE.md。
 - 命令：`uvx --from git+https://github.com/github/spec-kit.git specify version` → `CLI Version 1.1.4.dev0`；`specify --help` → 子命令中没有 analyze/checklist。
 - 结果：analyze 由 Claude 按模板执行，发现 13 项问题，其中 2 项 CRITICAL（RAG 未按授权过滤；没有 constitution）。
+
+### P0-2 权限边界核查与修复
+- 核查结论（修复前）：RAG 检索**不**受 TrustedContext 约束，任何主体都可能在引用中看到未授权产品的文档。DB 推断在全部文档上进行，推断出的未授权产品会以 permission_denied 返回；当时的错误信息是通用文案、没有 payload，响应中不含产品名，但“拒权”这一状态本身会暗示问题与某个未授权产品相关。
+- 改动：新增 `agents/chap12/scope.py`（ContextVar、DocumentScope、ScopedRetriever）；`tools/sample_retriever.py` 的两路检索都经过范围过滤，父文档展开前再检查一次；`rag_worker.py` 设置范围并追加 limitation；`db_worker.py` 的推断只考虑授权文档；新增 `tests/chap12/test_scope.py`（4 项），调整 `test_db_worker.py` 中一项的预期。
+- 命令：`pytest tests/chap12 -q` → `95 passed`；`ruff check` → 通过。
+- 结果：受限主体（只授权 SSFKSJ）查询 Streams 问题时，引用与检索候选中没有 SSCRJU 文档，DB 返回 permission_denied，序列化后的响应中不含 SSCRJU 和这两篇 doc_id；未写明产品的问题在受限时不会推断出 Streams。

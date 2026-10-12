@@ -75,7 +75,8 @@ flowchart TD
   产品必须能在快照目录里精确匹配，否则在执行任何 SQL 之前就以 invalid_input 拒绝。
   每条查询都会带上授权的产品条件；越权时只返回 permission_denied，不透露数据是否存在。
   `list_recent_documents` 的 limit 不超过 10，按年分组不超过 40 行。
-- RAG：沿用 Project 1 的过滤白名单和 `published` 强制过滤。检索范围限定在样本内：BM25 加上样本自己的 MiniLM 向量（从 Project 1 全量向量中复制），经 RRF 混合后重排。重排在 offline 档位用 MiniLM，在 ollama 档位默认用 nomic。全库 dense 服务会越出样本范围，所以不使用。
+- RAG（审阅决定 D3，检索时过滤）：RagWorker 把 `TrustedContext.allowed_product_ids` 写入请求范围的 ContextVar。BM25 和 dense 两路都包了一层 `ScopedRetriever`：先多取（limit × 20，上限 1000），再按 `document_products` 只保留授权产品的文档，然后才进入 RRF 和重排，所以未授权文档不会进入重排器、父文档解析或 LLM 上下文。父文档展开前还会再检查一次，越界就抛错。受限主体的结果中会附带限制说明。DB 的产品推断也只在授权文档中进行，拒权时不会透露问题与哪个未授权产品相似。
+- 沿用 Project 1 的过滤白名单和 `published` 强制过滤。检索范围限定在样本内：BM25 加上样本自己的 MiniLM 向量（从 Project 1 全量向量中复制），经 RRF 混合后重排。重排在 offline 档位用 MiniLM，在 ollama 档位默认用 nomic。全库 dense 服务会越出样本范围，所以不使用。
 
 ## 6. 预算与终止（`budget.py`）
 

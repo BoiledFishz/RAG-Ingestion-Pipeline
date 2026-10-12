@@ -15,6 +15,7 @@ from agents.chap12.contracts import (
     WorkerError,
     WorkerResult,
 )
+from agents.chap12.scope import product_scope
 from models.errors import DependencyUnavailable
 from models.schemas import AgentRun, QueryRequest
 
@@ -22,6 +23,7 @@ LIMITATIONS = [
     "检索范围仅为本次样本快照（随机 TechQA 训练题的官方候选文档并集），不是全量知识库。",
     "confidence 是证据覆盖启发值，不是校准过的正确概率；引用存在不代表答案事实正确。",
 ]
+SCOPE_LIMITATION = "检索只覆盖调用方被授权的产品文档；其他产品的文档未被检索。"
 STATUS = {"answered": "completed", "partial": "partial", "unanswerable": "no_data",
           "clarified": "no_data", "invalid_evidence": "failed"}
 
@@ -47,12 +49,15 @@ class RagWorker:
     async def run(self, run_id: str, task_id: str, request: RagInput, ctx: TrustedContext,
                   budget: Budget) -> WorkerResult:
         started = time.monotonic()
+        limitations = list(LIMITATIONS)
+        if "*" not in ctx.allowed_product_ids:
+            limitations.append(SCOPE_LIMITATION)
 
         def result(status: str, payload: RagPayload | None = None,
                    error: WorkerError | None = None) -> WorkerResult:
             return WorkerResult.model_validate({
                 "run_id": run_id, "task_id": task_id, "worker": self.name, "status": status,
-                "payload": payload, "error": error, "limitations": list(LIMITATIONS),
+                "payload": payload, "error": error, "limitations": limitations,
                 "usage": {
                     "llm_calls": budget.worker_count(self.name, "llm"),
                     "embedding_calls": budget.worker_count(self.name, "embedding"),
@@ -70,7 +75,7 @@ class RagWorker:
             return error("permission_denied", "permission_denied", "RAG is not authorized")
         try:
             budget.reserve("tool", self.name)
-            with metered(budget, self.name):
+            with metered(budget, self.name), product_scope(ctx.allowed_product_ids):
                 run = await asyncio.wait_for(self.agent.run(QueryRequest(query=request.query)),
                                              timeout=min(self.timeout, budget.remaining()))
         except TimeoutError:

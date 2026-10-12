@@ -32,6 +32,7 @@ MAX_GROUP_ROWS = 40
 # the product tagged on >= 60% of the top-3 BM25 documents of the question.
 INFER_TOP_K = 3
 INFER_MIN_SHARE = 0.6
+INFER_OVERFETCH = 200
 INFERENCE_LIMITATION = (
     "问题未写明目录中的产品名；产品由问题在样本库中 BM25 前 3 篇文档的官方产品标注推断"
     "（至少 2 篇一致），可能不是提问者所指产品。")
@@ -190,7 +191,7 @@ class DatabaseQueryWorker:
                 budget.reserve("db", self.name)
             except BudgetExhausted as exc:
                 return fail("failed", "budget_exhausted", str(exc))
-            reference, evidence = await asyncio.to_thread(self._infer, request.query)
+            reference, evidence = await asyncio.to_thread(self._infer, request.query, ctx)
             source = "inferred"
         if reference is None:
             # Missing input is not an execution failure: nothing publishable, ask the user.
@@ -272,18 +273,31 @@ class DatabaseQueryWorker:
             result.limitations.insert(0, INFERENCE_LIMITATION)
         return result
 
-    def _infer(self, query: str) -> tuple[str | None, list[str]]:
-        docs = [d["id"] for d in self.index.search(query, INFER_TOP_K)]
-        if not docs:
-            return None, []
+    def _infer(self, query: str, ctx: TrustedContext) -> tuple[str | None, list[str]]:
+        """Infer only among documents the caller may see, so a denial can never reveal
+        which unauthorized product the question resembles."""
         with self.connect(time.monotonic() + self.statement_timeout) as db:
+            if "*" in ctx.allowed_product_ids:
+                hits = self.index.search(query, INFER_TOP_K)
+            else:
+                hits = [d for d in self.index.search(query, INFER_OVERFETCH)
+                        if any(ctx.product_allowed(p) for p in self._products(db, d["id"]))]
+            docs = [d["id"] for d in hits[:INFER_TOP_K]]
+            if not docs:
+                return None, []
             marks = ",".join("?" * len(docs))
-            rows = db.execute(f"SELECT product_id, count(*) FROM document_products "
-                              f"WHERE doc_id IN ({marks}) GROUP BY product_id "
-                              "ORDER BY 2 DESC, product_id", docs).fetchall()
+            rows = [r for r in db.execute(
+                f"SELECT product_id, count(*) FROM document_products WHERE doc_id IN ({marks}) "
+                "GROUP BY product_id ORDER BY 2 DESC, product_id", docs).fetchall()
+                if ctx.product_allowed(str(r[0]))]
         if rows and rows[0][1] / len(docs) >= INFER_MIN_SHARE:
             return str(rows[0][0]), docs
-        return None, docs
+        return None, []
+
+    @staticmethod
+    def _products(db: sqlite3.Connection, doc: str) -> list[str]:
+        return [r[0] for r in db.execute(
+            "SELECT product_id FROM document_products WHERE doc_id = ?", (doc,))]
 
     def _execute(self, sql: str, params: list[Any], deadline: float) -> list[tuple[Any, ...]]:
         with self.connect(deadline) as db:

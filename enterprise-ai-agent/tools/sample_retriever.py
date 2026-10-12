@@ -21,6 +21,8 @@ from rag.techqa.retrieval import FullSparseRetriever, TechQAParentResolver, Tech
 from rag.techqa.settings import acceptance_score
 
 from agents.chap12.budget import BudgetedEmbedder
+from agents.chap12.rag_worker import doc_id
+from agents.chap12.scope import PRODUCT_SCOPE, DocumentScope, ScopedRetriever
 from models.schemas import Document, RetrieverInput
 from tools.techqa_retriever import TechQARetrieverTool
 
@@ -46,6 +48,7 @@ class SampleRetrieverTool(TechQARetrieverTool):
                  final_k: int = 20, dense: Any | None = None, use_dense: bool = True,
                  rerank: str | None = None) -> None:
         index = TechQAIndex(index_path)
+        self.scope = DocumentScope(index_path)
         sidecar = index_path.with_suffix(".dense.sqlite")
         if dense is None and use_dense and sidecar.is_file():
             from agents.chap12.dense import SampleDenseRetriever
@@ -69,8 +72,10 @@ class SampleRetrieverTool(TechQARetrieverTool):
             reranker = TechQAReranker(choice == "nomic")
             reranker.embedder = BudgetedEmbedder(reranker.embedder)
         self.pipeline = RetrievalPipeline(
-            dense=dense if dense is not None else _NoDense(),  # type: ignore[arg-type]
-            sparse=FullSparseRetriever(index),
+            # Both branches are scoped before fusion/rerank, so unauthorized documents never
+            # reach the reranker, the parent resolver or the model.
+            dense=ScopedRetriever(dense if dense is not None else _NoDense(), self.scope),
+            sparse=ScopedRetriever(FullSparseRetriever(index), self.scope),
             reranker=reranker,
             config=RetrievalConfig(
                 mode=self.mode,
@@ -87,7 +92,10 @@ class SampleRetrieverTool(TechQARetrieverTool):
         )
         by_id = {p.chunk_id: p for p in parents}
         output: list[Document] = []
+        active = PRODUCT_SCOPE.get()
         for result in outcome.results:
+            if not self.scope.allowed(doc_id(str(result.metadata.get("parent_id", ""))), active):
+                raise PermissionError("unauthorized document escaped retrieval scope")
             parent = by_id.get(str(result.metadata.get("parent_id")))
             if parent is None or any(d.chunk_id == parent.chunk_id for d in output):
                 continue

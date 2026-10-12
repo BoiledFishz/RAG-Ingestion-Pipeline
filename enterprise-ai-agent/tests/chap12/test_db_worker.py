@@ -130,7 +130,11 @@ def test_inferred_product_still_obeys_scope(worker) -> None:  # type: ignore[no-
     query = "Jobs do not pick up environment variables from .bashrc with ODBC operators"
     result, _ = run(worker, DbInput(operation="count_documents", infer_product=True, query=query),
                     context(products={"SSFKSJ"}))
-    assert result.status == "permission_denied" and result.payload is None
+    # Inference only considers authorized documents: never an unauthorized product.
+    assert result.status in {"completed", "no_data"}
+    if result.payload is not None:
+        assert result.payload.product_id == "SSFKSJ"  # type: ignore[union-attr]
+        assert not {"swg21996508", "swg27038498"} & set(result.payload.inference_doc_ids)  # type: ignore[union-attr]
 
 
 def test_db_budget_enforced_before_execution(worker) -> None:  # type: ignore[no-untyped-def]
