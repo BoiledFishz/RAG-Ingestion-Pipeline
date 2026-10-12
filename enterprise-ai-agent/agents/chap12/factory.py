@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
+from typing import Any
 
 from rag.techqa.data import ROOT
 
@@ -37,7 +38,7 @@ def budget_limits() -> BudgetLimits:
     )
 
 
-def build_rag_agent(settings: Settings, path: Path) -> RAGAgent:
+def build_rag_agent(settings: Settings, path: Path, override: Any | None = None) -> RAGAgent:
     """The Project 1 agent, unchanged, over the sample retriever, with metered model calls."""
     from tools.sample_retriever import SampleRetrieverTool
 
@@ -47,14 +48,15 @@ def build_rag_agent(settings: Settings, path: Path) -> RAGAgent:
         rewriter, selector = RuleRewriter(), ExtractiveSelector()
         # No model service offline: MiniLM rerank over stored vectors when the sidecar exists.
         offline = "minilm" if path.with_suffix(".dense.sqlite").is_file() else "lexical"
-        retriever = SampleRetrieverTool(path, rerank=os.getenv("CHAP12_RERANKER", offline))
+        retriever = override or SampleRetrieverTool(
+            path, rerank=os.getenv("CHAP12_RERANKER", offline))
     else:
         model = BudgetedModel(
             TokenMeteredOllamaModel(settings.ollama_url, settings.model, settings.llm_timeout))
         rewriter = LLMRewriter(model)
         selector = LLMSelector(
             model, controlled=os.getenv("TECHQA_GENERATION", "extractive") == "controlled")
-        retriever = SampleRetrieverTool(path)
+        retriever = override or SampleRetrieverTool(path)
     return RAGAgent(
         rewriter=rewriter, selector=selector, retriever=retriever,
         compressor=ContextCompressor(settings.max_context_tokens, settings.max_sources,

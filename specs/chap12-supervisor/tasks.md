@@ -55,3 +55,18 @@
 - 改动：`planner.py` 中 explain_and_data 的默认操作改为 list_recent_documents；`supervisor.py` 把列表渲染为“[相关文档]”；新增 `agents/chap12/ollama_tokens.py`（TokenMeteredOllamaModel 继承 Project 1 的适配器，重复相同的请求并记录 prompt_eval_count/eval_count），`factory.py` 的 ollama 档位改用它；`budget.py` 增加 `record_tokens`；Usage 增加 token 字段；新增 `test_ollama_tokens.py`（用 httpx MockTransport 验证请求参数与 Project 1 一致、token 累加、缺失时为 null、遇到 length 截断时失败）；更新 e2e 测试。
 - 命令：`pytest tests/chap12 -q` → `105 passed`；`ruff check` → 通过。
 - 未执行：真实 Ollama 的 token 采集（本环境连不到 Ollama）。
+
+### P1-1 / P1-2 / P1-4（准备）混合任务集、指标、确认集
+- 改动：
+  - `evaluation/chap12_build_tasks.py`：构建混合任务集。explain 76、explain_and_data 74（评测集问题按 Y/N 分层后交替分配）；data 60（3 种模板，金标从原始 metadata JSON 独立复算，分类规则也是独立重新实现的）。
+  - `evaluation/chap12_eval.py`：三个系统（p1_single = Project 1 原配置，single，multi）；按任务类型报告正确完成率、整体完成率、BA、R@k/MRR、数据正确率、产品一致率、相关文档是否含金标、延迟和各类调用计数；支持多次重复，CI 用按任务的 bootstrap；可传入运行元数据。
+  - `evaluation/chap12_failed_decomposition.py`：拆分 v1→v2 的 failed 变化。
+  - `chap12_build_sample.py` 的 `--exclude-manifest` 改为可以接收多个文件。
+  - 构建确认集（种子 20261013，排除评测集和调参集，113 Y / 37 N，6,520 篇文档）及其 dense 附属文件。
+  - `factory.build_rag_agent` 支持注入检索器。
+- 命令与结果：
+  - `python -m evaluation.chap12_build_tasks --split sample --seed 20261021` → explain 76 / explain_and_data 74 / data 60；confirm 使用种子 20261023，数量相同。
+  - `python -m evaluation.chap12_failed_decomposition` → v1 的 44 个 failed 中，33 个由产品推断补救（数据完成），11 个是重新归类（failed→no_data）。
+  - `AGENT_PROFILE=offline python -m evaluation.chap12_eval --split sample --output evaluation/results/chap12/offline_v3_sample` → 630 条记录，摘要写入 comparison.md。
+  - `pytest tests/chap12 -q` → `105 passed`；`ruff` 通过；`mypy --python-version 3.12`（20 个文件）→ `Success`。
+- 冻结：本提交即确认集运行所用的配置，确认集只运行一次。

@@ -46,7 +46,7 @@ def main() -> None:
     parser.add_argument("--index", type=Path, default=SAMPLE_INDEX)
     parser.add_argument("--output", type=Path, default=OUTPUT)
     parser.add_argument("--full-index", type=Path, default=INDEX_PATH)
-    parser.add_argument("--exclude-manifest", type=Path, default=None,
+    parser.add_argument("--exclude-manifest", type=Path, nargs="*", default=[],
                         help="sample_manifest.json whose questions must not be reused "
                              "(builds a disjoint tune split)")
     args = parser.parse_args()
@@ -54,10 +54,9 @@ def main() -> None:
     source = DATA_ROOT / "training_and_dev/training_Q_A.json"
     pool = json.loads(source.read_text(encoding="utf-8"))
     excluded: set[str] = set()
-    if args.exclude_manifest is not None:
-        excluded = set(json.loads(args.exclude_manifest.read_text(encoding="utf-8"))
-                       ["question_ids"])
-        pool = [q for q in pool if q["QUESTION_ID"] not in excluded]
+    for manifest_path in args.exclude_manifest:
+        excluded |= set(json.loads(manifest_path.read_text(encoding="utf-8"))["question_ids"])
+    pool = [q for q in pool if q["QUESTION_ID"] not in excluded]
     questions = select_questions(pool, args.size, args.seed)
     doc_ids = candidate_doc_ids(questions)
     for path in (args.output / "tasks.jsonl", args.output / "gold.jsonl"):

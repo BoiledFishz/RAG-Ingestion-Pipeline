@@ -61,10 +61,11 @@ async def main_async(split: str) -> None:
         plain.append(ids.index(target) + 1 if target in ids else None)
         started = time.monotonic()
         found = worker.catalog.find(query)
-        product = found[0].product_id if found else await asyncio.to_thread(
-            worker._infer, query, full)
-        if isinstance(product, tuple):
-            product = product[0]
+        product: str | None
+        if found:
+            product = found[0].product_id
+        else:
+            product = (await asyncio.to_thread(worker._infer, query, full))[0]
         resolve_ms.append((time.monotonic() - started) * 1000)
         if product is None:
             filtered.append(plain[-1])  # no slot: falls back to unfiltered retrieval
