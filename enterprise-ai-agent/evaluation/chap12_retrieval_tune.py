@@ -78,7 +78,7 @@ async def calibrate(tool: SampleRetrieverTool, tasks: list[dict[str, Any]],
             "target_answer_acceptance": round(target, 4)}
 
 
-async def main_async(split: str, depth: int) -> None:
+async def main_async(split: str, depth: int, rerank: str = "minilm") -> None:
     # Recall ignores acceptance thresholds (they only annotate candidates); the threshold
     # itself is produced below by calibrate().
     os.environ.setdefault("CHAP12_MINILM_THRESHOLD", "0")
@@ -92,6 +92,9 @@ async def main_async(split: str, depth: int) -> None:
     answerable = {g["task_id"]: g["answerable"] == "Y" for g in gold_rows}
     all_tasks = tasks
     tasks = [t for t in tasks if t["task_id"] in gold]
+    if rerank == "nomic":
+        await nomic_study(folder, index, tasks, all_tasks, gold, answerable, depth)
+        return
     hybrid_rrf = SampleRetrieverTool(index, semantic_rerank=False)
     hybrid_rrf.pipeline.reranker = None  # fused RRF order, no rerank
     dense_only = SampleRetrieverTool(index, semantic_rerank=False)
@@ -108,9 +111,10 @@ async def main_async(split: str, depth: int) -> None:
     report: dict[str, Any] = {name: await evaluate(tool, tasks, gold, depth)
                               for name, tool in variants.items()}
     if split == "tune":
-        thresholds = {"minilm_rerank": await calibrate(minilm, all_tasks, answerable),
-                      "split": "tune",
-                      "method": "highest top-1 threshold keeping Project 1 answer acceptance"}
+        thresholds = merged_thresholds(folder)
+        thresholds |= {"minilm_rerank": await calibrate(minilm, all_tasks, answerable),
+                       "split": "tune",
+                       "method": "highest top-1 threshold keeping Project 1 answer acceptance"}
         (folder / "thresholds.json").write_text(json.dumps(thresholds, indent=2) + "\n",
                                                 encoding="utf-8")
         report["calibration"] = thresholds
@@ -121,12 +125,36 @@ async def main_async(split: str, depth: int) -> None:
     print(json.dumps(report, indent=1))
 
 
+def merged_thresholds(folder: Path) -> dict[str, Any]:
+    path = folder / "thresholds.json"
+    return dict(json.loads(path.read_text(encoding="utf-8"))) if path.is_file() else {}
+
+
+async def nomic_study(folder: Path, index: Path, tasks: list[dict[str, Any]],
+                      all_tasks: list[dict[str, Any]], gold: dict[str, str],
+                      answerable: dict[str, bool], depth: int) -> None:
+    """Real-profile calibration (needs Ollama nomic-embed-text): recall of the delivered
+    hybrid+nomic configuration and its acceptance threshold, on the tune split only."""
+    os.environ["CHAP12_NOMIC_THRESHOLD"] = "0"  # recall ignores thresholds
+    tool = SampleRetrieverTool(index, rerank="nomic")
+    report: dict[str, Any] = {"hybrid+nomic_rerank": await evaluate(tool, tasks, gold, depth)}
+    thresholds = merged_thresholds(folder)
+    thresholds["nomic_rerank"] = await calibrate(tool, all_tasks, answerable)
+    (folder / "thresholds.json").write_text(json.dumps(thresholds, indent=2) + "\n",
+                                            encoding="utf-8")
+    report["calibration"] = thresholds["nomic_rerank"]
+    (folder / "retrieval_report_tune_nomic.json").write_text(
+        json.dumps(report, indent=1) + "\n", encoding="utf-8")
+    print(json.dumps(report, indent=1))
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--split", choices=["tune", "sample"], default="tune")
     parser.add_argument("--depth", type=int, default=20)
+    parser.add_argument("--rerank", choices=["minilm", "nomic"], default="minilm")
     args = parser.parse_args()
-    asyncio.run(main_async(args.split, args.depth))
+    asyncio.run(main_async(args.split, args.depth, args.rerank))
 
 
 if __name__ == "__main__":

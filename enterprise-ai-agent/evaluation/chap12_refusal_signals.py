@@ -47,14 +47,15 @@ def auc(values: list[tuple[float, bool]]) -> float:
     return wins / (len(ys) * len(ns))
 
 
-async def main_async(split: str) -> None:
+async def main_async(split: str, rerank: str = "minilm") -> None:
     os.environ.setdefault("CHAP12_MINILM_THRESHOLD", "0")  # annotation only
+    os.environ.setdefault("CHAP12_NOMIC_THRESHOLD", "0")
     folder = HERE if split == "sample" else HERE / split
     index = ROOT / f".rag_data/chap12_{split}.sqlite"
     tasks = [json.loads(x) for x in (folder / "tasks.jsonl").read_text("utf-8").splitlines()]
     gold = {g["task_id"]: g for g in map(json.loads,
                                          (folder / "gold.jsonl").read_text("utf-8").splitlines())}
-    tool = SampleRetrieverTool(index, rerank="minilm")
+    tool = SampleRetrieverTool(index, rerank=rerank)
     worker = DatabaseQueryWorker(index)
     signals: dict[str, list[tuple[float, bool]]] = {
         "top1_rerank_score": [], "top1_top2_gap": [], "key_term_coverage_top1": [],
@@ -84,7 +85,7 @@ async def main_async(split: str) -> None:
         else:
             no_literal += 1
     report: dict[str, Any] = {"split": split, "rule": f"adopt only if best BA > {ADOPTION_BA}",
-                              "retrieval": "hybrid BM25+MiniLM, MiniLM rerank (final config)"}
+                              "retrieval": f"hybrid BM25+MiniLM, {rerank} rerank"}
     for name, values in signals.items():
         rows = curve(values)
         best = max(rows, key=lambda r: (r["ba"], r["y_accept"]))
@@ -100,7 +101,8 @@ async def main_async(split: str) -> None:
         "no effective refusal signal (all best BA <= 0.6)"
         if not any(isinstance(v, dict) and v.get("adopt") for v in report.values())
         else "see adopt flags")
-    (folder / "refusal_signals.json").write_text(json.dumps(report, indent=1) + "\n", "utf-8")
+    name = "refusal_signals.json" if rerank == "minilm" else f"refusal_signals_{rerank}.json"
+    (folder / name).write_text(json.dumps(report, indent=1) + "\n", "utf-8")
     for name in signals:
         r = report[name]
         print(name, "n", r["n"], "AUC", r["auc"], "best", r["best"], "adopt", r["adopt"])
@@ -108,7 +110,11 @@ async def main_async(split: str) -> None:
 
 
 def main() -> None:
-    asyncio.run(main_async("tune"))
+    import argparse
+
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--rerank", choices=["minilm", "nomic"], default="minilm")
+    asyncio.run(main_async("tune", parser.parse_args().rerank))
 
 
 if __name__ == "__main__":

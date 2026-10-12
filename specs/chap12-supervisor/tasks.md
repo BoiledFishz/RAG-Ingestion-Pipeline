@@ -70,3 +70,16 @@
   - `AGENT_PROFILE=offline python -m evaluation.chap12_eval --split sample --output evaluation/results/chap12/offline_v3_sample` → 630 条记录，摘要写入 comparison.md。
   - `pytest tests/chap12 -q` → `105 passed`；`ruff` 通过；`mypy --python-version 3.12`（20 个文件）→ `Success`。
 - 冻结：本提交即确认集运行所用的配置，确认集只运行一次。
+
+### P0-4 真实模型评测脚本
+- 改动：
+  - 新增 `evaluation/chap12_compare_real.ps1`（Windows / .venv312）和 `.sh`（Linux/macOS）。脚本依次：检查 Ollama；缺少模型时自动 pull；记录 Ollama 版本与两个模型的 digest、git commit 和配置，写入 meta.json；只在调参集上标定 nomic 阈值并做拒答信号研究；在评测集上按 `-Repeats 3`、`-LimitPerType 30`（按类型取随机前缀，即分层子集；0 表示全部）运行三个系统；`-Confirm` 时对确认集运行一次，并拒绝第二次。
+  - `chap12_retrieval_tune.py`、`chap12_refusal_signals.py` 增加 `--rerank nomic`（阈值合并写入 thresholds.json，信号写入 refusal_signals_nomic.json）。
+  - `sample_retriever.py`：阈值和间隔门槛按重排器分别读取；p1_single 使用 `use_calibration=False`，保证它始终是 Project 1 原阈值。
+  - `chap12_eval.py`：每道题、每次重复都轮换系统执行顺序，避免缓存预热只让某一个系统受益。
+- 继续沿用 0.6555 还是重新标定：**重新标定**。0.6555 是在全库 hybrid + nomic、training split 上标定的，而现在的范围是样本库，分数分布不同。脚本只在调参集上重新标定；标定之前，如果 thresholds.json 中没有 nomic 键，就回退到 0.6555。
+- 命令与结果：
+  - `bash -n evaluation/chap12_compare_real.sh` → 语法通过。
+  - **管线连通性测试（mock，不是模型结果）**：在本机起了一个返回固定 JSON 的假 Ollama HTTP 服务，用 `LIMIT_PER_TYPE=1 REPEATS=1` 完整跑通 .sh：meta.json 记录了 mock digest；token 被采集到（例如 single：prompt 300 / completion 6）；embedding 的未命中和命中分别计数。测试结束后，已把 thresholds.json 恢复原样，并删除由 mock 产生的 nomic 标定文件、结果目录和 rerank 缓存，这些都没有提交。
+  - `.ps1`：本环境没有 PowerShell，**语法和运行都未验证**。
+- 未执行：真实 Ollama 运行（本环境连不到 Ollama）。comparison.md 中真实档位的表格全部标为“未执行”。

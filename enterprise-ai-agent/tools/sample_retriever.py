@@ -29,27 +29,42 @@ from tools.techqa_retriever import TechQARetrieverTool
 THRESHOLDS = Path(__file__).resolve().parents[1] / "evaluation/chap12/tune/thresholds.json"
 
 
-def minilm_threshold() -> float:
-    """Acceptance threshold for MiniLM rerank scores, calibrated on the tune split only."""
-    configured = os.getenv("CHAP12_MINILM_THRESHOLD")
+REFUSE = 1e9  # finite (metadata must be finite); above any rerank score -> nothing accepted
+SIGNAL_FILES = {"minilm": THRESHOLDS.parent / "refusal_signals.json",
+                "nomic": THRESHOLDS.parent / "refusal_signals_nomic.json"}
+THRESHOLD_ENV = {"minilm": "CHAP12_MINILM_THRESHOLD", "nomic": "CHAP12_NOMIC_THRESHOLD"}
+
+
+def rerank_threshold(choice: str) -> float | None:
+    """Acceptance threshold calibrated on the tune split for this reranker, if any.
+
+    None means: use the Project 1 acceptance threshold (calibrated for full-corpus hybrid
+    nomic rerank on the training split)."""
+    configured = os.getenv(THRESHOLD_ENV.get(choice, ""), "") if choice in THRESHOLD_ENV else ""
     if configured:
         return float(configured)
-    data = json.loads(THRESHOLDS.read_text(encoding="utf-8"))
-    return float(data["minilm_rerank"]["threshold"])
+    if not THRESHOLDS.is_file():
+        return None
+    entry = json.loads(THRESHOLDS.read_text(encoding="utf-8")).get(f"{choice}_rerank")
+    return float(entry["threshold"]) if entry else None
 
 
-SIGNALS = THRESHOLDS.parent / "refusal_signals.json"
-REFUSE = 1e9  # finite (metadata must be finite); above any rerank score -> nothing accepted
+def minilm_threshold() -> float:
+    value = rerank_threshold("minilm")
+    if value is None:
+        raise FileNotFoundError("MiniLM threshold not calibrated; run chap12_retrieval_tune")
+    return value
 
 
-def refusal_gate() -> float | None:
+def refusal_gate(choice: str = "minilm") -> float | None:
     """Top-1/top-2 rerank gap gate, only if adopted by the tune-split signal study (D2)."""
     configured = os.getenv("CHAP12_GAP_GATE")
     if configured is not None:
         return float(configured) if configured else None
-    if not SIGNALS.is_file():
+    path = SIGNAL_FILES.get(choice)
+    if path is None or not path.is_file():
         return None
-    gap = json.loads(SIGNALS.read_text(encoding="utf-8")).get("top1_top2_gap", {})
+    gap = json.loads(path.read_text(encoding="utf-8")).get("top1_top2_gap", {})
     return float(gap["best"]["threshold"]) if gap.get("adopt") else None
 
 
@@ -61,7 +76,7 @@ class _NoDense:
 class SampleRetrieverTool(TechQARetrieverTool):
     def __init__(self, index_path: Path, *, semantic_rerank: bool | None = None,
                  final_k: int = 20, dense: Any | None = None, use_dense: bool = True,
-                 rerank: str | None = None) -> None:
+                 rerank: str | None = None, use_calibration: bool = True) -> None:
         index = MeteredIndex(index_path)
         self.scope = DocumentScope(index_path)
         sidecar = index_path.with_suffix(".dense.sqlite")
@@ -76,13 +91,14 @@ class SampleRetrieverTool(TechQARetrieverTool):
         choice = rerank or os.getenv("CHAP12_RERANKER") or ("nomic" if semantic else "lexical")
         reranker: Any
         self.minilm = False
+        self.choice = choice if use_calibration else "project1"
         if choice == "minilm":
             if dense is None:
                 raise ValueError("minilm rerank requires the dense sidecar")
             from agents.chap12.dense import VectorReranker
 
             reranker = VectorReranker(dense)
-            self.minilm = True
+            self.minilm = use_calibration
         else:
             reranker = CountingReranker(choice == "nomic")
             reranker.embedder = BudgetedEmbedder(reranker.embedder)
@@ -108,7 +124,10 @@ class SampleRetrieverTool(TechQARetrieverTool):
         by_id = {p.chunk_id: p for p in parents}
         output: list[Document] = []
         active = PRODUCT_SCOPE.get()
-        gate = refusal_gate() if self.minilm else None
+        calibrated = rerank_threshold(self.choice) if self.choice in THRESHOLD_ENV else None
+        if self.minilm and calibrated is None:
+            calibrated = minilm_threshold()  # MiniLM scores have no Project 1 threshold
+        gate = refusal_gate(self.choice) if calibrated is not None else None
         refuse = False
         if gate is not None and not outcome.diagnostics.reranker_fallback:
             scores = [r.score for r in outcome.results] + [0.0, 0.0]
@@ -120,8 +139,8 @@ class SampleRetrieverTool(TechQARetrieverTool):
             parent = by_id.get(str(result.metadata.get("parent_id")))
             if parent is None or any(d.chunk_id == parent.chunk_id for d in output):
                 continue
-            if self.minilm and not outcome.diagnostics.reranker_fallback:
-                score, threshold = result.score, (REFUSE if refuse else minilm_threshold())
+            if calibrated is not None and not outcome.diagnostics.reranker_fallback:
+                score, threshold = result.score, (REFUSE if refuse else calibrated)
             else:
                 score, threshold = acceptance_score(
                     request.query, result.text, result.score,

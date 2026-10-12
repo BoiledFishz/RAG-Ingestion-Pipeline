@@ -328,7 +328,7 @@ async def main_async(args: argparse.Namespace) -> None:
     p1_rerank = "lexical" if settings.profile == "offline" else "nomic"
     agents = {
         "p1_single": build_rag_agent(settings, index, SampleRetrieverTool(
-            index, use_dense=False, rerank=p1_rerank)),
+            index, use_dense=False, rerank=p1_rerank, use_calibration=False)),
         "single": build_rag_agent(settings, index),
     }
     supervisor = build_supervisor(settings, index)
@@ -337,7 +337,9 @@ async def main_async(args: argparse.Namespace) -> None:
     with runs.open("a", encoding="utf-8") as handle:
         for repeat in range(1, args.repeats + 1):
             for number, task in enumerate(tasks, 1):
-                for system in systems:
+                # Rotate system order per task so no system always runs on a warm cache.
+                shift = (number + repeat) % len(systems)
+                for system in systems[shift:] + systems[:shift]:
                     if (system, task["task_id"], repeat) in done:
                         continue
                     record = await (run_multi(supervisor, task) if system == "multi"
@@ -362,6 +364,7 @@ async def main_async(args: argparse.Namespace) -> None:
             (folder / "mixed_tasks.jsonl").read_bytes()).hexdigest(),
         "ci_method": "task-level percentile bootstrap (2000 draws) of per-task means over "
                      "repeats",
+        "system_order": "rotated per task and repeat (cache warm-up is not system-specific)",
         "systems": summarize(records),
     }
     (args.output / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1)
