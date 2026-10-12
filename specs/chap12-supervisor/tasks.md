@@ -83,3 +83,11 @@
   - **管线连通性测试（mock，不是模型结果）**：在本机起了一个返回固定 JSON 的假 Ollama HTTP 服务，用 `LIMIT_PER_TYPE=1 REPEATS=1` 完整跑通 .sh：meta.json 记录了 mock digest；token 被采集到（例如 single：prompt 300 / completion 6）；embedding 的未命中和命中分别计数。测试结束后，已把 thresholds.json 恢复原样，并删除由 mock 产生的 nomic 标定文件、结果目录和 rerank 缓存，这些都没有提交。
   - `.ps1`：本环境没有 PowerShell，**语法和运行都未验证**。
 - 未执行：真实 Ollama 运行（本环境连不到 Ollama）。comparison.md 中真实档位的表格全部标为“未执行”。
+
+### P2（第二部分）Python 3.11 与 uvicorn 冒烟测试
+- Python 3.11：使用 `uv python install 3.11`，得到 CPython 3.11.17。
+  - `pytest tests -q --ignore=tests/project2` → `157 passed`（105 个 chap12 测试 + 52 个已有测试）。
+  - `mypy agents/chap12 api/chap12_main.py tools/sample_retriever.py`（使用 pyproject 的 3.11 配置）→ `Success: no issues found in 15 source files`。此前“numpy 存根在 3.11 下报语法错误”的问题，在这个只装最小依赖的环境中没有复现。
+  - 3.11 环境没有装 torch（离线安装包只有 cp312 的 torch），因此依赖真实 MiniLM 的评测脚本只在 3.12 下运行过。
+- uvicorn 冒烟测试：输出原样保存在 `evaluation/results/chap12/uvicorn_smoke.txt`。`/healthz` 返回 200；无凭证返回 401；full 凭证返回 200，状态 partial（RAG 因间隔门槛拒答，DB 正常完成）；无权限凭证返回 200，状态 permission_denied，tool_calls 为 0；只授权 SSFKSJ 的凭证返回 permission_denied，引用为空，响应中不含 SSCRJU；在请求正文里带权限字段返回 422。
+- 设计说明：权限拒绝通过响应体中的 `status=permission_denied` 表达，HTTP 状态码为 200；凭证缺失或无效时返回 401。

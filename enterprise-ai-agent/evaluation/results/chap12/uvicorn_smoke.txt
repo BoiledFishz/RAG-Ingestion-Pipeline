@@ -1,0 +1,17 @@
+# uvicorn + curl smoke test (2026-10-12T04:03:44Z, offline profile, worktree commit ea69b71)
+# server: AGENT_PROFILE=offline python -m uvicorn api.chap12_main:app --port 8123; three credentials configured via CHAP12_CREDENTIALS_JSON (sha256 of tokens)
+$ curl -s -w " HTTP %{http_code}" http://127.0.0.1:8123/healthz
+{"status":"ok"} HTTP 200
+$ curl (no Authorization) POST /v1/chap12/analyze
+{"detail":"missing bearer credential"} HTTP 401
+$ curl (Bearer full-token) POST /v1/chap12/analyze
+{"status": "partial", "goal": "explain_and_data", "workers": [["rag", "no_data"], ["database", "completed"]], "data_product": "SSCRJU", "citations": [], "usage": {"llm_calls": 0, "embedding_calls": 0, "db_queries": 1, "tool_calls": 2, "sql_statements": 22, "local_compute": 2, "embedding_cache_hits": 0, "retries": 0, "tokens": null, "prompt_tokens": null, "completion_tokens": null, "elapsed_ms": 461.424329001602}}
+HTTP 200
+$ curl (Bearer none-token: no permissions) POST /v1/chap12/analyze
+{"status": "permission_denied", "workers": [["rag", "permission_denied", "subject is not authorized"], ["database", "permission_denied", "subject is not authorized"]], "tool_calls": 0}
+HTTP 200
+$ curl (Bearer scoped-token: only SSFKSJ) POST /v1/chap12/analyze
+{"status": "permission_denied", "workers": [["rag", "no_data"], ["database", "permission_denied"]], "citations": [], "contains_SSCRJU": false}
+HTTP 200
+$ curl (Bearer full-token, body with allowed_workers) POST
+HTTP 422
