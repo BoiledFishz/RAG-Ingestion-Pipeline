@@ -268,21 +268,21 @@ class DatabaseQueryWorker:
         status = "completed"
         if request.operation == "count_documents":
             payload |= {"metric": "distinct documents matching filters", "count": rows[0][0]}
-            empty = rows[0][0] == 0
+            empty = False  # decision D1: a complete zero count is an exact answer (completed)
         elif request.operation == "count_by_year":
             truncated = len(rows) > MAX_GROUP_ROWS
             rows = rows[:MAX_GROUP_ROWS]
             payload |= {"metric": "distinct documents per metadata year",
                         "rows": [DbRow(key=str(y), value=int(c)) for y, c in rows],
                         "count": sum(int(c) for _, c in rows), "truncated": truncated}
-            empty, status = not rows, "partial" if truncated else "completed"
+            empty, status = False, "partial" if truncated else "completed"  # D1: counts
         else:
             truncated = len(rows) > request.limit
             rows = rows[:request.limit]
             payload |= {"metric": f"most recent documents (max {request.limit})",
                         "rows": [DbRow(key=str(d), value=f"{d2 or 'undated'} | {t}")
                                  for d, t, d2 in rows], "truncated": truncated}
-            empty = not rows
+            empty = not rows  # D1: only an empty list is no_data
         result = self._result(run_id, task_id, "no_data" if empty else status,
                               payload=DbPayload.model_validate(payload), started=started,
                               budget=budget, retries=retries)

@@ -8,3 +8,4 @@
 | chap12-v1（未改版本号） | 16:58（ab4e8d7） | DbInput 增加 `product_source`、`infer_product`、`query`；DbPayload 增加 `product_source`、`inference_doc_ids`；缺少产品时由 `failed` 改为 `no_data` + `clarification_required` | v2 改进，无事前审阅；本应提升版本号，在 chap12-v2 中补上 |
 | chap12-v1（行为变更，字段不变） | P0-2 | RAG 检索按授权产品过滤（检索时，在 RRF 之前）；DB 推断只在授权文档中进行；受限主体追加 limitation | 审阅决定 D3；工作单 P0-2 |
 | **chap12-v2** | P0-3 | `CONTRACT_VERSION` 改为 chap12-v2（补上 v2 字段变更的版本号）；`Usage` 增加 `sql_statements`、`local_compute`、`embedding_cache_hits`；预算增加 `sql`（400）和 `local`（16）两个类别 | 审阅决定 D4；工作单 P0-3、P2 |
+| chap12-v2 | P2 | `count_documents` 和 `count_by_year` 计数为 0 时返回 **completed**（payload.count=0）；只有 `list_recent_documents` 返回空列表时为 no_data | 审阅决定 D1 |

@@ -90,3 +90,42 @@ def test_permission_denied_does_not_call_agent() -> None:
     agent = FakeAgent()
     result, _ = run(agent, ctx=context(workers={"database"}))
     assert result.status == "permission_denied" and agent.calls == 0
+
+
+def test_evidence_retry_limit_reached_is_explicit_failure() -> None:
+    """Project 1 retries evidence validation once; after that the Worker must say so."""
+    from agents.rag_agent.compression import ContextCompressor
+    from agents.rag_agent.rewrite import RuleRewriter
+    from agents.rag_agent.service import RAGAgent
+    from models.errors import InvalidEvidence
+    from models.schemas import Document, RetrieverInput
+
+    class Retriever:
+        async def invoke(self, request: RetrieverInput) -> list[Document]:
+            return [Document(chunk_id="techqa:swg1:parent", source_file="techqa://swg1",
+                             text="Set the variable with streamtool setproperty for the "
+                                  "instance so that jobs inherit environment variables.",
+                             score=1.0, metadata={"title": "Streams environment"})]
+
+        def secure_filters(self, filters: dict[str, Any]) -> dict[str, Any]:
+            return filters
+
+    class AlwaysInvalid:
+        calls = 0
+
+        async def select(self, query: str, evidence: Any, correction: str = "") -> Any:
+            AlwaysInvalid.calls += 1
+            raise InvalidEvidence("quote not found in source")
+
+    agent = RAGAgent(rewriter=RuleRewriter(), retriever=Retriever(),  # type: ignore[arg-type]
+                     compressor=ContextCompressor(2400, 8, 0.0), selector=AlwaysInvalid(),
+                     top_k=8)
+    worker = RagWorker(agent, timeout=5)  # type: ignore[arg-type]
+    result = asyncio.run(worker.run("r", "t", RagInput(
+        query="How do Streams jobs inherit environment variables with streamtool setproperty?"),
+        context(), Budget(BudgetLimits())))
+    assert AlwaysInvalid.calls == 2  # first attempt + one retry, then stop
+    assert result.status == "failed"
+    assert result.error.category == "invalid_evidence"  # type: ignore[union-attr]
+    assert result.error.message == "evidence validation failed after retry"  # type: ignore[union-attr]
+    assert result.payload.rag_status == "invalid_evidence"  # type: ignore[union-attr]

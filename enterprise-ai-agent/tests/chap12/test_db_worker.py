@@ -70,10 +70,17 @@ def test_result_size_limit_marks_truncation(worker) -> None:  # type: ignore[no-
         DbInput(operation="list_recent_documents", product="SSCRJU", limit=11)
 
 
-def test_true_zero_is_no_data_with_count(worker) -> None:  # type: ignore[no-untyped-def]
-    result, _ = run(worker, DbInput(operation="count_documents", product="SSSHTQ",
-                                    date_from=date(1990, 1, 1), date_to=date(1990, 12, 31)))
-    assert result.status == "no_data" and result.payload.count == 0  # type: ignore[union-attr]
+def test_true_zero_count_is_completed_but_empty_list_is_no_data(worker) -> None:  # type: ignore[no-untyped-def]
+    # Decision D1 (human review 2026-10-11 20:05): a complete zero count is an exact answer.
+    zero, _ = run(worker, DbInput(operation="count_documents", product="SSSHTQ",
+                                  date_from=date(1990, 1, 1), date_to=date(1990, 12, 31)))
+    assert zero.status == "completed" and zero.payload.count == 0  # type: ignore[union-attr]
+    years, _ = run(worker, DbInput(operation="count_by_year", product="SSSHTQ",
+                                   date_from=date(1990, 1, 1), date_to=date(1990, 12, 31)))
+    assert years.status == "completed" and years.payload.count == 0  # type: ignore[union-attr]
+    listing, _ = run(worker, DbInput(operation="list_recent_documents", product="SSSHTQ",
+                                     date_from=date(1990, 1, 1), date_to=date(1990, 12, 31)))
+    assert listing.status == "no_data" and listing.payload.rows == []  # type: ignore[union-attr]
 
 
 @pytest.mark.parametrize("product", ["WebSphere MQ' OR 1=1 --", "technotes", "SELECT * FROM docs"])
