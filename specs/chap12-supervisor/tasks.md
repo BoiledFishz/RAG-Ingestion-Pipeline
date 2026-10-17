@@ -144,3 +144,12 @@
 ### 第 5 项 人工审阅（只能由人完成）
 - 改动：新增 `spec_review_checklist.md`，按 A–G 七组共 22 项，供审阅者逐条勾选、签名。spec.md 新增 §12（v3 改动）并在开头注明“实现后补写、未经人工审阅”。
 - 未执行：人工审阅本身。原因：必须由人完成，Claude 不代填。
+
+### 第 12 项 worktree 在 Linux VM 与 Windows 之间共用
+- 现象：worktree 的 `.git` 文件写的是 VM 的绝对路径（/sessions/...），Windows 上的 git 找不到。此前建议的 `git worktree prune` **是错误建议**：在 Windows 上运行它会把这个 worktree 的元数据当作失效而删除，不能运行。
+- 改动（不进入提交，属于本地 git 元数据）：`.worktrees/chap12/.git` 改为相对路径 `gitdir: ../../.git/worktrees/chap12`（git 一直支持相对路径，两边都能用）；对该 worktree 执行等价于 `git worktree lock` 的操作（写入 `.git/worktrees/chap12/locked` 并注明原因），防止被 prune。没有使用 `worktree.useRelativePaths`，因为 VM 中的 git 2.34 不认识这个扩展，会导致整个仓库无法打开。
+- 命令与结果：VM 中 `git status`、`git log` 正常；`git worktree list` 显示该 worktree 为 locked。Windows 端的验证见下面 Windows 运行记录中的 probe 步骤。
+
+### 第 1–4 项 Windows 运行脚本
+- `chap12_compare_real.ps1`：自动寻找本检出或主检出的 `.venv312`；worktree 中没有索引时，建立指向主检出 `.rag_data` 的目录联接；运行前用 `chap12_rebuild_indices --check` 校验索引内容；调参集步骤增加模型选择产品顺序的研究；`-TuneOnly` 只做调参集决策；正式运行前要求调参输出已提交（配置冻结）；确认运行改用 confirm2，任何已存在的 confirm2 运行都会让脚本拒绝再跑。`.sh` 同步修改，`bash -n` 通过。
+- 本地启动器 `.chap12_run/run_all.cmd`（不提交，已加入 .git/info/exclude）：依次 probe → push 两个分支 → 用 gh 建 PR（目标分支 codex/project2-course-completion，用户 2026-10-17 选择）→ 调参集决策并提交 → 评测集 3 次重复、每类 30 题 → confirm2 一次 → 提交结果并 push。日志写入 `.chap12_run/run_all.log`。由用户本人双击运行（Claude 对资源管理器只有点击权限，不通过它执行命令）。
