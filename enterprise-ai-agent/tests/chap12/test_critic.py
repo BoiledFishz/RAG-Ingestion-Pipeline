@@ -113,6 +113,7 @@ class CountingDb(DatabaseQueryWorker):
 
 @pytest.fixture
 def wrong_inference(sample_index: Path, monkeypatch: pytest.MonkeyPatch) -> CountingDb:
+    monkeypatch.setenv("CHAP12_CRITIC", "on")  # default is off (tune rule not met)
     worker = CountingDb(sample_index)
     worker.calls = []
 
@@ -141,9 +142,13 @@ def test_replan_replaces_conflicting_data_once(wrong_inference: CountingDb) -> N
     assert result.status == "completed"
 
 
+@pytest.mark.parametrize("value", ["off", None])
 def test_critic_off_keeps_original(wrong_inference: CountingDb,
-                                   monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setenv("CHAP12_CRITIC", "off")
+                                   monkeypatch: pytest.MonkeyPatch, value: str | None) -> None:
+    if value is None:
+        monkeypatch.delenv("CHAP12_CRITIC", raising=False)  # default
+    else:
+        monkeypatch.setenv("CHAP12_CRITIC", value)
     result = supervise(wrong_inference)
     assert len(wrong_inference.calls) == 1 and result.data_result.product_id == "SSFKSJ"
 

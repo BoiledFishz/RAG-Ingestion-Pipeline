@@ -1,0 +1,296 @@
+{
+ "split": "tune",
+ "profile": "offline",
+ "model": null,
+ "reranker": {
+  "p1_single": "lexical",
+  "single/multi": "minilm"
+ },
+ "gap_gate_env": null,
+ "repeats": 1,
+ "limit_per_type": 0,
+ "types": "explain_and_data",
+ "critic": "off",
+ "budget": {
+  "deadline_seconds": 150.0,
+  "max_llm_calls": 8,
+  "max_embedding_calls": 4,
+  "max_db_queries": 4,
+  "max_tool_calls": 4,
+  "max_sql_statements": 400,
+  "max_local_compute": 16
+ },
+ "git_commit": "unknown",
+ "run_metadata": {},
+ "tasks_file_sha256": "c06f415d495dc4537428dd68f9caee4a93d3d566cfb87bbc64fed03db529692e",
+ "ci_method": "task-level percentile bootstrap (2000 draws) of per-task means over repeats",
+ "system_order": "rotated per task and repeat (cache warm-up is not system-specific)",
+ "systems": {
+  "multi": {
+   "explain_and_data": {
+    "records": 75,
+    "tasks": 75,
+    "status_counts": {
+     "completed": 25,
+     "partial": 39,
+     "no_data": 11
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 75,
+     "mean": 0.3333,
+     "ci95": [
+      0.2267,
+      0.44
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 75,
+     "mean": 0.32,
+     "ci95": [
+      0.2133,
+      0.4267
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 75,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 233.9,
+     "p50": 214.2,
+     "p95": 386.0
+    },
+    "llm_calls_mean": 0.0,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 0.0,
+    "sql_mean": 78.6533,
+    "local_mean": 2.0,
+    "db_queries_mean": 1.4267,
+    "prompt_tokens_mean": null,
+    "completion_tokens_mean": null,
+    "rag_correct": {
+     "n_tasks": 75,
+     "mean": 0.4133,
+     "ci95": [
+      0.3067,
+      0.5333
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 56,
+     "mean": 0.4286,
+     "ci95": [
+      0.3036,
+      0.5536
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 19,
+     "mean": 0.7368,
+     "ci95": [
+      0.5263,
+      0.8947
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.5827,
+     "ci95": [
+      0.4591,
+      0.6974
+     ],
+     "y_tasks": 56,
+     "n_tasks": 19
+    },
+    "y_gold_cited": {
+     "n_tasks": 56,
+     "mean": 0.3036,
+     "ci95": [
+      0.1786,
+      0.4286
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 56,
+     "mean": 0.1396,
+     "ci95": [
+      0.0838,
+      0.2002
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.4643,
+     "R@3": 0.5179,
+     "R@5": 0.5714,
+     "R@8": 0.6429,
+     "MRR": 0.514,
+     "observations": 56
+    },
+    "data_correct": {
+     "n_tasks": 75,
+     "mean": 0.8533,
+     "ci95": [
+      0.7733,
+      0.9333
+     ]
+    },
+    "data_status_counts": {
+     "completed": 60,
+     "no_data": 15
+    },
+    "replan_rate": 0.0,
+    "product_matches_gold_doc": {
+     "n_tasks": 49,
+     "mean": 0.6939,
+     "ci95": [
+      0.5714,
+      0.8163
+     ]
+    },
+    "related_docs_contain_gold": {
+     "n_tasks": 49,
+     "mean": 0.4694,
+     "ci95": [
+      0.3265,
+      0.6122
+     ]
+    }
+   },
+   "all": {
+    "records": 75,
+    "tasks": 75,
+    "status_counts": {
+     "completed": 25,
+     "partial": 39,
+     "no_data": 11
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 75,
+     "mean": 0.3333,
+     "ci95": [
+      0.2267,
+      0.44
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 75,
+     "mean": 0.32,
+     "ci95": [
+      0.2133,
+      0.4267
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 75,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 233.9,
+     "p50": 214.2,
+     "p95": 386.0
+    },
+    "llm_calls_mean": 0.0,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 0.0,
+    "sql_mean": 78.6533,
+    "local_mean": 2.0,
+    "db_queries_mean": 1.4267,
+    "prompt_tokens_mean": null,
+    "completion_tokens_mean": null,
+    "rag_correct": {
+     "n_tasks": 75,
+     "mean": 0.4133,
+     "ci95": [
+      0.3067,
+      0.5333
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 56,
+     "mean": 0.4286,
+     "ci95": [
+      0.3036,
+      0.5536
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 19,
+     "mean": 0.7368,
+     "ci95": [
+      0.5263,
+      0.8947
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.5827,
+     "ci95": [
+      0.4591,
+      0.6974
+     ],
+     "y_tasks": 56,
+     "n_tasks": 19
+    },
+    "y_gold_cited": {
+     "n_tasks": 56,
+     "mean": 0.3036,
+     "ci95": [
+      0.1786,
+      0.4286
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 56,
+     "mean": 0.1396,
+     "ci95": [
+      0.0838,
+      0.2002
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.4643,
+     "R@3": 0.5179,
+     "R@5": 0.5714,
+     "R@8": 0.6429,
+     "MRR": 0.514,
+     "observations": 56
+    },
+    "data_correct": {
+     "n_tasks": 75,
+     "mean": 0.8533,
+     "ci95": [
+      0.7733,
+      0.9333
+     ]
+    },
+    "data_status_counts": {
+     "completed": 60,
+     "no_data": 15
+    },
+    "replan_rate": 0.0,
+    "product_matches_gold_doc": {
+     "n_tasks": 49,
+     "mean": 0.6939,
+     "ci95": [
+      0.5714,
+      0.8163
+     ]
+    },
+    "related_docs_contain_gold": {
+     "n_tasks": 49,
+     "mean": 0.4694,
+     "ci95": [
+      0.3265,
+      0.6122
+     ]
+    }
+   }
+  }
+ }
+}

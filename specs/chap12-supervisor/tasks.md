@@ -119,3 +119,10 @@
 - 测试：新增 `tests/chap12/test_critic.py`（10 个用例：推断产品冲突时 Replan；显式或字面产品只提示不替换；无法确定时取引用文档的产品；一致或无引用时不动作；引用不在检索集合内时报告；集成测试中真实 DB Worker 恰好被调用 2 次且结果被替换；关闭时不 Replan；未授权产品不会被用于 Replan；预算不足时保留原结果并说明）。
 - 命令：`pytest tests/chap12 -q` → `136 passed`。
 - 事先登记的默认值规则（在调参集运行之前写下）：在调参集的 explain_and_data 任务上，用离线 multi 系统分别以 Critic 开、关各运行一次；只有“产品与金标文档一致率”（Y 题）提高至少 0.05，并且 data_correct 和 explain_and_data 的正确完成率都没有降低，默认才设为开；否则默认关。
+- 调参集运行（离线，multi，explain_and_data 75 题，各 1 次）：
+  - `AGENT_PROFILE=offline CHAP12_CRITIC=on python -m evaluation.chap12_eval --split tune --systems multi --types explain_and_data --output evaluation/results/chap12/tune_critic_on`
+  - 同上，`CHAP12_CRITIC=off`，输出 `tune_critic_off`。
+  - 结果（开 / 关）：产品与金标文档一致率 0.6863 / 0.6939；data_correct 0.8933 / 0.8533；正确完成率 0.3333 / 0.3200；相关文档含金标 0.4706 / 0.4694；Replan 率 0.04 / 0（75 题中 3 题触发）。
+  - 按事先规则，产品一致率没有提高 0.05（反而低 0.008）→ **默认关闭**（`CHAP12_CRITIC` 默认 off，设为 on 可开启）。data_correct 虽然高了 0.04（Replan 补上了无法确定产品的题），但它不是登记的主指标，不据此改判。
+  - Replan 很少触发的原因：离线档位下回答本身引用的文档少，且多数情况下引用文档的产品与推断产品一致。
+- 测试更新：Critic 相关集成测试显式开启；新增“默认关闭”用例。`pytest tests/chap12 -q` → `137 passed`；ruff 通过。

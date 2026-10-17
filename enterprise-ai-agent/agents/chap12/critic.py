@@ -23,7 +23,9 @@ REPLACEABLE = {"inferred", "model_pick"}
 
 
 def critic_enabled() -> bool:
-    return os.getenv("CHAP12_CRITIC", "on") != "off"
+    """Default off: on the tune split the pre-registered adoption rule was not met
+    (evaluation/results/chap12/tune_critic_on vs tune_critic_off). CHAP12_CRITIC=on enables it."""
+    return os.getenv("CHAP12_CRITIC", "off") == "on"
 
 
 @dataclass

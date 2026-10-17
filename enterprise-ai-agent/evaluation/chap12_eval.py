@@ -380,7 +380,7 @@ async def main_async(args: argparse.Namespace) -> None:
             "CHAP12_RERANKER", "minilm" if settings.profile == "offline" else "nomic")},
         "gap_gate_env": os.getenv("CHAP12_GAP_GATE"), "repeats": args.repeats,
         "limit_per_type": args.limit_per_type, "types": args.types or "all",
-        "critic": os.getenv("CHAP12_CRITIC", "on"),
+        "critic": os.getenv("CHAP12_CRITIC", "off"),
         "budget": budget_limits().model_dump(),
         "git_commit": git_commit(), "run_metadata": meta,
         "tasks_file_sha256": __import__("hashlib").sha256(
