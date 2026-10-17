@@ -107,3 +107,15 @@
 - 命令与结果：`pytest tests/chap12 -q` → `126 passed`；`ruff check agents/chap12 evaluation/chap12_product_study.py evaluation/chap12_eval.py tests/chap12` → `All checks passed!`；`MYPYPATH=../src mypy --python-version 3.12 agents/chap12 api/chap12_main.py tools/sample_retriever.py evaluation/chap12_product_study.py evaluation/chap12_eval.py` → 本次涉及的文件无错误（仅报告 Project 1 `src/rag/techqa` 中 2 个既有问题，未修改）。
 - 未执行：`--pick` 真实模型研究（需要 Ollama，放在 Windows 运行步骤中）；评测集上的效果（等真实模型评测一并报告）。
 - 影响说明：确认集此前的离线运行（offline_v3_confirm_once）使用的是旧配置，不再代表当前配置；按“只运行一次”的规则不再离线重跑确认集，当前配置的确认结果以之后唯一一次真实模型确认运行为准。
+
+### 第 9 项 检索调参（只用调参集）
+- 事先登记：先提交 `evaluation/chap12_retrieval_sweep.py`（提交 408e56d），其中写明网格与采用规则，之后才运行。网格：重排权重（语义、词项覆盖、BM25 先验）5 组 × 候选深度（candidate_k、rerank_k）2 组，共 10 个变体。规则：取 R@8 最高者；只有 R@8 ≥ 当前 + 0.03 且 MRR ≥ 当前 − 0.01 才采用。
+- 命令：`python -m evaluation.chap12_retrieval_sweep`（分两次运行，可断点续跑）→ `evaluation/chap12/tune/retrieval_sweep.json`。
+- 结果（调参集，112 道 Y 题，离线 MiniLM 重排）：当前配置 R@8 0.688、MRR 0.546（与此前报告一致）；最好的变体 w=0.6/0.2/0.2、k=30/20 为 R@8 0.714、MRR 0.550，只多 3 题（+0.026），未达到 +0.03 → **不采用，配置不变**。其余变体 R@8 在 0.661–0.705 之间。
+- 结论：在这个网格内，调重排权重或加深候选都改善不了检索；R@20 只有 0.777–0.839，瓶颈在候选召回本身，不在排序。没有再追加未登记的变体。
+
+### 第 10 项 Critic 与一次有界 Replan
+- 设计：`agents/chap12/critic.py` 是确定性的程序检查，不调用模型。C1 检查已发布回答的引用（有引用、有引文、在检索集合内）；C2 检查数据部分的产品是否属于回答所引用文档的产品。只有 C2 会触发 Replan，并且只在产品不是用户给定的情况下（来源为 inferred 或 model_pick，或者无法确定产品）：用引用文档的产品（来源 `rag_citation`）重新运行一次 DB Worker。每个请求最多 1 次；仍经过授权、预算和截止时间检查；只有重新查询结果为 completed/partial 时才替换原结果，否则保留原结果并写入限制说明。用户给定的产品只提示、不替换。`CHAP12_CRITIC=off` 可关闭。
+- 测试：新增 `tests/chap12/test_critic.py`（10 个用例：推断产品冲突时 Replan；显式或字面产品只提示不替换；无法确定时取引用文档的产品；一致或无引用时不动作；引用不在检索集合内时报告；集成测试中真实 DB Worker 恰好被调用 2 次且结果被替换；关闭时不 Replan；未授权产品不会被用于 Replan；预算不足时保留原结果并说明）。
+- 命令：`pytest tests/chap12 -q` → `136 passed`。
+- 事先登记的默认值规则（在调参集运行之前写下）：在调参集的 explain_and_data 任务上，用离线 multi 系统分别以 Critic 开、关各运行一次；只有“产品与金标文档一致率”（Y 题）提高至少 0.05，并且 data_correct 和 explain_and_data 的正确完成率都没有降低，默认才设为开；否则默认关。

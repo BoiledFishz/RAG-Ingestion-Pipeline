@@ -4,7 +4,8 @@
 
 Grid fixed before the run (10 variants):
   rerank weights (semantic, lexical, BM25 prior):
-      (0.5, 0.3, 0.2) current | (0.6, 0.2, 0.2) | (0.4, 0.2, 0.4) | (0.3, 0.2, 0.5) | (0.5, 0.1, 0.4)
+      (0.5, 0.3, 0.2) current | (0.6, 0.2, 0.2) | (0.4, 0.2, 0.4) | (0.3, 0.2, 0.5)
+      | (0.5, 0.1, 0.4)
   candidate depth (candidate_k, rerank_k): (30, 20) current | (60, 30)
 Adoption rule (fixed before the run): take the variant with the highest R@8 (ties: higher MRR,
 then the current setting); adopt it only if R@8 >= current + 0.03 and MRR >= current - 0.01.
@@ -43,7 +44,8 @@ def build(index: Path, weights: tuple[float, float, float], depth: tuple[int, in
     from tools.sample_retriever import SampleRetrieverTool
 
     tool = SampleRetrieverTool(index, rerank="minilm")
-    tool.pipeline.reranker.weights = weights
+    reranker: Any = tool.pipeline.reranker
+    reranker.weights = weights
     tool.pipeline.config = replace(tool.pipeline.config, candidate_k=depth[0], rerank_k=depth[1])
     return tool
 
@@ -84,10 +86,10 @@ async def main_async() -> None:
               "rule": "max R@8; adopt only if R@8 >= current + 0.03 and MRR >= current - 0.01"}
     if decision["changed"] and "calibration" not in state:
         weights_text, depth_text = decision["adopted"][2:].split(" k=")
-        weights = tuple(float(x) for x in weights_text.split("/"))
-        depth = tuple(int(x) for x in depth_text.split("/"))
+        w = [float(x) for x in weights_text.split("/")]
+        d = [int(x) for x in depth_text.split("/")]
         os.environ.pop("CHAP12_MINILM_THRESHOLD")
-        tool = build(index, weights, depth)  # type: ignore[arg-type]
+        tool = build(index, (w[0], w[1], w[2]), (d[0], d[1]))
         os.environ["CHAP12_MINILM_THRESHOLD"] = "0"
         result["calibration"] = await calibrate(tool, tasks, answerable)
     elif "calibration" in state:

@@ -105,6 +105,8 @@ async def run_multi(supervisor: Any, task: dict[str, Any]) -> dict[str, Any]:
                 "cited": [c.doc_id for c in result.citations] if published else [],
                 "retrieved": getattr(rag.payload, "retrieved_doc_ids", []) if rag else [],
                 "data_status": db.status if db else None,
+                "replanned": any(e.event == "replan" for e in result.trace),
+                "critic_findings": [e.detail for e in result.trace if e.event == "finding"],
                 "data_error": db.error.category if db and db.error else None,
                 "data": None if payload is None else {
                     "operation": payload.operation, "product_id": payload.product_id,
@@ -308,6 +310,9 @@ def summarize(records: list[dict[str, Any]]) -> dict[str, Any]:
                           "data_status_counts": dict(Counter(str(r.get("data_status"))
                                                              for r in rows))}
             if kind in {"explain_and_data", "all"}:
+                if system == "multi":
+                    block["replan_rate"] = round(sum(1 for r in rows if r.get("replanned"))
+                                                 / len(rows), 4) if rows else None
                 block |= {"product_matches_gold_doc": metric(rows, "product_matches_gold_doc"),
                           "related_docs_contain_gold": metric(rows, "related_contains_gold")}
             out[system][kind] = block
@@ -321,6 +326,8 @@ async def main_async(args: argparse.Namespace) -> None:
     os.environ["CHAP12_INDEX_PATH"] = str(index)
     tasks = [json.loads(x) for x in (folder / "mixed_tasks.jsonl").read_text("utf-8")
              .splitlines()]
+    if args.types:
+        tasks = [t for t in tasks if t["type"] in set(args.types.split(","))]
     if args.limit_per_type:
         seen: Counter[str] = Counter()
         kept = []
@@ -372,7 +379,9 @@ async def main_async(args: argparse.Namespace) -> None:
         "reranker": {"p1_single": p1_rerank, "single/multi": os.getenv(
             "CHAP12_RERANKER", "minilm" if settings.profile == "offline" else "nomic")},
         "gap_gate_env": os.getenv("CHAP12_GAP_GATE"), "repeats": args.repeats,
-        "limit_per_type": args.limit_per_type, "budget": budget_limits().model_dump(),
+        "limit_per_type": args.limit_per_type, "types": args.types or "all",
+        "critic": os.getenv("CHAP12_CRITIC", "on"),
+        "budget": budget_limits().model_dump(),
         "git_commit": git_commit(), "run_metadata": meta,
         "tasks_file_sha256": __import__("hashlib").sha256(
             (folder / "mixed_tasks.jsonl").read_bytes()).hexdigest(),
@@ -394,6 +403,7 @@ def main() -> None:
     parser.add_argument("--repeats", type=int, default=1)
     parser.add_argument("--limit-per-type", type=int, default=0)
     parser.add_argument("--systems", default=",".join(SYSTEMS))
+    parser.add_argument("--types", default="", help="comma list of task types (default all)")
     parser.add_argument("--meta", type=Path, default=None,
                         help="JSON with run metadata (model digests, versions)")
     parser.add_argument("--resume", action="store_true")

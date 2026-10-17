@@ -97,7 +97,7 @@ class RagPayload(Strict):
     retrieved_doc_ids: list[str] = Field(default_factory=list)
 
 
-ProductSource = Literal["explicit", "query_literal", "inferred", "model_pick"]
+ProductSource = Literal["explicit", "query_literal", "inferred", "model_pick", "rag_citation"]
 
 
 class DbInput(Strict):

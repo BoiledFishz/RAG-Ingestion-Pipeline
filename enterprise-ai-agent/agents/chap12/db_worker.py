@@ -49,6 +49,9 @@ INFERENCE_LIMITATION = (
 PICK_LIMITATION = (
     "问题未写明目录中的产品名；产品由模型从程序给出的候选产品列表（样本库中与问题最相关文档的"
     "官方产品标注）中选择，并经程序校验在列表内，可能不是提问者所指产品。")
+CITATION_LIMITATION = (
+    "数据部分的产品取自回答所引用文档的官方产品标注：Critic 发现原先推断的产品与引用文档不一致"
+    "（或无法确定产品），因此用该产品重新查询了一次。")
 LIMITATIONS = [
     "计数口径：本次样本快照（随机抽取的 TechQA 训练题的官方候选文档并集）中，官方 metadata "
     "的 productId 与条件匹配的不同文档数；不是 IBM 全量知识库，也不是工单量、故障率或用户数。",
@@ -319,7 +322,21 @@ class DatabaseQueryWorker:
             result.limitations.insert(0, INFERENCE_LIMITATION)
         elif source == "model_pick":
             result.limitations.insert(0, PICK_LIMITATION)
+        elif source == "rag_citation":
+            result.limitations.insert(0, CITATION_LIMITATION)
         return result
+
+    def cited_products(self, doc_ids: list[str], ctx: TrustedContext) -> list[str]:
+        """Authorized products of the cited documents: most cited first, then citation order."""
+        counts: dict[str, int] = {}
+        first: dict[str, int] = {}
+        with self.connect(time.monotonic() + self.statement_timeout) as db:
+            for rank, doc in enumerate(doc_ids):
+                for pid in self._products(db, doc):
+                    if ctx.product_allowed(pid) and pid in self.catalog.by_id:
+                        counts[pid] = counts.get(pid, 0) + 1
+                        first.setdefault(pid, rank)
+        return sorted(counts, key=lambda p: (-counts[p], first[p], p))
 
     async def _resolve(self, query: str,
                        ctx: TrustedContext) -> tuple[str | None, list[str], ProductSource]:

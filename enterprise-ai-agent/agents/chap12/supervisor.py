@@ -30,6 +30,7 @@ from agents.chap12.contracts import (
     WorkerError,
     WorkerResult,
 )
+from agents.chap12.critic import MAX_REPLANS, critic_enabled, review
 from agents.chap12.db_worker import Catalog
 
 PRIORITY = ("permission_denied", "timeout", "failed", "no_data")
@@ -122,10 +123,64 @@ class Supervisor:
                         results[task_id] = handle.result()
                     event(spec.worker, "result", results[task_id].status)
 
+        if critic_enabled() and results:
+            await self._critique(run_id, ctx, budget, tasks, inputs, results, notes, event)
+
         ordered = [results[t.task_id] for t in tasks]
         status = merge([r.status for r in ordered])
         event("supervisor", "merged", status)
         return self._render(run_id, request, tasks, ordered, status, notes, budget, trace)
+
+    async def _critique(self, run_id: str, ctx: TrustedContext, budget: Budget,
+                        tasks: list[TaskSpec], inputs: dict[str, Any],
+                        results: dict[str, WorkerResult], notes: list[str],
+                        event: Any) -> None:
+        """Program Critic over the Worker results; at most MAX_REPLANS DB re-runs."""
+        rag_task = next((t for t in tasks if t.worker == "rag"), None)
+        db_task = next((t for t in tasks if t.worker == "database"), None)
+        rag = results.get(rag_task.task_id) if rag_task else None
+        db = results.get(db_task.task_id) if db_task else None
+        database = self.workers.get("database")
+        lookup = getattr(database, "cited_products", None)
+
+        def products(docs: list[str]) -> list[str]:
+            return list(lookup(docs, ctx)) if lookup is not None else []
+
+        try:
+            found = await asyncio.to_thread(review, rag, db, products)
+        except Exception as exc:  # the Critic must never break a result
+            event("critic", "error", type(exc).__name__)
+            return
+        for finding in found.findings:
+            event("critic", "finding", finding)
+        if found.replan_product is None and any(f.startswith("C2") for f in found.findings):
+            notes.append("复核提示：数据部分的产品与回答所引用文档的产品不一致，请核对。")
+        if any(f.startswith("C1") for f in found.findings):
+            notes.append("复核提示：回答的引用不完整，请谨慎使用。")
+        replans = 0
+        if found.replan_product is None or db_task is None or database is None:
+            return
+        if replans >= MAX_REPLANS or budget.remaining() <= 0:
+            event("critic", "replan_skipped", "no remaining budget")
+            return
+        replans += 1
+        event("supervisor", "replan", f"database product={found.replan_product}")
+        request = inputs[db_task.task_id].model_dump() | {
+            "product": found.replan_product, "product_source": "rag_citation",
+            "infer_product": False}
+        try:
+            retried = await asyncio.wait_for(
+                database.run(run_id, db_task.task_id, type(inputs[db_task.task_id])
+                             .model_validate(request), ctx, budget),
+                timeout=budget.remaining() + 0.5)
+        except TimeoutError:
+            event("database", "replan_result", "timeout; original result kept")
+            return
+        event("database", "replan_result", retried.status)
+        if retried.status in USEFUL:
+            results[db_task.task_id] = retried
+        else:
+            notes.append(f"复核后重新查询未成功（{retried.status}），保留原数据结果。")
 
     @staticmethod
     def _synthetic(run_id: str, task: TaskSpec, status: str, category: str,
