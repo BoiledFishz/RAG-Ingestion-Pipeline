@@ -11,6 +11,7 @@ from rag.techqa.data import ROOT
 from agents.chap12.budget import BudgetedModel, BudgetLimits
 from agents.chap12.db_worker import DatabaseQueryWorker
 from agents.chap12.ollama_tokens import TokenMeteredOllamaModel
+from agents.chap12.product_pick import ProductPicker, pick_mode
 from agents.chap12.rag_worker import RagWorker
 from agents.chap12.supervisor import Supervisor
 from agents.rag_agent.compression import ContextCompressor
@@ -70,7 +71,13 @@ def build_supervisor(settings: Settings | None = None, path: Path | None = None)
     settings = settings or Settings.from_env()
     path = path or index_path()
     limits = budget_limits()
+    picker = None
+    mode = pick_mode()
+    if settings.profile != "offline" and mode != "off":
+        # Same model as the RAG Worker, metered against the same request budget.
+        picker = ProductPicker(BudgetedModel(
+            TokenMeteredOllamaModel(settings.ollama_url, settings.model, settings.llm_timeout)))
     database = DatabaseQueryWorker(path, statement_timeout=float(
-        os.getenv("CHAP12_DB_STATEMENT_TIMEOUT", "10")))
+        os.getenv("CHAP12_DB_STATEMENT_TIMEOUT", "10")), picker=picker, pick_mode=mode)
     rag = RagWorker(build_rag_agent(settings, path), timeout=limits.deadline_seconds - 5)
     return Supervisor({"rag": rag, "database": database}, database.catalog, limits)

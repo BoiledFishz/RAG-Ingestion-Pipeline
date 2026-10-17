@@ -30,17 +30,19 @@ def db_input(request: AnalysisRequest, catalog: Catalog) -> tuple[DbInput, list[
     notes: list[str] = []
     explicit = request.data_request
     if explicit is not None and explicit.product is not None:
-        return DbInput(**explicit.model_dump(), product_source="explicit"), notes
+        return DbInput(**explicit.model_dump(), product_source="explicit",
+                       query=request.query), notes
     found = catalog.find(request.query)
     product = found[0].product_id if found else None
     if len(found) > 1:
         notes.append("问题中识别到多个产品，数据查询只使用首个："
                      + "、".join(p.name for p in found[:4]))
     base = explicit.model_dump() if explicit is not None else {}
-    # P1-5: in a combined task the data part serves the answer: the product's most recent
-    # documents (doc_id, title, date) are returned as "related documents". A pure data
-    # question defaults to a count (knowledge-coverage metric, not a business metric).
-    default = "list_recent_documents" if request.goal == "explain_and_data" else \
+    # P1-5 / item 7: in a combined task the data part serves the answer: the product's
+    # documents most relevant to the question (product-scoped BM25; chosen on the tune split
+    # over "most recent", evaluation/chap12/tune/product_study.json) are returned as "related
+    # documents". A pure data question defaults to a count (coverage metric, not business).
+    default = "search_product_documents" if request.goal == "explain_and_data" else \
         "count_documents"
     return DbInput(**{**base, "operation": base.get("operation", default),
                       "product": product, "product_source": "query_literal",

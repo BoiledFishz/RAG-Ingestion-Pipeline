@@ -22,6 +22,7 @@ from agents.chap12.contracts import (
     DbInput,
     DbPayload,
     DbRow,
+    ProductSource,
     TrustedContext,
     WorkerError,
     WorkerResult,
@@ -34,9 +35,20 @@ MAX_GROUP_ROWS = 40
 INFER_TOP_K = 3
 INFER_MIN_SHARE = 0.6
 INFER_OVERFETCH = 200
+# Model-assisted pick (item 8): candidates are the products of the top PICK_DEPTH authorized
+# BM25 documents, at most PICK_MAX_CANDIDATES (coverage measured on the tune split,
+# evaluation/chap12/tune/product_study.json).
+PICK_DEPTH = 10
+PICK_MAX_CANDIDATES = 8
+# Related documents (item 7): the product's documents ranked by BM25 against the question,
+# drawn from the top SEARCH_OVERFETCH documents of the snapshot.
+SEARCH_OVERFETCH = 200
 INFERENCE_LIMITATION = (
     "问题未写明目录中的产品名；产品由问题在样本库中 BM25 前 3 篇文档的官方产品标注推断"
     "（至少 2 篇一致），可能不是提问者所指产品。")
+PICK_LIMITATION = (
+    "问题未写明目录中的产品名；产品由模型从程序给出的候选产品列表（样本库中与问题最相关文档的"
+    "官方产品标注）中选择，并经程序校验在列表内，可能不是提问者所指产品。")
 LIMITATIONS = [
     "计数口径：本次样本快照（随机抽取的 TechQA 训练题的官方候选文档并集）中，官方 metadata "
     "的 productId 与条件匹配的不同文档数；不是 IBM 全量知识库，也不是工单量、故障率或用户数。",
@@ -56,6 +68,10 @@ TEMPLATES = {
     "list_recent_documents": (
         f"SELECT DISTINCT t.doc_id, t.title, t.published_date FROM {SOURCE} WHERE {FILTER} "
         "ORDER BY t.published_date DESC, t.doc_id LIMIT ?"),
+    # Candidate doc IDs come from the program's own BM25 search; the IN list holds only `?`.
+    "search_product_documents": (
+        f"SELECT DISTINCT t.doc_id, t.title, t.published_date FROM {SOURCE} WHERE {FILTER} "
+        "AND t.doc_id IN ({marks})"),
 }
 
 
@@ -114,8 +130,12 @@ class DatabaseQueryWorker:
     name = "database"
 
     def __init__(self, path: Path, *, statement_timeout: float = 10.0,
-                 max_retries: int = 1) -> None:
+                 max_retries: int = 1, picker: Any | None = None,
+                 pick_mode: str = "fallback") -> None:
         self.path = path.resolve()
+        # Optional ProductPicker (online profile only); "off" disables it.
+        self.picker = picker if pick_mode != "off" else None
+        self.pick_mode = pick_mode
         if not self.path.is_file():
             raise FileNotFoundError(f"Sample index not found: {self.path}")
         self.statement_timeout, self.max_retries = statement_timeout, max_retries
@@ -199,13 +219,12 @@ class DatabaseQueryWorker:
             except BudgetExhausted as exc:
                 return fail("failed", "budget_exhausted", str(exc))
             try:
-                reference, evidence = await asyncio.to_thread(self._infer, request.query, ctx)
+                reference, evidence, source = await self._resolve(request.query, ctx)
             except BudgetExhausted as exc:
                 return (fail("timeout", "timeout", "request deadline reached during inference")
                         if exc.kind == "deadline" else fail("failed", "budget_exhausted", str(exc)))
             except sqlite3.OperationalError:
                 return fail("timeout", "timeout", "statement deadline exceeded during inference")
-            source = "inferred"
         if reference is None:
             # Missing input is not an execution failure: nothing publishable, ask the user.
             return fail("no_data", "clarification_required",
@@ -226,6 +245,9 @@ class DatabaseQueryWorker:
         if request.operation != "count_documents":
             params.append(limit)
         sql = TEMPLATES[request.operation]
+        search = request.operation == "search_product_documents"
+        if search and not request.query:
+            return fail("failed", "invalid_input", "search_product_documents requires the query")
 
         retries = 0
         rows: list[tuple[Any, ...]] = []
@@ -236,7 +258,11 @@ class DatabaseQueryWorker:
                 return fail("failed", "budget_exhausted", str(exc), retries=retries)
             deadline = time.monotonic() + min(self.statement_timeout, budget.remaining())
             try:
-                rows = await asyncio.to_thread(self._execute, sql, params, deadline)
+                if search:
+                    rows = await asyncio.to_thread(self._search, sql, params, deadline,
+                                                   str(request.query), limit)
+                else:
+                    rows = await asyncio.to_thread(self._execute, sql, params, deadline)
                 break
             except sqlite3.OperationalError as exc:
                 text = str(exc).lower()
@@ -279,7 +305,10 @@ class DatabaseQueryWorker:
         else:
             truncated = len(rows) > request.limit
             rows = rows[:request.limit]
-            payload |= {"metric": f"most recent documents (max {request.limit})",
+            metric = (f"documents of the product most relevant to the question (BM25, max "
+                      f"{request.limit})" if search else
+                      f"most recent documents (max {request.limit})")
+            payload |= {"metric": metric,
                         "rows": [DbRow(key=str(d), value=f"{d2 or 'undated'} | {t}")
                                  for d, t, d2 in rows], "truncated": truncated}
             empty = not rows  # D1: only an empty list is no_data
@@ -288,18 +317,69 @@ class DatabaseQueryWorker:
                               budget=budget, retries=retries)
         if source == "inferred":
             result.limitations.insert(0, INFERENCE_LIMITATION)
+        elif source == "model_pick":
+            result.limitations.insert(0, PICK_LIMITATION)
         return result
+
+    async def _resolve(self, query: str,
+                       ctx: TrustedContext) -> tuple[str | None, list[str], ProductSource]:
+        """Deterministic inference and/or validated model pick, in the configured order."""
+        order = ("pick", "infer") if self.pick_mode == "first" else ("infer", "pick")
+        for step in order:
+            if step == "infer":
+                reference, evidence = await asyncio.to_thread(self._infer, query, ctx)
+                if reference is not None:
+                    return reference, evidence, "inferred"
+            elif self.picker is not None:
+                ranked, evidence = await asyncio.to_thread(self._candidates, query, ctx)
+                options = [(p, self.catalog.by_id[p].name) for p in ranked
+                           if p in self.catalog.by_id]
+                chosen = await self.picker.pick(query, options)
+                # Program validation: only a listed, authorized catalogue product is accepted.
+                if chosen is not None and chosen in dict(options) and \
+                        ctx.product_allowed(chosen):
+                    return chosen, evidence, "model_pick"
+        return None, [], "inferred"
+
+    def _allowed_hits(self, db: Any, query: str, k: int, ctx: TrustedContext) -> list[str]:
+        if "*" in ctx.allowed_product_ids:
+            return [str(d["id"]) for d in self.index.search(query, k)]
+        return [str(d["id"]) for d in self.index.search(query, INFER_OVERFETCH)
+                if any(ctx.product_allowed(p) for p in self._products(db, d["id"]))][:k]
+
+    def _candidates(self, query: str, ctx: TrustedContext) -> tuple[list[str], list[str]]:
+        """Authorized products of the top PICK_DEPTH documents, by frequency then rank."""
+        with self.connect(time.monotonic() + self.statement_timeout) as db:
+            docs = self._allowed_hits(db, query, PICK_DEPTH, ctx)
+            counts: dict[str, int] = {}
+            first: dict[str, int] = {}
+            for rank, doc in enumerate(docs):
+                for pid in self._products(db, doc):
+                    if ctx.product_allowed(pid):
+                        counts[pid] = counts.get(pid, 0) + 1
+                        first.setdefault(pid, rank)
+        ranked = sorted(counts, key=lambda p: (-counts[p], first[p], p))
+        return ranked[:PICK_MAX_CANDIDATES], docs
+
+    def _search(self, sql: str, params: list[Any], deadline: float, query: str,
+                limit: int) -> list[tuple[Any, ...]]:
+        """Product-scoped BM25: program-built candidate IDs; the product filter always applies."""
+        ranked = [str(d["id"]) for d in self.index.search(query, SEARCH_OVERFETCH)]
+        if not ranked:
+            return []
+        order = {doc: i for i, doc in enumerate(ranked)}
+        statement = sql.format(marks=",".join("?" * len(ranked)))
+        with self.connect(deadline) as db:
+            # params ends with the LIMIT value used by the other list template; not used here.
+            rows = list(db.execute(statement, [*params[:-1], *ranked]).fetchall())
+        rows.sort(key=lambda r: order[str(r[0])])
+        return rows[:limit]
 
     def _infer(self, query: str, ctx: TrustedContext) -> tuple[str | None, list[str]]:
         """Infer only among documents the caller may see, so a denial can never reveal
         which unauthorized product the question resembles."""
         with self.connect(time.monotonic() + self.statement_timeout) as db:
-            if "*" in ctx.allowed_product_ids:
-                hits = self.index.search(query, INFER_TOP_K)
-            else:
-                hits = [d for d in self.index.search(query, INFER_OVERFETCH)
-                        if any(ctx.product_allowed(p) for p in self._products(db, d["id"]))]
-            docs = [d["id"] for d in hits[:INFER_TOP_K]]
+            docs = self._allowed_hits(db, query, INFER_TOP_K, ctx)
             if not docs:
                 return None, []
             marks = ",".join("?" * len(docs))

@@ -186,10 +186,13 @@ def _data_sentence(payload: DbPayload) -> str:
     if payload.operation == "count_documents":
         return (f"[数据] 样本快照中产品 {payload.product_name}（{payload.product_id}）"
                 f"{condition}的文档数：{payload.count}。")
-    if payload.operation == "list_recent_documents":
+    if payload.operation in {"list_recent_documents", "search_product_documents"}:
         lines = "\n".join(f"- {r.key}（{r.value}）" for r in payload.rows) or "- 无"
-        more = "\n（同产品还有更多文档，仅列出最近几篇）" if payload.truncated else ""
-        return (f"[相关文档] 样本知识库中产品 {payload.product_name}{condition}最近的文档："
+        relevant = payload.operation == "search_product_documents"
+        more = ("\n（同产品还有更多文档，仅列出" + ("最相关" if relevant else "最近") + "几篇）"
+                if payload.truncated else "")
+        kind = "与问题最相关的文档" if relevant else "最近的文档"
+        return (f"[相关文档] 样本知识库中产品 {payload.product_name}{condition}{kind}："
                 f"\n{lines}{more}")
     rows = "；".join(f"{r.key}: {r.value}" for r in payload.rows)
     more = "（结果已截断）" if payload.truncated else ""

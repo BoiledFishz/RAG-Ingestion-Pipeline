@@ -40,7 +40,8 @@ HERE = Path(__file__).resolve().parent / "chap12"
 SYSTEMS = ("p1_single", "single", "multi")
 FULL = TrustedContext.model_validate({
     "subject_id": "evaluator", "tenant_id": "course", "allowed_workers": ["rag", "database"],
-    "allowed_db_operations": ["count_documents", "count_by_year", "list_recent_documents"],
+    "allowed_db_operations": ["count_documents", "count_by_year", "list_recent_documents",
+                              "search_product_documents"],
     "allowed_product_ids": ["*"]})
 
 
@@ -134,11 +135,23 @@ class Scorer:
                 self.by_product[pid].append(d)
         self.products_of = {d["doc_id"]: d["ids"] for d in self.docs}
 
-    def recount(self, data: dict[str, Any]) -> Any:
-        """Independent recomputation of a DB payload from raw metadata."""
-        pool = [d for d in self.by_product.get(str(data["product_id"]), [])
+    def pool(self, data: dict[str, Any]) -> list[dict[str, Any]]:
+        return [d for d in self.by_product.get(str(data["product_id"]), [])
                 if (not data.get("doc_class") or d["class"] == data["doc_class"])
                 and (not data.get("date_from") or (d["date"] and d["date"] >= data["date_from"]))]
+
+    def verify(self, data: dict[str, Any]) -> bool:
+        """Independent check of a DB payload against raw metadata."""
+        if data["operation"] == "search_product_documents":
+            # Ranking is BM25 (not recomputed); every row must satisfy the product/filters.
+            allowed = {d["doc_id"] for d in self.pool(data)}
+            rows = self.observed(data)
+            return len(rows) == len(set(rows)) and set(rows) <= allowed
+        return bool(self.observed(data) == self.recount(data))
+
+    def recount(self, data: dict[str, Any]) -> Any:
+        """Independent recomputation of a DB payload from raw metadata."""
+        pool = self.pool(data)
         if data["operation"] == "count_documents":
             return len(pool)
         if data["operation"] == "count_by_year":
@@ -188,12 +201,13 @@ class Scorer:
             if data is None:
                 s["data_correct"] = False
             else:
-                s["data_correct"] = self.observed(data) == self.recount(data)
+                s["data_correct"] = self.verify(data)
                 if gold["answerable"] == "Y":
                     s["product_matches_gold_doc"] = data["product_id"] in self.products_of.get(
                         gold["document"], set())
                     s["related_contains_gold"] = gold["document"] in self.observed(data) if \
-                        data["operation"] == "list_recent_documents" else False
+                        data["operation"] in {"list_recent_documents",
+                                              "search_product_documents"} else False
             product_ok = s.get("product_matches_gold_doc", True)
             s["correct"] = bool(s["rag_correct"] and s["data_correct"] and product_ok)
         else:

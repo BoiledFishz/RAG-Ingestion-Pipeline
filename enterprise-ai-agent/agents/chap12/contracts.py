@@ -10,12 +10,13 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
-CONTRACT_VERSION = "chap12-v2"
+CONTRACT_VERSION = "chap12-v3"
 
 WorkerStatus = Literal["completed", "partial", "no_data", "permission_denied", "timeout", "failed"]
 WorkerName = Literal["rag", "database"]
 Goal = Literal["explain", "data", "explain_and_data"]
-DbOperation = Literal["count_documents", "count_by_year", "list_recent_documents"]
+DbOperation = Literal["count_documents", "count_by_year", "list_recent_documents",
+                      "search_product_documents"]
 DocClass = Literal["apar", "technote", "product_documentation", "other"]
 
 # Statuses that still carry publishable information for the user.
@@ -96,7 +97,7 @@ class RagPayload(Strict):
     retrieved_doc_ids: list[str] = Field(default_factory=list)
 
 
-ProductSource = Literal["explicit", "query_literal", "inferred"]
+ProductSource = Literal["explicit", "query_literal", "inferred", "model_pick"]
 
 
 class DbInput(Strict):

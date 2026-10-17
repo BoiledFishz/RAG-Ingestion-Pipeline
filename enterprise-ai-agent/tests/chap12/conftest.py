@@ -9,7 +9,8 @@ from agents.chap12.contracts import TrustedContext
 from agents.chap12.sample import write_index
 
 AGENT_ROOT = Path(__file__).resolve().parents[2]
-ALL_OPS = {"count_documents", "count_by_year", "list_recent_documents"}
+ALL_OPS = {"count_documents", "count_by_year", "list_recent_documents",
+           "search_product_documents"}
 
 
 def fixture_docs() -> list[dict[str, object]]:

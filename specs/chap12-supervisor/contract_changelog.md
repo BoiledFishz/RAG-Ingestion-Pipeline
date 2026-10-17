@@ -11,3 +11,5 @@
 | chap12-v2 | P2 | `count_documents` 和 `count_by_year` 计数为 0 时返回 **completed**（payload.count=0）；只有 `list_recent_documents` 返回空列表时为 no_data | 审阅决定 D1 |
 | chap12-v2 | P1-5 | explain_and_data 的默认数据操作由 `count_documents` 改为 `list_recent_documents`（limit 5），最终回答中作为“相关文档”（doc_id、日期、标题）呈现；data 目标的默认操作仍是计数 | 工作单 P1-5 |
 | chap12-v2 | P0-4 | `Usage` 增加 `prompt_tokens`、`completion_tokens`（取自 Ollama 的 prompt_eval_count/eval_count；拿不到时为 null，不记为 0），`tokens` 为两者之和 | 工作单 P0-4 |
+| **chap12-v3** | 2026-10-17 第 7 项 | `DbOperation` 增加 `search_product_documents`（产品范围内按问题做 BM25 排序，结果只含该产品、满足过滤条件的文档，空列表为 no_data）；explain_and_data 的默认数据操作改为它；显式 data_request 也把问题文本传给 DB Worker | 调参集研究 `tune/product_study.json`：相关文档含金标 0.469（新）对 0.082（最近文档），n=49 |
+| chap12-v3 | 2026-10-17 第 8 项 | `ProductSource` 增加 `model_pick`：问题未写明产品时，模型只能从程序给出的候选列表（授权文档中 BM25 前 10 篇的产品，最多 8 个）中选编号，程序校验编号在列表内且已授权，否则回退规则或要求澄清；顺序（fallback/first）由调参集上的真实模型研究按事先规则决定，未研究前默认 fallback；离线档位不调用模型 | 待办第 8 项 |

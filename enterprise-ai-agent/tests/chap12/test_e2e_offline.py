@@ -31,9 +31,11 @@ def test_combined_request_runs_both_real_workers(supervisor) -> None:  # type: i
     result = asyncio.run(supervisor.run(AnalysisRequest(query=QUESTION), context()))
     rag, db = result.worker_results
     assert db.status == "completed" and result.data_result.product_id == "SSCRJU"  # type: ignore[union-attr]
-    # Combined task: the data part lists the product's related documents (P1-5).
-    assert result.data_result.operation == "list_recent_documents"  # type: ignore[union-attr]
-    assert [r.key for r in result.data_result.rows] == ["swg21996508", "swg27038498"]  # type: ignore[union-attr]
+    # Combined task: the data part lists the product's documents most relevant to the
+    # question (item 7: product-scoped BM25), the answer document first.
+    assert result.data_result.operation == "search_product_documents"  # type: ignore[union-attr]
+    keys = [r.key for r in result.data_result.rows]  # type: ignore[union-attr]
+    assert keys[0] == "swg21996508" and set(keys) <= {"swg21996508", "swg27038498"}
     assert "[相关文档]" in result.answer
     assert rag.status in {"completed", "partial"}
     assert "swg21996508" in rag.payload.retrieved_doc_ids  # type: ignore[union-attr]

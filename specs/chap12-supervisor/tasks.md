@@ -91,3 +91,19 @@
   - 3.11 环境没有装 torch（离线安装包只有 cp312 的 torch），因此依赖真实 MiniLM 的评测脚本只在 3.12 下运行过。
 - uvicorn 冒烟测试：输出原样保存在 `evaluation/results/chap12/uvicorn_smoke.txt`。`/healthz` 返回 200；无凭证返回 401；full 凭证返回 200，状态 partial（RAG 因间隔门槛拒答，DB 正常完成）；无权限凭证返回 200，状态 permission_denied，tool_calls 为 0；只授权 SSFKSJ 的凭证返回 permission_denied，引用为空，响应中不含 SSCRJU；在请求正文里带权限字段返回 422。
 - 设计说明：权限拒绝通过响应体中的 `status=permission_denied` 表达，HTTP 状态码为 200；凭证缺失或无效时返回 401。
+
+## 2026-10-17 剩余事项（用户要求“把 13 项都完成”）
+
+规则不变：阈值与参数只在调参集（20261012）上选；评测集（20261011）只用于报告；确认集（20261013）只运行一次；不改 Project 1 代码。
+新增调参集混合任务：`python -m evaluation.chap12_build_tasks --split tune --seed 20261022` → explain 75 / explain_and_data 75 / data 60（种子 20261022 此前未使用）。
+
+### 第 7、8 项 相关文档改为产品内相关性排序；模型选择产品 + 程序校验
+- 研究（只用调参集）：`python -m evaluation.chap12_product_study` → `evaluation/chap12/tune/product_study.json`。
+  - 产品解析：explain_and_data 75 题中，字面命中 32、BM25 推断 32、无法确定 11；Y 题解析率 0.875（49/56），解析出的产品与金标文档一致 0.694（34/49）。
+  - 相关文档含金标（已解析的 49 道 Y 题）：最近文档 0.082（4/49）；产品内 BM25 0.469（23/49）。→ 采用产品内 BM25。
+  - 候选覆盖（模型选择的上限，不是准确率）：未解析的 7 题，前 5/10/20 篇文档的产品覆盖金标 5/7；解析错误的 15 题，覆盖 9/11/12。→ 候选取前 10 篇、最多 8 个产品。
+- 改动：`contracts.py`（chap12-v3，新操作 `search_product_documents`、来源 `model_pick`）；`db_worker.py`（新模板，IN 列表只含占位符，产品过滤始终生效；`_resolve` 按 fallback/first 顺序调用规则与模型；`_candidates` 只在授权文档中取候选）；新增 `product_pick.py`（模型只返回编号，非整数、越界、0、异常都视为未选）；`planner.py`、`supervisor.py`、`factory.py`（仅 ollama 档位创建选择器）；`chap12_eval.py`（新操作的独立校验：行不重复且全部属于该产品并满足过滤条件；相关文档指标覆盖两种列表操作）；`chap12_product_study.py`（`--pick` 用真实模型在调参集上比较两种顺序，事先规则：first 的命中率须比 fallback 高至少 0.05 才采用 first）。
+- 测试：新增 `tests/chap12/test_product_pick.py`（13 个测试函数、21 个用例：相关文档只含本产品且受过滤约束、问题文本不会进入 SQL、缺问题时 invalid_input、合法选择被采用并计入 llm 预算、8 种非法回复回退规则、无规则时要求澄清、fallback 模式只在规则失败时调用模型、off 模式不调用、未授权产品不会出现在候选中、显式产品不调用模型、环境变量覆盖）；更新 e2e 断言。
+- 命令与结果：`pytest tests/chap12 -q` → `126 passed`；`ruff check agents/chap12 evaluation/chap12_product_study.py evaluation/chap12_eval.py tests/chap12` → `All checks passed!`；`MYPYPATH=../src mypy --python-version 3.12 agents/chap12 api/chap12_main.py tools/sample_retriever.py evaluation/chap12_product_study.py evaluation/chap12_eval.py` → 本次涉及的文件无错误（仅报告 Project 1 `src/rag/techqa` 中 2 个既有问题，未修改）。
+- 未执行：`--pick` 真实模型研究（需要 Ollama，放在 Windows 运行步骤中）；评测集上的效果（等真实模型评测一并报告）。
+- 影响说明：确认集此前的离线运行（offline_v3_confirm_once）使用的是旧配置，不再代表当前配置；按“只运行一次”的规则不再离线重跑确认集，当前配置的确认结果以之后唯一一次真实模型确认运行为准。
