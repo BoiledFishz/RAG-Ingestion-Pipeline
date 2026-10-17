@@ -153,3 +153,8 @@
 ### 第 1–4 项 Windows 运行脚本
 - `chap12_compare_real.ps1`：自动寻找本检出或主检出的 `.venv312`；worktree 中没有索引时，建立指向主检出 `.rag_data` 的目录联接；运行前用 `chap12_rebuild_indices --check` 校验索引内容；调参集步骤增加模型选择产品顺序的研究；`-TuneOnly` 只做调参集决策；正式运行前要求调参输出已提交（配置冻结）；确认运行改用 confirm2，任何已存在的 confirm2 运行都会让脚本拒绝再跑。`.sh` 同步修改，`bash -n` 通过。
 - 本地启动器 `.chap12_run/run_all.cmd`（不提交，已加入 .git/info/exclude）：依次 probe → push 两个分支 → 用 gh 建 PR（目标分支 codex/project2-course-completion，用户 2026-10-17 选择）→ 调参集决策并提交 → 评测集 3 次重复、每类 30 题 → confirm2 一次 → 提交结果并 push。日志写入 `.chap12_run/run_all.log`。由用户本人双击运行（Claude 对资源管理器只有点击权限，不通过它执行命令）。
+
+### 当前配置（v3 契约，2026-10-17）在评测集上的离线运行（只用于报告）
+- 命令：`AGENT_PROFILE=offline python -m evaluation.chap12_eval --split sample --output evaluation/results/chap12/offline_v4_sample --resume`（Linux VM，索引在本地磁盘）→ 630 条记录。
+- 与 `offline_v3_sample_rotated` 相比：Multi-Agent 的 explain_and_data 中“相关文档含金标”由 0.074 升到 0.4815；正确完成率（0.3514）、数据正确率（0.8919）、产品一致率（0.7037）、explain 与 data 的全部指标不变（离线档位不调用模型选择产品，Critic 默认关闭）。
+- 延迟不可与 v3 直接比较：v3 运行时索引在 Windows 挂载目录上，本次在 VM 本地磁盘上。
