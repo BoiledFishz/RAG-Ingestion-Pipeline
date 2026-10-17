@@ -1,6 +1,7 @@
 # Chap12 Supervisor–Worker（精简版）规格
 
 状态：实现已完成。本规格与实现同批写成，**没有经过事前审阅**。2026-10-11 20:05（PT）用户对决策点 D1–D4 做了事后审阅（见 review_log.md），本文已按审阅结果修改，变更记录见 contract_changelog.md。合并之前仍需完成 PR Review。
+2026-10-17 追加 §12（chap12-v3：相关文档、模型选择产品、Critic/Replan），同样是实现后补写，尚未经人工审阅；整份规格的人工审阅清单见 `spec_review_checklist.md`。
 分支：`feature/chap12-supervisor-lite`。与 `specs/project2/` 的 v0.x 系列相互独立，不修改其中任何文件。
 
 ## 1. 范围与数据
@@ -28,7 +29,7 @@ flowchart TD
     M --> F[FinalResponse]
 ```
 
-- Supervisor 的计划是确定性的：`goal` 是一个枚举，`explain → [rag]`，`data → [database]`，`explain_and_data → [rag, database]`。不使用 LLM Planner，也没有 Replan。
+- Supervisor 的计划是确定性的：`goal` 是一个枚举，`explain → [rag]`，`data → [database]`，`explain_and_data → [rag, database]`。不使用 LLM Planner。可选的程序 Critic 与最多 1 次 Replan 见 §12（默认关闭）。
 - RAG 和 DB 之间没有数据依赖，所以**并行执行**（`asyncio`）。每个 Worker 只返回自己的结果对象，Supervisor 在两者都结束或总截止时间到达后才汇合，因此不存在共享 State 的写冲突。
 - 模型可能参与的环节只有复用 RAG 内部的改写和证据选择。节点、工具和权限都由程序决定。
 
@@ -41,10 +42,10 @@ flowchart TD
 | Domain/API | 不采用 | 没有项目真正需要的外部服务 |
 | Evidence Reviewer | 不采用 | Project 1 已有程序化引用校验和适用性复核；另做一个 Reviewer 只会重复这些检查 |
 
-## 4. Contract（`agents/chap12/contracts.py`，版本 `chap12-v1`）
+## 4. Contract（`agents/chap12/contracts.py`，最初为 `chap12-v1`，当前 `chap12-v3`，变更见 contract_changelog.md）
 
 - `AnalysisRequest{query, goal, data_request?}`：拒绝未知字段，请求正文**不能**携带身份或权限。
-- `DataRequest/DbInput{operation ∈ count_documents|count_by_year|list_recent_documents, product, date_from, date_to, doc_class, limit≤10}`。
+- `DataRequest/DbInput{operation ∈ count_documents|count_by_year|list_recent_documents|search_product_documents（v3）, product, date_from, date_to, doc_class, limit≤10}`。
 - `TrustedContext{subject_id, tenant_id, allowed_workers, allowed_db_operations, allowed_product_ids}`：只由服务端根据凭证的 SHA256 映射构造（环境变量 `CHAP12_CREDENTIALS_JSON`）。
 - `WorkerResult{contract_version, run_id, task_id, worker, status, payload, limitations, error{category, message, retryable}, usage}`。
   校验规则：`completed`/`partial` 必须带 payload；`permission_denied`/`timeout`/`failed` 必须带 error。
@@ -103,7 +104,7 @@ flowchart TD
 
 ## 7. 非目标
 
-不做 Text-to-SQL、LLM Planner/Replan、Critic、写操作或 HITL、MCP/A2A、新的结果缓存，也不改动 Project 1 代码或旧的 `api.main`。
+不做 Text-to-SQL、LLM Planner、由模型决定的 Replan、写操作或 HITL、MCP/A2A、新的结果缓存，也不改动 Project 1 代码或旧的 `api.main`。（程序 Critic 与有界 Replan 已在 §12 实现，默认关闭。）
 
 ## 8. 已知限制
 
@@ -141,6 +142,33 @@ flowchart TD
 
 ## 11. DB Worker 的业务关联（P1-5 重新论证）
 
-- 在 explain_and_data 中，数据部分改为**同产品最近的相关文档列表**（doc_id、日期、标题，最多 5 篇）。用户可以直接点开核对，也可以作为“相关文档”与技术解释一起呈现。它与 RAG 证据互补：RAG 给出与问题最相似的片段，DB 给出该产品时间上最新的官方文档（例如新的 APAR 修复）。
+- （2026-10-17 起被 §12.1 取代：改为同产品内与问题最相关的文档。）在 explain_and_data 中，数据部分改为**同产品最近的相关文档列表**（doc_id、日期、标题，最多 5 篇）。用户可以直接点开核对，也可以作为“相关文档”与技术解释一起呈现。它与 RAG 证据互补：RAG 给出与问题最相似的片段，DB 给出该产品时间上最新的官方文档（例如新的 APAR 修复）。
 - data 目标下保留三种模板查询。其中**文档计数是知识覆盖指标，不是业务指标**：它只说明样本知识库对某产品的覆盖程度，不能解读为故障率、工单量或产品质量。
 - 是否真的帮助回答，用两个指标衡量：“相关文档列表包含金标文档”的比例，以及列表与原始数据独立复算的一致率（见 comparison.md）。
+
+## 12. 2026-10-17 追加（chap12-v3，实现后补写，未经人工审阅）
+
+研究与默认值都只在调参集上决定（种子 20261012；混合任务种子 20261022），规则在运行前写入 tasks.md 或脚本并提交。
+
+### 12.1 相关文档：产品内按问题相关性排序（第 7 项）
+- 新操作 `search_product_documents`：DB Worker 用自己的 BM25 取问题的前 200 篇文档，再用模板 SQL 只保留属于该产品、满足时间与类别过滤的文档，按 BM25 顺序返回至多 limit 篇。IN 列表只含占位符，问题文本不进入 SQL。空列表为 no_data。
+- explain_and_data 的默认数据操作改为它。依据：`evaluation/chap12/tune/product_study.json`，已解析产品的 49 道 Y 题中，列表含金标文档 0.469（最近文档方案为 0.082）。
+- 独立校验：评测脚本检查每一行都属于该产品且满足过滤条件、无重复（排序本身不复算）。
+
+### 12.2 模型从候选中选择产品，程序校验（第 8 项）
+- 问题中没有字面产品名时：候选为授权文档中 BM25 前 10 篇的产品（按出现次数、首次出现位置排序，最多 8 个）；模型只能返回编号（0 表示都不是）；非整数、越界、0、调用失败都视为未选。程序再检查所选产品在候选内且已授权。来源记为 `model_pick` 并附限制说明。
+- 顺序有两种：`fallback`（先规则推断，失败才问模型）和 `first`（先问模型，未选再用规则）。由 `chap12_product_study --pick` 在调参集上用真实模型决定，事先规则为：first 的金标产品命中率须比 fallback 高至少 0.05 才采用 first。研究完成前默认 fallback；离线档位不调用模型；`CHAP12_PRODUCT_PICK=off|fallback|first` 可覆盖。
+- 每次选择计 1 次 llm 预算。
+
+### 12.3 程序 Critic 与有界 Replan（第 10 项）
+- Critic 是确定性检查，不调用模型。C1：已发布回答必须有引用、引用带引文、引用在检索集合内。C2：数据部分的产品应属于回答所引用文档的产品。
+- 只有 C2 触发 Replan，并且只在产品来自推断或模型选择，或者无法确定产品时触发：用引用文档的产品（来源 `rag_citation`）把 DB Worker 重跑 1 次。每个请求最多 1 次；仍经过授权、预算与截止时间检查；只有新结果为 completed/partial 时才替换原结果。用户给定的产品只提示、不替换。
+- 默认**关闭**：调参集上按事先规则（产品一致率须提高 ≥ 0.05）未达标，开 0.6863、关 0.6939（`evaluation/results/chap12/tune_critic_on|off`）。`CHAP12_CRITIC=on` 可开启。
+
+### 12.4 拒答门槛（第 6 项）
+- MiniLM 配置下的间隔门槛保持现状（§9）；`CHAP12_GAP_GATE=""` 关闭，`CHAP12_GAP_GATE=<数值>` 覆盖。
+- nomic（真实档位）是否启用间隔门槛，由 `chap12_refusal_signals --rerank nomic` 在调参集上按同一规则（最佳 BA > 0.6）决定，不看评测集或确认集。
+
+### 12.5 确认集
+- 原确认集（种子 20261013）已在旧配置下离线运行过一次（offline_v3_confirm_once）。本节的改动发生在那次运行之后，按“确认集只运行一次”的规则不再使用它。
+- 新建第二个确认集 confirm2（种子 20261014，排除评测集、调参集和原确认集的题目；混合任务种子 20261024），只用于当前配置的那一次真实模型确认运行。

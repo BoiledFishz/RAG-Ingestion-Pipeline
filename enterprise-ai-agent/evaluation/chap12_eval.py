@@ -398,7 +398,8 @@ async def main_async(args: argparse.Namespace) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--split", choices=["sample", "confirm", "tune"], default="sample")
+    parser.add_argument("--split",
+                        choices=["sample", "confirm", "confirm2", "tune"], default="sample")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--repeats", type=int, default=1)
     parser.add_argument("--limit-per-type", type=int, default=0)

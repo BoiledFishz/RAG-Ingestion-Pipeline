@@ -38,3 +38,23 @@
 **Metrics**：推导的需求键 9 个；有任务覆盖的 7 个（78%）；歧义 2 个；重复 0 个；CRITICAL 2 个（G1、D1）。
 
 **Next Actions**：G1 必须在合并前解决；D1 记录为已知例外；其余问题按工作单的 P0/P1/P2 顺序处理。
+
+
+---
+
+# 补充：Constitution Alignment（2026-10-17）
+
+执行者：Claude，按 Spec Kit v1.2.1 的 `speckit-analyze` 模板中 “D. Constitution Alignment” 一节，对照草案 `.specify/memory/constitution.md`（1.0.0-draft，**尚未批准**）只读检查。这是代理执行模板得出的结论，不是 CLI 输出。constitution 写于实现之后，因此本节只能说明“现状与原则是否一致”，不能说明实现过程遵守了它。上表 D1（缺少 constitution）由此关闭为“已有草案、待批准”。
+
+| ID | 原则 | 严重度 | 位置 | 发现 | 处理 |
+| --- | --- | --- | --- | --- | --- |
+| K1 | 开发流程 1（Spec → 人工审阅 → 实现） | CRITICAL | 整个功能 | Spec 写于实现之后，事前没有人工审阅；2026-10-11 只做了 D1–D4 的事后审阅 | 无法事后补救；如实记录（review_log.md），并提供逐条审阅清单 `spec_review_checklist.md`，由人工完成 |
+| K2 | II 切分纪律 | HIGH | 确认集 | 原确认集（20261013）在旧配置下已运行一次，之后配置改变（v3） | 新建 confirm2（20261014），当前配置只在它上面做一次真实模型确认 |
+| K3 | VI 版本化 Contract | LOW | v1 → v2 | v1 阶段改了字段但没有升版本号 | 已在 chap12-v2 补上并记录 |
+| K4 | I 证据先于结论 | — | comparison.md、PR | 离线数字都能追溯到 `evaluation/results/chap12/`；真实模型数字在运行前标为“未执行” | 符合 |
+| K5 | III 复用不修改 | — | `src/rag`、`api/main.py` | 本分支对 Project 1 代码、旧 api.main、旧 MultiAgentVersion 均无改动（以 git diff 为准） | 符合 |
+| K6 | IV 程序掌握权限 | — | db_worker、product_pick、critic | 无 Text-to-SQL；模型只能在程序给出的候选中选编号，程序再校验；授权在检索时生效 | 符合 |
+| K7 | V 有界执行 | — | budget、critic | 所有调用都先预留预算；Replan 最多 1 次 | 符合 |
+| K8 | VII 可复现 | — | `.rag_data` | 索引不进 git，但有内容摘要和重建校验（`chap12_rebuild_indices`；2026-10-17 在 4 个切分上重建，结果一致） | 符合 |
+
+结论：除 K1（流程，无法事后补救）外没有新的 CRITICAL；K1 的处理方式是如实披露，并由人工完成审阅清单。

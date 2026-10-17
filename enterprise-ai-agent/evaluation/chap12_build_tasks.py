@@ -98,7 +98,8 @@ def build_data_tasks(docs: list[dict[str, Any]], rng: random.Random) -> list[dic
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--split", choices=["sample", "confirm", "tune"], required=True)
+    parser.add_argument("--split",
+                        choices=["sample", "confirm", "confirm2", "tune"], required=True)
     parser.add_argument("--seed", type=int, required=True)
     args = parser.parse_args()
     folder = HERE if args.split == "sample" else HERE / args.split

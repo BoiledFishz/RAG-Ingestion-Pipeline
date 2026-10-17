@@ -126,3 +126,21 @@
   - 按事先规则，产品一致率没有提高 0.05（反而低 0.008）→ **默认关闭**（`CHAP12_CRITIC` 默认 off，设为 on 可开启）。data_correct 虽然高了 0.04（Replan 补上了无法确定产品的题），但它不是登记的主指标，不据此改判。
   - Replan 很少触发的原因：离线档位下回答本身引用的文档少，且多数情况下引用文档的产品与推断产品一致。
 - 测试更新：Critic 相关集成测试显式开启；新增“默认关闭”用例。`pytest tests/chap12 -q` → `137 passed`；ruff 通过。
+
+### 第 13 项 索引重建与内容校验；新建确认集 confirm2
+- 改动：新增 `evaluation/chap12_rebuild_indices.py`。`--record` 记录每个切分索引与 dense 附属文件的内容摘要（逐表、按全部列排序后对每一行做 SHA-256；不比较文件字节，因为 SQLite 的页面布局可能不同），写入 `evaluation/chap12/index_digests.json`；`--check` 只校验现有文件；`--rebuild` 用原命令和原种子在临时目录重建，比较摘要以及重新生成的 tasks.jsonl/gold.jsonl 与已提交文件是否逐字节相同，`--install` 在全部一致时才把索引复制进 `.rag_data`。
+- 新建 confirm2：`python -m evaluation.chap12_build_sample --seed 20261014 --index ../.rag_data/chap12_confirm2.sqlite --output evaluation/chap12/confirm2 --exclude-manifest evaluation/chap12/sample_manifest.json evaluation/chap12/tune/sample_manifest.json evaluation/chap12/confirm/sample_manifest.json` → 150 题（102 Y / 48 N），6,702 篇文档，无缺失；`chap12_build_dense` → 29,501 个块；`chap12_build_tasks --split confirm2 --seed 20261024` → explain 75 / explain_and_data 75 / data 60。原因：v3 改动发生在原确认集运行之后（见 spec §12.5）。confirm2 尚未运行任何系统。
+- 命令与结果：
+  - `python -m evaluation.chap12_rebuild_indices --record`（四个切分）→ 摘要已写入。
+  - `python -m evaluation.chap12_rebuild_indices --rebuild --workdir <临时目录>` → sample、tune、confirm 三个切分的索引、dense、tasks.jsonl、gold.jsonl **全部一致**；confirm2 建好后单独 `--splits confirm2` 重建，同样一致。合并后的输出见 `evaluation/results/chap12/rebuild_verify_20261017.json`。每个切分重建约 30 秒（Linux VM，读取主检出中的全量索引）。
+  - `pytest tests/chap12 -q` → `137 passed`；ruff 通过。
+- 未执行：Windows 上的重建（脚本相同；只在 Linux VM 上运行过）。
+
+### 第 11 项 Spec Kit 初始化与 constitution 草案
+- 命令：`uvx --from git+https://github.com/github/spec-kit.git@v1.2.1 specify init --here --force --integration claude --script ps --non-interactive --ignore-agent-tools`（在空目录中执行，再把生成的 `.specify/` 与 `.claude/skills/speckit-*` 复制到仓库根目录；没有覆盖任何已有文件）。版本固定为发布标签 v1.2.1。
+- 改动：`.specify/memory/constitution.md` 写成草案 1.0.0-draft，共 7 条原则（证据先于结论、切分纪律、复用不修改、程序掌握权限、有界执行、版本化 Contract、可复现产物）以及流程与治理。**状态为未批准**，批准日期留作 TODO，须由人工批准。文中注明它写于实现之后。
+- `analyze_report.md` 追加 Constitution Alignment 一节（Claude 按 speckit-analyze 模板执行，不是 CLI 输出）：K1“实现先于 Spec、无事前人工审阅”为 CRITICAL，无法事后补救，如实披露；K2 确认集已用，以 confirm2 处理；其余原则符合。核对 K5 的命令：`git diff --name-only 38f8483 HEAD` 只列出 chap12 相关文件（38f8483 为本分支起点）。
+
+### 第 5 项 人工审阅（只能由人完成）
+- 改动：新增 `spec_review_checklist.md`，按 A–G 七组共 22 项，供审阅者逐条勾选、签名。spec.md 新增 §12（v3 改动）并在开头注明“实现后补写、未经人工审阅”。
+- 未执行：人工审阅本身。原因：必须由人完成，Claude 不代填。
