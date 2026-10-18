@@ -170,3 +170,16 @@
 - 结果与解读见 comparison.md“真实模型档位”。要点：Multi-Agent 全部 90 题正确完成 0.511 / 0.611（单 Agent 0.089 / 0.167）；explain 题上当前 RAG 与 Project 1 原配置无可确认差异；拒答无效（nomic 下无信号通过 BA > 0.6）；产品选择采用 fallback。
 - 第 6 项结论：真实档位不启用拒答门槛（调参集规则）；离线 MiniLM 档位保留原门槛。是否在离线档位也关闭，留给审阅人决定（离线确认集上未复现，见上文）。
 - 新增 `chap12_report.py --real` 生成真实档位表格。
+
+## 2026-10-18 用户要求“完成率偏低，一起改进”
+
+### 失败分解（真实档位，Multi-Agent，事后诊断，只用于决定试什么，不用于选参数）
+- 评测集 explain + explain_and_data 的 Y 题失败中，最大的一类是“答案文档不在给模型的 8 篇候选里”（explain 39、组合题 21 条记录，按重复计）；其次是“模型拒答了有答案的题”（24）和“回答了但没引用答案文档、答案文档其实在候选里”（18）；N 题没有拒答（27）；组合题中“RAG 正确但产品与答案文档不一致”12 条。confirm2 的分布相同。
+- 调参集上 nomic 重排的 R@8 为 0.661、R@20 为 0.804（`tune/retrieval_report_tune_nomic.json`），说明加深给模型的候选有余地。
+
+### 事先登记（在任何新运行之前提交）
+- 用户选择试两项：加大检索深度、在真实档位开启 Critic（不试受控生成）。
+- 变体与规则写在 `evaluation/chap12_tune_decide.py` 的文档字符串中：base（top_k 8 / 上下文 2400）、k12（12 / 3600）、k16（16 / 4800）、critic（8 / 2400 + Critic）；只在调参集（explain + explain_and_data 150 题，Multi-Agent，1 次）上比较。深度：取 k12、k16 中正确完成率较高者，须比 base 高 ≥ 0.03、失败率不升、平均延迟 ≤ 1.5 倍才采用；Critic：组合题正确完成率 ≥ base + 0.02 且产品一致率不降才采用。结果写入 `tune/real_config.json`，`factory.apply_tuned` 只在真实档位读取它（环境变量优先；p1_single 基线不受影响）。
+- **没有新的确认集可用**：TechQA training 共 600 题，已全部用于评测集、调参集、confirm、confirm2（试建 confirm3 时 `select_questions` 报 “sample larger than source split”）；dev 属于仓库评测协议的 held-out 分区，不能使用。因此改进后的配置只在评测集上报告（Single 与 Multi，1 次重复，与 `ollama_run1` 同一批 90 题），**没有独立确认**，报告中会如实标注。confirm2 不再运行。
+- 改动：`critic.critic_enabled(default)`；`Supervisor(critic=...)`；`factory.tuned_config/apply_tuned`、`build_rag_agent(tuned=...)`；`chap12_eval` 中 p1_single 使用 `tuned=False`；`chap12_report.py` 行宽修正。新增 `tests/chap12/test_tuned.py`（5 个用例）。
+- 命令：`pytest tests/chap12 -q` → `142 passed`；ruff 通过；mypy（chap12 文件）无错误。

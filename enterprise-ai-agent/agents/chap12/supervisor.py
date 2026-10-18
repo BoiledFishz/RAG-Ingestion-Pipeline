@@ -59,9 +59,10 @@ def merge(statuses: list[str]) -> str:
 
 class Supervisor:
     def __init__(self, workers: dict[str, Worker], catalog: Catalog,
-                 limits: BudgetLimits | None = None) -> None:
+                 limits: BudgetLimits | None = None, critic: bool | None = None) -> None:
         self.workers, self.catalog = workers, catalog
         self.limits = limits or BudgetLimits()
+        self.critic = critic  # default for critic_enabled(); env CHAP12_CRITIC overrides
 
     async def run(self, request: AnalysisRequest, ctx: TrustedContext) -> FinalResponse:
         run_id = uuid.uuid4().hex
@@ -123,7 +124,7 @@ class Supervisor:
                         results[task_id] = handle.result()
                     event(spec.worker, "result", results[task_id].status)
 
-        if critic_enabled() and results:
+        if critic_enabled(self.critic) and results:
             await self._critique(run_id, ctx, budget, tasks, inputs, results, notes, event)
 
         ordered = [results[t.task_id] for t in tasks]

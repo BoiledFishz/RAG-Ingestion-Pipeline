@@ -22,10 +22,14 @@ MAX_REPLANS = 1
 REPLACEABLE = {"inferred", "model_pick"}
 
 
-def critic_enabled() -> bool:
-    """Default off: on the tune split the pre-registered adoption rule was not met
-    (evaluation/results/chap12/tune_critic_on vs tune_critic_off). CHAP12_CRITIC=on enables it."""
-    return os.getenv("CHAP12_CRITIC", "off") == "on"
+def critic_enabled(default: bool | None = None) -> bool:
+    """CHAP12_CRITIC=on/off wins; otherwise `default` (the online profile passes the value
+    chosen on the tune split with the real model, evaluation/chap12/tune/real_config.json);
+    otherwise off (offline tune rule not met: results/chap12/tune_critic_on vs _off)."""
+    configured = os.getenv("CHAP12_CRITIC", "")
+    if configured in {"on", "off"}:
+        return configured == "on"
+    return bool(default)
 
 
 @dataclass

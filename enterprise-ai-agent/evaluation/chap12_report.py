@@ -62,8 +62,8 @@ def real_table(path: Path) -> str:
     data = json.loads((path / "summary.json").read_text("utf-8"))["systems"]
     lines = [f"来源：`{path.relative_to(HERE.parent).as_posix()}/summary.json`", "",
              "| 类型 | 系统 | 正确完成 | BA | Y 接受 | N 拒答 | Y 引用金标 | R@8 | 数据正确 "
-             "| 产品一致† | 相关文档含金标 | 延迟 mean/p95 ms | LLM 调用 | prompt / completion token "
-             "| embedding 调用 | 失败率 |",
+             "| 产品一致† | 相关文档含金标 | 延迟 mean/p95 ms | LLM 调用 "
+             "| prompt / completion token | embedding 调用 | 失败率 |",
              "| --- " * 16 + "|"]
     for kind in ("explain", "explain_and_data", "data", "all"):
         for system in ("p1_single", "single", "multi"):

@@ -21,6 +21,28 @@ from agents.rag_agent.service import RAGAgent
 from models.settings import Settings
 
 DEFAULT_INDEX = ROOT / ".rag_data/chap12_sample.sqlite"
+# Online-profile settings chosen on the tune split with the real model
+# (evaluation/chap12_tune_decide.py). Absent file = Project 1 defaults.
+TUNED = Path(__file__).resolve().parents[2] / "evaluation/chap12/tune/real_config.json"
+ENV_KEYS = {"top_k": "AGENT_TOP_K", "max_context_tokens": "AGENT_MAX_CONTEXT_TOKENS"}
+
+
+def tuned_config() -> dict[str, Any]:
+    if not TUNED.is_file():
+        return {}
+    import json
+
+    data: dict[str, Any] = json.loads(TUNED.read_text(encoding="utf-8")).get("adopted", {})
+    return data
+
+
+def apply_tuned(settings: Settings) -> Settings:
+    """Online profile only; an explicit environment variable always wins."""
+    if settings.profile == "offline":
+        return settings
+    update = {k: v for k, v in tuned_config().items()
+              if k in ENV_KEYS and os.getenv(ENV_KEYS[k]) is None}
+    return settings.model_copy(update=update) if update else settings
 
 
 def index_path() -> Path:
@@ -39,8 +61,13 @@ def budget_limits() -> BudgetLimits:
     )
 
 
-def build_rag_agent(settings: Settings, path: Path, override: Any | None = None) -> RAGAgent:
-    """The Project 1 agent, unchanged, over the sample retriever, with metered model calls."""
+def build_rag_agent(settings: Settings, path: Path, override: Any | None = None,
+                    tuned: bool = True) -> RAGAgent:
+    """The Project 1 agent, unchanged, over the sample retriever, with metered model calls.
+
+    tuned=False keeps the Project 1 settings (used for the p1_single baseline)."""
+    if tuned:
+        settings = apply_tuned(settings)
     from tools.sample_retriever import SampleRetrieverTool
 
     rewriter: QueryRewriter
@@ -80,4 +107,6 @@ def build_supervisor(settings: Settings | None = None, path: Path | None = None)
     database = DatabaseQueryWorker(path, statement_timeout=float(
         os.getenv("CHAP12_DB_STATEMENT_TIMEOUT", "10")), picker=picker, pick_mode=mode)
     rag = RagWorker(build_rag_agent(settings, path), timeout=limits.deadline_seconds - 5)
-    return Supervisor({"rag": rag, "database": database}, database.catalog, limits)
+    critic = tuned_config().get("critic") if settings.profile != "offline" else None
+    return Supervisor({"rag": rag, "database": database}, database.catalog, limits,
+                      critic=critic)
