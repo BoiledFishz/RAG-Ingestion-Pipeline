@@ -158,3 +158,15 @@
 - 命令：`AGENT_PROFILE=offline python -m evaluation.chap12_eval --split sample --output evaluation/results/chap12/offline_v4_sample --resume`（Linux VM，索引在本地磁盘）→ 630 条记录。
 - 与 `offline_v3_sample_rotated` 相比：Multi-Agent 的 explain_and_data 中“相关文档含金标”由 0.074 升到 0.4815；正确完成率（0.3514）、数据正确率（0.8919）、产品一致率（0.7037）、explain 与 data 的全部指标不变（离线档位不调用模型选择产品，Critic 默认关闭）。
 - 延迟不可与 v3 直接比较：v3 运行时索引在 Windows 挂载目录上，本次在 VM 本地磁盘上。
+
+### Windows 真实模型运行记录（第 1–4、6、8 项）
+- 运行方式：用户在本机双击 `.chap12_run/run_all.cmd`（共 5 次）。日志 `.chap12_run/run_all.log`（未提交）。
+  1. 15:28：探测步骤卡住——`ollama --version` 启动了 Ollama 应用并继承了管道，脚本一直等待。改为用 HTTP 检查 Ollama。
+  2. 15:32：push 失败（用户的 `~/.gitconfig` 设有已失效的代理 127.0.0.1:7897）；调参步骤失败（worktree 中残留的 VM 符号链接，WinError 1920）。删除符号链接，改由脚本建立目录联接；push 失败时只对该命令关闭代理重试一次；某步失败即停止。
+  3. 15:35：两个分支推送成功；调参集 nomic 阈值与拒答信号完成；模型选择产品研究在 15:43 遇到一次 Ollama 500 后 Python 不再发送请求，停滞约 1.5 小时（从 Ollama server.log 确认）。加入每次 90 s 上限与逐题进度（`9aca413`）。
+  4. 17:17：调参集三项决策完成并由脚本提交（`8f637b7`，提交标题含 BOM，属 PowerShell 5.1 的写法问题，已在脚本中修正）；评测集 810 条记录全部完成，但汇总步骤读取带 BOM 的 meta.json 失败。修正为 utf-8-sig（`f12df6d`）。
+  5. 20:26：生成评测集汇总；confirm2 运行一次（270 条）；结果由脚本提交并推送（`6fa00da`）。
+- PR：用户本机未安装 gh，在内置浏览器中由用户登录 GitHub 后创建 PR #1（目标 codex/project2-course-completion），点击创建前经用户确认。未合并。
+- 结果与解读见 comparison.md“真实模型档位”。要点：Multi-Agent 全部 90 题正确完成 0.511 / 0.611（单 Agent 0.089 / 0.167）；explain 题上当前 RAG 与 Project 1 原配置无可确认差异；拒答无效（nomic 下无信号通过 BA > 0.6）；产品选择采用 fallback。
+- 第 6 项结论：真实档位不启用拒答门槛（调参集规则）；离线 MiniLM 档位保留原门槛。是否在离线档位也关闭，留给审阅人决定（离线确认集上未复现，见上文）。
+- 新增 `chap12_report.py --real` 生成真实档位表格。

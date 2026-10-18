@@ -52,6 +52,44 @@ def table(path: Path) -> str:
     return "\n".join(lines)
 
 
+REAL = {"评测集（sample，每类 30 题 × 3 次重复）": HERE / "results/chap12/ollama_run1",
+        "确认集 confirm2（种子 20261014，每类 30 题，只运行一次）":
+            HERE / "results/chap12/ollama_run1_confirm2_once"}
+
+
+def real_table(path: Path) -> str:
+    """Real-profile table: adds tokens, embedding calls and failure rate."""
+    data = json.loads((path / "summary.json").read_text("utf-8"))["systems"]
+    lines = [f"来源：`{path.relative_to(HERE.parent).as_posix()}/summary.json`", "",
+             "| 类型 | 系统 | 正确完成 | BA | Y 接受 | N 拒答 | Y 引用金标 | R@8 | 数据正确 "
+             "| 产品一致† | 相关文档含金标 | 延迟 mean/p95 ms | LLM 调用 | prompt / completion token "
+             "| embedding 调用 | 失败率 |",
+             "| --- " * 16 + "|"]
+    for kind in ("explain", "explain_and_data", "data", "all"):
+        for system in ("p1_single", "single", "multi"):
+            b = data[system].get(kind)
+            if b is None:
+                continue
+            r = b.get("retrieval_y")
+            lat = b["latency_ms"]
+            pt, ct = b["prompt_tokens_mean"], b["completion_tokens_mean"]
+            tok = f"{pt:.0f} / {ct:.0f}" if pt is not None else "—（未调用模型）"
+            lines.append(
+                f"| {kind} (n={b['tasks']}) | {LABEL[system]} | {f(b['correct_completion'])} | "
+                f"{f(b.get('balanced_accuracy'))} | {f(b.get('y_accept'))} | "
+                f"{f(b.get('n_refuse'))} | {f(b.get('y_gold_cited'))} | "
+                f"{r['R@8']:.3f} | " if r else
+                f"| {kind} (n={b['tasks']}) | {LABEL[system]} | {f(b['correct_completion'])} | "
+                f"{f(b.get('balanced_accuracy'))} | {f(b.get('y_accept'))} | "
+                f"{f(b.get('n_refuse'))} | {f(b.get('y_gold_cited'))} | — | ")
+            lines[-1] += (
+                f"{f(b.get('data_correct'))} | {f(b.get('product_matches_gold_doc'))} | "
+                f"{f(b.get('related_docs_contain_gold'))} | {lat['mean']:.0f} / {lat['p95']:.0f} | "
+                f"{b['llm_calls_mean']:.2f} | {tok} | {b['embedding_calls_mean']:.2f} | "
+                f"{f(b['failure_rate (failed+timeout)'])} |")
+    return "\n".join(lines)
+
+
 def curve() -> str:
     path = HERE / "chap12/tune/refusal_signals.json"
     rows = json.loads(path.read_text("utf-8"))["top1_rerank_score"]["curve"]
@@ -73,6 +111,12 @@ def curve() -> str:
 
 
 def main() -> None:
+    import sys
+
+    if "--real" in sys.argv:
+        for title, path in REAL.items():
+            print(f"### {title}\n\n{real_table(path)}\n")
+        return
     for title, path in RUNS.items():
         print(f"### {title}\n\n{table(path)}\n")
     print("### 调参集 top-1 重排分数阈值曲线\n\n" + curve() + "\n")
