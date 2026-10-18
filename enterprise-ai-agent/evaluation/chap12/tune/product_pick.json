@@ -1,0 +1,732 @@
+{
+ "split": "tune",
+ "model": "qwen2.5:7b",
+ "n_no_literal_y": 68,
+ "rule_alone": {
+  "value": 0.706,
+  "hits": 48,
+  "n": 68
+ },
+ "pick_alone": {
+  "value": 0.382,
+  "hits": 26,
+  "n": 68
+ },
+ "first": {
+  "value": 0.735,
+  "hits": 50,
+  "n": 68
+ },
+ "fallback": {
+  "value": 0.765,
+  "hits": 52,
+  "n": 68
+ },
+ "model_errors": 0,
+ "rule": "first only if match(first) - match(fallback) >= 0.05",
+ "adopted_mode": "fallback",
+ "rows": [
+  {
+   "task_id": "M-tune-001",
+   "inferred": "SSEQTP",
+   "picked": "SSEQTP",
+   "first": "SSEQTP",
+   "fallback": "SSEQTP",
+   "gold_products": [
+    "SSEQTP"
+   ]
+  },
+  {
+   "task_id": "M-tune-004",
+   "inferred": "SSMPHH",
+   "picked": "SSMPHH",
+   "first": "SSMPHH",
+   "fallback": "SSMPHH",
+   "gold_products": [
+    "SSMPHH"
+   ]
+  },
+  {
+   "task_id": "M-tune-006",
+   "inferred": null,
+   "picked": "SSSHRK",
+   "first": "SSSHRK",
+   "fallback": "SSSHRK",
+   "gold_products": [
+    "SSSHRK"
+   ]
+  },
+  {
+   "task_id": "M-tune-010",
+   "inferred": "SSEPGG",
+   "picked": null,
+   "first": "SSEPGG",
+   "fallback": "SSEPGG",
+   "gold_products": [
+    "SSEPGG"
+   ]
+  },
+  {
+   "task_id": "M-tune-015",
+   "inferred": "SSLVMB",
+   "picked": "SSLVMB",
+   "first": "SSLVMB",
+   "fallback": "SSLVMB",
+   "gold_products": [
+    "SSLVMB"
+   ]
+  },
+  {
+   "task_id": "M-tune-019",
+   "inferred": null,
+   "picked": null,
+   "first": null,
+   "fallback": null,
+   "gold_products": [
+    "SSEP7J"
+   ]
+  },
+  {
+   "task_id": "M-tune-020",
+   "inferred": "SSQH9M",
+   "picked": "SS7J6S",
+   "first": "SS7J6S",
+   "fallback": "SSQH9M",
+   "gold_products": [
+    "SS7J6S",
+    "SSFTN5",
+    "SSQH9M"
+   ]
+  },
+  {
+   "task_id": "M-tune-024",
+   "inferred": "SSSHRK",
+   "picked": null,
+   "first": "SSSHRK",
+   "fallback": "SSSHRK",
+   "gold_products": [
+    "SSSHRK"
+   ]
+  },
+  {
+   "task_id": "M-tune-025",
+   "inferred": "SSRLR8",
+   "picked": null,
+   "first": "SSRLR8",
+   "fallback": "SSRLR8",
+   "gold_products": [
+    "SSEQTP",
+    "SSNVBF"
+   ]
+  },
+  {
+   "task_id": "M-tune-026",
+   "inferred": null,
+   "picked": null,
+   "first": null,
+   "fallback": null,
+   "gold_products": [
+    "SSZ8F3"
+   ]
+  },
+  {
+   "task_id": "M-tune-027",
+   "inferred": "SS8KYD",
+   "picked": null,
+   "first": "SS8KYD",
+   "fallback": "SS8KYD",
+   "gold_products": [
+    "SS8KYD",
+    "SSHRKX"
+   ]
+  },
+  {
+   "task_id": "M-tune-028",
+   "inferred": "SSEPCD",
+   "picked": null,
+   "first": "SSEPCD",
+   "fallback": "SSEPCD",
+   "gold_products": [
+    "SSEPCD"
+   ]
+  },
+  {
+   "task_id": "M-tune-032",
+   "inferred": "SSDTFJ",
+   "picked": null,
+   "first": "SSDTFJ",
+   "fallback": "SSDTFJ",
+   "gold_products": [
+    "SSDTFJ"
+   ]
+  },
+  {
+   "task_id": "M-tune-034",
+   "inferred": "SSCTJ4",
+   "picked": null,
+   "first": "SSCTJ4",
+   "fallback": "SSCTJ4",
+   "gold_products": [
+    "SSCTJ4",
+    "SSEUEX"
+   ]
+  },
+  {
+   "task_id": "M-tune-036",
+   "inferred": "SSFTN5",
+   "picked": "SSFTN5",
+   "first": "SSFTN5",
+   "fallback": "SSFTN5",
+   "gold_products": [
+    "SSFTDH",
+    "SSFTN5"
+   ]
+  },
+  {
+   "task_id": "M-tune-037",
+   "inferred": "SSM8NY",
+   "picked": null,
+   "first": "SSM8NY",
+   "fallback": "SSM8NY",
+   "gold_products": [
+    "SSM8NY"
+   ]
+  },
+  {
+   "task_id": "M-tune-040",
+   "inferred": "SSAE9L",
+   "picked": null,
+   "first": "SSAE9L",
+   "fallback": "SSAE9L",
+   "gold_products": [
+    "SSAE9L"
+   ]
+  },
+  {
+   "task_id": "M-tune-041",
+   "inferred": "SSVSD8",
+   "picked": null,
+   "first": "SSVSD8",
+   "fallback": "SSVSD8",
+   "gold_products": [
+    "SSVSD8"
+   ]
+  },
+  {
+   "task_id": "M-tune-042",
+   "inferred": "SSM8NY",
+   "picked": null,
+   "first": "SSM8NY",
+   "fallback": "SSM8NY",
+   "gold_products": [
+    "SSM8NY"
+   ]
+  },
+  {
+   "task_id": "M-tune-044",
+   "inferred": "SSNVNV",
+   "picked": "SSNW2F",
+   "first": "SSNW2F",
+   "fallback": "SSNVNV",
+   "gold_products": [
+    "SSNVNV"
+   ]
+  },
+  {
+   "task_id": "M-tune-047",
+   "inferred": "SSNQK6",
+   "picked": "SSNQK6",
+   "first": "SSNQK6",
+   "fallback": "SSNQK6",
+   "gold_products": [
+    "SSNQK6"
+   ]
+  },
+  {
+   "task_id": "M-tune-048",
+   "inferred": "SSLVMB",
+   "picked": "SSLVMB",
+   "first": "SSLVMB",
+   "fallback": "SSLVMB",
+   "gold_products": [
+    "SSLVMB"
+   ]
+  },
+  {
+   "task_id": "M-tune-049",
+   "inferred": "SSLVMB",
+   "picked": "SSLVMB",
+   "first": "SSLVMB",
+   "fallback": "SSLVMB",
+   "gold_products": [
+    "SS3RA7",
+    "SS6A7K",
+    "SSLVC7",
+    "SSLVMB"
+   ]
+  },
+  {
+   "task_id": "M-tune-050",
+   "inferred": null,
+   "picked": "SSEPGG",
+   "first": "SSEPGG",
+   "fallback": "SSEPGG",
+   "gold_products": [
+    "SSEPGG"
+   ]
+  },
+  {
+   "task_id": "M-tune-051",
+   "inferred": "SSEM9N",
+   "picked": null,
+   "first": "SSEM9N",
+   "fallback": "SSEM9N",
+   "gold_products": [
+    "SSEM9N"
+   ]
+  },
+  {
+   "task_id": "M-tune-053",
+   "inferred": "SS3PHK",
+   "picked": null,
+   "first": "SS3PHK",
+   "fallback": "SS3PHK",
+   "gold_products": [
+    "SS3PHK"
+   ]
+  },
+  {
+   "task_id": "M-tune-054",
+   "inferred": "SSHRKX",
+   "picked": "SSHRKX",
+   "first": "SSHRKX",
+   "fallback": "SSHRKX",
+   "gold_products": [
+    "SSHRKX"
+   ]
+  },
+  {
+   "task_id": "M-tune-058",
+   "inferred": null,
+   "picked": null,
+   "first": null,
+   "fallback": null,
+   "gold_products": [
+    "SS3JRN"
+   ]
+  },
+  {
+   "task_id": "M-tune-061",
+   "inferred": null,
+   "picked": "SSHRKX",
+   "first": "SSHRKX",
+   "fallback": "SSHRKX",
+   "gold_products": [
+    "SSHRKX"
+   ]
+  },
+  {
+   "task_id": "M-tune-063",
+   "inferred": "SSNVNV",
+   "picked": null,
+   "first": "SSNVNV",
+   "fallback": "SSNVNV",
+   "gold_products": [
+    "SSNVNV"
+   ]
+  },
+  {
+   "task_id": "M-tune-064",
+   "inferred": "SSDTFJ",
+   "picked": "SSCH4B",
+   "first": "SSCH4B",
+   "fallback": "SSDTFJ",
+   "gold_products": [
+    "SSCH4B"
+   ]
+  },
+  {
+   "task_id": "M-tune-067",
+   "inferred": "SSEPGG",
+   "picked": null,
+   "first": "SSEPGG",
+   "fallback": "SSEPGG",
+   "gold_products": [
+    "SSEPGG"
+   ]
+  },
+  {
+   "task_id": "M-tune-068",
+   "inferred": "SSEPGG",
+   "picked": "SSEPGG",
+   "first": "SSEPGG",
+   "fallback": "SSEPGG",
+   "gold_products": [
+    "SSEPGG"
+   ]
+  },
+  {
+   "task_id": "M-tune-071",
+   "inferred": "SSAE9L",
+   "picked": null,
+   "first": "SSAE9L",
+   "fallback": "SSAE9L",
+   "gold_products": [
+    "SSAE9L"
+   ]
+  },
+  {
+   "task_id": "M-tune-075",
+   "inferred": null,
+   "picked": null,
+   "first": null,
+   "fallback": null,
+   "gold_products": [
+    "SSWT9A"
+   ]
+  },
+  {
+   "task_id": "M-tune-076",
+   "inferred": "SSRLR8",
+   "picked": "SSRLR8",
+   "first": "SSRLR8",
+   "fallback": "SSRLR8",
+   "gold_products": [
+    "SSRLR8"
+   ]
+  },
+  {
+   "task_id": "M-tune-079",
+   "inferred": "SSQP76",
+   "picked": "SSQP76",
+   "first": "SSQP76",
+   "fallback": "SSQP76",
+   "gold_products": [
+    "SSQP76"
+   ]
+  },
+  {
+   "task_id": "M-tune-080",
+   "inferred": "SSEQTP",
+   "picked": "SSEQTP",
+   "first": "SSEQTP",
+   "fallback": "SSEQTP",
+   "gold_products": [
+    "SSEQTP"
+   ]
+  },
+  {
+   "task_id": "M-tune-083",
+   "inferred": "SS3JLV",
+   "picked": "SSHRKX",
+   "first": "SSHRKX",
+   "fallback": "SS3JLV",
+   "gold_products": [
+    "SS3JLV"
+   ]
+  },
+  {
+   "task_id": "M-tune-084",
+   "inferred": "SS9H2Y",
+   "picked": "SS9H2Y",
+   "first": "SS9H2Y",
+   "fallback": "SS9H2Y",
+   "gold_products": [
+    "SS9H2Y"
+   ]
+  },
+  {
+   "task_id": "M-tune-085",
+   "inferred": "SSHRKX",
+   "picked": null,
+   "first": "SSHRKX",
+   "fallback": "SSHRKX",
+   "gold_products": [
+    "SSHRKX"
+   ]
+  },
+  {
+   "task_id": "M-tune-089",
+   "inferred": null,
+   "picked": "SS7J6S",
+   "first": "SS7J6S",
+   "fallback": "SS7J6S",
+   "gold_products": [
+    "SS7J6S",
+    "SSFTN5",
+    "SSQH9M"
+   ]
+  },
+  {
+   "task_id": "M-tune-090",
+   "inferred": "SS3JLV",
+   "picked": "SS3JLV",
+   "first": "SS3JLV",
+   "fallback": "SS3JLV",
+   "gold_products": [
+    "SS3JLV",
+    "SSHRKX"
+   ]
+  },
+  {
+   "task_id": "M-tune-092",
+   "inferred": null,
+   "picked": "SS9H2Y",
+   "first": "SS9H2Y",
+   "fallback": "SS9H2Y",
+   "gold_products": [
+    "SS6L4E"
+   ]
+  },
+  {
+   "task_id": "M-tune-097",
+   "inferred": "SSPREK",
+   "picked": "SSTFW4",
+   "first": "SSTFW4",
+   "fallback": "SSPREK",
+   "gold_products": [
+    "SSHRKX"
+   ]
+  },
+  {
+   "task_id": "M-tune-099",
+   "inferred": "SSHRKX",
+   "picked": "SSEPGG",
+   "first": "SSEPGG",
+   "fallback": "SSHRKX",
+   "gold_products": [
+    "SS3JSW"
+   ]
+  },
+  {
+   "task_id": "M-tune-101",
+   "inferred": null,
+   "picked": null,
+   "first": null,
+   "fallback": null,
+   "gold_products": [
+    "SSEQTP"
+   ]
+  },
+  {
+   "task_id": "M-tune-102",
+   "inferred": "SSHRKX",
+   "picked": "SSHRKX",
+   "first": "SSHRKX",
+   "fallback": "SSHRKX",
+   "gold_products": [
+    "SSHRKX"
+   ]
+  },
+  {
+   "task_id": "M-tune-104",
+   "inferred": "SSZ8F3",
+   "picked": null,
+   "first": "SSZ8F3",
+   "fallback": "SSZ8F3",
+   "gold_products": [
+    "SSZ8F3"
+   ]
+  },
+  {
+   "task_id": "M-tune-106",
+   "inferred": null,
+   "picked": null,
+   "first": null,
+   "fallback": null,
+   "gold_products": [
+    "SSFTDH"
+   ]
+  },
+  {
+   "task_id": "M-tune-107",
+   "inferred": "SSZ8F3",
+   "picked": null,
+   "first": "SSZ8F3",
+   "fallback": "SSZ8F3",
+   "gold_products": [
+    "SSZ8F3"
+   ]
+  },
+  {
+   "task_id": "M-tune-115",
+   "inferred": "SS5JP8",
+   "picked": null,
+   "first": "SS5JP8",
+   "fallback": "SS5JP8",
+   "gold_products": [
+    "SS5JP8"
+   ]
+  },
+  {
+   "task_id": "M-tune-116",
+   "inferred": "SS8JFY",
+   "picked": "SS8JFY",
+   "first": "SS8JFY",
+   "fallback": "SS8JFY",
+   "gold_products": [
+    "SSBQVS"
+   ]
+  },
+  {
+   "task_id": "M-tune-117",
+   "inferred": "SSEPGG",
+   "picked": null,
+   "first": "SSEPGG",
+   "fallback": "SSEPGG",
+   "gold_products": [
+    "SSEPGG"
+   ]
+  },
+  {
+   "task_id": "M-tune-118",
+   "inferred": "SS5Q8A",
+   "picked": null,
+   "first": "SS5Q8A",
+   "fallback": "SS5Q8A",
+   "gold_products": [
+    "SS5Q8A"
+   ]
+  },
+  {
+   "task_id": "M-tune-121",
+   "inferred": "SSFKSJ",
+   "picked": "SSFKSJ",
+   "first": "SSFKSJ",
+   "fallback": "SSFKSJ",
+   "gold_products": [
+    "SSEQTP",
+    "SSFKSJ"
+   ]
+  },
+  {
+   "task_id": "M-tune-125",
+   "inferred": "SS9S6B",
+   "picked": "SSEP7J",
+   "first": "SSEP7J",
+   "fallback": "SS9S6B",
+   "gold_products": [
+    "SSH2DF"
+   ]
+  },
+  {
+   "task_id": "M-tune-126",
+   "inferred": null,
+   "picked": "SS9U76",
+   "first": "SS9U76",
+   "fallback": "SS9U76",
+   "gold_products": [
+    "SSRLR8"
+   ]
+  },
+  {
+   "task_id": "M-tune-131",
+   "inferred": "SSZ8F3",
+   "picked": null,
+   "first": "SSZ8F3",
+   "fallback": "SSZ8F3",
+   "gold_products": [
+    "SSZ8F3"
+   ]
+  },
+  {
+   "task_id": "M-tune-132",
+   "inferred": "SS7J6S",
+   "picked": "SSFKSJ",
+   "first": "SSFKSJ",
+   "fallback": "SS7J6S",
+   "gold_products": [
+    "SS7J6S",
+    "SSDKKW",
+    "SSEQTP",
+    "SSFKSJ",
+    "SSFTDH",
+    "SSQH9M",
+    "SSWLGF"
+   ]
+  },
+  {
+   "task_id": "M-tune-133",
+   "inferred": "SSNVNV",
+   "picked": "SSNW2F",
+   "first": "SSNW2F",
+   "fallback": "SSNVNV",
+   "gold_products": [
+    "SSNVNV"
+   ]
+  },
+  {
+   "task_id": "M-tune-134",
+   "inferred": null,
+   "picked": "SSEQTP",
+   "first": "SSEQTP",
+   "fallback": "SSEQTP",
+   "gold_products": [
+    "SSFTBX",
+    "SSFTDH",
+    "SSFTN5"
+   ]
+  },
+  {
+   "task_id": "M-tune-135",
+   "inferred": "SSLVMB",
+   "picked": "SSLVMB",
+   "first": "SSLVMB",
+   "fallback": "SSLVMB",
+   "gold_products": [
+    "SSLVMB"
+   ]
+  },
+  {
+   "task_id": "M-tune-139",
+   "inferred": "SSQP76",
+   "picked": "SSQP76",
+   "first": "SSQP76",
+   "fallback": "SSQP76",
+   "gold_products": [
+    "SS6MTS",
+    "SSQP76"
+   ]
+  },
+  {
+   "task_id": "M-tune-142",
+   "inferred": "SSHLHV",
+   "picked": null,
+   "first": "SSHLHV",
+   "fallback": "SSHLHV",
+   "gold_products": [
+    "SSHLHV"
+   ]
+  },
+  {
+   "task_id": "M-tune-143",
+   "inferred": "SS3JRN",
+   "picked": null,
+   "first": "SS3JRN",
+   "fallback": "SS3JRN",
+   "gold_products": [
+    "SS3JRN"
+   ]
+  },
+  {
+   "task_id": "M-tune-148",
+   "inferred": "SSSHYH",
+   "picked": "SSSHYH",
+   "first": "SSSHYH",
+   "fallback": "SSSHYH",
+   "gold_products": [
+    "SSSHYH"
+   ]
+  },
+  {
+   "task_id": "M-tune-150",
+   "inferred": null,
+   "picked": "SS9H2Y",
+   "first": "SS9H2Y",
+   "fallback": "SS9H2Y",
+   "gold_products": [
+    "SS6L4E"
+   ]
+  }
+ ]
+}

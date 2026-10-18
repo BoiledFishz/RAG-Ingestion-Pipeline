@@ -1,0 +1,55 @@
+{
+ "hybrid+nomic_rerank": {
+  "n": 112,
+  "R@1": {
+   "value": 0.482,
+   "hits": 54,
+   "wilson95": [
+    0.392,
+    0.574
+   ]
+  },
+  "R@3": {
+   "value": 0.589,
+   "hits": 66,
+   "wilson95": [
+    0.497,
+    0.676
+   ]
+  },
+  "R@5": {
+   "value": 0.616,
+   "hits": 69,
+   "wilson95": [
+    0.524,
+    0.701
+   ]
+  },
+  "R@8": {
+   "value": 0.661,
+   "hits": 74,
+   "wilson95": [
+    0.569,
+    0.742
+   ]
+  },
+  "R@20": {
+   "value": 0.804,
+   "hits": 90,
+   "wilson95": [
+    0.72,
+    0.867
+   ]
+  },
+  "MRR": 0.554
+ },
+ "calibration": {
+  "threshold": 0.6568,
+  "balanced_accuracy": 0.5157,
+  "answer_acceptance": 0.7946,
+  "labelled_refusal": 0.2368,
+  "y": 112,
+  "n": 38,
+  "target_answer_acceptance": 0.7933
+ }
+}
