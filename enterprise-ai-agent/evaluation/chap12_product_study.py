@@ -100,7 +100,13 @@ async def pick_study(worker: DatabaseQueryWorker, ctx: TrustedContext,
         options = [(p, worker.catalog.by_id[p].name) for p in ranked if p in worker.catalog.by_id]
         budget = Budget(budget_limits())  # one request budget per question, as in serving
         with metered(budget, "database"):
-            picked = await picker.pick(query, options)
+            try:
+                # Bounded per call so one stuck request cannot stall the whole study.
+                picked = await asyncio.wait_for(picker.pick(query, options), timeout=90)
+            except TimeoutError:
+                picker.errors += 1
+                picked = None
+        print(f"pick {len(scored) + 1}: {row['task_id']} -> {picked}", flush=True)
         inferred = row["product"]  # rule result (None when unresolved)
         target = set(row["gold_products"])
         scored.append({"task_id": row["task_id"], "inferred": inferred, "picked": picked,
