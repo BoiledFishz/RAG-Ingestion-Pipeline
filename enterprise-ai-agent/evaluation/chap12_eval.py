@@ -372,7 +372,7 @@ async def main_async(args: argparse.Namespace) -> None:
                     handle.flush()
                 print(f"repeat {repeat} {number}/{len(tasks)} {task['task_id']}", flush=True)
     records = [json.loads(x) for x in runs.read_text("utf-8").splitlines()]
-    meta = json.loads(args.meta.read_text("utf-8")) if args.meta else {}
+    meta = json.loads(args.meta.read_text("utf-8-sig")) if args.meta else {}
     summary = {
         "split": args.split, "profile": settings.profile,
         "model": settings.model if settings.profile == "ollama" else None,
