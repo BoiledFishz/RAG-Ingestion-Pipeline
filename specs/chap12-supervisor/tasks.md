@@ -219,3 +219,12 @@
 - 规则（`evaluation/chap12_order_decide.py`）：与 `tune_real_r4_base` 比，正确完成率至少高 0.03、失败率不升、平均延迟不超过 1.5 倍才采用；都通过时取较高者；否则保留 nomic。预期 bge 可能因延迟不通过（第三轮为 2.19 倍），仍按登记运行。
 - 只有采用时才在评测集上运行：当前配置（Multi-Agent）`ollama_run4_base` 与采用配置（单 Agent + Multi-Agent）`ollama_run4`，各 90 题 1 次，同一 Ollama 版本。没有新的确认集。
 - 运行器：`.chap12_run/run_order.cmd`（不提交）；开头推送待推提交，并按用户 22:23 的同意用 `gh pr edit 1 --body-file specs/chap12-supervisor/PR_DESCRIPTION.md` 更新 PR #1 描述（云端会话的 GitHub 集成无权修改 PR，返回 HTTP 403，所以由用户机器上的 gh 执行）。
+
+### 第四轮运行记录（Windows，用户双击 `.chap12_run/run_order.cmd` 一次，2026-10-19 09:16–11:34 PT）
+- 环境（`results/chap12/round4_meta.json`）：起始 commit e17fba8，Ollama 0.40.6，模型 digest 与之前相同。
+- 推送 e17fba8 成功（直连失败后去掉代理重试）。PR #1 描述更新：**未执行**，脚本输出 “gh not installed: PR description not updated”（用户 Windows 上没有 gh；云端会话的 GitHub 集成对 PR 修改返回 HTTP 403）。
+- 调参运行各 150 条、失败 0：`tune_real_r4_base` 0.3667（与 `tune_real_critic` 逐题完全相同）、`tune_real_r4_ce_minilm_order` 0.3667、`tune_real_r4_ce_bge_order` 0.3333。
+- `python -m evaluation.chap12_order_decide` → `adopted_reranker: nomic`。提交 `b1f6384` 并推送。
+- 评测集：未执行（规则：没有采用就不重跑）。
+- 结果写入 comparison.md（第四轮，并更正第三轮“混杂因素”一条）与 PR_DESCRIPTION.md。
+
