@@ -14,6 +14,7 @@ from agents.chap12.ollama_tokens import TokenMeteredOllamaModel
 from agents.chap12.product_pick import ProductPicker, pick_mode
 from agents.chap12.rag_worker import RagWorker
 from agents.chap12.supervisor import Supervisor
+from agents.chap12.verifier import AnswerVerifier
 from agents.rag_agent.compression import ContextCompressor
 from agents.rag_agent.generation import EvidenceSelector, ExtractiveSelector, LLMSelector
 from agents.rag_agent.rewrite import LLMRewriter, QueryRewriter, RuleRewriter
@@ -24,7 +25,8 @@ DEFAULT_INDEX = ROOT / ".rag_data/chap12_sample.sqlite"
 # Online-profile settings chosen on the tune split with the real model
 # (evaluation/chap12_tune_decide.py). Absent file = Project 1 defaults.
 TUNED = Path(__file__).resolve().parents[2] / "evaluation/chap12/tune/real_config.json"
-ENV_KEYS = {"top_k": "AGENT_TOP_K", "max_context_tokens": "AGENT_MAX_CONTEXT_TOKENS"}
+ENV_KEYS = {"top_k": "AGENT_TOP_K", "max_context_tokens": "AGENT_MAX_CONTEXT_TOKENS",
+            "model": "AGENT_MODEL"}  # model: round 5 (adopted only if 14b passes its rule)
 
 
 def tuned_config() -> dict[str, Any]:
@@ -112,5 +114,11 @@ def build_supervisor(settings: Settings | None = None, path: Path | None = None)
         os.getenv("CHAP12_DB_STATEMENT_TIMEOUT", "10")), picker=picker, pick_mode=mode)
     rag = RagWorker(build_rag_agent(settings, path), timeout=limits.deadline_seconds - 5)
     critic = tuned_config().get("critic") if settings.profile != "offline" else None
+    verifier = verify = None
+    if settings.profile != "offline":
+        # Same model as the RAG Worker, metered against the same request budget (round 5).
+        verifier = AnswerVerifier(BudgetedModel(
+            TokenMeteredOllamaModel(settings.ollama_url, settings.model, settings.llm_timeout)))
+        verify = tuned_config().get("verifier")
     return Supervisor({"rag": rag, "database": database}, database.catalog, limits,
-                      critic=critic)
+                      critic=critic, verifier=verifier, verify=verify)

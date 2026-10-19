@@ -107,6 +107,8 @@ async def run_multi(supervisor: Any, task: dict[str, Any]) -> dict[str, Any]:
                 "data_status": db.status if db else None,
                 "replanned": any(e.event == "replan" for e in result.trace),
                 "critic_findings": [e.detail for e in result.trace if e.event == "finding"],
+                "verifier": next((e.detail for e in result.trace if e.node == "verifier"),
+                                 None),
                 "data_error": db.error.category if db and db.error else None,
                 "data": None if payload is None else {
                     "operation": payload.operation, "product_id": payload.product_id,

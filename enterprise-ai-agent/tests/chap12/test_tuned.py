@@ -54,3 +54,16 @@ def test_critic_default_and_env_precedence(monkeypatch: pytest.MonkeyPatch) -> N
     assert critic_enabled(True) is False
     monkeypatch.setenv("CHAP12_CRITIC", "on")
     assert critic_enabled(False) is True
+
+
+def test_tuned_model_applies_online_unless_env(tmp_path: Path,
+                                               monkeypatch: pytest.MonkeyPatch) -> None:
+    path = tmp_path / "real_config.json"
+    path.write_text(json.dumps({"adopted": {"model": "qwen2.5:14b"}}))
+    monkeypatch.setattr(factory, "TUNED", path)
+    monkeypatch.delenv("AGENT_MODEL", raising=False)
+    assert factory.apply_tuned(Settings(profile="ollama")).model == "qwen2.5:14b"
+    assert factory.apply_tuned(Settings(profile="offline")).model != "qwen2.5:14b"
+    monkeypatch.setenv("AGENT_MODEL", "qwen2.5:7b")
+    assert factory.apply_tuned(Settings(profile="ollama", model="qwen2.5:7b")).model == \
+        "qwen2.5:7b"

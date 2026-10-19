@@ -228,3 +228,30 @@
 - 评测集：未执行（规则：没有采用就不重跑）。
 - 结果写入 comparison.md（第四轮，并更正第三轮“混杂因素”一条）与 PR_DESCRIPTION.md。
 
+
+## 2026-10-19 复盘与第五轮（用户要求“都做”复盘中的 4 项，12:36 PT）
+
+### 复盘
+- `specs/chap12-supervisor/retrospective.md`：失分拆分（调参集当前配置）、第 2–4 轮未见效的原因、第五轮计划。
+
+### 第 4 项：评估方法（先做，不调用模型）
+- `evaluation/chap12_paired.py`：同一批题的配对比较（变对 / 变错、净胜、精确 McNemar 单侧与双侧 p），并报告可回答题 token F1（全部可回答题，拒答记 0；以及两边都作答的题）。新增 `tests/chap12/test_paired.py`（3 个用例）。
+- 运行：`python -m evaluation.chap12_paired --retro`（VM，本地镜像）→ `results/chap12/paired_retro.json`。结果写入 comparison.md“配对比较”一节：第 2–4 轮没有一个变体可区分（双侧 p ≥ 0.31）。只作报告，不改变当时的决定。
+
+### 第 3 项：检索召回写入已知限制
+- PR_DESCRIPTION.md 已知限制第 6 条。
+
+### 第 1、2 项：事先登记（在任何运行之前提交）
+- 实现：
+  - `agents/chap12/verifier.py`（`AnswerVerifier`）：RAG 发布答案后，Supervisor 让同一模型只判断“引用的原文是否回答了问题”（JSON 布尔）；判否则把 RAG 结果改为 no_data（`invalid_evidence`），只能否决、不能新增；模型出错或输出无效时保留答案（fail-open）；调用计入同一请求预算；先于 Critic 运行。开关 `CHAP12_VERIFIER=on/off`，否则读 `real_config.json` 的 `adopted.verifier`，默认关。
+  - `supervisor.py` 增加 `_verify`；`factory.py` 在真实档位构建 Verifier，并允许 `adopted.model`（环境变量 `AGENT_MODEL` 优先）；`chap12_eval.py` 记录 `verifier` 判定。
+  - 测试：`tests/chap12/test_verifier.py`（7 个用例）、`test_tuned.py` 新增模型用例。`pytest tests/chap12 -q` → `159 passed`；ruff 通过；mypy 对新代码无新增错误（supervisor.py 两条为既有）。
+- 运行（调参集，真实模型，Multi-Agent，explain + explain_and_data 150 题，1 次，nomic，top_k 8，Critic 开）：
+  - 7b 基线：沿用 `tune_real_r4_base`（0.40.6 上已逐题复现）；若 Ollama 版本不是 0.40.6 则重跑为 `tune_real_r5_base_7b`。
+  - `tune_real_r5_verify_7b`（7b + Verifier）。
+  - `tune_real_r5_base_14b`、`tune_real_r5_verify_14b`（qwen2.5:14b，Verifier 关 / 开）。若本机没有 qwen2.5:14b 则通过 Ollama `/api/pull` 下载（约 9 GB）；事先登记的速度门槛：预热后一次 20 token 生成超过 60 秒则不跑 14b（记为未执行）。请求截止时间不放宽（150 秒），超时计为失败。
+- 规则（`evaluation/chap12_round5_decide.py`，全部用配对比较）：
+  - 模型：14b 相对 7b 基线净胜 ≥ 5 题且单侧精确 McNemar p < 0.10、失败率不升、可回答题 token F1 不低于基线 0.05 以上、平均延迟 ≤ 2.5 倍，才采用 14b。
+  - Verifier：在采用的模型上，与同模型不开 Verifier 比：不可回答题拒答率至少 +0.25、可回答题接受率下降不超过 0.05、配对变对 ≥ 变错、失败率不升、token F1 不低于 0.05 以上，才采用。
+- 只有采用了 14b 或 Verifier 才在评测集运行（单 Agent + Multi-Agent，90 题，1 次）`ollama_run5`，并与 `ollama_run2`（同一设置）做配对比较。没有新的确认集；小于约 0.05 的差异不视为确认。
+- 运行器：`.chap12_run/run_round5.cmd`（不提交）。

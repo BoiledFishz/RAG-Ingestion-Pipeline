@@ -82,6 +82,7 @@
 3. 拒答没有可靠信号；检索调参未达到登记门槛（R@8 最好只多 0.026）；约 11–22% 的组合题无法确定产品（模型选择产品的效果待真实模型结果）。
 4. constitution 只是草案；没有事前审阅；Spec 人工审阅清单待完成。
 5. 索引不进入 git，用 `python -m evaluation.chap12_rebuild_indices --rebuild --install` 重建并校验。
+6. 检索召回是第二大失分（调参集 39/150 题答案文档不在前 8 篇），本 PR 不再处理：现成 cross-encoder 与加深候选都无净效果（配对比较见 `results/chap12/paired_retro.json`）；在 TechQA 上微调检索/重排没有不泄漏评测的训练数据，按产品名、错误码改写查询属于 Project 1。复盘见 `specs/chap12-supervisor/retrospective.md`。
 
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
 

@@ -16,7 +16,7 @@ import uuid
 from typing import Any, Protocol
 
 from agents.chap12 import planner
-from agents.chap12.budget import Budget, BudgetLimits
+from agents.chap12.budget import Budget, BudgetExhausted, BudgetLimits, metered
 from agents.chap12.contracts import (
     USEFUL,
     AnalysisRequest,
@@ -32,6 +32,7 @@ from agents.chap12.contracts import (
 )
 from agents.chap12.critic import MAX_REPLANS, critic_enabled, review
 from agents.chap12.db_worker import Catalog
+from agents.chap12.verifier import verifier_enabled
 
 PRIORITY = ("permission_denied", "timeout", "failed", "no_data")
 
@@ -59,10 +60,13 @@ def merge(statuses: list[str]) -> str:
 
 class Supervisor:
     def __init__(self, workers: dict[str, Worker], catalog: Catalog,
-                 limits: BudgetLimits | None = None, critic: bool | None = None) -> None:
+                 limits: BudgetLimits | None = None, critic: bool | None = None,
+                 verifier: Any | None = None, verify: bool | None = None) -> None:
         self.workers, self.catalog = workers, catalog
         self.limits = limits or BudgetLimits()
         self.critic = critic  # default for critic_enabled(); env CHAP12_CRITIC overrides
+        self.verifier = verifier  # AnswerVerifier (online profile only)
+        self.verify = verify  # default for verifier_enabled(); env CHAP12_VERIFIER overrides
 
     async def run(self, request: AnalysisRequest, ctx: TrustedContext) -> FinalResponse:
         run_id = uuid.uuid4().hex
@@ -124,6 +128,9 @@ class Supervisor:
                         results[task_id] = handle.result()
                     event(spec.worker, "result", results[task_id].status)
 
+        if self.verifier is not None and verifier_enabled(self.verify) and results:
+            await self._verify(request, budget, tasks, results, event)
+
         if critic_enabled(self.critic) and results:
             await self._critique(run_id, ctx, budget, tasks, inputs, results, notes, event)
 
@@ -182,6 +189,32 @@ class Supervisor:
             results[db_task.task_id] = retried
         else:
             notes.append(f"复核后重新查询未成功（{retried.status}），保留原数据结果。")
+
+    async def _verify(self, request: AnalysisRequest, budget: Budget, tasks: list[TaskSpec],
+                      results: dict[str, WorkerResult], event: Any) -> None:
+        """Answerability Verifier: may only withhold a published RAG answer, never add one."""
+        rag_task = next((t for t in tasks if t.worker == "rag"), None)
+        rag = results.get(rag_task.task_id) if rag_task else None
+        verifier = self.verifier
+        if verifier is None or rag is None or rag.status not in USEFUL or \
+                not isinstance(rag.payload, RagPayload):
+            return
+        try:
+            with metered(budget, "verifier"):
+                verdict = await asyncio.wait_for(
+                    verifier.answers(request.query, rag.payload),
+                    timeout=max(budget.remaining(), 0.1))
+        except (TimeoutError, BudgetExhausted) as exc:
+            event("verifier", "skipped", type(exc).__name__)  # answer kept
+            return
+        event("verifier", "verdict",
+              "undecided" if verdict is None else "answers" if verdict else "rejected")
+        if verdict is False:
+            results[rag.task_id] = rag.model_copy(update={
+                "status": "no_data",
+                "error": WorkerError.model_validate({
+                    "category": "invalid_evidence",
+                    "message": "答案核验未通过：引用内容没有回答这个问题，已拒答"})})
 
     @staticmethod
     def _synthetic(run_id: str, task: TaskSpec, status: str, category: str,
