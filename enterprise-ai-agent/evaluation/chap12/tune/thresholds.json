@@ -18,5 +18,23 @@
     "y": 112,
     "n": 38,
     "target_answer_acceptance": 0.7933
+  },
+  "ce_minilm_rerank": {
+    "threshold": 0.9396,
+    "balanced_accuracy": 0.4894,
+    "answer_acceptance": 0.7946,
+    "labelled_refusal": 0.1842,
+    "y": 112,
+    "n": 38,
+    "target_answer_acceptance": 0.7933
+  },
+  "ce_bge_rerank": {
+    "threshold": 0.8784,
+    "balanced_accuracy": 0.4894,
+    "answer_acceptance": 0.7946,
+    "labelled_refusal": 0.1842,
+    "y": 112,
+    "n": 38,
+    "target_answer_acceptance": 0.7933
   }
 }

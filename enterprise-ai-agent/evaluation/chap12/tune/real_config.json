@@ -61,6 +61,29 @@
  "adopted": {
   "top_k": 8,
   "max_context_tokens": 2400,
-  "critic": true
+  "critic": true,
+  "reranker": "nomic"
+ },
+ "round3": {
+  "current": {
+   "correct_all": 0.3667,
+   "failure_rate": 0.0,
+   "latency_mean_ms": 11829.9
+  },
+  "candidates": {
+   "ce_minilm": {
+    "correct_all": 0.3733,
+    "failure_rate": 0.0,
+    "latency_mean_ms": 13403.2
+   },
+   "ce_bge": {
+    "correct_all": 0.3267,
+    "failure_rate": 0.0,
+    "latency_mean_ms": 25884.9
+   }
+  },
+  "screened_out": [],
+  "rule": "and committed before the runs:\n  adopt the cross-encoder with the higher correct completion, only if it is at least 0.03\n  above the current configuration, its failure rate is not higher and its mean latency is\n  at most 1.5 x the current one. Otherwise keep nomic.",
+  "adopted_reranker": "nomic"
  }
 }
