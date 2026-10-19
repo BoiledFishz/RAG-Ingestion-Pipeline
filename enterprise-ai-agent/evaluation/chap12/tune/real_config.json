@@ -1,0 +1,66 @@
+{
+ "split": "tune",
+ "rules": "and committed before any of these runs:\n  depth   take the deeper variant with the higher correct completion over both task types\n          (ties: the shallower one); adopt it only if it beats base by >= 0.03, its failure\n          rate (failed + timeout) is not higher, and its mean latency is <= 1.5 x base.\n  critic  adopt only if explain_and_data correct completion >= base + 0.02 and the\n          explain_and_data product match rate is not lower than base.\nThe two choices are made independently (they act on different parts) and combined.",
+ "variants": {
+  "base": {
+   "correct_all": 0.3533,
+   "failure_rate": 0.0,
+   "latency_mean_ms": 12776.7,
+   "correct_ed": 0.3333,
+   "product_match_ed": 0.6481,
+   "tasks": 150,
+   "config": {
+    "top_k": 8,
+    "max_context_tokens": 2400,
+    "critic": false
+   }
+  },
+  "k12": {
+   "correct_all": 0.34,
+   "failure_rate": 0.0,
+   "latency_mean_ms": 12576.0,
+   "correct_ed": 0.3333,
+   "product_match_ed": 0.6481,
+   "tasks": 150,
+   "config": {
+    "top_k": 12,
+    "max_context_tokens": 3600,
+    "critic": false
+   }
+  },
+  "k16": {
+   "correct_all": 0.34,
+   "failure_rate": 0.0,
+   "latency_mean_ms": 12468.1,
+   "correct_ed": 0.3333,
+   "product_match_ed": 0.6481,
+   "tasks": 150,
+   "config": {
+    "top_k": 16,
+    "max_context_tokens": 4800,
+    "critic": false
+   }
+  },
+  "critic": {
+   "correct_all": 0.3667,
+   "failure_rate": 0.0,
+   "latency_mean_ms": 11829.9,
+   "correct_ed": 0.36,
+   "product_match_ed": 0.6545,
+   "tasks": 150,
+   "config": {
+    "top_k": 8,
+    "max_context_tokens": 2400,
+    "critic": true
+   }
+  }
+ },
+ "best_depth_variant": "k12",
+ "depth_adopted": false,
+ "critic_adopted": true,
+ "adopted": {
+  "top_k": 8,
+  "max_context_tokens": 2400,
+  "critic": true
+ }
+}
