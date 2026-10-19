@@ -89,7 +89,8 @@ class SampleRetrieverTool(TechQARetrieverTool):
         semantic = (os.getenv("TECHQA_RERANKER", "nomic") != "lexical"
                     if semantic_rerank is None else semantic_rerank)
         # rerank: "nomic" (Ollama embeddings), "lexical" (no model), "minilm" (stored vectors)
-        # or a local cross-encoder ("ce_minilm", "ce_bge"; agents/chap12/cross_encoder.py).
+        # or a local cross-encoder ("ce_minilm", "ce_bge"; agents/chap12/cross_encoder.py),
+        # or cross-encoder order with nomic acceptance ("ce_minilm_order", "ce_bge_order").
         choice = rerank or os.getenv("CHAP12_RERANKER") or ("nomic" if semantic else "lexical")
         reranker: Any
         self.minilm = False
@@ -101,6 +102,18 @@ class SampleRetrieverTool(TechQARetrieverTool):
 
             reranker = VectorReranker(dense)
             self.minilm = use_calibration
+        elif choice in {"ce_minilm_order", "ce_bge_order"}:
+            # Round 4: cross-encoder order, nomic score and nomic threshold for acceptance.
+            from agents.chap12.cross_encoder import (
+                ORDER_ONLY,
+                CrossEncoderReranker,
+                OrderOnlyReranker,
+            )
+
+            nomic = CountingReranker(True)
+            nomic.embedder = BudgetedEmbedder(nomic.embedder)
+            reranker = OrderOnlyReranker(nomic, CrossEncoderReranker(ORDER_ONLY[choice]))
+            self.choice = "nomic" if use_calibration else "project1"
         elif choice in {"ce_minilm", "ce_bge"}:
             from agents.chap12.cross_encoder import CrossEncoderReranker
 

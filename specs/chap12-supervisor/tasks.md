@@ -209,3 +209,13 @@
 - Ollama 0.40.6 上的基线重跑：未执行（原因见 comparison.md 第三轮“混杂因素”）。
 - 结果写入 comparison.md（第三轮）与 PR_DESCRIPTION.md。
 
+
+## 2026-10-18 第四轮：cross-encoder 只负责排序，接受仍用 nomic 阈值（用户要求“只用 cross-encoder 排序、保留 nomic 的接受阈值”，22:23 PT）
+
+### 事先登记（在任何运行之前提交）
+- 动机（来自第三轮调参集结果，不来自评测集）：cross-encoder 的 R@8 更高，但按其分数在调参集标定的阈值使 Y 题接受率下降约 7–8 个百分点。本轮把两件事分开：排序（决定哪些文档进入 top_k）用 cross-encoder，接受与否仍用每篇文档的 nomic 重排分数与现有 nomic 阈值（`tune/thresholds.json` 的 `nomic_rerank`，0.6568）。不标定新阈值。
+- 实现：`agents/chap12/cross_encoder.py` 新增 `OrderOnlyReranker`（nomic 与 cross-encoder 并发对同一批融合候选打分，按 cross-encoder 排序，`score` 保留 nomic 分数，`rerank_score` 保留 cross-encoder 分数）；`tools/sample_retriever.py` 新增选项 `ce_minilm_order`、`ce_bge_order`（阈值查找按 `nomic`）。不改 Project 1 代码。新增 2 个测试（`test_order_only_uses_cross_encoder_order_and_nomic_scores`、`test_order_only_choice_uses_nomic_threshold`）。`pytest tests/chap12 -q` → `148 passed`；ruff 通过；mypy（新代码）无新增错误。
+- 运行（全部在调参集，真实模型，Multi-Agent，explain + explain_and_data 150 题，1 次，top_k 8，Critic 开，同一个 Ollama 版本）：先在当前 Ollama 版本上重跑当前配置 `tune_real_r4_base`（消除第三轮 0.40.5 → 0.40.6 的混杂），再跑 `tune_real_r4_ce_minilm_order`、`tune_real_r4_ce_bge_order`。不再做无 LLM 的筛选：排序与第三轮相同，R@8 已知（0.696 / 0.732）。
+- 规则（`evaluation/chap12_order_decide.py`）：与 `tune_real_r4_base` 比，正确完成率至少高 0.03、失败率不升、平均延迟不超过 1.5 倍才采用；都通过时取较高者；否则保留 nomic。预期 bge 可能因延迟不通过（第三轮为 2.19 倍），仍按登记运行。
+- 只有采用时才在评测集上运行：当前配置（Multi-Agent）`ollama_run4_base` 与采用配置（单 Agent + Multi-Agent）`ollama_run4`，各 90 题 1 次，同一 Ollama 版本。没有新的确认集。
+- 运行器：`.chap12_run/run_order.cmd`（不提交）；开头推送待推提交，并按用户 22:23 的同意用 `gh pr edit 1 --body-file specs/chap12-supervisor/PR_DESCRIPTION.md` 更新 PR #1 描述（云端会话的 GitHub 集成无权修改 PR，返回 HTTP 403，所以由用户机器上的 gh 执行）。

@@ -27,6 +27,7 @@ MODELS = {
     "ce_minilm": "ce_ms_marco_minilm_l6",   # cross-encoder/ms-marco-MiniLM-L-6-v2
     "ce_bge": "ce_bge_reranker_base",       # BAAI/bge-reranker-base
 }
+ORDER_ONLY = {"ce_minilm_order": "ce_minilm", "ce_bge_order": "ce_bge"}  # round 4
 MAX_LENGTH = 512
 BATCH = 16
 
@@ -94,3 +95,30 @@ class CrossEncoderReranker:
                   for c, s in zip(candidates, scores, strict=True)]
         ranked.sort(key=lambda r: r.score, reverse=True)
         return [replace(r, rerank_rank=rank) for rank, r in enumerate(ranked[:limit], 1)]
+
+
+class OrderOnlyReranker:
+    """Round 4 (2026-10-18): cross-encoder order, nomic acceptance.
+
+    Both rerankers score the same fused candidates. The output order (and so which documents
+    fill top_k) follows the cross-encoder; each result keeps the nomic reranker's score in
+    `score`, so the existing nomic acceptance threshold (tune/thresholds.json `nomic_rerank`)
+    decides acceptance exactly as for the nomic configuration. The cross-encoder score is kept
+    in `rerank_score` for diagnostics."""
+
+    def __init__(self, nomic: Any, cross: Any) -> None:
+        self.nomic = nomic
+        self.cross = cross
+
+    async def rerank(self, query: str, candidates: list[SearchResult], *,
+                     limit: int = 20) -> list[SearchResult]:
+        if not candidates or limit <= 0:
+            return []
+        scored, ordered = await asyncio.gather(  # Ollama embedding call || local CPU model
+            self.nomic.rerank(query, candidates, limit=len(candidates)),
+            self.cross.rerank(query, candidates, limit=len(candidates)))
+        nomic = {r.chunk_id: r.score for r in scored}
+        out = [replace(r, score=nomic[r.chunk_id], rerank_score=r.score,
+                       backend=r.backend + "+nomic_accept")
+               for r in ordered if r.chunk_id in nomic]
+        return [replace(r, rerank_rank=rank) for rank, r in enumerate(out[:limit], 1)]
