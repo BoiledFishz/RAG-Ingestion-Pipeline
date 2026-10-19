@@ -172,6 +172,41 @@
 - **成本。** Multi-Agent 平均每题 2.0 次 LLM 调用（单 Agent 约 2.6 次，因为 data 题不调用模型），组合题多出约 0.14–0.2 次（产品选择只在规则失败时调用）。平均延迟：评测集 6.7 s（单 Agent 8.4 s），confirm2 7.6 s（单 Agent 9.2 s）；explain 题 Multi-Agent 比单 Agent 慢约 0.4–1.2 s。1,080 条真实运行中只有 1 次超时（Project 1 原配置，data 题），Multi-Agent 无失败。
 - **局限。** 每类只有 30 题，CI 宽；confirm2 只运行一次；p95 延迟受笔记本 GPU 与模型冷启动影响。
 
+## 第二轮改进（2026-10-18，真实档位，规则事先登记）
+
+### 调参集决策（Multi-Agent，explain + explain_and_data 150 题，1 次）
+
+来源：`evaluation/chap12/tune/real_config.json`、`evaluation/results/chap12/tune_real_{base,k12,k16,critic}/summary.json`
+
+| 变体 | 正确完成（150 题） | 组合题正确完成 | 组合题产品一致 | 平均延迟 ms | 失败率 |
+| --- | --- | --- | --- | --- | --- |
+| base（top_k 8，上下文 2400） | 0.3533 | 0.3333 | 0.6481 | 12777 | 0 |
+| k12（12 / 3600） | 0.3400 | 0.3333 | 0.6481 | 12576 | 0 |
+| k16（16 / 4800） | 0.3400 | 0.3333 | 0.6481 | 12468 | 0 |
+| critic（8 / 2400 + Critic） | 0.3667 | 0.3600 | 0.6545 | 11830 | 0 |
+
+- 深度：最好的 k12 比 base 低 0.013，未达 +0.03 → **不采用**。候选确实更深（答案文档在第 9 名之后被检索到的题：k12 多 7 题、k16 多 10 题），但模型没有引用这些更靠后的文档。
+- Critic：组合题 +0.027（≥ +0.02），产品一致率未降 → **采用**。采用配置：top_k 8、上下文 2400、Critic 开（只在真实档位生效）。
+
+### 评测集（同一批 90 题，与第一轮的第 1 次重复逐题对比）
+
+来源：`evaluation/results/chap12/ollama_run2/summary.json` 与 `ollama_run1/runs.jsonl`（repeat 1）。**没有新的确认集**（600 道 training 题已全部分配，dev 属协议 held-out），以下结果没有独立确认。
+
+| 系统 | 指标 | 第一轮（repeat 1） | 第二轮 |
+| --- | --- | --- | --- |
+| Multi-Agent | 全部正确完成 | 0.511 | 0.511 [0.41, 0.61] |
+| Multi-Agent | 组合题正确完成 | 0.267 | 0.267 |
+| Multi-Agent | 组合题数据正确 | 0.867 | **0.967** |
+| Multi-Agent | 组合题产品一致 | 0.667 | 0.619 |
+| Multi-Agent | 组合题相关文档含金标 | 0.500 | 0.476 |
+| Multi-Agent | Replan 次数 | 0 | 4（30 道组合题中） |
+| Multi-Agent | 平均延迟 ms | 7557 | 6728 |
+| 单 Agent | 全部正确完成 | 0.089 | 0.089 |
+
+- 逐题：Multi-Agent 1 题由错变对、1 题由对变错；单 Agent 无变化。
+- **调参集上的提升没有在评测集上出现。** Critic 的实际作用是把“无法确定产品”的组合题改用引用文档的产品重查（数据正确率 0.867 → 0.967），但被重查的产品不一定与答案文档一致（产品一致率 0.667 → 0.619），所以正确完成率不变。
+- 结论：两项改进都没有提高正确完成率；完成率的瓶颈仍是 RAG（答案文档不在候选中、或在候选中但未被引用、N 题不拒答），需要改检索排序本身（例如 cross-encoder 重排）或生成端，而不是 Supervisor 层的参数。
+
 ## v1 / v2 历史（只有 explain_and_data，评测集，offline）
 
 - v1：`evaluation/chap12/results/offline_20261011/`；v2：`evaluation/chap12/results/offline_v2_20261011/`。数字见 improvements.md。

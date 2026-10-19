@@ -183,3 +183,8 @@
 - **没有新的确认集可用**：TechQA training 共 600 题，已全部用于评测集、调参集、confirm、confirm2（试建 confirm3 时 `select_questions` 报 “sample larger than source split”）；dev 属于仓库评测协议的 held-out 分区，不能使用。因此改进后的配置只在评测集上报告（Single 与 Multi，1 次重复，与 `ollama_run1` 同一批 90 题），**没有独立确认**，报告中会如实标注。confirm2 不再运行。
 - 改动：`critic.critic_enabled(default)`；`Supervisor(critic=...)`；`factory.tuned_config/apply_tuned`、`build_rag_agent(tuned=...)`；`chap12_eval` 中 p1_single 使用 `tuned=False`；`chap12_report.py` 行宽修正。新增 `tests/chap12/test_tuned.py`（5 个用例）。
 - 命令：`pytest tests/chap12 -q` → `142 passed`；ruff 通过；mypy（chap12 文件）无错误。
+
+### 第二轮运行记录（Windows，用户双击 `.chap12_run/run_improve.cmd` 两次）
+- 第 1 次（14:52–16:59）：4 个调参变体全部完成（各 150 条），但脚本中 `$name` 与 Step 函数参数同名，PowerShell 动态作用域使结果目录被命名为 “tune_real_tune variant …”，决策步骤找不到文件而中止。数据未受影响；在 VM 中把目录改回 `tune_real_{base,k12,k16,critic}`，并修正脚本变量名。
+- 第 2 次（~17:2x–17:59）：变体全部续跑跳过；`chap12_tune_decide` 按事先规则输出 `real_config.json`：深度不采用（k12 0.3400 < base 0.3533 + 0.03），Critic 采用（组合题 0.3600 ≥ 0.3333 + 0.02，产品一致 0.6545 ≥ 0.6481）；提交 `21eeaf5` 并推送；评测集单 Agent + Multi-Agent 各 90 题 1 次（`ollama_run2`），提交 `610c295` 并推送。
+- 结果（与 `ollama_run1` 第 1 次重复逐题对比）：Multi-Agent 正确完成 0.511 → 0.511（1 题变对、1 题变错），组合题数据正确 0.867 → 0.967，产品一致 0.667 → 0.619，Replan 4 次；单 Agent 不变。调参集上的提升未在评测集上复现。没有新的确认集。
