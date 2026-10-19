@@ -85,5 +85,68 @@
   "screened_out": [],
   "rule": "and committed before the runs:\n  adopt the cross-encoder with the higher correct completion, only if it is at least 0.03\n  above the current configuration, its failure rate is not higher and its mean latency is\n  at most 1.5 x the current one. Otherwise keep nomic.",
   "adopted_reranker": "nomic"
+ },
+ "round4": {
+  "base": {
+   "correct_all": 0.3667,
+   "failure_rate": 0.0,
+   "latency_mean_ms": 12597.9,
+   "correct_explain": 0.3733,
+   "correct_ed": 0.36,
+   "y_accept": 0.8393,
+   "n_refuse": 0.1579,
+   "y_gold_cited": 0.4643,
+   "retrieval_y": {
+    "R@1": 0.4643,
+    "R@3": 0.5804,
+    "R@5": 0.6071,
+    "R@8": 0.6518,
+    "MRR": 0.5302,
+    "observations": 112
+   },
+   "tasks": 150
+  },
+  "candidates": {
+   "ce_minilm_order": {
+    "correct_all": 0.3667,
+    "failure_rate": 0.0,
+    "latency_mean_ms": 14704.0,
+    "correct_explain": 0.4,
+    "correct_ed": 0.3333,
+    "y_accept": 0.7946,
+    "n_refuse": 0.1842,
+    "y_gold_cited": 0.4554,
+    "retrieval_y": {
+     "R@1": 0.375,
+     "R@3": 0.5179,
+     "R@5": 0.6071,
+     "R@8": 0.6786,
+     "MRR": 0.4651,
+     "observations": 112
+    },
+    "tasks": 150
+   },
+   "ce_bge_order": {
+    "correct_all": 0.3333,
+    "failure_rate": 0.0,
+    "latency_mean_ms": 26954.4,
+    "correct_explain": 0.3467,
+    "correct_ed": 0.32,
+    "y_accept": 0.8304,
+    "n_refuse": 0.1316,
+    "y_gold_cited": 0.4375,
+    "retrieval_y": {
+     "R@1": 0.4196,
+     "R@3": 0.5982,
+     "R@5": 0.6161,
+     "R@8": 0.7143,
+     "MRR": 0.5125,
+     "observations": 112
+    },
+    "tasks": 150
+   }
+  },
+  "rule": "and committed before the runs:\n  adopt the order variant with the higher correct completion, only if it is at least 0.03\n  above tune_real_r4_base, its failure rate is not higher and its mean latency is at most\n  1.5 x tune_real_r4_base. Otherwise keep nomic.",
+  "adopted_reranker": "nomic"
  }
 }
