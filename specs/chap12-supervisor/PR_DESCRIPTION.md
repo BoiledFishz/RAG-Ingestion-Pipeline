@@ -64,6 +64,12 @@
 - 评测集同一批 90 题：Multi-Agent 正确完成 0.511 → 0.511；组合题数据正确 0.867 → 0.967，产品一致 0.667 → 0.619。**调参集上的提升没有在评测集上复现**；没有新的确认集可用（600 道 training 题已全部分配，dev 为协议 held-out）。
 - 完成率的瓶颈在 RAG 本身（检索排序、引用选择、拒答），不在 Supervisor 层。
 
+## 第三轮：cross-encoder 重排（2026-10-18，规则事先登记，见 comparison.md）
+
+- 筛选（调参集，无 LLM）：ms-marco-MiniLM R@8 0.696、bge-reranker-base 0.732，均高于 nomic 0.661 + 0.03，进入真实模型比较。
+- 真实模型调参集（150 题）：正确完成 ms-marco-MiniLM 0.373、bge 0.327，当前配置 0.367；均未达 +0.03 → **不采用，保留 nomic**，评测集未重跑。召回更高，但排第 1 的文档和 Y 题接受率都变差。
+- 本轮 Ollama 为 0.40.6，基线为 0.40.5，未在新版本上重跑基线。
+
 ## 已知限制与未完成项
 
 1. 真实模型档位已运行（见上节）；每类只有 30 题，CI 宽；`.ps1` 只在作者的 Windows 机器上验证过。
@@ -74,4 +80,4 @@
 
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
-https://claude.ai/code/session_01Lteh1biz3ahyk3arktla5w
+https://claude.ai/code/session_01Lteh1biZ3ahyK3arKtLa5w

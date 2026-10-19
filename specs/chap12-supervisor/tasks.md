@@ -198,3 +198,14 @@
 - 规则 2（采用，`evaluation/chap12_ce_decide.py`，调参集，真实模型，Multi-Agent 150 题）：与当前配置（nomic、top_k 8、Critic 开，即 `tune_real_critic`）比较，正确完成率至少高 0.03、失败率不升、平均延迟不超过 1.5 倍才采用；都通过时取较高者。
 - 只有采用了 cross-encoder 才在评测集上重跑（单 Agent + Multi-Agent，90 题，1 次）。没有新的确认集。
 - 运行器：`.chap12_run/run_ce.cmd`（不提交）。
+
+### 第三轮运行记录（Windows，用户双击 `.chap12_run/run_ce.cmd` 一次，2026-10-18 19:11–22:05 PT）
+- 环境（`results/chap12/round3_meta.json`）：起始 commit fd3c0c8，Python 3.12.10，Ollama 0.40.6（第二轮为 0.40.5），qwen2.5:7b 与 nomic-embed-text digest 与之前相同。
+- 下载：ce_minilm `cross-encoder/ms-marco-MiniLM-L-6-v2` @233902d2…（91,816,407 字节）；ce_bge `BAAI/bge-reranker-base` @2cfc18c9…（1,134,375,513 字节）。
+- `python -m evaluation.chap12_ce_study`（19:11–20:25）：ce_minilm R@8 0.696、MRR 0.483、阈值 0.9396；ce_bge R@8 0.732、MRR 0.518、阈值 0.8784；两者都通过筛选（≥ 0.691）。
+- 真实模型调参运行（`CHAP12_RERANKER=ce_x`，Critic 开）：ce_minilm 20:25–20:59，ce_bge 20:59–22:04，各 150 条，失败 0。日志中的 “rewrite dropped a protected term” 与 “Invalid structured evidence, attempt=1” 是 Project 1 的校验回退，不计为失败。
+- `python -m evaluation.chap12_ce_decide`：正确完成 ce_minilm 0.3733、ce_bge 0.3267、当前配置 0.3667 → `adopted_reranker: nomic`。提交 `4fadace` 并推送（直连失败后去掉代理重试成功）。
+- 评测集：未执行（规则：没有采用 cross-encoder 就不重跑）。
+- Ollama 0.40.6 上的基线重跑：未执行（原因见 comparison.md 第三轮“混杂因素”）。
+- 结果写入 comparison.md（第三轮）与 PR_DESCRIPTION.md。
+
