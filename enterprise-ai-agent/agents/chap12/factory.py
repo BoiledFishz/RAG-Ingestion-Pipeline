@@ -84,7 +84,11 @@ def build_rag_agent(settings: Settings, path: Path, override: Any | None = None,
         rewriter = LLMRewriter(model)
         selector = LLMSelector(
             model, controlled=os.getenv("TECHQA_GENERATION", "extractive") == "controlled")
-        retriever = override or SampleRetrieverTool(path)
+        # Reranker chosen on the tune split (round 3); CHAP12_RERANKER always wins.
+        chosen = tuned_config().get("reranker") if tuned and \
+            os.getenv("CHAP12_RERANKER") is None else None
+        retriever = override or SampleRetrieverTool(
+            path, rerank=None if chosen in (None, "nomic") else str(chosen))
     return RAGAgent(
         rewriter=rewriter, selector=selector, retriever=retriever,
         compressor=ContextCompressor(settings.max_context_tokens, settings.max_sources,

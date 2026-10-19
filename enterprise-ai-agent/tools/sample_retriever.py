@@ -32,7 +32,8 @@ THRESHOLDS = Path(__file__).resolve().parents[1] / "evaluation/chap12/tune/thres
 REFUSE = 1e9  # finite (metadata must be finite); above any rerank score -> nothing accepted
 SIGNAL_FILES = {"minilm": THRESHOLDS.parent / "refusal_signals.json",
                 "nomic": THRESHOLDS.parent / "refusal_signals_nomic.json"}
-THRESHOLD_ENV = {"minilm": "CHAP12_MINILM_THRESHOLD", "nomic": "CHAP12_NOMIC_THRESHOLD"}
+THRESHOLD_ENV = {"minilm": "CHAP12_MINILM_THRESHOLD", "nomic": "CHAP12_NOMIC_THRESHOLD",
+                 "ce_minilm": "CHAP12_CE_MINILM_THRESHOLD", "ce_bge": "CHAP12_CE_BGE_THRESHOLD"}
 
 
 def rerank_threshold(choice: str) -> float | None:
@@ -87,7 +88,8 @@ class SampleRetrieverTool(TechQARetrieverTool):
         self.mode: RetrievalMode = "hybrid" if dense is not None else "sparse"
         semantic = (os.getenv("TECHQA_RERANKER", "nomic") != "lexical"
                     if semantic_rerank is None else semantic_rerank)
-        # rerank: "nomic" (Ollama embeddings), "lexical" (no model) or "minilm" (stored vectors).
+        # rerank: "nomic" (Ollama embeddings), "lexical" (no model), "minilm" (stored vectors)
+        # or a local cross-encoder ("ce_minilm", "ce_bge"; agents/chap12/cross_encoder.py).
         choice = rerank or os.getenv("CHAP12_RERANKER") or ("nomic" if semantic else "lexical")
         reranker: Any
         self.minilm = False
@@ -99,6 +101,11 @@ class SampleRetrieverTool(TechQARetrieverTool):
 
             reranker = VectorReranker(dense)
             self.minilm = use_calibration
+        elif choice in {"ce_minilm", "ce_bge"}:
+            from agents.chap12.cross_encoder import CrossEncoderReranker
+
+            reranker = CrossEncoderReranker(choice)
+            self.minilm = use_calibration  # scores need a tune-split threshold
         else:
             reranker = CountingReranker(choice == "nomic")
             reranker.embedder = BudgetedEmbedder(reranker.embedder)
@@ -126,6 +133,9 @@ class SampleRetrieverTool(TechQARetrieverTool):
         active = PRODUCT_SCOPE.get()
         calibrated = rerank_threshold(self.choice) if self.choice in THRESHOLD_ENV else None
         if self.minilm and calibrated is None:
+            if self.choice != "minilm":
+                raise FileNotFoundError(f"{self.choice} threshold not calibrated; run "
+                                        "evaluation.chap12_ce_study")
             calibrated = minilm_threshold()  # MiniLM scores have no Project 1 threshold
         gate = refusal_gate(self.choice) if calibrated is not None else None
         refuse = False

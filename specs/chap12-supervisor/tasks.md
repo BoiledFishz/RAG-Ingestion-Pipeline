@@ -188,3 +188,13 @@
 - 第 1 次（14:52–16:59）：4 个调参变体全部完成（各 150 条），但脚本中 `$name` 与 Step 函数参数同名，PowerShell 动态作用域使结果目录被命名为 “tune_real_tune variant …”，决策步骤找不到文件而中止。数据未受影响；在 VM 中把目录改回 `tune_real_{base,k12,k16,critic}`，并修正脚本变量名。
 - 第 2 次（~17:2x–17:59）：变体全部续跑跳过；`chap12_tune_decide` 按事先规则输出 `real_config.json`：深度不采用（k12 0.3400 < base 0.3533 + 0.03），Critic 采用（组合题 0.3600 ≥ 0.3333 + 0.02，产品一致 0.6545 ≥ 0.6481）；提交 `21eeaf5` 并推送；评测集单 Agent + Multi-Agent 各 90 题 1 次（`ollama_run2`），提交 `610c295` 并推送。
 - 结果（与 `ollama_run1` 第 1 次重复逐题对比）：Multi-Agent 正确完成 0.511 → 0.511（1 题变对、1 题变错），组合题数据正确 0.867 → 0.967，产品一致 0.667 → 0.619，Replan 4 次；单 Agent 不变。调参集上的提升未在评测集上复现。没有新的确认集。
+
+## 2026-10-18 第三轮：cross-encoder 重排（用户要求“接着试 cross-encoder 重排”）
+
+### 事先登记（在任何运行之前提交）
+- 模型：`cross-encoder/ms-marco-MiniLM-L-6-v2`（ce_minilm）与 `BAAI/bge-reranker-base`（ce_bge），本地运行，权重由 `evaluation/chap12_download_ce.py` 下载到 `.rag_data/models/`，manifest 记录 Hugging Face 仓库与实际 commit。VM 与云端环境都无法访问 huggingface.co，下载在用户 Windows 上进行。
+- 实现：`agents/chap12/cross_encoder.py`（与其他重排器相同的 `rerank(query, candidates, limit)` 接口，注入现有 RetrievalPipeline，不改 Project 1 代码；每次计 1 次 local 预算）；`tools/sample_retriever.py` 增加 `ce_minilm`/`ce_bge` 选项，阈值必须在调参集标定（缺失则报错）；`factory` 在真实档位读取 `real_config.json` 的 `adopted.reranker`（环境变量 `CHAP12_RERANKER` 优先；p1_single 基线不受影响）。新增 `tests/chap12/test_cross_encoder.py`（4 个用例）。`pytest tests/chap12 -q` → `146 passed`；ruff 通过；mypy（chap12 文件）无错误。
+- 规则 1（筛选，`evaluation/chap12_ce_study.py`，调参集，不调用 LLM）：R@8 至少比 nomic 的调参集 R@8（0.661）高 0.03 的 cross-encoder 才进入真实模型比较；同时按原方法标定接受阈值。
+- 规则 2（采用，`evaluation/chap12_ce_decide.py`，调参集，真实模型，Multi-Agent 150 题）：与当前配置（nomic、top_k 8、Critic 开，即 `tune_real_critic`）比较，正确完成率至少高 0.03、失败率不升、平均延迟不超过 1.5 倍才采用；都通过时取较高者。
+- 只有采用了 cross-encoder 才在评测集上重跑（单 Agent + Multi-Agent，90 题，1 次）。没有新的确认集。
+- 运行器：`.chap12_run/run_ce.cmd`（不提交）。
