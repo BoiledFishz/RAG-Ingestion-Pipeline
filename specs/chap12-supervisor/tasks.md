@@ -296,3 +296,14 @@
 - 本地：`git remote set-url origin https://github.com/BoiledFishz/TechQA-Enterprise-RAG.git`；`git branch -m` 两个分支并设置上游；`git remote prune origin`。清理了本会话 git 操作留下的锁文件与临时对象（用户授权删除）。
 - 代码与文档内部的 `chap12` 名称按用户选择不改。PR_DESCRIPTION.md 标题改为 “Project 2：Supervisor–Worker 多智能体”。
 
+
+## 2026-10-20 逐层 trace 导出与失分归因（老师要求：“有 trace 导出来吗？核心就是定位问题在哪一层”）
+- 之前的 `runs.jsonl` 只有每题的最终状态、检索到的文档和引用，没有逐层 trace。
+- 实现（只读记录，不改变排序、过滤或模型调用；未开启时为空操作；不改 Project 1 代码）：
+  - `agents/chap12/tracing.py`：按请求的记录器（ContextVar）。
+  - `tools/sample_retriever.py`：开启时把 Project 1 检索管线已支持的 `trace` 参数传入，记录稠密、稀疏、RRF 融合、重排、最终各阶段的文档名次和分数，以及交给 Agent 的前 k 篇文档的分数与接受阈值。
+  - `agents/chap12/rag_worker.py`：记录改写后的查询、是否回退、证据文档、引用、状态、重试与校验失败。
+  - `evaluation/chap12_eval.py --trace`：另写 `traces.jsonl`，含 Supervisor 计划、各 Worker 状态与 trace 事件。
+  - `evaluation/chap12_trace_report.py`：按管线顺序找出每道题第一个丢失答案文档的层（L1 召回 / L2 重排 / L3 上下文筛选 / L4 生成与拒答 / L5 Supervisor 与数据），写 `layer_attribution.{json,md}`。只做诊断，不选择任何参数。
+  - 测试 `tests/chap12/test_tracing.py`（10 个用例）。`pytest tests/chap12 -q` → `178 passed`；ruff 通过；mypy 新文件无错误。离线档位 8 题试运行通过（`/tmp`，未提交）。
+- 运行器 `.chap12_run/run_trace.cmd`（不提交）：当前配置在调参集 150 题与评测集 60 题（explain + explain_and_data）上带 trace 运行；调参集结果先与 `tune_real_r4_base` 做配对核对（应逐题一致）。评测集运行只作诊断报告。

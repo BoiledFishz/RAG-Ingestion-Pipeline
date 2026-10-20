@@ -6,6 +6,7 @@ import asyncio
 import time
 from typing import Protocol
 
+from agents.chap12 import tracing
 from agents.chap12.budget import Budget, BudgetExhausted, metered
 from agents.chap12.contracts import (
     Citation,
@@ -90,6 +91,15 @@ class RagWorker:
             return error("failed", "invalid_input", str(exc)[:300])
 
         trace, response = run.trace, run.response
+        tracing.record("rag", {
+            "rewritten_query": trace.rewritten_query, "rewrite_fallback": trace.rewrite_fallback,
+            "status": trace.status, "retries": trace.retries,
+            "validation_failures": trace.validation_failures[:5],
+            "context_tokens": trace.context_tokens,
+            "evidence": [{"doc": doc_id(e.source_file), "source_id": e.source_id,
+                          "relevance": round(e.relevance, 4), "tokens": e.tokens}
+                         for e in trace.evidence],
+            "cited": [doc_id(s.source_file) for s in response.sources]})
         status = STATUS.get(trace.status, "failed")
         titles = {e.source_id: e.title for e in trace.evidence}
         excerpts = {e.source_id: e.excerpt for e in trace.evidence}

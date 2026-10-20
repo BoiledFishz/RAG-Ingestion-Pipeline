@@ -94,6 +94,13 @@ async def run_multi(supervisor: Any, task: dict[str, Any]) -> dict[str, Any]:
                                                                        "data_request")
                                                   if k in task} | {"query": task["query"][:4000]})
         result = await supervisor.run(request, FULL)
+        from agents.chap12 import tracing
+
+        tracing.record("supervisor", {
+            "plan": [tk.worker for tk in result.plan], "status": result.status,
+            "workers": {w.worker: {"status": w.status, "error": w.error.category if w.error
+                                   else None} for w in result.worker_results},
+            "events": [e.model_dump() for e in result.trace]})
         by_worker = {w.worker: w for w in result.worker_results}
         rag, db = by_worker.get("rag"), by_worker.get("database")
         published = rag is not None and rag.status in {"completed", "partial"}
@@ -357,6 +364,10 @@ async def main_async(args: argparse.Namespace) -> None:
     supervisor = build_supervisor(settings, index)
     systems = [s for s in args.systems.split(",") if s]
     scorer = Scorer(index, gold)
+    from agents.chap12 import tracing
+
+    trace_handle = (args.output / "traces.jsonl").open("a", encoding="utf-8") \
+        if args.trace else None
     with runs.open("a", encoding="utf-8") as handle:
         for repeat in range(1, args.repeats + 1):
             for number, task in enumerate(tasks, 1):
@@ -365,14 +376,24 @@ async def main_async(args: argparse.Namespace) -> None:
                 for system in systems[shift:] + systems[:shift]:
                     if (system, task["task_id"], repeat) in done:
                         continue
-                    record = await (run_multi(supervisor, task) if system == "multi"
-                                    else run_single(agents[system], task))
+                    with tracing.recording() as layers:
+                        record = await (run_multi(supervisor, task) if system == "multi"
+                                        else run_single(agents[system], task))
                     record |= {"system": system, "task_id": task["task_id"],
                                "type": task["type"], "repeat": repeat}
                     record["score"] = scorer.score(task, record)
                     handle.write(json.dumps(record, ensure_ascii=False) + "\n")
                     handle.flush()
+                    if trace_handle is not None:
+                        trace_handle.write(json.dumps(
+                            {"system": system, "task_id": task["task_id"], "type": task["type"],
+                             "repeat": repeat, "score": record["score"],
+                             "published": record.get("published"), "layers": layers},
+                            ensure_ascii=False) + "\n")
+                        trace_handle.flush()
                 print(f"repeat {repeat} {number}/{len(tasks)} {task['task_id']}", flush=True)
+    if trace_handle is not None:
+        trace_handle.close()
     records = [json.loads(x) for x in runs.read_text("utf-8").splitlines()]
     meta = json.loads(args.meta.read_text("utf-8-sig")) if args.meta else {}
     summary = {
@@ -411,6 +432,8 @@ def main() -> None:
     parser.add_argument("--meta", type=Path, default=None,
                         help="JSON with run metadata (model digests, versions)")
     parser.add_argument("--resume", action="store_true")
+    parser.add_argument("--trace", action="store_true",
+                        help="also write traces.jsonl (per-task layer trace)")
     asyncio.run(main_async(parser.parse_args()))
 
 

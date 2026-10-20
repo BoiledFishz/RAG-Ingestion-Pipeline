@@ -136,8 +136,12 @@ class SampleRetrieverTool(TechQARetrieverTool):
         self.parents = TechQAParentResolver(index)
 
     async def invoke(self, request: RetrieverInput) -> list[Document]:
+        from agents.chap12 import tracing
+
         filters = self.secure_filters(request.filters)
-        outcome = await self.pipeline.retrieve(request.query, mode=self.mode, filters=filters)
+        stages: dict[str, Any] | None = {} if tracing.active() is not None else None
+        outcome = await self.pipeline.retrieve(request.query, mode=self.mode, filters=filters,
+                                               trace=stages)
         parents = await self.parents.retrieve_by_chunk_ids(
             [str(r.metadata["parent_id"]) for r in outcome.results if r.metadata.get("parent_id")]
         )
@@ -180,4 +184,24 @@ class SampleRetrieverTool(TechQARetrieverTool):
             ))
             if len(output) == request.top_k:
                 break
+        if stages is not None:
+            tracing.record("retrieval", {
+                "query": request.query, "top_k": request.top_k, "choice": self.choice,
+                "reranker_fallback": outcome.diagnostics.reranker_fallback,
+                "refusal_gate_refused": refuse,
+                "stages": {name: _doc_ranks(results) for name, results in stages.items()},
+                "returned": [{"doc": doc_id(d.source_file),
+                              "score": round(float(d.score), 4),
+                              "threshold": round(float(d.metadata.get(
+                                  "_acceptance_threshold", 0.0)), 4)} for d in output]})
         return output
+
+
+def _doc_ranks(results: list[Any]) -> list[dict[str, Any]]:
+    """First rank and score of each document in a stage (chunks of one document collapse)."""
+    seen: dict[str, dict[str, Any]] = {}
+    for rank, r in enumerate(results, 1):
+        doc = doc_id(str(r.metadata.get("parent_id", "")))
+        if doc not in seen:
+            seen[doc] = {"doc": doc, "rank": rank, "score": round(float(r.score), 4)}
+    return list(seen.values())
