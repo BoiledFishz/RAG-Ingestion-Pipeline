@@ -14,3 +14,4 @@
 | **chap12-v3** | 2026-10-17 第 7 项 | `DbOperation` 增加 `search_product_documents`（产品范围内按问题做 BM25 排序，结果只含该产品、满足过滤条件的文档，空列表为 no_data）；explain_and_data 的默认数据操作改为它；显式 data_request 也把问题文本传给 DB Worker | 调参集研究 `tune/product_study.json`：相关文档含金标 0.469（新）对 0.082（最近文档），n=49 |
 | chap12-v3 | 2026-10-17 第 8 项 | `ProductSource` 增加 `model_pick`：问题未写明产品时，模型只能从程序给出的候选列表（授权文档中 BM25 前 10 篇的产品，最多 8 个）中选编号，程序校验编号在列表内且已授权，否则回退规则或要求澄清；顺序（fallback/first）由调参集上的真实模型研究按事先规则决定，未研究前默认 fallback；离线档位不调用模型 | 待办第 8 项 |
 | chap12-v3（无结构变化） | 2026-10-19 第五轮 | 新增可选的可回答性核验（`agents/chap12/verifier.py`）：只在真实档位、开启时运行；只能把已发布的 RAG 结果改为 no_data（`invalid_evidence`，limitations 写明“答案核验未通过”），不能新增答案或引用；模型出错或输出无效时保留原答案；调用计入同一请求预算。契约字段不变 | 复盘 retrospective.md 第 1 项 |
+| **chap12-v4** | 2026-10-19 第六轮 | `Citation` 增加可选字段 `excerpt`（生成答案时该来源的证据段落，取自 Project 1 trace；无则为空字符串）；向后兼容的新增字段。分级核验用它判断证据是否回答了问题 | tasks.md 第六轮登记 |

@@ -92,10 +92,12 @@ class RagWorker:
         trace, response = run.trace, run.response
         status = STATUS.get(trace.status, "failed")
         titles = {e.source_id: e.title for e in trace.evidence}
+        excerpts = {e.source_id: e.excerpt for e in trace.evidence}
         payload = RagPayload(
             answer=response.answer,
             citations=[Citation(source_id=s.source_id, doc_id=doc_id(s.source_file),
-                                title=titles.get(s.source_id, ""), quote=s.quote)
+                                title=titles.get(s.source_id, ""), quote=s.quote,
+                                excerpt=excerpts.get(s.source_id, ""))
                        for s in response.sources],
             confidence=response.confidence, rag_status=trace.status,
             rewritten_query=trace.rewritten_query,

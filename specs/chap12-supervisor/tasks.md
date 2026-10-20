@@ -265,3 +265,21 @@
 - 评测集：未执行（规则：没有采用就不运行）。
 - 写入 comparison.md（第五轮；同时更正第四轮表中基线延迟 11830 → 12598 与 bge 倍数 2.28 → 2.14）、retrospective.md（第五轮结果）、PR_DESCRIPTION.md。
 
+
+## 2026-10-19 第六轮：分级核验，看完整证据（用户要求“改进核验 Worker”，18:18 PT）
+
+### 事先登记（在任何运行之前提交）
+- 动机（第五轮调参集结果，事后分析，只用于决定试什么）：二元核验否决的 34 道可回答题中，22 道原本就引用了错误文档，12 道原本正确；核验只看到短引用句。
+- 实现：
+  - 契约 chap12-v4：`Citation` 增加可选字段 `excerpt`（Project 1 trace 中该来源的证据段落，即生成答案时模型看到的原文；无则为空）。`rag_worker.py` 填充它。
+  - `verifier.py`：分级模式 `grade()`，给模型问题、答案和每个被引文档的证据段落（每篇最多 2500 字符、总计 6000），要求 1–5 分；无效输出或模型出错时保留答案。`verifier_mode()`：`CHAP12_VERIFIER=off|on|graded` 与 `CHAP12_VERIFIER_MIN_SCORE` 优先，否则读 `real_config.json` 的 `adopted.verifier` / `adopted.verifier_min_score`。graded 且没有最低分时只记录分数、不否决。
+  - `supervisor.py` / `factory.py` 接入；trace 记录 `score=k` 或 `score=k;rejected`。
+  - 测试：`test_verifier.py` 新增 9 个用例，`test_rag_worker.py` 新增 1 个。`pytest tests/chap12 -q` → `168 passed`；ruff 通过；mypy 对新代码无新增错误。
+  - `evaluation/chap12_round6.py`（`select` / `decide`）；用合成分数在 VM 本地镜像上试运行过选择与决策逻辑（不是实验结果，未提交任何输出）。
+- 运行（调参集，qwen2.5:7b，Multi-Agent，explain + explain_and_data 150 题，1 次，nomic，top_k 8，Critic 开；基线 `tune_real_r4_base`；Ollama 必须仍为 0.40.6，否则停止）：
+  1. `tune_real_r6_scores`：分级核验只记录分数，不否决（正确性应与基线一致，作为核对）。
+  2. 选择规则：最低分 m ∈ {2,3,4,5}，在第 1 步结果上模拟“分数 < m 则不发布”；可行条件为“原本正确的可回答题丢失 ≤ 3 道”且“配对净胜 ≥ 5 道”；取净胜最大者（并列取较低的 m）。没有可行的 m 则停止，不采用、不做第 3 步。
+  3. `tune_real_r6_verify`：以选中的 m 实际运行。采用条件：原本正确的可回答题丢失 ≤ 3、配对净胜 ≥ 5、失败率不升、两边都作答的可回答题 token F1 下降不超过 0.05。
+- 与第五轮规则的差别（事先说明）：不再用“可回答题接受率下降 ≤ 0.05”，改为“原本正确的可回答题丢失 ≤ 3 道”；token F1 只比较两边都作答的题（拒答不再记 0 拉低均值）。第五轮的决定不因此改变。
+- 只有采用时才在评测集运行 `ollama_run6`（单 Agent + Multi-Agent，90 题，1 次），并与 `ollama_run2` 做配对比较。仅作报告；没有新的确认集；调参集已用到第六轮，小于约 0.05 的差异不能视为确认。
+- 运行器：`.chap12_run/run_round6.cmd`（不提交）。

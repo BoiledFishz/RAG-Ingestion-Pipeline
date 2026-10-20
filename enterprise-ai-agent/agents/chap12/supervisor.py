@@ -32,7 +32,7 @@ from agents.chap12.contracts import (
 )
 from agents.chap12.critic import MAX_REPLANS, critic_enabled, review
 from agents.chap12.db_worker import Catalog
-from agents.chap12.verifier import verifier_enabled
+from agents.chap12.verifier import verifier_mode
 
 PRIORITY = ("permission_denied", "timeout", "failed", "no_data")
 
@@ -61,12 +61,14 @@ def merge(statuses: list[str]) -> str:
 class Supervisor:
     def __init__(self, workers: dict[str, Worker], catalog: Catalog,
                  limits: BudgetLimits | None = None, critic: bool | None = None,
-                 verifier: Any | None = None, verify: bool | None = None) -> None:
+                 verifier: Any | None = None, verify: bool | None = None,
+                 verify_min: int | None = None) -> None:
         self.workers, self.catalog = workers, catalog
         self.limits = limits or BudgetLimits()
         self.critic = critic  # default for critic_enabled(); env CHAP12_CRITIC overrides
         self.verifier = verifier  # AnswerVerifier (online profile only)
-        self.verify = verify  # default for verifier_enabled(); env CHAP12_VERIFIER overrides
+        self.verify = verify  # defaults for verifier_mode(); env CHAP12_VERIFIER overrides
+        self.verify_min = verify_min  # graded minimum score (round 6)
 
     async def run(self, request: AnalysisRequest, ctx: TrustedContext) -> FinalResponse:
         run_id = uuid.uuid4().hex
@@ -128,7 +130,8 @@ class Supervisor:
                         results[task_id] = handle.result()
                     event(spec.worker, "result", results[task_id].status)
 
-        if self.verifier is not None and verifier_enabled(self.verify) and results:
+        if self.verifier is not None and results and \
+                verifier_mode(self.verify, self.verify_min)[0] != "off":
             await self._verify(request, budget, tasks, results, event)
 
         if critic_enabled(self.critic) and results:
@@ -199,17 +202,24 @@ class Supervisor:
         if verifier is None or rag is None or rag.status not in USEFUL or \
                 not isinstance(rag.payload, RagPayload):
             return
+        mode, minimum = verifier_mode(self.verify, self.verify_min)
         try:
             with metered(budget, "verifier"):
-                verdict = await asyncio.wait_for(
-                    verifier.answers(request.query, rag.payload),
-                    timeout=max(budget.remaining(), 0.1))
+                call = verifier.grade if mode == "graded" else verifier.answers
+                verdict = await asyncio.wait_for(call(request.query, rag.payload),
+                                                 timeout=max(budget.remaining(), 0.1))
         except (TimeoutError, BudgetExhausted) as exc:
             event("verifier", "skipped", type(exc).__name__)  # answer kept
             return
-        event("verifier", "verdict",
-              "undecided" if verdict is None else "answers" if verdict else "rejected")
-        if verdict is False:
+        if mode == "graded":
+            reject = verdict is not None and minimum is not None and verdict < minimum
+            event("verifier", "verdict", "undecided" if verdict is None else
+                  f"score={verdict}" + (";rejected" if reject else ""))
+        else:
+            reject = verdict is False
+            event("verifier", "verdict",
+                  "undecided" if verdict is None else "answers" if verdict else "rejected")
+        if reject:
             results[rag.task_id] = rag.model_copy(update={
                 "status": "no_data",
                 "error": WorkerError.model_validate({

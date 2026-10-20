@@ -10,7 +10,7 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
-CONTRACT_VERSION = "chap12-v3"
+CONTRACT_VERSION = "chap12-v4"
 
 WorkerStatus = Literal["completed", "partial", "no_data", "permission_denied", "timeout", "failed"]
 WorkerName = Literal["rag", "database"]
@@ -82,6 +82,9 @@ class Citation(Strict):
     doc_id: str
     title: str = ""
     quote: str
+    # v4 (round 6): the evidence passage the answer was generated from (Project 1 trace
+    # evidence excerpt for this source); "" when unavailable. Used by the graded Verifier.
+    excerpt: str = ""
 
 
 class RagInput(Strict):

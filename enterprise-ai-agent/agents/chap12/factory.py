@@ -114,11 +114,12 @@ def build_supervisor(settings: Settings | None = None, path: Path | None = None)
         os.getenv("CHAP12_DB_STATEMENT_TIMEOUT", "10")), picker=picker, pick_mode=mode)
     rag = RagWorker(build_rag_agent(settings, path), timeout=limits.deadline_seconds - 5)
     critic = tuned_config().get("critic") if settings.profile != "offline" else None
-    verifier = verify = None
+    verifier = verify = verify_min = None
     if settings.profile != "offline":
         # Same model as the RAG Worker, metered against the same request budget (round 5).
         verifier = AnswerVerifier(BudgetedModel(
             TokenMeteredOllamaModel(settings.ollama_url, settings.model, settings.llm_timeout)))
         verify = tuned_config().get("verifier")
+        verify_min = tuned_config().get("verifier_min_score")  # graded (round 6)
     return Supervisor({"rag": rag, "database": database}, database.catalog, limits,
-                      critic=critic, verifier=verifier, verify=verify)
+                      critic=critic, verifier=verifier, verify=verify, verify_min=verify_min)

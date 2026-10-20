@@ -129,3 +129,22 @@ def test_evidence_retry_limit_reached_is_explicit_failure() -> None:
     assert result.error.category == "invalid_evidence"  # type: ignore[union-attr]
     assert result.error.message == "evidence validation failed after retry"  # type: ignore[union-attr]
     assert result.payload.rag_status == "invalid_evidence"  # type: ignore[union-attr]
+
+
+def test_citation_carries_evidence_excerpt() -> None:
+    """Contract v4: the passage the answer was generated from travels with the citation."""
+    from models.schemas import Evidence
+
+    class WithEvidence(FakeAgent):
+        async def run(self, request: QueryRequest) -> AgentRun:
+            out = await super().run(request)
+            evidence = Evidence(source_id="S1", chunk_id=SOURCE.chunk_id,
+                                source_file=SOURCE.source_file, page_number=1,
+                                excerpt="Full passage: streamtool setproperty --application-ev",
+                                title="Jobs env", relevance=0.8, tokens=12)
+            return out.model_copy(update={"trace": out.trace.model_copy(
+                update={"evidence": [evidence]})})
+
+    result, _ = run(WithEvidence())
+    citation = result.payload.citations[0]  # type: ignore[union-attr]
+    assert citation.excerpt.startswith("Full passage") and citation.title == "Jobs env"
