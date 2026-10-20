@@ -62,7 +62,9 @@
   "top_k": 8,
   "max_context_tokens": 2400,
   "critic": true,
-  "reranker": "nomic"
+  "reranker": "nomic",
+  "model": "qwen2.5:7b",
+  "verifier": false
  },
  "round3": {
   "current": {
@@ -148,5 +150,211 @@
   },
   "rule": "and committed before the runs:\n  adopt the order variant with the higher correct completion, only if it is at least 0.03\n  above tune_real_r4_base, its failure rate is not higher and its mean latency is at most\n  1.5 x tune_real_r4_base. Otherwise keep nomic.",
   "adopted_reranker": "nomic"
+ },
+ "round5": {
+  "base_7b": "tune_real_r4_base",
+  "runs": {
+   "7b": {
+    "correct_all": 0.3667,
+    "failure_rate": 0.0,
+    "latency_mean_ms": 12597.9,
+    "y_accept": 0.8393,
+    "n_refuse": 0.1579,
+    "y_gold_cited": 0.4643,
+    "llm_calls_mean": 3.0267,
+    "tasks": 150
+   },
+   "7b_verify": {
+    "correct_all": 0.42,
+    "failure_rate": 0.0,
+    "latency_mean_ms": 12026.3,
+    "y_accept": 0.5357,
+    "n_refuse": 0.6842,
+    "y_gold_cited": 0.3571,
+    "llm_calls_mean": 3.8667,
+    "tasks": 150
+   },
+   "14b": {
+    "correct_all": 0.3933,
+    "failure_rate": 0.0,
+    "latency_mean_ms": 43417.9,
+    "y_accept": 0.6875,
+    "n_refuse": 0.3158,
+    "y_gold_cited": 0.4554,
+    "llm_calls_mean": 2.9,
+    "tasks": 150
+   },
+   "14b_verify": {
+    "correct_all": 0.42,
+    "failure_rate": 0.0,
+    "latency_mean_ms": 47937.2,
+    "y_accept": 0.4643,
+    "n_refuse": 0.7105,
+    "y_gold_cited": 0.3482,
+    "llm_calls_mean": 3.5867,
+    "tasks": 150
+   }
+  },
+  "paired": {
+   "14b vs 7b": {
+    "base": "tune_real_r4_base",
+    "variant": "tune_real_r5_base_14b",
+    "tasks": 150,
+    "base_correct": 55,
+    "variant_correct": 59,
+    "wins": 11,
+    "losses": 7,
+    "net": 4,
+    "mcnemar_p_one_sided": 0.2403,
+    "mcnemar_p_two_sided": 0.4807,
+    "y_token_f1": {
+     "base": 0.2676,
+     "variant": 0.2292,
+     "tasks": 112
+    },
+    "y_token_f1_both_answered": {
+     "base": 0.3516,
+     "variant": 0.3487,
+     "tasks": 69
+    },
+    "win_tasks": [
+     "M-tune-009",
+     "M-tune-018",
+     "M-tune-020",
+     "M-tune-048",
+     "M-tune-052",
+     "M-tune-057",
+     "M-tune-065",
+     "M-tune-072",
+     "M-tune-074",
+     "M-tune-086",
+     "M-tune-109"
+    ],
+    "loss_tasks": [
+     "M-tune-040",
+     "M-tune-075",
+     "M-tune-077",
+     "M-tune-080",
+     "M-tune-091",
+     "M-tune-102",
+     "M-tune-146"
+    ]
+   },
+   "7b_verify vs 7b": {
+    "base": "tune_real_r4_base",
+    "variant": "tune_real_r5_verify_7b",
+    "tasks": 150,
+    "base_correct": 55,
+    "variant_correct": 63,
+    "wins": 20,
+    "losses": 12,
+    "net": 8,
+    "mcnemar_p_one_sided": 0.1077,
+    "mcnemar_p_two_sided": 0.2153,
+    "y_token_f1": {
+     "base": 0.2676,
+     "variant": 0.2113,
+     "tasks": 112
+    },
+    "y_token_f1_both_answered": {
+     "base": 0.3944,
+     "variant": 0.3944,
+     "tasks": 60
+    },
+    "win_tasks": [
+     "M-tune-002",
+     "M-tune-005",
+     "M-tune-009",
+     "M-tune-014",
+     "M-tune-016",
+     "M-tune-018",
+     "M-tune-043",
+     "M-tune-046",
+     "M-tune-065",
+     "M-tune-072",
+     "M-tune-074",
+     "M-tune-081",
+     "M-tune-086",
+     "M-tune-095",
+     "M-tune-103",
+     "M-tune-108",
+     "M-tune-109",
+     "M-tune-120",
+     "M-tune-136",
+     "M-tune-140"
+    ],
+    "loss_tasks": [
+     "M-tune-004",
+     "M-tune-013",
+     "M-tune-027",
+     "M-tune-047",
+     "M-tune-050",
+     "M-tune-079",
+     "M-tune-080",
+     "M-tune-096",
+     "M-tune-117",
+     "M-tune-118",
+     "M-tune-132",
+     "M-tune-149"
+    ]
+   },
+   "14b_verify vs 14b": {
+    "base": "tune_real_r5_base_14b",
+    "variant": "tune_real_r5_verify_14b",
+    "tasks": 150,
+    "base_correct": 59,
+    "variant_correct": 63,
+    "wins": 15,
+    "losses": 11,
+    "net": 4,
+    "mcnemar_p_one_sided": 0.2786,
+    "mcnemar_p_two_sided": 0.5572,
+    "y_token_f1": {
+     "base": 0.2292,
+     "variant": 0.1843,
+     "tasks": 112
+    },
+    "y_token_f1_both_answered": {
+     "base": 0.3969,
+     "variant": 0.3969,
+     "tasks": 52
+    },
+    "win_tasks": [
+     "M-tune-002",
+     "M-tune-005",
+     "M-tune-012",
+     "M-tune-014",
+     "M-tune-016",
+     "M-tune-043",
+     "M-tune-046",
+     "M-tune-077",
+     "M-tune-081",
+     "M-tune-095",
+     "M-tune-103",
+     "M-tune-108",
+     "M-tune-120",
+     "M-tune-136",
+     "M-tune-140"
+    ],
+    "loss_tasks": [
+     "M-tune-024",
+     "M-tune-028",
+     "M-tune-050",
+     "M-tune-052",
+     "M-tune-067",
+     "M-tune-079",
+     "M-tune-096",
+     "M-tune-117",
+     "M-tune-132",
+     "M-tune-148",
+     "M-tune-149"
+    ]
+   }
+  },
+  "rules": "and committed before the runs:\n  model     adopt qwen2.5:14b only if, against 7b base, net paired wins >= 5 with one-sided\n            exact McNemar p < 0.10, its failure rate is not higher, mean answerable token F1\n            is not lower by more than 0.05, and mean latency <= 2.5 x 7b base.\n  verifier  on the adopted model, against the same model without the Verifier: adopt only if\n            the unanswerable refusal rate rises by >= 0.25, the answerable acceptance rate\n            falls by <= 0.05, paired wins >= paired losses, the failure rate is not higher\n            and mean answerable token F1 is not lower by more than 0.05.",
+  "model_14b_run": true,
+  "model_adopted": "qwen2.5:7b",
+  "verifier_evaluated_on": "7b",
+  "verifier_adopted": false
  }
 }
