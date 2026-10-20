@@ -307,3 +307,5 @@
   - `evaluation/chap12_trace_report.py`：按管线顺序找出每道题第一个丢失答案文档的层（L1 召回 / L2 重排 / L3 上下文筛选 / L4 生成与拒答 / L5 Supervisor 与数据），写 `layer_attribution.{json,md}`。只做诊断，不选择任何参数。
   - 测试 `tests/chap12/test_tracing.py`（10 个用例）。`pytest tests/chap12 -q` → `178 passed`；ruff 通过；mypy 新文件无错误。离线档位 8 题试运行通过（`/tmp`，未提交）。
 - 运行器 `.chap12_run/run_trace.cmd`（不提交）：当前配置在调参集 150 题与评测集 60 题（explain + explain_and_data）上带 trace 运行；调参集结果先与 `tune_real_r4_base` 做配对核对（应逐题一致）。评测集运行只作诊断报告。
+- 运行记录（Windows，用户双击 `.chap12_run/run_trace.cmd`，2026-10-20 约 12:2x–13:17 PT）：推送 6158a2c；`trace_tune` 150 条与 `tune_real_r4_base` 逐题一致（`chap12_paired`：55 → 55，变对 0 / 变错 0）；`trace_sample` 60 条；两份 `layer_attribution`；提交 `ac34283` 并推送。结果写入 comparison.md“逐层归因”，retrospective.md 做了相应更正。
+
