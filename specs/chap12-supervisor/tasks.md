@@ -283,3 +283,11 @@
 - 与第五轮规则的差别（事先说明）：不再用“可回答题接受率下降 ≤ 0.05”，改为“原本正确的可回答题丢失 ≤ 3 道”；token F1 只比较两边都作答的题（拒答不再记 0 拉低均值）。第五轮的决定不因此改变。
 - 只有采用时才在评测集运行 `ollama_run6`（单 Agent + Multi-Agent，90 题，1 次），并与 `ollama_run2` 做配对比较。仅作报告；没有新的确认集；调参集已用到第六轮，小于约 0.05 的差异不能视为确认。
 - 运行器：`.chap12_run/run_round6.cmd`（不提交）。
+
+### 第六轮运行记录（Windows，用户双击 `.chap12_run/run_round6.cmd` 一次，2026-10-19 21:46–22:17 PT）
+- 环境（`results/chap12/round6_meta.json`）：起始 commit eb7d47f，Ollama 0.40.6（未变，基线有效）。推送 eb7d47f 成功（去掉代理重试）。
+- `tune_real_r6_scores`：150 条、失败 0，正确完成 0.3667，与基线逐题一致（150/150）。
+- `python -m evaluation.chap12_round6 select` → 最低分 2/3/4/5 的净胜为 +4/+12/+13/−7，丢失原本正确的可回答题 0/8/10/36；没有可行值，`selected_min_score: null`。
+- 阈值运行 `tune_real_r6_verify` 与 `decide`：未执行（规则：没有可行最低分则停止）。评测集：未执行。
+- 提交 `59870ba` 并推送。结果写入 comparison.md（第六轮）、retrospective.md、PR_DESCRIPTION.md。
+
