@@ -255,3 +255,13 @@
   - Verifier：在采用的模型上，与同模型不开 Verifier 比：不可回答题拒答率至少 +0.25、可回答题接受率下降不超过 0.05、配对变对 ≥ 变错、失败率不升、token F1 不低于 0.05 以上，才采用。
 - 只有采用了 14b 或 Verifier 才在评测集运行（单 Agent + Multi-Agent，90 题，1 次）`ollama_run5`，并与 `ollama_run2`（同一设置）做配对比较。没有新的确认集；小于约 0.05 的差异不视为确认。
 - 运行器：`.chap12_run/run_round5.cmd`（不提交）。
+
+### 第五轮运行记录（Windows，用户双击 `.chap12_run/run_round5.cmd` 一次，2026-10-19 12:47–17:11 PT）
+- 环境（`results/chap12/round5_meta.json`）：起始 commit 982892b，Ollama 0.40.6（未变，7b 基线沿用 `tune_real_r4_base`），GPU RTX 3060 Laptop 6144 MiB。
+- 推送 982892b：直连失败后去掉代理重试成功。下载 qwen2.5:14b：`success`（12:47–12:51）。
+- 14b 速度门槛：预热后 20 token 生成 0.3 秒 → 通过。缺陷：模型回答 “OK” 后提前结束，门槛没有测到真实速度（见 comparison.md 第五轮）。
+- 调参运行各 150 条、失败 0：`tune_real_r5_verify_7b`（12:51–13:22）、`tune_real_r5_base_14b`（13:22–15:11）、`tune_real_r5_verify_14b`（15:11–17:11）。
+- `python -m evaluation.chap12_round5_decide` → `model_adopted: qwen2.5:7b`，`verifier_adopted: false`（Y 接受率 −0.30、token F1 −0.056 未过门槛；14b 净胜 4、延迟 3.45 倍未过门槛）。提交 `e8f1532` 并推送。
+- 评测集：未执行（规则：没有采用就不运行）。
+- 写入 comparison.md（第五轮；同时更正第四轮表中基线延迟 11830 → 12598 与 bge 倍数 2.28 → 2.14）、retrospective.md（第五轮结果）、PR_DESCRIPTION.md。
+
