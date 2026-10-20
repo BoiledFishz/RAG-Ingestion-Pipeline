@@ -291,3 +291,8 @@
 - 阈值运行 `tune_real_r6_verify` 与 `decide`：未执行（规则：没有可行最低分则停止）。评测集：未执行。
 - 提交 `59870ba` 并推送。结果写入 comparison.md（第六轮）、retrospective.md、PR_DESCRIPTION.md。
 
+## 2026-10-19 仓库与分支改名（用户要求，22:23 PT）
+- GitHub 网页（内置浏览器）：仓库 `RAG-Ingestion-Pipeline` → `TechQA-Enterprise-RAG`；分支 `codex/project2-course-completion` → `project2/baseline`（PR #1 的目标自动更新）；`feature/chap12-supervisor-lite` → `feature/supervisor-worker-agent`（GitHub 因此自动关闭 PR #1，#1 无评论或审阅；用户同意改名并开新 PR 替代）。
+- 本地：`git remote set-url origin https://github.com/BoiledFishz/TechQA-Enterprise-RAG.git`；`git branch -m` 两个分支并设置上游；`git remote prune origin`。清理了本会话 git 操作留下的锁文件与临时对象（用户授权删除）。
+- 代码与文档内部的 `chap12` 名称按用户选择不改。PR_DESCRIPTION.md 标题改为 “Project 2：Supervisor–Worker 多智能体”。
+

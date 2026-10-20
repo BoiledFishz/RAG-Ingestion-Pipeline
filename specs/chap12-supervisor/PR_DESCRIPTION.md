@@ -1,4 +1,6 @@
-# Chap12：Supervisor–Worker 骨架（TechQA 随机 150 题样本）
+# Project 2：Supervisor–Worker 多智能体（TechQA 随机 150 题样本）
+
+> 本 PR 替代 #1。2026-10-19 按用户要求把仓库改名为 `TechQA-Enterprise-RAG`、分支改名为 `feature/supervisor-worker-agent` → `project2/baseline`；GitHub 改名功能分支时会自动关闭原 PR，#1 没有评论或审阅记录。代码与文档内部的 `chap12` 目录名未改，以保持结果路径和历史提交可追溯。
 
 ## 审阅时间线（如实说明）
 
@@ -6,7 +8,7 @@
 - 第一次人工审阅在 2026-10-11 20:05（PT），是**事后审阅**，只覆盖 D1–D4 四个决策点。详见 `specs/chap12-supervisor/review_log.md`。
 - 一致性检查：用 Spec Kit 1.1.4.dev0 的 analyze 模板，由代理执行（不是 CLI 输出），结果见 `analyze_report.md`；其中 2 项 CRITICAL，一项已修复（RAG 未按授权过滤），另一项是没有 constitution。
 - 2026-10-17：用 Spec Kit v1.2.1 初始化 `.specify/`，写了 constitution **草案**（1.0.0-draft，未批准，写于实现之后），并补做了 Constitution Alignment 检查；“实现先于 Spec、无事前人工审阅”记为无法事后补救的 CRITICAL。整份 Spec 的人工审阅清单见 `spec_review_checklist.md`，**尚未由人完成**。
-- 本 PR 的目标分支是 `codex/project2-course-completion`（本分支的起点），所以 diff 只包含 Chap12 的改动。
+- 本 PR 的目标分支是 `project2/baseline`（原名 `codex/project2-course-completion`，本分支的起点），所以 diff 只包含 Project 2 的改动。
 - 本 PR **未合并**，等待 Review。
 
 ## 内容
