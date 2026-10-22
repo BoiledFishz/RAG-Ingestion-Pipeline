@@ -13,6 +13,7 @@ from agents.chap12.db_worker import DatabaseQueryWorker
 from agents.chap12.ollama_tokens import TokenMeteredOllamaModel
 from agents.chap12.product_pick import ProductPicker, pick_mode
 from agents.chap12.rag_worker import RagWorker
+from agents.chap12.strict_selector import StrictSelector, selector_mode
 from agents.chap12.supervisor import Supervisor
 from agents.chap12.verifier import AnswerVerifier
 from agents.rag_agent.compression import ContextCompressor
@@ -84,8 +85,14 @@ def build_rag_agent(settings: Settings, path: Path, override: Any | None = None,
         model = BudgetedModel(
             TokenMeteredOllamaModel(settings.ollama_url, settings.model, settings.llm_timeout))
         rewriter = LLMRewriter(model)
-        selector = LLMSelector(
-            model, controlled=os.getenv("TECHQA_GENERATION", "extractive") == "controlled")
+        controlled = os.getenv("TECHQA_GENERATION", "extractive") == "controlled"
+        # Round 7: strict answerability selector (Project 2 subclass), only when chosen on
+        # the tune split or forced by CHAP12_SELECTOR; tuned=False keeps Project 1's selector.
+        mode = selector_mode(tuned_config().get("selector") if tuned else None)
+        if tuned and mode == "strict":
+            selector = StrictSelector(model, controlled=controlled)
+        else:
+            selector = LLMSelector(model, controlled=controlled)
         # Reranker chosen on the tune split (round 3); CHAP12_RERANKER always wins.
         chosen = tuned_config().get("reranker") if tuned and \
             os.getenv("CHAP12_RERANKER") is None else None

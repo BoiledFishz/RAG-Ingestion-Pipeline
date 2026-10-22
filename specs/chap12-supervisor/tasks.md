@@ -309,3 +309,19 @@
 - 运行器 `.chap12_run/run_trace.cmd`（不提交）：当前配置在调参集 150 题与评测集 60 题（explain + explain_and_data）上带 trace 运行；调参集结果先与 `tune_real_r4_base` 做配对核对（应逐题一致）。评测集运行只作诊断报告。
 - 运行记录（Windows，用户双击 `.chap12_run/run_trace.cmd`，2026-10-20 约 12:2x–13:17 PT）：推送 6158a2c；`trace_tune` 150 条与 `tune_real_r4_base` 逐题一致（`chap12_paired`：55 → 55，变对 0 / 变错 0）；`trace_sample` 60 条；两份 `layer_attribution`；提交 `ac34283` 并推送。结果写入 comparison.md“逐层归因”，retrospective.md 做了相应更正。
 
+
+## 2026-10-21 第七轮：严格的可回答性选择 prompt（老师建议“先改一版加强”；prompt 经用户审阅，21:52 PT）
+
+### 事先登记（在任何运行之前提交）
+- 动机（trace_tune，诊断）：38 道不可回答题全部带证据进入模型；Project 1 选证据 prompt 判定“够回答”的比例为不可回答 84%、可回答 85%，没有区分度。其拒答指令只是选证据 prompt 的最后一句。
+- 实现（不改 Project 1）：`agents/chap12/strict_selector.py` 继承 `LLMSelector`，只替换抽取式选证据的 prompt 与输出格式：
+  - 第 1 步写出问题要什么（`asked`）；第 2 步按 R1–R6 逐篇拒绝（不同产品/组件、不同错误、版本或平台受限、不同操作、只是话题相同或复述症状、修复不完整），写入 `rejected`；第 3 步只有通过全部规则且含所需内容才 `sufficient=true`，不确定时拒绝。字段顺序为先理由后结论；理由写入 trace。
+  - 冲突复核、引用校验、答案渲染沿用 Project 1。`ollama_tokens.py` 为该 KIND 设输出上限 700 token（其余不变）。
+  - 开关：`CHAP12_SELECTOR=strict|project1`，否则读 `adopted.selector`，默认 project1；p1_single 基线不受影响。
+  - 测试 `tests/chap12/test_strict_selector.py`（7 个用例）。`pytest tests/chap12 -q` → `185 passed`；ruff 通过；mypy 新文件只有与既有 pydantic 文件相同类别的提示。
+- 阈值门的事先模拟（老师的后备方案，用现有 trace_tune，不跑模型）：只用第一名重排分硬卡，T = 0.60–0.80 中最好为 0.62–0.64，净胜 +4，丢失原本正确的可回答题 2–3 道，未达到“净胜 ≥ 5”。
+- 运行：`tune_real_r7_strict`（调参集，qwen2.5:7b，Multi-Agent，explain + explain_and_data 150 题，1 次，nomic，top_k 8，Critic 开，无核验，trace 开），基线 `tune_real_r4_base`；Ollama 必须仍为 0.40.6。
+- 规则（`evaluation/chap12_round7.py`）：原本正确的可回答题丢失 ≤ 3、配对净胜 ≥ 5、失败率不升、两边都作答的可回答题 token F1 下降 ≤ 0.05，才采用。另在该运行的 trace 上模拟“阈值门 + 严格 prompt”（T = 0.60–0.80），只报告，满足同样两条的 T 作为下一次单独登记运行的候选，不据此采用。
+- 只有采用时才运行评测集 `ollama_run7`（单 Agent + Multi-Agent，90 题，trace），与 `ollama_run2` 配对比较；没有新的确认集。
+- 若仍不通过：按老师建议，下一步登记“阈值门 + LLM”或“两个 LLM”方案。
+- 运行器：`.chap12_run/run_round7.cmd`（不提交）。

@@ -18,13 +18,15 @@ from models.providers import OllamaStructuredModel
 
 
 def output_budget(prompt: str) -> int:
-    """Identical to the Project 1 adapter's per-prompt num_predict selection."""
+    """The Project 1 adapter's per-prompt num_predict selection, plus the round 7 KIND."""
     if prompt.startswith("KIND: CONTROLLED_ANSWER\n"):
         return 1200
     if prompt.startswith("KIND: FACT_AUDIT\n"):
         return 900
     if prompt.startswith("KIND: CLAIM_AUDIT\n"):
         return 512
+    if prompt.startswith("KIND: ANSWERABILITY_SELECT\n"):
+        return 700  # round 7: reasons (asked, rejected) precede the verdict
     return 300
 
 
