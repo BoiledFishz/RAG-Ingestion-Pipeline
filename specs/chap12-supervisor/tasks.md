@@ -345,3 +345,8 @@
 - 运行：`tune_real_r8_judged`（调参集，qwen2.5:7b，Multi-Agent，explain + explain_and_data 150 题，1 次，nomic，top_k 8，Critic 开，trace 开）；基线为同版本的 Project 1 选证据器：Ollama 仍为 0.40.7 时用 `tune_real_r7_base`，否则先重跑为 `tune_real_r8_base` 并与 r7_base 配对核对。
 - 规则（`evaluation/chap12_round8.py`）：原本正确的可回答题丢失 ≤ 3、配对净胜 ≥ 5、失败率不升、两边都作答的可回答题 token F1 下降 ≤ 0.05，才采用；同时在该运行 trace 上模拟阈值门（T = 0.60–0.80），只报告。采用后才运行评测集 `ollama_run8`，与 `ollama_run2` 配对比较（版本不同，注明）。
 - 运行器：`.chap12_run/run_round8.cmd`（不提交）。
+
+### 第八轮运行记录（Windows，用户双击 `.chap12_run/run_round8.cmd`，2026-10-22 约 21:2x–22:42 PT）
+- Ollama 0.40.8（又自动升级）：按登记重跑基线 `tune_real_r8_base`（150 条，失败 0），与 `tune_real_r7_base` 逐题一致（51 → 51）。
+- `tune_real_r8_judged`（150 条，失败 0）正确 55；`chap12_round8` → 不采用（丢失 22、净 +4），阈值门模拟均不可行；提交 `922675c` 并推送（该提交说明误写为 “Round 7”，见 comparison.md 第八轮更正）。评测集未运行。
+
