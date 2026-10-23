@@ -93,7 +93,12 @@ def build_rag_agent(settings: Settings, path: Path, override: Any | None = None,
         if tuned and mode == "strict":
             selector = StrictSelector(model, controlled=controlled)
         elif tuned and mode == "judged":  # round 8: select, then a separate judge call
-            selector = JudgedSelector(model, controlled=controlled)
+            judge_name = os.getenv("CHAP12_JUDGE_MODEL") or str(
+                tuned_config().get("judge_model") or settings.model)
+            judge = model if judge_name == settings.model else BudgetedModel(
+                TokenMeteredOllamaModel(settings.ollama_url, judge_name, settings.llm_timeout))
+            selector = JudgedSelector(model, judge_model=judge, judge_name=judge_name,
+                                      controlled=controlled)
         else:
             selector = LLMSelector(model, controlled=controlled)
         # Reranker chosen on the tune split (round 3); CHAP12_RERANKER always wins.

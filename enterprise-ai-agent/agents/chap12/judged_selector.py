@@ -8,7 +8,9 @@ the merged judge prompt. The judge can only veto; it cannot add sources or chang
 which is still rendered verbatim from the selected sources.
 
 Project 1 is not modified (subclass of LLMSelector). Enabled with CHAP12_SELECTOR=judged or
-`adopted.selector` in tune/real_config.json.
+`adopted.selector` in tune/real_config.json. Round 9 (2026-10-23): CHAP12_JUDGE_MODEL (or
+`adopted.judge_model`) runs only the judge call on another Ollama model, e.g. qwen2.5:14b, while
+the selector keeps the agent model; same prompt and rules as round 8.
 """
 
 from __future__ import annotations
@@ -76,6 +78,13 @@ def schema_for(ids: list[str]) -> dict[str, Any]:
 
 
 class JudgedSelector(LLMSelector):
+    def __init__(self, model: Any, *, judge_model: Any | None = None, judge_name: str = "",
+                 **kwargs: Any) -> None:
+        super().__init__(model, **kwargs)
+        # Round 9: the judge call may use a different (stronger) model than the selector.
+        self.judge_model = judge_model or model
+        self.judge_name = judge_name
+
     async def select_group(self, query: str, evidence: list[Evidence],
                            correction: str = "") -> SelectionDraft:
         draft = await super().select_group(query, evidence, correction)
@@ -86,14 +95,15 @@ class JudgedSelector(LLMSelector):
         chosen = [by_id[q.source_id] for q in draft.quotes]
         ids = [e.source_id for e in chosen]
         try:
-            verdict = Judgement.model_validate_json(await self.model.generate(
+            verdict = Judgement.model_validate_json(await self.judge_model.generate(
                 PROMPT.format(query=query, evidence=serialize_evidence(chosen)), schema_for(ids)))
         except ValueError as exc:
             raise InvalidEvidence(f"judge output invalid: {exc}"[:300]) from exc
         rejected = {r.source_id for r in verdict.rejected}
         # The verdict must agree with the per-source rejections it lists.
         decision = "ABSTAIN" if rejected >= set(ids) else "ANSWER"
-        tracing.record("selector", {"selected": ids, "judge": json.loads(
+        tracing.record("selector", {"selected": ids, "judge_model": self.judge_name,
+                                    "judge": json.loads(
             verdict.model_dump_json()), "decision": decision})
         LOGGER.info("Judge: selected=%s rejected=%s decision=%s", ids, sorted(rejected),
                     decision)

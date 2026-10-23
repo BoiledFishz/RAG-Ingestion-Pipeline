@@ -350,3 +350,12 @@
 - Ollama 0.40.8（又自动升级）：按登记重跑基线 `tune_real_r8_base`（150 条，失败 0），与 `tune_real_r7_base` 逐题一致（51 → 51）。
 - `tune_real_r8_judged`（150 条，失败 0）正确 55；`chap12_round8` → 不采用（丢失 22、净 +4），阈值门模拟均不可行；提交 `922675c` 并推送（该提交说明误写为 “Round 7”，见 comparison.md 第八轮更正）。评测集未运行。
 
+
+## 2026-10-23 第九轮：7B 选证据 + 14B 单独判断（用户选择，11:52 PT）
+
+### 事先登记（在任何运行之前提交）
+- 动机（第八轮调参集，诊断）：判断方向有效（不可回答题被作答 35 → 8），但 7B 判断否决了 22 道原本正确的回答，常把同一产品族的 IBM 文档判为“不同产品”（J1 10 次）。ChatGPT 10 组对比也显示强模型的判断更准。
+- 实现：`JudgedSelector` 增加 `judge_model`；`CHAP12_JUDGE_MODEL`（或 `adopted.judge_model`）只让判断这一次调用使用另一个 Ollama 模型，选证据仍用 qwen2.5:7b。判断 prompt 与 J1–J4 规则与第八轮完全相同，只换模型。判断调用计入同一请求预算。新增 2 个测试，`pytest tests/chap12 -q` → `197 passed`；ruff 通过。
+- 运行：`tune_real_r9_judged14`（调参集 150 题，Multi-Agent，nomic，top_k 8，Critic 开，trace 开）；基线为同版本的 Project 1 选证据器：Ollama 仍为 0.40.8 时用 `tune_real_r8_base`，否则先重跑为 `tune_real_r9_base` 并核对。6 GB 显存放不下 7B 与 14B 同时常驻，模型切换会增加延迟；延迟只报告，不作为采用条件。
+- 规则（`evaluation/chap12_round9.py`）：与第八轮相同（原本正确的可回答题丢失 ≤ 3、配对净胜 ≥ 5、失败率不升、两边都作答的 token F1 下降 ≤ 0.05）；另报告与 7B 判断（`tune_real_r8_judged`）的配对比较与阈值门模拟。采用后才运行评测集 `ollama_run9`。
+- 运行器：`.chap12_run/run_round9.cmd`（不提交）。

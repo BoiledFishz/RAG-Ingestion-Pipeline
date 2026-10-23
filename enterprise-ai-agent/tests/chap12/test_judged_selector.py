@@ -90,3 +90,28 @@ def test_factory_builds_judged_selector(tmp_path: Path, monkeypatch: pytest.Monk
     monkeypatch.setattr("tools.sample_retriever.SampleRetrieverTool", Spy)
     agent = factory.build_rag_agent(Settings(profile="ollama"), tmp_path / "x.sqlite")
     assert type(agent.selector) is JudgedSelector
+
+
+def test_judge_can_run_on_another_model() -> None:
+    selector_model = Model(["S1"], judge("ANSWER"))
+    judge_model = Model([], judge("ABSTAIN", ("S1", "J4")))
+    with tracing.recording() as data:
+        draft = asyncio.run(JudgedSelector(selector_model, judge_model=judge_model,
+                                           judge_name="qwen2.5:14b").select("Q?", EVIDENCE))
+    assert draft.quotes == []
+    assert "judge" not in selector_model.kinds and judge_model.kinds == ["judge"]
+    assert data["selector"]["judge_model"] == "qwen2.5:14b"
+
+
+def test_factory_uses_judge_model_env(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("CHAP12_SELECTOR", "judged")
+    monkeypatch.setenv("CHAP12_JUDGE_MODEL", "qwen2.5:14b")
+    monkeypatch.setattr(factory, "TUNED", tmp_path / "absent.json")
+
+    class Spy:
+        def __init__(self, *a: object, **k: object) -> None: ...
+
+    monkeypatch.setattr("tools.sample_retriever.SampleRetrieverTool", Spy)
+    agent = factory.build_rag_agent(Settings(profile="ollama"), tmp_path / "x.sqlite")
+    assert agent.selector.judge_name == "qwen2.5:14b"  # type: ignore[attr-defined]
+    assert agent.selector.judge_model is not agent.selector.model  # type: ignore[attr-defined]
