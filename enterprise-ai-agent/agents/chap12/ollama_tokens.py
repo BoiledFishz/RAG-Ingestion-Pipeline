@@ -27,6 +27,8 @@ def output_budget(prompt: str) -> int:
         return 512
     if prompt.startswith("KIND: ANSWERABILITY_SELECT\n"):
         return 700  # round 7: reasons (asked, rejected) precede the verdict
+    if prompt.startswith("KIND: ANSWER_JUDGE\n"):
+        return 300  # round 8 judge
     return 300
 
 

@@ -332,3 +332,16 @@
 - 第一次双击（17:14）：Ollama 已自动升级为 0.40.7，按登记停止，未运行任务；修订见上（e51b236）。
 - 第二次：推送 e51b236；`tune_real_r7_base`（0.40.7，150 条，失败 0）正确 51，与 `tune_real_r4_base` 配对：变对 3 / 变错 7（不再逐题一致）；`tune_real_r7_strict`（150 条，失败 0，无校验失败）正确 47；`chap12_round7` → 不采用（丢失 38、净 −4），阈值门模拟均不可行；提交 `921cf43` 并推送。评测集未运行。结果写入 comparison.md 第七轮。
 
+
+## 2026-10-22 重排前后对比材料（老师建议：抽 10 组前 5 条，用 prompt 交给 ChatGPT 对比）
+- `evaluation/chap12_rerank_packets.py`：从 `trace_tune` 随机抽 10 道可回答题（种子 20261022，条件：融合前 5 与重排前 5 的文档集合不同），用记录的检索查询离线重建融合候选（BM25 + 样本 MiniLM 向量，不调用模型；重建顺序须与 trace 一致，否则报错），每篇取融合中最高的分块（最多 1200 字符）。输出 `evaluation/results/chap12/rerank_packets/packets.md`（每组 A = 重排前、B = 重排后，套用用户提供的判断模板，可直接粘贴）与 `answer_key.md`（答案文档在 A/B 中的位置与标准答案节选）。
+- 运行（VM 本地镜像）：10 组都与 trace 一致。答案文档位置（A → B）：第 1 组 3 → 1；第 2 组 4 → 不在前 5；第 7 组 3 → 5；第 4、8 组两边都不在前 5；其余 5 组两边相同。ChatGPT 对比由用户手动进行（**未执行**）。
+
+## 2026-10-22 第八轮：先选证据、再单独判断（两次 LLM 调用；老师建议“用两个 LLM 先试一下”，用户选择）
+
+### 事先登记（在任何运行之前提交）
+- 动机（第七轮调参集，诊断）：把 6 条规则放进一次调用、面对全部 8 篇证据并“拿不准就拒”，7B 模型几乎全拒（可回答题接受率 0.13），答案文档本身被 R2/R5/R4/R6 拒绝。
+- 实现（不改 Project 1）：`agents/chap12/judged_selector.py` 继承 `LLMSelector`。第 1 次调用为 Project 1 原选证据 prompt 与冲突复核（不变）；若选出了证据，第 2 次调用（KIND: ANSWER_JUDGE）只看被选中的 1–2 篇，写出用户需要什么（不超过 30 词、不照抄），按 4 条规则拒绝：J1 不同产品或组件、J2 不同错误码/消息/漏洞、J3 用户指定的版本或平台被明确排除、J4 只是话题相同而不含所需内容；明确写出“用户没问的细节缺失不算拒绝理由”，去掉“拿不准就拒”。只能否决，不能新增证据或改答案；结论按列出的拒绝计算（全部被拒才拒答）。`CHAP12_SELECTOR=judged`。输出上限 300 token。测试 `tests/chap12/test_judged_selector.py`（7 个用例）。`pytest tests/chap12 -q` → `195 passed`；ruff 通过。
+- 运行：`tune_real_r8_judged`（调参集，qwen2.5:7b，Multi-Agent，explain + explain_and_data 150 题，1 次，nomic，top_k 8，Critic 开，trace 开）；基线为同版本的 Project 1 选证据器：Ollama 仍为 0.40.7 时用 `tune_real_r7_base`，否则先重跑为 `tune_real_r8_base` 并与 r7_base 配对核对。
+- 规则（`evaluation/chap12_round8.py`）：原本正确的可回答题丢失 ≤ 3、配对净胜 ≥ 5、失败率不升、两边都作答的可回答题 token F1 下降 ≤ 0.05，才采用；同时在该运行 trace 上模拟阈值门（T = 0.60–0.80），只报告。采用后才运行评测集 `ollama_run8`，与 `ollama_run2` 配对比较（版本不同，注明）。
+- 运行器：`.chap12_run/run_round8.cmd`（不提交）。

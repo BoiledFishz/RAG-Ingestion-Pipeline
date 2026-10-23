@@ -103,9 +103,9 @@ class StrictSelection(BaseModel):
 
 def selector_mode(default: str | None = None) -> str:
     configured = os.getenv("CHAP12_SELECTOR", "")
-    if configured in {"project1", "strict"}:
+    if configured in {"project1", "strict", "judged"}:
         return configured
-    return default if default in {"project1", "strict"} else "project1"
+    return default if default in {"project1", "strict", "judged"} else "project1"
 
 
 def schema_for(ids: list[str]) -> dict[str, Any]:

@@ -10,6 +10,7 @@ from rag.techqa.data import ROOT
 
 from agents.chap12.budget import BudgetedModel, BudgetLimits
 from agents.chap12.db_worker import DatabaseQueryWorker
+from agents.chap12.judged_selector import JudgedSelector
 from agents.chap12.ollama_tokens import TokenMeteredOllamaModel
 from agents.chap12.product_pick import ProductPicker, pick_mode
 from agents.chap12.rag_worker import RagWorker
@@ -91,6 +92,8 @@ def build_rag_agent(settings: Settings, path: Path, override: Any | None = None,
         mode = selector_mode(tuned_config().get("selector") if tuned else None)
         if tuned and mode == "strict":
             selector = StrictSelector(model, controlled=controlled)
+        elif tuned and mode == "judged":  # round 8: select, then a separate judge call
+            selector = JudgedSelector(model, controlled=controlled)
         else:
             selector = LLMSelector(model, controlled=controlled)
         # Reranker chosen on the tune split (round 3); CHAP12_RERANKER always wins.
