@@ -325,3 +325,4 @@
 - 只有采用时才运行评测集 `ollama_run7`（单 Agent + Multi-Agent，90 题，trace），与 `ollama_run2` 配对比较；没有新的确认集。
 - 若仍不通过：按老师建议，下一步登记“阈值门 + LLM”或“两个 LLM”方案。
 - 运行器：`.chap12_run/run_round7.cmd`（不提交）。
+- **登记修订（2026-10-22，仍在任何运行之前）**：上面的登记已提交为 508757a（用户当时中断了这一步，但提交已完成，未推送）。随后用户提供了一份参考的 “answerability judge” 模板，prompt 合并后改为：角色为最终可回答性判断者；明确“检索分高或关键词重合不算证据”“不用背景知识补缺、不推断原因、兼容性、日期、步骤或配置值”；新增 `unsupported_aspects`；结论改为 ANSWER / CLARIFY / ABSTAIN 三选一（CLARIFY 与 ABSTAIN 都不发布答案，澄清问题记入 trace；ANSWER 且有未支持部分时标为部分回答）。答案仍逐字取自所选证据，只改拒答这一步；先理由后结论的字段顺序保留。采用规则、阈值门模拟、评测集条件均不变。测试改为 9 个用例，`pytest tests/chap12 -q` → `188 passed`；ruff 通过。
