@@ -339,6 +339,23 @@
 - 查询改写回退到规则：调参集 26 / 150，评测集 13 / 60。
 - 评测集 60 题这次只用于诊断，没有据此选择任何参数。
 
+## 第七轮：严格的可回答性选择 prompt（2026-10-22，规则登记于 508757a / c4c429a / e51b236）
+
+来源：`evaluation/chap12/tune/real_config.json`（`round7`）、`evaluation/results/chap12/tune_real_r7_{base,strict}/`（含 `traces.jsonl`、`layer_attribution.md`）、`round7_meta.json`。调参集 qwen2.5:7b，Multi-Agent 150 题，Ollama 0.40.7。
+
+- 基线在 0.40.7 上重跑：正确 51 / 150（0.340），与 0.40.6 的 `tune_real_r4_base`（55）**不再逐题一致**（变对 3 / 变错 7）。0.40.5 → 0.40.6 时完全一致，这次版本升级改变了结果，因此第七轮按修订以同版本基线比较。
+
+| 配置（0.40.7） | 正确完成 | Y 接受率 | N 拒答率 | Y 引用金标 | 平均延迟 ms |
+| --- | --- | --- | --- | --- | --- |
+| 基线（Project 1 选证据 prompt） | 0.340 | 0.848 | 0.079 | 0.455 | 11943 |
+| 严格 prompt（ANSWER / CLARIFY / ABSTAIN） | 0.313 | 0.125 | 0.974 | 0.098 | 21737 |
+
+- 配对：变对 34 / 变错 38，净 −4；原本正确的可回答题丢失 38 道 → **不采用**。阈值门 + 严格 prompt 的模拟（T = 0.60–0.80）净胜 −4 到 −8，均不可行。评测集未运行。
+- 结论分布：可回答题 ABSTAIN 96 / ANSWER 14 / CLARIFY 2；不可回答题 ABSTAIN 35 / ANSWER 1 / CLARIFY 2。拒答从“几乎不拒”变成“几乎全拒”。
+- 原因（trace 中的 `rejected`）：模型平均每题拒绝约 5 篇证据；**答案文档本身被拒**的规则为 R2（不同错误）18 次、R5（只是话题相同）17 次、R4（不同操作）10 次、R6（修复不完整）8 次。`asked` 多为照抄问题而非提炼需求。7B 模型在一次调用里对 8 篇证据同时套用 6 条规则，并按“拿不准就拒”执行，规则被过度适用。
+- 逐层归因：L4“证据里有答案文档但模型拒答”从基线的个位数升到 58。
+- 平均延迟增加 82%（输出包含理由字段）。
+
 ## v1 / v2 历史（只有 explain_and_data，评测集，offline）
 
 - v1：`evaluation/chap12/results/offline_20261011/`；v2：`evaluation/chap12/results/offline_v2_20261011/`。数字见 improvements.md。
