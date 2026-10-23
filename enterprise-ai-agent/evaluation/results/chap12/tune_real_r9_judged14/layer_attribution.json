@@ -1,0 +1,1724 @@
+{
+ "run": "evaluation\\results\\chap12\\tune_real_r9_judged14",
+ "split": "tune",
+ "tasks": 150,
+ "rewrite_fallback": {
+  "yes": 26,
+  "no": 124
+ },
+ "by_layer": {
+  "correct": {
+   "Y": 47,
+   "N": 19
+  },
+  "L1 retrieval: not retrieved": {
+   "Y": 10,
+   "N": 0
+  },
+  "L1 retrieval: fusion cut": {
+   "Y": 6,
+   "N": 0
+  },
+  "L2 rerank": {
+   "Y": 22,
+   "N": 0
+  },
+  "L3 context": {
+   "Y": 5,
+   "N": 0
+  },
+  "L4 generation: cited other": {
+   "Y": 8,
+   "N": 0
+  },
+  "L4 generation: refused": {
+   "Y": 11,
+   "N": 0
+  },
+  "L4 refusal: answered unanswerable": {
+   "Y": 0,
+   "N": 19
+  },
+  "L5 supervisor: data": {
+   "Y": 3,
+   "N": 0
+  }
+ },
+ "items": [
+  {
+   "task_id": "M-tune-001",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-002",
+   "type": "explain",
+   "answerable": false,
+   "top_returned": {
+    "doc": "swg21541442",
+    "score": 0.6647,
+    "threshold": 0.6568
+   },
+   "layer": "L4 refusal: answered unanswerable",
+   "evidence_docs": 6
+  },
+  {
+   "task_id": "M-tune-003",
+   "type": "explain",
+   "answerable": false,
+   "top_returned": {
+    "doc": "swg21295634",
+    "score": 0.8156,
+    "threshold": 0.6568
+   },
+   "layer": "L4 refusal: answered unanswerable",
+   "evidence_docs": 7
+  },
+  {
+   "task_id": "M-tune-004",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-005",
+   "type": "explain",
+   "answerable": false,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-006",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-007",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21980095",
+    "score": 0.6331,
+    "threshold": 0.6568
+   },
+   "gold": "swg21312967",
+   "rank_dense": 1,
+   "rank_sparse": null,
+   "rank_fusion": 2,
+   "rank_rerank": 17,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-008",
+   "type": "explain",
+   "answerable": false,
+   "top_returned": {
+    "doc": "swg21992894",
+    "score": 0.8447,
+    "threshold": 0.6568
+   },
+   "layer": "L4 refusal: answered unanswerable",
+   "evidence_docs": 4
+  },
+  {
+   "task_id": "M-tune-009",
+   "type": "explain",
+   "answerable": false,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-010",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-011",
+   "type": "explain",
+   "answerable": false,
+   "top_returned": {
+    "doc": "swg22009455",
+    "score": 0.8338,
+    "threshold": 0.6568
+   },
+   "layer": "L4 refusal: answered unanswerable",
+   "evidence_docs": 7
+  },
+  {
+   "task_id": "M-tune-012",
+   "type": "explain",
+   "answerable": false,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-013",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-014",
+   "type": "explain",
+   "answerable": false,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-015",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21688476",
+    "score": 0.5701,
+    "threshold": 0.6568
+   },
+   "gold": "swg21651225",
+   "rank_dense": null,
+   "rank_sparse": 18,
+   "rank_fusion": null,
+   "rank_rerank": null,
+   "layer": "L1 retrieval: fusion cut"
+  },
+  {
+   "task_id": "M-tune-016",
+   "type": "explain",
+   "answerable": false,
+   "top_returned": {
+    "doc": "swg21624731",
+    "score": 0.5834,
+    "threshold": 0.6568
+   },
+   "layer": "L4 refusal: answered unanswerable",
+   "evidence_docs": 7
+  },
+  {
+   "task_id": "M-tune-017",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg24043474",
+    "score": 0.9213,
+    "threshold": 0.6568
+   },
+   "gold": "swg21994741",
+   "rank_dense": 15,
+   "rank_sparse": 11,
+   "rank_fusion": 4,
+   "rank_rerank": 11,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-018",
+   "type": "explain",
+   "answerable": false,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-019",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21975556",
+    "score": 0.5447,
+    "threshold": 0.6568
+   },
+   "gold": "swg21371279",
+   "rank_dense": 23,
+   "rank_sparse": null,
+   "rank_fusion": null,
+   "rank_rerank": null,
+   "layer": "L1 retrieval: fusion cut"
+  },
+  {
+   "task_id": "M-tune-020",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21403984",
+    "score": 0.6153,
+    "threshold": 0.6568
+   },
+   "gold": "swg21639375",
+   "rank_dense": 1,
+   "rank_sparse": 4,
+   "rank_fusion": 1,
+   "rank_rerank": 3,
+   "layer": "L4 generation: refused"
+  },
+  {
+   "task_id": "M-tune-021",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg1JR29789",
+    "score": 0.6326,
+    "threshold": 0.6568
+   },
+   "gold": "swg21268440",
+   "rank_dense": null,
+   "rank_sparse": null,
+   "rank_fusion": null,
+   "rank_rerank": null,
+   "layer": "L1 retrieval: not retrieved"
+  },
+  {
+   "task_id": "M-tune-022",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21444449",
+    "score": 0.6247,
+    "threshold": 0.6568
+   },
+   "gold": "swg24035040",
+   "rank_dense": 2,
+   "rank_sparse": null,
+   "rank_fusion": 6,
+   "rank_rerank": null,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-023",
+   "type": "explain",
+   "answerable": false,
+   "top_returned": {
+    "doc": "swg21699069",
+    "score": 0.7482,
+    "threshold": 0.6568
+   },
+   "layer": "L4 refusal: answered unanswerable",
+   "evidence_docs": 5
+  },
+  {
+   "task_id": "M-tune-024",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-025",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21973714",
+    "score": 0.7567,
+    "threshold": 0.6568
+   },
+   "gold": "swg21163875",
+   "rank_dense": 3,
+   "rank_sparse": null,
+   "rank_fusion": 10,
+   "rank_rerank": 20,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-026",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg1IZ77662",
+    "score": 0.5922,
+    "threshold": 0.6568
+   },
+   "gold": "swg21961222",
+   "rank_dense": 8,
+   "rank_sparse": null,
+   "rank_fusion": 15,
+   "rank_rerank": 15,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-027",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-028",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-029",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-030",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-031",
+   "type": "explain",
+   "answerable": false,
+   "top_returned": {
+    "doc": "swg1PI41634",
+    "score": 0.6287,
+    "threshold": 0.6568
+   },
+   "layer": "L4 refusal: answered unanswerable",
+   "evidence_docs": 8
+  },
+  {
+   "task_id": "M-tune-032",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-033",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-034",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21599402",
+    "score": 0.7545,
+    "threshold": 0.6568
+   },
+   "gold": "swg27042940",
+   "rank_dense": 13,
+   "rank_sparse": null,
+   "rank_fusion": 22,
+   "rank_rerank": null,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-035",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-036",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg1JR51714",
+    "score": 0.8435,
+    "threshold": 0.6568
+   },
+   "gold": "swg21649807",
+   "rank_dense": 4,
+   "rank_sparse": 3,
+   "rank_fusion": 2,
+   "rank_rerank": 3,
+   "layer": "L4 generation: cited other"
+  },
+  {
+   "task_id": "M-tune-037",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-038",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg1PK26490",
+    "score": 0.7123,
+    "threshold": 0.6568
+   },
+   "gold": "swg21690673",
+   "rank_dense": null,
+   "rank_sparse": null,
+   "rank_fusion": null,
+   "rank_rerank": null,
+   "layer": "L1 retrieval: not retrieved"
+  },
+  {
+   "task_id": "M-tune-039",
+   "type": "explain",
+   "answerable": false,
+   "top_returned": {
+    "doc": "swg22010311",
+    "score": 0.8643,
+    "threshold": 0.6568
+   },
+   "layer": "L4 refusal: answered unanswerable",
+   "evidence_docs": 7
+  },
+  {
+   "task_id": "M-tune-040",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21680391",
+    "score": 0.6766,
+    "threshold": 0.6568
+   },
+   "gold": "swg21680391",
+   "rank_dense": null,
+   "rank_sparse": 1,
+   "rank_fusion": 8,
+   "rank_rerank": 1,
+   "layer": "L4 generation: refused"
+  },
+  {
+   "task_id": "M-tune-041",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg1PK90066",
+    "score": 0.7249,
+    "threshold": 0.6568
+   },
+   "gold": "swg21986219",
+   "rank_dense": null,
+   "rank_sparse": null,
+   "rank_fusion": null,
+   "rank_rerank": null,
+   "layer": "L1 retrieval: not retrieved"
+  },
+  {
+   "task_id": "M-tune-042",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-043",
+   "type": "explain",
+   "answerable": false,
+   "top_returned": {
+    "doc": "swg21902450",
+    "score": 0.7564,
+    "threshold": 0.6568
+   },
+   "layer": "L4 refusal: answered unanswerable",
+   "evidence_docs": 5
+  },
+  {
+   "task_id": "M-tune-044",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-045",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg27041901",
+    "score": 0.7256,
+    "threshold": 0.6568
+   },
+   "gold": "swg21973794",
+   "rank_dense": 3,
+   "rank_sparse": null,
+   "rank_fusion": 9,
+   "rank_rerank": null,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-046",
+   "type": "explain",
+   "answerable": false,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-047",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-048",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21507587",
+    "score": 0.6084,
+    "threshold": 0.6568
+   },
+   "gold": "swg21507587",
+   "rank_dense": null,
+   "rank_sparse": 1,
+   "rank_fusion": 8,
+   "rank_rerank": 1,
+   "layer": "L4 generation: cited other"
+  },
+  {
+   "task_id": "M-tune-049",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21985888",
+    "score": 0.6713,
+    "threshold": 0.6568
+   },
+   "gold": "swg21592093",
+   "rank_dense": null,
+   "rank_sparse": null,
+   "rank_fusion": null,
+   "rank_rerank": null,
+   "layer": "L1 retrieval: not retrieved"
+  },
+  {
+   "task_id": "M-tune-050",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21237078",
+    "score": 0.7068,
+    "threshold": 0.6568
+   },
+   "gold": "swg21237078",
+   "rank_dense": 4,
+   "rank_sparse": 1,
+   "rank_fusion": 1,
+   "rank_rerank": 1,
+   "layer": "L4 generation: refused"
+  },
+  {
+   "task_id": "M-tune-051",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-052",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21419230",
+    "score": 0.7723,
+    "threshold": 0.6568
+   },
+   "gold": "swg21419230",
+   "rank_dense": 8,
+   "rank_sparse": 2,
+   "rank_fusion": 4,
+   "rank_rerank": 1,
+   "layer": "L4 generation: cited other"
+  },
+  {
+   "task_id": "M-tune-053",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-054",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21681745",
+    "score": 0.6757,
+    "threshold": 0.6568
+   },
+   "gold": "swg21426787",
+   "rank_dense": null,
+   "rank_sparse": 2,
+   "rank_fusion": 8,
+   "rank_rerank": 5,
+   "layer": "L4 generation: refused"
+  },
+  {
+   "task_id": "M-tune-055",
+   "type": "explain",
+   "answerable": false,
+   "top_returned": {
+    "doc": "swg21420469",
+    "score": 0.8712,
+    "threshold": 0.6568
+   },
+   "layer": "L4 refusal: answered unanswerable",
+   "evidence_docs": 6
+  },
+  {
+   "task_id": "M-tune-056",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg22014520",
+    "score": 0.8189,
+    "threshold": 0.6568
+   },
+   "gold": "swg22012345",
+   "rank_dense": null,
+   "rank_sparse": null,
+   "rank_fusion": null,
+   "rank_rerank": null,
+   "layer": "L1 retrieval: not retrieved"
+  },
+  {
+   "task_id": "M-tune-057",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21568844",
+    "score": 0.7069,
+    "threshold": 0.6568
+   },
+   "gold": "swg21568844",
+   "rank_dense": 1,
+   "rank_sparse": 5,
+   "rank_fusion": 1,
+   "rank_rerank": 1,
+   "layer": "L4 generation: refused"
+  },
+  {
+   "task_id": "M-tune-058",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg1IJ01104",
+    "score": 0.6679,
+    "threshold": 0.6568
+   },
+   "gold": "swg24041563",
+   "rank_dense": 26,
+   "rank_sparse": null,
+   "rank_fusion": null,
+   "rank_rerank": null,
+   "layer": "L1 retrieval: fusion cut"
+  },
+  {
+   "task_id": "M-tune-059",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "ssg1S1005265",
+    "score": 0.6868,
+    "threshold": 0.6568
+   },
+   "gold": "swg21602521",
+   "rank_dense": 1,
+   "rank_sparse": 8,
+   "rank_fusion": 2,
+   "rank_rerank": 2,
+   "layer": "L4 generation: refused"
+  },
+  {
+   "task_id": "M-tune-060",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-061",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-062",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21477182",
+    "score": 0.6351,
+    "threshold": 0.6568
+   },
+   "gold": "swg21592093",
+   "rank_dense": 5,
+   "rank_sparse": 2,
+   "rank_fusion": 2,
+   "rank_rerank": 3,
+   "layer": "L4 generation: refused"
+  },
+  {
+   "task_id": "M-tune-063",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21977774",
+    "score": 0.7101,
+    "threshold": 0.6568
+   },
+   "gold": "swg21696083",
+   "rank_dense": 3,
+   "rank_sparse": 17,
+   "rank_fusion": 3,
+   "rank_rerank": 5,
+   "layer": "L4 generation: refused"
+  },
+  {
+   "task_id": "M-tune-064",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-065",
+   "type": "explain",
+   "answerable": false,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-066",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg1HD87484",
+    "score": 0.6088,
+    "threshold": 0.6568
+   },
+   "gold": "swg27047895",
+   "rank_dense": 4,
+   "rank_sparse": 28,
+   "rank_fusion": 15,
+   "rank_rerank": null,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-067",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-068",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21961090",
+    "score": 0.7508,
+    "threshold": 0.6568
+   },
+   "gold": "swg21438047",
+   "rank_dense": 1,
+   "rank_sparse": 5,
+   "rank_fusion": 5,
+   "rank_rerank": 5,
+   "layer": "L4 generation: cited other"
+  },
+  {
+   "task_id": "M-tune-069",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-070",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21979394",
+    "score": 0.7309,
+    "threshold": 0.6568
+   },
+   "gold": "swg21688071",
+   "rank_dense": 2,
+   "rank_sparse": null,
+   "rank_fusion": 9,
+   "rank_rerank": null,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-071",
+   "type": "explain",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg1HE12537",
+    "score": 0.7096,
+    "threshold": 0.6568
+   },
+   "gold": "swg24042387",
+   "rank_dense": 8,
+   "rank_sparse": 3,
+   "rank_fusion": 3,
+   "rank_rerank": 2,
+   "layer": "L4 generation: cited other"
+  },
+  {
+   "task_id": "M-tune-072",
+   "type": "explain",
+   "answerable": false,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-073",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-074",
+   "type": "explain",
+   "answerable": false,
+   "top_returned": {
+    "doc": "swg1PI40215",
+    "score": 0.6951,
+    "threshold": 0.6568
+   },
+   "layer": "L4 refusal: answered unanswerable",
+   "evidence_docs": 7
+  },
+  {
+   "task_id": "M-tune-075",
+   "type": "explain",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-076",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21971363",
+    "score": 0.8044,
+    "threshold": 0.6568
+   },
+   "gold": "swg21974566",
+   "rank_dense": 6,
+   "rank_sparse": null,
+   "rank_fusion": 14,
+   "rank_rerank": 12,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-077",
+   "type": "explain_and_data",
+   "answerable": false,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-078",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-079",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-080",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-081",
+   "type": "explain_and_data",
+   "answerable": false,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-082",
+   "type": "explain_and_data",
+   "answerable": false,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-083",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21570363",
+    "score": 0.6082,
+    "threshold": 0.6568
+   },
+   "gold": "swg21681464",
+   "rank_dense": 1,
+   "rank_sparse": 7,
+   "rank_fusion": 3,
+   "rank_rerank": 6,
+   "gold_score": 0.544,
+   "gold_threshold": 0.6568,
+   "layer": "L3 context"
+  },
+  {
+   "task_id": "M-tune-084",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21508838",
+    "score": 0.5814,
+    "threshold": 0.6568
+   },
+   "gold": "swg21292808",
+   "rank_dense": 11,
+   "rank_sparse": 3,
+   "rank_fusion": 5,
+   "rank_rerank": 2,
+   "layer": "L4 generation: cited other"
+  },
+  {
+   "task_id": "M-tune-085",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21677833",
+    "score": 0.9253,
+    "threshold": 0.6568
+   },
+   "gold": "swg27023910",
+   "rank_dense": 14,
+   "rank_sparse": 12,
+   "rank_fusion": 8,
+   "rank_rerank": 13,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-086",
+   "type": "explain_and_data",
+   "answerable": false,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-087",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21499459",
+    "score": 0.67,
+    "threshold": 0.6568
+   },
+   "gold": "swg21162896",
+   "rank_dense": 2,
+   "rank_sparse": null,
+   "rank_fusion": 7,
+   "rank_rerank": 20,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-088",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21498401",
+    "score": 0.685,
+    "threshold": 0.6568
+   },
+   "gold": "swg21960133",
+   "rank_dense": 12,
+   "rank_sparse": 24,
+   "rank_fusion": 8,
+   "rank_rerank": 19,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-089",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21675200",
+    "score": 0.5765,
+    "threshold": 0.6568
+   },
+   "gold": "swg21639375",
+   "rank_dense": 2,
+   "rank_sparse": 9,
+   "rank_fusion": 2,
+   "rank_rerank": 6,
+   "gold_score": 0.5218,
+   "gold_threshold": 0.6568,
+   "layer": "L3 context"
+  },
+  {
+   "task_id": "M-tune-090",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg1PI11138",
+    "score": 0.6913,
+    "threshold": 0.6568
+   },
+   "gold": "swg21445801",
+   "rank_dense": 25,
+   "rank_sparse": null,
+   "rank_fusion": null,
+   "rank_rerank": null,
+   "layer": "L1 retrieval: fusion cut"
+  },
+  {
+   "task_id": "M-tune-091",
+   "type": "explain_and_data",
+   "answerable": false,
+   "top_returned": {
+    "doc": "swg22012477",
+    "score": 0.8508,
+    "threshold": 0.6568
+   },
+   "layer": "L4 refusal: answered unanswerable",
+   "evidence_docs": 7
+  },
+  {
+   "task_id": "M-tune-092",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-093",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21998655",
+    "score": 0.8913,
+    "threshold": 0.6568
+   },
+   "gold": "swg21998655",
+   "rank_dense": 3,
+   "rank_sparse": 1,
+   "rank_fusion": 1,
+   "rank_rerank": 1,
+   "layer": "L5 supervisor: data"
+  },
+  {
+   "task_id": "M-tune-094",
+   "type": "explain_and_data",
+   "answerable": false,
+   "top_returned": {
+    "doc": "swg22011745",
+    "score": 0.8457,
+    "threshold": 0.6568
+   },
+   "layer": "L4 refusal: answered unanswerable",
+   "evidence_docs": 7
+  },
+  {
+   "task_id": "M-tune-095",
+   "type": "explain_and_data",
+   "answerable": false,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-096",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-097",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-098",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-099",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21686939",
+    "score": 0.9474,
+    "threshold": 0.6568
+   },
+   "gold": "swg21529563",
+   "rank_dense": null,
+   "rank_sparse": 6,
+   "rank_fusion": 11,
+   "rank_rerank": 12,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-100",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21660890",
+    "score": 0.7079,
+    "threshold": 0.6568
+   },
+   "gold": "swg21660890",
+   "rank_dense": 2,
+   "rank_sparse": 1,
+   "rank_fusion": 1,
+   "rank_rerank": 1,
+   "layer": "L4 generation: cited other"
+  },
+  {
+   "task_id": "M-tune-101",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21619511",
+    "score": 0.684,
+    "threshold": 0.6568
+   },
+   "gold": "swg1PI37248",
+   "rank_dense": null,
+   "rank_sparse": null,
+   "rank_fusion": null,
+   "rank_rerank": null,
+   "layer": "L1 retrieval: not retrieved"
+  },
+  {
+   "task_id": "M-tune-102",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21664629",
+    "score": 0.6591,
+    "threshold": 0.6568
+   },
+   "gold": "swg21664629",
+   "rank_dense": null,
+   "rank_sparse": 3,
+   "rank_fusion": 10,
+   "rank_rerank": 1,
+   "layer": "L4 generation: refused"
+  },
+  {
+   "task_id": "M-tune-103",
+   "type": "explain_and_data",
+   "answerable": false,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-104",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-105",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg1ZZ00704",
+    "score": 0.5943,
+    "threshold": 0.6568
+   },
+   "gold": "swg2C1000132",
+   "rank_dense": 9,
+   "rank_sparse": 30,
+   "rank_fusion": 4,
+   "rank_rerank": 16,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-106",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21675676",
+    "score": 0.6788,
+    "threshold": 0.6568
+   },
+   "gold": "swg27023007",
+   "rank_dense": null,
+   "rank_sparse": null,
+   "rank_fusion": null,
+   "rank_rerank": null,
+   "layer": "L1 retrieval: not retrieved"
+  },
+  {
+   "task_id": "M-tune-107",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg1IV79364",
+    "score": 0.6592,
+    "threshold": 0.6568
+   },
+   "gold": "swg21657023",
+   "rank_dense": null,
+   "rank_sparse": 7,
+   "rank_fusion": 15,
+   "rank_rerank": 6,
+   "gold_score": 0.547,
+   "gold_threshold": 0.6568,
+   "layer": "L3 context"
+  },
+  {
+   "task_id": "M-tune-108",
+   "type": "explain_and_data",
+   "answerable": false,
+   "top_returned": {
+    "doc": "swg21397886",
+    "score": 0.8388,
+    "threshold": 0.6568
+   },
+   "layer": "L4 refusal: answered unanswerable",
+   "evidence_docs": 8
+  },
+  {
+   "task_id": "M-tune-109",
+   "type": "explain_and_data",
+   "answerable": false,
+   "top_returned": {
+    "doc": "swg21987920",
+    "score": 0.78,
+    "threshold": 0.6568
+   },
+   "layer": "L4 refusal: answered unanswerable",
+   "evidence_docs": 7
+  },
+  {
+   "task_id": "M-tune-110",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-111",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21675631",
+    "score": 0.5872,
+    "threshold": 0.6568
+   },
+   "gold": "swg21968549",
+   "rank_dense": 5,
+   "rank_sparse": null,
+   "rank_fusion": 11,
+   "rank_rerank": 10,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-112",
+   "type": "explain_and_data",
+   "answerable": false,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-113",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21689678",
+    "score": 0.7644,
+    "threshold": 0.6568
+   },
+   "gold": "swg21700308",
+   "rank_dense": 1,
+   "rank_sparse": null,
+   "rank_fusion": 13,
+   "rank_rerank": null,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-114",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-115",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-116",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21995037",
+    "score": 0.684,
+    "threshold": 0.6568
+   },
+   "gold": "swg21974546",
+   "rank_dense": null,
+   "rank_sparse": null,
+   "rank_fusion": null,
+   "rank_rerank": null,
+   "layer": "L1 retrieval: not retrieved"
+  },
+  {
+   "task_id": "M-tune-117",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-118",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-119",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21681687",
+    "score": 0.709,
+    "threshold": 0.6568
+   },
+   "gold": "swg21318303",
+   "rank_dense": null,
+   "rank_sparse": null,
+   "rank_fusion": null,
+   "rank_rerank": null,
+   "layer": "L1 retrieval: not retrieved"
+  },
+  {
+   "task_id": "M-tune-120",
+   "type": "explain_and_data",
+   "answerable": false,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-121",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21651526",
+    "score": 0.7366,
+    "threshold": 0.6568
+   },
+   "gold": "swg21662193",
+   "rank_dense": 19,
+   "rank_sparse": 7,
+   "rank_fusion": 6,
+   "rank_rerank": 12,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-122",
+   "type": "explain_and_data",
+   "answerable": false,
+   "top_returned": {
+    "doc": "swg21700559",
+    "score": 0.7027,
+    "threshold": 0.6568
+   },
+   "layer": "L4 refusal: answered unanswerable",
+   "evidence_docs": 8
+  },
+  {
+   "task_id": "M-tune-123",
+   "type": "explain_and_data",
+   "answerable": false,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-124",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-125",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg1IT23603",
+    "score": 0.6713,
+    "threshold": 0.6568
+   },
+   "gold": "swg21585678",
+   "rank_dense": null,
+   "rank_sparse": null,
+   "rank_fusion": null,
+   "rank_rerank": null,
+   "layer": "L1 retrieval: not retrieved"
+  },
+  {
+   "task_id": "M-tune-126",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21695194",
+    "score": 0.7439,
+    "threshold": 0.6568
+   },
+   "gold": "swg21695194",
+   "rank_dense": 1,
+   "rank_sparse": 1,
+   "rank_fusion": 1,
+   "rank_rerank": 1,
+   "layer": "L4 generation: refused"
+  },
+  {
+   "task_id": "M-tune-127",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg1PJ44413",
+    "score": 0.6837,
+    "threshold": 0.6568
+   },
+   "gold": "swg27049061",
+   "rank_dense": 23,
+   "rank_sparse": 17,
+   "rank_fusion": 30,
+   "rank_rerank": 18,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-128",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-129",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21681142",
+    "score": 0.7392,
+    "threshold": 0.6568
+   },
+   "gold": "swg21681142",
+   "rank_dense": 1,
+   "rank_sparse": 1,
+   "rank_fusion": 1,
+   "rank_rerank": 1,
+   "layer": "L5 supervisor: data"
+  },
+  {
+   "task_id": "M-tune-130",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21700865",
+    "score": 0.8593,
+    "threshold": 0.6568
+   },
+   "gold": "swg21700865",
+   "rank_dense": null,
+   "rank_sparse": 1,
+   "rank_fusion": 3,
+   "rank_rerank": 1,
+   "layer": "L5 supervisor: data"
+  },
+  {
+   "task_id": "M-tune-131",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21683210",
+    "score": 0.7271,
+    "threshold": 0.6568
+   },
+   "gold": "swg24042283",
+   "rank_dense": 26,
+   "rank_sparse": 16,
+   "rank_fusion": 8,
+   "rank_rerank": 7,
+   "gold_score": 0.5446,
+   "gold_threshold": 0.6568,
+   "layer": "L3 context"
+  },
+  {
+   "task_id": "M-tune-132",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-133",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-134",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21966881",
+    "score": 0.6136,
+    "threshold": 0.6568
+   },
+   "gold": "swg21966881",
+   "rank_dense": null,
+   "rank_sparse": 1,
+   "rank_fusion": 2,
+   "rank_rerank": 1,
+   "layer": "L4 generation: refused"
+  },
+  {
+   "task_id": "M-tune-135",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21985888",
+    "score": 0.6571,
+    "threshold": 0.6568
+   },
+   "gold": "swg21966637",
+   "rank_dense": 27,
+   "rank_sparse": null,
+   "rank_fusion": null,
+   "rank_rerank": null,
+   "layer": "L1 retrieval: fusion cut"
+  },
+  {
+   "task_id": "M-tune-136",
+   "type": "explain_and_data",
+   "answerable": false,
+   "top_returned": {
+    "doc": "swg21640661",
+    "score": 0.7176,
+    "threshold": 0.6568
+   },
+   "layer": "L4 refusal: answered unanswerable",
+   "evidence_docs": 8
+  },
+  {
+   "task_id": "M-tune-137",
+   "type": "explain_and_data",
+   "answerable": false,
+   "top_returned": {
+    "doc": "swg22014521",
+    "score": 0.8805,
+    "threshold": 0.6568
+   },
+   "layer": "L4 refusal: answered unanswerable",
+   "evidence_docs": 7
+  },
+  {
+   "task_id": "M-tune-138",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21460225",
+    "score": 0.6907,
+    "threshold": 0.6568
+   },
+   "gold": "swg21964202",
+   "rank_dense": null,
+   "rank_sparse": 10,
+   "rank_fusion": 17,
+   "rank_rerank": 10,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-139",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21663707",
+    "score": 0.6261,
+    "threshold": 0.6568
+   },
+   "gold": "swg21598779",
+   "rank_dense": 2,
+   "rank_sparse": null,
+   "rank_fusion": 9,
+   "rank_rerank": 18,
+   "layer": "L2 rerank"
+  },
+  {
+   "task_id": "M-tune-140",
+   "type": "explain_and_data",
+   "answerable": false,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-141",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg1PK99926",
+    "score": 0.6729,
+    "threshold": 0.6568
+   },
+   "gold": "swg21282614",
+   "rank_dense": null,
+   "rank_sparse": 7,
+   "rank_fusion": 16,
+   "rank_rerank": 7,
+   "gold_score": 0.584,
+   "gold_threshold": 0.6568,
+   "layer": "L3 context"
+  },
+  {
+   "task_id": "M-tune-142",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21902773",
+    "score": 0.7325,
+    "threshold": 0.6568
+   },
+   "gold": "swg21902778",
+   "rank_dense": null,
+   "rank_sparse": 30,
+   "rank_fusion": null,
+   "rank_rerank": null,
+   "layer": "L1 retrieval: fusion cut"
+  },
+  {
+   "task_id": "M-tune-143",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-144",
+   "type": "explain_and_data",
+   "answerable": false,
+   "top_returned": {
+    "doc": "swg21624179",
+    "score": 0.7811,
+    "threshold": 0.6568
+   },
+   "layer": "L4 refusal: answered unanswerable",
+   "evidence_docs": 8
+  },
+  {
+   "task_id": "M-tune-145",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg21680391",
+    "score": 0.8695,
+    "threshold": 0.6568
+   },
+   "gold": "swg21680391",
+   "rank_dense": 1,
+   "rank_sparse": 1,
+   "rank_fusion": 1,
+   "rank_rerank": 1,
+   "layer": "L4 generation: cited other"
+  },
+  {
+   "task_id": "M-tune-146",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-147",
+   "type": "explain_and_data",
+   "answerable": false,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-148",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-149",
+   "type": "explain_and_data",
+   "answerable": true,
+   "layer": "correct"
+  },
+  {
+   "task_id": "M-tune-150",
+   "type": "explain_and_data",
+   "answerable": true,
+   "top_returned": {
+    "doc": "swg1PJ41598",
+    "score": 0.7444,
+    "threshold": 0.6568
+   },
+   "gold": "swg21406783",
+   "rank_dense": 5,
+   "rank_sparse": 20,
+   "rank_fusion": 4,
+   "rank_rerank": 19,
+   "layer": "L2 rerank"
+  }
+ ],
+ "method": "in pipeline order (the first one that loses the gold document is reported):\n  L1 retrieval   gold document in neither the dense nor the sparse list, or cut by RRF fusion\n                 (candidate_k 30)\n  L2 rerank      in the fused candidates, but not among the top_k documents handed to the agent\n  L3 context     handed to the agent, but not in the evidence the model saw (acceptance\n                 threshold, conflict filters or token budget)\n  L4 generation  in the evidence, but the model cited other documents or refused\n  L5 supervisor  explanation correct, but withheld by the Supervisor or the data part is wrong\nUnanswerable questions are correct only when refused; an answered one is reported as\n\"L4 refusal\" together with the top returned score and its threshold."
+}

@@ -65,7 +65,8 @@
   "reranker": "nomic",
   "model": "qwen2.5:7b",
   "verifier": false,
-  "selector": "project1"
+  "selector": "judged",
+  "judge_model": "qwen2.5:14b"
  },
  "round3": {
   "current": {
@@ -629,5 +630,148 @@
    }
   ],
   "rule": "and committed before the run:\n  adopt  adopt the judged selector only if, against the base: correct answerable answers\n         lost <= 3, net paired wins >= 5, failure rate not higher, and mean token F1 on\n         answerable tasks answered by both runs not lower by more than 0.05.\n  gate   (diagnosis only) on the judged run's trace, simulate a hard gate before the LLM:\n         refuse when the top returned rerank score < T, T in 0.60..0.80 step 0.02, with the\n         same two counts. A feasible T is a candidate for a separate pre-registered run."
+ },
+ "round9": {
+  "base_run": "tune_real_r9_base",
+  "vs_7b_judge": {
+   "base_correct": 55,
+   "variant_correct": 66,
+   "wins": 22,
+   "losses": 11,
+   "net": 11
+  },
+  "base_reproduces_r8": {
+   "base_correct": 51,
+   "variant_correct": 51,
+   "wins": 0,
+   "losses": 0
+  },
+  "base": {
+   "correct_all": 0.34,
+   "failure_rate": 0.0,
+   "y_accept": 0.8482,
+   "n_refuse": 0.0789,
+   "y_gold_cited": 0.4554,
+   "latency_mean_ms": 11862.0
+  },
+  "judged14": {
+   "correct_all": 0.44,
+   "failure_rate": 0.0,
+   "y_accept": 0.6607,
+   "n_refuse": 0.5,
+   "y_gold_cited": 0.4464,
+   "latency_mean_ms": 40573.0
+  },
+  "correct_answerable_lost": 2,
+  "paired": {
+   "base_correct": 51,
+   "variant_correct": 66,
+   "wins": 17,
+   "losses": 2,
+   "net": 15,
+   "mcnemar_p_one_sided": 0.0004,
+   "y_token_f1": {
+    "base": 0.2747,
+    "variant": 0.2461,
+    "tasks": 112
+   },
+   "y_token_f1_both_answered": {
+    "base": 0.3736,
+    "variant": 0.3734,
+    "tasks": 73
+   }
+  },
+  "adopted": true,
+  "gate_simulation": [
+   {
+    "threshold": 0.6,
+    "wins": 18,
+    "losses": 4,
+    "net": 14,
+    "correct_answerable_lost": 4,
+    "feasible": false
+   },
+   {
+    "threshold": 0.62,
+    "wins": 18,
+    "losses": 4,
+    "net": 14,
+    "correct_answerable_lost": 4,
+    "feasible": false
+   },
+   {
+    "threshold": 0.64,
+    "wins": 19,
+    "losses": 5,
+    "net": 14,
+    "correct_answerable_lost": 5,
+    "feasible": false
+   },
+   {
+    "threshold": 0.66,
+    "wins": 19,
+    "losses": 8,
+    "net": 11,
+    "correct_answerable_lost": 8,
+    "feasible": false
+   },
+   {
+    "threshold": 0.68,
+    "wins": 20,
+    "losses": 9,
+    "net": 11,
+    "correct_answerable_lost": 9,
+    "feasible": false
+   },
+   {
+    "threshold": 0.7,
+    "wins": 21,
+    "losses": 11,
+    "net": 10,
+    "correct_answerable_lost": 11,
+    "feasible": false
+   },
+   {
+    "threshold": 0.72,
+    "wins": 23,
+    "losses": 13,
+    "net": 10,
+    "correct_answerable_lost": 13,
+    "feasible": false
+   },
+   {
+    "threshold": 0.74,
+    "wins": 23,
+    "losses": 13,
+    "net": 10,
+    "correct_answerable_lost": 13,
+    "feasible": false
+   },
+   {
+    "threshold": 0.76,
+    "wins": 25,
+    "losses": 15,
+    "net": 10,
+    "correct_answerable_lost": 15,
+    "feasible": false
+   },
+   {
+    "threshold": 0.78,
+    "wins": 25,
+    "losses": 18,
+    "net": 7,
+    "correct_answerable_lost": 18,
+    "feasible": false
+   },
+   {
+    "threshold": 0.8,
+    "wins": 27,
+    "losses": 19,
+    "net": 8,
+    "correct_answerable_lost": 19,
+    "feasible": false
+   }
+  ],
+  "rule": "and committed before the run:\n  adopt  adopt only if, against the base: correct answerable answers lost <= 3, net paired\n         wins >= 5, failure rate not higher, and mean token F1 on answerable tasks answered by\n         both runs not lower by more than 0.05. Latency is reported, not gated.\n  gate   (diagnosis only) simulate a hard gate on the top rerank score, T in 0.60..0.80.\nAlso reported (not part of the rule): paired comparison with the 7B judge (tune_real_r8_judged)."
  }
 }
