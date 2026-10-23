@@ -64,7 +64,8 @@
   "critic": true,
   "reranker": "nomic",
   "model": "qwen2.5:7b",
-  "verifier": false
+  "verifier": false,
+  "selector": "project1"
  },
  "round3": {
   "current": {
@@ -356,5 +357,141 @@
   "model_adopted": "qwen2.5:7b",
   "verifier_evaluated_on": "7b",
   "verifier_adopted": false
+ },
+ "round7": {
+  "base_run": "tune_real_r7_base",
+  "base_reproduces_r4": {
+   "base_correct": 55,
+   "variant_correct": 51,
+   "wins": 3,
+   "losses": 7
+  },
+  "base": {
+   "correct_all": 0.34,
+   "failure_rate": 0.0,
+   "y_accept": 0.8482,
+   "n_refuse": 0.0789,
+   "y_gold_cited": 0.4554,
+   "latency_mean_ms": 11942.7
+  },
+  "strict": {
+   "correct_all": 0.3133,
+   "failure_rate": 0.0,
+   "y_accept": 0.125,
+   "n_refuse": 0.9737,
+   "y_gold_cited": 0.0982,
+   "latency_mean_ms": 21736.8
+  },
+  "correct_answerable_lost": 38,
+  "paired": {
+   "base_correct": 51,
+   "variant_correct": 47,
+   "wins": 34,
+   "losses": 38,
+   "net": -4,
+   "mcnemar_p_one_sided": 0.722,
+   "y_token_f1": {
+    "base": 0.2747,
+    "variant": 0.0516,
+    "tasks": 112
+   },
+   "y_token_f1_both_answered": {
+    "base": 0.4252,
+    "variant": 0.413,
+    "tasks": 14
+   }
+  },
+  "adopted": false,
+  "gate_simulation": [
+   {
+    "threshold": 0.6,
+    "wins": 34,
+    "losses": 38,
+    "net": -4,
+    "correct_answerable_lost": 38,
+    "feasible": false
+   },
+   {
+    "threshold": 0.62,
+    "wins": 34,
+    "losses": 38,
+    "net": -4,
+    "correct_answerable_lost": 38,
+    "feasible": false
+   },
+   {
+    "threshold": 0.64,
+    "wins": 34,
+    "losses": 38,
+    "net": -4,
+    "correct_answerable_lost": 38,
+    "feasible": false
+   },
+   {
+    "threshold": 0.66,
+    "wins": 34,
+    "losses": 38,
+    "net": -4,
+    "correct_answerable_lost": 38,
+    "feasible": false
+   },
+   {
+    "threshold": 0.68,
+    "wins": 34,
+    "losses": 39,
+    "net": -5,
+    "correct_answerable_lost": 39,
+    "feasible": false
+   },
+   {
+    "threshold": 0.7,
+    "wins": 34,
+    "losses": 39,
+    "net": -5,
+    "correct_answerable_lost": 39,
+    "feasible": false
+   },
+   {
+    "threshold": 0.72,
+    "wins": 34,
+    "losses": 40,
+    "net": -6,
+    "correct_answerable_lost": 40,
+    "feasible": false
+   },
+   {
+    "threshold": 0.74,
+    "wins": 34,
+    "losses": 40,
+    "net": -6,
+    "correct_answerable_lost": 40,
+    "feasible": false
+   },
+   {
+    "threshold": 0.76,
+    "wins": 34,
+    "losses": 40,
+    "net": -6,
+    "correct_answerable_lost": 40,
+    "feasible": false
+   },
+   {
+    "threshold": 0.78,
+    "wins": 34,
+    "losses": 41,
+    "net": -7,
+    "correct_answerable_lost": 41,
+    "feasible": false
+   },
+   {
+    "threshold": 0.8,
+    "wins": 34,
+    "losses": 42,
+    "net": -8,
+    "correct_answerable_lost": 42,
+    "feasible": false
+   }
+  ],
+  "rule": "and committed before the run:\n  adopt  adopt the strict selector only if, against tune_real_r4_base: correct answerable\n         answers lost <= 3, net paired wins >= 5, failure rate not higher, and mean token F1\n         on answerable tasks answered by both runs not lower by more than 0.05.\n  gate   (teacher's fallback, diagnosis only) on the strict run's trace, simulate a hard\n         gate before the LLM: refuse when the top returned rerank score < T, T in\n         0.60..0.80 step 0.02. Report each T with the same two counts (lost <= 3, net >= 5\n         against tune_real_r4_base). A feasible T is a candidate for a separate pre-registered\n         run; nothing is adopted from the simulation."
  }
 }
