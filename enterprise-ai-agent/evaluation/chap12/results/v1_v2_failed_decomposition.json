@@ -1,0 +1,13 @@
+{
+ "v1_failed": 44,
+ "v2_failed": 0,
+ "causes": {
+  "product_inference_rescue (data completed via inferred product)": 33,
+  "reclassified (missing product: failed -> no_data/clarification)": 11
+ },
+ "v2_overall_status_of_v1_failed": {
+  "completed": 17,
+  "partial": 22,
+  "no_data": 5
+ }
+}

@@ -1,0 +1,299 @@
+"""Central Supervisor: validate, authorize, plan, dispatch, merge, render.
+
+State ownership (written by -> read by):
+  run_id, plan, inputs ............ Supervisor -> Workers (each only its own input)
+  results[worker] ................. that Worker's return value -> Supervisor (merge)
+  budget counters ................. Budget (reserve) -> Workers/Supervisor (usage)
+  status, answer, limitations ..... Supervisor only
+RAG and DB have no data dependency, so they run concurrently; each writes only its own
+result object and the Supervisor merges after both finish or the deadline cancels them.
+"""
+
+from __future__ import annotations
+
+import asyncio
+import uuid
+from typing import Any, Protocol
+
+from agents.chap12 import planner
+from agents.chap12.budget import Budget, BudgetExhausted, BudgetLimits, metered
+from agents.chap12.contracts import (
+    USEFUL,
+    AnalysisRequest,
+    DbPayload,
+    FinalResponse,
+    RagPayload,
+    TaskSpec,
+    TraceEvent,
+    TrustedContext,
+    Usage,
+    WorkerError,
+    WorkerResult,
+)
+from agents.chap12.critic import MAX_REPLANS, critic_enabled, review
+from agents.chap12.db_worker import Catalog
+from agents.chap12.verifier import verifier_mode
+
+PRIORITY = ("permission_denied", "timeout", "failed", "no_data")
+
+
+class Worker(Protocol):
+    name: str
+
+    async def run(self, run_id: str, task_id: str, request: Any, ctx: TrustedContext,
+                  budget: Budget) -> WorkerResult: ...
+
+
+def merge(statuses: list[str]) -> str:
+    """Overall status for required tasks. Never upgrades a failure to success."""
+    if not statuses:
+        return "failed"
+    if all(s == "completed" for s in statuses):
+        return "completed"
+    if any(s in USEFUL for s in statuses):
+        return "partial"
+    for status in PRIORITY:
+        if status in statuses:
+            return status
+    return "failed"
+
+
+class Supervisor:
+    def __init__(self, workers: dict[str, Worker], catalog: Catalog,
+                 limits: BudgetLimits | None = None, critic: bool | None = None,
+                 verifier: Any | None = None, verify: bool | None = None,
+                 verify_min: int | None = None) -> None:
+        self.workers, self.catalog = workers, catalog
+        self.limits = limits or BudgetLimits()
+        self.critic = critic  # default for critic_enabled(); env CHAP12_CRITIC overrides
+        self.verifier = verifier  # AnswerVerifier (online profile only)
+        self.verify = verify  # defaults for verifier_mode(); env CHAP12_VERIFIER overrides
+        self.verify_min = verify_min  # graded minimum score (round 6)
+
+    async def run(self, request: AnalysisRequest, ctx: TrustedContext) -> FinalResponse:
+        run_id = uuid.uuid4().hex
+        budget = Budget(self.limits)
+        trace: list[TraceEvent] = []
+
+        def event(node: str, name: str, detail: str = "") -> None:
+            trace.append(TraceEvent(at_ms=round(budget.elapsed_ms(), 2), node=node, event=name,
+                                    detail=detail))
+
+        tasks = planner.plan(request)
+        event("supervisor", "planned", ",".join(t.worker for t in tasks))
+        notes: list[str] = []
+        inputs: dict[str, Any] = {}
+        for task in tasks:
+            if task.worker == "rag":
+                inputs[task.task_id] = planner.rag_input(request)
+            else:
+                inputs[task.task_id], extra = planner.db_input(request, self.catalog)
+                notes += extra
+
+        results: dict[str, WorkerResult] = {}
+        if not any(t.worker in ctx.allowed_workers for t in tasks):
+            # Global denial: no Worker is invoked and nothing is retrieved or counted.
+            for task in tasks:
+                results[task.task_id] = self._synthetic(run_id, task, "permission_denied",
+                                                        "permission_denied",
+                                                        "subject is not authorized")
+            event("supervisor", "denied", "no authorized worker; zero calls")
+        else:
+            runnable: dict[str, asyncio.Task[WorkerResult]] = {}
+            for task in tasks:
+                worker = self.workers.get(task.worker)
+                if worker is None:
+                    results[task.task_id] = self._synthetic(run_id, task, "failed", "internal",
+                                                            "worker is not registered")
+                    continue
+                event(task.worker, "dispatched", task.task_id)
+                runnable[task.task_id] = asyncio.create_task(
+                    worker.run(run_id, task.task_id, inputs[task.task_id], ctx, budget))
+            if runnable:
+                done, pending = await asyncio.wait(runnable.values(),
+                                                   timeout=budget.remaining() + 0.5)
+                for task_handle in pending:
+                    task_handle.cancel()
+                if pending:
+                    await asyncio.gather(*pending, return_exceptions=True)
+                specs = {t.task_id: t for t in tasks}
+                for task_id, handle in runnable.items():
+                    spec = specs[task_id]
+                    if handle in pending:
+                        results[task_id] = self._synthetic(run_id, spec, "timeout", "timeout",
+                                                           "cancelled at request deadline")
+                    elif handle.exception() is not None:
+                        results[task_id] = self._synthetic(
+                            run_id, spec, "failed", "internal",
+                            type(handle.exception()).__name__)
+                    else:
+                        results[task_id] = handle.result()
+                    event(spec.worker, "result", results[task_id].status)
+
+        if self.verifier is not None and results and \
+                verifier_mode(self.verify, self.verify_min)[0] != "off":
+            await self._verify(request, budget, tasks, results, event)
+
+        if critic_enabled(self.critic) and results:
+            await self._critique(run_id, ctx, budget, tasks, inputs, results, notes, event)
+
+        ordered = [results[t.task_id] for t in tasks]
+        status = merge([r.status for r in ordered])
+        event("supervisor", "merged", status)
+        return self._render(run_id, request, tasks, ordered, status, notes, budget, trace)
+
+    async def _critique(self, run_id: str, ctx: TrustedContext, budget: Budget,
+                        tasks: list[TaskSpec], inputs: dict[str, Any],
+                        results: dict[str, WorkerResult], notes: list[str],
+                        event: Any) -> None:
+        """Program Critic over the Worker results; at most MAX_REPLANS DB re-runs."""
+        rag_task = next((t for t in tasks if t.worker == "rag"), None)
+        db_task = next((t for t in tasks if t.worker == "database"), None)
+        rag = results.get(rag_task.task_id) if rag_task else None
+        db = results.get(db_task.task_id) if db_task else None
+        database = self.workers.get("database")
+        lookup = getattr(database, "cited_products", None)
+
+        def products(docs: list[str]) -> list[str]:
+            return list(lookup(docs, ctx)) if lookup is not None else []
+
+        try:
+            found = await asyncio.to_thread(review, rag, db, products)
+        except Exception as exc:  # the Critic must never break a result
+            event("critic", "error", type(exc).__name__)
+            return
+        for finding in found.findings:
+            event("critic", "finding", finding)
+        if found.replan_product is None and any(f.startswith("C2") for f in found.findings):
+            notes.append("复核提示：数据部分的产品与回答所引用文档的产品不一致，请核对。")
+        if any(f.startswith("C1") for f in found.findings):
+            notes.append("复核提示：回答的引用不完整，请谨慎使用。")
+        replans = 0
+        if found.replan_product is None or db_task is None or database is None:
+            return
+        if replans >= MAX_REPLANS or budget.remaining() <= 0:
+            event("critic", "replan_skipped", "no remaining budget")
+            return
+        replans += 1
+        event("supervisor", "replan", f"database product={found.replan_product}")
+        request = inputs[db_task.task_id].model_dump() | {
+            "product": found.replan_product, "product_source": "rag_citation",
+            "infer_product": False}
+        try:
+            retried = await asyncio.wait_for(
+                database.run(run_id, db_task.task_id, type(inputs[db_task.task_id])
+                             .model_validate(request), ctx, budget),
+                timeout=budget.remaining() + 0.5)
+        except TimeoutError:
+            event("database", "replan_result", "timeout; original result kept")
+            return
+        event("database", "replan_result", retried.status)
+        if retried.status in USEFUL:
+            results[db_task.task_id] = retried
+        else:
+            notes.append(f"复核后重新查询未成功（{retried.status}），保留原数据结果。")
+
+    async def _verify(self, request: AnalysisRequest, budget: Budget, tasks: list[TaskSpec],
+                      results: dict[str, WorkerResult], event: Any) -> None:
+        """Answerability Verifier: may only withhold a published RAG answer, never add one."""
+        rag_task = next((t for t in tasks if t.worker == "rag"), None)
+        rag = results.get(rag_task.task_id) if rag_task else None
+        verifier = self.verifier
+        if verifier is None or rag is None or rag.status not in USEFUL or \
+                not isinstance(rag.payload, RagPayload):
+            return
+        mode, minimum = verifier_mode(self.verify, self.verify_min)
+        try:
+            with metered(budget, "verifier"):
+                call = verifier.grade if mode == "graded" else verifier.answers
+                verdict = await asyncio.wait_for(call(request.query, rag.payload),
+                                                 timeout=max(budget.remaining(), 0.1))
+        except (TimeoutError, BudgetExhausted) as exc:
+            event("verifier", "skipped", type(exc).__name__)  # answer kept
+            return
+        if mode == "graded":
+            reject = verdict is not None and minimum is not None and verdict < minimum
+            event("verifier", "verdict", "undecided" if verdict is None else
+                  f"score={verdict}" + (";rejected" if reject else ""))
+        else:
+            reject = verdict is False
+            event("verifier", "verdict",
+                  "undecided" if verdict is None else "answers" if verdict else "rejected")
+        if reject:
+            results[rag.task_id] = rag.model_copy(update={
+                "status": "no_data",
+                "error": WorkerError.model_validate({
+                    "category": "invalid_evidence",
+                    "message": "答案核验未通过：引用内容没有回答这个问题，已拒答"})})
+
+    @staticmethod
+    def _synthetic(run_id: str, task: TaskSpec, status: str, category: str,
+                   message: str) -> WorkerResult:
+        return WorkerResult.model_validate({
+            "run_id": run_id, "task_id": task.task_id, "worker": task.worker, "status": status,
+            "error": WorkerError.model_validate({"category": category, "message": message}),
+        })
+
+    @staticmethod
+    def _render(run_id: str, request: AnalysisRequest, tasks: list[TaskSpec],
+                results: list[WorkerResult], status: str, notes: list[str], budget: Budget,
+                trace: list[TraceEvent]) -> FinalResponse:
+        parts: list[str] = []
+        citations = []
+        data: DbPayload | None = None
+        limitations = list(notes)
+        for result in results:
+            payload = result.payload
+            if isinstance(payload, RagPayload) and result.status in USEFUL:
+                parts.append(payload.answer)
+                citations = payload.citations
+            elif isinstance(payload, DbPayload) and result.status in USEFUL | {"no_data"}:
+                data = payload
+                parts.append(_data_sentence(payload))
+            if result.status not in USEFUL:
+                reason = result.error.message if result.error else "no publishable result"
+                label = "技术解释" if result.worker == "rag" else "数据查询"
+                limitations.append(f"{label}未完成（{result.status}）：{reason}")
+            limitations += [x for x in result.limitations if x not in limitations]
+        if not parts:
+            parts.append("未能给出有证据支持的结果。")
+        if status == "partial":
+            limitations.insert(0, "部分完成：仅包含已完成部分，不能视为完整回答。")
+        usage = Usage(
+            llm_calls=budget.used["llm"], embedding_calls=budget.used["embedding"],
+            db_queries=budget.used["db"], tool_calls=budget.used["tool"],
+            sql_statements=budget.used["sql"], local_compute=budget.used["local"],
+            embedding_cache_hits=budget.embedding_cache_hits,
+            prompt_tokens=budget.prompt_tokens, completion_tokens=budget.completion_tokens,
+            tokens=None if budget.prompt_tokens is None and budget.completion_tokens is None
+            else (budget.prompt_tokens or 0) + (budget.completion_tokens or 0),
+            retries=sum(r.usage.retries for r in results), elapsed_ms=budget.elapsed_ms(),
+        )
+        return FinalResponse(run_id=run_id, status=status, goal=request.goal,  # type: ignore[arg-type]
+                             plan=tasks, answer="\n\n".join(parts), citations=citations,
+                             data_result=data, limitations=limitations, worker_results=results,
+                             usage=usage, trace=trace)
+
+
+def _data_sentence(payload: DbPayload) -> str:
+    scope = []
+    if payload.date_from or payload.date_to:
+        scope.append(f"{payload.date_from or '最早'} 至 {payload.date_to or '最新'}")
+    if payload.doc_class:
+        scope.append(f"类别 {payload.doc_class}")
+    condition = f"（{'，'.join(scope)}）" if scope else ""
+    if payload.operation == "count_documents":
+        return (f"[数据] 样本快照中产品 {payload.product_name}（{payload.product_id}）"
+                f"{condition}的文档数：{payload.count}。")
+    if payload.operation in {"list_recent_documents", "search_product_documents"}:
+        lines = "\n".join(f"- {r.key}（{r.value}）" for r in payload.rows) or "- 无"
+        relevant = payload.operation == "search_product_documents"
+        more = ("\n（同产品还有更多文档，仅列出" + ("最相关" if relevant else "最近") + "几篇）"
+                if payload.truncated else "")
+        kind = "与问题最相关的文档" if relevant else "最近的文档"
+        return (f"[相关文档] 样本知识库中产品 {payload.product_name}{condition}{kind}："
+                f"\n{lines}{more}")
+    rows = "；".join(f"{r.key}: {r.value}" for r in payload.rows)
+    more = "（结果已截断）" if payload.truncated else ""
+    return f"[数据] {payload.product_name}{condition}按年份文档数：{rows or '无'}{more}。"
+

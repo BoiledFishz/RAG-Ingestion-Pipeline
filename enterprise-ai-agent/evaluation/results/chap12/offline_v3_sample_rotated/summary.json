@@ -1,0 +1,1266 @@
+{
+ "split": "sample",
+ "profile": "offline",
+ "model": null,
+ "reranker": {
+  "p1_single": "lexical",
+  "single/multi": "minilm"
+ },
+ "gap_gate_env": null,
+ "repeats": 1,
+ "limit_per_type": 0,
+ "budget": {
+  "deadline_seconds": 150.0,
+  "max_llm_calls": 8,
+  "max_embedding_calls": 4,
+  "max_db_queries": 4,
+  "max_tool_calls": 4,
+  "max_sql_statements": 400,
+  "max_local_compute": 16
+ },
+ "git_commit": "3267554e049474b156ac940e5a2e1bbd4b13c62e",
+ "run_metadata": {},
+ "tasks_file_sha256": "8fcd36c8f9e4b1b57b7aa4b9bca2f428b232ec4c958361b7a998a2a9958813d3",
+ "ci_method": "task-level percentile bootstrap (2000 draws) of per-task means over repeats",
+ "system_order": "rotated per task and repeat (cache warm-up is not system-specific)",
+ "systems": {
+  "p1_single": {
+   "explain": {
+    "records": 76,
+    "tasks": 76,
+    "status_counts": {
+     "no_data": 33,
+     "completed": 43
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 76,
+     "mean": 0.5658,
+     "ci95": [
+      0.4605,
+      0.6842
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 76,
+     "mean": 0.3947,
+     "ci95": [
+      0.2895,
+      0.5
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 76,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 271.2,
+     "p50": 265.3,
+     "p95": 392.2
+    },
+    "llm_calls_mean": 0.0,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 0.0,
+    "sql_mean": 46.9474,
+    "local_mean": 0.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": null,
+    "completion_tokens_mean": null,
+    "rag_correct": {
+     "n_tasks": 76,
+     "mean": 0.3947,
+     "ci95": [
+      0.2895,
+      0.5
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 62,
+     "mean": 0.5968,
+     "ci95": [
+      0.4677,
+      0.7258
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 14,
+     "mean": 0.5714,
+     "ci95": [
+      0.3571,
+      0.8571
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.5841,
+     "ci95": [
+      0.4447,
+      0.7316
+     ],
+     "y_tasks": 62,
+     "n_tasks": 14
+    },
+    "y_gold_cited": {
+     "n_tasks": 62,
+     "mean": 0.3548,
+     "ci95": [
+      0.2419,
+      0.4677
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 62,
+     "mean": 0.1916,
+     "ci95": [
+      0.126,
+      0.2599
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.4194,
+     "R@3": 0.4839,
+     "R@5": 0.4839,
+     "R@8": 0.5161,
+     "MRR": 0.4536,
+     "observations": 62
+    }
+   },
+   "explain_and_data": {
+    "records": 74,
+    "tasks": 74,
+    "status_counts": {
+     "partial": 39,
+     "no_data": 35
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 74,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 74,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 74,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 265.8,
+     "p50": 261.9,
+     "p95": 355.9
+    },
+    "llm_calls_mean": 0.0,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 0.0,
+    "sql_mean": 44.8108,
+    "local_mean": 0.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": null,
+    "completion_tokens_mean": null,
+    "rag_correct": {
+     "n_tasks": 74,
+     "mean": 0.4459,
+     "ci95": [
+      0.3378,
+      0.5541
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 61,
+     "mean": 0.5574,
+     "ci95": [
+      0.4262,
+      0.6885
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 13,
+     "mean": 0.6154,
+     "ci95": [
+      0.3077,
+      0.8462
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.5864,
+     "ci95": [
+      0.4407,
+      0.7295
+     ],
+     "y_tasks": 61,
+     "n_tasks": 13
+    },
+    "y_gold_cited": {
+     "n_tasks": 61,
+     "mean": 0.4098,
+     "ci95": [
+      0.2787,
+      0.541
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 61,
+     "mean": 0.1984,
+     "ci95": [
+      0.138,
+      0.2638
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.4262,
+     "R@3": 0.5738,
+     "R@5": 0.6066,
+     "R@8": 0.6393,
+     "MRR": 0.5093,
+     "observations": 61
+    },
+    "data_correct": {
+     "n_tasks": 74,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "data_status_counts": {
+     "unsupported": 74
+    },
+    "product_matches_gold_doc": {
+     "n_tasks": 0,
+     "mean": null,
+     "ci95": null
+    },
+    "related_docs_contain_gold": {
+     "n_tasks": 0,
+     "mean": null,
+     "ci95": null
+    }
+   },
+   "data": {
+    "records": 60,
+    "tasks": 60,
+    "status_counts": {
+     "partial": 10,
+     "no_data": 50
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 60,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 60,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 60,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 211.8,
+     "p50": 210.5,
+     "p95": 253.1
+    },
+    "llm_calls_mean": 0.0,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 0.0,
+    "sql_mean": 29.9167,
+    "local_mean": 0.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": null,
+    "completion_tokens_mean": null,
+    "data_correct": {
+     "n_tasks": 60,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "data_status_counts": {
+     "unsupported": 60
+    }
+   },
+   "all": {
+    "records": 210,
+    "tasks": 210,
+    "status_counts": {
+     "no_data": 118,
+     "completed": 43,
+     "partial": 49
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 210,
+     "mean": 0.2048,
+     "ci95": [
+      0.1524,
+      0.2619
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 210,
+     "mean": 0.1429,
+     "ci95": [
+      0.0952,
+      0.1905
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 210,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 252.3,
+     "p50": 237.9,
+     "p95": 358.8
+    },
+    "llm_calls_mean": 0.0,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 0.0,
+    "sql_mean": 41.3286,
+    "local_mean": 0.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": null,
+    "completion_tokens_mean": null,
+    "rag_correct": {
+     "n_tasks": 150,
+     "mean": 0.42,
+     "ci95": [
+      0.34,
+      0.5
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 123,
+     "mean": 0.5772,
+     "ci95": [
+      0.4959,
+      0.6667
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 27,
+     "mean": 0.5926,
+     "ci95": [
+      0.4074,
+      0.7778
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.5849,
+     "ci95": [
+      0.4846,
+      0.6879
+     ],
+     "y_tasks": 123,
+     "n_tasks": 27
+    },
+    "y_gold_cited": {
+     "n_tasks": 123,
+     "mean": 0.3821,
+     "ci95": [
+      0.3008,
+      0.4715
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 123,
+     "mean": 0.195,
+     "ci95": [
+      0.1529,
+      0.2426
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.4228,
+     "R@3": 0.5285,
+     "R@5": 0.5447,
+     "R@8": 0.5772,
+     "MRR": 0.4812,
+     "observations": 123
+    },
+    "data_correct": {
+     "n_tasks": 134,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "data_status_counts": {
+     "unsupported": 210
+    },
+    "product_matches_gold_doc": {
+     "n_tasks": 0,
+     "mean": null,
+     "ci95": null
+    },
+    "related_docs_contain_gold": {
+     "n_tasks": 0,
+     "mean": null,
+     "ci95": null
+    }
+   }
+  },
+  "single": {
+   "explain": {
+    "records": 76,
+    "tasks": 76,
+    "status_counts": {
+     "no_data": 46,
+     "completed": 30
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 76,
+     "mean": 0.3947,
+     "ci95": [
+      0.2895,
+      0.5
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 76,
+     "mean": 0.4605,
+     "ci95": [
+      0.3553,
+      0.5658
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 76,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 339.6,
+     "p50": 322.6,
+     "p95": 542.1
+    },
+    "llm_calls_mean": 0.0,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 0.0,
+    "sql_mean": 44.8684,
+    "local_mean": 2.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": null,
+    "completion_tokens_mean": null,
+    "rag_correct": {
+     "n_tasks": 76,
+     "mean": 0.4605,
+     "ci95": [
+      0.3553,
+      0.5658
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 62,
+     "mean": 0.4839,
+     "ci95": [
+      0.3548,
+      0.5968
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 14,
+     "mean": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.7419,
+     "ci95": [
+      0.6774,
+      0.8065
+     ],
+     "y_tasks": 62,
+     "n_tasks": 14
+    },
+    "y_gold_cited": {
+     "n_tasks": 62,
+     "mean": 0.3387,
+     "ci95": [
+      0.2258,
+      0.4516
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 62,
+     "mean": 0.1344,
+     "ci95": [
+      0.0877,
+      0.1834
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.4516,
+     "R@3": 0.5161,
+     "R@5": 0.5484,
+     "R@8": 0.629,
+     "MRR": 0.4937,
+     "observations": 62
+    }
+   },
+   "explain_and_data": {
+    "records": 74,
+    "tasks": 74,
+    "status_counts": {
+     "no_data": 39,
+     "partial": 35
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 74,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 74,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 74,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 319.5,
+     "p50": 307.9,
+     "p95": 472.8
+    },
+    "llm_calls_mean": 0.0,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 0.0,
+    "sql_mean": 41.8108,
+    "local_mean": 2.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": null,
+    "completion_tokens_mean": null,
+    "rag_correct": {
+     "n_tasks": 74,
+     "mean": 0.4324,
+     "ci95": [
+      0.3243,
+      0.5405
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 61,
+     "mean": 0.5082,
+     "ci95": [
+      0.377,
+      0.6393
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 13,
+     "mean": 0.6923,
+     "ci95": [
+      0.4615,
+      0.9231
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.6002,
+     "ci95": [
+      0.4546,
+      0.732
+     ],
+     "y_tasks": 61,
+     "n_tasks": 13
+    },
+    "y_gold_cited": {
+     "n_tasks": 61,
+     "mean": 0.377,
+     "ci95": [
+      0.2459,
+      0.5082
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 61,
+     "mean": 0.1644,
+     "ci95": [
+      0.1112,
+      0.2262
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.541,
+     "R@3": 0.5902,
+     "R@5": 0.6885,
+     "R@8": 0.7377,
+     "MRR": 0.5933,
+     "observations": 61
+    },
+    "data_correct": {
+     "n_tasks": 74,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "data_status_counts": {
+     "unsupported": 74
+    },
+    "product_matches_gold_doc": {
+     "n_tasks": 0,
+     "mean": null,
+     "ci95": null
+    },
+    "related_docs_contain_gold": {
+     "n_tasks": 0,
+     "mean": null,
+     "ci95": null
+    }
+   },
+   "data": {
+    "records": 60,
+    "tasks": 60,
+    "status_counts": {
+     "no_data": 54,
+     "partial": 6
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 60,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 60,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 60,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 245.0,
+     "p50": 244.4,
+     "p95": 285.1
+    },
+    "llm_calls_mean": 0.0,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 0.0,
+    "sql_mean": 28.45,
+    "local_mean": 2.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": null,
+    "completion_tokens_mean": null,
+    "data_correct": {
+     "n_tasks": 60,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "data_status_counts": {
+     "unsupported": 60
+    }
+   },
+   "all": {
+    "records": 210,
+    "tasks": 210,
+    "status_counts": {
+     "no_data": 139,
+     "completed": 30,
+     "partial": 41
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 210,
+     "mean": 0.1429,
+     "ci95": [
+      0.1,
+      0.1905
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 210,
+     "mean": 0.1667,
+     "ci95": [
+      0.119,
+      0.219
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 210,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 305.5,
+     "p50": 275.2,
+     "p95": 474.3
+    },
+    "llm_calls_mean": 0.0,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 0.0,
+    "sql_mean": 39.1,
+    "local_mean": 2.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": null,
+    "completion_tokens_mean": null,
+    "rag_correct": {
+     "n_tasks": 150,
+     "mean": 0.4467,
+     "ci95": [
+      0.3667,
+      0.5267
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 123,
+     "mean": 0.4959,
+     "ci95": [
+      0.4065,
+      0.5854
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 27,
+     "mean": 0.8519,
+     "ci95": [
+      0.7037,
+      0.963
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.6739,
+     "ci95": [
+      0.5917,
+      0.7498
+     ],
+     "y_tasks": 123,
+     "n_tasks": 27
+    },
+    "y_gold_cited": {
+     "n_tasks": 123,
+     "mean": 0.3577,
+     "ci95": [
+      0.2764,
+      0.439
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 123,
+     "mean": 0.1493,
+     "ci95": [
+      0.1122,
+      0.1865
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.4959,
+     "R@3": 0.5528,
+     "R@5": 0.6179,
+     "R@8": 0.6829,
+     "MRR": 0.5431,
+     "observations": 123
+    },
+    "data_correct": {
+     "n_tasks": 134,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "data_status_counts": {
+     "unsupported": 210
+    },
+    "product_matches_gold_doc": {
+     "n_tasks": 0,
+     "mean": null,
+     "ci95": null
+    },
+    "related_docs_contain_gold": {
+     "n_tasks": 0,
+     "mean": null,
+     "ci95": null
+    }
+   }
+  },
+  "multi": {
+   "explain": {
+    "records": 76,
+    "tasks": 76,
+    "status_counts": {
+     "no_data": 46,
+     "completed": 30
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 76,
+     "mean": 0.3947,
+     "ci95": [
+      0.2895,
+      0.5
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 76,
+     "mean": 0.4605,
+     "ci95": [
+      0.3553,
+      0.5658
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 76,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 333.1,
+     "p50": 318.5,
+     "p95": 557.9
+    },
+    "llm_calls_mean": 0.0,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 0.0,
+    "sql_mean": 44.8684,
+    "local_mean": 2.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": null,
+    "completion_tokens_mean": null,
+    "rag_correct": {
+     "n_tasks": 76,
+     "mean": 0.4605,
+     "ci95": [
+      0.3553,
+      0.5658
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 62,
+     "mean": 0.4839,
+     "ci95": [
+      0.3548,
+      0.5968
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 14,
+     "mean": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.7419,
+     "ci95": [
+      0.6774,
+      0.8065
+     ],
+     "y_tasks": 62,
+     "n_tasks": 14
+    },
+    "y_gold_cited": {
+     "n_tasks": 62,
+     "mean": 0.3387,
+     "ci95": [
+      0.2258,
+      0.4516
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 62,
+     "mean": 0.1344,
+     "ci95": [
+      0.0877,
+      0.1834
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.4516,
+     "R@3": 0.5161,
+     "R@5": 0.5484,
+     "R@8": 0.629,
+     "MRR": 0.4937,
+     "observations": 62
+    }
+   },
+   "explain_and_data": {
+    "records": 74,
+    "tasks": 74,
+    "status_counts": {
+     "partial": 37,
+     "no_data": 5,
+     "completed": 32
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 74,
+     "mean": 0.4324,
+     "ci95": [
+      0.3243,
+      0.5405
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 74,
+     "mean": 0.3514,
+     "ci95": [
+      0.2432,
+      0.4595
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 74,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 397.4,
+     "p50": 373.9,
+     "p95": 564.9
+    },
+    "llm_calls_mean": 0.0,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 0.0,
+    "sql_mean": 58.8649,
+    "local_mean": 2.0,
+    "db_queries_mean": 1.527,
+    "prompt_tokens_mean": null,
+    "completion_tokens_mean": null,
+    "rag_correct": {
+     "n_tasks": 74,
+     "mean": 0.4324,
+     "ci95": [
+      0.3243,
+      0.5405
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 61,
+     "mean": 0.5082,
+     "ci95": [
+      0.377,
+      0.6393
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 13,
+     "mean": 0.6923,
+     "ci95": [
+      0.4615,
+      0.9231
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.6002,
+     "ci95": [
+      0.4546,
+      0.732
+     ],
+     "y_tasks": 61,
+     "n_tasks": 13
+    },
+    "y_gold_cited": {
+     "n_tasks": 61,
+     "mean": 0.377,
+     "ci95": [
+      0.2459,
+      0.5082
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 61,
+     "mean": 0.1644,
+     "ci95": [
+      0.1112,
+      0.2262
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.541,
+     "R@3": 0.5902,
+     "R@5": 0.6885,
+     "R@8": 0.7377,
+     "MRR": 0.5933,
+     "observations": 61
+    },
+    "data_correct": {
+     "n_tasks": 74,
+     "mean": 0.8919,
+     "ci95": [
+      0.8108,
+      0.9595
+     ]
+    },
+    "data_status_counts": {
+     "completed": 66,
+     "no_data": 8
+    },
+    "product_matches_gold_doc": {
+     "n_tasks": 54,
+     "mean": 0.7037,
+     "ci95": [
+      0.5741,
+      0.8333
+     ]
+    },
+    "related_docs_contain_gold": {
+     "n_tasks": 54,
+     "mean": 0.0741,
+     "ci95": [
+      0.0185,
+      0.1481
+     ]
+    }
+   },
+   "data": {
+    "records": 60,
+    "tasks": 60,
+    "status_counts": {
+     "completed": 51,
+     "no_data": 9
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 60,
+     "mean": 0.85,
+     "ci95": [
+      0.75,
+      0.9333
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 60,
+     "mean": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 60,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 12.9,
+     "p50": 10.7,
+     "p95": 27.3
+    },
+    "llm_calls_mean": 0.0,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 0.0,
+    "sql_mean": 1.0,
+    "local_mean": 0.0,
+    "db_queries_mean": 1.0,
+    "prompt_tokens_mean": null,
+    "completion_tokens_mean": null,
+    "data_correct": {
+     "n_tasks": 60,
+     "mean": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "data_status_counts": {
+     "completed": 51,
+     "no_data": 9
+    }
+   },
+   "all": {
+    "records": 210,
+    "tasks": 210,
+    "status_counts": {
+     "no_data": 60,
+     "completed": 113,
+     "partial": 37
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 210,
+     "mean": 0.5381,
+     "ci95": [
+      0.4667,
+      0.6048
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 210,
+     "mean": 0.5762,
+     "ci95": [
+      0.5095,
+      0.6429
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 210,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 264.3,
+     "p50": 308.8,
+     "p95": 523.7
+    },
+    "llm_calls_mean": 0.0,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 0.0,
+    "sql_mean": 37.2667,
+    "local_mean": 1.4286,
+    "db_queries_mean": 0.8238,
+    "prompt_tokens_mean": null,
+    "completion_tokens_mean": null,
+    "rag_correct": {
+     "n_tasks": 150,
+     "mean": 0.4467,
+     "ci95": [
+      0.3667,
+      0.5267
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 123,
+     "mean": 0.4959,
+     "ci95": [
+      0.4065,
+      0.5854
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 27,
+     "mean": 0.8519,
+     "ci95": [
+      0.7037,
+      0.963
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.6739,
+     "ci95": [
+      0.5917,
+      0.7498
+     ],
+     "y_tasks": 123,
+     "n_tasks": 27
+    },
+    "y_gold_cited": {
+     "n_tasks": 123,
+     "mean": 0.3577,
+     "ci95": [
+      0.2764,
+      0.439
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 123,
+     "mean": 0.1493,
+     "ci95": [
+      0.1122,
+      0.1865
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.4959,
+     "R@3": 0.5528,
+     "R@5": 0.6179,
+     "R@8": 0.6829,
+     "MRR": 0.5431,
+     "observations": 123
+    },
+    "data_correct": {
+     "n_tasks": 134,
+     "mean": 0.9403,
+     "ci95": [
+      0.8955,
+      0.9776
+     ]
+    },
+    "data_status_counts": {
+     "None": 76,
+     "completed": 117,
+     "no_data": 17
+    },
+    "product_matches_gold_doc": {
+     "n_tasks": 54,
+     "mean": 0.7037,
+     "ci95": [
+      0.5741,
+      0.8333
+     ]
+    },
+    "related_docs_contain_gold": {
+     "n_tasks": 54,
+     "mean": 0.0741,
+     "ci95": [
+      0.0185,
+      0.1481
+     ]
+    }
+   }
+  }
+ }
+}

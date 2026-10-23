@@ -1,0 +1,301 @@
+{
+ "round2": [
+  {
+   "base": "tune_real_base",
+   "variant": "tune_real_k12",
+   "tasks": 150,
+   "base_correct": 53,
+   "variant_correct": 51,
+   "wins": 2,
+   "losses": 4,
+   "net": -2,
+   "mcnemar_p_one_sided": 0.8906,
+   "mcnemar_p_two_sided": 0.6875,
+   "y_token_f1": {
+    "base": 0.2676,
+    "variant": 0.2708,
+    "tasks": 112
+   },
+   "y_token_f1_both_answered": {
+    "base": 0.3166,
+    "variant": 0.3272,
+    "tasks": 91
+   },
+   "win_tasks": [
+    "M-tune-009",
+    "M-tune-083"
+   ],
+   "loss_tasks": [
+    "M-tune-001",
+    "M-tune-023",
+    "M-tune-064",
+    "M-tune-132"
+   ]
+  },
+  {
+   "base": "tune_real_base",
+   "variant": "tune_real_k16",
+   "tasks": 150,
+   "base_correct": 53,
+   "variant_correct": 51,
+   "wins": 2,
+   "losses": 4,
+   "net": -2,
+   "mcnemar_p_one_sided": 0.8906,
+   "mcnemar_p_two_sided": 0.6875,
+   "y_token_f1": {
+    "base": 0.2676,
+    "variant": 0.2681,
+    "tasks": 112
+   },
+   "y_token_f1_both_answered": {
+    "base": 0.3166,
+    "variant": 0.3238,
+    "tasks": 91
+   },
+   "win_tasks": [
+    "M-tune-009",
+    "M-tune-083"
+   ],
+   "loss_tasks": [
+    "M-tune-001",
+    "M-tune-023",
+    "M-tune-064",
+    "M-tune-132"
+   ]
+  },
+  {
+   "base": "tune_real_base",
+   "variant": "tune_real_critic",
+   "tasks": 150,
+   "base_correct": 53,
+   "variant_correct": 55,
+   "wins": 2,
+   "losses": 0,
+   "net": 2,
+   "mcnemar_p_one_sided": 0.25,
+   "mcnemar_p_two_sided": 0.5,
+   "y_token_f1": {
+    "base": 0.2676,
+    "variant": 0.2676,
+    "tasks": 112
+   },
+   "y_token_f1_both_answered": {
+    "base": 0.3189,
+    "variant": 0.3189,
+    "tasks": 94
+   },
+   "win_tasks": [
+    "M-tune-092",
+    "M-tune-097"
+   ],
+   "loss_tasks": []
+  }
+ ],
+ "round3": [
+  {
+   "base": "tune_real_critic",
+   "variant": "tune_real_ce_minilm",
+   "tasks": 150,
+   "base_correct": 55,
+   "variant_correct": 56,
+   "wins": 13,
+   "losses": 12,
+   "net": 1,
+   "mcnemar_p_one_sided": 0.5,
+   "mcnemar_p_two_sided": 1.0,
+   "y_token_f1": {
+    "base": 0.2676,
+    "variant": 0.2578,
+    "tasks": 112
+   },
+   "y_token_f1_both_answered": {
+    "base": 0.3338,
+    "variant": 0.3577,
+    "tasks": 77
+   },
+   "win_tasks": [
+    "M-tune-007",
+    "M-tune-009",
+    "M-tune-029",
+    "M-tune-031",
+    "M-tune-043",
+    "M-tune-059",
+    "M-tune-068",
+    "M-tune-074",
+    "M-tune-081",
+    "M-tune-086",
+    "M-tune-134",
+    "M-tune-139",
+    "M-tune-150"
+   ],
+   "loss_tasks": [
+    "M-tune-001",
+    "M-tune-023",
+    "M-tune-030",
+    "M-tune-040",
+    "M-tune-064",
+    "M-tune-077",
+    "M-tune-096",
+    "M-tune-097",
+    "M-tune-102",
+    "M-tune-123",
+    "M-tune-132",
+    "M-tune-147"
+   ]
+  },
+  {
+   "base": "tune_real_critic",
+   "variant": "tune_real_ce_bge",
+   "tasks": 150,
+   "base_correct": 55,
+   "variant_correct": 49,
+   "wins": 9,
+   "losses": 15,
+   "net": -6,
+   "mcnemar_p_one_sided": 0.9242,
+   "mcnemar_p_two_sided": 0.3075,
+   "y_token_f1": {
+    "base": 0.2676,
+    "variant": 0.2573,
+    "tasks": 112
+   },
+   "y_token_f1_both_answered": {
+    "base": 0.3429,
+    "variant": 0.3384,
+    "tasks": 79
+   },
+   "win_tasks": [
+    "M-tune-014",
+    "M-tune-052",
+    "M-tune-057",
+    "M-tune-059",
+    "M-tune-082",
+    "M-tune-131",
+    "M-tune-136",
+    "M-tune-139",
+    "M-tune-150"
+   ],
+   "loss_tasks": [
+    "M-tune-001",
+    "M-tune-023",
+    "M-tune-024",
+    "M-tune-044",
+    "M-tune-047",
+    "M-tune-061",
+    "M-tune-064",
+    "M-tune-077",
+    "M-tune-102",
+    "M-tune-114",
+    "M-tune-118",
+    "M-tune-123",
+    "M-tune-132",
+    "M-tune-133",
+    "M-tune-147"
+   ]
+  }
+ ],
+ "round4": [
+  {
+   "base": "tune_real_r4_base",
+   "variant": "tune_real_r4_ce_minilm_order",
+   "tasks": 150,
+   "base_correct": 55,
+   "variant_correct": 55,
+   "wins": 11,
+   "losses": 11,
+   "net": 0,
+   "mcnemar_p_one_sided": 0.5841,
+   "mcnemar_p_two_sided": 1.0,
+   "y_token_f1": {
+    "base": 0.2676,
+    "variant": 0.2682,
+    "tasks": 112
+   },
+   "y_token_f1_both_answered": {
+    "base": 0.337,
+    "variant": 0.3575,
+    "tasks": 80
+   },
+   "win_tasks": [
+    "M-tune-007",
+    "M-tune-009",
+    "M-tune-029",
+    "M-tune-031",
+    "M-tune-043",
+    "M-tune-059",
+    "M-tune-068",
+    "M-tune-081",
+    "M-tune-086",
+    "M-tune-139",
+    "M-tune-150"
+   ],
+   "loss_tasks": [
+    "M-tune-001",
+    "M-tune-023",
+    "M-tune-030",
+    "M-tune-040",
+    "M-tune-064",
+    "M-tune-077",
+    "M-tune-096",
+    "M-tune-102",
+    "M-tune-123",
+    "M-tune-132",
+    "M-tune-147"
+   ]
+  },
+  {
+   "base": "tune_real_r4_base",
+   "variant": "tune_real_r4_ce_bge_order",
+   "tasks": 150,
+   "base_correct": 55,
+   "variant_correct": 50,
+   "wins": 11,
+   "losses": 16,
+   "net": -5,
+   "mcnemar_p_one_sided": 0.8761,
+   "mcnemar_p_two_sided": 0.4421,
+   "y_token_f1": {
+    "base": 0.2676,
+    "variant": 0.2604,
+    "tasks": 112
+   },
+   "y_token_f1_both_answered": {
+    "base": 0.3255,
+    "variant": 0.3253,
+    "tasks": 85
+   },
+   "win_tasks": [
+    "M-tune-009",
+    "M-tune-026",
+    "M-tune-052",
+    "M-tune-057",
+    "M-tune-059",
+    "M-tune-082",
+    "M-tune-086",
+    "M-tune-131",
+    "M-tune-136",
+    "M-tune-139",
+    "M-tune-150"
+   ],
+   "loss_tasks": [
+    "M-tune-001",
+    "M-tune-023",
+    "M-tune-024",
+    "M-tune-044",
+    "M-tune-047",
+    "M-tune-061",
+    "M-tune-064",
+    "M-tune-077",
+    "M-tune-102",
+    "M-tune-112",
+    "M-tune-114",
+    "M-tune-118",
+    "M-tune-123",
+    "M-tune-132",
+    "M-tune-133",
+    "M-tune-147"
+   ]
+  }
+ ]
+}

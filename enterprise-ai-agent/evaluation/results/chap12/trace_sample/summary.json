@@ -1,0 +1,413 @@
+{
+ "split": "sample",
+ "profile": "ollama",
+ "model": "qwen2.5:7b",
+ "reranker": {
+  "p1_single": "nomic",
+  "single/multi": "nomic"
+ },
+ "gap_gate_env": null,
+ "repeats": 1,
+ "limit_per_type": 30,
+ "types": "explain,explain_and_data",
+ "critic": "off",
+ "budget": {
+  "deadline_seconds": 150.0,
+  "max_llm_calls": 8,
+  "max_embedding_calls": 4,
+  "max_db_queries": 4,
+  "max_tool_calls": 4,
+  "max_sql_statements": 400,
+  "max_local_compute": 16
+ },
+ "git_commit": "6158a2c9726c0be6fc5962bff9f71d8665d47dc2",
+ "run_metadata": {
+  "started_at": "2026-10-20T12:30:48.5427322-07:00",
+  "host": "SZY",
+  "git_commit": "6158a2c9726c0be6fc5962bff9f71d8665d47dc2",
+  "python": "Python 3.12.10",
+  "ollama_version": "0.40.6",
+  "models": [
+   "qwen2.5:14b=7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+   "qwen2.5:7b=845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+   "qwen2.5:3b=357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+   "all-minilm:22m=1b226e2802dbb772b5fc32a58f103ca1804ef7501331012de126ab22f67475ef",
+   "nomic-embed-text:latest=0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+   "llama3.2:3b=a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72"
+  ]
+ },
+ "tasks_file_sha256": "8fcd36c8f9e4b1b57b7aa4b9bca2f428b232ec4c958361b7a998a2a9958813d3",
+ "ci_method": "task-level percentile bootstrap (2000 draws) of per-task means over repeats",
+ "system_order": "rotated per task and repeat (cache warm-up is not system-specific)",
+ "systems": {
+  "multi": {
+   "explain": {
+    "records": 30,
+    "tasks": 30,
+    "status_counts": {
+     "completed": 24,
+     "no_data": 6
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 30,
+     "mean": 0.8,
+     "ci95": [
+      0.6667,
+      0.9333
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 30,
+     "mean": 0.2667,
+     "ci95": [
+      0.1,
+      0.4333
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 11995.3,
+     "p50": 11000.0,
+     "p95": 19266.0
+    },
+    "llm_calls_mean": 2.9,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 31.0,
+    "sql_mean": 42.4667,
+    "local_mean": 1.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": 4332.6667,
+    "completion_tokens_mean": 157.2333,
+    "rag_correct": {
+     "n_tasks": 30,
+     "mean": 0.2667,
+     "ci95": [
+      0.1,
+      0.4333
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 27,
+     "mean": 0.7778,
+     "ci95": [
+      0.5926,
+      0.9259
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 3,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.3889,
+     "ci95": [
+      0.3148,
+      0.463
+     ],
+     "y_tasks": 27,
+     "n_tasks": 3
+    },
+    "y_gold_cited": {
+     "n_tasks": 27,
+     "mean": 0.2963,
+     "ci95": [
+      0.1481,
+      0.4815
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 27,
+     "mean": 0.2209,
+     "ci95": [
+      0.1405,
+      0.3178
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.3333,
+     "R@3": 0.4444,
+     "R@5": 0.4815,
+     "R@8": 0.5185,
+     "MRR": 0.3973,
+     "observations": 27
+    }
+   },
+   "explain_and_data": {
+    "records": 30,
+    "tasks": 30,
+    "status_counts": {
+     "completed": 26,
+     "partial": 3,
+     "no_data": 1
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 30,
+     "mean": 0.8667,
+     "ci95": [
+      0.7333,
+      0.9667
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 30,
+     "mean": 0.2667,
+     "ci95": [
+      0.1333,
+      0.4333
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 12797.4,
+     "p50": 12234.0,
+     "p95": 17516.0
+    },
+    "llm_calls_mean": 3.2333,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 31.0,
+    "sql_mean": 82.5667,
+    "local_mean": 1.0,
+    "db_queries_mean": 1.6,
+    "prompt_tokens_mean": 4739.1667,
+    "completion_tokens_mean": 167.1,
+    "rag_correct": {
+     "n_tasks": 30,
+     "mean": 0.3667,
+     "ci95": [
+      0.2,
+      0.5333
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 22,
+     "mean": 0.9091,
+     "ci95": [
+      0.7727,
+      1.0
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 8,
+     "mean": 0.125,
+     "ci95": [
+      0.0,
+      0.375
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.5171,
+     "ci95": [
+      0.4091,
+      0.6648
+     ],
+     "y_tasks": 22,
+     "n_tasks": 8
+    },
+    "y_gold_cited": {
+     "n_tasks": 22,
+     "mean": 0.4545,
+     "ci95": [
+      0.2273,
+      0.6818
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 22,
+     "mean": 0.2207,
+     "ci95": [
+      0.1472,
+      0.3047
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.3636,
+     "R@3": 0.6364,
+     "R@5": 0.6818,
+     "R@8": 0.6818,
+     "MRR": 0.5114,
+     "observations": 22
+    },
+    "data_correct": {
+     "n_tasks": 30,
+     "mean": 0.9667,
+     "ci95": [
+      0.9,
+      1.0
+     ]
+    },
+    "data_status_counts": {
+     "completed": 28,
+     "no_data": 2
+    },
+    "replan_rate": 0.1333,
+    "product_matches_gold_doc": {
+     "n_tasks": 21,
+     "mean": 0.619,
+     "ci95": [
+      0.4286,
+      0.8095
+     ]
+    },
+    "related_docs_contain_gold": {
+     "n_tasks": 21,
+     "mean": 0.4762,
+     "ci95": [
+      0.2857,
+      0.6667
+     ]
+    }
+   },
+   "all": {
+    "records": 60,
+    "tasks": 60,
+    "status_counts": {
+     "completed": 50,
+     "no_data": 7,
+     "partial": 3
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 60,
+     "mean": 0.8333,
+     "ci95": [
+      0.7333,
+      0.9167
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 60,
+     "mean": 0.2667,
+     "ci95": [
+      0.1667,
+      0.3833
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 60,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 12396.4,
+     "p50": 11516.0,
+     "p95": 19687.0
+    },
+    "llm_calls_mean": 3.0667,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 31.0,
+    "sql_mean": 62.5167,
+    "local_mean": 1.0,
+    "db_queries_mean": 0.8,
+    "prompt_tokens_mean": 4535.9167,
+    "completion_tokens_mean": 162.1667,
+    "rag_correct": {
+     "n_tasks": 60,
+     "mean": 0.3167,
+     "ci95": [
+      0.2,
+      0.4333
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 49,
+     "mean": 0.8367,
+     "ci95": [
+      0.7347,
+      0.9388
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 11,
+     "mean": 0.0909,
+     "ci95": [
+      0.0,
+      0.2727
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.4638,
+     "ci95": [
+      0.3776,
+      0.5751
+     ],
+     "y_tasks": 49,
+     "n_tasks": 11
+    },
+    "y_gold_cited": {
+     "n_tasks": 49,
+     "mean": 0.3673,
+     "ci95": [
+      0.2449,
+      0.5102
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 49,
+     "mean": 0.2208,
+     "ci95": [
+      0.1664,
+      0.2841
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.3469,
+     "R@3": 0.5306,
+     "R@5": 0.5714,
+     "R@8": 0.5918,
+     "MRR": 0.4485,
+     "observations": 49
+    },
+    "data_correct": {
+     "n_tasks": 30,
+     "mean": 0.9667,
+     "ci95": [
+      0.9,
+      1.0
+     ]
+    },
+    "data_status_counts": {
+     "None": 30,
+     "completed": 28,
+     "no_data": 2
+    },
+    "replan_rate": 0.0667,
+    "product_matches_gold_doc": {
+     "n_tasks": 21,
+     "mean": 0.619,
+     "ci95": [
+      0.4286,
+      0.8095
+     ]
+    },
+    "related_docs_contain_gold": {
+     "n_tasks": 21,
+     "mean": 0.4762,
+     "ci95": [
+      0.2857,
+      0.6667
+     ]
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,82 @@
+{
+ "split": "tune",
+ "base": "tune_real_r4_base",
+ "scores": "tune_real_r6_scores",
+ "score_only_matches_base_correctness": "150/150",
+ "score_histogram_published": {
+  "5": 27,
+  "1": 8,
+  "2": 40,
+  "3": 6,
+  "not published": 24,
+  "4": 45
+ },
+ "scores_by_answerable": {
+  "Y": {
+   "1": 4,
+   "2": 24,
+   "3": 3,
+   "4": 39,
+   "5": 24
+  },
+  "N": {
+   "1": 4,
+   "2": 16,
+   "3": 3,
+   "4": 6,
+   "5": 3
+  }
+ },
+ "options": [
+  {
+   "min_score": 2,
+   "wins": 4,
+   "losses": 0,
+   "net": 4,
+   "correct_answerable_lost": 0,
+   "withheld": {
+    "Y": 4,
+    "N": 4
+   },
+   "feasible": false
+  },
+  {
+   "min_score": 3,
+   "wins": 20,
+   "losses": 8,
+   "net": 12,
+   "correct_answerable_lost": 8,
+   "withheld": {
+    "Y": 28,
+    "N": 20
+   },
+   "feasible": false
+  },
+  {
+   "min_score": 4,
+   "wins": 23,
+   "losses": 10,
+   "net": 13,
+   "correct_answerable_lost": 10,
+   "withheld": {
+    "Y": 31,
+    "N": 23
+   },
+   "feasible": false
+  },
+  {
+   "min_score": 5,
+   "wins": 29,
+   "losses": 36,
+   "net": -7,
+   "correct_answerable_lost": 36,
+   "withheld": {
+    "Y": 70,
+    "N": 29
+   },
+   "feasible": false
+  }
+ ],
+ "selected_min_score": null,
+ "rule": "# after the score-only run\n    python -m evaluation.chap12_round6"
+}

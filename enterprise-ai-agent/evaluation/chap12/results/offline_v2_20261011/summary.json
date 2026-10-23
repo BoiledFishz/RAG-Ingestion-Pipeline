@@ -1,0 +1,333 @@
+{
+  "profile": "offline",
+  "model": "none (rule rewrite + extractive selection)",
+  "sample": "chap12-sample-v1",
+  "index": "chap12_sample.sqlite",
+  "budget": {
+    "deadline_seconds": 150.0,
+    "max_llm_calls": 8,
+    "max_embedding_calls": 4,
+    "max_db_queries": 4,
+    "max_tool_calls": 4
+  },
+  "systems": {
+    "multi_agent": {
+      "tasks": 150,
+      "status_counts": {
+        "completed": 101,
+        "no_data": 6,
+        "partial": 43
+      },
+      "data_status_counts": {
+        "completed": 125,
+        "no_data": 25
+      },
+      "rag_part_status_counts": {
+        "completed": 120,
+        "no_data": 30
+      },
+      "complete_rate": {
+        "numerator": 101,
+        "denominator": 150,
+        "value": 0.6733,
+        "wilson95": [
+          0.5948,
+          0.7432
+        ]
+      },
+      "failure_rate": {
+        "numerator": 0,
+        "denominator": 150,
+        "wilson95": [
+          0.0,
+          0.025
+        ]
+      },
+      "Y_answer_published": {
+        "numerator": 101,
+        "denominator": 123,
+        "value": 0.8211,
+        "wilson95": [
+          0.744,
+          0.8788
+        ]
+      },
+      "Y_gold_doc_cited": {
+        "numerator": 60,
+        "denominator": 123,
+        "value": 0.4878,
+        "wilson95": [
+          0.4012,
+          0.5752
+        ]
+      },
+      "Y_gold_doc_retrieved": {
+        "numerator": 84,
+        "denominator": 123,
+        "value": 0.6829,
+        "wilson95": [
+          0.5962,
+          0.7586
+        ]
+      },
+      "Y_token_f1_mean": 0.2007,
+      "N_refused": {
+        "numerator": 8,
+        "denominator": 27,
+        "value": 0.2963,
+        "wilson95": [
+          0.1585,
+          0.4848
+        ]
+      },
+      "retrieval_Y": {
+        "denominator": 123,
+        "R@1": {
+          "value": 0.4959,
+          "hits": 61,
+          "wilson95": [
+            0.409,
+            0.5831
+          ]
+        },
+        "R@3": {
+          "value": 0.5528,
+          "hits": 68,
+          "wilson95": [
+            0.4647,
+            0.6378
+          ]
+        },
+        "R@5": {
+          "value": 0.6179,
+          "hits": 76,
+          "wilson95": [
+            0.5297,
+            0.699
+          ]
+        },
+        "R@8": {
+          "value": 0.6829,
+          "hits": 84,
+          "wilson95": [
+            0.5962,
+            0.7586
+          ]
+        },
+        "MRR": 0.5431
+      },
+      "data_product_source_counts": {
+        "query_literal": 59,
+        "None": 25,
+        "inferred": 66
+      },
+      "data_product_matches_gold_doc": {
+        "numerator": 71,
+        "denominator": 100,
+        "value": 0.71,
+        "wilson95": [
+          0.6146,
+          0.7899
+        ]
+      },
+      "data_product_matches_gold_doc_by_source": {
+        "query_literal": {
+          "numerator": 32,
+          "denominator": 47,
+          "value": 0.6809,
+          "wilson95": [
+            0.5383,
+            0.796
+          ]
+        },
+        "inferred": {
+          "numerator": 39,
+          "denominator": 53,
+          "value": 0.7358,
+          "wilson95": [
+            0.6042,
+            0.8356
+          ]
+        },
+        "explicit": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        }
+      },
+      "data_result_correct": {
+        "numerator": 125,
+        "denominator": 125,
+        "value": 1.0,
+        "wilson95": [
+          0.9702,
+          1.0
+        ]
+      },
+      "latency_ms": {
+        "mean": 381.3,
+        "p50": 359.1,
+        "p95": 573.1
+      },
+      "llm_calls_mean": 0.0,
+      "embedding_calls_mean": 0.0,
+      "db_queries_mean": 1.44,
+      "tokens": null
+    },
+    "single_agent": {
+      "tasks": 150,
+      "status_counts": {
+        "partial": 120,
+        "no_data": 30
+      },
+      "data_status_counts": {
+        "unsupported": 150
+      },
+      "rag_part_status_counts": {
+        "completed": 120,
+        "no_data": 30
+      },
+      "complete_rate": {
+        "numerator": 0,
+        "denominator": 150,
+        "value": 0.0,
+        "wilson95": [
+          0.0,
+          0.025
+        ]
+      },
+      "failure_rate": {
+        "numerator": 0,
+        "denominator": 150,
+        "wilson95": [
+          0.0,
+          0.025
+        ]
+      },
+      "Y_answer_published": {
+        "numerator": 101,
+        "denominator": 123,
+        "value": 0.8211,
+        "wilson95": [
+          0.744,
+          0.8788
+        ]
+      },
+      "Y_gold_doc_cited": {
+        "numerator": 60,
+        "denominator": 123,
+        "value": 0.4878,
+        "wilson95": [
+          0.4012,
+          0.5752
+        ]
+      },
+      "Y_gold_doc_retrieved": {
+        "numerator": 84,
+        "denominator": 123,
+        "value": 0.6829,
+        "wilson95": [
+          0.5962,
+          0.7586
+        ]
+      },
+      "Y_token_f1_mean": 0.2007,
+      "N_refused": {
+        "numerator": 8,
+        "denominator": 27,
+        "value": 0.2963,
+        "wilson95": [
+          0.1585,
+          0.4848
+        ]
+      },
+      "retrieval_Y": {
+        "denominator": 123,
+        "R@1": {
+          "value": 0.4959,
+          "hits": 61,
+          "wilson95": [
+            0.409,
+            0.5831
+          ]
+        },
+        "R@3": {
+          "value": 0.5528,
+          "hits": 68,
+          "wilson95": [
+            0.4647,
+            0.6378
+          ]
+        },
+        "R@5": {
+          "value": 0.6179,
+          "hits": 76,
+          "wilson95": [
+            0.5297,
+            0.699
+          ]
+        },
+        "R@8": {
+          "value": 0.6829,
+          "hits": 84,
+          "wilson95": [
+            0.5962,
+            0.7586
+          ]
+        },
+        "MRR": 0.5431
+      },
+      "data_product_source_counts": {
+        "None": 150
+      },
+      "data_product_matches_gold_doc": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson95": null
+      },
+      "data_product_matches_gold_doc_by_source": {
+        "query_literal": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        },
+        "inferred": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        },
+        "explicit": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "wilson95": null
+        }
+      },
+      "data_result_correct": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson95": null
+      },
+      "latency_ms": {
+        "mean": 322.9,
+        "p50": 299.5,
+        "p95": 534.7
+      },
+      "llm_calls_mean": 0.0,
+      "embedding_calls_mean": 0.0,
+      "db_queries_mean": 0.0,
+      "tokens": null
+    }
+  },
+  "notes": [
+    "single_agent cannot answer the data part of the task: data_status=unsupported.",
+    "Token counts are not exposed by the reused Ollama adapter; reported as null.",
+    "Retrieval thresholds were calibrated on the training split this sample comes from.",
+    "N refusal is a proxy: official N labels refer to the official candidate set only."
+  ]
+}

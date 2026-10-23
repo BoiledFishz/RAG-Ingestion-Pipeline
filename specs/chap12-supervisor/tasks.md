@@ -1,0 +1,361 @@
+# Tasks 与验收证据
+
+| 任务 | 实现 | 自动化测试 |
+| --- | --- | --- |
+| 随机样本与索引 | `agents/chap12/sample.py`、`evaluation/chap12_build_sample.py` | `tests/chap12/test_sample.py` |
+| Contract / State | `agents/chap12/contracts.py` | 各测试文件 |
+| DB Worker：计数正确、时间范围、零值、截断、注入、越权、只读、语句超时、有界重试、预算 | `agents/chap12/db_worker.py` | `test_db_worker.py`（与原始 JSON 独立复算对比） |
+| RAG Worker：状态映射、引用、超时、依赖失败、LLM 预算、拒权零调用 | `agents/chap12/rag_worker.py` | `test_rag_worker.py` |
+| Supervisor：36 种状态组合、路由、未注册 Worker、输入隔离、全局拒权、截止时间取消、并行、Worker 崩溃 | `agents/chap12/supervisor.py`、`planner.py` | `test_supervisor.py` |
+| API：服务端凭证、正文不能授权、未知 goal/字段 | `api/chap12_main.py` | `test_api.py` |
+| 真实组件端到端（官方 fixture 文档，offline profile） | `agents/chap12/factory.py`、`tools/sample_retriever.py` | `test_e2e_offline.py` |
+| 单 Agent vs Multi-Agent 对照 | `evaluation/chap12_compare.py` | `evaluation/chap12/results/offline_20261011/`（v1）、`offline_v2_20261011/`（v2） |
+| 样本范围 dense + MiniLM 重排、调参集阈值 | `agents/chap12/dense.py`、`evaluation/chap12_build_dense.py`、`evaluation/chap12_retrieval_tune.py` | `test_dense.py`；`evaluation/chap12/tune/` |
+| 产品推断与澄清语义 | `db_worker.py`、`planner.py` | `test_db_worker.py` 中的推断、权限和澄清用例 |
+
+## 工作单执行记录（2026-10-11 20:05 之后）
+
+每条记录包括：改动内容、运行过的命令、实际结果。
+
+### W0 工作区隔离
+- 改动：主工作区切回原分支 `codex/project2-course-completion`，旧 project2 的未提交改动原样保留在主工作区；为 `feature/chap12-supervisor-lite` 新建 worktree `.worktrees/chap12`，并把 `.worktrees/` 加入 `.git/info/exclude`。worktree 中的 `.rag_data/` 只有指向主目录数据的符号链接（被 gitignore）。
+- 命令：`git worktree add .worktrees/chap12 feature/chap12-supervisor-lite`（首次因 180 s 超时中断，之后用 `git checkout -f ab4e8d7 -- <dir>` 分批补齐）；`git status --short` → 只剩 1 个未跟踪文件 REVIEW_PACKAGE.md。
+- 结果：在干净的 worktree 中运行 `pytest tests/chap12 -q` → `91 passed`。
+
+### P0-1 流程补齐（文档部分）
+- 改动：新增 review_log.md、contract_changelog.md、plan.md（事后补写）、analyze_report.md；纳入 REVIEW_PACKAGE.md。
+- 命令：`uvx --from git+https://github.com/github/spec-kit.git specify version` → `CLI Version 1.1.4.dev0`；`specify --help` → 子命令中没有 analyze/checklist。
+- 结果：analyze 由 Claude 按模板执行，发现 13 项问题，其中 2 项 CRITICAL（RAG 未按授权过滤；没有 constitution）。
+
+### P0-2 权限边界核查与修复
+- 核查结论（修复前）：RAG 检索**不**受 TrustedContext 约束，任何主体都可能在引用中看到未授权产品的文档。DB 推断在全部文档上进行，推断出的未授权产品会以 permission_denied 返回；当时的错误信息是通用文案、没有 payload，响应中不含产品名，但“拒权”这一状态本身会暗示问题与某个未授权产品相关。
+- 改动：新增 `agents/chap12/scope.py`（ContextVar、DocumentScope、ScopedRetriever）；`tools/sample_retriever.py` 的两路检索都经过范围过滤，父文档展开前再检查一次；`rag_worker.py` 设置范围并追加 limitation；`db_worker.py` 的推断只考虑授权文档；新增 `tests/chap12/test_scope.py`（4 项），调整 `test_db_worker.py` 中一项的预期。
+- 命令：`pytest tests/chap12 -q` → `95 passed`；`ruff check` → 通过。
+- 结果：受限主体（只授权 SSFKSJ）查询 Streams 问题时，引用与检索候选中没有 SSCRJU 文档，DB 返回 permission_denied，序列化后的响应中不含 SSCRJU 和这两篇 doc_id；未写明产品的问题在受限时不会推断出 Streams。
+
+### P0-3 截止时间取消的真实性
+- 核查结论（修复前）：RAGAgent 和 LLM 调用是原生 async（httpx，可取消）；BM25 和父文档查询（Project 1 `FullSparseRetriever`/`TechQAParentResolver`）、MiniLM 编码、DB 推断与查询都在 `asyncio.to_thread` 中执行。协程被取消后线程仍会继续；其中 RAG 的 BM25 SQL 和 DB 推断里的 `index.search` 没有任何截止检查，可能在截止后继续发出 SQL。
+- 改动：新增 `agents/chap12/metered.py`（MeteredConnection、MeteredIndex、CountingReranker）；`budget.py` 增加 `sql`、`local` 两个类别和 `deadline_remaining`；DB Worker 的连接改为逐语句计量，推断和查询中的 `BudgetExhausted(deadline)` 映射为 timeout；dense 检索和重排在编码前计量 `local`；Contract 升级为 chap12-v2；新增 `tests/chap12/test_deadline.py`（3 项，用线程内真实的 `time.sleep` 阻塞）。
+- 命令：`pytest tests/chap12 -q` → `98 passed`；`ruff check ...` → `All checks passed!`；`mypy --python-version 3.12 agents/chap12 ...` → `Success: no issues found in 18 source files`。
+- 结果：DB 线程在截止后醒来时，第一条 SQL 就被 `BudgetExhausted(deadline)` 拒绝；返回后再等 1.2 s，预算计数没有任何变化，sql 为 0。RAG 检索线程阻塞到截止之后，也没有再产生任何计数。
+
+### P2（第一部分）count=0 语义、重试上限、预算细化测试
+- 改动：`db_worker.py` 按 D1 修改状态判定；`test_db_worker.py` 中的零值用例改为同时断言三种操作；`test_rag_worker.py` 新增“证据校验重试达到上限”用例（真实的 Project 1 RAGAgent + 总是失败的 selector，断言调用 2 次、状态 failed、错误类别 invalid_evidence、错误文案 “evidence validation failed after retry”）；新增 `test_metering.py`（逐语句 SQL 按 Worker 计数、SQL 上限阻断下一条语句、embedding 未命中与缓存命中分开计数）。
+- 命令：`pytest tests/chap12 -q` → `102 passed`；`ruff check` → 通过。
+
+### P1-3 拒答信号（调参集）
+- 改动：新增 `evaluation/chap12_refusal_signals.py`，输出 `tune/refusal_signals.json`（含 top-1 分数的完整阈值曲线）；`tools/sample_retriever.py` 加入 `refusal_gate()`（只在 MiniLM 重排下生效，可用环境变量关闭）；`test_dense.py` 新增门槛用例。
+- 命令：`python -m evaluation.chap12_refusal_signals` → 结果见 spec §9（只有 top-1/top-2 间隔的 BA 为 0.614，按事先规则采用，其余 ≤ 0.571）；`pytest tests/chap12 -q` → `103 passed`。
+
+### P1-5 产品槽位先行的替代方案（调参集）
+- 改动：新增 `evaluation/chap12_product_filter_study.py`，输出 `tune/product_filter_study.json`；spec §10 写入比较结果与结论。
+- 命令：`python -m evaluation.chap12_product_filter_study` → 当前方案 R@8 0.688、MRR 0.535，替代方案 R@8 0.661、MRR 0.508，槽位解析额外 124 ms → 保留当前方案。
+
+### P1-5（续）数据部分服务于回答；P0-4（第一部分）token 采集
+- 改动：`planner.py` 中 explain_and_data 的默认操作改为 list_recent_documents；`supervisor.py` 把列表渲染为“[相关文档]”；新增 `agents/chap12/ollama_tokens.py`（TokenMeteredOllamaModel 继承 Project 1 的适配器，重复相同的请求并记录 prompt_eval_count/eval_count），`factory.py` 的 ollama 档位改用它；`budget.py` 增加 `record_tokens`；Usage 增加 token 字段；新增 `test_ollama_tokens.py`（用 httpx MockTransport 验证请求参数与 Project 1 一致、token 累加、缺失时为 null、遇到 length 截断时失败）；更新 e2e 测试。
+- 命令：`pytest tests/chap12 -q` → `105 passed`；`ruff check` → 通过。
+- 未执行：真实 Ollama 的 token 采集（本环境连不到 Ollama）。
+
+### P1-1 / P1-2 / P1-4（准备）混合任务集、指标、确认集
+- 改动：
+  - `evaluation/chap12_build_tasks.py`：构建混合任务集。explain 76、explain_and_data 74（评测集问题按 Y/N 分层后交替分配）；data 60（3 种模板，金标从原始 metadata JSON 独立复算，分类规则也是独立重新实现的）。
+  - `evaluation/chap12_eval.py`：三个系统（p1_single = Project 1 原配置，single，multi）；按任务类型报告正确完成率、整体完成率、BA、R@k/MRR、数据正确率、产品一致率、相关文档是否含金标、延迟和各类调用计数；支持多次重复，CI 用按任务的 bootstrap；可传入运行元数据。
+  - `evaluation/chap12_failed_decomposition.py`：拆分 v1→v2 的 failed 变化。
+  - `chap12_build_sample.py` 的 `--exclude-manifest` 改为可以接收多个文件。
+  - 构建确认集（种子 20261013，排除评测集和调参集，113 Y / 37 N，6,520 篇文档）及其 dense 附属文件。
+  - `factory.build_rag_agent` 支持注入检索器。
+- 命令与结果：
+  - `python -m evaluation.chap12_build_tasks --split sample --seed 20261021` → explain 76 / explain_and_data 74 / data 60；confirm 使用种子 20261023，数量相同。
+  - `python -m evaluation.chap12_failed_decomposition` → v1 的 44 个 failed 中，33 个由产品推断补救（数据完成），11 个是重新归类（failed→no_data）。
+  - `AGENT_PROFILE=offline python -m evaluation.chap12_eval --split sample --output evaluation/results/chap12/offline_v3_sample` → 630 条记录，摘要写入 comparison.md。
+  - `pytest tests/chap12 -q` → `105 passed`；`ruff` 通过；`mypy --python-version 3.12`（20 个文件）→ `Success`。
+- 冻结：本提交即确认集运行所用的配置，确认集只运行一次。
+
+### P0-4 真实模型评测脚本
+- 改动：
+  - 新增 `evaluation/chap12_compare_real.ps1`（Windows / .venv312）和 `.sh`（Linux/macOS）。脚本依次：检查 Ollama；缺少模型时自动 pull；记录 Ollama 版本与两个模型的 digest、git commit 和配置，写入 meta.json；只在调参集上标定 nomic 阈值并做拒答信号研究；在评测集上按 `-Repeats 3`、`-LimitPerType 30`（按类型取随机前缀，即分层子集；0 表示全部）运行三个系统；`-Confirm` 时对确认集运行一次，并拒绝第二次。
+  - `chap12_retrieval_tune.py`、`chap12_refusal_signals.py` 增加 `--rerank nomic`（阈值合并写入 thresholds.json，信号写入 refusal_signals_nomic.json）。
+  - `sample_retriever.py`：阈值和间隔门槛按重排器分别读取；p1_single 使用 `use_calibration=False`，保证它始终是 Project 1 原阈值。
+  - `chap12_eval.py`：每道题、每次重复都轮换系统执行顺序，避免缓存预热只让某一个系统受益。
+- 继续沿用 0.6555 还是重新标定：**重新标定**。0.6555 是在全库 hybrid + nomic、training split 上标定的，而现在的范围是样本库，分数分布不同。脚本只在调参集上重新标定；标定之前，如果 thresholds.json 中没有 nomic 键，就回退到 0.6555。
+- 命令与结果：
+  - `bash -n evaluation/chap12_compare_real.sh` → 语法通过。
+  - **管线连通性测试（mock，不是模型结果）**：在本机起了一个返回固定 JSON 的假 Ollama HTTP 服务，用 `LIMIT_PER_TYPE=1 REPEATS=1` 完整跑通 .sh：meta.json 记录了 mock digest；token 被采集到（例如 single：prompt 300 / completion 6）；embedding 的未命中和命中分别计数。测试结束后，已把 thresholds.json 恢复原样，并删除由 mock 产生的 nomic 标定文件、结果目录和 rerank 缓存，这些都没有提交。
+  - `.ps1`：本环境没有 PowerShell，**语法和运行都未验证**。
+- 未执行：真实 Ollama 运行（本环境连不到 Ollama）。comparison.md 中真实档位的表格全部标为“未执行”。
+
+### P2（第二部分）Python 3.11 与 uvicorn 冒烟测试
+- Python 3.11：使用 `uv python install 3.11`，得到 CPython 3.11.17。
+  - `pytest tests -q --ignore=tests/project2` → `157 passed`（105 个 chap12 测试 + 52 个已有测试）。
+  - `mypy agents/chap12 api/chap12_main.py tools/sample_retriever.py`（使用 pyproject 的 3.11 配置）→ `Success: no issues found in 15 source files`。此前“numpy 存根在 3.11 下报语法错误”的问题，在这个只装最小依赖的环境中没有复现。
+  - 3.11 环境没有装 torch（离线安装包只有 cp312 的 torch），因此依赖真实 MiniLM 的评测脚本只在 3.12 下运行过。
+- uvicorn 冒烟测试：输出原样保存在 `evaluation/results/chap12/uvicorn_smoke.txt`。`/healthz` 返回 200；无凭证返回 401；full 凭证返回 200，状态 partial（RAG 因间隔门槛拒答，DB 正常完成）；无权限凭证返回 200，状态 permission_denied，tool_calls 为 0；只授权 SSFKSJ 的凭证返回 permission_denied，引用为空，响应中不含 SSCRJU；在请求正文里带权限字段返回 422。
+- 设计说明：权限拒绝通过响应体中的 `status=permission_denied` 表达，HTTP 状态码为 200；凭证缺失或无效时返回 401。
+
+## 2026-10-17 剩余事项（用户要求“把 13 项都完成”）
+
+规则不变：阈值与参数只在调参集（20261012）上选；评测集（20261011）只用于报告；确认集（20261013）只运行一次；不改 Project 1 代码。
+新增调参集混合任务：`python -m evaluation.chap12_build_tasks --split tune --seed 20261022` → explain 75 / explain_and_data 75 / data 60（种子 20261022 此前未使用）。
+
+### 第 7、8 项 相关文档改为产品内相关性排序；模型选择产品 + 程序校验
+- 研究（只用调参集）：`python -m evaluation.chap12_product_study` → `evaluation/chap12/tune/product_study.json`。
+  - 产品解析：explain_and_data 75 题中，字面命中 32、BM25 推断 32、无法确定 11；Y 题解析率 0.875（49/56），解析出的产品与金标文档一致 0.694（34/49）。
+  - 相关文档含金标（已解析的 49 道 Y 题）：最近文档 0.082（4/49）；产品内 BM25 0.469（23/49）。→ 采用产品内 BM25。
+  - 候选覆盖（模型选择的上限，不是准确率）：未解析的 7 题，前 5/10/20 篇文档的产品覆盖金标 5/7；解析错误的 15 题，覆盖 9/11/12。→ 候选取前 10 篇、最多 8 个产品。
+- 改动：`contracts.py`（chap12-v3，新操作 `search_product_documents`、来源 `model_pick`）；`db_worker.py`（新模板，IN 列表只含占位符，产品过滤始终生效；`_resolve` 按 fallback/first 顺序调用规则与模型；`_candidates` 只在授权文档中取候选）；新增 `product_pick.py`（模型只返回编号，非整数、越界、0、异常都视为未选）；`planner.py`、`supervisor.py`、`factory.py`（仅 ollama 档位创建选择器）；`chap12_eval.py`（新操作的独立校验：行不重复且全部属于该产品并满足过滤条件；相关文档指标覆盖两种列表操作）；`chap12_product_study.py`（`--pick` 用真实模型在调参集上比较两种顺序，事先规则：first 的命中率须比 fallback 高至少 0.05 才采用 first）。
+- 测试：新增 `tests/chap12/test_product_pick.py`（13 个测试函数、21 个用例：相关文档只含本产品且受过滤约束、问题文本不会进入 SQL、缺问题时 invalid_input、合法选择被采用并计入 llm 预算、8 种非法回复回退规则、无规则时要求澄清、fallback 模式只在规则失败时调用模型、off 模式不调用、未授权产品不会出现在候选中、显式产品不调用模型、环境变量覆盖）；更新 e2e 断言。
+- 命令与结果：`pytest tests/chap12 -q` → `126 passed`；`ruff check agents/chap12 evaluation/chap12_product_study.py evaluation/chap12_eval.py tests/chap12` → `All checks passed!`；`MYPYPATH=../src mypy --python-version 3.12 agents/chap12 api/chap12_main.py tools/sample_retriever.py evaluation/chap12_product_study.py evaluation/chap12_eval.py` → 本次涉及的文件无错误（仅报告 Project 1 `src/rag/techqa` 中 2 个既有问题，未修改）。
+- 未执行：`--pick` 真实模型研究（需要 Ollama，放在 Windows 运行步骤中）；评测集上的效果（等真实模型评测一并报告）。
+- 影响说明：确认集此前的离线运行（offline_v3_confirm_once）使用的是旧配置，不再代表当前配置；按“只运行一次”的规则不再离线重跑确认集，当前配置的确认结果以之后唯一一次真实模型确认运行为准。
+
+### 第 9 项 检索调参（只用调参集）
+- 事先登记：先提交 `evaluation/chap12_retrieval_sweep.py`（提交 408e56d），其中写明网格与采用规则，之后才运行。网格：重排权重（语义、词项覆盖、BM25 先验）5 组 × 候选深度（candidate_k、rerank_k）2 组，共 10 个变体。规则：取 R@8 最高者；只有 R@8 ≥ 当前 + 0.03 且 MRR ≥ 当前 − 0.01 才采用。
+- 命令：`python -m evaluation.chap12_retrieval_sweep`（分两次运行，可断点续跑）→ `evaluation/chap12/tune/retrieval_sweep.json`。
+- 结果（调参集，112 道 Y 题，离线 MiniLM 重排）：当前配置 R@8 0.688、MRR 0.546（与此前报告一致）；最好的变体 w=0.6/0.2/0.2、k=30/20 为 R@8 0.714、MRR 0.550，只多 3 题（+0.026），未达到 +0.03 → **不采用，配置不变**。其余变体 R@8 在 0.661–0.705 之间。
+- 结论：在这个网格内，调重排权重或加深候选都改善不了检索；R@20 只有 0.777–0.839，瓶颈在候选召回本身，不在排序。没有再追加未登记的变体。
+
+### 第 10 项 Critic 与一次有界 Replan
+- 设计：`agents/chap12/critic.py` 是确定性的程序检查，不调用模型。C1 检查已发布回答的引用（有引用、有引文、在检索集合内）；C2 检查数据部分的产品是否属于回答所引用文档的产品。只有 C2 会触发 Replan，并且只在产品不是用户给定的情况下（来源为 inferred 或 model_pick，或者无法确定产品）：用引用文档的产品（来源 `rag_citation`）重新运行一次 DB Worker。每个请求最多 1 次；仍经过授权、预算和截止时间检查；只有重新查询结果为 completed/partial 时才替换原结果，否则保留原结果并写入限制说明。用户给定的产品只提示、不替换。`CHAP12_CRITIC=off` 可关闭。
+- 测试：新增 `tests/chap12/test_critic.py`（10 个用例：推断产品冲突时 Replan；显式或字面产品只提示不替换；无法确定时取引用文档的产品；一致或无引用时不动作；引用不在检索集合内时报告；集成测试中真实 DB Worker 恰好被调用 2 次且结果被替换；关闭时不 Replan；未授权产品不会被用于 Replan；预算不足时保留原结果并说明）。
+- 命令：`pytest tests/chap12 -q` → `136 passed`。
+- 事先登记的默认值规则（在调参集运行之前写下）：在调参集的 explain_and_data 任务上，用离线 multi 系统分别以 Critic 开、关各运行一次；只有“产品与金标文档一致率”（Y 题）提高至少 0.05，并且 data_correct 和 explain_and_data 的正确完成率都没有降低，默认才设为开；否则默认关。
+- 调参集运行（离线，multi，explain_and_data 75 题，各 1 次）：
+  - `AGENT_PROFILE=offline CHAP12_CRITIC=on python -m evaluation.chap12_eval --split tune --systems multi --types explain_and_data --output evaluation/results/chap12/tune_critic_on`
+  - 同上，`CHAP12_CRITIC=off`，输出 `tune_critic_off`。
+  - 结果（开 / 关）：产品与金标文档一致率 0.6863 / 0.6939；data_correct 0.8933 / 0.8533；正确完成率 0.3333 / 0.3200；相关文档含金标 0.4706 / 0.4694；Replan 率 0.04 / 0（75 题中 3 题触发）。
+  - 按事先规则，产品一致率没有提高 0.05（反而低 0.008）→ **默认关闭**（`CHAP12_CRITIC` 默认 off，设为 on 可开启）。data_correct 虽然高了 0.04（Replan 补上了无法确定产品的题），但它不是登记的主指标，不据此改判。
+  - Replan 很少触发的原因：离线档位下回答本身引用的文档少，且多数情况下引用文档的产品与推断产品一致。
+- 测试更新：Critic 相关集成测试显式开启；新增“默认关闭”用例。`pytest tests/chap12 -q` → `137 passed`；ruff 通过。
+
+### 第 13 项 索引重建与内容校验；新建确认集 confirm2
+- 改动：新增 `evaluation/chap12_rebuild_indices.py`。`--record` 记录每个切分索引与 dense 附属文件的内容摘要（逐表、按全部列排序后对每一行做 SHA-256；不比较文件字节，因为 SQLite 的页面布局可能不同），写入 `evaluation/chap12/index_digests.json`；`--check` 只校验现有文件；`--rebuild` 用原命令和原种子在临时目录重建，比较摘要以及重新生成的 tasks.jsonl/gold.jsonl 与已提交文件是否逐字节相同，`--install` 在全部一致时才把索引复制进 `.rag_data`。
+- 新建 confirm2：`python -m evaluation.chap12_build_sample --seed 20261014 --index ../.rag_data/chap12_confirm2.sqlite --output evaluation/chap12/confirm2 --exclude-manifest evaluation/chap12/sample_manifest.json evaluation/chap12/tune/sample_manifest.json evaluation/chap12/confirm/sample_manifest.json` → 150 题（102 Y / 48 N），6,702 篇文档，无缺失；`chap12_build_dense` → 29,501 个块；`chap12_build_tasks --split confirm2 --seed 20261024` → explain 75 / explain_and_data 75 / data 60。原因：v3 改动发生在原确认集运行之后（见 spec §12.5）。confirm2 尚未运行任何系统。
+- 命令与结果：
+  - `python -m evaluation.chap12_rebuild_indices --record`（四个切分）→ 摘要已写入。
+  - `python -m evaluation.chap12_rebuild_indices --rebuild --workdir <临时目录>` → sample、tune、confirm 三个切分的索引、dense、tasks.jsonl、gold.jsonl **全部一致**；confirm2 建好后单独 `--splits confirm2` 重建，同样一致。合并后的输出见 `evaluation/results/chap12/rebuild_verify_20261017.json`。每个切分重建约 30 秒（Linux VM，读取主检出中的全量索引）。
+  - `pytest tests/chap12 -q` → `137 passed`；ruff 通过。
+- 未执行：Windows 上的重建（脚本相同；只在 Linux VM 上运行过）。
+
+### 第 11 项 Spec Kit 初始化与 constitution 草案
+- 命令：`uvx --from git+https://github.com/github/spec-kit.git@v1.2.1 specify init --here --force --integration claude --script ps --non-interactive --ignore-agent-tools`（在空目录中执行，再把生成的 `.specify/` 与 `.claude/skills/speckit-*` 复制到仓库根目录；没有覆盖任何已有文件）。版本固定为发布标签 v1.2.1。
+- 改动：`.specify/memory/constitution.md` 写成草案 1.0.0-draft，共 7 条原则（证据先于结论、切分纪律、复用不修改、程序掌握权限、有界执行、版本化 Contract、可复现产物）以及流程与治理。**状态为未批准**，批准日期留作 TODO，须由人工批准。文中注明它写于实现之后。
+- `analyze_report.md` 追加 Constitution Alignment 一节（Claude 按 speckit-analyze 模板执行，不是 CLI 输出）：K1“实现先于 Spec、无事前人工审阅”为 CRITICAL，无法事后补救，如实披露；K2 确认集已用，以 confirm2 处理；其余原则符合。核对 K5 的命令：`git diff --name-only 38f8483 HEAD` 只列出 chap12 相关文件（38f8483 为本分支起点）。
+
+### 第 5 项 人工审阅（只能由人完成）
+- 改动：新增 `spec_review_checklist.md`，按 A–G 七组共 22 项，供审阅者逐条勾选、签名。spec.md 新增 §12（v3 改动）并在开头注明“实现后补写、未经人工审阅”。
+- 未执行：人工审阅本身。原因：必须由人完成，Claude 不代填。
+
+### 第 12 项 worktree 在 Linux VM 与 Windows 之间共用
+- 现象：worktree 的 `.git` 文件写的是 VM 的绝对路径（/sessions/...），Windows 上的 git 找不到。此前建议的 `git worktree prune` **是错误建议**：在 Windows 上运行它会把这个 worktree 的元数据当作失效而删除，不能运行。
+- 改动（不进入提交，属于本地 git 元数据）：`.worktrees/chap12/.git` 改为相对路径 `gitdir: ../../.git/worktrees/chap12`（git 一直支持相对路径，两边都能用）；对该 worktree 执行等价于 `git worktree lock` 的操作（写入 `.git/worktrees/chap12/locked` 并注明原因），防止被 prune。没有使用 `worktree.useRelativePaths`，因为 VM 中的 git 2.34 不认识这个扩展，会导致整个仓库无法打开。
+- 命令与结果：VM 中 `git status`、`git log` 正常；`git worktree list` 显示该 worktree 为 locked。Windows 端的验证见下面 Windows 运行记录中的 probe 步骤。
+
+### 第 1–4 项 Windows 运行脚本
+- `chap12_compare_real.ps1`：自动寻找本检出或主检出的 `.venv312`；worktree 中没有索引时，建立指向主检出 `.rag_data` 的目录联接；运行前用 `chap12_rebuild_indices --check` 校验索引内容；调参集步骤增加模型选择产品顺序的研究；`-TuneOnly` 只做调参集决策；正式运行前要求调参输出已提交（配置冻结）；确认运行改用 confirm2，任何已存在的 confirm2 运行都会让脚本拒绝再跑。`.sh` 同步修改，`bash -n` 通过。
+- 本地启动器 `.chap12_run/run_all.cmd`（不提交，已加入 .git/info/exclude）：依次 probe → push 两个分支 → 用 gh 建 PR（目标分支 codex/project2-course-completion，用户 2026-10-17 选择）→ 调参集决策并提交 → 评测集 3 次重复、每类 30 题 → confirm2 一次 → 提交结果并 push。日志写入 `.chap12_run/run_all.log`。由用户本人双击运行（Claude 对资源管理器只有点击权限，不通过它执行命令）。
+
+### 当前配置（v3 契约，2026-10-17）在评测集上的离线运行（只用于报告）
+- 命令：`AGENT_PROFILE=offline python -m evaluation.chap12_eval --split sample --output evaluation/results/chap12/offline_v4_sample --resume`（Linux VM，索引在本地磁盘）→ 630 条记录。
+- 与 `offline_v3_sample_rotated` 相比：Multi-Agent 的 explain_and_data 中“相关文档含金标”由 0.074 升到 0.4815；正确完成率（0.3514）、数据正确率（0.8919）、产品一致率（0.7037）、explain 与 data 的全部指标不变（离线档位不调用模型选择产品，Critic 默认关闭）。
+- 延迟不可与 v3 直接比较：v3 运行时索引在 Windows 挂载目录上，本次在 VM 本地磁盘上。
+
+### Windows 真实模型运行记录（第 1–4、6、8 项）
+- 运行方式：用户在本机双击 `.chap12_run/run_all.cmd`（共 5 次）。日志 `.chap12_run/run_all.log`（未提交）。
+  1. 15:28：探测步骤卡住——`ollama --version` 启动了 Ollama 应用并继承了管道，脚本一直等待。改为用 HTTP 检查 Ollama。
+  2. 15:32：push 失败（用户的 `~/.gitconfig` 设有已失效的代理 127.0.0.1:7897）；调参步骤失败（worktree 中残留的 VM 符号链接，WinError 1920）。删除符号链接，改由脚本建立目录联接；push 失败时只对该命令关闭代理重试一次；某步失败即停止。
+  3. 15:35：两个分支推送成功；调参集 nomic 阈值与拒答信号完成；模型选择产品研究在 15:43 遇到一次 Ollama 500 后 Python 不再发送请求，停滞约 1.5 小时（从 Ollama server.log 确认）。加入每次 90 s 上限与逐题进度（`9aca413`）。
+  4. 17:17：调参集三项决策完成并由脚本提交（`8f637b7`，提交标题含 BOM，属 PowerShell 5.1 的写法问题，已在脚本中修正）；评测集 810 条记录全部完成，但汇总步骤读取带 BOM 的 meta.json 失败。修正为 utf-8-sig（`f12df6d`）。
+  5. 20:26：生成评测集汇总；confirm2 运行一次（270 条）；结果由脚本提交并推送（`6fa00da`）。
+- PR：用户本机未安装 gh，在内置浏览器中由用户登录 GitHub 后创建 PR #1（目标 codex/project2-course-completion），点击创建前经用户确认。未合并。
+- 结果与解读见 comparison.md“真实模型档位”。要点：Multi-Agent 全部 90 题正确完成 0.511 / 0.611（单 Agent 0.089 / 0.167）；explain 题上当前 RAG 与 Project 1 原配置无可确认差异；拒答无效（nomic 下无信号通过 BA > 0.6）；产品选择采用 fallback。
+- 第 6 项结论：真实档位不启用拒答门槛（调参集规则）；离线 MiniLM 档位保留原门槛。是否在离线档位也关闭，留给审阅人决定（离线确认集上未复现，见上文）。
+- 新增 `chap12_report.py --real` 生成真实档位表格。
+
+## 2026-10-18 用户要求“完成率偏低，一起改进”
+
+### 失败分解（真实档位，Multi-Agent，事后诊断，只用于决定试什么，不用于选参数）
+- 评测集 explain + explain_and_data 的 Y 题失败中，最大的一类是“答案文档不在给模型的 8 篇候选里”（explain 39、组合题 21 条记录，按重复计）；其次是“模型拒答了有答案的题”（24）和“回答了但没引用答案文档、答案文档其实在候选里”（18）；N 题没有拒答（27）；组合题中“RAG 正确但产品与答案文档不一致”12 条。confirm2 的分布相同。
+- 调参集上 nomic 重排的 R@8 为 0.661、R@20 为 0.804（`tune/retrieval_report_tune_nomic.json`），说明加深给模型的候选有余地。
+
+### 事先登记（在任何新运行之前提交）
+- 用户选择试两项：加大检索深度、在真实档位开启 Critic（不试受控生成）。
+- 变体与规则写在 `evaluation/chap12_tune_decide.py` 的文档字符串中：base（top_k 8 / 上下文 2400）、k12（12 / 3600）、k16（16 / 4800）、critic（8 / 2400 + Critic）；只在调参集（explain + explain_and_data 150 题，Multi-Agent，1 次）上比较。深度：取 k12、k16 中正确完成率较高者，须比 base 高 ≥ 0.03、失败率不升、平均延迟 ≤ 1.5 倍才采用；Critic：组合题正确完成率 ≥ base + 0.02 且产品一致率不降才采用。结果写入 `tune/real_config.json`，`factory.apply_tuned` 只在真实档位读取它（环境变量优先；p1_single 基线不受影响）。
+- **没有新的确认集可用**：TechQA training 共 600 题，已全部用于评测集、调参集、confirm、confirm2（试建 confirm3 时 `select_questions` 报 “sample larger than source split”）；dev 属于仓库评测协议的 held-out 分区，不能使用。因此改进后的配置只在评测集上报告（Single 与 Multi，1 次重复，与 `ollama_run1` 同一批 90 题），**没有独立确认**，报告中会如实标注。confirm2 不再运行。
+- 改动：`critic.critic_enabled(default)`；`Supervisor(critic=...)`；`factory.tuned_config/apply_tuned`、`build_rag_agent(tuned=...)`；`chap12_eval` 中 p1_single 使用 `tuned=False`；`chap12_report.py` 行宽修正。新增 `tests/chap12/test_tuned.py`（5 个用例）。
+- 命令：`pytest tests/chap12 -q` → `142 passed`；ruff 通过；mypy（chap12 文件）无错误。
+
+### 第二轮运行记录（Windows，用户双击 `.chap12_run/run_improve.cmd` 两次）
+- 第 1 次（14:52–16:59）：4 个调参变体全部完成（各 150 条），但脚本中 `$name` 与 Step 函数参数同名，PowerShell 动态作用域使结果目录被命名为 “tune_real_tune variant …”，决策步骤找不到文件而中止。数据未受影响；在 VM 中把目录改回 `tune_real_{base,k12,k16,critic}`，并修正脚本变量名。
+- 第 2 次（~17:2x–17:59）：变体全部续跑跳过；`chap12_tune_decide` 按事先规则输出 `real_config.json`：深度不采用（k12 0.3400 < base 0.3533 + 0.03），Critic 采用（组合题 0.3600 ≥ 0.3333 + 0.02，产品一致 0.6545 ≥ 0.6481）；提交 `21eeaf5` 并推送；评测集单 Agent + Multi-Agent 各 90 题 1 次（`ollama_run2`），提交 `610c295` 并推送。
+- 结果（与 `ollama_run1` 第 1 次重复逐题对比）：Multi-Agent 正确完成 0.511 → 0.511（1 题变对、1 题变错），组合题数据正确 0.867 → 0.967，产品一致 0.667 → 0.619，Replan 4 次；单 Agent 不变。调参集上的提升未在评测集上复现。没有新的确认集。
+
+## 2026-10-18 第三轮：cross-encoder 重排（用户要求“接着试 cross-encoder 重排”）
+
+### 事先登记（在任何运行之前提交）
+- 模型：`cross-encoder/ms-marco-MiniLM-L-6-v2`（ce_minilm）与 `BAAI/bge-reranker-base`（ce_bge），本地运行，权重由 `evaluation/chap12_download_ce.py` 下载到 `.rag_data/models/`，manifest 记录 Hugging Face 仓库与实际 commit。VM 与云端环境都无法访问 huggingface.co，下载在用户 Windows 上进行。
+- 实现：`agents/chap12/cross_encoder.py`（与其他重排器相同的 `rerank(query, candidates, limit)` 接口，注入现有 RetrievalPipeline，不改 Project 1 代码；每次计 1 次 local 预算）；`tools/sample_retriever.py` 增加 `ce_minilm`/`ce_bge` 选项，阈值必须在调参集标定（缺失则报错）；`factory` 在真实档位读取 `real_config.json` 的 `adopted.reranker`（环境变量 `CHAP12_RERANKER` 优先；p1_single 基线不受影响）。新增 `tests/chap12/test_cross_encoder.py`（4 个用例）。`pytest tests/chap12 -q` → `146 passed`；ruff 通过；mypy（chap12 文件）无错误。
+- 规则 1（筛选，`evaluation/chap12_ce_study.py`，调参集，不调用 LLM）：R@8 至少比 nomic 的调参集 R@8（0.661）高 0.03 的 cross-encoder 才进入真实模型比较；同时按原方法标定接受阈值。
+- 规则 2（采用，`evaluation/chap12_ce_decide.py`，调参集，真实模型，Multi-Agent 150 题）：与当前配置（nomic、top_k 8、Critic 开，即 `tune_real_critic`）比较，正确完成率至少高 0.03、失败率不升、平均延迟不超过 1.5 倍才采用；都通过时取较高者。
+- 只有采用了 cross-encoder 才在评测集上重跑（单 Agent + Multi-Agent，90 题，1 次）。没有新的确认集。
+- 运行器：`.chap12_run/run_ce.cmd`（不提交）。
+
+### 第三轮运行记录（Windows，用户双击 `.chap12_run/run_ce.cmd` 一次，2026-10-18 19:11–22:05 PT）
+- 环境（`results/chap12/round3_meta.json`）：起始 commit fd3c0c8，Python 3.12.10，Ollama 0.40.6（第二轮为 0.40.5），qwen2.5:7b 与 nomic-embed-text digest 与之前相同。
+- 下载：ce_minilm `cross-encoder/ms-marco-MiniLM-L-6-v2` @233902d2…（91,816,407 字节）；ce_bge `BAAI/bge-reranker-base` @2cfc18c9…（1,134,375,513 字节）。
+- `python -m evaluation.chap12_ce_study`（19:11–20:25）：ce_minilm R@8 0.696、MRR 0.483、阈值 0.9396；ce_bge R@8 0.732、MRR 0.518、阈值 0.8784；两者都通过筛选（≥ 0.691）。
+- 真实模型调参运行（`CHAP12_RERANKER=ce_x`，Critic 开）：ce_minilm 20:25–20:59，ce_bge 20:59–22:04，各 150 条，失败 0。日志中的 “rewrite dropped a protected term” 与 “Invalid structured evidence, attempt=1” 是 Project 1 的校验回退，不计为失败。
+- `python -m evaluation.chap12_ce_decide`：正确完成 ce_minilm 0.3733、ce_bge 0.3267、当前配置 0.3667 → `adopted_reranker: nomic`。提交 `4fadace` 并推送（直连失败后去掉代理重试成功）。
+- 评测集：未执行（规则：没有采用 cross-encoder 就不重跑）。
+- Ollama 0.40.6 上的基线重跑：未执行（原因见 comparison.md 第三轮“混杂因素”）。
+- 结果写入 comparison.md（第三轮）与 PR_DESCRIPTION.md。
+
+
+## 2026-10-18 第四轮：cross-encoder 只负责排序，接受仍用 nomic 阈值（用户要求“只用 cross-encoder 排序、保留 nomic 的接受阈值”，22:23 PT）
+
+### 事先登记（在任何运行之前提交）
+- 动机（来自第三轮调参集结果，不来自评测集）：cross-encoder 的 R@8 更高，但按其分数在调参集标定的阈值使 Y 题接受率下降约 7–8 个百分点。本轮把两件事分开：排序（决定哪些文档进入 top_k）用 cross-encoder，接受与否仍用每篇文档的 nomic 重排分数与现有 nomic 阈值（`tune/thresholds.json` 的 `nomic_rerank`，0.6568）。不标定新阈值。
+- 实现：`agents/chap12/cross_encoder.py` 新增 `OrderOnlyReranker`（nomic 与 cross-encoder 并发对同一批融合候选打分，按 cross-encoder 排序，`score` 保留 nomic 分数，`rerank_score` 保留 cross-encoder 分数）；`tools/sample_retriever.py` 新增选项 `ce_minilm_order`、`ce_bge_order`（阈值查找按 `nomic`）。不改 Project 1 代码。新增 2 个测试（`test_order_only_uses_cross_encoder_order_and_nomic_scores`、`test_order_only_choice_uses_nomic_threshold`）。`pytest tests/chap12 -q` → `148 passed`；ruff 通过；mypy（新代码）无新增错误。
+- 运行（全部在调参集，真实模型，Multi-Agent，explain + explain_and_data 150 题，1 次，top_k 8，Critic 开，同一个 Ollama 版本）：先在当前 Ollama 版本上重跑当前配置 `tune_real_r4_base`（消除第三轮 0.40.5 → 0.40.6 的混杂），再跑 `tune_real_r4_ce_minilm_order`、`tune_real_r4_ce_bge_order`。不再做无 LLM 的筛选：排序与第三轮相同，R@8 已知（0.696 / 0.732）。
+- 规则（`evaluation/chap12_order_decide.py`）：与 `tune_real_r4_base` 比，正确完成率至少高 0.03、失败率不升、平均延迟不超过 1.5 倍才采用；都通过时取较高者；否则保留 nomic。预期 bge 可能因延迟不通过（第三轮为 2.19 倍），仍按登记运行。
+- 只有采用时才在评测集上运行：当前配置（Multi-Agent）`ollama_run4_base` 与采用配置（单 Agent + Multi-Agent）`ollama_run4`，各 90 题 1 次，同一 Ollama 版本。没有新的确认集。
+- 运行器：`.chap12_run/run_order.cmd`（不提交）；开头推送待推提交，并按用户 22:23 的同意用 `gh pr edit 1 --body-file specs/chap12-supervisor/PR_DESCRIPTION.md` 更新 PR #1 描述（云端会话的 GitHub 集成无权修改 PR，返回 HTTP 403，所以由用户机器上的 gh 执行）。
+
+### 第四轮运行记录（Windows，用户双击 `.chap12_run/run_order.cmd` 一次，2026-10-19 09:16–11:34 PT）
+- 环境（`results/chap12/round4_meta.json`）：起始 commit e17fba8，Ollama 0.40.6，模型 digest 与之前相同。
+- 推送 e17fba8 成功（直连失败后去掉代理重试）。PR #1 描述更新：**未执行**，脚本输出 “gh not installed: PR description not updated”（用户 Windows 上没有 gh；云端会话的 GitHub 集成对 PR 修改返回 HTTP 403）。
+- 调参运行各 150 条、失败 0：`tune_real_r4_base` 0.3667（与 `tune_real_critic` 逐题完全相同）、`tune_real_r4_ce_minilm_order` 0.3667、`tune_real_r4_ce_bge_order` 0.3333。
+- `python -m evaluation.chap12_order_decide` → `adopted_reranker: nomic`。提交 `b1f6384` 并推送。
+- 评测集：未执行（规则：没有采用就不重跑）。
+- 结果写入 comparison.md（第四轮，并更正第三轮“混杂因素”一条）与 PR_DESCRIPTION.md。
+
+
+## 2026-10-19 复盘与第五轮（用户要求“都做”复盘中的 4 项，12:36 PT）
+
+### 复盘
+- `specs/chap12-supervisor/retrospective.md`：失分拆分（调参集当前配置）、第 2–4 轮未见效的原因、第五轮计划。
+
+### 第 4 项：评估方法（先做，不调用模型）
+- `evaluation/chap12_paired.py`：同一批题的配对比较（变对 / 变错、净胜、精确 McNemar 单侧与双侧 p），并报告可回答题 token F1（全部可回答题，拒答记 0；以及两边都作答的题）。新增 `tests/chap12/test_paired.py`（3 个用例）。
+- 运行：`python -m evaluation.chap12_paired --retro`（VM，本地镜像）→ `results/chap12/paired_retro.json`。结果写入 comparison.md“配对比较”一节：第 2–4 轮没有一个变体可区分（双侧 p ≥ 0.31）。只作报告，不改变当时的决定。
+
+### 第 3 项：检索召回写入已知限制
+- PR_DESCRIPTION.md 已知限制第 6 条。
+
+### 第 1、2 项：事先登记（在任何运行之前提交）
+- 实现：
+  - `agents/chap12/verifier.py`（`AnswerVerifier`）：RAG 发布答案后，Supervisor 让同一模型只判断“引用的原文是否回答了问题”（JSON 布尔）；判否则把 RAG 结果改为 no_data（`invalid_evidence`），只能否决、不能新增；模型出错或输出无效时保留答案（fail-open）；调用计入同一请求预算；先于 Critic 运行。开关 `CHAP12_VERIFIER=on/off`，否则读 `real_config.json` 的 `adopted.verifier`，默认关。
+  - `supervisor.py` 增加 `_verify`；`factory.py` 在真实档位构建 Verifier，并允许 `adopted.model`（环境变量 `AGENT_MODEL` 优先）；`chap12_eval.py` 记录 `verifier` 判定。
+  - 测试：`tests/chap12/test_verifier.py`（7 个用例）、`test_tuned.py` 新增模型用例。`pytest tests/chap12 -q` → `159 passed`；ruff 通过；mypy 对新代码无新增错误（supervisor.py 两条为既有）。
+- 运行（调参集，真实模型，Multi-Agent，explain + explain_and_data 150 题，1 次，nomic，top_k 8，Critic 开）：
+  - 7b 基线：沿用 `tune_real_r4_base`（0.40.6 上已逐题复现）；若 Ollama 版本不是 0.40.6 则重跑为 `tune_real_r5_base_7b`。
+  - `tune_real_r5_verify_7b`（7b + Verifier）。
+  - `tune_real_r5_base_14b`、`tune_real_r5_verify_14b`（qwen2.5:14b，Verifier 关 / 开）。若本机没有 qwen2.5:14b 则通过 Ollama `/api/pull` 下载（约 9 GB）；事先登记的速度门槛：预热后一次 20 token 生成超过 60 秒则不跑 14b（记为未执行）。请求截止时间不放宽（150 秒），超时计为失败。
+- 规则（`evaluation/chap12_round5_decide.py`，全部用配对比较）：
+  - 模型：14b 相对 7b 基线净胜 ≥ 5 题且单侧精确 McNemar p < 0.10、失败率不升、可回答题 token F1 不低于基线 0.05 以上、平均延迟 ≤ 2.5 倍，才采用 14b。
+  - Verifier：在采用的模型上，与同模型不开 Verifier 比：不可回答题拒答率至少 +0.25、可回答题接受率下降不超过 0.05、配对变对 ≥ 变错、失败率不升、token F1 不低于 0.05 以上，才采用。
+- 只有采用了 14b 或 Verifier 才在评测集运行（单 Agent + Multi-Agent，90 题，1 次）`ollama_run5`，并与 `ollama_run2`（同一设置）做配对比较。没有新的确认集；小于约 0.05 的差异不视为确认。
+- 运行器：`.chap12_run/run_round5.cmd`（不提交）。
+
+### 第五轮运行记录（Windows，用户双击 `.chap12_run/run_round5.cmd` 一次，2026-10-19 12:47–17:11 PT）
+- 环境（`results/chap12/round5_meta.json`）：起始 commit 982892b，Ollama 0.40.6（未变，7b 基线沿用 `tune_real_r4_base`），GPU RTX 3060 Laptop 6144 MiB。
+- 推送 982892b：直连失败后去掉代理重试成功。下载 qwen2.5:14b：`success`（12:47–12:51）。
+- 14b 速度门槛：预热后 20 token 生成 0.3 秒 → 通过。缺陷：模型回答 “OK” 后提前结束，门槛没有测到真实速度（见 comparison.md 第五轮）。
+- 调参运行各 150 条、失败 0：`tune_real_r5_verify_7b`（12:51–13:22）、`tune_real_r5_base_14b`（13:22–15:11）、`tune_real_r5_verify_14b`（15:11–17:11）。
+- `python -m evaluation.chap12_round5_decide` → `model_adopted: qwen2.5:7b`，`verifier_adopted: false`（Y 接受率 −0.30、token F1 −0.056 未过门槛；14b 净胜 4、延迟 3.45 倍未过门槛）。提交 `e8f1532` 并推送。
+- 评测集：未执行（规则：没有采用就不运行）。
+- 写入 comparison.md（第五轮；同时更正第四轮表中基线延迟 11830 → 12598 与 bge 倍数 2.28 → 2.14）、retrospective.md（第五轮结果）、PR_DESCRIPTION.md。
+
+
+## 2026-10-19 第六轮：分级核验，看完整证据（用户要求“改进核验 Worker”，18:18 PT）
+
+### 事先登记（在任何运行之前提交）
+- 动机（第五轮调参集结果，事后分析，只用于决定试什么）：二元核验否决的 34 道可回答题中，22 道原本就引用了错误文档，12 道原本正确；核验只看到短引用句。
+- 实现：
+  - 契约 chap12-v4：`Citation` 增加可选字段 `excerpt`（Project 1 trace 中该来源的证据段落，即生成答案时模型看到的原文；无则为空）。`rag_worker.py` 填充它。
+  - `verifier.py`：分级模式 `grade()`，给模型问题、答案和每个被引文档的证据段落（每篇最多 2500 字符、总计 6000），要求 1–5 分；无效输出或模型出错时保留答案。`verifier_mode()`：`CHAP12_VERIFIER=off|on|graded` 与 `CHAP12_VERIFIER_MIN_SCORE` 优先，否则读 `real_config.json` 的 `adopted.verifier` / `adopted.verifier_min_score`。graded 且没有最低分时只记录分数、不否决。
+  - `supervisor.py` / `factory.py` 接入；trace 记录 `score=k` 或 `score=k;rejected`。
+  - 测试：`test_verifier.py` 新增 9 个用例，`test_rag_worker.py` 新增 1 个。`pytest tests/chap12 -q` → `168 passed`；ruff 通过；mypy 对新代码无新增错误。
+  - `evaluation/chap12_round6.py`（`select` / `decide`）；用合成分数在 VM 本地镜像上试运行过选择与决策逻辑（不是实验结果，未提交任何输出）。
+- 运行（调参集，qwen2.5:7b，Multi-Agent，explain + explain_and_data 150 题，1 次，nomic，top_k 8，Critic 开；基线 `tune_real_r4_base`；Ollama 必须仍为 0.40.6，否则停止）：
+  1. `tune_real_r6_scores`：分级核验只记录分数，不否决（正确性应与基线一致，作为核对）。
+  2. 选择规则：最低分 m ∈ {2,3,4,5}，在第 1 步结果上模拟“分数 < m 则不发布”；可行条件为“原本正确的可回答题丢失 ≤ 3 道”且“配对净胜 ≥ 5 道”；取净胜最大者（并列取较低的 m）。没有可行的 m 则停止，不采用、不做第 3 步。
+  3. `tune_real_r6_verify`：以选中的 m 实际运行。采用条件：原本正确的可回答题丢失 ≤ 3、配对净胜 ≥ 5、失败率不升、两边都作答的可回答题 token F1 下降不超过 0.05。
+- 与第五轮规则的差别（事先说明）：不再用“可回答题接受率下降 ≤ 0.05”，改为“原本正确的可回答题丢失 ≤ 3 道”；token F1 只比较两边都作答的题（拒答不再记 0 拉低均值）。第五轮的决定不因此改变。
+- 只有采用时才在评测集运行 `ollama_run6`（单 Agent + Multi-Agent，90 题，1 次），并与 `ollama_run2` 做配对比较。仅作报告；没有新的确认集；调参集已用到第六轮，小于约 0.05 的差异不能视为确认。
+- 运行器：`.chap12_run/run_round6.cmd`（不提交）。
+
+### 第六轮运行记录（Windows，用户双击 `.chap12_run/run_round6.cmd` 一次，2026-10-19 21:46–22:17 PT）
+- 环境（`results/chap12/round6_meta.json`）：起始 commit eb7d47f，Ollama 0.40.6（未变，基线有效）。推送 eb7d47f 成功（去掉代理重试）。
+- `tune_real_r6_scores`：150 条、失败 0，正确完成 0.3667，与基线逐题一致（150/150）。
+- `python -m evaluation.chap12_round6 select` → 最低分 2/3/4/5 的净胜为 +4/+12/+13/−7，丢失原本正确的可回答题 0/8/10/36；没有可行值，`selected_min_score: null`。
+- 阈值运行 `tune_real_r6_verify` 与 `decide`：未执行（规则：没有可行最低分则停止）。评测集：未执行。
+- 提交 `59870ba` 并推送。结果写入 comparison.md（第六轮）、retrospective.md、PR_DESCRIPTION.md。
+
+## 2026-10-19 仓库与分支改名（用户要求，22:23 PT）
+- GitHub 网页（内置浏览器）：仓库 `RAG-Ingestion-Pipeline` → `TechQA-Enterprise-RAG`；分支 `codex/project2-course-completion` → `project2/baseline`（PR #1 的目标自动更新）；`feature/chap12-supervisor-lite` → `feature/supervisor-worker-agent`（GitHub 因此自动关闭 PR #1，#1 无评论或审阅；用户同意改名并开新 PR 替代）。
+- 本地：`git remote set-url origin https://github.com/BoiledFishz/TechQA-Enterprise-RAG.git`；`git branch -m` 两个分支并设置上游；`git remote prune origin`。清理了本会话 git 操作留下的锁文件与临时对象（用户授权删除）。
+- 代码与文档内部的 `chap12` 名称按用户选择不改。PR_DESCRIPTION.md 标题改为 “Project 2：Supervisor–Worker 多智能体”。
+
+
+## 2026-10-20 逐层 trace 导出与失分归因（老师要求：“有 trace 导出来吗？核心就是定位问题在哪一层”）
+- 之前的 `runs.jsonl` 只有每题的最终状态、检索到的文档和引用，没有逐层 trace。
+- 实现（只读记录，不改变排序、过滤或模型调用；未开启时为空操作；不改 Project 1 代码）：
+  - `agents/chap12/tracing.py`：按请求的记录器（ContextVar）。
+  - `tools/sample_retriever.py`：开启时把 Project 1 检索管线已支持的 `trace` 参数传入，记录稠密、稀疏、RRF 融合、重排、最终各阶段的文档名次和分数，以及交给 Agent 的前 k 篇文档的分数与接受阈值。
+  - `agents/chap12/rag_worker.py`：记录改写后的查询、是否回退、证据文档、引用、状态、重试与校验失败。
+  - `evaluation/chap12_eval.py --trace`：另写 `traces.jsonl`，含 Supervisor 计划、各 Worker 状态与 trace 事件。
+  - `evaluation/chap12_trace_report.py`：按管线顺序找出每道题第一个丢失答案文档的层（L1 召回 / L2 重排 / L3 上下文筛选 / L4 生成与拒答 / L5 Supervisor 与数据），写 `layer_attribution.{json,md}`。只做诊断，不选择任何参数。
+  - 测试 `tests/chap12/test_tracing.py`（10 个用例）。`pytest tests/chap12 -q` → `178 passed`；ruff 通过；mypy 新文件无错误。离线档位 8 题试运行通过（`/tmp`，未提交）。
+- 运行器 `.chap12_run/run_trace.cmd`（不提交）：当前配置在调参集 150 题与评测集 60 题（explain + explain_and_data）上带 trace 运行；调参集结果先与 `tune_real_r4_base` 做配对核对（应逐题一致）。评测集运行只作诊断报告。
+- 运行记录（Windows，用户双击 `.chap12_run/run_trace.cmd`，2026-10-20 约 12:2x–13:17 PT）：推送 6158a2c；`trace_tune` 150 条与 `tune_real_r4_base` 逐题一致（`chap12_paired`：55 → 55，变对 0 / 变错 0）；`trace_sample` 60 条；两份 `layer_attribution`；提交 `ac34283` 并推送。结果写入 comparison.md“逐层归因”，retrospective.md 做了相应更正。
+
+
+## 2026-10-21 第七轮：严格的可回答性选择 prompt（老师建议“先改一版加强”；prompt 经用户审阅，21:52 PT）
+
+### 事先登记（在任何运行之前提交）
+- 动机（trace_tune，诊断）：38 道不可回答题全部带证据进入模型；Project 1 选证据 prompt 判定“够回答”的比例为不可回答 84%、可回答 85%，没有区分度。其拒答指令只是选证据 prompt 的最后一句。
+- 实现（不改 Project 1）：`agents/chap12/strict_selector.py` 继承 `LLMSelector`，只替换抽取式选证据的 prompt 与输出格式：
+  - 第 1 步写出问题要什么（`asked`）；第 2 步按 R1–R6 逐篇拒绝（不同产品/组件、不同错误、版本或平台受限、不同操作、只是话题相同或复述症状、修复不完整），写入 `rejected`；第 3 步只有通过全部规则且含所需内容才 `sufficient=true`，不确定时拒绝。字段顺序为先理由后结论；理由写入 trace。
+  - 冲突复核、引用校验、答案渲染沿用 Project 1。`ollama_tokens.py` 为该 KIND 设输出上限 700 token（其余不变）。
+  - 开关：`CHAP12_SELECTOR=strict|project1`，否则读 `adopted.selector`，默认 project1；p1_single 基线不受影响。
+  - 测试 `tests/chap12/test_strict_selector.py`（7 个用例）。`pytest tests/chap12 -q` → `185 passed`；ruff 通过；mypy 新文件只有与既有 pydantic 文件相同类别的提示。
+- 阈值门的事先模拟（老师的后备方案，用现有 trace_tune，不跑模型）：只用第一名重排分硬卡，T = 0.60–0.80 中最好为 0.62–0.64，净胜 +4，丢失原本正确的可回答题 2–3 道，未达到“净胜 ≥ 5”。
+- 运行：`tune_real_r7_strict`（调参集，qwen2.5:7b，Multi-Agent，explain + explain_and_data 150 题，1 次，nomic，top_k 8，Critic 开，无核验，trace 开），基线 `tune_real_r4_base`；Ollama 必须仍为 0.40.6。
+- 规则（`evaluation/chap12_round7.py`）：原本正确的可回答题丢失 ≤ 3、配对净胜 ≥ 5、失败率不升、两边都作答的可回答题 token F1 下降 ≤ 0.05，才采用。另在该运行的 trace 上模拟“阈值门 + 严格 prompt”（T = 0.60–0.80），只报告，满足同样两条的 T 作为下一次单独登记运行的候选，不据此采用。
+- 只有采用时才运行评测集 `ollama_run7`（单 Agent + Multi-Agent，90 题，trace），与 `ollama_run2` 配对比较；没有新的确认集。
+- 若仍不通过：按老师建议，下一步登记“阈值门 + LLM”或“两个 LLM”方案。
+- 运行器：`.chap12_run/run_round7.cmd`（不提交）。
+- **登记修订（2026-10-22，仍在任何运行之前）**：上面的登记已提交为 508757a（用户当时中断了这一步，但提交已完成，未推送）。随后用户提供了一份参考的 “answerability judge” 模板，prompt 合并后改为：角色为最终可回答性判断者；明确“检索分高或关键词重合不算证据”“不用背景知识补缺、不推断原因、兼容性、日期、步骤或配置值”；新增 `unsupported_aspects`；结论改为 ANSWER / CLARIFY / ABSTAIN 三选一（CLARIFY 与 ABSTAIN 都不发布答案，澄清问题记入 trace；ANSWER 且有未支持部分时标为部分回答）。答案仍逐字取自所选证据，只改拒答这一步；先理由后结论的字段顺序保留。采用规则、阈值门模拟、评测集条件均不变。测试改为 9 个用例，`pytest tests/chap12 -q` → `188 passed`；ruff 通过。
+- **登记修订 2（2026-10-22 17:14 后，仍在任何第七轮运行之前）**：运行器探测到 Ollama 已自动升级为 0.40.7，按登记停止（日志 `run_round7.log`，只推送了 c4c429a，没有运行任何任务）。修订：版本不是 0.40.6 时，先在当前版本上以同一配置（Project 1 选证据器，trace 开）重跑基线 `tune_real_r7_base`，并与 `tune_real_r4_base` 做配对核对（报告是否逐题一致）；第七轮的比较改为以 `tune_real_r7_base` 为基线。采用规则与阈值门模拟不变。若采用，评测集仍与 `ollama_run2`（0.40.5）配对比较，并注明版本差异。
+
+### 第七轮运行记录（Windows，用户双击 `.chap12_run/run_round7.cmd`，2026-10-22 17:21–18:47 PT）
+- 第一次双击（17:14）：Ollama 已自动升级为 0.40.7，按登记停止，未运行任务；修订见上（e51b236）。
+- 第二次：推送 e51b236；`tune_real_r7_base`（0.40.7，150 条，失败 0）正确 51，与 `tune_real_r4_base` 配对：变对 3 / 变错 7（不再逐题一致）；`tune_real_r7_strict`（150 条，失败 0，无校验失败）正确 47；`chap12_round7` → 不采用（丢失 38、净 −4），阈值门模拟均不可行；提交 `921cf43` 并推送。评测集未运行。结果写入 comparison.md 第七轮。
+
+
+## 2026-10-22 重排前后对比材料（老师建议：抽 10 组前 5 条，用 prompt 交给 ChatGPT 对比）
+- `evaluation/chap12_rerank_packets.py`：从 `trace_tune` 随机抽 10 道可回答题（种子 20261022，条件：融合前 5 与重排前 5 的文档集合不同），用记录的检索查询离线重建融合候选（BM25 + 样本 MiniLM 向量，不调用模型；重建顺序须与 trace 一致，否则报错），每篇取融合中最高的分块（最多 1200 字符）。输出 `evaluation/results/chap12/rerank_packets/packets.md`（每组 A = 重排前、B = 重排后，套用用户提供的判断模板，可直接粘贴）与 `answer_key.md`（答案文档在 A/B 中的位置与标准答案节选）。
+- 运行（VM 本地镜像）：10 组都与 trace 一致。答案文档位置（A → B）：第 1 组 3 → 1；第 2 组 4 → 不在前 5；第 7 组 3 → 5；第 4、8 组两边都不在前 5；其余 5 组两边相同。ChatGPT 对比由用户手动进行（**未执行**）。
+
+## 2026-10-22 第八轮：先选证据、再单独判断（两次 LLM 调用；老师建议“用两个 LLM 先试一下”，用户选择）
+
+### 事先登记（在任何运行之前提交）
+- 动机（第七轮调参集，诊断）：把 6 条规则放进一次调用、面对全部 8 篇证据并“拿不准就拒”，7B 模型几乎全拒（可回答题接受率 0.13），答案文档本身被 R2/R5/R4/R6 拒绝。
+- 实现（不改 Project 1）：`agents/chap12/judged_selector.py` 继承 `LLMSelector`。第 1 次调用为 Project 1 原选证据 prompt 与冲突复核（不变）；若选出了证据，第 2 次调用（KIND: ANSWER_JUDGE）只看被选中的 1–2 篇，写出用户需要什么（不超过 30 词、不照抄），按 4 条规则拒绝：J1 不同产品或组件、J2 不同错误码/消息/漏洞、J3 用户指定的版本或平台被明确排除、J4 只是话题相同而不含所需内容；明确写出“用户没问的细节缺失不算拒绝理由”，去掉“拿不准就拒”。只能否决，不能新增证据或改答案；结论按列出的拒绝计算（全部被拒才拒答）。`CHAP12_SELECTOR=judged`。输出上限 300 token。测试 `tests/chap12/test_judged_selector.py`（7 个用例）。`pytest tests/chap12 -q` → `195 passed`；ruff 通过。
+- 运行：`tune_real_r8_judged`（调参集，qwen2.5:7b，Multi-Agent，explain + explain_and_data 150 题，1 次，nomic，top_k 8，Critic 开，trace 开）；基线为同版本的 Project 1 选证据器：Ollama 仍为 0.40.7 时用 `tune_real_r7_base`，否则先重跑为 `tune_real_r8_base` 并与 r7_base 配对核对。
+- 规则（`evaluation/chap12_round8.py`）：原本正确的可回答题丢失 ≤ 3、配对净胜 ≥ 5、失败率不升、两边都作答的可回答题 token F1 下降 ≤ 0.05，才采用；同时在该运行 trace 上模拟阈值门（T = 0.60–0.80），只报告。采用后才运行评测集 `ollama_run8`，与 `ollama_run2` 配对比较（版本不同，注明）。
+- 运行器：`.chap12_run/run_round8.cmd`（不提交）。
+
+### 第八轮运行记录（Windows，用户双击 `.chap12_run/run_round8.cmd`，2026-10-22 约 21:2x–22:42 PT）
+- Ollama 0.40.8（又自动升级）：按登记重跑基线 `tune_real_r8_base`（150 条，失败 0），与 `tune_real_r7_base` 逐题一致（51 → 51）。
+- `tune_real_r8_judged`（150 条，失败 0）正确 55；`chap12_round8` → 不采用（丢失 22、净 +4），阈值门模拟均不可行；提交 `922675c` 并推送（该提交说明误写为 “Round 7”，见 comparison.md 第八轮更正）。评测集未运行。
+
+
+## 2026-10-23 第九轮：7B 选证据 + 14B 单独判断（用户选择，11:52 PT）
+
+### 事先登记（在任何运行之前提交）
+- 动机（第八轮调参集，诊断）：判断方向有效（不可回答题被作答 35 → 8），但 7B 判断否决了 22 道原本正确的回答，常把同一产品族的 IBM 文档判为“不同产品”（J1 10 次）。ChatGPT 10 组对比也显示强模型的判断更准。
+- 实现：`JudgedSelector` 增加 `judge_model`；`CHAP12_JUDGE_MODEL`（或 `adopted.judge_model`）只让判断这一次调用使用另一个 Ollama 模型，选证据仍用 qwen2.5:7b。判断 prompt 与 J1–J4 规则与第八轮完全相同，只换模型。判断调用计入同一请求预算。新增 2 个测试，`pytest tests/chap12 -q` → `197 passed`；ruff 通过。
+- 运行：`tune_real_r9_judged14`（调参集 150 题，Multi-Agent，nomic，top_k 8，Critic 开，trace 开）；基线为同版本的 Project 1 选证据器：Ollama 仍为 0.40.8 时用 `tune_real_r8_base`，否则先重跑为 `tune_real_r9_base` 并核对。6 GB 显存放不下 7B 与 14B 同时常驻，模型切换会增加延迟；延迟只报告，不作为采用条件。
+- 规则（`evaluation/chap12_round9.py`）：与第八轮相同（原本正确的可回答题丢失 ≤ 3、配对净胜 ≥ 5、失败率不升、两边都作答的 token F1 下降 ≤ 0.05）；另报告与 7B 判断（`tune_real_r8_judged`）的配对比较与阈值门模拟。采用后才运行评测集 `ollama_run9`。
+- 运行器：`.chap12_run/run_round9.cmd`（不提交）。

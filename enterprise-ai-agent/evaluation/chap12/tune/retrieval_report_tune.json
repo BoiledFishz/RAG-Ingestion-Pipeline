@@ -1,0 +1,236 @@
+{
+ "sparse_bm25+lexical_rerank (v1)": {
+  "n": 112,
+  "R@1": {
+   "value": 0.429,
+   "hits": 48,
+   "wilson95": [
+    0.341,
+    0.521
+   ]
+  },
+  "R@3": {
+   "value": 0.571,
+   "hits": 64,
+   "wilson95": [
+    0.479,
+    0.659
+   ]
+  },
+  "R@5": {
+   "value": 0.598,
+   "hits": 67,
+   "wilson95": [
+    0.506,
+    0.684
+   ]
+  },
+  "R@8": {
+   "value": 0.661,
+   "hits": 74,
+   "wilson95": [
+    0.569,
+    0.742
+   ]
+  },
+  "R@20": {
+   "value": 0.714,
+   "hits": 80,
+   "wilson95": [
+    0.625,
+    0.79
+   ]
+  },
+  "MRR": 0.511
+ },
+ "hybrid+lexical_rerank": {
+  "n": 112,
+  "R@1": {
+   "value": 0.429,
+   "hits": 48,
+   "wilson95": [
+    0.341,
+    0.521
+   ]
+  },
+  "R@3": {
+   "value": 0.571,
+   "hits": 64,
+   "wilson95": [
+    0.479,
+    0.659
+   ]
+  },
+  "R@5": {
+   "value": 0.598,
+   "hits": 67,
+   "wilson95": [
+    0.506,
+    0.684
+   ]
+  },
+  "R@8": {
+   "value": 0.661,
+   "hits": 74,
+   "wilson95": [
+    0.569,
+    0.742
+   ]
+  },
+  "R@20": {
+   "value": 0.777,
+   "hits": 87,
+   "wilson95": [
+    0.691,
+    0.844
+   ]
+  },
+  "MRR": 0.515
+ },
+ "hybrid_rrf_no_rerank": {
+  "n": 112,
+  "R@1": {
+   "value": 0.384,
+   "hits": 43,
+   "wilson95": [
+    0.299,
+    0.476
+   ]
+  },
+  "R@3": {
+   "value": 0.491,
+   "hits": 55,
+   "wilson95": [
+    0.4,
+    0.582
+   ]
+  },
+  "R@5": {
+   "value": 0.589,
+   "hits": 66,
+   "wilson95": [
+    0.497,
+    0.676
+   ]
+  },
+  "R@8": {
+   "value": 0.714,
+   "hits": 80,
+   "wilson95": [
+    0.625,
+    0.79
+   ]
+  },
+  "R@20": {
+   "value": 0.839,
+   "hits": 94,
+   "wilson95": [
+    0.76,
+    0.896
+   ]
+  },
+  "MRR": 0.483
+ },
+ "dense_only": {
+  "n": 112,
+  "R@1": {
+   "value": 0.375,
+   "hits": 42,
+   "wilson95": [
+    0.291,
+    0.467
+   ]
+  },
+  "R@3": {
+   "value": 0.482,
+   "hits": 54,
+   "wilson95": [
+    0.392,
+    0.574
+   ]
+  },
+  "R@5": {
+   "value": 0.554,
+   "hits": 62,
+   "wilson95": [
+    0.461,
+    0.642
+   ]
+  },
+  "R@8": {
+   "value": 0.571,
+   "hits": 64,
+   "wilson95": [
+    0.479,
+    0.659
+   ]
+  },
+  "R@20": {
+   "value": 0.714,
+   "hits": 80,
+   "wilson95": [
+    0.625,
+    0.79
+   ]
+  },
+  "MRR": 0.453
+ },
+ "hybrid+minilm_rerank": {
+  "n": 112,
+  "R@1": {
+   "value": 0.464,
+   "hits": 52,
+   "wilson95": [
+    0.375,
+    0.556
+   ]
+  },
+  "R@3": {
+   "value": 0.554,
+   "hits": 62,
+   "wilson95": [
+    0.461,
+    0.642
+   ]
+  },
+  "R@5": {
+   "value": 0.625,
+   "hits": 70,
+   "wilson95": [
+    0.533,
+    0.709
+   ]
+  },
+  "R@8": {
+   "value": 0.688,
+   "hits": 77,
+   "wilson95": [
+    0.597,
+    0.766
+   ]
+  },
+  "R@20": {
+   "value": 0.812,
+   "hits": 91,
+   "wilson95": [
+    0.73,
+    0.874
+   ]
+  },
+  "MRR": 0.546
+ },
+ "calibration": {
+  "minilm_rerank": {
+   "threshold": 0.5404,
+   "balanced_accuracy": 0.4894,
+   "answer_acceptance": 0.7946,
+   "labelled_refusal": 0.1842,
+   "y": 112,
+   "n": 38,
+   "target_answer_acceptance": 0.7933
+  },
+  "split": "tune",
+  "method": "highest top-1 threshold keeping Project 1 answer acceptance"
+ },
+ "note": "split=tune; offline lexical rerank; doc-level gold recall over Y questions; depth=20"
+}

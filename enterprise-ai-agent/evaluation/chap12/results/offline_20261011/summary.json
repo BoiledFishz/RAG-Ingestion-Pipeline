@@ -1,0 +1,192 @@
+{
+  "profile": "offline",
+  "model": "none (rule rewrite + extractive selection)",
+  "sample": "chap12-sample-v1",
+  "index": "chap12_sample.sqlite",
+  "budget": {
+    "deadline_seconds": 150.0,
+    "max_llm_calls": 8,
+    "max_embedding_calls": 4,
+    "max_db_queries": 4,
+    "max_tool_calls": 4
+  },
+  "systems": {
+    "multi_agent": {
+      "tasks": 150,
+      "status_counts": {
+        "partial": 71,
+        "completed": 35,
+        "failed": 44
+      },
+      "data_status_counts": {
+        "completed": 59,
+        "failed": 91
+      },
+      "rag_part_status_counts": {
+        "no_data": 68,
+        "completed": 82
+      },
+      "complete_rate": {
+        "numerator": 35,
+        "denominator": 150,
+        "value": 0.2333,
+        "wilson95": [
+          0.1728,
+          0.3072
+        ]
+      },
+      "failure_rate": {
+        "numerator": 44,
+        "denominator": 150,
+        "wilson95": [
+          0.2264,
+          0.3706
+        ]
+      },
+      "Y_answer_published": {
+        "numerator": 71,
+        "denominator": 123,
+        "value": 0.5772,
+        "wilson95": [
+          0.4889,
+          0.6609
+        ]
+      },
+      "Y_gold_doc_cited": {
+        "numerator": 47,
+        "denominator": 123,
+        "value": 0.3821,
+        "wilson95": [
+          0.301,
+          0.4703
+        ]
+      },
+      "Y_gold_doc_retrieved": {
+        "numerator": 71,
+        "denominator": 123,
+        "value": 0.5772,
+        "wilson95": [
+          0.4889,
+          0.6609
+        ]
+      },
+      "Y_token_f1_mean": 0.195,
+      "N_refused": {
+        "numerator": 16,
+        "denominator": 27,
+        "value": 0.5926,
+        "wilson95": [
+          0.4073,
+          0.7549
+        ]
+      },
+      "data_result_correct": {
+        "numerator": 59,
+        "denominator": 59,
+        "value": 1.0,
+        "wilson95": [
+          0.9389,
+          1.0
+        ]
+      },
+      "latency_ms": {
+        "mean": 303.5,
+        "p50": 280.7,
+        "p95": 472.2
+      },
+      "llm_calls_mean": 0.0,
+      "embedding_calls_mean": 0.0,
+      "db_queries_mean": 0.3933,
+      "tokens": null
+    },
+    "single_agent": {
+      "tasks": 150,
+      "status_counts": {
+        "no_data": 68,
+        "partial": 82
+      },
+      "data_status_counts": {
+        "unsupported": 150
+      },
+      "rag_part_status_counts": {
+        "no_data": 68,
+        "completed": 82
+      },
+      "complete_rate": {
+        "numerator": 0,
+        "denominator": 150,
+        "value": 0.0,
+        "wilson95": [
+          0.0,
+          0.025
+        ]
+      },
+      "failure_rate": {
+        "numerator": 0,
+        "denominator": 150,
+        "wilson95": [
+          0.0,
+          0.025
+        ]
+      },
+      "Y_answer_published": {
+        "numerator": 71,
+        "denominator": 123,
+        "value": 0.5772,
+        "wilson95": [
+          0.4889,
+          0.6609
+        ]
+      },
+      "Y_gold_doc_cited": {
+        "numerator": 47,
+        "denominator": 123,
+        "value": 0.3821,
+        "wilson95": [
+          0.301,
+          0.4703
+        ]
+      },
+      "Y_gold_doc_retrieved": {
+        "numerator": 71,
+        "denominator": 123,
+        "value": 0.5772,
+        "wilson95": [
+          0.4889,
+          0.6609
+        ]
+      },
+      "Y_token_f1_mean": 0.195,
+      "N_refused": {
+        "numerator": 16,
+        "denominator": 27,
+        "value": 0.5926,
+        "wilson95": [
+          0.4073,
+          0.7549
+        ]
+      },
+      "data_result_correct": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null,
+        "wilson95": null
+      },
+      "latency_ms": {
+        "mean": 257.0,
+        "p50": 240.0,
+        "p95": 392.1
+      },
+      "llm_calls_mean": 0.0,
+      "embedding_calls_mean": 0.0,
+      "db_queries_mean": 0.0,
+      "tokens": null
+    }
+  },
+  "notes": [
+    "single_agent cannot answer the data part of the task: data_status=unsupported.",
+    "Token counts are not exposed by the reused Ollama adapter; reported as null.",
+    "Retrieval thresholds were calibrated on the training split this sample comes from.",
+    "N refusal is a proxy: official N labels refer to the official candidate set only."
+  ]
+}

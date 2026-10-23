@@ -1,0 +1,1289 @@
+{
+ "split": "confirm2",
+ "profile": "ollama",
+ "model": "qwen2.5:7b",
+ "reranker": {
+  "p1_single": "nomic",
+  "single/multi": "nomic"
+ },
+ "gap_gate_env": null,
+ "repeats": 1,
+ "limit_per_type": 30,
+ "types": "all",
+ "critic": "off",
+ "budget": {
+  "deadline_seconds": 150.0,
+  "max_llm_calls": 8,
+  "max_embedding_calls": 4,
+  "max_db_queries": 4,
+  "max_tool_calls": 4,
+  "max_sql_statements": 400,
+  "max_local_compute": 16
+ },
+ "git_commit": "f12df6de48210cf2e4f9af9ec450d2b04ad760db",
+ "run_metadata": {
+  "started_at": "2026-10-17T17:23:16.7205336-07:00",
+  "host": "SZY",
+  "ollama_url": "http://localhost:11434",
+  "ollama_version": "0.40.5",
+  "model": "qwen2.5:7b",
+  "model_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+  "embed_model": "nomic-embed-text",
+  "embed_digest": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+  "python": "Python 3.12.10",
+  "git_commit": "8f637b7b4bfdca3f8b99b190bf40c0a16c3d1f3e",
+  "repeats": 3,
+  "limit_per_type": 30,
+  "env": {
+   "AGENT_PROFILE": "ollama",
+   "AGENT_MODEL": "qwen2.5:7b",
+   "CHAP12_RERANKER": "nomic",
+   "TECHQA_RERANKER": "nomic",
+   "CHAP12_CRITIC": null,
+   "CHAP12_PRODUCT_PICK": null,
+   "CHAP12_GAP_GATE": null
+  }
+ },
+ "tasks_file_sha256": "7d6885b0be45e7743a5adf3813b297b6474f1a5e5a896c34544cce3b11a1a7a4",
+ "ci_method": "task-level percentile bootstrap (2000 draws) of per-task means over repeats",
+ "system_order": "rotated per task and repeat (cache warm-up is not system-specific)",
+ "systems": {
+  "p1_single": {
+   "explain": {
+    "records": 30,
+    "tasks": 30,
+    "status_counts": {
+     "completed": 22,
+     "no_data": 8
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 30,
+     "mean": 0.7333,
+     "ci95": [
+      0.5667,
+      0.8667
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 30,
+     "mean": 0.4667,
+     "ci95": [
+      0.3,
+      0.6333
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 10774.1,
+     "p50": 10125.0,
+     "p95": 15687.0
+    },
+    "llm_calls_mean": 2.7667,
+    "embedding_calls_mean": 0.8333,
+    "embedding_cache_hits_mean": 22.9667,
+    "sql_mean": 44.2,
+    "local_mean": 0.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": 4314.1667,
+    "completion_tokens_mean": 153.4667,
+    "rag_correct": {
+     "n_tasks": 30,
+     "mean": 0.4667,
+     "ci95": [
+      0.3,
+      0.6333
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 21,
+     "mean": 0.7619,
+     "ci95": [
+      0.5714,
+      0.9048
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 9,
+     "mean": 0.3333,
+     "ci95": [
+      0.0,
+      0.6667
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.5476,
+     "ci95": [
+      0.3651,
+      0.7302
+     ],
+     "y_tasks": 21,
+     "n_tasks": 9
+    },
+    "y_gold_cited": {
+     "n_tasks": 21,
+     "mean": 0.5238,
+     "ci95": [
+      0.3333,
+      0.7143
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 21,
+     "mean": 0.2868,
+     "ci95": [
+      0.1618,
+      0.4263
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.619,
+     "R@3": 0.619,
+     "R@5": 0.6667,
+     "R@8": 0.6667,
+     "MRR": 0.6286,
+     "observations": 21
+    }
+   },
+   "explain_and_data": {
+    "records": 30,
+    "tasks": 30,
+    "status_counts": {
+     "partial": 28,
+     "no_data": 2
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 11174.4,
+     "p50": 10813.0,
+     "p95": 17062.0
+    },
+    "llm_calls_mean": 3.0,
+    "embedding_calls_mean": 0.9667,
+    "embedding_cache_hits_mean": 23.9,
+    "sql_mean": 45.6333,
+    "local_mean": 0.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": 4470.0,
+    "completion_tokens_mean": 173.4,
+    "rag_correct": {
+     "n_tasks": 30,
+     "mean": 0.4,
+     "ci95": [
+      0.2333,
+      0.6
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 21,
+     "mean": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 9,
+     "mean": 0.2222,
+     "ci95": [
+      0.0,
+      0.5556
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.6111,
+     "ci95": [
+      0.5,
+      0.7778
+     ],
+     "y_tasks": 21,
+     "n_tasks": 9
+    },
+    "y_gold_cited": {
+     "n_tasks": 21,
+     "mean": 0.4762,
+     "ci95": [
+      0.2857,
+      0.6667
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 21,
+     "mean": 0.3483,
+     "ci95": [
+      0.2287,
+      0.4896
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.4762,
+     "R@3": 0.5714,
+     "R@5": 0.5714,
+     "R@8": 0.6667,
+     "MRR": 0.5377,
+     "observations": 21
+    },
+    "data_correct": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "data_status_counts": {
+     "unsupported": 30
+    },
+    "product_matches_gold_doc": {
+     "n_tasks": 0,
+     "mean": null,
+     "ci95": null
+    },
+    "related_docs_contain_gold": {
+     "n_tasks": 0,
+     "mean": null,
+     "ci95": null
+    }
+   },
+   "data": {
+    "records": 30,
+    "tasks": 30,
+    "status_counts": {
+     "no_data": 30
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 6696.4,
+     "p50": 7078.0,
+     "p95": 8078.0
+    },
+    "llm_calls_mean": 2.0,
+    "embedding_calls_mean": 0.9667,
+    "embedding_cache_hits_mean": 17.7,
+    "sql_mean": 29.8667,
+    "local_mean": 0.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": 3408.3333,
+    "completion_tokens_mean": 53.9333,
+    "data_correct": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "data_status_counts": {
+     "unsupported": 30
+    }
+   },
+   "all": {
+    "records": 90,
+    "tasks": 90,
+    "status_counts": {
+     "completed": 22,
+     "no_data": 40,
+     "partial": 28
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 90,
+     "mean": 0.2444,
+     "ci95": [
+      0.1556,
+      0.3444
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 90,
+     "mean": 0.1556,
+     "ci95": [
+      0.0889,
+      0.2333
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 90,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 9548.3,
+     "p50": 8547.0,
+     "p95": 16547.0
+    },
+    "llm_calls_mean": 2.5889,
+    "embedding_calls_mean": 0.9222,
+    "embedding_cache_hits_mean": 21.5222,
+    "sql_mean": 39.9,
+    "local_mean": 0.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": 4064.1667,
+    "completion_tokens_mean": 126.9333,
+    "rag_correct": {
+     "n_tasks": 60,
+     "mean": 0.4333,
+     "ci95": [
+      0.3167,
+      0.55
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 42,
+     "mean": 0.881,
+     "ci95": [
+      0.7857,
+      0.9762
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 18,
+     "mean": 0.2778,
+     "ci95": [
+      0.1111,
+      0.5
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.5794,
+     "ci95": [
+      0.4643,
+      0.6905
+     ],
+     "y_tasks": 42,
+     "n_tasks": 18
+    },
+    "y_gold_cited": {
+     "n_tasks": 42,
+     "mean": 0.5,
+     "ci95": [
+      0.3333,
+      0.6429
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 42,
+     "mean": 0.3176,
+     "ci95": [
+      0.2229,
+      0.4138
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.5476,
+     "R@3": 0.5952,
+     "R@5": 0.619,
+     "R@8": 0.6667,
+     "MRR": 0.5831,
+     "observations": 42
+    },
+    "data_correct": {
+     "n_tasks": 60,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "data_status_counts": {
+     "unsupported": 90
+    },
+    "product_matches_gold_doc": {
+     "n_tasks": 0,
+     "mean": null,
+     "ci95": null
+    },
+    "related_docs_contain_gold": {
+     "n_tasks": 0,
+     "mean": null,
+     "ci95": null
+    }
+   }
+  },
+  "single": {
+   "explain": {
+    "records": 30,
+    "tasks": 30,
+    "status_counts": {
+     "completed": 23,
+     "no_data": 7
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 30,
+     "mean": 0.7667,
+     "ci95": [
+      0.6,
+      0.9
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 30,
+     "mean": 0.5,
+     "ci95": [
+      0.3333,
+      0.7
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 10709.8,
+     "p50": 9625.0,
+     "p95": 17609.0
+    },
+    "llm_calls_mean": 2.8,
+    "embedding_calls_mean": 0.5667,
+    "embedding_cache_hits_mean": 27.7333,
+    "sql_mean": 42.8333,
+    "local_mean": 1.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": 4375.2,
+    "completion_tokens_mean": 157.9333,
+    "rag_correct": {
+     "n_tasks": 30,
+     "mean": 0.5,
+     "ci95": [
+      0.3333,
+      0.7
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 21,
+     "mean": 0.8095,
+     "ci95": [
+      0.619,
+      0.9524
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 9,
+     "mean": 0.3333,
+     "ci95": [
+      0.0,
+      0.6667
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.5714,
+     "ci95": [
+      0.3889,
+      0.754
+     ],
+     "y_tasks": 21,
+     "n_tasks": 9
+    },
+    "y_gold_cited": {
+     "n_tasks": 21,
+     "mean": 0.5714,
+     "ci95": [
+      0.3333,
+      0.7619
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 21,
+     "mean": 0.2899,
+     "ci95": [
+      0.1675,
+      0.4268
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.619,
+     "R@3": 0.619,
+     "R@5": 0.7143,
+     "R@8": 0.7143,
+     "MRR": 0.6381,
+     "observations": 21
+    }
+   },
+   "explain_and_data": {
+    "records": 30,
+    "tasks": 30,
+    "status_counts": {
+     "partial": 28,
+     "no_data": 2
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 10724.5,
+     "p50": 10109.0,
+     "p95": 17907.0
+    },
+    "llm_calls_mean": 3.0,
+    "embedding_calls_mean": 0.4667,
+    "embedding_cache_hits_mean": 27.1,
+    "sql_mean": 44.2667,
+    "local_mean": 1.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": 4460.5333,
+    "completion_tokens_mean": 173.4,
+    "rag_correct": {
+     "n_tasks": 30,
+     "mean": 0.4,
+     "ci95": [
+      0.2333,
+      0.6
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 21,
+     "mean": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 9,
+     "mean": 0.2222,
+     "ci95": [
+      0.0,
+      0.5556
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.6111,
+     "ci95": [
+      0.5,
+      0.7778
+     ],
+     "y_tasks": 21,
+     "n_tasks": 9
+    },
+    "y_gold_cited": {
+     "n_tasks": 21,
+     "mean": 0.4762,
+     "ci95": [
+      0.2857,
+      0.6667
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 21,
+     "mean": 0.3483,
+     "ci95": [
+      0.2287,
+      0.4896
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.4762,
+     "R@3": 0.5714,
+     "R@5": 0.5714,
+     "R@8": 0.619,
+     "MRR": 0.5306,
+     "observations": 21
+    },
+    "data_correct": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "data_status_counts": {
+     "unsupported": 30
+    },
+    "product_matches_gold_doc": {
+     "n_tasks": 0,
+     "mean": null,
+     "ci95": null
+    },
+    "related_docs_contain_gold": {
+     "n_tasks": 0,
+     "mean": null,
+     "ci95": null
+    }
+   },
+   "data": {
+    "records": 30,
+    "tasks": 30,
+    "status_counts": {
+     "no_data": 30
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 6206.8,
+     "p50": 6203.0,
+     "p95": 7750.0
+    },
+    "llm_calls_mean": 2.0,
+    "embedding_calls_mean": 1.0,
+    "embedding_cache_hits_mean": 20.5667,
+    "sql_mean": 28.0,
+    "local_mean": 1.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": 3387.0667,
+    "completion_tokens_mean": 53.9333,
+    "data_correct": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "data_status_counts": {
+     "unsupported": 30
+    }
+   },
+   "all": {
+    "records": 90,
+    "tasks": 90,
+    "status_counts": {
+     "completed": 23,
+     "no_data": 39,
+     "partial": 28
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 90,
+     "mean": 0.2556,
+     "ci95": [
+      0.1667,
+      0.3556
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 90,
+     "mean": 0.1667,
+     "ci95": [
+      0.0889,
+      0.2444
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 90,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 9213.7,
+     "p50": 8000.0,
+     "p95": 17609.0
+    },
+    "llm_calls_mean": 2.6,
+    "embedding_calls_mean": 0.6778,
+    "embedding_cache_hits_mean": 25.1333,
+    "sql_mean": 38.3667,
+    "local_mean": 1.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": 4074.2667,
+    "completion_tokens_mean": 128.4222,
+    "rag_correct": {
+     "n_tasks": 60,
+     "mean": 0.45,
+     "ci95": [
+      0.3167,
+      0.5833
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 42,
+     "mean": 0.9048,
+     "ci95": [
+      0.8095,
+      0.9762
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 18,
+     "mean": 0.2778,
+     "ci95": [
+      0.1111,
+      0.5
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.5913,
+     "ci95": [
+      0.4802,
+      0.6984
+     ],
+     "y_tasks": 42,
+     "n_tasks": 18
+    },
+    "y_gold_cited": {
+     "n_tasks": 42,
+     "mean": 0.5238,
+     "ci95": [
+      0.3571,
+      0.6667
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 42,
+     "mean": 0.3191,
+     "ci95": [
+      0.2262,
+      0.4147
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.5476,
+     "R@3": 0.5952,
+     "R@5": 0.6429,
+     "R@8": 0.6667,
+     "MRR": 0.5844,
+     "observations": 42
+    },
+    "data_correct": {
+     "n_tasks": 60,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "data_status_counts": {
+     "unsupported": 90
+    },
+    "product_matches_gold_doc": {
+     "n_tasks": 0,
+     "mean": null,
+     "ci95": null
+    },
+    "related_docs_contain_gold": {
+     "n_tasks": 0,
+     "mean": null,
+     "ci95": null
+    }
+   }
+  },
+  "multi": {
+   "explain": {
+    "records": 30,
+    "tasks": 30,
+    "status_counts": {
+     "completed": 23,
+     "no_data": 7
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 30,
+     "mean": 0.7667,
+     "ci95": [
+      0.6,
+      0.9
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 30,
+     "mean": 0.5,
+     "ci95": [
+      0.3333,
+      0.7
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 11881.8,
+     "p50": 9578.0,
+     "p95": 18422.0
+    },
+    "llm_calls_mean": 2.8,
+    "embedding_calls_mean": 0.2667,
+    "embedding_cache_hits_mean": 28.0667,
+    "sql_mean": 42.8333,
+    "local_mean": 1.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": 4375.2,
+    "completion_tokens_mean": 156.4,
+    "rag_correct": {
+     "n_tasks": 30,
+     "mean": 0.5,
+     "ci95": [
+      0.3333,
+      0.7
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 21,
+     "mean": 0.8095,
+     "ci95": [
+      0.619,
+      0.9524
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 9,
+     "mean": 0.3333,
+     "ci95": [
+      0.0,
+      0.6667
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.5714,
+     "ci95": [
+      0.3889,
+      0.754
+     ],
+     "y_tasks": 21,
+     "n_tasks": 9
+    },
+    "y_gold_cited": {
+     "n_tasks": 21,
+     "mean": 0.5714,
+     "ci95": [
+      0.3333,
+      0.7619
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 21,
+     "mean": 0.2899,
+     "ci95": [
+      0.1675,
+      0.4268
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.619,
+     "R@3": 0.619,
+     "R@5": 0.7143,
+     "R@8": 0.7143,
+     "MRR": 0.6381,
+     "observations": 21
+    }
+   },
+   "explain_and_data": {
+    "records": 30,
+    "tasks": 30,
+    "status_counts": {
+     "completed": 26,
+     "partial": 4
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 30,
+     "mean": 0.8667,
+     "ci95": [
+      0.7333,
+      0.9667
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 30,
+     "mean": 0.3333,
+     "ci95": [
+      0.1667,
+      0.5
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 10952.6,
+     "p50": 10469.0,
+     "p95": 17437.0
+    },
+    "llm_calls_mean": 3.2,
+    "embedding_calls_mean": 0.3333,
+    "embedding_cache_hits_mean": 27.9667,
+    "sql_mean": 87.5,
+    "local_mean": 1.0,
+    "db_queries_mean": 1.4667,
+    "prompt_tokens_mean": 4523.8333,
+    "completion_tokens_mean": 174.8,
+    "rag_correct": {
+     "n_tasks": 30,
+     "mean": 0.4,
+     "ci95": [
+      0.2333,
+      0.6
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 21,
+     "mean": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 9,
+     "mean": 0.2222,
+     "ci95": [
+      0.0,
+      0.5556
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.6111,
+     "ci95": [
+      0.5,
+      0.7778
+     ],
+     "y_tasks": 21,
+     "n_tasks": 9
+    },
+    "y_gold_cited": {
+     "n_tasks": 21,
+     "mean": 0.4762,
+     "ci95": [
+      0.2857,
+      0.6667
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 21,
+     "mean": 0.3483,
+     "ci95": [
+      0.2287,
+      0.4896
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.4762,
+     "R@3": 0.5714,
+     "R@5": 0.5714,
+     "R@8": 0.619,
+     "MRR": 0.5306,
+     "observations": 21
+    },
+    "data_correct": {
+     "n_tasks": 30,
+     "mean": 0.9333,
+     "ci95": [
+      0.8333,
+      1.0
+     ]
+    },
+    "data_status_counts": {
+     "completed": 28,
+     "no_data": 2
+    },
+    "replan_rate": 0.0,
+    "product_matches_gold_doc": {
+     "n_tasks": 19,
+     "mean": 0.6842,
+     "ci95": [
+      0.4737,
+      0.8947
+     ]
+    },
+    "related_docs_contain_gold": {
+     "n_tasks": 19,
+     "mean": 0.5789,
+     "ci95": [
+      0.3684,
+      0.7895
+     ]
+    }
+   },
+   "data": {
+    "records": 30,
+    "tasks": 30,
+    "status_counts": {
+     "no_data": 6,
+     "completed": 24
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 30,
+     "mean": 0.8,
+     "ci95": [
+      0.6667,
+      0.9333
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 30,
+     "mean": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 30,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 5.7,
+     "p50": 0.0,
+     "p95": 16.0
+    },
+    "llm_calls_mean": 0.0,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 0.0,
+    "sql_mean": 1.0,
+    "local_mean": 0.0,
+    "db_queries_mean": 1.0,
+    "prompt_tokens_mean": null,
+    "completion_tokens_mean": null,
+    "data_correct": {
+     "n_tasks": 30,
+     "mean": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "data_status_counts": {
+     "no_data": 6,
+     "completed": 24
+    }
+   },
+   "all": {
+    "records": 90,
+    "tasks": 90,
+    "status_counts": {
+     "completed": 73,
+     "no_data": 13,
+     "partial": 4
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 90,
+     "mean": 0.8111,
+     "ci95": [
+      0.7222,
+      0.8889
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 90,
+     "mean": 0.6111,
+     "ci95": [
+      0.5111,
+      0.7111
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 90,
+     "mean": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ]
+    },
+    "latency_ms": {
+     "mean": 7613.3,
+     "p50": 7985.0,
+     "p95": 17437.0
+    },
+    "llm_calls_mean": 2.0,
+    "embedding_calls_mean": 0.2,
+    "embedding_cache_hits_mean": 18.6778,
+    "sql_mean": 43.7778,
+    "local_mean": 0.6667,
+    "db_queries_mean": 0.8222,
+    "prompt_tokens_mean": 4449.5167,
+    "completion_tokens_mean": 165.6,
+    "rag_correct": {
+     "n_tasks": 60,
+     "mean": 0.45,
+     "ci95": [
+      0.3167,
+      0.5833
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 42,
+     "mean": 0.9048,
+     "ci95": [
+      0.8095,
+      0.9762
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 18,
+     "mean": 0.2778,
+     "ci95": [
+      0.1111,
+      0.5
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.5913,
+     "ci95": [
+      0.4802,
+      0.6984
+     ],
+     "y_tasks": 42,
+     "n_tasks": 18
+    },
+    "y_gold_cited": {
+     "n_tasks": 42,
+     "mean": 0.5238,
+     "ci95": [
+      0.3571,
+      0.6667
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 42,
+     "mean": 0.3191,
+     "ci95": [
+      0.2262,
+      0.4147
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.5476,
+     "R@3": 0.5952,
+     "R@5": 0.6429,
+     "R@8": 0.6667,
+     "MRR": 0.5844,
+     "observations": 42
+    },
+    "data_correct": {
+     "n_tasks": 60,
+     "mean": 0.9667,
+     "ci95": [
+      0.9167,
+      1.0
+     ]
+    },
+    "data_status_counts": {
+     "None": 30,
+     "completed": 52,
+     "no_data": 8
+    },
+    "replan_rate": 0.0,
+    "product_matches_gold_doc": {
+     "n_tasks": 19,
+     "mean": 0.6842,
+     "ci95": [
+      0.4737,
+      0.8947
+     ]
+    },
+    "related_docs_contain_gold": {
+     "n_tasks": 19,
+     "mean": 0.5789,
+     "ci95": [
+      0.3684,
+      0.7895
+     ]
+    }
+   }
+  }
+ }
+}

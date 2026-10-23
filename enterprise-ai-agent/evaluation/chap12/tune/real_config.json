@@ -1,0 +1,633 @@
+{
+ "split": "tune",
+ "rules": "and committed before any of these runs:\n  depth   take the deeper variant with the higher correct completion over both task types\n          (ties: the shallower one); adopt it only if it beats base by >= 0.03, its failure\n          rate (failed + timeout) is not higher, and its mean latency is <= 1.5 x base.\n  critic  adopt only if explain_and_data correct completion >= base + 0.02 and the\n          explain_and_data product match rate is not lower than base.\nThe two choices are made independently (they act on different parts) and combined.",
+ "variants": {
+  "base": {
+   "correct_all": 0.3533,
+   "failure_rate": 0.0,
+   "latency_mean_ms": 12776.7,
+   "correct_ed": 0.3333,
+   "product_match_ed": 0.6481,
+   "tasks": 150,
+   "config": {
+    "top_k": 8,
+    "max_context_tokens": 2400,
+    "critic": false
+   }
+  },
+  "k12": {
+   "correct_all": 0.34,
+   "failure_rate": 0.0,
+   "latency_mean_ms": 12576.0,
+   "correct_ed": 0.3333,
+   "product_match_ed": 0.6481,
+   "tasks": 150,
+   "config": {
+    "top_k": 12,
+    "max_context_tokens": 3600,
+    "critic": false
+   }
+  },
+  "k16": {
+   "correct_all": 0.34,
+   "failure_rate": 0.0,
+   "latency_mean_ms": 12468.1,
+   "correct_ed": 0.3333,
+   "product_match_ed": 0.6481,
+   "tasks": 150,
+   "config": {
+    "top_k": 16,
+    "max_context_tokens": 4800,
+    "critic": false
+   }
+  },
+  "critic": {
+   "correct_all": 0.3667,
+   "failure_rate": 0.0,
+   "latency_mean_ms": 11829.9,
+   "correct_ed": 0.36,
+   "product_match_ed": 0.6545,
+   "tasks": 150,
+   "config": {
+    "top_k": 8,
+    "max_context_tokens": 2400,
+    "critic": true
+   }
+  }
+ },
+ "best_depth_variant": "k12",
+ "depth_adopted": false,
+ "critic_adopted": true,
+ "adopted": {
+  "top_k": 8,
+  "max_context_tokens": 2400,
+  "critic": true,
+  "reranker": "nomic",
+  "model": "qwen2.5:7b",
+  "verifier": false,
+  "selector": "project1"
+ },
+ "round3": {
+  "current": {
+   "correct_all": 0.3667,
+   "failure_rate": 0.0,
+   "latency_mean_ms": 11829.9
+  },
+  "candidates": {
+   "ce_minilm": {
+    "correct_all": 0.3733,
+    "failure_rate": 0.0,
+    "latency_mean_ms": 13403.2
+   },
+   "ce_bge": {
+    "correct_all": 0.3267,
+    "failure_rate": 0.0,
+    "latency_mean_ms": 25884.9
+   }
+  },
+  "screened_out": [],
+  "rule": "and committed before the runs:\n  adopt the cross-encoder with the higher correct completion, only if it is at least 0.03\n  above the current configuration, its failure rate is not higher and its mean latency is\n  at most 1.5 x the current one. Otherwise keep nomic.",
+  "adopted_reranker": "nomic"
+ },
+ "round4": {
+  "base": {
+   "correct_all": 0.3667,
+   "failure_rate": 0.0,
+   "latency_mean_ms": 12597.9,
+   "correct_explain": 0.3733,
+   "correct_ed": 0.36,
+   "y_accept": 0.8393,
+   "n_refuse": 0.1579,
+   "y_gold_cited": 0.4643,
+   "retrieval_y": {
+    "R@1": 0.4643,
+    "R@3": 0.5804,
+    "R@5": 0.6071,
+    "R@8": 0.6518,
+    "MRR": 0.5302,
+    "observations": 112
+   },
+   "tasks": 150
+  },
+  "candidates": {
+   "ce_minilm_order": {
+    "correct_all": 0.3667,
+    "failure_rate": 0.0,
+    "latency_mean_ms": 14704.0,
+    "correct_explain": 0.4,
+    "correct_ed": 0.3333,
+    "y_accept": 0.7946,
+    "n_refuse": 0.1842,
+    "y_gold_cited": 0.4554,
+    "retrieval_y": {
+     "R@1": 0.375,
+     "R@3": 0.5179,
+     "R@5": 0.6071,
+     "R@8": 0.6786,
+     "MRR": 0.4651,
+     "observations": 112
+    },
+    "tasks": 150
+   },
+   "ce_bge_order": {
+    "correct_all": 0.3333,
+    "failure_rate": 0.0,
+    "latency_mean_ms": 26954.4,
+    "correct_explain": 0.3467,
+    "correct_ed": 0.32,
+    "y_accept": 0.8304,
+    "n_refuse": 0.1316,
+    "y_gold_cited": 0.4375,
+    "retrieval_y": {
+     "R@1": 0.4196,
+     "R@3": 0.5982,
+     "R@5": 0.6161,
+     "R@8": 0.7143,
+     "MRR": 0.5125,
+     "observations": 112
+    },
+    "tasks": 150
+   }
+  },
+  "rule": "and committed before the runs:\n  adopt the order variant with the higher correct completion, only if it is at least 0.03\n  above tune_real_r4_base, its failure rate is not higher and its mean latency is at most\n  1.5 x tune_real_r4_base. Otherwise keep nomic.",
+  "adopted_reranker": "nomic"
+ },
+ "round5": {
+  "base_7b": "tune_real_r4_base",
+  "runs": {
+   "7b": {
+    "correct_all": 0.3667,
+    "failure_rate": 0.0,
+    "latency_mean_ms": 12597.9,
+    "y_accept": 0.8393,
+    "n_refuse": 0.1579,
+    "y_gold_cited": 0.4643,
+    "llm_calls_mean": 3.0267,
+    "tasks": 150
+   },
+   "7b_verify": {
+    "correct_all": 0.42,
+    "failure_rate": 0.0,
+    "latency_mean_ms": 12026.3,
+    "y_accept": 0.5357,
+    "n_refuse": 0.6842,
+    "y_gold_cited": 0.3571,
+    "llm_calls_mean": 3.8667,
+    "tasks": 150
+   },
+   "14b": {
+    "correct_all": 0.3933,
+    "failure_rate": 0.0,
+    "latency_mean_ms": 43417.9,
+    "y_accept": 0.6875,
+    "n_refuse": 0.3158,
+    "y_gold_cited": 0.4554,
+    "llm_calls_mean": 2.9,
+    "tasks": 150
+   },
+   "14b_verify": {
+    "correct_all": 0.42,
+    "failure_rate": 0.0,
+    "latency_mean_ms": 47937.2,
+    "y_accept": 0.4643,
+    "n_refuse": 0.7105,
+    "y_gold_cited": 0.3482,
+    "llm_calls_mean": 3.5867,
+    "tasks": 150
+   }
+  },
+  "paired": {
+   "14b vs 7b": {
+    "base": "tune_real_r4_base",
+    "variant": "tune_real_r5_base_14b",
+    "tasks": 150,
+    "base_correct": 55,
+    "variant_correct": 59,
+    "wins": 11,
+    "losses": 7,
+    "net": 4,
+    "mcnemar_p_one_sided": 0.2403,
+    "mcnemar_p_two_sided": 0.4807,
+    "y_token_f1": {
+     "base": 0.2676,
+     "variant": 0.2292,
+     "tasks": 112
+    },
+    "y_token_f1_both_answered": {
+     "base": 0.3516,
+     "variant": 0.3487,
+     "tasks": 69
+    },
+    "win_tasks": [
+     "M-tune-009",
+     "M-tune-018",
+     "M-tune-020",
+     "M-tune-048",
+     "M-tune-052",
+     "M-tune-057",
+     "M-tune-065",
+     "M-tune-072",
+     "M-tune-074",
+     "M-tune-086",
+     "M-tune-109"
+    ],
+    "loss_tasks": [
+     "M-tune-040",
+     "M-tune-075",
+     "M-tune-077",
+     "M-tune-080",
+     "M-tune-091",
+     "M-tune-102",
+     "M-tune-146"
+    ]
+   },
+   "7b_verify vs 7b": {
+    "base": "tune_real_r4_base",
+    "variant": "tune_real_r5_verify_7b",
+    "tasks": 150,
+    "base_correct": 55,
+    "variant_correct": 63,
+    "wins": 20,
+    "losses": 12,
+    "net": 8,
+    "mcnemar_p_one_sided": 0.1077,
+    "mcnemar_p_two_sided": 0.2153,
+    "y_token_f1": {
+     "base": 0.2676,
+     "variant": 0.2113,
+     "tasks": 112
+    },
+    "y_token_f1_both_answered": {
+     "base": 0.3944,
+     "variant": 0.3944,
+     "tasks": 60
+    },
+    "win_tasks": [
+     "M-tune-002",
+     "M-tune-005",
+     "M-tune-009",
+     "M-tune-014",
+     "M-tune-016",
+     "M-tune-018",
+     "M-tune-043",
+     "M-tune-046",
+     "M-tune-065",
+     "M-tune-072",
+     "M-tune-074",
+     "M-tune-081",
+     "M-tune-086",
+     "M-tune-095",
+     "M-tune-103",
+     "M-tune-108",
+     "M-tune-109",
+     "M-tune-120",
+     "M-tune-136",
+     "M-tune-140"
+    ],
+    "loss_tasks": [
+     "M-tune-004",
+     "M-tune-013",
+     "M-tune-027",
+     "M-tune-047",
+     "M-tune-050",
+     "M-tune-079",
+     "M-tune-080",
+     "M-tune-096",
+     "M-tune-117",
+     "M-tune-118",
+     "M-tune-132",
+     "M-tune-149"
+    ]
+   },
+   "14b_verify vs 14b": {
+    "base": "tune_real_r5_base_14b",
+    "variant": "tune_real_r5_verify_14b",
+    "tasks": 150,
+    "base_correct": 59,
+    "variant_correct": 63,
+    "wins": 15,
+    "losses": 11,
+    "net": 4,
+    "mcnemar_p_one_sided": 0.2786,
+    "mcnemar_p_two_sided": 0.5572,
+    "y_token_f1": {
+     "base": 0.2292,
+     "variant": 0.1843,
+     "tasks": 112
+    },
+    "y_token_f1_both_answered": {
+     "base": 0.3969,
+     "variant": 0.3969,
+     "tasks": 52
+    },
+    "win_tasks": [
+     "M-tune-002",
+     "M-tune-005",
+     "M-tune-012",
+     "M-tune-014",
+     "M-tune-016",
+     "M-tune-043",
+     "M-tune-046",
+     "M-tune-077",
+     "M-tune-081",
+     "M-tune-095",
+     "M-tune-103",
+     "M-tune-108",
+     "M-tune-120",
+     "M-tune-136",
+     "M-tune-140"
+    ],
+    "loss_tasks": [
+     "M-tune-024",
+     "M-tune-028",
+     "M-tune-050",
+     "M-tune-052",
+     "M-tune-067",
+     "M-tune-079",
+     "M-tune-096",
+     "M-tune-117",
+     "M-tune-132",
+     "M-tune-148",
+     "M-tune-149"
+    ]
+   }
+  },
+  "rules": "and committed before the runs:\n  model     adopt qwen2.5:14b only if, against 7b base, net paired wins >= 5 with one-sided\n            exact McNemar p < 0.10, its failure rate is not higher, mean answerable token F1\n            is not lower by more than 0.05, and mean latency <= 2.5 x 7b base.\n  verifier  on the adopted model, against the same model without the Verifier: adopt only if\n            the unanswerable refusal rate rises by >= 0.25, the answerable acceptance rate\n            falls by <= 0.05, paired wins >= paired losses, the failure rate is not higher\n            and mean answerable token F1 is not lower by more than 0.05.",
+  "model_14b_run": true,
+  "model_adopted": "qwen2.5:7b",
+  "verifier_evaluated_on": "7b",
+  "verifier_adopted": false
+ },
+ "round7": {
+  "base_run": "tune_real_r7_base",
+  "base_reproduces_r4": {
+   "base_correct": 55,
+   "variant_correct": 51,
+   "wins": 3,
+   "losses": 7
+  },
+  "base": {
+   "correct_all": 0.34,
+   "failure_rate": 0.0,
+   "y_accept": 0.8482,
+   "n_refuse": 0.0789,
+   "y_gold_cited": 0.4554,
+   "latency_mean_ms": 11942.7
+  },
+  "strict": {
+   "correct_all": 0.3133,
+   "failure_rate": 0.0,
+   "y_accept": 0.125,
+   "n_refuse": 0.9737,
+   "y_gold_cited": 0.0982,
+   "latency_mean_ms": 21736.8
+  },
+  "correct_answerable_lost": 38,
+  "paired": {
+   "base_correct": 51,
+   "variant_correct": 47,
+   "wins": 34,
+   "losses": 38,
+   "net": -4,
+   "mcnemar_p_one_sided": 0.722,
+   "y_token_f1": {
+    "base": 0.2747,
+    "variant": 0.0516,
+    "tasks": 112
+   },
+   "y_token_f1_both_answered": {
+    "base": 0.4252,
+    "variant": 0.413,
+    "tasks": 14
+   }
+  },
+  "adopted": false,
+  "gate_simulation": [
+   {
+    "threshold": 0.6,
+    "wins": 34,
+    "losses": 38,
+    "net": -4,
+    "correct_answerable_lost": 38,
+    "feasible": false
+   },
+   {
+    "threshold": 0.62,
+    "wins": 34,
+    "losses": 38,
+    "net": -4,
+    "correct_answerable_lost": 38,
+    "feasible": false
+   },
+   {
+    "threshold": 0.64,
+    "wins": 34,
+    "losses": 38,
+    "net": -4,
+    "correct_answerable_lost": 38,
+    "feasible": false
+   },
+   {
+    "threshold": 0.66,
+    "wins": 34,
+    "losses": 38,
+    "net": -4,
+    "correct_answerable_lost": 38,
+    "feasible": false
+   },
+   {
+    "threshold": 0.68,
+    "wins": 34,
+    "losses": 39,
+    "net": -5,
+    "correct_answerable_lost": 39,
+    "feasible": false
+   },
+   {
+    "threshold": 0.7,
+    "wins": 34,
+    "losses": 39,
+    "net": -5,
+    "correct_answerable_lost": 39,
+    "feasible": false
+   },
+   {
+    "threshold": 0.72,
+    "wins": 34,
+    "losses": 40,
+    "net": -6,
+    "correct_answerable_lost": 40,
+    "feasible": false
+   },
+   {
+    "threshold": 0.74,
+    "wins": 34,
+    "losses": 40,
+    "net": -6,
+    "correct_answerable_lost": 40,
+    "feasible": false
+   },
+   {
+    "threshold": 0.76,
+    "wins": 34,
+    "losses": 40,
+    "net": -6,
+    "correct_answerable_lost": 40,
+    "feasible": false
+   },
+   {
+    "threshold": 0.78,
+    "wins": 34,
+    "losses": 41,
+    "net": -7,
+    "correct_answerable_lost": 41,
+    "feasible": false
+   },
+   {
+    "threshold": 0.8,
+    "wins": 34,
+    "losses": 42,
+    "net": -8,
+    "correct_answerable_lost": 42,
+    "feasible": false
+   }
+  ],
+  "rule": "and committed before the run:\n  adopt  adopt the strict selector only if, against tune_real_r4_base: correct answerable\n         answers lost <= 3, net paired wins >= 5, failure rate not higher, and mean token F1\n         on answerable tasks answered by both runs not lower by more than 0.05.\n  gate   (teacher's fallback, diagnosis only) on the strict run's trace, simulate a hard\n         gate before the LLM: refuse when the top returned rerank score < T, T in\n         0.60..0.80 step 0.02. Report each T with the same two counts (lost <= 3, net >= 5\n         against tune_real_r4_base). A feasible T is a candidate for a separate pre-registered\n         run; nothing is adopted from the simulation."
+ },
+ "round8": {
+  "base_run": "tune_real_r8_base",
+  "base_reproduces_r7": {
+   "base_correct": 51,
+   "variant_correct": 51,
+   "wins": 0,
+   "losses": 0
+  },
+  "base": {
+   "correct_all": 0.34,
+   "failure_rate": 0.0,
+   "y_accept": 0.8482,
+   "n_refuse": 0.0789,
+   "y_gold_cited": 0.4554,
+   "latency_mean_ms": 10660.5
+  },
+  "judged": {
+   "correct_all": 0.3667,
+   "failure_rate": 0.0,
+   "y_accept": 0.3571,
+   "n_refuse": 0.7895,
+   "y_gold_cited": 0.25,
+   "latency_mean_ms": 14142.9
+  },
+  "correct_answerable_lost": 22,
+  "paired": {
+   "base_correct": 51,
+   "variant_correct": 55,
+   "wins": 26,
+   "losses": 22,
+   "net": 4,
+   "mcnemar_p_one_sided": 0.3327,
+   "y_token_f1": {
+    "base": 0.2747,
+    "variant": 0.1621,
+    "tasks": 112
+   },
+   "y_token_f1_both_answered": {
+    "base": 0.444,
+    "variant": 0.454,
+    "tasks": 40
+   }
+  },
+  "adopted": false,
+  "gate_simulation": [
+   {
+    "threshold": 0.6,
+    "wins": 26,
+    "losses": 22,
+    "net": 4,
+    "correct_answerable_lost": 22,
+    "feasible": false
+   },
+   {
+    "threshold": 0.62,
+    "wins": 26,
+    "losses": 22,
+    "net": 4,
+    "correct_answerable_lost": 22,
+    "feasible": false
+   },
+   {
+    "threshold": 0.64,
+    "wins": 26,
+    "losses": 22,
+    "net": 4,
+    "correct_answerable_lost": 22,
+    "feasible": false
+   },
+   {
+    "threshold": 0.66,
+    "wins": 26,
+    "losses": 24,
+    "net": 2,
+    "correct_answerable_lost": 24,
+    "feasible": false
+   },
+   {
+    "threshold": 0.68,
+    "wins": 26,
+    "losses": 25,
+    "net": 1,
+    "correct_answerable_lost": 25,
+    "feasible": false
+   },
+   {
+    "threshold": 0.7,
+    "wins": 27,
+    "losses": 25,
+    "net": 2,
+    "correct_answerable_lost": 25,
+    "feasible": false
+   },
+   {
+    "threshold": 0.72,
+    "wins": 27,
+    "losses": 26,
+    "net": 1,
+    "correct_answerable_lost": 26,
+    "feasible": false
+   },
+   {
+    "threshold": 0.74,
+    "wins": 27,
+    "losses": 26,
+    "net": 1,
+    "correct_answerable_lost": 26,
+    "feasible": false
+   },
+   {
+    "threshold": 0.76,
+    "wins": 27,
+    "losses": 27,
+    "net": 0,
+    "correct_answerable_lost": 27,
+    "feasible": false
+   },
+   {
+    "threshold": 0.78,
+    "wins": 27,
+    "losses": 28,
+    "net": -1,
+    "correct_answerable_lost": 28,
+    "feasible": false
+   },
+   {
+    "threshold": 0.8,
+    "wins": 28,
+    "losses": 28,
+    "net": 0,
+    "correct_answerable_lost": 28,
+    "feasible": false
+   }
+  ],
+  "rule": "and committed before the run:\n  adopt  adopt the judged selector only if, against the base: correct answerable answers\n         lost <= 3, net paired wins >= 5, failure rate not higher, and mean token F1 on\n         answerable tasks answered by both runs not lower by more than 0.05.\n  gate   (diagnosis only) on the judged run's trace, simulate a hard gate before the LLM:\n         refuse when the top returned rerank score < T, T in 0.60..0.80 step 0.02, with the\n         same two counts. A feasible T is a candidate for a separate pre-registered run."
+ }
+}

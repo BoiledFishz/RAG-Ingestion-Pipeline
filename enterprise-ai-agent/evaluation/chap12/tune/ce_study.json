@@ -1,0 +1,133 @@
+{
+ "split": "tune",
+ "nomic_R@8": 0.661,
+ "rule": "proceed iff R@8 >= nomic R@8 + 0.03",
+ "variants": {
+  "ce_minilm": {
+   "model": {
+    "choice": "ce_minilm",
+    "repo": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+    "bytes": 91816407,
+    "downloaded_utc": "2026-10-19T02:11:21.226909+00:00"
+   },
+   "recall": {
+    "n": 112,
+    "R@1": {
+     "value": 0.384,
+     "hits": 43,
+     "wilson95": [
+      0.299,
+      0.476
+     ]
+    },
+    "R@3": {
+     "value": 0.527,
+     "hits": 59,
+     "wilson95": [
+      0.435,
+      0.617
+     ]
+    },
+    "R@5": {
+     "value": 0.607,
+     "hits": 68,
+     "wilson95": [
+      0.515,
+      0.693
+     ]
+    },
+    "R@8": {
+     "value": 0.696,
+     "hits": 78,
+     "wilson95": [
+      0.606,
+      0.774
+     ]
+    },
+    "R@20": {
+     "value": 0.777,
+     "hits": 87,
+     "wilson95": [
+      0.691,
+      0.844
+     ]
+    },
+    "MRR": 0.483
+   },
+   "calibration": {
+    "threshold": 0.9396,
+    "balanced_accuracy": 0.4894,
+    "answer_acceptance": 0.7946,
+    "labelled_refusal": 0.1842,
+    "y": 112,
+    "n": 38,
+    "target_answer_acceptance": 0.7933
+   },
+   "proceed": true
+  },
+  "ce_bge": {
+   "model": {
+    "choice": "ce_bge",
+    "repo": "BAAI/bge-reranker-base",
+    "revision": "2cfc18c9415c912f9d8155881c133215df768a70",
+    "bytes": 1134375513,
+    "downloaded_utc": "2026-10-19T02:11:23.186538+00:00"
+   },
+   "recall": {
+    "n": 112,
+    "R@1": {
+     "value": 0.411,
+     "hits": 46,
+     "wilson95": [
+      0.324,
+      0.503
+     ]
+    },
+    "R@3": {
+     "value": 0.58,
+     "hits": 65,
+     "wilson95": [
+      0.488,
+      0.668
+     ]
+    },
+    "R@5": {
+     "value": 0.625,
+     "hits": 70,
+     "wilson95": [
+      0.533,
+      0.709
+     ]
+    },
+    "R@8": {
+     "value": 0.732,
+     "hits": 82,
+     "wilson95": [
+      0.643,
+      0.805
+     ]
+    },
+    "R@20": {
+     "value": 0.83,
+     "hits": 93,
+     "wilson95": [
+      0.75,
+      0.889
+     ]
+    },
+    "MRR": 0.518
+   },
+   "calibration": {
+    "threshold": 0.8784,
+    "balanced_accuracy": 0.4894,
+    "answer_acceptance": 0.7946,
+    "labelled_refusal": 0.1842,
+    "y": 112,
+    "n": 38,
+    "target_answer_acceptance": 0.7933
+   },
+   "proceed": true
+  }
+ }
+}

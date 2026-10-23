@@ -1,0 +1,32 @@
+{
+ "workdir": "/sessions/rcw-01lteh1biz3ahyk3arktla5w/rb3",
+ "identical": true,
+ "splits": {
+  "sample": {
+   "index": true,
+   "dense": true,
+   "tasks.jsonl": true,
+   "gold.jsonl": true
+  },
+  "tune": {
+   "index": true,
+   "dense": true,
+   "tasks.jsonl": true,
+   "gold.jsonl": true
+  },
+  "confirm": {
+   "index": true,
+   "dense": true,
+   "tasks.jsonl": true,
+   "gold.jsonl": true
+  },
+  "confirm2": {
+   "index": true,
+   "dense": true,
+   "tasks.jsonl": true,
+   "gold.jsonl": true
+  }
+ },
+ "command": "python -m evaluation.chap12_rebuild_indices --rebuild --workdir <tmp>  (sample,tune,confirm; then --splits confirm2 after confirm2 was created)",
+ "environment": "Linux VM (Cowork), Python 3.12 venv, 2026-10-17; full TechQA index and semantic index from the main checkout"
+}

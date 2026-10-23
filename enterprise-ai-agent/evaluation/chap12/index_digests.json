@@ -1,0 +1,138 @@
+{
+ "sample": {
+  "index": {
+   "manifest": {
+    "rows": 8,
+    "sha256": "039be7f8eacccf6a3162e3256b5b13ce8f4d1fee14f5c465f46ef486dba3709d"
+   },
+   "docs": {
+    "rows": 6612,
+    "sha256": "3e9b6d8c88be4fb7940d05f317593380d038ad9bc964525138d713129c4022a3"
+   },
+   "technotes": {
+    "rows": 6612,
+    "sha256": "85cd3895d60673a751b2e75bacddbe9c504761b45ee2b29d09c2a656c937799b"
+   },
+   "document_products": {
+    "rows": 8337,
+    "sha256": "2e8ee6a073165c787917e4de5b580cf083332777d935b825caa42dcf06885e7f"
+   },
+   "vocabulary": {
+    "rows": 70103,
+    "sha256": "9317de8e537c8c1fe2dcb32f8fb43dcb5f35f1c5e7da0aadeae1f2b6e3a8544c"
+   }
+  },
+  "dense": {
+   "manifest": {
+    "rows": 8,
+    "sha256": "ec8c65528c2db941aaed5f316c30b97da2df44d19dec74973c8489a96d75c504"
+   },
+   "chunks": {
+    "rows": 28737,
+    "sha256": "9ddb9fdb996635a5a193b6ba1402ebc1fc32bda68ba5b5c91a729d78a25a0935"
+   }
+  }
+ },
+ "tune": {
+  "index": {
+   "manifest": {
+    "rows": 8,
+    "sha256": "7a991fc35b3c309e622bcd1af75cc821c881e516a49e4ddff5bdf092a95a3692"
+   },
+   "docs": {
+    "rows": 6500,
+    "sha256": "6a7791b82dcec5dfb8e50399f629082110b643e7483f9590ac7e5eff409cb270"
+   },
+   "technotes": {
+    "rows": 6500,
+    "sha256": "97018e7b7b70dd95fecd6a919fe756b26e25875ee80eb0ca21c36b21cca1040b"
+   },
+   "document_products": {
+    "rows": 8329,
+    "sha256": "0ed2936ed669b8a022b5250a36cff5b6ab0488277fafe929cbd52645f5786c6c"
+   },
+   "vocabulary": {
+    "rows": 70224,
+    "sha256": "9dd4764a97d5b0ffa17f1fbe6bfa9f56e55f6a27ad2395662450d95fa507ae87"
+   }
+  },
+  "dense": {
+   "manifest": {
+    "rows": 8,
+    "sha256": "efe3ba71b913562261f95ad32cea169fddc647154291078c35dabbeea6a86a6f"
+   },
+   "chunks": {
+    "rows": 29396,
+    "sha256": "ac8adb5e948c24105b3538fc49e7106dec4d281406476db2a7a82fe1caf4da3a"
+   }
+  }
+ },
+ "confirm": {
+  "index": {
+   "manifest": {
+    "rows": 8,
+    "sha256": "c5edc18ac8080a8d19c8121fa1488a1e6c125642963ed035b904950f5f581e2e"
+   },
+   "docs": {
+    "rows": 6520,
+    "sha256": "02978356588ecb470d818b41b9e5669f5ff5fb207ef96804c72e5a063c23b06e"
+   },
+   "technotes": {
+    "rows": 6520,
+    "sha256": "9b5dd447c2641c8740f69092b49070911405926fa9c2db375a965b6bbb7697b0"
+   },
+   "document_products": {
+    "rows": 8499,
+    "sha256": "2ae91da2ca58c4acf9dfead33cef946b800f3bf363d503be9e55d44a19e27b20"
+   },
+   "vocabulary": {
+    "rows": 67784,
+    "sha256": "297425af2666723ed51a1673805008bfd11107cee0c9244097b04070cbd0ed20"
+   }
+  },
+  "dense": {
+   "manifest": {
+    "rows": 8,
+    "sha256": "88172499471a74c374f47f0090e011f04425ac63b1d5d00eb650a2f5e0696f38"
+   },
+   "chunks": {
+    "rows": 28567,
+    "sha256": "efd519ba80543c41f9355e7483d0597e40c91e86f6a7110951aa3ba20c8e22e9"
+   }
+  }
+ },
+ "confirm2": {
+  "index": {
+   "manifest": {
+    "rows": 8,
+    "sha256": "a7a2c4797c61a874b2e0ebd79bbea8467241774948faf39f676e6930c928dd84"
+   },
+   "docs": {
+    "rows": 6702,
+    "sha256": "017ec365e24c9d6259e39956ac67928c31a98f698c64f4f8dffd98ced9b97cbf"
+   },
+   "technotes": {
+    "rows": 6702,
+    "sha256": "6276fc90b81d799864833af4f45e12df8274e45577da0c6968576c287cd7c254"
+   },
+   "document_products": {
+    "rows": 8393,
+    "sha256": "9485ea667efce58e758e43ce575e808b984be4c7b15329c9948f127565351372"
+   },
+   "vocabulary": {
+    "rows": 73431,
+    "sha256": "82f48fcfa36c923717155469b3ada104fb3412016a9cc18b489ae4a3a7f49307"
+   }
+  },
+  "dense": {
+   "manifest": {
+    "rows": 8,
+    "sha256": "5d8567359ebcee13cf69a16a74aae2d27a37c951eb39b2ba1b72ff5de4da4ca6"
+   },
+   "chunks": {
+    "rows": 29501,
+    "sha256": "3c20bef786f41a28f99e2a51561adc4076a9076550c4fee16e09a055cc03b8f3"
+   }
+  }
+ }
+}
