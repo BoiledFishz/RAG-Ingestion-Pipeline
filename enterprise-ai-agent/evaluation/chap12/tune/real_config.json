@@ -493,5 +493,141 @@
    }
   ],
   "rule": "and committed before the run:\n  adopt  adopt the strict selector only if, against tune_real_r4_base: correct answerable\n         answers lost <= 3, net paired wins >= 5, failure rate not higher, and mean token F1\n         on answerable tasks answered by both runs not lower by more than 0.05.\n  gate   (teacher's fallback, diagnosis only) on the strict run's trace, simulate a hard\n         gate before the LLM: refuse when the top returned rerank score < T, T in\n         0.60..0.80 step 0.02. Report each T with the same two counts (lost <= 3, net >= 5\n         against tune_real_r4_base). A feasible T is a candidate for a separate pre-registered\n         run; nothing is adopted from the simulation."
+ },
+ "round8": {
+  "base_run": "tune_real_r8_base",
+  "base_reproduces_r7": {
+   "base_correct": 51,
+   "variant_correct": 51,
+   "wins": 0,
+   "losses": 0
+  },
+  "base": {
+   "correct_all": 0.34,
+   "failure_rate": 0.0,
+   "y_accept": 0.8482,
+   "n_refuse": 0.0789,
+   "y_gold_cited": 0.4554,
+   "latency_mean_ms": 10660.5
+  },
+  "judged": {
+   "correct_all": 0.3667,
+   "failure_rate": 0.0,
+   "y_accept": 0.3571,
+   "n_refuse": 0.7895,
+   "y_gold_cited": 0.25,
+   "latency_mean_ms": 14142.9
+  },
+  "correct_answerable_lost": 22,
+  "paired": {
+   "base_correct": 51,
+   "variant_correct": 55,
+   "wins": 26,
+   "losses": 22,
+   "net": 4,
+   "mcnemar_p_one_sided": 0.3327,
+   "y_token_f1": {
+    "base": 0.2747,
+    "variant": 0.1621,
+    "tasks": 112
+   },
+   "y_token_f1_both_answered": {
+    "base": 0.444,
+    "variant": 0.454,
+    "tasks": 40
+   }
+  },
+  "adopted": false,
+  "gate_simulation": [
+   {
+    "threshold": 0.6,
+    "wins": 26,
+    "losses": 22,
+    "net": 4,
+    "correct_answerable_lost": 22,
+    "feasible": false
+   },
+   {
+    "threshold": 0.62,
+    "wins": 26,
+    "losses": 22,
+    "net": 4,
+    "correct_answerable_lost": 22,
+    "feasible": false
+   },
+   {
+    "threshold": 0.64,
+    "wins": 26,
+    "losses": 22,
+    "net": 4,
+    "correct_answerable_lost": 22,
+    "feasible": false
+   },
+   {
+    "threshold": 0.66,
+    "wins": 26,
+    "losses": 24,
+    "net": 2,
+    "correct_answerable_lost": 24,
+    "feasible": false
+   },
+   {
+    "threshold": 0.68,
+    "wins": 26,
+    "losses": 25,
+    "net": 1,
+    "correct_answerable_lost": 25,
+    "feasible": false
+   },
+   {
+    "threshold": 0.7,
+    "wins": 27,
+    "losses": 25,
+    "net": 2,
+    "correct_answerable_lost": 25,
+    "feasible": false
+   },
+   {
+    "threshold": 0.72,
+    "wins": 27,
+    "losses": 26,
+    "net": 1,
+    "correct_answerable_lost": 26,
+    "feasible": false
+   },
+   {
+    "threshold": 0.74,
+    "wins": 27,
+    "losses": 26,
+    "net": 1,
+    "correct_answerable_lost": 26,
+    "feasible": false
+   },
+   {
+    "threshold": 0.76,
+    "wins": 27,
+    "losses": 27,
+    "net": 0,
+    "correct_answerable_lost": 27,
+    "feasible": false
+   },
+   {
+    "threshold": 0.78,
+    "wins": 27,
+    "losses": 28,
+    "net": -1,
+    "correct_answerable_lost": 28,
+    "feasible": false
+   },
+   {
+    "threshold": 0.8,
+    "wins": 28,
+    "losses": 28,
+    "net": 0,
+    "correct_answerable_lost": 28,
+    "feasible": false
+   }
+  ],
+  "rule": "and committed before the run:\n  adopt  adopt the judged selector only if, against the base: correct answerable answers\n         lost <= 3, net paired wins >= 5, failure rate not higher, and mean token F1 on\n         answerable tasks answered by both runs not lower by more than 0.05.\n  gate   (diagnosis only) on the judged run's trace, simulate a hard gate before the LLM:\n         refuse when the top returned rerank score < T, T in 0.60..0.80 step 0.02, with the\n         same two counts. A feasible T is a candidate for a separate pre-registered run."
  }
 }
