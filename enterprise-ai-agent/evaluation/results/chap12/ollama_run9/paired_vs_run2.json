@@ -1,0 +1,30 @@
+﻿{
+ "base": "ollama_run2",
+ "variant": "ollama_run9",
+ "tasks": 90,
+ "base_correct": 46,
+ "variant_correct": 51,
+ "wins": 5,
+ "losses": 0,
+ "net": 5,
+ "mcnemar_p_one_sided": 0.0312,
+ "mcnemar_p_two_sided": 0.0625,
+ "y_token_f1": {
+  "base": 0.2166,
+  "variant": 0.2102,
+  "tasks": 49
+ },
+ "y_token_f1_both_answered": {
+  "base": 0.2857,
+  "variant": 0.2966,
+  "tasks": 32
+ },
+ "win_tasks": [
+  "M-sample-019",
+  "M-sample-029",
+  "M-sample-089",
+  "M-sample-096",
+  "M-sample-097"
+ ],
+ "loss_tasks": []
+}
