@@ -5,7 +5,10 @@
 Run (real model qwen2.5:7b, Multi-Agent, explain + explain_and_data, 150 tasks, 1 repeat,
 nomic, top_k 8, Critic on, no Verifier, layer trace on):
     results/chap12/tune_real_r7_strict   CHAP12_SELECTOR=strict
-compared with tune_real_r4_base (Project 1 selector; reproduced 150/150 by trace_tune).
+compared with tune_real_r4_base (Project 1 selector; reproduced 150/150 by trace_tune), or,
+when Ollama is no longer 0.40.6, with results/chap12/tune_real_r7_base (the same configuration
+re-run on the current Ollama version immediately before the strict run; amendment committed
+2026-10-22 before any round 7 run, after the runner stopped on Ollama 0.40.7).
 Rules, fixed and committed before the run:
   adopt  adopt the strict selector only if, against tune_real_r4_base: correct answerable
          answers lost <= 3, net paired wins >= 5, failure rate not higher, and mean token F1
@@ -28,7 +31,8 @@ from evaluation.chap12_paired import RESULTS, compare, load
 from evaluation.chap12_round6 import lost_answerable
 
 HERE = Path(__file__).resolve().parent / "chap12/tune"
-BASE = "tune_real_r4_base"
+BASE = "tune_real_r7_base" if (RESULTS / "tune_real_r7_base/summary.json").is_file() \
+    else "tune_real_r4_base"
 STRICT = "tune_real_r7_strict"
 
 
@@ -80,7 +84,11 @@ def main() -> None:
     f1 = pair["y_token_f1_both_answered"]
     ok = (lost <= 3 and pair["net"] >= 5 and v["failure_rate"] <= b["failure_rate"]
           and f1["variant"] >= f1["base"] - 0.05)
-    result = {"base": b, "strict": v, "correct_answerable_lost": lost,
+    reproduction = compare("tune_real_r4_base", BASE) if BASE != "tune_real_r4_base" else None
+    result = {"base_run": BASE, "base_reproduces_r4": None if reproduction is None else {
+                  x: reproduction[x] for x in ("base_correct", "variant_correct", "wins",
+                                                "losses")},
+              "base": b, "strict": v, "correct_answerable_lost": lost,
               "paired": {x: pair[x] for x in ("base_correct", "variant_correct", "wins",
                                               "losses", "net", "mcnemar_p_one_sided",
                                               "y_token_f1", "y_token_f1_both_answered")},
