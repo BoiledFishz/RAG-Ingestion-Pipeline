@@ -359,3 +359,10 @@
 - 运行：`tune_real_r9_judged14`（调参集 150 题，Multi-Agent，nomic，top_k 8，Critic 开，trace 开）；基线为同版本的 Project 1 选证据器：Ollama 仍为 0.40.8 时用 `tune_real_r8_base`，否则先重跑为 `tune_real_r9_base` 并核对。6 GB 显存放不下 7B 与 14B 同时常驻，模型切换会增加延迟；延迟只报告，不作为采用条件。
 - 规则（`evaluation/chap12_round9.py`）：与第八轮相同（原本正确的可回答题丢失 ≤ 3、配对净胜 ≥ 5、失败率不升、两边都作答的 token F1 下降 ≤ 0.05）；另报告与 7B 判断（`tune_real_r8_judged`）的配对比较与阈值门模拟。采用后才运行评测集 `ollama_run9`。
 - 运行器：`.chap12_run/run_round9.cmd`（不提交）。
+
+### 第九轮运行记录（Windows，用户双击 `.chap12_run/run_round9.cmd`，2026-10-23 11:55–15:28 PT）
+- Ollama 0.40.9（又自动升级）：重跑基线 `tune_real_r9_base`（150 条，失败 0），与 `tune_real_r8_base` 逐题一致。
+- `tune_real_r9_judged14`（150 条，失败 0）正确 66；`chap12_round9` → **采用**（丢失 2、净 +15、p = 0.0004）；提交 `6070c49` 并推送。
+- 评测集 `ollama_run9`（单 Agent + Multi-Agent，90 题，trace）：Multi-Agent 0.567，与 `ollama_run2` 配对变对 5 / 变错 0；提交 `53fc98e` 并推送。
+- 结果写入 comparison.md 第九轮、retrospective.md、PR_DESCRIPTION.md。
+
