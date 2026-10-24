@@ -1,0 +1,479 @@
+{
+ "run": "/sessions/rcw-01lteh1biz3ahyk3arktla5w/loc/enterprise-ai-agent/evaluation/results/chap12/tune_real_r9_base",
+ "answerable_tasks": 112,
+ "fusion_rebuild_mismatches": 0,
+ "rerank_rebuild_mismatches": 0,
+ "missing_vectors": 0,
+ "recall_gold_in_candidates": {
+  "rewritten@30": 96,
+  "rewritten@50": 101,
+  "original@30": 96,
+  "merged@30": 96,
+  "merged@40": 98,
+  "merged@50": 102
+ },
+ "counterfactual_gold_in_top8": {
+  "current@30": 74,
+  "fused_prior@30": 82,
+  "w70_30_0@30": 76,
+  "w60_30_10@30": 76,
+  "current@50": 0,
+  "fused_prior@50": 0,
+  "w70_30_0@50": 0,
+  "w60_30_10@50": 0
+ },
+ "counterfactual_unavailable_tasks": {
+  "50": 111
+ },
+ "union": {
+  "rerank8+fusion2": {
+   "gold_in_list": 75,
+   "mean_added_docs": 0.3
+  },
+  "rerank8+fusion3": {
+   "gold_in_list": 75,
+   "mean_added_docs": 0.59
+  },
+  "rerank8+fusion4": {
+   "gold_in_list": 78,
+   "mean_added_docs": 0.98
+  },
+  "rerank8": {
+   "gold_in_list": 74,
+   "mean_added_docs": 0.0
+  }
+ },
+ "pushed_out_of_top8": {
+  "count": 22,
+  "mean_gap_8th_minus_gold": {
+   "semantic_score": -0.0223,
+   "lexical_score": 0.1065,
+   "bm25_prior": 0.237
+  },
+  "weighted_gap": {
+   "semantic_score": -0.0112,
+   "lexical_score": 0.0319,
+   "bm25_prior": 0.0474
+  },
+  "items": [
+   {
+    "task_id": "M-tune-007",
+    "gold_rank_fusion": 2,
+    "gold_rank_rerank": 16,
+    "gold": {
+     "semantic_score": 0.7598511937369491,
+     "lexical_score": 0.3076923076923077,
+     "bm25_prior": 0.004975124378109453,
+     "bm25_document_rank": 1000.0,
+     "total_score": 0.4732283140517887
+    },
+    "eighth": {
+     "semantic_score": 0.6960747328369467,
+     "lexical_score": 0.38461538461538464,
+     "bm25_prior": 0.4166666666666667,
+     "bm25_document_rank": 7.0,
+     "total_score": 0.5467553151364221
+    }
+   },
+   {
+    "task_id": "M-tune-017",
+    "gold_rank_fusion": 4,
+    "gold_rank_rerank": 10,
+    "gold": {
+     "semantic_score": 0.8332155482035541,
+     "lexical_score": 0.7142857142857143,
+     "bm25_prior": 0.3125,
+     "bm25_document_rank": 11.0,
+     "total_score": 0.6933934883874914
+    },
+    "eighth": {
+     "semantic_score": 0.8310886947512627,
+     "lexical_score": 0.8571428571428571,
+     "bm25_prior": 0.16666666666666666,
+     "bm25_document_rank": 25.0,
+     "total_score": 0.7060205378518217
+    }
+   },
+   {
+    "task_id": "M-tune-022",
+    "gold_rank_fusion": 6,
+    "gold_rank_rerank": 24,
+    "gold": {
+     "semantic_score": 0.749908243597479,
+     "lexical_score": 0.2,
+     "bm25_prior": 0.004975124378109453,
+     "bm25_document_rank": 1000.0,
+     "total_score": 0.43594914667436135
+    },
+    "eighth": {
+     "semantic_score": 0.7280848128127506,
+     "lexical_score": 0.25,
+     "bm25_prior": 0.3846153846153846,
+     "bm25_document_rank": 8.0,
+     "total_score": 0.5159654833294522
+    }
+   },
+   {
+    "task_id": "M-tune-025",
+    "gold_rank_fusion": 10,
+    "gold_rank_rerank": 19,
+    "gold": {
+     "semantic_score": 0.685605626899181,
+     "lexical_score": 0.5,
+     "bm25_prior": 0.004975124378109453,
+     "bm25_document_rank": 1000.0,
+     "total_score": 0.4937978383252124
+    },
+    "eighth": {
+     "semantic_score": 0.6250918715051742,
+     "lexical_score": 0.75,
+     "bm25_prior": 0.3333333333333333,
+     "bm25_document_rank": 10.0,
+     "total_score": 0.6042126024192538
+    }
+   },
+   {
+    "task_id": "M-tune-026",
+    "gold_rank_fusion": 13,
+    "gold_rank_rerank": 14,
+    "gold": {
+     "semantic_score": 0.713599338927684,
+     "lexical_score": 0.4117647058823529,
+     "bm25_prior": 0.004975124378109453,
+     "bm25_document_rank": 1000.0,
+     "total_score": 0.48132410610416976
+    },
+    "eighth": {
+     "semantic_score": 0.7046357006829082,
+     "lexical_score": 0.4117647058823529,
+     "bm25_prior": 0.25,
+     "bm25_document_rank": 15.0,
+     "total_score": 0.52584726210616
+    }
+   },
+   {
+    "task_id": "M-tune-034",
+    "gold_rank_fusion": 20,
+    "gold_rank_rerank": 21,
+    "gold": {
+     "semantic_score": 0.6667969165463016,
+     "lexical_score": 0.2222222222222222,
+     "bm25_prior": 0.004975124378109453,
+     "bm25_document_rank": 1000.0,
+     "total_score": 0.4010601498154393
+    },
+    "eighth": {
+     "semantic_score": 0.6856306426175025,
+     "lexical_score": 0.5555555555555556,
+     "bm25_prior": 0.2777777777777778,
+     "bm25_document_rank": 13.0,
+     "total_score": 0.5650375435309735
+    }
+   },
+   {
+    "task_id": "M-tune-045",
+    "gold_rank_fusion": 9,
+    "gold_rank_rerank": 28,
+    "gold": {
+     "semantic_score": 0.7054968802921139,
+     "lexical_score": 0.2727272727272727,
+     "bm25_prior": 0.004975124378109453,
+     "bm25_document_rank": 1000.0,
+     "total_score": 0.4355616468398606
+    },
+    "eighth": {
+     "semantic_score": 0.7265855843752523,
+     "lexical_score": 0.5454545454545454,
+     "bm25_prior": 0.3333333333333333,
+     "bm25_document_rank": 10.0,
+     "total_score": 0.5935958224906565
+    }
+   },
+   {
+    "task_id": "M-tune-066",
+    "gold_rank_fusion": 14,
+    "gold_rank_rerank": 25,
+    "gold": {
+     "semantic_score": 0.7153741659296814,
+     "lexical_score": 0.13333333333333333,
+     "bm25_prior": 0.004975124378109453,
+     "bm25_document_rank": 1000.0,
+     "total_score": 0.39868210784046254
+    },
+    "eighth": {
+     "semantic_score": 0.7505672547300029,
+     "lexical_score": 0.26666666666666666,
+     "bm25_prior": 0.35714285714285715,
+     "bm25_document_rank": 9.0,
+     "total_score": 0.5267121987935729
+    }
+   },
+   {
+    "task_id": "M-tune-070",
+    "gold_rank_fusion": 8,
+    "gold_rank_rerank": 19,
+    "gold": {
+     "semantic_score": 0.8110076148478944,
+     "lexical_score": 0.3333333333333333,
+     "bm25_prior": 0.004975124378109453,
+     "bm25_document_rank": 1000.0,
+     "total_score": 0.506498832299569
+    },
+    "eighth": {
+     "semantic_score": 0.7712860398807533,
+     "lexical_score": 0.47619047619047616,
+     "bm25_prior": 0.2777777777777778,
+     "bm25_document_rank": 13.0,
+     "total_score": 0.584055718353075
+    }
+   },
+   {
+    "task_id": "M-tune-076",
+    "gold_rank_fusion": 13,
+    "gold_rank_rerank": 12,
+    "gold": {
+     "semantic_score": 0.7775939909993936,
+     "lexical_score": 0.75,
+     "bm25_prior": 0.004975124378109453,
+     "bm25_document_rank": 1000.0,
+     "total_score": 0.6147920203753187
+    },
+    "eighth": {
+     "semantic_score": 0.7388887982786245,
+     "lexical_score": 0.75,
+     "bm25_prior": 0.23809523809523808,
+     "bm25_document_rank": 16.0,
+     "total_score": 0.6420634467583599
+    }
+   },
+   {
+    "task_id": "M-tune-085",
+    "gold_rank_fusion": 8,
+    "gold_rank_rerank": 11,
+    "gold": {
+     "semantic_score": 0.7090931853074012,
+     "lexical_score": 0.4166666666666667,
+     "bm25_prior": 0.29411764705882354,
+     "bm25_document_rank": 12.0,
+     "total_score": 0.5383701220654653
+    },
+    "eighth": {
+     "semantic_score": 0.7646489876517649,
+     "lexical_score": 0.4166666666666667,
+     "bm25_prior": 0.25,
+     "bm25_document_rank": 15.0,
+     "total_score": 0.5573244938258826
+    }
+   },
+   {
+    "task_id": "M-tune-087",
+    "gold_rank_fusion": 7,
+    "gold_rank_rerank": 19,
+    "gold": {
+     "semantic_score": 0.7504726288612089,
+     "lexical_score": 0.13043478260869565,
+     "bm25_prior": 0.004975124378109453,
+     "bm25_document_rank": 1000.0,
+     "total_score": 0.415361774088835
+    },
+    "eighth": {
+     "semantic_score": 0.6606485096322564,
+     "lexical_score": 0.21739130434782608,
+     "bm25_prior": 0.5555555555555556,
+     "bm25_document_rank": 4.0,
+     "total_score": 0.5066527572315872
+    }
+   },
+   {
+    "task_id": "M-tune-088",
+    "gold_rank_fusion": 8,
+    "gold_rank_rerank": 19,
+    "gold": {
+     "semantic_score": 0.7544453521780583,
+     "lexical_score": 0.2916666666666667,
+     "bm25_prior": 0.1724137931034483,
+     "bm25_document_rank": 24.0,
+     "total_score": 0.49920543470971884
+    },
+    "eighth": {
+     "semantic_score": 0.709606721123754,
+     "lexical_score": 0.4166666666666667,
+     "bm25_prior": 0.5,
+     "bm25_document_rank": 5.0,
+     "total_score": 0.579803360561877
+    }
+   },
+   {
+    "task_id": "M-tune-099",
+    "gold_rank_fusion": 8,
+    "gold_rank_rerank": 10,
+    "gold": {
+     "semantic_score": 0.7664402780012127,
+     "lexical_score": 0.16666666666666666,
+     "bm25_prior": 0.45454545454545453,
+     "bm25_document_rank": 6.0,
+     "total_score": 0.5241292299096972
+    },
+    "eighth": {
+     "semantic_score": 0.7853905895583235,
+     "lexical_score": 0.2222222222222222,
+     "bm25_prior": 0.4166666666666667,
+     "bm25_document_rank": 7.0,
+     "total_score": 0.5426952947791618
+    }
+   },
+   {
+    "task_id": "M-tune-105",
+    "gold_rank_fusion": 4,
+    "gold_rank_rerank": 16,
+    "gold": {
+     "semantic_score": 0.6741158454597075,
+     "lexical_score": 0.1,
+     "bm25_prior": 0.14285714285714285,
+     "bm25_document_rank": 30.0,
+     "total_score": 0.3956293513012823
+    },
+    "eighth": {
+     "semantic_score": 0.6328466094251083,
+     "lexical_score": 0.2,
+     "bm25_prior": 0.3846153846153846,
+     "bm25_document_rank": 8.0,
+     "total_score": 0.45334638163563107
+    }
+   },
+   {
+    "task_id": "M-tune-111",
+    "gold_rank_fusion": 11,
+    "gold_rank_rerank": 10,
+    "gold": {
+     "semantic_score": 0.7444089040363945,
+     "lexical_score": 0.13953488372093023,
+     "bm25_prior": 0.004975124378109453,
+     "bm25_document_rank": 1000.0,
+     "total_score": 0.41505994201009816
+    },
+    "eighth": {
+     "semantic_score": 0.5855857019344933,
+     "lexical_score": 0.13953488372093023,
+     "bm25_prior": 0.5555555555555556,
+     "bm25_document_rank": 4.0,
+     "total_score": 0.4457644271946368
+    }
+   },
+   {
+    "task_id": "M-tune-113",
+    "gold_rank_fusion": 13,
+    "gold_rank_rerank": 22,
+    "gold": {
+     "semantic_score": 0.7945949432423174,
+     "lexical_score": 0.3076923076923077,
+     "bm25_prior": 0.004975124378109453,
+     "bm25_document_rank": 1000.0,
+     "total_score": 0.49060018880447287
+    },
+    "eighth": {
+     "semantic_score": 0.7438683835846697,
+     "lexical_score": 0.5,
+     "bm25_prior": 0.2631578947368421,
+     "bm25_document_rank": 14.0,
+     "total_score": 0.5745657707397032
+    }
+   },
+   {
+    "task_id": "M-tune-121",
+    "gold_rank_fusion": 6,
+    "gold_rank_rerank": 12,
+    "gold": {
+     "semantic_score": 0.761368061039301,
+     "lexical_score": 0.5,
+     "bm25_prior": 0.4166666666666667,
+     "bm25_document_rank": 7.0,
+     "total_score": 0.6140173638529839
+    },
+    "eighth": {
+     "semantic_score": 0.8062673962433149,
+     "lexical_score": 0.6111111111111112,
+     "bm25_prior": 0.2,
+     "bm25_document_rank": 20.0,
+     "total_score": 0.6264670314549908
+    }
+   },
+   {
+    "task_id": "M-tune-127",
+    "gold_rank_fusion": 22,
+    "gold_rank_rerank": 17,
+    "gold": {
+     "semantic_score": 0.6711686507525396,
+     "lexical_score": 0.2727272727272727,
+     "bm25_prior": 0.22727272727272727,
+     "bm25_document_rank": 17.0,
+     "total_score": 0.46285705264899707
+    },
+    "eighth": {
+     "semantic_score": 0.7168505192196732,
+     "lexical_score": 0.2727272727272727,
+     "bm25_prior": 0.5,
+     "bm25_document_rank": 5.0,
+     "total_score": 0.5402434414280184
+    }
+   },
+   {
+    "task_id": "M-tune-138",
+    "gold_rank_fusion": 17,
+    "gold_rank_rerank": 10,
+    "gold": {
+     "semantic_score": 0.739704785017417,
+     "lexical_score": 0.2,
+     "bm25_prior": 0.3333333333333333,
+     "bm25_document_rank": 10.0,
+     "total_score": 0.49651905917537514
+    },
+    "eighth": {
+     "semantic_score": 0.7171915158584053,
+     "lexical_score": 0.3142857142857143,
+     "bm25_prior": 0.45454545454545453,
+     "bm25_document_rank": 6.0,
+     "total_score": 0.5437905631240079
+    }
+   },
+   {
+    "task_id": "M-tune-139",
+    "gold_rank_fusion": 9,
+    "gold_rank_rerank": 18,
+    "gold": {
+     "semantic_score": 0.7766634579134168,
+     "lexical_score": 0.30434782608695654,
+     "bm25_prior": 0.004975124378109453,
+     "bm25_document_rank": 1000.0,
+     "total_score": 0.48063110165841727
+    },
+    "eighth": {
+     "semantic_score": 0.713012089371349,
+     "lexical_score": 0.2608695652173913,
+     "bm25_prior": 0.45454545454545453,
+     "bm25_document_rank": 6.0,
+     "total_score": 0.5256760051599828
+    }
+   },
+   {
+    "task_id": "M-tune-150",
+    "gold_rank_fusion": 4,
+    "gold_rank_rerank": 19,
+    "gold": {
+     "semantic_score": 0.7217046356182226,
+     "lexical_score": 0.4,
+     "bm25_prior": 0.2,
+     "bm25_document_rank": 20.0,
+     "total_score": 0.5208523178091113
+    },
+    "eighth": {
+     "semantic_score": 0.6989497781685315,
+     "lexical_score": 0.6,
+     "bm25_prior": 0.2631578947368421,
+     "bm25_document_rank": 14.0,
+     "total_score": 0.5821064680316341
+    }
+   }
+  ]
+ }
+}
