@@ -77,7 +77,8 @@ class _NoDense:
 class SampleRetrieverTool(TechQARetrieverTool):
     def __init__(self, index_path: Path, *, semantic_rerank: bool | None = None,
                  final_k: int = 20, dense: Any | None = None, use_dense: bool = True,
-                 rerank: str | None = None, use_calibration: bool = True) -> None:
+                 rerank: str | None = None, use_calibration: bool = True,
+                 rerank_prior: str | None = None, candidate_k: int | None = None) -> None:
         index = MeteredIndex(index_path)
         self.scope = DocumentScope(index_path)
         sidecar = index_path.with_suffix(".dense.sqlite")
@@ -120,8 +121,17 @@ class SampleRetrieverTool(TechQARetrieverTool):
             reranker = CrossEncoderReranker(choice)
             self.minilm = use_calibration  # scores need a tune-split threshold
         else:
-            reranker = CountingReranker(choice == "nomic")
+            # Round 10: prior from the fused rank (CHAP12_RERANK_PRIOR=fused or tuned value).
+            prior = os.getenv("CHAP12_RERANK_PRIOR") or rerank_prior or "bm25"
+            if choice == "nomic" and prior == "fused":
+                from agents.chap12.fused_prior import FusedPriorReranker
+
+                reranker = FusedPriorReranker(True)
+            else:
+                reranker = CountingReranker(choice == "nomic")
             reranker.embedder = BudgetedEmbedder(reranker.embedder)
+        self.rerank_prior = os.getenv("CHAP12_RERANK_PRIOR") or rerank_prior or "bm25"
+        k = int(os.getenv("CHAP12_CANDIDATE_K") or candidate_k or 30)  # round 10: 30 or 50
         self.pipeline = RetrievalPipeline(
             # Both branches are scoped before fusion/rerank, so unauthorized documents never
             # reach the reranker, the parent resolver or the model.
@@ -130,7 +140,7 @@ class SampleRetrieverTool(TechQARetrieverTool):
             reranker=reranker,
             config=RetrievalConfig(
                 mode=self.mode,
-                candidate_k=30, rerank_k=20, final_k=final_k,
+                candidate_k=k, rerank_k=20, final_k=final_k,
                 reranker_timeout_seconds=float(os.getenv("TECHQA_RERANKER_TIMEOUT", "120"))),
         )
         self.parents = TechQAParentResolver(index)

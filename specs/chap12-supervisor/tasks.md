@@ -375,3 +375,12 @@
   - 被挤出前 8 的 22 题，按三部分拆开（第 8 名减答案文档，平均）：语义 −0.022（答案文档的语义分反而更高）、词覆盖 +0.107、BM25 名次分 +0.237；乘权重后 BM25 名次分的差距最大。其中 13 题的答案文档**只被稠密检索找到、不在 BM25 列表里**，BM25 名次按 1000 计，名次分约 0.005。
   - 同一批候选换排序方式（答案文档进前 8 的题数）：当前 74；BM25 名次分改为按融合名次计算 82；权重 0.7/0.3/0 为 76；0.6/0.3/0.1 为 76。候选放宽到 50 篇的组合无法离线计算（第 31–50 篇在真实运行中从未计算过 nomic 向量，111 题缺向量）。
 - 运行（VM 本地镜像）：`python -m evaluation.chap12_recall_rerank_study --cache …`，约 2 分钟。
+
+## 2026-10-24 第十轮：重排名次分改用融合名次（候选 30 / 50 两个变体，用户选择一起跑，08:35 PT）
+
+### 事先登记（在任何运行之前提交）
+- 动机（离线分析 `recall_rerank_study.json`，诊断）：被挤出前 8 的 22 道答案文档中 13 道只被稠密检索找到，BM25 名次按 1000 计，名次分约 0.005；15 道的语义分高于第 8 名。同一批候选改用融合名次计算名次分，答案文档进前 8 由 74 增至 82（/112）；候选 50 篇的组合无法离线计算。
+- 实现（不改 Project 1）：`agents/chap12/fused_prior.py` 的 `FusedPriorReranker` 继承 `CountingReranker`，把每个候选在融合列表中的位置作为名次交给 Project 1 重排器；语义分、词覆盖、权重、缓存与计量不变。`SampleRetrieverTool` 增加 `rerank_prior`（bm25 / fused）与 `candidate_k`（默认 30），环境变量 `CHAP12_RERANK_PRIOR`、`CHAP12_CANDIDATE_K` 优先；`factory` 在真实档位读取 `adopted.rerank_prior` / `adopted.candidate_k`。接受阈值不变。测试 `tests/chap12/test_fused_prior.py`（2 个用例）。`pytest tests/chap12 -q` → `199 passed`；ruff 通过。
+- 运行（调参集 150 题，当前采用配置：nomic、top_k 8、Critic 开、7B 选证据 + 14B 判断，trace 开）：`tune_real_r10_fused30`、`tune_real_r10_fused50`；基线 `tune_real_r9_judged14`（Ollama 0.40.9），版本变化时先重跑为 `tune_real_r10_base` 并核对。
+- 规则（`evaluation/chap12_round10.py`）：每个变体相对基线须满足原本正确的可回答题丢失 ≤ 3、配对净胜 ≥ 5、失败率不升、两边都作答的 token F1 下降 ≤ 0.05 才算合格；合格者取净胜较大者（并列取候选 30）。延迟只报告。采用后才运行评测集 `ollama_run10`，与 `ollama_run9` 配对比较。
+- 运行器：`.chap12_run/run_round10.cmd`（不提交）。

@@ -105,7 +105,10 @@ def build_rag_agent(settings: Settings, path: Path, override: Any | None = None,
         chosen = tuned_config().get("reranker") if tuned and \
             os.getenv("CHAP12_RERANKER") is None else None
         retriever = override or SampleRetrieverTool(
-            path, rerank=None if chosen in (None, "nomic") else str(chosen))
+            path, rerank=None if chosen in (None, "nomic") else str(chosen),
+            # Round 10 settings chosen on the tune split; env vars win inside the tool.
+            rerank_prior=tuned_config().get("rerank_prior") if tuned else None,
+            candidate_k=tuned_config().get("candidate_k") if tuned else None)
     return RAGAgent(
         rewriter=rewriter, selector=selector, retriever=retriever,
         compressor=ContextCompressor(settings.max_context_tokens, settings.max_sources,
